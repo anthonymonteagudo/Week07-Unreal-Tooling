@@ -69,10 +69,13 @@ Blender creates a Z-up mesh in scene units. Maya maps the same points into its
 Y-up scene in centimeters. These are course-authored meshes, not course assets
 copied from Karol or the conference video.
 
-![Actual Unreal comparison map](unreal-comparison.png)
+![Actual Unreal editor after the Blender UI revision](UI-Rehearsal/07-unreal-both-updated.png)
 
 Orange meshes are Maya's row; blue meshes are Blender's row. Each pair shares
 one mesh asset. The Outliner labels identify each instance explicitly.
+The UI capture also shows a shading difference between the host exports.
+Dimensions and vertex positions are verified separately; smoothing and normal
+policy are additional comparison points, not proof of a geometry mismatch.
 
 ![Actual Maya PySide publisher, rendered offscreen](maya-publisher.png)
 

@@ -4496,7 +4496,7 @@
     },
     {
       "path": "Week07UnrealPython/Deliverables/Week07_Bridge_Student_Pack.zip",
-      "bytes": 1752641
+      "bytes": 1752753
     },
     {
       "path": "Week07UnrealPython/Docs/DEMO_SEQUENCE.md",
@@ -4516,7 +4516,7 @@
     },
     {
       "path": "Week07UnrealPython/Docs/Bridge/README.md",
-      "bytes": 13562
+      "bytes": 13828
     },
     {
       "path": "Week07UnrealPython/Docs/Bridge/unreal-comparison.png",
@@ -5264,11 +5264,27 @@
     },
     {
       "path": "Course/Slides/Week07/BridgeRehearsal20261013/index.html",
-      "bytes": 11482
+      "bytes": 11644
+    },
+    {
+      "path": "Course/Slides/Week07/BridgeRehearsal20261013/slide-preview.png",
+      "bytes": 153489
+    },
+    {
+      "path": "Course/Slides/Week07/BridgeRehearsal20261013/speaker-notes.txt",
+      "bytes": 2227
     },
     {
       "path": "Course/Slides/Week07/BridgeRehearsal20261013/verification.json",
       "bytes": 3543
+    },
+    {
+      "path": "Course/Slides/Week07/BridgeRehearsal20261013/.build/create.mjs",
+      "bytes": 5666
+    },
+    {
+      "path": "Course/Slides/Week07/BridgeRehearsal20261013/.build/validation.json",
+      "bytes": 3697
     },
     {
       "path": "Course/Slides/Week07/BridgeRehearsal20261013/assets/01-blender-baseline.png",
@@ -5309,6 +5325,10 @@
     {
       "path": "Course/Slides/Week07/BridgeRehearsal20261013/assets/ui-walkthrough.gif",
       "bytes": 2278292
+    },
+    {
+      "path": "Course/Slides/Week07/BridgeRehearsal20261013/output/Blender_Unreal_Bridge_Companion.pptx",
+      "bytes": 195552
     },
     {
       "path": "Course/Slides/Week07/ExpandedDeck20261013/index.html",
@@ -8632,7 +8652,7 @@
     },
     {
       "path": "Course/Readers/manifest.json",
-      "bytes": 35334
+      "bytes": 35269
     },
     {
       "path": "Course/Readers/material-vfx-scope-0a9ec19c.html",
@@ -8756,7 +8776,7 @@
     },
     {
       "path": "Course/Readers/readme-78ab53f5.html",
-      "bytes": 17677
+      "bytes": 18633
     },
     {
       "path": "Course/Readers/readme-78dced28.html",
@@ -8908,7 +8928,7 @@
     },
     {
       "path": "Course/Readers/verification.json",
-      "bytes": 913
+      "bytes": 915
     },
     {
       "path": "Course/Readers/week-ed002bfe.html",
@@ -10228,6 +10248,9 @@
     }
   ],
   "omitted_intermediate_slide_outputs": [
+    "Course/Slides/Week07/BridgeRehearsal20261013/.build/candidate.pptx",
+    "Course/Slides/Week07/BridgeRehearsal20261013/.build/candidate.pptx.inspect.ndjson",
+    "Course/Slides/Week07/BridgeRehearsal20261013/.build/template-layout.ndjson",
     "Course/Slides/Week07/ExpandedDeck20261013/.build/candidate.pptx",
     "Course/Slides/Week07/ExpandedDeck20261013/.build/candidate.pptx.inspect.ndjson",
     "Course/Slides/Week07/ExpandedDeck20261013/.build/deck.json",

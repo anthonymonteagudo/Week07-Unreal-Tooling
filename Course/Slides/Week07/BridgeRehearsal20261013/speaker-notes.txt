@@ -1,0 +1,15 @@
+Here is the same handoff from Blender. The blue props are two placements of one Unreal mesh asset. The orange props came through Maya and give us a comparison.
+
+I select the four roof vertices in Blender and move them up forty centimetres. The base and origin stay in place. Back in Object Mode, I click Publish and Send. The button exports an FBX and a JSON manifest, then asks the Unreal receiver to import that revision. The acknowledgement confirms that Unreal accepted it.
+
+Watch both blue placements. They become taller together because both reference the same asset. We did not replace either actor. The orange meshes remain unchanged at 180 centimetres.
+
+The host-specific work is selection, geometry evaluation and FBX export. Blender uses bpy and evaluated meshes. Maya uses its own scene and FBX APIs. The naming rules, revision handling, manifest, send operation and Unreal receiver stay shared. Which values must remain stable for this update to reach the intended asset?
+
+Facilitation: insert after current slide 13, stable anchor 10, in Week_7_Final_Class_v3. Allow 60–90 seconds or use the GIF fallback. Open index.html beside this companion for the capture sequence. The GIF is an animation of actual UI stills, not continuous video. Source scene: BridgeCompare_UI_Rehearsal.blend. Reset by publishing BridgeCompare.blend before repeating. Do not confuse material shading differences with mesh dimensions.
+
+Evidence: actual Blender 5.1.1 and Unreal 5.7.4 UI rehearsal, 2026-10-13. Capture files 03-unreal-before.png and 07-unreal-both-updated.png use the same camera and lighting, cropped to the viewport. verification.json confirms two existing actors reference SM_Compare_Blender, with height 220 cm and unit actor scales. Original baseline acknowledgement reports 180 cm.
+
+Sources: independently authored week07_bridge implementation; Karol Kowalczyk / Tech Art Corner course import-task and remote-call examples consulted locally, not redistributed. https://www.udemy.com/course/unreal-engine-5-python-automation/
+Requested broader character-workflow reference: https://www.youtube.com/watch?v=5Liq0JckHqA . This lesson covers static meshes, not the video's rigging/animation workflow.
+Review anchor: 10B

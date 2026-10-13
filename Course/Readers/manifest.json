@@ -816,11 +816,9 @@
       "source": "Week07UnrealPython/Docs/Bridge/README.md",
       "reader": "readme-78ab53f5.html",
       "title": "Maya / Blender to Unreal: working comparison bridge",
-      "sha256": "a873b16681be8682f792e9b52c5fe9f05ac618c009bfd2cb0c50d0db551496ad",
-      "modified": "2026-10-13T19:05:39.771Z"
+      "sha256": "c925bf8af11577328fe87222a395bcc38f4a09b08b0bcdfd24975738689222f7",
+      "modified": "2026-10-13T23:46:35.526Z"
     }
   ],
-  "rewritten_html_files": [
-    "Course/Slides/Week07/BridgeRehearsal20261013/index.html"
-  ]
+  "rewritten_html_files": []
 }
