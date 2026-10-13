@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "revision": "265752790fe24a44b28d1fb145d5eda4",
+  "created_at": 1791917380.8562548,
+  "source_file": "C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Week07UnrealPython/Samples/Bridge/BridgeCompare.ma",
+  "source_host": "maya",
+  "source_object": "|BridgeCompare",
+  "asset_name": "SM_Compare_Maya",
+  "destination_path": "/Game/Week07/Bridge",
+  "filename": "SM_Compare_Maya.fbx",
+  "sha256": "226ef1e15731649f2a5398746819f37ce6929e61859d5c49b2801362f1db2c09",
+  "dimensions_cm": [
+    120.0,
+    60.0,
+    180.0
+  ],
+  "asset_type": "StaticMesh",
+  "origin_policy": "source_pivot"
+}

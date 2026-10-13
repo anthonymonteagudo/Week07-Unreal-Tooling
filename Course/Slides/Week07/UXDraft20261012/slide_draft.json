@@ -1,0 +1,275 @@
+{
+  "date": "2026-10-12",
+  "status": "Proposal; no PowerPoint edited",
+  "live_minutes": 16,
+  "task_preparation_minutes": 4,
+  "sequence": "Assessment → UI/UX reconsideration → peer testing",
+  "timing_status": "20-minute UI/UX proposal requires 10 minutes reallocated within the existing session; no class extension confirmed",
+  "slides": [
+    {
+      "id": "14",
+      "live": true,
+      "min": 3,
+      "title": "A working script still needs a usable workflow",
+      "anchor": "Replace title and bullets of current 14; retain its user/task framing.",
+      "bullets": [
+        "UI: controls, labels, and layout",
+        "UX: reaching the right result, in context",
+        "Correct execution ≠ correct task outcome"
+      ],
+      "question": "The renamer reported success. Did the artist’s task succeed?",
+      "visual": "V12",
+      "layout": "Left: the existing four-row result reveal. Right: the UI/UX distinction. Highlight the unselected barrel verbally; do not add invented evidence.",
+      "notes": "Keep your first assessment in front of you. Which part would you defend, and which part needs more evidence? Think back to the renamer. We asked for a change to selected crates, but the unselected barrel changed too. The success message did not make that a successful task. UI is what we operate; UX includes preparing the inputs, understanding scope, finding the result, and recovering. Start with the artist’s job and the work that must stay unchanged. Which part of your own tool currently needs you standing beside the user?",
+      "tie": "Course fictional asset-renaming case; use its actual observed rows, not assumptions about its implementation.",
+      "rationale": "Connects terminology to evidence students have already discussed.",
+      "refs": [
+        "complex",
+        "heuristics"
+      ],
+      "facilitation": [
+        "1 min: show two initial diagnoses without ranking them.",
+        "1 min: distinguish task correctness from the broader user experience.",
+        "1 min: ask what the result table proves, and what it cannot prove."
+      ],
+      "transfer": "Carry this into the peer test: record observable behavior before naming a principle or proposing a redesign."
+    },
+    {
+      "id": "14A",
+      "live": true,
+      "min": 2,
+      "title": "Make the scope visible before the action",
+      "anchor": "Insert after current 14; develops its purpose/input question.",
+      "bullets": [
+        "Name the target and affected objects",
+        "Use familiar actions and units",
+        "Preview the intended change"
+      ],
+      "question": "Are we editing selected Actors, their shared assets, or the whole folder?",
+      "visual": "V1",
+      "layout": "Large real Fortnite Tools image. Point to selection information, then contrast the three possible scopes in a short footer.",
+      "notes": "Look at the selection information in this published UEFN tool. It gives the user context before they act. In our tools, an Actor selection and a shared mesh asset are different scopes. A useful interface makes that distinction visible. A label such as Rename Selected Assets helps, but the implementation still has to honor it. Ask your tester to predict what will change before they press the action.",
+      "tie": "Epic documents a shared Tool Information area in Fortnite Tools. Applying that idea to a Python asset tool is our teaching recommendation, not an Epic Python example.",
+      "rationale": "Transfers the Unreal data-model lesson into an interface requirement.",
+      "refs": [
+        "recognition",
+        "fortnite"
+      ],
+      "facilitation": [
+        "1 min: explain visible scope using the Unreal/UEFN example.",
+        "1 min: students predict what an Actor operation versus a shared-asset operation could affect."
+      ],
+      "transfer": "Carry this into the peer test: record observable behavior before naming a principle or proposing a redesign."
+    },
+    {
+      "id": "15",
+      "live": true,
+      "min": 2,
+      "title": "Group controls around the artist’s task",
+      "anchor": "Expand current 15; replace generic “readable layout” with a concrete example.",
+      "bullets": [
+        "Keep related inputs together",
+        "Separate settings, actions, and results",
+        "Make the next step easy to find"
+      ],
+      "question": "Where would you look first—and what made you choose it?",
+      "visual": "V1",
+      "layout": "Reuse the same screenshot at the same scale; now discuss its named sections. Avoid a new unrelated interface for every principle.",
+      "notes": "Related controls should read as a group. Put the source and destination near each other when they describe the same operation. Keep the primary action distinct from explanatory text and the result report. Notice how this tool separates information, shortcuts, and settings. Your test is whether another artist can find the next step. A compact tool can be useful without hiding every label behind an icon.",
+      "tie": "A proposed import tool could group source file and destination above Import, with output paths below. This is a classroom design suggestion.",
+      "rationale": "Gives beginners a practical layout decision without turning the segment into a styling workshop.",
+      "refs": [
+        "proximity",
+        "fortnite"
+      ],
+      "facilitation": [
+        "1 min: explain grouping using the same professional tool view.",
+        "1 min: ask where students would look first; invite a clarification question."
+      ],
+      "transfer": "Carry this into the peer test: record observable behavior before naming a principle or proposing a redesign."
+    },
+    {
+      "id": "15A",
+      "live": true,
+      "min": 3,
+      "title": "Show what happened—and what to do next",
+      "anchor": "Insert after 15; develops status and actionable errors.",
+      "bullets": [
+        "Acknowledge the action",
+        "Separate changed, skipped, and failed",
+        "Name the problem and recovery step"
+      ],
+      "question": "What does “Done” leave the artist guessing?",
+      "visual": "V2",
+      "layout": "Real message screenshot on the left; original sample wording on the right: “Source file missing. Choose an existing FBX, then retry.” Label the sample as proposed copy.",
+      "notes": "Feedback should answer what happened. During a long operation, show meaningful progress. At the end, report the actual results, including skipped items and failures. An error should identify the input that needs attention and suggest a next action. Our proposed missing-file message does that more clearly than a traceback alone. Technical details can remain available for debugging. Do not announce complete success after only part of the work finished.",
+      "tie": "Real UEFN feedback example plus original proposed wording for the Maya → Unreal importer. No claim that the sample message exists in our current tool.",
+      "rationale": "Connects interface text to recovery and verification.",
+      "refs": [
+        "status",
+        "errors"
+      ],
+      "facilitation": [
+        "1 min: examine the renamer’s success count.",
+        "1 min: pairs propose a more informative result message without inventing counts.",
+        "1 min: compare proposals; note that accurate reporting cannot repair incorrect mutations."
+      ],
+      "transfer": "Carry this into the peer test: record observable behavior before naming a principle or proposing a redesign."
+    },
+    {
+      "id": "15B",
+      "live": true,
+      "min": 3,
+      "title": "Keep the artist in control",
+      "anchor": "Insert after 15A; develops control/recovery and retains basic accessibility live.",
+      "bullets": [
+        "Review changes; support recovery",
+        "Keep labels and keyboard focus readable",
+        "Use text or shapes as well as color"
+      ],
+      "question": "Can a classmate recover without asking the author?",
+      "visual": "V9",
+      "layout": "Use the author’s Batch Rename walkthrough as a linked example; optionally prepare a credited frame after viewing. Keep three short principles visible if no frame is prepared.",
+      "notes": "Ryan’s batch-renaming example offers per-item choices and Undo and Redo. Those are useful behaviors to look for, but verify what your own tool can reverse. Importing an asset may need a restore-and-reimport path instead of Undo. Control also depends on being able to read and operate the interface: visible focus, clear text, and status that does not rely on color alone. Test these basics with your own tool rather than assuming the framework handles them.",
+      "tie": "Ryan says this tutorial resembles a tool he built at The Coalition. Microsoft’s developer-tools session adds a creator-accessibility example; neither is evidence that this class’s tool has passed accessibility testing.",
+      "rationale": "Treats recovery and access as part of usability, not optional decoration.",
+      "refs": [
+        "rename",
+        "access",
+        "heuristics"
+      ],
+      "facilitation": [
+        "1 min: review recovery in the linked batch-renaming example.",
+        "1 min: discuss readable labels, keyboard focus, and noncolor status.",
+        "1 min: ask which recovery claims require testing; invite students’ questions."
+      ],
+      "transfer": "Carry this into the peer test: record observable behavior before naming a principle or proposing a redesign."
+    },
+    {
+      "id": "16",
+      "live": true,
+      "min": 3,
+      "title": "Observe a task, then recommend one change",
+      "anchor": "Replace current 16 title/bullets; retain evidence-based feedback and questions. Leave this slide visible for four minutes of task preparation.",
+      "bullets": [
+        "Task → expectation → observed result",
+        "Record help and protected scope",
+        "Choose one change and a retest"
+      ],
+      "question": "What task can your partner attempt in about two minutes?",
+      "visual": "V12",
+      "layout": "Show the actual current peer sheet beside one original sample task. Use “Arrange three selected props; leave the light unchanged.” Do not prescribe the click sequence.",
+      "notes": "Give your partner a goal, inputs, and a visible success condition. Let them attempt the task and record any help you give. Describe behavior before proposing a redesign. “The unselected barrel changed” is stronger evidence than “the UI is confusing.” A prototype review can still help, but label imagined results as imagined. Return to your first judgment: would you revise it, or can you now explain it more precisely? Write one reason. Now prepare one small task and a reset state on your peer sheet. What questions do you have before we start?",
+      "tie": "Uses the current three-round peer activity, including hands-on and prototype review modes. Does not replace the short peer sheet with the older two-page draft.",
+      "rationale": "Turns the principles into a bounded, repeatable observation activity.",
+      "refs": [
+        "tasks"
+      ],
+      "facilitation": [
+        "1 min: model observation versus diagnosis: unselected asset changed versus a guessed code cause.",
+        "1 min: students revise or defend their first priority using one principle.",
+        "1 min: explain the peer task and take questions; then begin the separate four-minute preparation window."
+      ],
+      "transfer": "Carry this into the peer test: record observable behavior before naming a principle or proposing a redesign."
+    },
+    {
+      "id": "16A",
+      "live": false,
+      "title": "Real tech art tools make the next step easier",
+      "anchor": "Optional case-study slide after 16; use instead of another example, not as extra time beyond the proposed twenty-minute block.",
+      "bullets": [
+        "Fortnite: locate a reported overlap",
+        "Lyra: shape, generate, revise",
+        "Materials: jump to the owning expression"
+      ],
+      "question": "Which repeated decision or search does this tool remove?",
+      "visual": "V4",
+      "layout": "One case per reveal. Use V3 for overlap inspection, V4/V5 for Lyra, or V10 for material navigation. They are separate projects, not a single pipeline.",
+      "notes": "These are different ways technical artists help people work. Fortnite Tools lets a designer focus a reported overlap. Lyra exposes parameters for level-building pieces. Ryan’s Material Parameters Helper can open the owner and focus a parameter expression. The shared lesson is to help the artist reach the next useful decision. These examples use different implementations; studying their interaction does not require us to learn all of their frameworks today.",
+      "tie": "Fortnite tooling is documented as adapted from Epic TA tools used by Fortnite teams. Lyra is an Epic sample. Ryan’s public helper is a rebuild inspired by his earlier Coalition tool, not a published studio-internal binary.",
+      "rationale": "Makes the professional application explicit while preserving implementation boundaries.",
+      "refs": [
+        "fortnite",
+        "lyra",
+        "material"
+      ]
+    },
+    {
+      "id": "16B",
+      "live": false,
+      "title": "Easy to learn; efficient to repeat",
+      "anchor": "Optional professional-practice depth.",
+      "bullets": [
+        "First-use success",
+        "Repeated-task efficiency",
+        "Shortcuts after a clear basic path"
+      ],
+      "question": "Would you want to complete this wizard fifty times a day?",
+      "visual": "V7",
+      "layout": "Open the source chart and compare its first trial with its plateau. State “hypothetical illustration” on the slide. Do not invent numerical gains for artist tools.",
+      "notes": "A tool can be easy on the first attempt and tedious every time afterward. Conversely, a powerful shortcut can be hard to discover. This chart illustrates repeated-task learning; it is not data from an Unreal tool. For a daily export operation, we may want sensible remembered settings and shortcuts. For an occasional risky operation, a guided review may be more valuable. Decide which usage pattern you are supporting, then test it.",
+      "tie": "Artist exporter presets and repeatable batch operations are instructor-proposed applications of the concept.",
+      "rationale": "Adds nuance to the simplistic rule that fewer controls always means better UX.",
+      "refs": [
+        "learning"
+      ]
+    },
+    {
+      "id": "16C",
+      "live": false,
+      "title": "Understand the problem before building the panel",
+      "anchor": "Optional broader UX process; instructor preparation first.",
+      "bullets": [
+        "Discover the artist’s difficulty",
+        "Define one useful task",
+        "Try alternatives; test and refine"
+      ],
+      "question": "What would you observe before deciding this needs a new tool?",
+      "visual": "V6",
+      "layout": "Use the original Double Diamond diagram with its credit and CC BY link. Explain one small artist-tool example in narration; do not fill the diagram with paragraphs.",
+      "notes": "The first part of this process asks us to understand the problem before settling on a solution. An artist asking for a batch button may actually be struggling to find the correct assets. Talk to them and watch the work. Then try a small solution and learn from its use. This is an iterative model, not a rule that research must end before prototyping begins.",
+      "tie": "The asset-search example is an illustrative class scenario, not a reported studio study.",
+      "rationale": "Supplies professional process context without requiring a complete UX lifecycle lecture.",
+      "refs": [
+        "diamond"
+      ]
+    },
+    {
+      "id": "16D",
+      "live": false,
+      "title": "Game creators need accessible tools too",
+      "anchor": "Optional expansion of 15B, not a player-HUD design detour.",
+      "bullets": [
+        "Keyboard operation and focus",
+        "Readable scaling and contrast",
+        "Assistive-technology support"
+      ],
+      "question": "Can the next artist operate this with different input or display needs?",
+      "visual": "V11",
+      "layout": "Link Microsoft’s free GDC session; use an observed frame only after viewing and record its timestamp. Do not imply a Unity/Unreal-specific implementation.",
+      "notes": "Accessibility also matters on the development side of games. Microsoft’s session describes keyboard, screen-reader, scaling, and high-contrast work in Xbox development tools. For our first tools, start by testing the visible controls, focus order, text size, and status cues. More complete accessibility support requires deliberate implementation and testing. The production tool user is an artist or developer; player-facing game UI is a related but different context.",
+      "tie": "Microsoft GDK and Xbox Manager are creator tools. These examples extend beyond Unreal without becoming a new software prerequisite.",
+      "rationale": "Shows that creator access is an industry concern, while avoiding unsupported compliance claims.",
+      "refs": [
+        "access"
+      ]
+    }
+  ],
+  "sources": {
+    "heuristics": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+    "status": "https://www.nngroup.com/articles/visibility-system-status/",
+    "errors": "https://www.nngroup.com/articles/error-message-guidelines/",
+    "recognition": "https://www.nngroup.com/articles/recognition-and-recall/",
+    "proximity": "https://www.nngroup.com/articles/gestalt-proximity/",
+    "tasks": "https://www.nngroup.com/articles/task-scenarios-usability-testing/",
+    "complex": "https://www.nngroup.com/articles/usability-heuristics-complex-applications/",
+    "fortnite": "https://dev.epicgames.com/documentation/fortnite/fortnite-tools-mode-in-fortnite?lang=en-US",
+    "lyra": "https://dev.epicgames.com/documentation/unreal-engine/lyra-geometry-tools-in-unreal-engine",
+    "rename": "https://ryandowlingsoka.com/unreal/batch-rename-tool/",
+    "material": "https://ryandowlingsoka.com/unreal/material-parameters-helper/",
+    "access": "https://developer.microsoft.com/en-us/games/events/gdc/2023/accessible-and-inclusive-developer-tools/",
+    "diamond": "https://www.designcouncil.org.uk/resources/the-double-diamond/",
+    "learning": "https://www.nngroup.com/articles/measure-learnability/",
+    "copyright": "https://www.nngroup.com/copyright-and-reprint-info/"
+  }
+}

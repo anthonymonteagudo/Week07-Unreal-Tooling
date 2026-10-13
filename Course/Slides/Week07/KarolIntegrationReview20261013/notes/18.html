@@ -1,0 +1,352 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>18 Remove Unused Assets · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-18">Return to audit</a><a href="17.html">Previous lesson</a> <a href="19.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/18%20Remove%20Unused%20Assets.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/18%20Remove%20Unused%20Assets%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>18 Remove Unused Assets</h1><p>Generator and explicit single-asset operation</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Removing Unused Assets — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/18%20Remove%20Unused%20Assets.md">Original notes</a></p>
+<p>Build a cleanup tool around the user&#39;s selected assets so its scope stays manageable. The lesson identifies candidates through package referencers instead of deleting every apparently unused asset in the project.</p>
+<h2>Understand references first</h2>
+<p>Open an asset&#39;s <strong>Reference Viewer</strong> to see which other assets refer to it. The examples contrast a texture used by a material with an unused material that has no incoming references.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011195052.png" alt="Course screenshot: Pasted image 20261011195052.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011195429.png" alt="Course screenshot: Pasted image 20261011195429.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011200016.png" alt="Course screenshot: Pasted image 20261011200016.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011200152.png" alt="Course screenshot: Pasted image 20261011200152.png"></p>
+<h2>Gather selected paths</h2>
+<p>Get the selection with <code>EditorUtilityLibrary.get_selected_assets()</code>, then convert each loaded object to a path using <code>EditorAssetLibrary.get_path_name_for_loaded_asset()</code>. Keeping the cleanup function path-based also allows reuse with directory queries.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011201257.png" alt="Course screenshot: Pasted image 20261011201257.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011202158.png" alt="Course screenshot: Pasted image 20261011202158.png"></p>
+<h2>Check referencers before deleting</h2>
+<p>For each path, call <code>find_package_referencers_for_asset()</code>. The demonstration deletes only when the returned list is empty, using <code>delete_asset()</code>, and logs a warning if its Boolean result indicates failure.</p>
+<p>The captured API documentation describes <code>delete_asset()</code> as a force delete that does not perform this reference check for you and may clear undo history. Keep the reference check and limited selection as explicit parts of the tool.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011203032.png" alt="Course screenshot: Pasted image 20261011203032.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011203054.png" alt="Course screenshot: Pasted image 20261011203054.png"></p>
+<h2>Save before evaluating usage</h2>
+<p>Save the relevant assets and level first. In the example, an unsaved material uses a texture, but the Reference Viewer initially shows no reference. After saving the material and refreshing, the dependency appears.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011203218.png" alt="Course screenshot: Pasted image 20261011203218.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011203442.png" alt="Course screenshot: Pasted image 20261011203442.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011205744.png" alt="Course screenshot: Pasted image 20261011205744.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011205840.png" alt="Course screenshot: Pasted image 20261011205840.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011210225.png" alt="Course screenshot: Pasted image 20261011210225.png"></p>
+<p>Test with both a referenced texture and an unused material. The selected unused asset should be removed while the referenced one remains.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011210428.png" alt="Course screenshot: Pasted image 20261011210428.png"></p>
+<h2>Yield paths one at a time</h2>
+<p>Refactor the selection helper to <code>yield</code> each path, then call a single-path cleanup function inside the consuming loop. This avoids building a second list of paths, although the selection API still supplies its own collection of loaded assets.</p>
+<p>A yielding function should be annotated as an iterator of strings, not simply <code>str</code>; the latter annotation appears in an intermediate screenshot.</p>
+<h2>Generator and explicit single-asset operation</h2>
+<p>The final refactor separates selection from the operation. The following mirrors that structure; defining the functions does not execute deletion:</p>
+<pre><code class="language-python">from collections.abc import Iterator
+import unreal
+
+def selected_asset_paths() -&gt; Iterator[str]:
+    for asset in unreal.EditorUtilityLibrary.get_selected_assets():
+        yield unreal.EditorAssetLibrary.get_path_name_for_loaded_asset(asset)
+
+def remove_if_unreferenced(path: str) -&gt; bool:
+    if unreal.EditorAssetLibrary.find_package_referencers_for_asset(path):
+        return False
+    removed = unreal.EditorAssetLibrary.delete_asset(path)
+    if not removed:
+        unreal.log_warning(f&quot;Could not delete {path}&quot;)
+    return removed
+</code></pre>
+<p>Save relevant referencing assets/levels before evaluating the result. An empty referencer list is the course&#39;s candidate rule, not proof that a dynamically loaded asset is unnecessary. The deletion call is not an Undo demonstration.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011211001.png" alt="Course screenshot: Pasted image 20261011211001.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011211752.png" alt="Course screenshot: Pasted image 20261011211752.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011212027.png" alt="Course screenshot: Pasted image 20261011212027.png"></p>
+<p>For folder-based processing, obtain the Asset Registry through <code>AssetRegistryHelpers.get_asset_registry()</code> and query <code>get_assets_by_path()</code> with the desired recursive setting. A whole-project <code>get_all_assets()</code> query can be expensive on large projects.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011212112.png" alt="Course screenshot: Pasted image 20261011212112.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/17%20Post%20Import%20Actions%20Using%20ImportSubsystem%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/19%20Batch%20Import%20FBX%20Meshes%20%28Asset%20Import%20Task%29%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011195052.png" alt="Course screenshot: Pasted image 20261011195052.png"></p>
+<p>Check a material with references:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011195429.png" alt="Course screenshot: Pasted image 20261011195429.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011200016.png" alt="Course screenshot: Pasted image 20261011200016.png">
+Another material, completely unused:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011200152.png" alt="Course screenshot: Pasted image 20261011200152.png"></p>
+<p>Note: Automatically deleting all these would likely cause problems due to lack of control.</p>
+<p>Script start...
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011201257.png" alt="Course screenshot: Pasted image 20261011201257.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011202158.png" alt="Course screenshot: Pasted image 20261011202158.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011203032.png" alt="Course screenshot: Pasted image 20261011203032.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011203054.png" alt="Course screenshot: Pasted image 20261011203054.png"></p>
+<p>Make sure assets are saved (for scripts to work)!
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011203218.png" alt="Course screenshot: Pasted image 20261011203218.png"></p>
+<p>Without saving, issues arise. For example:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011203442.png" alt="Course screenshot: Pasted image 20261011203442.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011205744.png" alt="Course screenshot: Pasted image 20261011205744.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011205840.png" alt="Course screenshot: Pasted image 20261011205840.png">
+However, after saving material and refreshing Reference Viewer:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011210225.png" alt="Course screenshot: Pasted image 20261011210225.png"></p>
+<p>Now, to test code:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011210428.png" alt="Course screenshot: Pasted image 20261011210428.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011211001.png" alt="Course screenshot: Pasted image 20261011211001.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011211752.png" alt="Course screenshot: Pasted image 20261011211752.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011212027.png" alt="Course screenshot: Pasted image 20261011212027.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011212112.png" alt="Course screenshot: Pasted image 20261011212112.png"></p>
+<p>Removing unused assets from our project directory is a very simple yet powerful automation.</p>
+<p>Let&#39;s suppose you have been working on your project for a few months already.</p>
+<p>You made lots of prototypes.</p>
+<p>You imported various assets that you at some point decided not to use.</p>
+<p>Maybe you changed textures.</p>
+<p>Maybe you have some old meshes.</p>
+<p>You probably would like to clean your directory.</p>
+<p>It takes too much space and it&#39;s also getting harder and harder to navigate.</p>
+<p>If you want to check if assets is used manually, you have to click on each of them with right mouse</p>
+<p>button and go to Reference Viewer.</p>
+<p>In case of this texture, it is actually used by some material.</p>
+<p>We can even find this material.</p>
+<p>Browse to asset and open it.</p>
+<p>We also have lots of assets that are not really used, like this unused material that shows no references</p>
+<p>to other objects in the reference viewer.</p>
+<p>Now I know that I can remove it, but that is a tedious job that would take me hours.</p>
+<p>What I can do instead is make a simple automating script and I can apply one of two approaches.</p>
+<p>I can scan my whole game directory and remove everything that has no references, which may cause me</p>
+<p>a lot of trouble, because now I may be removing thousands of files without having much control over</p>
+<p>it.</p>
+<p>The second approach is to let users select some files and then remove those that are unused.</p>
+<p>So I could navigate to a folder that has more files, maybe this starter content architecture or audio</p>
+<p>select 20 of them, or 30 or how many you want and then remove the unused ones.</p>
+<p>That is going to be the approach we&#39;re going to implement.</p>
+<p>But I will also leave you with some snippets.</p>
+<p>So if you want to implement that for folder maybe do it recursive or not.</p>
+<p>So also subdirectories like here blueprints and assets.</p>
+<p>They also would work.</p>
+<p>And that snippet will get you covered.</p>
+<p>So let&#39;s get to your favorite IDE of choice.</p>
+<p>In my case, that is PyCharm and start our implementation.</p>
+<p>I will make it very simple at the beginning and then we will refactor it.</p>
+<p>So it uses a so-called generator.</p>
+<p>I don&#39;t know how experienced in Python you are, but I would like to teach you how to yield results</p>
+<p>from methods instead of returning them.</p>
+<p>So that will be just an example of doing that.</p>
+<p>My code will be structured in two main functions.</p>
+<p>One of them will give me some selected asset paths, and the other one will go through those paths and</p>
+<p>remove assets if they have no references.</p>
+<p>In unreal, we can remove assets by a reference to an asset object that is already loaded, but we can</p>
+<p>also use path when writing the code.</p>
+<p>For the first time, I thought that if some of you would like to iterate over directories, you may</p>
+<p>prefer working with listed paths instead of loading assets because that is more optimal.</p>
+<p>It takes less memory space and probably executes faster.</p>
+<p>For that reason, the function that removes assets will always work by path, but I keep in mind that</p>
+<p>get selected assets function we used in previous videos returns us objects.</p>
+<p>So I will first start by making some function that will return me paths of those selected objects.</p>
+<p>So the first step is to import unreal and assign initialized editor utility library to some variable.</p>
+<p>That&#39;s for our convenience.</p>
+<p>And we always do that in those videos.</p>
+<p>Then let&#39;s declare get selected asset paths.</p>
+<p>First step is very basic.</p>
+<p>We&#39;re just getting selected paths and assigning it to variable selected assets.</p>
+<p>I mean so editor utility library dot get selected assets.</p>
+<p>Then we have to create a list of paths.</p>
+<p>So that is going to be asset paths.</p>
+<p>And an empty list.</p>
+<p>We can even guide our code editor that this is going to be a list of strings.</p>
+<p>So let&#39;s add a type hint.</p>
+<p>And this is going to be a list imported from typing module.</p>
+<p>And that contains strings.</p>
+<p>If you have skipped a part of the course, I would like to remind you that I made a note about typing,</p>
+<p>but also on my YouTube channel, the card corner.</p>
+<p>There is a whole video about typing and it&#39;s available for everyone for free.</p>
+<p>Okay we have the variable.</p>
+<p>So now let&#39;s iterate for asset in selected assets.</p>
+<p>And we have to get the path.</p>
+<p>So editor asset this time library which is not assigned to any variable let me do that.</p>
+<p>Editor asset library and we call method called Getname for loaded asset.</p>
+<p>And we are passing our asset there.</p>
+<p>That already returns me a string.</p>
+<p>So I can just append it to my list.</p>
+<p>Asset paths.</p>
+<p>Append.</p>
+<p>And that goes here.</p>
+<p>The last thing is to return asset paths.</p>
+<p>So return asset paths.</p>
+<p>And if you want, you can try running this code in unreal to make sure that it works.</p>
+<p>So getting to unreal output log making sure that we are in Python mode, not python Repl.</p>
+<p>Let&#39;s paste it.</p>
+<p>We have.</p>
+<p>Declared our function.</p>
+<p>And now I think I would like to select two of four available assets.</p>
+<p>And I am going to switch to Repl mode.</p>
+<p>So it prints the result and execute the code.</p>
+<p>And we have some tech art corner assets and also unused material.</p>
+<p>Great.</p>
+<p>So now we can feed those paths into some function that is going to remove them if they have no references.</p>
+<p>Back to the code and let&#39;s define a new function.</p>
+<p>I will call it remove unused assets.</p>
+<p>And we are getting some asset paths.</p>
+<p>I will name it asset path list because later I will have variable called asset path.</p>
+<p>And I am worried that you could mistake one with another due to the similar name.</p>
+<p>So it&#39;s going to be asset path list.</p>
+<p>And we are also using typing.</p>
+<p>That is a list that contains strings.</p>
+<p>And now we&#39;re going to go one path by another.</p>
+<p>So for asset path in asset path list.</p>
+<p>And first we have to get number of references.</p>
+<p>And to do that we just get all references and check length of the array.</p>
+<p>If there is a zero of them, we are deleting the asset.</p>
+<p>If we can&#39;t remove it for some reason, we have to display a warning.</p>
+<p>So references can be obtained using editor asset library.</p>
+<p>And there is a function called find package references for asset.</p>
+<p>And that takes a path.</p>
+<p>So we&#39;re just going to feed it with asset path.</p>
+<p>And we can make an if statement checking if length of that references array.</p>
+<p>Is equal to zero.</p>
+<p>If it is, we&#39;re going to call Editor Asset Library again because it contains a delete asset function.</p>
+<p>But also if you want to, um, remove a loaded asset, you can just remove it with delete loaded asset</p>
+<p>or even called delete loaded assets function.</p>
+<p>That takes a list.</p>
+<p>Okay.</p>
+<p>Delete asset and we are passing asset path.</p>
+<p>I recommend you to check the documentation of it.</p>
+<p>We can go to this tab because operations of files usually will either raise an exception if something</p>
+<p>goes wrong and we have to handle that exception or may return a status.</p>
+<p>So in our case a boolean is returned.</p>
+<p>We get true if operation succeeds.</p>
+<p>So we can store that value in a variable called delete success.</p>
+<p>And if we didn&#39;t manage to delete it, we are going to log a warning using unreal log warning function.</p>
+<p>And let&#39;s say could not delete.</p>
+<p>And let&#39;s attach some additional information about the path.</p>
+<p>We are almost ready to execute it.</p>
+<p>We just have to go back to unreal.</p>
+<p>But there is one very important thing I would like to mention.</p>
+<p>When you are working with those assets, make sure that they are saved.</p>
+<p>You can always go to file and save current level or even save all.</p>
+<p>That is important because if you want to check references, it is going to work only on saved assets.</p>
+<p>We can actually make an example.</p>
+<p>Let&#39;s create a new material Matt with reference.</p>
+<p>And we&#39;re going to use that text corner texture there.</p>
+<p>So we have it here.</p>
+<p>And let&#39;s add some texture to the material.</p>
+<p>Have texture sample, then texture object.</p>
+<p>And where can I use tech?</p>
+<p>Art.</p>
+<p>Corner texture.</p>
+<p>It is unsaved.</p>
+<p>Let me dock it here.</p>
+<p>And now let&#39;s right mouse button on texture asset.</p>
+<p>Go to Reference Viewer.</p>
+<p>And there is nothing.</p>
+<p>On the other hand when I save that.</p>
+<p>And go back to Reference Viewer.</p>
+<p>I have to refresh it and we see the reference here.</p>
+<p>So if you didn&#39;t have those assets saved, you could have removed something that should stay on your</p>
+<p>drive.</p>
+<p>All right.</p>
+<p>We have a nice test case.</p>
+<p>That is because we have some assets that are in use here, but also some unused ones.</p>
+<p>I will select only unused material and use textures, and maybe I will remove that material with reference.</p>
+<p>Okay.</p>
+<p>We have those two selected.</p>
+<p>Let me also click Save All just to be sure everything is fine.</p>
+<p>And now I&#39;m going to paste my newly defined method.</p>
+<p>Using default Python mode.</p>
+<p>And now what I would like to call is remove unused assets.</p>
+<p>But as a parameter I&#39;m going to pass result of get selected asset paths.</p>
+<p>I still have those assets selected.</p>
+<p>So I just can hit enter.</p>
+<p>And we do get path conversion error we always get, but looks like we first deleted a single material.</p>
+<p>So let&#39;s get back to content Browser.</p>
+<p>And the one asset that was unused got removed which is great.</p>
+<p>So now what we can do is to dive deeper into Python and see how we could change our code, how we can</p>
+<p>modify it to use a generator.</p>
+<p>But first let me explain.</p>
+<p>When we are working with Python, it is very natural for us to do some kind of for loops.</p>
+<p>We can, for instance, iterate over a range.</p>
+<p>So we have things like for I in range of ten, and then we can process those numbers.</p>
+<p>When we are working with such thing, we are not returning a whole array of values at once.</p>
+<p>That is actually some function that behaves like an iterator.</p>
+<p>That means that I am getting a single value each time I start my iteration.</p>
+<p>It would be very nice to use the same approach when iterating over some files on my drive, or over</p>
+<p>assets in unreal.</p>
+<p>That is because if I have a huge folder of assets.</p>
+<p>Then in many cases I don&#39;t want to process a whole list.</p>
+<p>Usually, iterating over a whole list of files, especially loaded ones, means that I was processing</p>
+<p>them and feeding them into my memory, and I have now a huge array stored in that memory.</p>
+<p>If I have a small project, that&#39;s fine, but if the project is huge, I may get a crash, and that&#39;s</p>
+<p>also going to be very time consuming.</p>
+<p>So when we look on our remove unused assets, we could be feeding a single asset through the loop during</p>
+<p>iterations.</p>
+<p>So instead of getting a whole array of paths, we could return a single one.</p>
+<p>So let me add a type hint that was actually missing here.</p>
+<p>And I am not going to return an array.</p>
+<p>I&#39;m going to return a string, and instead of returning some list, I am going to return a value, but</p>
+<p>I am using a yield keyword.</p>
+<p>And now we can even test how this function works in unreal.</p>
+<p>We&#39;re going to overwrite an old one by pasting it.</p>
+<p>So let&#39;s put it here.</p>
+<p>Let&#39;s select some assets, maybe all those three.</p>
+<p>And now.</p>
+<p>For path in get selected asset paths.</p>
+<p>Print path.</p>
+<p>And that prints them one by one.</p>
+<p>So now when I&#39;m processing selected assets instead of preparing whole list and triggering deletion process</p>
+<p>later.</p>
+<p>I can do that one by one.</p>
+<p>I can return single path, remove that asset, return another one and remove another one, and so on.</p>
+<p>So now execution of that would look like for path in get selected asset paths.</p>
+<p>And here is remove unused assets.</p>
+<p>And we are passing path parameter here.</p>
+<p>To make the code cleaner.</p>
+<p>We can also wrap it with if name equals main check.</p>
+<p>And also I use the type hand.</p>
+<p>So now my code sees that I have some issue.</p>
+<p>We passed a string while it was expected to use a list, and that is because our removed unused assets</p>
+<p>no longer has to iterate over a list.</p>
+<p>So that is going to be just an asset path, which is a string.</p>
+<p>And our code, in my opinion, is simplified.</p>
+<p>Now let me copy all that code here.</p>
+<p>Up until line 22.</p>
+<p>Paste it into unreal.</p>
+<p>Go back, and I will also copy the path of part of the code that executes that function.</p>
+<p>And let&#39;s keep those three assets selected and execute everything at once.</p>
+<p>If we go back to Content Browser, we see that only the texture that was in use was left.</p>
+<p>So for those of you who were interested in giving user a slightly manual control over cleaning the folder,</p>
+<p>that&#39;s over.</p>
+<p>But if you would like to iterate recursively through folders, then I also have a solution for you.</p>
+<p>We have to store asset registry in a variable and we can get it using unreal asset registry helpers</p>
+<p>and calling function called Get Asset Registry.</p>
+<p>Then you can get all assets with get all assets function.</p>
+<p>But I bet it is going to freeze your editor.</p>
+<p>The bigger the project, the longer the freeze.</p>
+<p>But even this project with starter content freezes for a while, so I wouldn&#39;t recommend it.</p>
+<p>What you can do instead is using get assets by path and pass the path to the function.</p>
+<p>If you define second parameter as true, it is going to scan all folders under that folder.</p>
+<p>If it&#39;s false, it is not going through a whole directory tree.</p>
+<p>So if I switch to Repl mode and press enter, I get some array and I can actually assign it to a list.</p>
+<p>Let&#39;s call it asset list and print all of those.</p>
+<p>So for asset in asset list oh let&#39;s change the mode to use well Python.</p>
+<p>And print asset.</p>
+<p>And that&#39;s all.</p>
+<p>I hope it was useful.</p>
+<p>I hope it will help your project be cleaner.</p>
+<p>And if you enjoyed the video, I will be very glad if you write a review on Udemy.</p>
+<p>Thank you and bye!</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -58,6 +58,29 @@
+ 
+ A yielding function should be annotated as an iterator of strings, not simply `str`; the latter annotation appears in an intermediate screenshot.
+ 
++## Generator and explicit single-asset operation
++
++The final refactor separates selection from the operation. The following mirrors that structure; defining the functions does not execute deletion:
++
++```python
++from collections.abc import Iterator
++import unreal
++
++def selected_asset_paths() -&gt; Iterator[str]:
++    for asset in unreal.EditorUtilityLibrary.get_selected_assets():
++        yield unreal.EditorAssetLibrary.get_path_name_for_loaded_asset(asset)
++
++def remove_if_unreferenced(path: str) -&gt; bool:
++    if unreal.EditorAssetLibrary.find_package_referencers_for_asset(path):
++        return False
++    removed = unreal.EditorAssetLibrary.delete_asset(path)
++    if not removed:
++        unreal.log_warning(f&quot;Could not delete {path}&quot;)
++    return removed
++```
++
++Save relevant referencing assets/levels before evaluating the result. An empty referencer list is the course's candidate rule, not proof that a dynamically loaded asset is unnecessary. The deletion call is not an Undo demonstration.
++
+ ![[Pasted image 20261011211001.png]]
+ 
+ ![[Pasted image 20261011211752.png]]
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

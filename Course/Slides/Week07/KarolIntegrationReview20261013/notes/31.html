@@ -1,0 +1,317 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>31 Followup to Menu Entries · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-31">Return to audit</a><a href="30.html">Previous lesson</a> <a href="32.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/31%20Followup%20to%20Menu%20Entries.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/31%20Followup%20to%20Menu%20Entries%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>31 Followup to Menu Entries</h1><p>Menu discovery command and section arrangement retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Nested Menus and Menu Entry Initialization — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/31%20Followup%20to%20Menu%20Entries.md">Original notes</a></p>
+<p>Extend the earlier menu example with easier menu discovery, nested submenus, separators, and a comparison of script entries with manually constructed entries.</p>
+<h2>Reveal menu names directly</h2>
+<p>In Output Log <strong>Cmd</strong> mode, run <code>ToolMenus.Edit</code>. Open a menu to see its full name, such as <code>ContentBrowser.AssetContextMenu.StaticMesh</code>. The gear opens a menu editor that also exposes hierarchy information.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203814.png" alt="Course screenshot: Pasted image 20261012203814.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203829.png" alt="Course screenshot: Pasted image 20261012203829.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203850.png" alt="Course screenshot: Pasted image 20261012203850.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203936.png" alt="Course screenshot: Pasted image 20261012203936.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203951.png" alt="Course screenshot: Pasted image 20261012203951.png"></p>
+<h2>Keep the script entry lifecycle</h2>
+<p>The working sequence remains: get <code>ToolMenus</code>, find the target, instantiate a <code>ToolMenuEntryScript</code> subclass, call <code>init_entry()</code>, register it, assign optional icon data, and refresh widgets.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012204108.png" alt="Course screenshot: Pasted image 20261012204108.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012204220.png" alt="Course screenshot: Pasted image 20261012204220.png"></p>
+<p>The expanded example uses two differently named script classes with distinct messages so their execution can be distinguished.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012204444.png" alt="Course screenshot: Pasted image 20261012204444.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205002.png" alt="Course screenshot: Pasted image 20261012205002.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205130.png" alt="Course screenshot: Pasted image 20261012205130.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205202.png" alt="Course screenshot: Pasted image 20261012205202.png"></p>
+<h2>Add a nested submenu</h2>
+<p>Built-in nested menus illustrate the intended structure. Call <code>add_sub_menu()</code> on the parent and keep the returned menu for later additions.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205310.png" alt="Course screenshot: Pasted image 20261012205310.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205406.png" alt="Course screenshot: Pasted image 20261012205406.png"></p>
+<p>Its internal path is the parent path plus <code>.</code> plus the new menu&#39;s <strong>name</strong> argument. The visible <strong>label</strong> is separate; the example&#39;s argument values can make those roles easy to confuse.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205431.png" alt="Course screenshot: Pasted image 20261012205431.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205508.png" alt="Course screenshot: Pasted image 20261012205508.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205532.png" alt="Course screenshot: Pasted image 20261012205532.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205611.png" alt="Course screenshot: Pasted image 20261012205611.png"></p>
+<h2>Add a separator and script action</h2>
+<p>Create a <code>ToolMenuEntry</code> with <code>MultiBlockType.SEPARATOR</code>, then add it to the submenu with <code>add_menu_entry()</code>. Use meaningful sections to group actions; the demonstration also shows an empty section name.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205703.png" alt="Course screenshot: Pasted image 20261012205703.png"></p>
+<p>Initialize and register the script action against the new submenu, then assign its icon as before.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205846.png" alt="Course screenshot: Pasted image 20261012205846.png"></p>
+<h2>Understand the incomplete manual entry</h2>
+<p>A manually created <code>ToolMenuEntry</code> can reference a script object through <code>script_object</code>. However, the demonstration supplies an uninitialized script object: it executes but does not display the expected label or tooltip. Setting the outer entry&#39;s label alone does not resolve that example.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205949.png" alt="Course screenshot: Pasted image 20261012205949.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210045.png" alt="Course screenshot: Pasted image 20261012210045.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210119.png" alt="Course screenshot: Pasted image 20261012210119.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210254.png" alt="Course screenshot: Pasted image 20261012210254.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210547.png" alt="Course screenshot: Pasted image 20261012210547.png"></p>
+<p>Initialize the script object&#39;s entry data first. For ordinary Python actions, the direct script-entry workflow is simpler than constructing both objects separately.</p>
+<h2>Match entry types to their containers</h2>
+<p><code>MultiBlockType</code> lists menu entries, separators, toolbar controls, and other types. Their presence in the enum does not mean every menu supports them. The course&#39;s context-menu experiments produce unsupported-type warnings.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210519.png" alt="Course screenshot: Pasted image 20261012210519.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210626.png" alt="Course screenshot: Pasted image 20261012210626.png"></p>
+<p>Use the demonstrated menu-entry and separator types for this workflow. More elaborate UI may require APIs or C++ implementation beyond the lesson&#39;s Python examples.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/30%20Menu%20Entry%20Icon%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/32%20Menu%20Entries%20-%20Additional%20Notes%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203814.png" alt="Course screenshot: Pasted image 20261012203814.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203829.png" alt="Course screenshot: Pasted image 20261012203829.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203850.png" alt="Course screenshot: Pasted image 20261012203850.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203936.png" alt="Course screenshot: Pasted image 20261012203936.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203951.png" alt="Course screenshot: Pasted image 20261012203951.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012204108.png" alt="Course screenshot: Pasted image 20261012204108.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012204220.png" alt="Course screenshot: Pasted image 20261012204220.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012204444.png" alt="Course screenshot: Pasted image 20261012204444.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205002.png" alt="Course screenshot: Pasted image 20261012205002.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205130.png" alt="Course screenshot: Pasted image 20261012205130.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205202.png" alt="Course screenshot: Pasted image 20261012205202.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205310.png" alt="Course screenshot: Pasted image 20261012205310.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205406.png" alt="Course screenshot: Pasted image 20261012205406.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205431.png" alt="Course screenshot: Pasted image 20261012205431.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205508.png" alt="Course screenshot: Pasted image 20261012205508.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205532.png" alt="Course screenshot: Pasted image 20261012205532.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205611.png" alt="Course screenshot: Pasted image 20261012205611.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205703.png" alt="Course screenshot: Pasted image 20261012205703.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205846.png" alt="Course screenshot: Pasted image 20261012205846.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012205949.png" alt="Course screenshot: Pasted image 20261012205949.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210045.png" alt="Course screenshot: Pasted image 20261012210045.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210119.png" alt="Course screenshot: Pasted image 20261012210119.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210254.png" alt="Course screenshot: Pasted image 20261012210254.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210519.png" alt="Course screenshot: Pasted image 20261012210519.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210547.png" alt="Course screenshot: Pasted image 20261012210547.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210626.png" alt="Course screenshot: Pasted image 20261012210626.png"></p>
+<p>After previous video, I would like to dive deeper into my new entries.</p>
+<p>You may remember that in the last video we were not only using the green teabags here, but we were</p>
+<p>also looking for names of actual menus were expanding.</p>
+<p>So in case of this context menu of static mesh, I was looking for content browser, dot asset, context</p>
+<p>menu dot static mesh.</p>
+<p>And that name cannot be found here.</p>
+<p>Our solution was using a script that lists all available menus for us, and then looking into them and</p>
+<p>guessing which one is the correct one.</p>
+<p>There is a command that can make our lives easier.</p>
+<p>The only thing we have to do is to go down to the label here.</p>
+<p>Switch from Python to command mode and enter tool menus.</p>
+<p>And you can already see we have some hints and we are looking for command dot edit.</p>
+<p>So after typing this command, we see all the names we needed to expand.</p>
+<p>If I click on the build menu, I see that this.</p>
+<p>Level editor.</p>
+<p>Main menu.</p>
+<p>Build.</p>
+<p>And also here I see the same thing in the menu name.</p>
+<p>You probably also noticed that small icon with Kir next to the menu name.</p>
+<p>If you click on it, it will open a.</p>
+<p>Menu editor.</p>
+<p>It doesn&#39;t provide much functionality to be honest.</p>
+<p>It displays list of elements, and I wasn&#39;t really able to do much when playing with it.</p>
+<p>On the other hand, there is some combo box and it could display some menu name as well as some additional</p>
+<p>hierarchy, so maybe it will have some value for you.</p>
+<p>My guess is that it&#39;s more usable for those who are actually coding in C plus plus and expanding the</p>
+<p>editor.</p>
+<p>Then for those who are coding directly in Python.</p>
+<p>So instead of wasting the time in that menu, I am going to head straight to my Python code.</p>
+<p>So you have seen everything about the debug that I wanted to show you.</p>
+<p>And now we are coding.</p>
+<p>When I was first recording this tutorial, I was going step by step, first creating a menu, then creating</p>
+<p>a separator, then a menu entry with a script object, and finally making the same thing again, but</p>
+<p>in a way that didn&#39;t really work.</p>
+<p>The thing is that I realized that it probably was a bit hard to follow, because sometimes maybe we</p>
+<p>should first look into the code and then start executing it line by line.</p>
+<p>So this time I&#39;m changing approach a little and I hope it&#39;s not annoying.</p>
+<p>And I would like to also remind you how we added a menu entry in the previous video.</p>
+<p>So before adding any menu entry, we had to find object that keeps all menus in our editor and that</p>
+<p>is called tool menus.</p>
+<p>And then we call get.</p>
+<p>When we have all those menus, we have to find a specific menu that we want to expand by name.</p>
+<p>So in that case we are going for content browser dot asset context menu dot static mesh.</p>
+<p>That is exactly the menu we have here.</p>
+<p>Once we have that menu, we can start expanding it.</p>
+<p>We can add menu entries or initialized script object that will add a menu entry.</p>
+<p>Automatically.</p>
+<p>So if you want to execute some Python code, you have to create your class.</p>
+<p>That class is based on tool menu entry script and implements execute method with the code you want to</p>
+<p>run.</p>
+<p>Then you initialize an object.</p>
+<p>We called it script object that is based on our class, and calling the constructor with those braces</p>
+<p>here is not enough.</p>
+<p>We have to call init entry.</p>
+<p>That will specify owner name and menu, and that is responsible for adding our script to the menu.</p>
+<p>Section is also important for placing it in the correct position in the menu, like in the top section,</p>
+<p>like get Asset Actions or maybe imported asset actions or common asset actions.</p>
+<p>Then there is some name label tooltip that&#39;s purely a visual thing.</p>
+<p>When it&#39;s initialized, we register manual entry.</p>
+<p>That&#39;s it.</p>
+<p>The rest of this stuff.</p>
+<p>Is setting some script, data or icon so we can have nice palette icon next to the name of the tool.</p>
+<p>And also lastly we refresh all widgets.</p>
+<p>However, you could have done it a little differently, and you don&#39;t always have to create some script</p>
+<p>objects to add items to the menus.</p>
+<p>And separator is a great example.</p>
+<p>So let me go to nested menu entry file.</p>
+<p>And first let me show you what the difference is between alt and new file.</p>
+<p>Ah, I wanted to avoid any name conflicts between classes so I am not using my script object.</p>
+<p>It&#39;s called my custom script object.</p>
+<p>I also created an identical class, another custom script objects.</p>
+<p>So we have different classes.</p>
+<p>They have prints and they differ a little.</p>
+<p>So when they are executed, we know which one is from which class.</p>
+<p>In the code.</p>
+<p>Most of the stuff is really similar as you may see.</p>
+<p>We look for some menu.</p>
+<p>That code is a bit different, but it&#39;s generally the same.</p>
+<p>Then we add some separator.</p>
+<p>I will explain it later.</p>
+<p>Then we add menu entry and that is a literal copy paste from what we had in the past.</p>
+<p>And finally we add a menu entry in a little different way than in the past.</p>
+<p>Lastly, refresh UI.</p>
+<p>That&#39;s it.</p>
+<p>So.</p>
+<p>Let me go step by step.</p>
+<p>If you want to create a nested menu, you are actually creating a new menu that you are assigning to</p>
+<p>another one.</p>
+<p>And in the past video, when we were expanding the top shelf, we actually did the same.</p>
+<p>But some of those are nested like find blueprints has find blueprints one, two, three.</p>
+<p>Like those asset actions have more settings.</p>
+<p>So if you want to create similar thing, you just have to create your new submenu.</p>
+<p>So first we are looking for content browser asset context menu static mesh.</p>
+<p>And then we are using add submenu method to create our own.</p>
+<p>Let me show you a documentation on the right side.</p>
+<p>That&#39;s the stab.</p>
+<p>And I have set custom menu as owner name.</p>
+<p>Section name is just custom menu but with space.</p>
+<p>Then we have label and then there is a tooltip.</p>
+<p>They are all different.</p>
+<p>So you know which argument corresponds to which thing that you actually see.</p>
+<p>So you can notice that this label.</p>
+<p>Is used in our custom menu here, not only as a label in that part of the UI, but also as a menu name</p>
+<p>here.</p>
+<p>So if I change that, that would affect the whole menu name.</p>
+<p>So now without opening.</p>
+<p>Unreal.</p>
+<p>You may predict what it&#39;s going to be.</p>
+<p>It&#39;s just going to be the parent menu.</p>
+<p>Dot.</p>
+<p>The name.</p>
+<p>That&#39;s it.</p>
+<p>That&#39;s very simple.</p>
+<p>After this menu is in place, we can start expanding it with some menu entries and also obviously script</p>
+<p>objects.</p>
+<p>The first thing I added was a separator.</p>
+<p>It will serve as a kind of label for me, but most of the times you will probably add separators between</p>
+<p>some other menu entries.</p>
+<p>Adding separator is very, very simple.</p>
+<p>All you have to do is two lines of code first.</p>
+<p>We initialize a tool menu entry with some name and we set type to separator.</p>
+<p>You can see that it is an enumerator of Multi-block type, and I will get back to it later.</p>
+<p>That Multi-block type can be a menu entry can be a separator.</p>
+<p>And those two will be important for us today, but it can be also something else.</p>
+<p>Once you have that separator initialized, you just use add menu entry method on your menu and first</p>
+<p>parameter is a section name.</p>
+<p>I have no section names in my nested menu, and actually doing that is fine.</p>
+<p>If you just use an empty string, it will be added to the end of the menu.</p>
+<p>Then we put our menu entry and that&#39;s all.</p>
+<p>But I actually advise you to add some sections because now if I have section called for instance Common</p>
+<p>Asset Actions, I can create some script that initializes my tool and adds it to common asset actions.</p>
+<p>And you know, it will be added at the end of that section, but it will be in that section instead</p>
+<p>of being at the end of the whole menu.</p>
+<p>So I may not be able to have much control about putting it exactly after maybe after re-import.</p>
+<p>But it will be good enough if you really want to have control over everything.</p>
+<p>You should initialize it in a single file.</p>
+<p>Do it one by one and that&#39;s it.</p>
+<p>Back to PyCharm.</p>
+<p>Initializing script.</p>
+<p>Menu entry is different.</p>
+<p>We did it in the past and we didn&#39;t add.</p>
+<p>Menu entry as tool menu entry that we add using a method on our menu.</p>
+<p>We initialized it separately and we pass information.</p>
+<p>What is the owner?</p>
+<p>What is the menu?</p>
+<p>We are expanding and that was it.</p>
+<p>But if you are stubborn, you can do it same way you did with menu entries.</p>
+<p>You can just create a new menu entry.</p>
+<p>That will have some name which is here, another menu entry which has some type which is menu entry.</p>
+<p>This time that&#39;s not a separator.</p>
+<p>And you can set a script object.</p>
+<p>And in that case that&#39;s this script object here.</p>
+<p>But you can&#39;t set label.</p>
+<p>So label is not an argument that can be passed here.</p>
+<p>So you can try calling that label here.</p>
+<p>That may not always work and you may end up having an entry.</p>
+<p>That doesn&#39;t really have a name or label, but when you execute it.</p>
+<p>You will be able to call it actually.</p>
+<p>And please ignore the errors I have here, because that&#39;s an old instance of unreal I executed before</p>
+<p>recording started.</p>
+<p>But yeah, you can execute it.</p>
+<p>The only issue is that there is no name, no tooltip.</p>
+<p>And why is that?</p>
+<p>That is because that script object isn&#39;t initialized yet.</p>
+<p>If I used the old one that was already initialized, it would all work.</p>
+<p>We would have that Unreal Engine five Python automation course, but that just doesn&#39;t make sense for</p>
+<p>me because if I initialized it this way.</p>
+<p>And that already can be used to add it to menu.</p>
+<p>Then why would I create a menu entry myself?</p>
+<p>Like why would I change my approach?</p>
+<p>So if you really need to use tool menu entry for some reason, you can do it.</p>
+<p>You just have to initialize menu entry yourself first.</p>
+<p>But if you want to keep it clean and working, I advise you to just create a script object.</p>
+<p>That&#39;s it and just commenting on the menu entries.</p>
+<p>You can also do other things.</p>
+<p>Not only set label, you can also set icon and so on.</p>
+<p>But that&#39;s a functionality I use usually when working with blueprints because yes, in blueprints I</p>
+<p>usually create a tool menu entry.</p>
+<p>But when working with Python, I prefer I prefer to just create a script menu object.</p>
+<p>And that&#39;s basically it.</p>
+<p>You can use this example.</p>
+<p>It&#39;s obviously attached.</p>
+<p>It&#39;s in the source code.</p>
+<p>So you don&#39;t have to retype everything from the screen.</p>
+<p>If you want to expand it.</p>
+<p>That&#39;s fine.</p>
+<p>And that&#39;s why here is that comment just in case you.</p>
+<p>Are tempted to do it with tool menu entries, but obviously that is possible and it can work.</p>
+<p>So I wish you all the best and.</p>
+<p>At the end of the day, it&#39;s about having things working.</p>
+<p>You may have your own reasons to do it, so I&#39;m not saying that this is like the only way to do it.</p>
+<p>Like, you don&#39;t have to do it my way.</p>
+<p>Uh, but I believe it may be better for most of you.</p>
+<p>And now let me talk more about that multi-block type.</p>
+<p>So we have different kinds of menus.</p>
+<p>We have context menu which is here, but we also have some toolbars.</p>
+<p>Those toolbars have not only like text buttons like here, but they also have.</p>
+<p>Items like save or like uh, browse to associated level and so on.</p>
+<p>It can even have a combo box like here.</p>
+<p>And those types are actually discoverable in our stubs.</p>
+<p>We have some toolbar button, we have toolbar combo button.</p>
+<p>And we also have things like header I mean heading and so on.</p>
+<p>Unfortunately, I wasn&#39;t able to make it work.</p>
+<p>For instance, when I started looking for combo button, I wasn&#39;t able to find any setting that would</p>
+<p>let me set the name of Rose.</p>
+<p>And if you go to tool menu entry, there is a setter for name, setter for property owner and so on</p>
+<p>type.</p>
+<p>That&#39;s great.</p>
+<p>Uh inserting position even tutorial highlight name is available.</p>
+<p>Uh, style name tooltip.</p>
+<p>That&#39;s fine, but there was nothing else.</p>
+<p>What&#39;s more, I actually created those objects and I assigned them to that menu.</p>
+<p>And when displaying that menu, each time I get a notification, a warning that says that it&#39;s not supported.</p>
+<p>That was probably because I tried at the very beginning to use a toolbar button.</p>
+<p>For context.</p>
+<p>Menu.</p>
+<p>I guess it&#39;s only supported for toolbars, so you may be able to create some pattern for toolbar using</p>
+<p>this approach, but I guess using combo box will be difficult and there is literally no resources on</p>
+<p>that online.</p>
+<p>I was looking even into some Korean or Chinese blogs and found nothing, so I started browsing epics</p>
+<p>code on GitHub.</p>
+<p>And there is actually no such example using Python.</p>
+<p>Everything I found was about C plus plus.</p>
+<p>And yes, if you want to add those entries like, uh, toolbar entry or heading or editable text, you</p>
+<p>can do it with C plus.</p>
+<p>Plus with no issue.</p>
+<p>There are methods for that.</p>
+<p>There are initializers.</p>
+<p>You don&#39;t have to create very complex code yourself.</p>
+<p>That code actually is very similar to Python.</p>
+<p>It&#39;s just written in C plus plus and maybe something will be named differently.</p>
+<p>Like here we have menu entry with capital case and underscore.</p>
+<p>And there you will have menu entry with camel Case or something like that.</p>
+<p>So if you really need to use that you may have to use C plus plus.</p>
+<p>And then you could of course call some script or even blueprint.</p>
+<p>But if using those simple menu entries and script objects is fine for you, just go with that.</p>
+<p>And I still believe you will be able to create create tools.</p>
+<p>If by any chance I found a solution to do that, to do all of that stuff in Python, I will for sure</p>
+<p>record a video, and if I don&#39;t record a video, I will probably post some notes about it.</p>
+<p>So that&#39;s all about the follow up video.</p>
+<p>And I wish you code without bugs and hope to see you in the next video.</p>
+<p>Bye.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

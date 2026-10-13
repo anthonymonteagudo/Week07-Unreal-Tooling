@@ -1,0 +1,357 @@
+[
+  {
+    "id": "horizon-editor",
+    "file": "horizon-editor.png",
+    "source": "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf#page=23",
+    "credit": "Dan Sumaili and Sander van der Steen / Guerrilla, GDC 2017",
+    "pdf_page": 23,
+    "crop_pdf_points": null,
+    "crop_render_pixels": null,
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "c7c17240f032ac6a73459d37740f649142934b711da4e6c049a93a893464ea43"
+  },
+  {
+    "id": "horizon-dialogue",
+    "file": "horizon-dialogue.png",
+    "source": "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf#page=25",
+    "credit": "Dan Sumaili and Sander van der Steen / Guerrilla, GDC 2017",
+    "pdf_page": 25,
+    "crop_pdf_points": null,
+    "crop_render_pixels": null,
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "828d541008b4877fcdebb1921773050eae9970e9d603b789f8b06eb2acea2bdd"
+  },
+  {
+    "id": "horizon-prototype",
+    "file": "horizon-prototype.png",
+    "source": "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf#page=31",
+    "credit": "Dan Sumaili and Sander van der Steen / Guerrilla, GDC 2017",
+    "pdf_page": 31,
+    "crop_pdf_points": null,
+    "crop_render_pixels": null,
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "1fc445a6aab1d702eb4530c7a0847b89bcdd7f9e4f1025595a6a399a29a85cad"
+  },
+  {
+    "id": "horizon-node-editor",
+    "file": "horizon-node-editor.png",
+    "source": "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf#page=33",
+    "credit": "Dan Sumaili and Sander van der Steen / Guerrilla, GDC 2017",
+    "pdf_page": 33,
+    "crop_pdf_points": null,
+    "crop_render_pixels": null,
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "c7e37fb6a3e4ed6d8fdf76ea2c167350abc22f597fd6ff75dd70cc9049f385b7"
+  },
+  {
+    "id": "vv-world-builder",
+    "file": "vv-world-builder.png",
+    "source": "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=9",
+    "credit": "Jeff Stewart / Vicarious Visions, GDC 2018",
+    "pdf_page": 9,
+    "crop_pdf_points": [
+      90,
+      54,
+      450,
+      324
+    ],
+    "crop_render_pixels": [
+      360,
+      216,
+      1800,
+      1296
+    ],
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "f3f3ffbd1ff69fb3857c71a4220717e2a5c9e898bd063bb4a05c121604c09a60"
+  },
+  {
+    "id": "vv-survey",
+    "file": "vv-survey.png",
+    "source": "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=13",
+    "credit": "Jeff Stewart / Vicarious Visions, GDC 2018",
+    "pdf_page": 13,
+    "crop_pdf_points": [
+      90,
+      54,
+      450,
+      324
+    ],
+    "crop_render_pixels": [
+      360,
+      216,
+      1800,
+      1296
+    ],
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "af5fff567a9b32e84fe055b41cf4693ad29c090958a069db6ba2b8dfc7cfa7b4"
+  },
+  {
+    "id": "vv-findability",
+    "file": "vv-findability.png",
+    "source": "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=24",
+    "credit": "Jeff Stewart / Vicarious Visions, GDC 2018",
+    "pdf_page": 24,
+    "crop_pdf_points": [
+      90,
+      54,
+      450,
+      324
+    ],
+    "crop_render_pixels": [
+      360,
+      216,
+      1800,
+      1296
+    ],
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "3c44de4aeed13a196d7e7ca46d59f948b0d87fab60414079b2210564e58b45fd"
+  },
+  {
+    "id": "vv-content-model",
+    "file": "vv-content-model.png",
+    "source": "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=35",
+    "credit": "Jeff Stewart / Vicarious Visions, GDC 2018",
+    "pdf_page": 35,
+    "crop_pdf_points": [
+      90,
+      54,
+      450,
+      324
+    ],
+    "crop_render_pixels": [
+      360,
+      216,
+      1800,
+      1296
+    ],
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "de4b252c300093797b5145a5a9ac9e54b6261d13fb04eca9a930497fe5c87bf5"
+  },
+  {
+    "id": "mk-architecture",
+    "file": "mk-architecture.png",
+    "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=26",
+    "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+    "pdf_page": 26,
+    "crop_pdf_points": [
+      30,
+      54,
+      510,
+      324
+    ],
+    "crop_render_pixels": [
+      120,
+      216,
+      2040,
+      1296
+    ],
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "68cafda0417af62f7136db3b27be3cf82184d92e653842791f107a278f4712c5"
+  },
+  {
+    "id": "mk-reflector",
+    "file": "mk-reflector.png",
+    "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=34",
+    "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+    "pdf_page": 34,
+    "crop_pdf_points": [
+      30,
+      54,
+      510,
+      324
+    ],
+    "crop_render_pixels": [
+      120,
+      216,
+      2040,
+      1296
+    ],
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "3dc54c32e22acdcb360312fa7d0a537edcdab467faab7e2b1d0af9ffb32776a0"
+  },
+  {
+    "id": "mk-first",
+    "file": "mk-first.png",
+    "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=46",
+    "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+    "pdf_page": 46,
+    "crop_pdf_points": [
+      30,
+      54,
+      510,
+      324
+    ],
+    "crop_render_pixels": [
+      120,
+      216,
+      2040,
+      1296
+    ],
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "ea0df413bf387c47d7cbb582f5b0ea3d597ebef7baf3600fc2d35117122c559a"
+  },
+  {
+    "id": "mk-feedback",
+    "file": "mk-feedback.png",
+    "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=47",
+    "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+    "pdf_page": 47,
+    "crop_pdf_points": [
+      30,
+      54,
+      510,
+      324
+    ],
+    "crop_render_pixels": [
+      120,
+      216,
+      2040,
+      1296
+    ],
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "d375f9b5a3fa2a7fdbd4cf1feac9548f1b9fc76dabb4b80dc4fe1a9d0fcfecc8"
+  },
+  {
+    "id": "mk-sequence",
+    "file": "mk-sequence.png",
+    "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=49",
+    "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+    "pdf_page": 49,
+    "crop_pdf_points": [
+      30,
+      54,
+      510,
+      324
+    ],
+    "crop_render_pixels": [
+      120,
+      216,
+      2040,
+      1296
+    ],
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "ecf8e1decb630efb6e6050efbd6bb601592b35e12fa188cca0c644cbb6aae332"
+  },
+  {
+    "id": "mk-share",
+    "file": "mk-share.png",
+    "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=51",
+    "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+    "pdf_page": 51,
+    "crop_pdf_points": [
+      30,
+      54,
+      510,
+      324
+    ],
+    "crop_render_pixels": [
+      120,
+      216,
+      2040,
+      1296
+    ],
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "09d5620bb1fb3e2a6a63c9ba645332c3caa44bdb3cca2e5f6c80d1e874610681"
+  },
+  {
+    "id": "mk-lifecycle",
+    "file": "mk-lifecycle.png",
+    "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=55",
+    "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+    "pdf_page": 55,
+    "crop_pdf_points": [
+      30,
+      54,
+      510,
+      324
+    ],
+    "crop_render_pixels": [
+      120,
+      216,
+      2040,
+      1296
+    ],
+    "method": "Rasterized published PDF figure; original pixels and proportions retained",
+    "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+    "use": "Teaching analysis of production tooling",
+    "sha256": "1777886e342d1dfb92aae4e5a8e4cf259e843e56f785f4b6356ef957f183f472"
+  },
+  {
+    "file": "nng-testing-photo.png",
+    "url": "https://media.nngroup.com/media/editor/2019/11/11/usabilitytesting101-29.png",
+    "article": "https://www.nngroup.com/articles/usability-testing-101/",
+    "context": "Photo taken during follow-up interview after a task; no alteration.",
+    "credit": "Nielsen Norman Group",
+    "retrieved": "2026-10-13",
+    "sha256": "d680fe2300342a3be44fb27484574bf55067f2ed7912ef2bae3cae4369141f21",
+    "rights": "Copyright holder retains rights; public access is not an open license.",
+    "source": "https://www.nngroup.com/articles/usability-testing-101/",
+    "method": "Photo taken during follow-up interview after a task; no alteration."
+  },
+  {
+    "file": "nng-testing-flow.png",
+    "url": "https://media.nngroup.com/media/editor/2019/11/11/usabilitytesting101_final1.png",
+    "article": "https://www.nngroup.com/articles/usability-testing-101/",
+    "context": "Published facilitator, participant and tasks diagram; no alteration.",
+    "credit": "Nielsen Norman Group",
+    "retrieved": "2026-10-13",
+    "sha256": "69c5f79eddc44aea6c4ef9b0366dfc935f4f288a07a2ddad96c751f45e627416",
+    "rights": "Copyright holder retains rights; public access is not an open license.",
+    "source": "https://www.nngroup.com/articles/usability-testing-101/",
+    "method": "Published facilitator, participant and tasks diagram; no alteration."
+  },
+  {
+    "file": "undo-detail.png",
+    "source": "Course/Slides/Week07/UnrealPythonDemo/Captures/04_undo_transaction.png",
+    "credit": "Course capture",
+    "crop_render_pixels": [
+      102,
+      30,
+      467,
+      165
+    ],
+    "method": "Detail crop of existing local capture; original aspect ratio preserved; no UI content altered.",
+    "sha256": "37377e0417fd996460a00b131ad584659a3323d43d1b00a6a8074bb5becace54"
+  },
+  {
+    "file": "apply-detail.png",
+    "source": "Week07UnrealPython/Docs/UI/captures/stage_3_empty.png",
+    "credit": "Course capture",
+    "crop_render_pixels": [
+      755,
+      760,
+      1088,
+      820
+    ],
+    "method": "Detail crop of existing local capture; original aspect ratio preserved; no UI content altered.",
+    "sha256": "c5804042346e5f517ad1c5a1e18892068b083db49e0517de6ecbe9d97a988e12"
+  }
+]

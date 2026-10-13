@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "revision": "19ee7e9339c943758fc929f7fb1aa6c3",
+  "created_at": 1791917341.226815,
+  "source_file": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Samples\\Bridge\\BridgeCompare.blend",
+  "source_host": "blender",
+  "source_object": "BridgeCompare",
+  "asset_name": "SM_Compare_Blender",
+  "destination_path": "/Game/Week07/Bridge",
+  "filename": "SM_Compare_Blender.fbx",
+  "sha256": "0008da751522a7fd200522372c3e5bdc740bfa32c4cf74c718a277af3cd63217",
+  "dimensions_cm": [
+    120.00000476837158,
+    60.00000238418579,
+    179.99999523162842
+  ],
+  "asset_type": "StaticMesh",
+  "origin_policy": "source_pivot"
+}

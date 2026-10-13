@@ -1,0 +1,185 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>20 Batch Import Textures (Automated Asset Import) · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-20">Return to audit</a><a href="19.html">Previous lesson</a> <a href="21.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/20%20Batch%20Import%20Textures%20%28Automated%20Asset%20Import%29.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/20%20Batch%20Import%20Textures%20%28Automated%20Asset%20Import%29%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>20 Batch Import Textures (Automated Asset Import)</h1><p>Automated import data and the returned assets</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Batch Importing Textures with AutomatedAssetImportData — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/20%20Batch%20Import%20Textures%20%28Automated%20Asset%20Import%29.md">Original notes</a></p>
+<p>For imports that need fewer custom options, use one <code>AutomatedAssetImportData</code> object containing all source paths. <code>import_assets_automated()</code> returns the imported objects for immediate processing.</p>
+<h2>Gather the source textures</h2>
+<p>Choose the disk source folder and Unreal destination, such as <code>/Game/Enviro</code>. The example finds PNG files with <code>Path(source_folder).glob(&quot;*.png&quot;)</code>.</p>
+<h2>Automated import data and the returned assets</h2>
+<p>The alternative API takes one configuration object and returns imported <strong>objects</strong>, rather than returning the task list from lesson 19:</p>
+<pre><code class="language-python">import unreal
+data = unreal.AutomatedAssetImportData()
+data.set_editor_property(&quot;filenames&quot;, [&quot;C:/Exports/T_Example.png&quot;])
+data.set_editor_property(&quot;destination_path&quot;, &quot;/Game/Imported&quot;)
+data.set_editor_property(&quot;replace_existing&quot;, True)
+objects = unreal.AssetToolsHelpers.get_asset_tools().import_assets_automated(data)
+for asset in set(objects):
+    unreal.log(asset.get_path_name())
+</code></pre>
+<p>The set removes duplicate returned object references; it does not merge or delete assets. Adapt the filenames and replacement policy before running the example.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011221257.png" alt="Course screenshot: Pasted image 20261011221257.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011224039.png" alt="Course screenshot: Pasted image 20261011224039.png"></p>
+<h2>Prepare import data</h2>
+<p>Find <code>AssetTools.import_assets_automated()</code> and its expected <code>AutomatedAssetImportData</code> argument. Set <code>destination_path</code>, <code>filenames</code>, and <code>replace_existing</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011224115.png" alt="Course screenshot: Pasted image 20261011224115.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011221903.png" alt="Course screenshot: Pasted image 20261011221903.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011224220.png" alt="Course screenshot: Pasted image 20261011224220.png"></p>
+<p>Convert <code>pathlib.Path</code> values to strings before assigning <code>filenames</code>. The lesson uses <code>list(map(lambda path: str(path), paths))</code>; <code>[str(path) for path in paths]</code> expresses the same conversion.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011224425.png" alt="Course screenshot: Pasted image 20261011224425.png"></p>
+<h2>Run and return the objects</h2>
+<p>Get Asset Tools with <code>AssetToolsHelpers.get_asset_tools()</code>, then call <code>import_assets_automated(import_data)</code>. The demonstration converts the returned objects to a set to remove duplicate results observed during testing. A set does not preserve a useful import order.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011225620.png" alt="Course screenshot: Pasted image 20261011225620.png"></p>
+<p>Wrap the operation in <code>batch_import_textures(destination_path, source_folder)</code> and return the imported objects. A main entry point can call the function and print the result.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011230212.png" alt="Course screenshot: Pasted image 20261011230212.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011230721.png" alt="Course screenshot: Pasted image 20261011230721.png"></p>
+<h2>Verify the result</h2>
+<p>The course resets its test destination, executes the script, and checks both the Output Log and imported textures. Compare the resulting content with the source folder.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011230437.png" alt="Course screenshot: Pasted image 20261011230437.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011230535.png" alt="Course screenshot: Pasted image 20261011230535.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011230648.png" alt="Course screenshot: Pasted image 20261011230648.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011221432.png" alt="Course screenshot: Pasted image 20261011221432.png"></p>
+<p>Use <code>AssetImportTask</code> from lesson 19 when per-file or asset-specific options require more control.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/19%20Batch%20Import%20FBX%20Meshes%20%28Asset%20Import%20Task%29%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/21%20Why%20you%20need%20asset%20validation%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011221257.png" alt="Course screenshot: Pasted image 20261011221257.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011221432.png" alt="Course screenshot: Pasted image 20261011221432.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011224039.png" alt="Course screenshot: Pasted image 20261011224039.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011224115.png" alt="Course screenshot: Pasted image 20261011224115.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011221903.png" alt="Course screenshot: Pasted image 20261011221903.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011224220.png" alt="Course screenshot: Pasted image 20261011224220.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011224425.png" alt="Course screenshot: Pasted image 20261011224425.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011225620.png" alt="Course screenshot: Pasted image 20261011225620.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011230212.png" alt="Course screenshot: Pasted image 20261011230212.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011230437.png" alt="Course screenshot: Pasted image 20261011230437.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011230535.png" alt="Course screenshot: Pasted image 20261011230535.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011230648.png" alt="Course screenshot: Pasted image 20261011230648.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011230721.png" alt="Course screenshot: Pasted image 20261011230721.png"></p>
+<p>You&#39;re gonna love how simple it is to batch import textures or some other kind of assets with just a</p>
+<p>few lines of code.</p>
+<p>Let&#39;s run my already prepared function, hit enter, and after a short delay I have a whole folder transferred</p>
+<p>to unreal.</p>
+<p>So let&#39;s demystify the code and jump straight into it.</p>
+<p>It&#39;s going to be very similar to the previous video that was on importing FBX to unreal, but in the</p>
+<p>previous case, we were using a so-called asset import task object, which is an object that stores</p>
+<p>a lot of data that will be used during import.</p>
+<p>It stores all the settings on FBX and even more detailed settings like settings for FBX, static meshes</p>
+<p>or skeletal meshes for more simple imports.</p>
+<p>It is quite convenient to use a different approach, and that&#39;s what we are gonna do.</p>
+<p>So let&#39;s begin.</p>
+<p>We need some destination path.</p>
+<p>This is where we are gonna import our textures and source folder, which will be used to list all files</p>
+<p>that we want to import.</p>
+<p>I will paste those and I will also paste imports.</p>
+<p>First we have the destination path which is just game slash enviro folder.</p>
+<p>And then a source folder which is this test directory with just some example textures.</p>
+<p>Then we are gonna take the same approach as in FBX tutorial which is listing assets using Pathlib module.</p>
+<p>And from now on we can start creating import.</p>
+<p>We need some super simple automated asset import data object because we are not going to execute import</p>
+<p>tasks as before.</p>
+<p>This time we will call import assets automated function.</p>
+<p>This function also belongs to other tools.</p>
+<p>But it expects that data type and this import data object will store information that lets us import</p>
+<p>multiple assets at once, and then it will return an array of objects.</p>
+<p>So if you want to start processing them.</p>
+<p>Just after the import, then you can do it without any additional line of code that would load those</p>
+<p>assets into the memory.</p>
+<p>When we were importing.</p>
+<p>Assets with import asset tasks.</p>
+<p>We also had some list as a return, but that was a list of import tasks.</p>
+<p>And from those you could get a path to import that object and then you would have to load it.</p>
+<p>So in case of that automated chunk of code we are going to have, it will be a bit simpler.</p>
+<p>So let&#39;s create some assets.</p>
+<p>Import data variable that will store unreal automated asset.</p>
+<p>Import data object.</p>
+<p>And then we have to set destination path, which is just the destination path, of course, and file</p>
+<p>names, which is a list of objects that we are going to import.</p>
+<p>But those have to be strings.</p>
+<p>And right now our assets to import list contains path objects from Pathlib.</p>
+<p>So we have to convert them.</p>
+<p>It&#39;s actually nice to demonstrate it doing it live.</p>
+<p>So we can either run some Python console or do it in unreal, or just open Python console in PyCharm.</p>
+<p>Let&#39;s copy Pathlib import.</p>
+<p>Then let&#39;s also define source folder.</p>
+<p>And now we can copy the line that creates a list of assets.</p>
+<p>Each of them is a windows path and sadly unreal doesn&#39;t support this data type.</p>
+<p>I really love it for processing paths, but it&#39;s not supported.</p>
+<p>So what we are going to do is to just convert it using a map function, and that is gonna take some</p>
+<p>function that casts everything to string.</p>
+<p>And we can use just an inline lambda.</p>
+<p>Let&#39;s cast stuff to a string.</p>
+<p>And then we pass assets to import as an argument.</p>
+<p>The last thing to do before you hit enter is to wrap it all with a cast to list, because.</p>
+<p>You would get just a generator instead of a list.</p>
+<p>So now once we have hit enter, everything has been converted.</p>
+<p>So let me copy this line and put it here.</p>
+<p>And because the map function can work both with generators and lists, we don&#39;t need that cast from</p>
+<p>line seven.</p>
+<p>But if you keep it, it&#39;s fine.</p>
+<p>We almost finished creating assets import data.</p>
+<p>The last thing I want to set is replace existing.</p>
+<p>And if that is set to true, it means that we can re-import textures that were already imported into</p>
+<p>unreal in the past.</p>
+<p>Now let&#39;s execute it.</p>
+<p>We have to call asset tools, so let&#39;s get them using asset tools.</p>
+<p>Helpers get asset tools and then import assets automated.</p>
+<p>And the only thing we have to pass is asset import data.</p>
+<p>And as I said before, it will return a list of assets that were imported.</p>
+<p>But when I was testing it, I noticed that I sometimes had duplicates of those results.</p>
+<p>And my way of getting rid of duplicates is often casting it to set, because set is very similar to</p>
+<p>arrays, but it doesn&#39;t contain a duplicate data.</p>
+<p>So it&#39;s a super simple way of making everything unique.</p>
+<p>And that&#39;s it.</p>
+<p>And we can assign that result to some value called imported.</p>
+<p>And we can print it, but the code we have right now looks like something that we could wrap into a</p>
+<p>function.</p>
+<p>So let&#39;s do it first.</p>
+<p>And then we&#39;re gonna print the result.</p>
+<p>We&#39;re gonna have a function called batch import textures.</p>
+<p>We will take some destination path as an argument.</p>
+<p>And also source folder.</p>
+<p>Then let&#39;s fix indentation.</p>
+<p>We can also say that we are going to return a set of unreal objects.</p>
+<p>And lastly, return imported.</p>
+<p>And now we can finalize everything by calling this function and printing the result.</p>
+<p>So this is ready to be used.</p>
+<p>We can copy this code, go to unreal.</p>
+<p>Remove the textures we had.</p>
+<p>Go to output log.</p>
+<p>Switch to Python mode.</p>
+<p>Paste the code and run it.</p>
+<p>And let&#39;s get back to Content Browser and everything is imported.</p>
+<p>This tutorial takes way less time than the previous one on PHP, because it&#39;s simpler, and the code</p>
+<p>is also two or even three times shorter and way easier to comprehend.</p>
+<p>So if you are importing assets that don&#39;t need some special settings or options, you can go with that.</p>
+<p>Import assets.</p>
+<p>Automated function.</p>
+<p>And if you want to do something more sophisticated, go with asset import tasks.</p>
+<p>I hope you enjoyed the tutorial and that it&#39;s useful for you and it will be really, really happy to</p>
+<p>get some feedback.</p>
+<p>Thanks.</p>
+<p>Bye!</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -7,6 +7,23 @@
+ ## Gather the source textures
+ 
+ Choose the disk source folder and Unreal destination, such as `/Game/Enviro`. The example finds PNG files with `Path(source_folder).glob(&quot;*.png&quot;)`.
++
++## Automated import data and the returned assets
++
++The alternative API takes one configuration object and returns imported **objects**, rather than returning the task list from lesson 19:
++
++```python
++import unreal
++data = unreal.AutomatedAssetImportData()
++data.set_editor_property(&quot;filenames&quot;, [&quot;C:/Exports/T_Example.png&quot;])
++data.set_editor_property(&quot;destination_path&quot;, &quot;/Game/Imported&quot;)
++data.set_editor_property(&quot;replace_existing&quot;, True)
++objects = unreal.AssetToolsHelpers.get_asset_tools().import_assets_automated(data)
++for asset in set(objects):
++    unreal.log(asset.get_path_name())
++```
++
++The set removes duplicate returned object references; it does not merge or delete assets. Adapt the filenames and replacement policy before running the example.
+ 
+ ![[Pasted image 20261011221257.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

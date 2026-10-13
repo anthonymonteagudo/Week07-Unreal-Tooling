@@ -1,0 +1,197 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>15 Find Duplicated Actors On The Level · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-15">Return to audit</a><a href="14.html">Previous lesson</a> <a href="16.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/15%20Find%20Duplicated%20Actors%20On%20The%20Level.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/15%20Find%20Duplicated%20Actors%20On%20The%20Level%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>15 Find Duplicated Actors On The Level</h1><p>What the duplicate comparison actually establishes</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Finding Duplicated Actors on a Level — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/15%20Find%20Duplicated%20Actors%20On%20The%20Level.md">Original notes</a></p>
+<p>Find overlapping copies by comparing the referenced mesh and actor transform. Actor names alone are unreliable: duplicate instances can have different names and remain visually indistinguishable.</p>
+<h2>What the duplicate comparison actually establishes</h2>
+<p>The workflow groups static-mesh actors by their referenced mesh, then compares transforms within each group. Two different meshes at the same transform are not duplicates under this rule. Matching mesh and transform identifies a candidate; other actor/component settings can still differ.</p>
+<p>Read the successive screenshots as: collect actors → retain static meshes → group by mesh → compare transforms → report/select candidates. Keep one representative when handling a group, rather than flagging every member for removal. The comparison is a scene-placement rule, not a geometry-similarity test.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011141719.png" alt="Course screenshot: Pasted image 20261011141719.png"></p>
+<h2>Gather static mesh actors</h2>
+<p>Use <code>unreal.get_editor_subsystem(unreal.EditorActorSubsystem)</code> to obtain level actors, following the UE 5.3+ correction in the course. The earlier direct-constructor example is retained in the screenshots for context.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011141657.png" alt="Course screenshot: Pasted image 20261011141657.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011145846.png" alt="Course screenshot: Pasted image 20261011145846.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011150541.png" alt="Course screenshot: Pasted image 20261011150541.png"></p>
+<p>For a <code>StaticMeshActor</code>, access its <code>static_mesh_component.static_mesh</code> to identify the underlying asset. More complex actors may require <code>get_components_by_class()</code> or another component query.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011150332.png" alt="Course screenshot: Pasted image 20261011150332.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011150420.png" alt="Course screenshot: Pasted image 20261011150420.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011145750.png" alt="Course screenshot: Pasted image 20261011145750.png"></p>
+<h2>Group by the referenced mesh</h2>
+<p>Skip actors outside the supported class. Group the remaining actors by their static mesh asset, then discard groups containing only one actor: they cannot contain duplicates of that mesh.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011150846.png" alt="Course screenshot: Pasted image 20261011150846.png"></p>
+<h2>Compare transforms within each group</h2>
+<p>Use <code>Transform.is_near_equal()</code> to compare location, rotation, and scale. Adjust the tolerances only to match the intended definition of a duplicate.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011151816.png" alt="Course screenshot: Pasted image 20261011151816.png"></p>
+<p>For each mesh group, choose a reference actor and compare it with the remaining candidates. Collect near-equal actors into a cluster, keeping that cluster only when it contains at least two members. A single mesh can have multiple duplicate clusters at different locations.</p>
+<p>The demonstrated implementation iterates backward while removing reference actors, and tracks matched indexes so the same actors are not reported repeatedly. Keep index handling consistent when mutating the list.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011152044.png" alt="Course screenshot: Pasted image 20261011152044.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011153207.png" alt="Course screenshot: Pasted image 20261011153207.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011154750.png" alt="Course screenshot: Pasted image 20261011154750.png"></p>
+<h2>Report actionable results</h2>
+<p>Print each cluster&#39;s actor identifiers, mesh asset, and world location, with separators between clusters. The example reports floor and statue duplicates; use the identifiers and locations to find them in the level. A CSV export can make a larger report easier to review.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011154814.png" alt="Course screenshot: Pasted image 20261011154814.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/14%20Editing%20Material%20Instance%20Parameters%20-%20Material%20Editing%20Library%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/16%20ImportRules%20Plugin%20-%20Run%20Custom%20post%20Import%20Action%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011141719.png" alt="Course screenshot: Pasted image 20261011141719.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011141657.png" alt="Course screenshot: Pasted image 20261011141657.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011145846.png" alt="Course screenshot: Pasted image 20261011145846.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011150332.png" alt="Course screenshot: Pasted image 20261011150332.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011150420.png" alt="Course screenshot: Pasted image 20261011150420.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011145750.png" alt="Course screenshot: Pasted image 20261011145750.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011150541.png" alt="Course screenshot: Pasted image 20261011150541.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011150846.png" alt="Course screenshot: Pasted image 20261011150846.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011151816.png" alt="Course screenshot: Pasted image 20261011151816.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011152044.png" alt="Course screenshot: Pasted image 20261011152044.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011153207.png" alt="Course screenshot: Pasted image 20261011153207.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011154750.png" alt="Course screenshot: Pasted image 20261011154750.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011154814.png" alt="Course screenshot: Pasted image 20261011154814.png"></p>
+<p>Some level design issues may be difficult to spot in the first place.</p>
+<p>It&#39;s so easy to duplicate some asset and forget about it, but not that easy to find it later.</p>
+<p>For instance, this scene has duplicated overlapping flow meshes.</p>
+<p>Here, here.</p>
+<p>And also a duplicated statue was.</p>
+<p>You can&#39;t notice it by just looking into the viewport because nothing is flickering.</p>
+<p>You also couldn&#39;t notice it if the scene was way larger by just looking into the outliner.</p>
+<p>To automate fixing such duplicates, we could write a script that ignores actor name and considers only</p>
+<p>the asset that is instanced by the actor, so we are not bothered by the meshes and actors named the</p>
+<p>same way or named slightly differently.</p>
+<p>Whilst we define the condition that checks the original asset, we need another condition to check if</p>
+<p>the location is the same or very similar.</p>
+<p>And that is all we need to check if we have a duplicated match.</p>
+<p>In past videos, we discovered that we can list all level actors.</p>
+<p>We also discovered that we can list their names, file names, paths, and so on, but we haven&#39;t noticed</p>
+<p>yet that it may work a bit different in case of actors than in case of assets.</p>
+<p>Let&#39;s print some get f name so we have a live example.</p>
+<p>First use editor actor subsystem.</p>
+<p>Then I get all level actors.</p>
+<p>And lastly I print their f names.</p>
+<p>As you can see, we got names from the outliner.</p>
+<p>This isn&#39;t very helpful in this case.</p>
+<p>We shouldn&#39;t trust them, and we shouldn&#39;t use them as a qualifier to find duplicates.</p>
+<p>As I said before.</p>
+<p>If you pick any asset from the outliner and check details panel, you will find out that it has components.</p>
+<p>We have to get those components by specific methods that belong to this actor.</p>
+<p>Then we have to access the component and we can get the file path.</p>
+<p>If you are processing various types of actors or even complex actors, like some blueprints, we may</p>
+<p>want to use get components by class or get components by interface methods that belong to actor class.</p>
+<p>However, to not over complicate, we can suppose that we are searching only for the most basic static</p>
+<p>mesh actors.</p>
+<p>In this case, we can simply access static mesh component that has static mesh property, and from this</p>
+<p>property we can get file path and file name if needed.</p>
+<p>Let&#39;s quickly move to import Editor actor subsystem and assign all level actors to some variable.</p>
+<p>Now we can implement the idea that probably already started growing in our heads.</p>
+<p>First, we have to group actors together by asset that they use.</p>
+<p>Then if the group is small, which means it has only a single element, we remove it from the array.</p>
+<p>Because if there is only a single actor that uses a specific asset, then for sure there is no duplicates.</p>
+<p>Lastly, we have to iterate over those groups and find the duplicates.</p>
+<p>The important thing is that we may have for instance floor meshes group, and we may have various occurrences</p>
+<p>of duplication in different spots.</p>
+<p>So we cannot just iterate over the array.</p>
+<p>Once we have to do it more thoroughly, the first loop I have is grouping.</p>
+<p>Let me explain the code I just pasted.</p>
+<p>I created some array for groups arrays and started by ignoring everything that is not a static mesh</p>
+<p>actor.</p>
+<p>That simplifies everything a lot because I can get static mesh component directly.</p>
+<p>We check if we already have static mesh component based on this asset in any of the groups.</p>
+<p>If not, then here is a case when we have to add it to the array.</p>
+<p>Once the loop is over, the next time the loop iterates, maybe some actor will be added to the same</p>
+<p>group.</p>
+<p>But if that never happens, we end up with having a lot of arrays here, which are only single element.</p>
+<p>These cannot contain any duplicates, so we can clean it with grouped actors per asset.</p>
+<p>What now?</p>
+<p>Now we have to compare the coordinates.</p>
+<p>Each actor has a so-called transform, which is a set of its location, rotation, and scale data.</p>
+<p>You can check it in Unreal Editor in details panel.</p>
+<p>Each actor has one, so it doesn&#39;t matter what class it is.</p>
+<p>Transforms will be quite easy to work with because we don&#39;t have to calculate any distance from any</p>
+<p>actor we can use is near equal method that returns true if we have transforms overlapping in the same</p>
+<p>place.</p>
+<p>Also, there are some tolerance parameters, so you can tweak it to catch a bit more distant meshes.</p>
+<p>Loop that detects duplicates will be a bit more complex than the first one, but I will do my best to</p>
+<p>explain it.</p>
+<p>First, I declared an empty array.</p>
+<p>This is the output we want to get from the loop.</p>
+<p>We may imagine a case of having some level that has a lot of floor meshes.</p>
+<p>Each of them is identical, but we can have different clusters of duplicates.</p>
+<p>That means that if I have duplicates in this spot, this is the first cluster.</p>
+<p>But in this spot, or maybe some other one, it will be another cluster.</p>
+<p>When some or a level designer gets output from my script, he has to be able to look on it, go to the</p>
+<p>location, fix the issue, and grab next coordinates for other location so it cannot be a mixed information.</p>
+<p>That&#39;s why we do it in clusters.</p>
+<p>And the loop may be a bit more complex than the first spot.</p>
+<p>You may have had.</p>
+<p>Going back to the code.</p>
+<p>Let&#39;s see how it works.</p>
+<p>We have the first loop.</p>
+<p>That iterates over groups of assets.</p>
+<p>The thing we talked about just a few seconds ago.</p>
+<p>But let me explain it from scratch so it&#39;s easier to comprehend.</p>
+<p>We have groups of actors that use the same assets, so we have to iterate over them.</p>
+<p>This is what this loop does.</p>
+<p>Then the magic starts.</p>
+<p>We have to pick some actor and find duplicates of it in the array.</p>
+<p>Then we may find more duplicates of other actors.</p>
+<p>However, we should skip the ones that were, or rather the ones that were flagged as duplicates and</p>
+<p>the ones that we were checking against.</p>
+<p>The first loop picks some actor that we will check if it has any duplicates, and the inner loop is</p>
+<p>the actual code that looks for duplicates.</p>
+<p>It would be best to have less elements of the array each iteration.</p>
+<p>This way it would execute in a very, very short time.</p>
+<p>The longer it would work, the faster it would go.</p>
+<p>But removing indexes or elements from array is very troublesome when you use more than a single array.</p>
+<p>If it&#39;s the outer one, it&#39;s quite simple.</p>
+<p>You simply iterate from the end of the array and you can pop the last element at any time.</p>
+<p>So that&#39;s why when I pick the actor to find duplicates of, I remove it from our array.</p>
+<p>However, if I was to remove any identified duplicate in the inner loop, I would either have to write</p>
+<p>a more complex code or I will get bugs.</p>
+<p>So I decided not to remove anything, but to add those indexes that were found into a separate array</p>
+<p>that I will use to ignore everything later.</p>
+<p>So I have a matched indexes array in our main loop.</p>
+<p>And then these are used to skip iteration of.</p>
+<p>There loop that picks asset to compare with and in the inner loop.</p>
+<p>The inner loop also iterates backwards because we want to have consistent index IDs.</p>
+<p>So even if I don&#39;t use any pop or remove method, I still have to follow the same convention here.</p>
+<p>Otherwise, if I would add any index to the array in this loop, it wouldn&#39;t match the first one.</p>
+<p>Once that is explained, everything starts to be a bit more easy to comprehend.</p>
+<p>What we really do here when we forget about having anything to be ignored or not, we have a first loop</p>
+<p>that picks an element, and then another loop that iterates over all elements left and checks if we</p>
+<p>have a duplicate by using each near equal method of transform, and if we have the duplicate, we add</p>
+<p>it to nearby actors array, which already has the first element we were comparing to.</p>
+<p>So we don&#39;t have to define any others, any other conditions to store it, and we can also pop it anytime</p>
+<p>and forget about it.</p>
+<p>And if we found any duplicates, we will have at least two elements in the array.</p>
+<p>If we haven&#39;t found any, we will have only a single element.</p>
+<p>And that is why after the loop is finished, we check if size of array is bigger than one and only.</p>
+<p>In that case we will attach group to the duplicates groups array.</p>
+<p>Whilst that part of code is done, the only thing that is left is printing the result.</p>
+<p>Actor name, static mesh name and transform location are what a level artist or may need.</p>
+<p>So we&#39;ll print it right here.</p>
+<p>And I also want to print some line after each group so the output is easier to read.</p>
+<p>To make it even better, you can write it to a CSV file, or perhaps to Excel, or even create a file</p>
+<p>that could be loaded by Google Spreadsheet.</p>
+<p>CSV should be enough.</p>
+<p>Now we can test the script.</p>
+<p>Just paste it here.</p>
+<p>Make sure that you are in Python mode, not in python Repl because it will throw an exception.</p>
+<p>Hit enter and we have list of our duplicated meshes.</p>
+<p>We have three static actors of floor, and those names may not be matching the ones in the outliner,</p>
+<p>but.</p>
+<p>If I search for flaw underscore 14, I get actually the correct mesh and flaw underscore one.</p>
+<p>Yes, this is the mesh in the same location and underscore two as well.</p>
+<p>I also have static mesh path, so I can have some idea of what it is and coordinates in the word.</p>
+<p>This is all I wanted to show you in this video.</p>
+<p>See you next time.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -3,6 +3,12 @@
+ [[REFINED - Course Index|Course index]] · [[15 Find Duplicated Actors On The Level|Original notes]]
+ 
+ Find overlapping copies by comparing the referenced mesh and actor transform. Actor names alone are unreliable: duplicate instances can have different names and remain visually indistinguishable.
++
++## What the duplicate comparison actually establishes
++
++The workflow groups static-mesh actors by their referenced mesh, then compares transforms within each group. Two different meshes at the same transform are not duplicates under this rule. Matching mesh and transform identifies a candidate; other actor/component settings can still differ.
++
++Read the successive screenshots as: collect actors → retain static meshes → group by mesh → compare transforms → report/select candidates. Keep one representative when handling a group, rather than flagging every member for removal. The comparison is a scene-placement rule, not a geometry-similarity test.
+ 
+ ![[Pasted image 20261011141719.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

@@ -1,0 +1,835 @@
+[
+  {
+    "url": "https://isaacoster.artstation.com/",
+    "title": "public portfolio",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/community/learning/courses/wk4/an-in-depth-look-at-using-python-for-game-development/vymW/an-in-depth-look-at-using-python-for-game-development-introduction",
+    "title": "Open the Epic course",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/G8ZDYa",
+    "title": "Author’s page",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/qeAwqe",
+    "title": "Series page",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/community/learning/tutorials/wZEz/unreal-engine-building-a-texture-utility-with-the-unreal-python-api",
+    "title": "Code and tutorial",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=0u32V9GYGIw",
+    "title": "01 · Get Materials",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=fwptQCT2sSA",
+    "title": "02 · Get Textures",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=rSVX9QTHvPg",
+    "title": "03 · Get/Set Texture Properties",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/Dvdrke",
+    "title": "Series page",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html",
+      "PrepNotes/Bridge_and_UX.html"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/community/learning/tutorials/LnE7/unreal-engine-asset-import-export-using-unreal-python-api",
+    "title": "Code and tutorial",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=72n-UmfmepQ",
+    "title": "Import assets into Unreal 5 with the Python API",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=TwCIRSCKe54",
+    "title": "Export assets from Unreal 5 with the Python API",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/xDB8zR",
+    "title": "Series page",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/community/learning/tutorials/xrnE/unreal-engine-asset-setup-with-the-unreal-python-api",
+    "title": "Code and tutorial",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=yv7o43xsJ3I",
+    "title": "Asset Setup 01",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=GIY_UI5uFDM",
+    "title": "Asset Setup 02",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=mpV9zfjxP2I",
+    "title": "Asset Setup 03",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/el0XE3",
+    "title": "Parts 01 and 02",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/community/learning/tutorials/4x7v/unreal-engine-enable-nanite-with-python",
+    "title": "Code and tutorial",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/zP5bDm",
+    "title": "All nine lessons",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/community/learning/tutorials/aVyX/unreal-engine-pyqt-for-maya-and-unreal",
+    "title": "Epic tutorial",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=8Q95jhdhJ-I",
+    "title": "05 · Getting started with Unreal",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/XJYWZD",
+    "title": "Open tutorial collection",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/qJVOrz",
+    "title": "Open all videos",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/kNlRy2",
+    "title": "Author’s course page",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=FC3vjONjPvY&list=PLpoXxlr0idMkGMOH6o7npkW3DaZoeZ5M-",
+    "title": "Course playlist",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/L4BG9v",
+    "title": "Project breakdown and video",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://fab.com/s/68ccdd8e94b9",
+    "title": "Linked project listing",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/Bkexqm",
+    "title": "Breakdown and video",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/6LRZWn",
+    "title": "Eleven-chapter series",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/kN1ZJA",
+    "title": "Open breakdown",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://isaacoster.artstation.com/projects/JvDXDa",
+    "title": "Open walkthrough",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=CHFbrs7qEtE",
+    "title": "Video: Editor Scripting part 8",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/community/learning/tutorials/oLqe/epic-for-indies-automating-material-creation-in-unreal-engine-with-python",
+    "title": "Epic tutorial",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://ryandowlingsoka.com/unreal/post-asset-import-rules/",
+    "title": "Article",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://github.com/Ryan-DowlingSoka/UnrealImporterRules-Python",
+    "title": "Python example repository",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://ryandowlingsoka.com/unreal/python-in-unreal/",
+    "title": "Read the article",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Bridge_and_UX.html"
+    ]
+  },
+  {
+    "url": "https://www.rendereverything.com/automatic-material-creation-in-unreal-engine-with-python/",
+    "title": "Article and inline Python",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://medium.com/@TechArtCorner/filtering-asset-and-actor-lists-with-unreal-editorfilterlibrary-python-59ac8234b395",
+    "title": "Filter asset/Actor lists",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://medium.com/@TechArtCorner/executing-python-scripts-from-unreal-engine-5-menus-90b917981020",
+    "title": "Add Python scripts to Unreal menus",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://medium.com/@TechArtCorner/python-remote-debugging-debug-external-applications-with-pycharm-1da72a88fde0",
+    "title": "Remote debugging with PyCharm",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://forums.unrealengine.com/t/inside-unreal-simplifying-tool-creation-with-blueprints-python/629768",
+    "title": "Session and example links",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/community/learning/tutorials/vEyw/lifecycle-of-a-texture-in-unreal-engine-for-virtual-production",
+    "title": "Article linked by Oster",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/playlist?list=PLKgYiIAqG99cwlb4Y2Pu-cSb_Vw14-t0c",
+    "title": "Open source",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://ryandowlingsoka.com/unreal/batch-rename-tool/",
+    "title": "Open source",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Bridge_and_UX.html",
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/community/learning/tutorials/k8lx/execute-python-files-in-blueprints-utilities-unreal-engine-5-tutorial",
+    "title": "Open source",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://ryandowlingsoka.com/unreal/material-parameters-helper/",
+    "title": "Open source",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/data-validation-in-unreal-engine?application_version=5.7",
+    "title": "Open source",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/write-editor-tests-with-python-in-unreal-engine?application_version=5.7",
+    "title": "Open source",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/community/learning/tutorials/WBJky/python-in-unreal-engine-5-7-intermediate-guide-to-editor-tool-automation",
+    "title": "Open source",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://tutorialsearch.io/courses/unreal-engine-5-python-automation-udm63603",
+    "title": "Open source",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+    "title": "Open principles",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Bridge_and_UX.html",
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/task-scenarios-usability-testing/",
+    "title": "Writing test tasks",
+    "origin": [
+      "PrepNotes/Unreal_Tutorial_Index.html",
+      "PrepNotes/Bridge_and_UX.html",
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.udemy.com/course/unreal-engine-5-python-automation/",
+    "title": "Unreal Engine 5 Python Automation — Karol Kowalczyk",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.udemy.com/course/ue4python/",
+    "title": "Python for Unreal Engine Editor Tools Scripting — Muhammad A. Moniem",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.udemy.com/course/becoming-an-unreal-automation-expert/",
+    "title": "Becoming an Unreal Automation Expert — Tim Großmann, Andreas Hauber, Jonas Roth",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://medium.com/@TechArtCorner/getting-started-with-python-in-unreal-engine-5-15a2ae765d86",
+    "title": "Getting Started With Python in Unreal Engine 5",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://medium.com/@TechArtCorner/i-dont-do-pip-install-in-unreal-engine-f78ce635415d",
+    "title": "I don't do pip install in Unreal Engine",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://medium.com/@TechArtCorner/all-the-ways-you-can-set-metadata-tags-in-unreal-engine-38793d08dcc0",
+    "title": "All the ways you can set Metadata Tags in Unreal Engine",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://medium.com/@TechArtCorner/using-details-view-widget-in-editor-utility-widgets-in-unreal-engine-37af4a6b48a3",
+    "title": "Using Details View in Editor Utility Widgets",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://medium.com/@TechArtCorner/selectors-and-pickers-with-dragn-drop-support-in-ue-a-single-property-view-in-unreal-engine-5511ab679b2a",
+    "title": "Single Property View: selectors and pickers",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://youtu.be/UzMgV_964lA",
+    "title": "Remote Control tutorial",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.udemy.com/course/unreal-engine-blueprint-automation/",
+    "title": "Blueprint Automation course",
+    "origin": [
+      "PrepNotes/Research_Background.html",
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://simondev.io/",
+    "title": "SimonDev",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.bencloward.com/resources.shtml",
+    "title": "Ben Cloward's resources",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/community/learning/tutorials/K8Pe/getting-started-with-python-in-unreal-engine",
+    "title": "Tuatara: Getting started with Python in Unreal Engine",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://github.com/Tuatara-VFX/getting-started-python-ue",
+    "title": "project repository",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://github.com/AlexQuevillon/UnrealPythonLibrary",
+    "title": "Alex Quevillon: UnrealPythonLibrary",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/playlist?list=PLBLmKCAjA25Br8cOVzUroqi_Nwipg-IdP",
+    "title": "Python in UE4 series",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.cgmasteracademy.com/showcase/compositing-lighting",
+    "title": "CGMA catalog",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=5_PM63_oFH0",
+    "title": "CGMA's Python course preview",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.thegnomonworkshop.com/workshops/master-rigging-python-scripting-in-maya",
+    "title": "Gnomon Workshop: Master Rigging & Python Scripting in Maya",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.fxphd.com/courses/",
+    "title": "fxphd catalog",
+    "origin": [
+      "PrepNotes/Research_Background.html"
+    ]
+  },
+  {
+    "url": "https://www.udemy.com/course/unreal-5-blueprint-tools-for-artists/",
+    "title": "Unreal 5 Blueprint Tools for Artists, by Thomas Harle",
+    "origin": [
+      "PrepNotes/Research_Background.html",
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python?application_version=5.7",
+    "title": "Epic's Python documentation",
+    "origin": [
+      "PrepNotes/Research_Background.html",
+      "PrepNotes/Bridge_and_UX.html"
+    ]
+  },
+  {
+    "url": "https://help.autodesk.com/cloudhelp/2024/ENU/Maya-Interoperability/files/GUID-6CCE943A-2ED4-4CEE-96D4-9CB19C28F4E0.htm",
+    "title": "Autodesk FBX export commands",
+    "origin": [
+      "PrepNotes/Bridge_and_UX.html"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7",
+    "title": "UE5.7 AssetImportTask",
+    "origin": [
+      "PrepNotes/Bridge_and_UX.html"
+    ]
+  },
+  {
+    "url": "https://help.autodesk.com/cloudhelp/2025/ENU/UnrealLiveLink/files/UnrealLiveLink_exporting_to_unreal_html.html",
+    "title": "Send to Unreal explanation",
+    "origin": [
+      "PrepNotes/Bridge_and_UX.html"
+    ]
+  },
+  {
+    "url": "https://www.gdcvault.com/play/1020642/Technical-Artist-Bootcamp-User-Experience",
+    "title": "Technical Artist Bootcamp: User Experience Design Applied to Technical Art",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.gdcvault.com/play/1026441/Tools-Tutorial-Day-The-System",
+    "title": "The System of Tools: Reducing Frustration in a Daily Workflow",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://media.gdcvault.com/gdc2018/presentations/Jodie_Azhar_ProductionValuesImproving.pdf#page=32",
+    "title": "Technical Artist Bootcamp: Production Values: Improving Quality, Longevity and Scalability",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://media.gdcvault.com/gdceurope2013/Presentations/824221DavidLightbrown.pdf",
+    "title": "The User Experience of Game Development Tools",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/user-story-mapping/",
+    "title": "Mapping User Stories in Agile",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/ux-user-stories/",
+    "title": "Accounting for UX Work with User Stories in Agile Projects",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/paper-prototyping/",
+    "title": "Paper Prototyping: Getting User Data Before You Code",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/usability-testing-101/",
+    "title": "Usability Testing 101",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/parallel-and-iterative-design/",
+    "title": "Parallel & Iterative Design",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/mental-models/",
+    "title": "Mental Models",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/recognition-and-recall/",
+    "title": "Memory Recognition and Recall in User Interfaces",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://hci.stanford.edu/publications/2010/parallel-prototyping/ParallelPrototyping2010-submitted.pdf",
+    "title": "Parallel Prototyping Leads to Better Design Results, More Divergence, and Increased Self-Efficacy",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://doi.org/10.3758/BF03195514",
+    "title": "Beyond the five-user assumption: Benefits of increased sample sizes in usability testing",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://developer.apple.com/videos/play/wwdc2026/250/",
+    "title": "Principles of great design",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://developer.apple.com/videos/play/wwdc2017/802/",
+    "title": "Essential Design Principles",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://developer.apple.com/design/human-interface-guidelines/feedback",
+    "title": "Feedback · Human Interface Guidelines",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://help.figma.com/hc/en-us/articles/360039823894-Create-and-manage-prototype-flows",
+    "title": "Create and manage prototype flows",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/visibility-system-status/",
+    "title": "Status",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/error-message-guidelines/",
+    "title": "Errors",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/gestalt-proximity/",
+    "title": "Proximity",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/usability-heuristics-complex-applications/",
+    "title": "Complex",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/documentation/fortnite/fortnite-tools-mode-in-fortnite?lang=en-US",
+    "title": "Fortnite",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://dev.epicgames.com/documentation/unreal-engine/lyra-geometry-tools-in-unreal-engine",
+    "title": "Lyra",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://developer.microsoft.com/en-us/games/events/gdc/2023/accessible-and-inclusive-developer-tools/",
+    "title": "Access",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.designcouncil.org.uk/resources/the-double-diamond/",
+    "title": "Diamond",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/articles/measure-learnability/",
+    "title": "Learning",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.nngroup.com/copyright-and-reprint-info/",
+    "title": "Copyright",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://doc.qt.io/qtforpython-6/tutorials/",
+    "title": "Qt for Python tutorials",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://doc.qt.io/qtforpython-6.8/overviews/qtwidgets-layout.html",
+    "title": "Qt layout management",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/QLineEdit.html",
+    "title": "QLineEdit input validation",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.udemy.com/course/qt-for-python-pyside6-gui-for-beginners/",
+    "title": "Daniel Gakwaya: Qt for Python fundamentals · 12h 1m",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.linkedin.com/learning/ux-design-6-paper-prototyping",
+    "title": "Chris Nodder: Paper Prototyping · 24m",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.linkedin.com/learning/ux-foundations-usability-testing",
+    "title": "Chris Nodder: Usability Testing · 1h 29m",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.qt.io/academy/course-catalog",
+    "title": "Qt Academy course catalog",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.udemy.com/course/unreal-engine-creating-widgets-for-ui/",
+    "title": "Unreal Engine: Creating Widgets for UI · 3h 31m",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.udemy.com/course/unreal-engine-5-blueprint-prefabs-editor-utility-widgets/",
+    "title": "Automation using Editor Utility Widgets · 6h 51m",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  },
+  {
+    "url": "https://www.udemy.com/course/unreal-materials/",
+    "title": "Unreal Materials: Build Real Shader Effects · 3h 10m",
+    "origin": [
+      "ProductionHandoff20261013/deck_handoff.json"
+    ]
+  }
+]

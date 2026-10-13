@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-13",
+  "tool": "image_gen.imagegen",
+  "prompt": "Use case: illustration-story. Asset type: one transparent teaching-slide illustration for Week 7 User stories. Primary request: show the human purpose of game-asset tooling: an environment artist judging a revised prop in its scene. Reference image is solely course style guidance: restrained flat colors, dark navy outlines, clear silhouette. Do not reproduce the four badges, any labels or the slide layout. Subject: an adult environment artist crouches beside a small tabletop-style game-environment diorama containing one simple stone doorway and a mounted lantern. The artist studies the lantern and its relationship to the doorway, holding a small sketch of that same lantern. Focus on thoughtful artistic inspection, not operating machinery. One coherent compact scene in three-quarter perspective, artist on left and diorama on right. The lantern is the focal point; only a few simple surrounding stones and one small crate. Style: polished flat editorial illustration, confident dark navy outlines #0A4054, restrained teal #029990, warm muted wood and skin tones, clean shapes, modest details. Genuine alpha transparent background with generous clear margins; no floor plane extending across canvas, no cast drop shadow. No text, no UI, no logos, no arrows, no glowing effects, no lenses or badges. This is conceptual art illustrating an artist's goal, not evidence of a software reimport or a before/after comparison. Wide 3:2 composition, readable at half-slide size.",
+  "reference": "Course/Visuals/Reference/week1-slide-82.jpg",
+  "original": "C:/Users/antho/.codex/generated_images/01a133fd-2261-7193-8c22-0032d9f5c61f/exec-cf76998b-769c-4e27-bf37-151efbf71550.png",
+  "transparent_background": true,
+  "calls": 1,
+  "edits": "None"
+}

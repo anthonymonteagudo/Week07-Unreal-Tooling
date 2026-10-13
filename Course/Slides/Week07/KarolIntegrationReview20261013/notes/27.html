@@ -1,0 +1,447 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>27 Remote debugging with VS Code and debugpy · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-27">Return to audit</a><a href="26.html">Previous lesson</a> <a href="29.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/05%20Developing%20Code%20More%20Efficiently/27%20Remote%20debugging%20with%20VS%20Code%20and%20debugpy.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/05%20Developing%20Code%20More%20Efficiently/27%20Remote%20debugging%20with%20VS%20Code%20and%20debugpy%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>27 Remote debugging with VS Code and debugpy</h1><p>Installation and attach configuration in copyable form</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Remote Debugging with VS Code and debugpy — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/05%20Developing%20Code%20More%20Efficiently/27%20Remote%20debugging%20with%20VS%20Code%20and%20debugpy.md">Original notes</a></p>
+<p>Attach VS Code to Unreal&#39;s Python interpreter to pause at breakpoints, step through execution, and inspect variables. The course packages <code>debugpy</code> in a project plugin so its installation can be shared and enabled separately from other debugger packages.</p>
+<h2>Inspect Unreal&#39;s debugging helper</h2>
+<p>Open <code>PythonScriptPlugin/Content/Python/debugpy_unreal.py</code> in the engine installation. It contains the helper functions and an example attach configuration. Add the project&#39;s <code>Content/Python</code> folder to the VS Code workspace as well.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012181049.png" alt="Course screenshot: Pasted image 20261012181049.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012181145.png" alt="Course screenshot: Pasted image 20261012181145.png"></p>
+<h2>Create a plugin for the package</h2>
+<p>In <strong>Edit → Plugins → Add</strong>, create a content-only plugin such as <code>DebugpyPythonPackage</code>. Enable it and optionally place it in the Scripting category.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012182227.png" alt="Course screenshot: Pasted image 20261012182227.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012182241.png" alt="Course screenshot: Pasted image 20261012182241.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012182910.png" alt="Course screenshot: Pasted image 20261012182910.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012182940.png" alt="Course screenshot: Pasted image 20261012182940.png"></p>
+<p>Enable <strong>Show Plugin Content</strong>, find the plugin, and open its content directory in Explorer. Create <code>Content/Python</code> inside the plugin and copy that path.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183115.png" alt="Course screenshot: Pasted image 20261012183115.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183135.png" alt="Course screenshot: Pasted image 20261012183135.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183213.png" alt="Course screenshot: Pasted image 20261012183213.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183329.png" alt="Course screenshot: Pasted image 20261012183329.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183354.png" alt="Course screenshot: Pasted image 20261012183354.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183446.png" alt="Course screenshot: Pasted image 20261012183446.png"></p>
+<h2>Install with Unreal&#39;s interpreter</h2>
+<p>In Unreal, obtain the interpreter path with <code>unreal.get_interpreter_executable_path()</code>. Use that interpreter to ensure pip is present, then install <code>debugpy</code> into the plugin&#39;s Python directory with <code>pip install --target</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183554.png" alt="Course screenshot: Pasted image 20261012183554.png"></p>
+<h2>Installation and attach configuration in copyable form</h2>
+<p>In Unreal, obtain the interpreter path with <code>unreal.get_interpreter_executable_path()</code>. In a <strong>PowerShell terminal</strong>, use that path and the plugin folder you created:</p>
+<pre><code class="language-powershell">&amp; &#39;C:/Path/To/Unreal/Python/python.exe&#39; -m ensurepip
+&amp; &#39;C:/Path/To/Unreal/Python/python.exe&#39; -m pip install --target &#39;C:/MyProject/Plugins/DebugPy/Content/Python&#39; debugpy
+</code></pre>
+<p>Enable the plugin and restart Unreal. Import <code>debugpy</code> to check discovery, then follow the installed <code>debugpy_unreal.py</code> helper&#39;s instructions. The lesson calls <code>debugpy_unreal.start()</code> inside Unreal and attaches from VS Code; waiting for attachment can make the editor appear frozen.</p>
+<p>This is the course-style <code>.vscode/launch.json</code> structure with machine-specific paths replaced. The historical extension uses <code>&quot;type&quot;: &quot;python&quot;</code>; use the attach type generated by your installed VS Code debugger if it differs.</p>
+<pre><code class="language-json">{
+  &quot;version&quot;: &quot;0.2.0&quot;,
+  &quot;configurations&quot;: [{
+    &quot;name&quot;: &quot;Unreal Engine Python&quot;,
+    &quot;type&quot;: &quot;python&quot;,
+    &quot;request&quot;: &quot;attach&quot;,
+    &quot;connect&quot;: {&quot;host&quot;: &quot;localhost&quot;, &quot;port&quot;: 5678},
+    &quot;pathMappings&quot;: [
+      {&quot;localRoot&quot;: &quot;C:/MyProject/Content/Python&quot;, &quot;remoteRoot&quot;: &quot;C:/MyProject/Content/Python&quot;},
+      {&quot;localRoot&quot;: &quot;C:/UE/Engine/Plugins/Experimental/PythonScriptPlugin/Content/Python&quot;,
+       &quot;remoteRoot&quot;: &quot;C:/UE/Engine/Plugins/Experimental/PythonScriptPlugin/Content/Python&quot;}
+    ],
+    &quot;redirectOutput&quot;: true,
+    &quot;justMyCode&quot;: false
+  }]
+}
+</code></pre>
+<p>Match the helper&#39;s actual port and map every root whose breakpoints you need. Set a breakpoint in the target script and execute that script in Unreal after attaching. Continue resumes the editor; step-over and variable/call-stack inspection explain the later screenshots.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183656.png" alt="Course screenshot: Pasted image 20261012183656.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183718.png" alt="Course screenshot: Pasted image 20261012183718.png"></p>
+<p>Restart Unreal, verify the plugin is still enabled, and test <code>import debugpy</code>. If the module is missing, check the enabled state and target folder before reinstalling.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183856.png" alt="Course screenshot: Pasted image 20261012183856.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183917.png" alt="Course screenshot: Pasted image 20261012183917.png"></p>
+<p>Keeping different debugger packages in separately enabled plugins helps avoid conflicts between their underlying dependencies.</p>
+<h2>Configure VS Code attachment</h2>
+<p>Use <strong>Run and Debug → Create launch.json → Remote Attach</strong>. Store the configuration in the project or workspace. The recorded helper uses <code>localhost</code> and port <code>5678</code>; use the same port on both sides.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184334.png" alt="Course screenshot: Pasted image 20261012184334.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184547.png" alt="Course screenshot: Pasted image 20261012184547.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184610.png" alt="Course screenshot: Pasted image 20261012184610.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184655.png" alt="Course screenshot: Pasted image 20261012184655.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184727.png" alt="Course screenshot: Pasted image 20261012184727.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184739.png" alt="Course screenshot: Pasted image 20261012184739.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184751.png" alt="Course screenshot: Pasted image 20261012184751.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184858.png" alt="Course screenshot: Pasted image 20261012184858.png"></p>
+<p>Give the configuration a recognizable name. Map the source folders seen by VS Code (<code>localRoot</code>) to the folders used by Unreal (<code>remoteRoot</code>). For this same-machine example, corresponding paths are the same.</p>
+<p>Enable <code>redirectOutput</code> to see editor Python output in VS Code. The lesson sets <code>justMyCode</code> to <code>false</code> so library code can also be inspected. Use the launch configuration format supported by your installed debugger; the screenshots record the course&#39;s configuration.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185015.png" alt="Course screenshot: Pasted image 20261012185015.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185310.png" alt="Course screenshot: Pasted image 20261012185310.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185352.png" alt="Course screenshot: Pasted image 20261012185352.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185533.png" alt="Course screenshot: Pasted image 20261012185533.png"></p>
+<h2>Start and attach</h2>
+<p>In Unreal, import <code>debugpy_unreal</code>, then call <code>debugpy_unreal.start()</code>. The helper waits for the debugger, so the editor can appear frozen until VS Code attaches.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183954.png" alt="Course screenshot: Pasted image 20261012183954.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184250.png" alt="Course screenshot: Pasted image 20261012184250.png"></p>
+<p>Start the saved attach configuration in VS Code and check the debugger-attached message.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185602.png" alt="Course screenshot: Pasted image 20261012185602.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185512.png" alt="Course screenshot: Pasted image 20261012185512.png"></p>
+<h2>Debug a script</h2>
+<p>Set breakpoints in the source file and execute that code from Unreal. The example imports <code>debug_me</code> and stops at its breakpoint.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185647.png" alt="Course screenshot: Pasted image 20261012185647.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185704.png" alt="Course screenshot: Pasted image 20261012185704.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185723.png" alt="Course screenshot: Pasted image 20261012185723.png"></p>
+<p>Use <strong>Step Over</strong> to advance, inspect local variables and the call stack, then <strong>Continue</strong> to let the script finish. Unreal becomes responsive again when execution resumes.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185742.png" alt="Course screenshot: Pasted image 20261012185742.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185806.png" alt="Course screenshot: Pasted image 20261012185806.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185833.png" alt="Course screenshot: Pasted image 20261012185833.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/05%20Developing%20Code%20More%20Efficiently/26%20Working%20with%20dir%28%29%20and%20help%28%29%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/29%20Adding%20Custom%20Menu%20Actions%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012181049.png" alt="Course screenshot: Pasted image 20261012181049.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183954.png" alt="Course screenshot: Pasted image 20261012183954.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012181145.png" alt="Course screenshot: Pasted image 20261012181145.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012182227.png" alt="Course screenshot: Pasted image 20261012182227.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012182241.png" alt="Course screenshot: Pasted image 20261012182241.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012182910.png" alt="Course screenshot: Pasted image 20261012182910.png"></p>
+<p>press Edit:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012182940.png" alt="Course screenshot: Pasted image 20261012182940.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183115.png" alt="Course screenshot: Pasted image 20261012183115.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183135.png" alt="Course screenshot: Pasted image 20261012183135.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183213.png" alt="Course screenshot: Pasted image 20261012183213.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183329.png" alt="Course screenshot: Pasted image 20261012183329.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183354.png" alt="Course screenshot: Pasted image 20261012183354.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183446.png" alt="Course screenshot: Pasted image 20261012183446.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183554.png" alt="Course screenshot: Pasted image 20261012183554.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183656.png" alt="Course screenshot: Pasted image 20261012183656.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183718.png" alt="Course screenshot: Pasted image 20261012183718.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183856.png" alt="Course screenshot: Pasted image 20261012183856.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012183917.png" alt="Course screenshot: Pasted image 20261012183917.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184250.png" alt="Course screenshot: Pasted image 20261012184250.png">
+will freeze, waiting on VS Code debugger </p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184334.png" alt="Course screenshot: Pasted image 20261012184334.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184547.png" alt="Course screenshot: Pasted image 20261012184547.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184610.png" alt="Course screenshot: Pasted image 20261012184610.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184655.png" alt="Course screenshot: Pasted image 20261012184655.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184727.png" alt="Course screenshot: Pasted image 20261012184727.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184739.png" alt="Course screenshot: Pasted image 20261012184739.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184751.png" alt="Course screenshot: Pasted image 20261012184751.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012184858.png" alt="Course screenshot: Pasted image 20261012184858.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185015.png" alt="Course screenshot: Pasted image 20261012185015.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185310.png" alt="Course screenshot: Pasted image 20261012185310.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185352.png" alt="Course screenshot: Pasted image 20261012185352.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185533.png" alt="Course screenshot: Pasted image 20261012185533.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185602.png" alt="Course screenshot: Pasted image 20261012185602.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185512.png" alt="Course screenshot: Pasted image 20261012185512.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185647.png" alt="Course screenshot: Pasted image 20261012185647.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185704.png" alt="Course screenshot: Pasted image 20261012185704.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185723.png" alt="Course screenshot: Pasted image 20261012185723.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185742.png" alt="Course screenshot: Pasted image 20261012185742.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185806.png" alt="Course screenshot: Pasted image 20261012185806.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012185833.png" alt="Course screenshot: Pasted image 20261012185833.png"></p>
+<p>Working without a debugger can be a real struggle.</p>
+<p>Debugger is a tool that lets you execute code line by line, stop at desired moment, and also view</p>
+<p>variable values.</p>
+<p>While it is a very basic tool that is easy to learn, debugging has way more to it and learning to debug</p>
+<p>efficiently may take you some time.</p>
+<p>I really advise you to find some videos on this topic on YouTube, or maybe find some articles, because</p>
+<p>I will mostly focus on those who already debugged something before, but struggle in unreal because</p>
+<p>unreal doesn&#39;t have built in debugger for Python.</p>
+<p>And that means that we have to use another solution and connect to a so-called debugging server before</p>
+<p>we go to this debugging server topic.</p>
+<p>I have to mention that my VS code workspace has only two folders.</p>
+<p>One of them is a Python script plugin directory, and you can find it in your engine installation path.</p>
+<p>Slash engine slash plugins slash experimental.</p>
+<p>And the other folder is just my project slash content slash Python.</p>
+<p>Let&#39;s go to this Python script plugin, then content Python and debug Pi unreal.</p>
+<p>This is a very small file with some support for remote debugging for VS code made by epic.</p>
+<p>We have some steps with setup and we will go one by one.</p>
+<p>First we should import debug py and real into our engine.</p>
+<p>However, the second step says that we should install some module.</p>
+<p>So what is going on?</p>
+<p>Epic made a very simple support that requires another module that is widely used across the world for</p>
+<p>remote debugging.</p>
+<p>This module is called debug Pi, and if we scroll down we will see that this that it is just installed</p>
+<p>with a single pip command.</p>
+<p>This command installs the module directly into our Python interpreter files of our engine.</p>
+<p>I don&#39;t advise this approach to be honest.</p>
+<p>However, it will work for most of you.</p>
+<p>So what is my opinion and why do I dislike this approach?</p>
+<p>If you do it this way, you will modify your engine files directly.</p>
+<p>That means that you will affect.</p>
+<p>The whole instance of your engine if you have multiple projects.</p>
+<p>That your same engine instance, they all will be affected on your machine.</p>
+<p>However, at the same time, it doesn&#39;t mean that it is easy to share with other projects for users</p>
+<p>who use various number of engine instances or just work, you know, on different machines.</p>
+<p>So we shouldn&#39;t play directly with engine files.</p>
+<p>We may break something.</p>
+<p>And what is more, not everyone downloads those files from some git or perforce repository.</p>
+<p>People just install engines themselves so your changes will not be reflected on their machines.</p>
+<p>If you had a plugin, you would be able to share it and they will get the module without any additional</p>
+<p>work or even rights to be able to run the command.</p>
+<p>And lastly, there is probably the most important thing.</p>
+<p>This video focuses on VS code debugging.</p>
+<p>However, you may be using some different IDE, and I even have another video on debugging those tools</p>
+<p>with PyCharm.</p>
+<p>While VSCode uses debug py module, PyCharm uses so-called Pydev PyCharm module.</p>
+<p>They do almost the same, but they are a bit different.</p>
+<p>However, under the hood they both use Pi theft module, but they may use it with slight modifications</p>
+<p>or just in different versions.</p>
+<p>And that means that if you install both of those to the engine, you will very likely be getting some</p>
+<p>crashes due to mis compatibility.</p>
+<p>If we ship both modules as plugins to the engine, you will be able to disable the one you don&#39;t need,</p>
+<p>and every one of PyCharm and VS code users will be able to cooperate.</p>
+<p>So we are not going to do it this way.</p>
+<p>We will make a plugin ourselves.</p>
+<p>So head to your engine.</p>
+<p>And now left top corner edit tab and navigate to plugins.</p>
+<p>On the left side there is an add button.</p>
+<p>Click on it and let&#39;s pick content only.</p>
+<p>Don&#39;t be surprised if you have more options to choose from than me.</p>
+<p>I have only a single one and that is fine because I haven&#39;t compiled my engine myself.</p>
+<p>Let&#39;s pick some name.</p>
+<p>Make it straightforward like debug P.</p>
+<p>Python package and author is tech Art corner.</p>
+<p>Create plugin.</p>
+<p>And once it has been created, you can find it in the project other category.</p>
+<p>Make sure it is enabled and you can also change category.</p>
+<p>It is assigned to.</p>
+<p>So click on edit.</p>
+<p>Go to the category tab and type something like scripting.</p>
+<p>Just make sure not to make any typo.</p>
+<p>That&#39;s good.</p>
+<p>Okay.</p>
+<p>And now it&#39;s in the scripting category.</p>
+<p>Great.</p>
+<p>Now what we have to do is to go to content browser and find the plugin.</p>
+<p>I can see it under the plugins tab here.</p>
+<p>However, it is not visible for you.</p>
+<p>You probably just have to go to settings on the right side of the content browser and enable show plugin</p>
+<p>content.</p>
+<p>How packed our directory.</p>
+<p>Let&#39;s open it in explorer.</p>
+<p>So right click Show in Explorer.</p>
+<p>And create a new folder called Python.</p>
+<p>It is content slash Python directory.</p>
+<p>And that means that.</p>
+<p>If anytime I put some Python files or modules here, my editor Python interpreter will be able to find</p>
+<p>it, which is just great.</p>
+<p>We only have to install Python modules here and we will be able to use them.</p>
+<p>So make sure to copy this path and save it somewhere in some notepad or a sticky note.</p>
+<p>So you can set this directory as our installation folder later.</p>
+<p>And now let&#39;s get our Python interpreter path.</p>
+<p>Because if we want to run some installation process, we should use the interpreter we are going to</p>
+<p>use our module with.</p>
+<p>So back to unreal then to output log.</p>
+<p>And first thing we want to do is import unreal.</p>
+<p>Second thing we want to do is just call a function called get interpreter.</p>
+<p>Executable path.</p>
+<p>And if you are in Python mode, it will be printed straight to the console after hitting enter.</p>
+<p>Copy this path as well.</p>
+<p>And now let&#39;s open some command line.</p>
+<p>We will use command line to install our module.</p>
+<p>However, first we have to make sure that it can be installed with something.</p>
+<p>That something is a Python package manager.</p>
+<p>How do we make sure it is present?</p>
+<p>First, paste the path to your copied python and make sure you are using double quotes.</p>
+<p>Because if you have any whitespace in your path, it will break without those quotes.</p>
+<p>Then does m two specify a module we are going to run?</p>
+<p>And the module we have to run is called answer pip.</p>
+<p>My output says that requirement has already been satisfied.</p>
+<p>In your case, if you had something to be installed, output may be a little different.</p>
+<p>Now as we are sure that we have Pip installed.</p>
+<p>We just.</p>
+<p>Have to call Python dash m again, but instead ensure pip we are just running pip module, then install</p>
+<p>command.</p>
+<p>And before you type name of the module, you have to type a target directory.</p>
+<p>So dash dash target equals and now we paste our.</p>
+<p>Content Python folder of the plugin, but remember about using double quotes.</p>
+<p>Then just a whitespace and the debug pie, which is the name of the module to be installed, hit enter.</p>
+<p>Some installation process is running.</p>
+<p>And our folder has been populated.</p>
+<p>We can see if it works after restarting the engine.</p>
+<p>Engine restarted.</p>
+<p>Great.</p>
+<p>I will import debug bar just to make sure there is no errors.</p>
+<p>I have hit enter and module.</p>
+<p>It is not available.</p>
+<p>So let&#39;s go to Edit plugins and make sure that our plugin is enabled.</p>
+<p>Because sometimes.</p>
+<p>Even though we added it and it was enabled, the engine settings could have not been saved.</p>
+<p>So now we have to restart it once more.</p>
+<p>And I hope everything will be fine.</p>
+<p>I am back.</p>
+<p>Let&#39;s import debug Pi again.</p>
+<p>And it works flawlessly so we can get back to VS code and move to another step.</p>
+<p>The debug pipe has been installed, so maybe let&#39;s not skip the first step which was import debug pie</p>
+<p>unreal.</p>
+<p>And let&#39;s type this line in editor.</p>
+<p>Okay.</p>
+<p>Import it.</p>
+<p>Go back to VS code.</p>
+<p>And what is the third step?</p>
+<p>Run, debug, py and restart.</p>
+<p>Let&#39;s copy this line.</p>
+<p>To begin debug session.</p>
+<p>Okay, that means that anvil will start trying to connect to our debug server.</p>
+<p>Let&#39;s type it here.</p>
+<p>And because it is trying to connect, it has frozen.</p>
+<p>This is expected.</p>
+<p>It&#39;s not a bug, it is just waiting for us to run the debugger in VS code.</p>
+<p>Back to visual.</p>
+<p>Attach your debugger from VS code.</p>
+<p>See Launch.json configuration below.</p>
+<p>What is going on?</p>
+<p>Visual Studio Code uses a launch.json files to describe a lounge or debug configurations we have.</p>
+<p>We probably don&#39;t have such a file yet, so we have to create it ourselves.</p>
+<p>To do it, go to Run and debug tab on the left side or just press Ctrl shift D.</p>
+<p>And once you are here, press create Launch.json file.</p>
+<p>Now we have some dropdown.</p>
+<p>We have to decide where our Json will be put to.</p>
+<p>First option is that Python script plugin directory.</p>
+<p>But I don&#39;t want to modify any external plugin.</p>
+<p>And this is made by epic.</p>
+<p>So not the first thing.</p>
+<p>Second thing here.</p>
+<p>Is Python directory in my project.</p>
+<p>That suits me well.</p>
+<p>But there is also a workspace.</p>
+<p>This is a VSCode workspace, and it is a good choice for those who work on those changes locally and</p>
+<p>don&#39;t want to share the Json.</p>
+<p>However, in my case, the important thing is that I don&#39;t really have a VS code workspace.</p>
+<p>Prepared and I don&#39;t want to.</p>
+<p>So let me start it in my project directory.</p>
+<p>Which is the middle option.</p>
+<p>Now there is another dropdown and we have to pick what kind of lounge configuration do we need.</p>
+<p>We want to connect to a debug server.</p>
+<p>So let&#39;s pick remote attach.</p>
+<p>Where I asked about the host.</p>
+<p>It is our machine, so localhost and port.</p>
+<p>Let&#39;s go with the default.</p>
+<p>Some Json was created and we already have some run and debug configuration available here, but it&#39;s</p>
+<p>not ready.</p>
+<p>The debug pay and real file has some example.</p>
+<p>So let me move the Json file to the right side so we can compare our stuff with the example.</p>
+<p>They advise us to change the name of the configuration to Unreal Engine Python.</p>
+<p>That is a good advice.</p>
+<p>We will be able to see what we are running in VS code and we will make less mistakes.</p>
+<p>So let&#39;s change the name.</p>
+<p>Type request connection.</p>
+<p>These things are all the same.</p>
+<p>However.</p>
+<p>Path mappings.</p>
+<p>This is something interesting.</p>
+<p>Our debugger doesn&#39;t really know where our files are stored, and the debugger was prepared to be able</p>
+<p>to connect to a remote machine, so thats why.</p>
+<p>The mappings have both local root and remote root.</p>
+<p>Local means that this is the code we have on our machine, and we use it for putting breakpoints.</p>
+<p>Remote route is code of the process that is being executed, and having both of those means that we</p>
+<p>have some kind of feeling like we&#39;re working on that remote machine directly.</p>
+<p>So in those path mappings, we should put all the folders we have in our workspace.</p>
+<p>But I mean route folders, which is the Python script plugin.</p>
+<p>Maybe go directly with content.</p>
+<p>Python.</p>
+<p>And our project folder slash content slash Python.</p>
+<p>So.</p>
+<p>I have it prepared already and I am not going with this workspace folder.</p>
+<p>I will go with direct paths.</p>
+<p>However, if your code is centralized in some route, you can use so-called workspace folder and make</p>
+<p>some relative paths.</p>
+<p>But for me.</p>
+<p>This is a path that looks like this.</p>
+<p>Then another entry.</p>
+<p>As my own project.</p>
+<p>Let me add it here.</p>
+<p>And we are almost done.</p>
+<p>We have to look for more differences between Epic&#39;s example and our configuration.</p>
+<p>They have something called redirect output.</p>
+<p>That means that whatever is printed into Editors Console will be also visible in VS code.</p>
+<p>That&#39;s great.</p>
+<p>Let&#39;s just paste it here.</p>
+<p>And this just my code property means, as tooltip says, that we are not able to debug external libraries</p>
+<p>and I don&#39;t like it, so let me change it to false.</p>
+<p>Now, as you may remember, our engine is frozen.</p>
+<p>You cannot really interact with it.</p>
+<p>That is because it&#39;s waiting for the connection.</p>
+<p>And the last step we have.</p>
+<p>Besides saving this, Jason is exactly starting the connection.</p>
+<p>So get back to Run and debug tab.</p>
+<p>As you can see, our configuration name has already changed.</p>
+<p>If it hasn&#39;t changed for you, you may just have to save the Json or just run it once and it will update</p>
+<p>and let&#39;s.</p>
+<p>Run and debug.</p>
+<p>We have debug console that says that debugger has been attached, and a new window for interacting with</p>
+<p>a debugger, and that window will be handy very soon.</p>
+<p>The fifth step in this document says that we can use debug pi and dot breakpoint function to.</p>
+<p>Stop the debugger on the next statement executed.</p>
+<p>However, my take on it is to completely forget about it.</p>
+<p>If you have some code that you want to debug in your tool, just go to this code like this.</p>
+<p>Debug file.</p>
+<p>And put breakpoints there.</p>
+<p>When this code will be executed, a breakpoint will be hit.</p>
+<p>So let&#39;s test it.</p>
+<p>We have debug underscore file and we have to import it into unreal.</p>
+<p>Import debug me.</p>
+<p>Editor is frozen.</p>
+<p>That&#39;s because we are debugging.</p>
+<p>And here in VS code we have just hit the breakpoint.</p>
+<p>If you don&#39;t know shortcuts for using the debugger, just hover over those buttons.</p>
+<p>Continuous F5.</p>
+<p>Moving into ten x code line is f ten, and you can also step into some function or just step out of</p>
+<p>it.</p>
+<p>You can restart debugging or even disconnect the debugger.</p>
+<p>Let me step over.</p>
+<p>Then once again.</p>
+<p>So we are in this inner method.</p>
+<p>And maybe once again and once again.</p>
+<p>And we have initialized some variable.</p>
+<p>Those variables will be visible on the left panel in variables tab.</p>
+<p>You just have to unfold this local tab.</p>
+<p>As you can see, the values are updating and once we step out of these variables scope, they disappear.</p>
+<p>We also have some callstack that tells us where our code was called from.</p>
+<p>And the call stack is something very, very important when it comes to debugging exceptions.</p>
+<p>But delving deep into that would completely change the topic of this video.</p>
+<p>So now let me just hit continue in the debugger.</p>
+<p>Get back to unreal.</p>
+<p>As you can see, it has been unfrozen.</p>
+<p>And let&#39;s summarize what we learned today.</p>
+<p>We have learned how to debug our tools remotely using VS code.</p>
+<p>And we have learned to create a plugin with desired Python module.</p>
+<p>If you are a PyCharm user, make sure to check out the other video in my course.</p>
+<p>And also, if you don&#39;t want to create those plugins yourself, the Udemy course has them in their content,</p>
+<p>but if you want them to be up to date, you will have to do it yourself.</p>
+<p>Because I am not able to track every release of debug py or py PyCharm module.</p>
+<p>That&#39;s all for today.</p>
+<p>I hope you liked the video and see you in the next one.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -43,6 +43,40 @@
+ In Unreal, obtain the interpreter path with `unreal.get_interpreter_executable_path()`. Use that interpreter to ensure pip is present, then install `debugpy` into the plugin's Python directory with `pip install --target`.
+ 
+ ![[Pasted image 20261012183554.png]]
++
++## Installation and attach configuration in copyable form
++
++In Unreal, obtain the interpreter path with `unreal.get_interpreter_executable_path()`. In a **PowerShell terminal**, use that path and the plugin folder you created:
++
++```powershell
++&amp; 'C:/Path/To/Unreal/Python/python.exe' -m ensurepip
++&amp; 'C:/Path/To/Unreal/Python/python.exe' -m pip install --target 'C:/MyProject/Plugins/DebugPy/Content/Python' debugpy
++```
++
++Enable the plugin and restart Unreal. Import `debugpy` to check discovery, then follow the installed `debugpy_unreal.py` helper's instructions. The lesson calls `debugpy_unreal.start()` inside Unreal and attaches from VS Code; waiting for attachment can make the editor appear frozen.
++
++This is the course-style `.vscode/launch.json` structure with machine-specific paths replaced. The historical extension uses `&quot;type&quot;: &quot;python&quot;`; use the attach type generated by your installed VS Code debugger if it differs.
++
++```json
++{
++  &quot;version&quot;: &quot;0.2.0&quot;,
++  &quot;configurations&quot;: [{
++    &quot;name&quot;: &quot;Unreal Engine Python&quot;,
++    &quot;type&quot;: &quot;python&quot;,
++    &quot;request&quot;: &quot;attach&quot;,
++    &quot;connect&quot;: {&quot;host&quot;: &quot;localhost&quot;, &quot;port&quot;: 5678},
++    &quot;pathMappings&quot;: [
++      {&quot;localRoot&quot;: &quot;C:/MyProject/Content/Python&quot;, &quot;remoteRoot&quot;: &quot;C:/MyProject/Content/Python&quot;},
++      {&quot;localRoot&quot;: &quot;C:/UE/Engine/Plugins/Experimental/PythonScriptPlugin/Content/Python&quot;,
++       &quot;remoteRoot&quot;: &quot;C:/UE/Engine/Plugins/Experimental/PythonScriptPlugin/Content/Python&quot;}
++    ],
++    &quot;redirectOutput&quot;: true,
++    &quot;justMyCode&quot;: false
++  }]
++}
++```
++
++Match the helper's actual port and map every root whose breakpoints you need. Set a breakpoint in the target script and execute that script in Unreal after attaching. Continue resumes the editor; step-over and variable/call-stack inspection explain the later screenshots.
+ 
+ ![[Pasted image 20261012183656.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

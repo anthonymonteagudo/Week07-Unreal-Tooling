@@ -1,0 +1,10 @@
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+*.log
+__pycache__/
+*.pyc
+.venv/
+.deps/
+.vscode/unreal.local.json

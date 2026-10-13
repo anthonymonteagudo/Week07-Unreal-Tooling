@@ -1,0 +1,308 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>17 Post Import Actions Using ImportSubsystem · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-17">Return to audit</a><a href="16.html">Previous lesson</a> <a href="18.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/17%20Post%20Import%20Actions%20Using%20ImportSubsystem.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/17%20Post%20Import%20Actions%20Using%20ImportSubsystem%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>17 Post Import Actions Using ImportSubsystem</h1><p>Reimport marker and callback lifetime</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Post Import Actions with ImportSubsystem — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/17%20Post%20Import%20Actions%20Using%20ImportSubsystem.md">Original notes</a></p>
+<p>Use <code>ImportSubsystem</code> when you need a small custom callback or want to manage import processing directly. Register the callback from <code>init_unreal.py</code> so it is available each editor session.</p>
+<h2>Choose the import event</h2>
+<p>The course covers post-import, post-LOD-import, pre-import, and reimport events. Post-import can run for both a first import and a reimport; it does not mean “first import only.”</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011171028.png" alt="Course screenshot: Pasted image 20261011171028.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011171048.png" alt="Course screenshot: Pasted image 20261011171048.png"></p>
+<h2>Register a callback with the correct signature</h2>
+<p>Get the subsystem with <code>unreal.get_editor_subsystem(unreal.ImportSubsystem)</code>, then register a callable on <code>on_asset_post_import</code>. The demonstration keeps a module-level subsystem reference to avoid the callback-lifetime problem encountered during development.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011171840.png" alt="Course screenshot: Pasted image 20261011171840.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011171801.png" alt="Course screenshot: Pasted image 20261011171801.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011171901.png" alt="Course screenshot: Pasted image 20261011171901.png"></p>
+<p>The post-import callback receives <code>factory</code> and <code>created_object</code>. The factory can be <code>None</code>, and the documented created object can be null when import fails; check the object before using it.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172201.png" alt="Course screenshot: Pasted image 20261011172201.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172144.png" alt="Course screenshot: Pasted image 20261011172144.png"></p>
+<p>Call the registration function from <code>init_unreal.py</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172309.png" alt="Course screenshot: Pasted image 20261011172309.png"></p>
+<h2>Test import and reimport</h2>
+<p>Drag in a test texture, inspect the callback log, then reimport it. The log shows the callback running in both cases.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172424.png" alt="Course screenshot: Pasted image 20261011172424.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172454.png" alt="Course screenshot: Pasted image 20261011172454.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172608.png" alt="Course screenshot: Pasted image 20261011172608.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172703.png" alt="Course screenshot: Pasted image 20261011172703.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172906.png" alt="Course screenshot: Pasted image 20261011172906.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011173331.png" alt="Course screenshot: Pasted image 20261011173331.png"></p>
+<h2>Track whether processing has run</h2>
+<p>Read the <code>importer_rules_applied</code> metadata tag and compare its string value with <code>&quot;True&quot;</code>. After processing, set the tag to <code>&quot;True&quot;</code>. This distinguishes previously processed assets from first-time processing; it is a stored marker, not a separate first-import event.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011185605.png" alt="Course screenshot: Pasted image 20261011185605.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011185745.png" alt="Course screenshot: Pasted image 20261011185745.png"></p>
+<h2>Move tagged meshes</h2>
+<p>Reuse the <code>FBX.mesh_type</code> lookup and folder mapping from lesson 16. Build a destination that preserves the asset name, then move it with <code>rename_asset()</code>. Add an early return for objects that are not <code>unreal.StaticMesh</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011185948.png" alt="Course screenshot: Pasted image 20261011185948.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011190319.png" alt="Course screenshot: Pasted image 20261011190319.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011190448.png" alt="Course screenshot: Pasted image 20261011190448.png"></p>
+<p>Import a texture to confirm it is skipped, then import the example mesh to confirm its destination and metadata.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011190723.png" alt="Course screenshot: Pasted image 20261011190723.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011191004.png" alt="Course screenshot: Pasted image 20261011191004.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011190848.png" alt="Course screenshot: Pasted image 20261011190848.png"></p>
+<h2>Prevent duplicate registration</h2>
+<p>Registering the same callback repeatedly can run the operation multiple times per import. The example uses a module-level <code>registered_once</code> flag and an early return. Keep registration ownership explicit as the tool grows.</p>
+<h2>Reimport marker and callback lifetime</h2>
+<p>The <code>importer_rules_applied</code> metadata value records prior processing. In the demonstrated callback, finding the marker logs that this is a reimport; it <strong>does not return early</strong>, so the move logic still runs. If the intended rule is first-import-only, an explicit early return is a separate behavior change.</p>
+<p>The <code>registered_once</code> flag prevents another registration only while that module&#39;s state survives. Reloading a module that resets the flag can register another callable. Retain the subsystem and callback references, and remove the previous callable when deliberately replacing a registration. The folder mapping in the completed example is <code>environment → Enviro</code>, <code>weapons → Weapons</code>, and <code>deco → Deco</code>; unmatched names should not be assigned a guessed category.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011191154.png" alt="Course screenshot: Pasted image 20261011191154.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011191256.png" alt="Course screenshot: Pasted image 20261011191256.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/16%20ImportRules%20Plugin%20-%20Run%20Custom%20post%20Import%20Action%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/18%20Remove%20Unused%20Assets%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011171028.png" alt="Course screenshot: Pasted image 20261011171028.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011171048.png" alt="Course screenshot: Pasted image 20261011171048.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011171840.png" alt="Course screenshot: Pasted image 20261011171840.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011171801.png" alt="Course screenshot: Pasted image 20261011171801.png"><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011171901.png" alt="Course screenshot: Pasted image 20261011171901.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172201.png" alt="Course screenshot: Pasted image 20261011172201.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172144.png" alt="Course screenshot: Pasted image 20261011172144.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172309.png" alt="Course screenshot: Pasted image 20261011172309.png"></p>
+<p>Test, drag + drop simple test texture:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172424.png" alt="Course screenshot: Pasted image 20261011172424.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172454.png" alt="Course screenshot: Pasted image 20261011172454.png"></p>
+<p>Reimport:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172608.png" alt="Course screenshot: Pasted image 20261011172608.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172703.png" alt="Course screenshot: Pasted image 20261011172703.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011172906.png" alt="Course screenshot: Pasted image 20261011172906.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011173331.png" alt="Course screenshot: Pasted image 20261011173331.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011185605.png" alt="Course screenshot: Pasted image 20261011185605.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011185745.png" alt="Course screenshot: Pasted image 20261011185745.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011185948.png" alt="Course screenshot: Pasted image 20261011185948.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011190319.png" alt="Course screenshot: Pasted image 20261011190319.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011190448.png" alt="Course screenshot: Pasted image 20261011190448.png"></p>
+<p>Final Test:
+Drag + Drop test texture into UE
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011190723.png" alt="Course screenshot: Pasted image 20261011190723.png"></p>
+<p>Drag + Drop test static mesh into UE
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011191004.png" alt="Course screenshot: Pasted image 20261011191004.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011190848.png" alt="Course screenshot: Pasted image 20261011190848.png"></p>
+<p>Manage registration cleanly:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011191154.png" alt="Course screenshot: Pasted image 20261011191154.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011191256.png" alt="Course screenshot: Pasted image 20261011191256.png"></p>
+<p>In previous video we talked about post import actions.</p>
+<p>We created some test asset with custom PHP properties, and then registered our import rule that uses</p>
+<p>that property to move our newly imported asset to a specific folder.</p>
+<p>We used already to use plugin, but it is understandable if you want to create your own callback solution</p>
+<p>tailored to your needs.</p>
+<p>Or maybe you just want to register a single callback without installing any additional code.</p>
+<p>So in this video, we will use unreal import subsystem to achieve exactly what was achieved in past</p>
+<p>video.</p>
+<p>We will first get import subsystem object, then pick one of four available import listeners.</p>
+<p>And finally we will make sure that these callbacks are registered on each editor startup thanks to init</p>
+<p>unreal file.</p>
+<p>According to unreal documentation we have for post import listeners, each listener can have callbacks</p>
+<p>registered, so I will very often call it listener or call it callback.</p>
+<p>But in general I just mean some code that is executed in some specific conditions.</p>
+<p>In our case on post import, there is an asset post import that runs on each import and re-import.</p>
+<p>There is also asset postload import that is fired only after importing new Lod to an asset.</p>
+<p>There is asset pre import which runs before importing, and also asset Re-import that runs on asset</p>
+<p>Re-import as the name suggests.</p>
+<p>The thing is that there is nothing that would run only on import, but not on re-import.</p>
+<p>However, we will get to that later.</p>
+<p>Knowing those four, we can create a simple callback and execute it.</p>
+<p>I will pick post import, then I will just add some print and see what happens.</p>
+<p>When I import or import an asset, I would like to have some method called register import callbacks</p>
+<p>that can be imported and executed.</p>
+<p>So here we have it.</p>
+<p>And I need to access import subsystem.</p>
+<p>And normally I would just get it here.</p>
+<p>I would assign it to variable and I would forget about it.</p>
+<p>But when playing with this code and preparing the tutorial, I discovered that import subsystem variable</p>
+<p>at some point may become inaccessible.</p>
+<p>Our callbacks will no longer work and we will get some errors.</p>
+<p>I think it happens due to garbage collection because the variable we create here.</p>
+<p>Exists only scope of this method, and the solution that worked for me was to use a global variable</p>
+<p>on top of the file so we can.</p>
+<p>Define import subsystem here, and to make sure that the import subsystem from our method sets the one</p>
+<p>defined in the file, we only have to use a global keyword.</p>
+<p>So global import subsystem.</p>
+<p>And that&#39;s it.</p>
+<p>Then we can access our import subsystem and reach property called on asset post import add callable</p>
+<p>which is not hinted by my IDE.</p>
+<p>But you have to trust me.</p>
+<p>We can add callable.</p>
+<p>And here we should add some function.</p>
+<p>I will start defining one and I will call it my post import callback.</p>
+<p>It doesn&#39;t do anything right now, but it will be executed by our listener.</p>
+<p>So we should pass it as an argument and it will be called with some arguments or parameters.</p>
+<p>So we have to make sure that it expects the same arguments that will be passed.</p>
+<p>Let&#39;s go to documentation of on asset post import.</p>
+<p>And because I&#39;m using PyCharm with steps, all I have to do is to middle mouse button on it.</p>
+<p>In VS code it&#39;s probably control click.</p>
+<p>Looks like an asset post import normally returns on asset post import then or something like that.</p>
+<p>If I try middle mouse clicking on it, it doesn&#39;t work for me.</p>
+<p>However, I can search for that name in online documentation.</p>
+<p>And it says that the parameters will be a factory being unreal dot factory object and created object</p>
+<p>which is unreal dot object.</p>
+<p>That&#39;s great.</p>
+<p>So.</p>
+<p>In my code, there will be a factory.</p>
+<p>I will use the same names and real dot factory and we will have created object.</p>
+<p>And that will be unreal.</p>
+<p>That object.</p>
+<p>Good.</p>
+<p>Now we can add some prints.</p>
+<p>And if you want to, you can print the parameters we have.</p>
+<p>So that will be Unreal Factory and the created object.</p>
+<p>I had old name in my pasted code, so let me fix that.</p>
+<p>And now the last thing we have to do is to make this code run on the engine start.</p>
+<p>So let me open init.</p>
+<p>Unreal.</p>
+<p>And let&#39;s copy the name of this method and execute it.</p>
+<p>Of course we have to fix imports.</p>
+<p>That&#39;s done.</p>
+<p>And now let&#39;s start the engine.</p>
+<p>Azure has started, and I have a simple white texture that I will drag and drop.</p>
+<p>We are dropping it here.</p>
+<p>And let&#39;s check the output log.</p>
+<p>The factory is none, but the imported object is a texture 2D.</p>
+<p>Now let&#39;s try re-importing that.</p>
+<p>And get back to output log.</p>
+<p>And we can see that it was executed first here and again here.</p>
+<p>So as you can see, we have a callback that executes on each import and re-import.</p>
+<p>There is also a callback running on Re-import, but nothing that would handle only imports.</p>
+<p>And that is why import rules plugin adds a meta tag to a processed asset.</p>
+<p>And I think that it&#39;s not only a good approach, but also that we can use the same tag name.</p>
+<p>So our own import callback is kinda compatible with import rules.</p>
+<p>If in future you decide to move from your solution to the plugin the next time you re-import something,</p>
+<p>the import a rule will already know that it&#39;s been imported once in the past.</p>
+<p>Let&#39;s get to code and implement that solution.</p>
+<p>But also.</p>
+<p>But also in the meantime I will remove the imported asset and close.</p>
+<p>Unreal because when I modify the code I will have to restart the engine.</p>
+<p>Anyway, let me close init unreal file because it&#39;s no longer needed.</p>
+<p>We already have register call here.</p>
+<p>And let&#39;s get to our callbacks.</p>
+<p>We are going to access meta tags, so I will copy code from the past tutorial which just.</p>
+<p>A science editor asked subsystem to some variable and if we didn&#39;t get it, it returns false.</p>
+<p>But honestly, my code doesn&#39;t return anything, at least not right now.</p>
+<p>So we can also get rid of this boolean.</p>
+<p>Then I would like to call this editor as a subsystem to get desired meta tag.</p>
+<p>First argument is our created object and then name of the property and that is importer.</p>
+<p>Underscore rules applied.</p>
+<p>We have a letter telling us that that should be name object.</p>
+<p>So let&#39;s cast it.</p>
+<p>Let&#39;s create a new one.</p>
+<p>Unreal name.</p>
+<p>And that&#39;s fixed.</p>
+<p>The values that are set as meta tags are always string values.</p>
+<p>So we can try assigning 0 or 1 as a string.</p>
+<p>But also we can just do something like true as a string.</p>
+<p>And also then we can either compare it with a string that looks the same way, or even use eval method</p>
+<p>from Python to get a boolean value.</p>
+<p>In my case I will go with comparison approach.</p>
+<p>So let&#39;s just check if true string is equal to value we got because if that parameter wasn&#39;t set, we</p>
+<p>will just get an empty string.</p>
+<p>And we already have some boolean value.</p>
+<p>So we can assign it to this re-import.</p>
+<p>And that&#39;s done.</p>
+<p>Now we can print if it&#39;s import or not or Re-import.</p>
+<p>So let&#39;s print.</p>
+<p>And I would like to do it in a single line of code.</p>
+<p>So everything fits on the screen.</p>
+<p>So I will just use formatted string with a ternary operator.</p>
+<p>So we&#39;ll print Re-importing.</p>
+<p>And we have to remember about quotation mark.</p>
+<p>A single one we printed if is reimport and else it&#39;s first time import.</p>
+<p>After executing this quick check, we should set the meta tag so it is actually available during check</p>
+<p>in future.</p>
+<p>So.</p>
+<p>Editor.</p>
+<p>Asset subsystem set.</p>
+<p>Metadata tag.</p>
+<p>We pass our object reference which is created object, then unreal name and let&#39;s copy import the rules</p>
+<p>applied name from a line above.</p>
+<p>And let&#39;s add value to true.</p>
+<p>And for now, that&#39;s all we can check if it works correctly.</p>
+<p>So just open unreal and drag and drop the test texture.</p>
+<p>Texture.</p>
+<p>Imported.</p>
+<p>Let&#39;s go to output lock.</p>
+<p>We have first time import in our log.</p>
+<p>We have it here and now let&#39;s right mouse button on it.</p>
+<p>Re-import.</p>
+<p>And we know that it&#39;s re-importing.</p>
+<p>Great.</p>
+<p>So now we can go back to code.</p>
+<p>Also I will close unreal and remove the texture.</p>
+<p>And what I would like to do right now is to bring back the functionality we made with Import Rules plugin.</p>
+<p>It worked by getting a tag from our FBX and moving to a specific folder.</p>
+<p>So I still have that code.</p>
+<p>It is in examples and the Cod corner example.</p>
+<p>Let&#39;s put it on the left side of the screen.</p>
+<p>And the first thing I would like to copy is the dictionary which is metadata tag to folder name mapping.</p>
+<p>Then let&#39;s see what our action that executes the import callback does and it gets a metadata tag.</p>
+<p>With FB mesh type, so let&#39;s copy that.</p>
+<p>Okay.</p>
+<p>We are.</p>
+<p>Not missing anything.</p>
+<p>So now the destination path.</p>
+<p>That&#39;s also fine.</p>
+<p>And asset library rename call that will move the asset to another folder.</p>
+<p>So let&#39;s copy those two lines.</p>
+<p>And also we will probably have to initialize asset library as a variable.</p>
+<p>So let&#39;s copy this line again.</p>
+<p>If you didn&#39;t watch the past video we created an asset.</p>
+<p>And if it was made in blender.</p>
+<p>And if you don&#39;t want to follow that step, you can download the test asset from source files.</p>
+<p>And what happens later during the Re-import is reading metadata tag.</p>
+<p>Then.</p>
+<p>Creating a new path for our file and using rename to modify path.</p>
+<p>Of the asset without changing its name, which results in a move operation.</p>
+<p>The last thing we could do is to limit this callback to specific kind of assets.</p>
+<p>I would like it to be executed only on static meshes, and if I get anything else like texture, it</p>
+<p>will not execute.</p>
+<p>So on top of the file we can make an early exit and it will be if isinstance.</p>
+<p>Then we pass our created object and we check if it is unreal.</p>
+<p>Dot static mesh.</p>
+<p>And return.</p>
+<p>But we also have to reverse the if check because right now we will be executing always on static meshes.</p>
+<p>So let&#39;s just add a node keyword.</p>
+<p>Okay, I think it&#39;s time to test it.</p>
+<p>Let&#39;s open that rail.</p>
+<p>First I will try importing the texture again.</p>
+<p>And I do expect those two lines to be printed, but re-importing or first time import will not be printed</p>
+<p>and also the texture will not be moved anywhere.</p>
+<p>So in unreal.</p>
+<p>Drag and drop.</p>
+<p>And go to output log.</p>
+<p>We have those post import prints.</p>
+<p>But nothing else.</p>
+<p>And now let&#39;s try with example monkey FB.</p>
+<p>Import all.</p>
+<p>We have the same notification we had in the previous video that just says that smoothing group information</p>
+<p>is not available, so that&#39;s not our concern right now.</p>
+<p>And now a new folder enviro is created that contains our mesh.</p>
+<p>And we can right mouse button on it.</p>
+<p>Go to asset Actions show metadata.</p>
+<p>And it not only has that FBX mesh type property, but also importer rules applied set to true exactly</p>
+<p>in a way that was made in rendering soccer solution.</p>
+<p>The last thing is that when you are creating your own callbacks, remember about keeping clean management,</p>
+<p>because the plugin is made in a way that it&#39;s very easy to manage callbacks.</p>
+<p>Also, it is very important to make sure that callbacks are not registered multiple times.</p>
+<p>That means that if you accidentally import a register, import callbacks two times or three times,</p>
+<p>those callbacks will be called many, many times on each import.</p>
+<p>One of the ways of preventing that is to store it in some variable or some singleton.</p>
+<p>So you could create a registered once variable, set it to false.</p>
+<p>And now in our register import callbacks, add it to the global variables.</p>
+<p>And if we have registered it once in the past, we just make an early exit.</p>
+<p>And in all other cases, we set registered once to true.</p>
+<p>So it can&#39;t be executed twice.</p>
+<p>And that&#39;s all.</p>
+<p>I hope you learned something.</p>
+<p>If you are working on your own solution, that&#39;s great, but if you need something simple that is just</p>
+<p>working, just go with the plugin.</p>
+<p>That&#39;s it.</p>
+<p>I hope it was useful.</p>
+<p>If you liked the video, please leave feedback in the course and I hope to see you in the next video.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -78,6 +78,12 @@
+ 
+ Registering the same callback repeatedly can run the operation multiple times per import. The example uses a module-level `registered_once` flag and an early return. Keep registration ownership explicit as the tool grows.
+ 
++## Reimport marker and callback lifetime
++
++The `importer_rules_applied` metadata value records prior processing. In the demonstrated callback, finding the marker logs that this is a reimport; it **does not return early**, so the move logic still runs. If the intended rule is first-import-only, an explicit early return is a separate behavior change.
++
++The `registered_once` flag prevents another registration only while that module's state survives. Reloading a module that resets the flag can register another callable. Retain the subsystem and callback references, and remove the previous callable when deliberately replacing a registration. The folder mapping in the completed example is `environment → Enviro`, `weapons → Weapons`, and `deco → Deco`; unmatched names should not be assigned a guessed category.
++
+ ![[Pasted image 20261011191154.png]]
+ 
+ ![[Pasted image 20261011191256.png]]
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

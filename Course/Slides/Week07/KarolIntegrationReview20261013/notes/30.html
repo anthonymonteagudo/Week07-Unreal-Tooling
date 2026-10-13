@@ -1,0 +1,146 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>30 Menu Entry Icon · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-30">Return to audit</a><a href="29.html">Previous lesson</a> <a href="31.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/30%20Menu%20Entry%20Icon.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/30%20Menu%20Entry%20Icon%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>30 Menu Entry Icon</h1><p>Style/brush icon discovery and version dependence retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Adding a Menu Entry Icon — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/30%20Menu%20Entry%20Icon.md">Original notes</a></p>
+<p>Add a registered Slate icon to the menu action from lesson 29. The assignment differs depending on whether the tool uses a <code>ToolMenuEntry</code> or a <code>ToolMenuEntryScript</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202139.png" alt="Course screenshot: Pasted image 20261012202139.png"></p>
+<h2>Access the icon data</h2>
+<p>For a <code>ToolMenuEntry</code>, use <code>set_icon()</code>. For a script entry, <code>init_entry()</code> does not return a menu-entry object; access <code>script_object.data.icon</code> instead.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202207.png" alt="Course screenshot: Pasted image 20261012202207.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202237.png" alt="Course screenshot: Pasted image 20261012202237.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202329.png" alt="Course screenshot: Pasted image 20261012202329.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202416.png" alt="Course screenshot: Pasted image 20261012202416.png"></p>
+<p>Create a <code>ScriptSlateIcon</code> with three identifiers:</p>
+<ul>
+<li><code>style_set_name</code>: the registered Slate style set.</li>
+<li><code>style_name</code>: the regular icon&#39;s style key.</li>
+<li><code>small_style_name</code>: the small icon&#39;s style key.</li>
+</ul>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202701.png" alt="Course screenshot: Pasted image 20261012202701.png"></p>
+<h2>Find an existing Slate style</h2>
+<p>The lesson mentions C++ style registration for custom icons, then uses a built-in style. Inspect the relevant style source file to find both the style-set name and the icon keys.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202800.png" alt="Course screenshot: Pasted image 20261012202800.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202845.png" alt="Course screenshot: Pasted image 20261012202845.png"></p>
+<p>The demonstrated palette icon uses <code>UMGStyle</code>, <code>Palette.Icon</code>, and <code>Palette.Icon.Small</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203010.png" alt="Course screenshot: Pasted image 20261012203010.png"></p>
+<h2>Assign and refresh</h2>
+<p>Assign the constructed icon to the script entry&#39;s data before refreshing menu widgets:</p>
+<pre><code class="language-python">script_object.data.icon = unreal.ScriptSlateIcon(
+    style_set_name=&quot;UMGStyle&quot;,
+    style_name=&quot;Palette.Icon&quot;,
+    small_style_name=&quot;Palette.Icon.Small&quot;,
+)
+menus.refresh_all_widgets()
+</code></pre>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203034.png" alt="Course screenshot: Pasted image 20261012203034.png"></p>
+<p>Run the registration script, open the context menu, and check the icon beside the action. A missing icon can indicate that its style set or key is unavailable in that context.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203122.png" alt="Course screenshot: Pasted image 20261012203122.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203143.png" alt="Course screenshot: Pasted image 20261012203143.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203210.png" alt="Course screenshot: Pasted image 20261012203210.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/29%20Adding%20Custom%20Menu%20Actions%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/31%20Followup%20to%20Menu%20Entries%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202139.png" alt="Course screenshot: Pasted image 20261012202139.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202207.png" alt="Course screenshot: Pasted image 20261012202207.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202237.png" alt="Course screenshot: Pasted image 20261012202237.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202329.png" alt="Course screenshot: Pasted image 20261012202329.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202416.png" alt="Course screenshot: Pasted image 20261012202416.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202701.png" alt="Course screenshot: Pasted image 20261012202701.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202800.png" alt="Course screenshot: Pasted image 20261012202800.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012202845.png" alt="Course screenshot: Pasted image 20261012202845.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203010.png" alt="Course screenshot: Pasted image 20261012203010.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203034.png" alt="Course screenshot: Pasted image 20261012203034.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203122.png" alt="Course screenshot: Pasted image 20261012203122.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203143.png" alt="Course screenshot: Pasted image 20261012203143.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012203210.png" alt="Course screenshot: Pasted image 20261012203210.png"></p>
+<p>Hello.</p>
+<p>Once you have extended unreal interface with your own menu entries, you may want to customize them</p>
+<p>by adding some icons of your choice, like in this example here.</p>
+<p>This is exactly what we are going to do in this tutorial, and I will use some boilerplate code because</p>
+<p>I covered adding menu entries in the previous video.</p>
+<p>Let&#39;s jump straight to PyCharm.</p>
+<p>And this is my code.</p>
+<p>It just creates some script objects the same way we did it before, and assigns it to a menu with some</p>
+<p>label, name and tooltip.</p>
+<p>What we have to figure out is setting an icon.</p>
+<p>If you have figured out adding menu entries by yourself, you may have done it by creating actual menu</p>
+<p>entry class object.</p>
+<p>Those have set icon methods and you can use them.</p>
+<p>However, in this case it is a bit more tricky because we actually don&#39;t have any menu entry objects.</p>
+<p>We have some tool menu entry script and when we call init entry method, it returns nothing.</p>
+<p>That means we have to access that data some other way.</p>
+<p>The thing that saves us is that this class has some data property of type called tool menu entry script</p>
+<p>data.</p>
+<p>We can find that class and check if it has anything useful.</p>
+<p>And as you can see scroll down just a bit more.</p>
+<p>And here&#39;s to many entry script data and it has icon property of type script slate icon which is not</p>
+<p>only readable but also writeable.</p>
+<p>That&#39;s all we have to do.</p>
+<p>So we have to access data, then access icon and set a new script slate icon object.</p>
+<p>That&#39;s all.</p>
+<p>So let&#39;s get back to our code.</p>
+<p>And I want to set that icon before we refresh all widgets.</p>
+<p>So let&#39;s give a few empty lines here.</p>
+<p>You can directly access script object dot data.</p>
+<p>However, I like to assign such variables to some helpers, so I will create tool menu entry script</p>
+<p>data.</p>
+<p>Variable.</p>
+<p>And then let&#39;s create a script slate icon.</p>
+<p>But let&#39;s not specify what kind of icon it is.</p>
+<p>Let it be just an improperly initialized object and we will fix it later.</p>
+<p>So script icon is my name.</p>
+<p>And now unreal dot script slate icon.</p>
+<p>Great.</p>
+<p>The last thing we have to do is to assign that icon to our property.</p>
+<p>So tool menu entry script data dot icon and assign the value.</p>
+<p>And now we can take care of the scripts.</p>
+<p>Late icon.</p>
+<p>Let&#39;s take a look on the properties it needs.</p>
+<p>I will drag it to the right side of the screen.</p>
+<p>That&#39;s middle mouse.</p>
+<p>Click on the script slate icon.</p>
+<p>And we have three properties.</p>
+<p>Small style.</p>
+<p>Style, name and style.</p>
+<p>Set name.</p>
+<p>The first two are names of icons.</p>
+<p>Obviously the first one is for the small icon, and the middle one here is for the bigger one.</p>
+<p>That should be obvious, but there is also something like style set name.</p>
+<p>Style set is actually a cplusplus object or class that contains information and some properties that</p>
+<p>guide appearance of the UI.</p>
+<p>If you want to add a custom thumbnail or icon, you have to add it in Cplusplus and there are tutorials</p>
+<p>on it online.</p>
+<p>Check them out.</p>
+<p>If you don&#39;t need anything custom, you can use built in unreal style.</p>
+<p>I recommend using some application like Everything or Total Commander to look for CP files that contain</p>
+<p>style word in their names.</p>
+<p>The one I am going to use is UMG style CP, and I think that 1st May be very useful for you as well.</p>
+<p>So I have located it using everything and it is already opened in my PyCharm.</p>
+<p>I don&#39;t worry about PyCharm not supporting Cplusplus because I am not really going to modify anything.</p>
+<p>We have three things we have to locate and I will start with the style sheet name.</p>
+<p>Style sheet name can be located by looking for get style set name.</p>
+<p>And as you can see it is some UMG style.</p>
+<p>So maybe let&#39;s paste that property to our script script slate icon.</p>
+<p>And we have to provide two more arguments.</p>
+<p>Below you can see icons being initialized and I would like to use some maybe palette.</p>
+<p>So this palette icon will be my.</p>
+<p>Style name and small style name will be palette icon small.</p>
+<p>So.</p>
+<p>He calms the value.</p>
+<p>Name of the argument.</p>
+<p>Oh, that should be just the name, not the small one.</p>
+<p>And let&#39;s set that small one as well.</p>
+<p>Let&#39;s copy it.</p>
+<p>And we are done.</p>
+<p>If you need something more specific, you may need to spend a bit more time looking into the files.</p>
+<p>Also, from my experience, some class icons are declared in a way that doesn&#39;t render them accessible</p>
+<p>with this approach from Python or Blueprints, but you can always add your own.</p>
+<p>Our code is ready, and let&#39;s open a newly restarted Unreal Engine to test it.</p>
+<p>Unreal opened and when I right click on the asset, as you can see, there is no custom option.</p>
+<p>So let&#39;s go to output log.</p>
+<p>Switch to Python.</p>
+<p>Paste our script.</p>
+<p>Remember that if you use some main method, you should run it at some point, like here in the bottom.</p>
+<p>And then go back to Content Browser.</p>
+<p>Right click and we have our beautiful icon.</p>
+<p>That is all for this video.</p>
+<p>I hope your tools will be even more user friendly now, and that you will use that feature soon.</p>
+<p>Bye!</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

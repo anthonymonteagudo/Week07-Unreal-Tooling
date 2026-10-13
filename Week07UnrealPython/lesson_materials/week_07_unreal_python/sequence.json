@@ -1,0 +1,13 @@
+{
+  "status": "provisional; no slide numbers assigned",
+  "steps": [
+    {"id": "01", "title": "Read an Actor-shaped record", "runtime": "python", "file": "stage_00_data_and_scope/step_01_read_records.py"},
+    {"id": "02", "title": "Choose the tool's scope", "runtime": "python", "file": "stage_00_data_and_scope/step_02_choose_scope.py"},
+    {"id": "03", "title": "Express a naming rule", "runtime": "python", "file": "stage_01_rules_and_reports/step_03_naming_rule.py"},
+    {"id": "04", "title": "Report problems without fixing them", "runtime": "python", "file": "stage_01_rules_and_reports/step_04_validation_report.py"},
+    {"id": "05", "title": "Build a before/after preview", "runtime": "python", "file": "stage_02_preview_and_apply/step_05_change_plan.py"},
+    {"id": "06", "title": "Apply to a copy and verify", "runtime": "python", "file": "stage_02_preview_and_apply/step_06_apply_to_copy.py"},
+    {"id": "07", "title": "Use the project's reusable rules", "runtime": "python", "file": "stage_03_project_bridge/step_07_reusable_rules.py"},
+    {"id": "08", "title": "Read the Unreal adapter boundary (manual later)", "runtime": "reading", "file": "stage_03_project_bridge/step_08_editor_boundary.md"}
+  ]
+}

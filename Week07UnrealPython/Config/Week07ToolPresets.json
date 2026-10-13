@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "materials": {
+    "prepared_surface": {
+      "label": "Classroom blue surface",
+      "parent": "/Game/Week07/LiveDemo/Materials/M_PreparedSurface"
+    }
+  },
+  "vfx": {
+    "classroom_fountain": {
+      "label": "Classroom fountain",
+      "system": "/Game/Week07/LiveDemo/FX/NS_ClassroomFountain",
+      "reviewed_for_demo": true,
+      "review_note": "UE 5.7.4 instructor fixture: one enabled lightweight GPU sprite emitter; spawn 90 per second; lifetime 1.4\u20131.75 s; sprite size 6\u201312 cm; Niagara default sprite material. Three anchors maximum, scale 0.25\u20131; Effect Type distance 5000 cm, per-system 4, global 8. Classroom visual rehearsal only; no runtime performance certification.",
+      "max_new": 3
+    }
+  }
+}

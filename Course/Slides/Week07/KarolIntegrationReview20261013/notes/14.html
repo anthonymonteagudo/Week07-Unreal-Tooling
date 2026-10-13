@@ -1,0 +1,221 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>14 Editing Material Instance Parameters - Material Editing Library · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-14">Return to audit</a><a href="13.html">Previous lesson</a> <a href="15.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/14%20Editing%20Material%20Instance%20Parameters%20-%20Material%20Editing%20Library.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/14%20Editing%20Material%20Instance%20Parameters%20-%20Material%20Editing%20Library%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>14 Editing Material Instance Parameters - Material Editing Library</h1><p>Parameter names, values, and return values</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Editing Material Instance Parameters — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/14%20Editing%20Material%20Instance%20Parameters%20-%20Material%20Editing%20Library.md">Original notes</a></p>
+<p>Material parameters are exposed by the parent material&#39;s author. Use <code>MaterialEditingLibrary</code> to access them; they are not interchangeable with ordinary editor properties.</p>
+<h2>Create a suitable instance</h2>
+<p>Choose a material with exposed parameters and create a material instance. The course uses a Starter Content material with two emissive color parameters.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015715.png" alt="Course screenshot: Pasted image 20261011015715.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015652.png" alt="Course screenshot: Pasted image 20261011015652.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011134822.png" alt="Course screenshot: Pasted image 20261011134822.png"></p>
+<h2>Discover names and parameter types</h2>
+<p><code>MaterialEditingLibrary</code> has separate getters and setters for different parameter types. Use <code>get_vector_parameter_names()</code> to retrieve the color parameter names, preserving their exact spelling and spaces.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011133510.png" alt="Course screenshot: Pasted image 20261011133510.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011134054.png" alt="Course screenshot: Pasted image 20261011134054.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011134940.png" alt="Course screenshot: Pasted image 20261011134940.png"></p>
+<p>Set a vector parameter with <code>set_material_instance_vector_parameter_value()</code>, passing the instance, parameter name, and color value. The lesson uses <code>[0.1, 0.2, 0.3, 0.4]</code>. Open the instance and inspect the values even if its thumbnail has not refreshed.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011135149.png" alt="Course screenshot: Pasted image 20261011135149.png"></p>
+<h2>Make repeatable edits</h2>
+<p>The reusable script loads a <code>MaterialInstanceConstant</code> and wraps the setter in a helper that checks whether the parameter exists. A missing parameter should be reported clearly rather than silently producing partially configured assets.</p>
+<p>Decide whether existing overrides should be retained. The demonstration calls <code>clear_all_material_instance_parameters()</code> before assigning its two colors, making the result independent of earlier edits. That operation clears other overrides too, so it must be an intentional part of the tool&#39;s behavior.</p>
+<p>Return the setter&#39;s success value, and use <code>update_material_instance()</code> when an instance update is required after the edits.</p>
+<h2>Parameter names, values, and return values</h2>
+<p>The final screenshot uses vector parameters named <code>Emissive Color 01</code> and <code>Emissive Color 02</code>, with four-component color values. This cleaned-up equivalent checks both names <strong>before</strong> clearing existing overrides:</p>
+<pre><code class="language-python">import unreal
+mel = unreal.MaterialEditingLibrary
+instance = unreal.EditorAssetLibrary.load_asset(
+    &quot;/Game/StarterContent/Materials/example_instance&quot;)
+values = {&quot;Emissive Color 01&quot;: (0.1, 0.2, 0.3, 0.4),
+          &quot;Emissive Color 02&quot;: (0.1, 0.2, 0.3, 0.4)}
+available = {str(name) for name in mel.get_vector_parameter_names(instance)}
+missing = set(values) - available
+if missing:
+    raise ValueError(f&quot;Missing vector parameters: {sorted(missing)}&quot;)
+mel.clear_all_material_instance_parameters(instance)
+for name, channels in values.items():
+    changed = mel.set_material_instance_vector_parameter_value(
+        instance, name, unreal.LinearColor(*channels))
+    unreal.log(f&quot;{name}: setter returned {changed}&quot;)
+mel.update_material_instance(instance)
+</code></pre>
+<p>Use an instance whose parent exposes those exact names. Clearing removes <strong>all</strong> instance parameter overrides, not just these two. The course helper returns the setter&#39;s Boolean; inspecting the resulting parameter values remains necessary. This example updates the instance but does not explicitly save it.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011135619.png" alt="Course screenshot: Pasted image 20261011135619.png"></p>
+<h2>Run and inspect</h2>
+<p>Execute the saved script, reopen the instance, and confirm both parameter overrides and their values.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011135711.png" alt="Course screenshot: Pasted image 20261011135711.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011135729.png" alt="Course screenshot: Pasted image 20261011135729.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/13%20Importance%20of%20PropertyAccessChangeNotifyMode%20in%20setting%20editor%20properties%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/15%20Find%20Duplicated%20Actors%20On%20The%20Level%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015715.png" alt="Course screenshot: Pasted image 20261011015715.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015652.png" alt="Course screenshot: Pasted image 20261011015652.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011134822.png" alt="Course screenshot: Pasted image 20261011134822.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011133510.png" alt="Course screenshot: Pasted image 20261011133510.png">.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011134054.png" alt="Course screenshot: Pasted image 20261011134054.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011134940.png" alt="Course screenshot: Pasted image 20261011134940.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011135149.png" alt="Course screenshot: Pasted image 20261011135149.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011135619.png" alt="Course screenshot: Pasted image 20261011135619.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011135711.png" alt="Course screenshot: Pasted image 20261011135711.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011135729.png" alt="Course screenshot: Pasted image 20261011135729.png"></p>
+<p>Get editor property and set editor property are useful functions, but they can&#39;t access every property</p>
+<p>you see in Unreal Engine.</p>
+<p>In some cases, you will have to use a dedicated library of functions for specific kind of asset or</p>
+<p>actor.</p>
+<p>In our case, we will try to modify a material instance.</p>
+<p>Material instances are an interesting case because properties you can set on them are not defined by</p>
+<p>programmers who created the class, but rather defined by technical artists who exposed material parameters</p>
+<p>to the user using the editor.</p>
+<p>Some of them may not be editable at all.</p>
+<p>Maybe they have no properties exposed, so be careful what test file you pick.</p>
+<p>I am using default starter content, so I will pick hex style pools asset which is some emissive material.</p>
+<p>Let&#39;s create some instance by right clicking on the asset and selecting Create Material Instance.</p>
+<p>I will name it.</p>
+<p>Example, underscore instance and hit enter.</p>
+<p>To give you some context about what we can do with this asset, let&#39;s open parent material in editor.</p>
+<p>I already have it opened right here and I jumped right into parameters tab.</p>
+<p>As you can see, there are just two color parameters.</p>
+<p>Each color property is just a set of p values packed into a vector.</p>
+<p>That means we want to modify some vector parameter.</p>
+<p>There are functions in material editing library that can help us with that.</p>
+<p>We can find lots of methods in this library, because each of parameter types has its own getters,</p>
+<p>setters, and also getters for names.</p>
+<p>Let&#39;s utilize it.</p>
+<p>We will have a lower chance of making a mistake if we copy names of parameters to be modified from engine</p>
+<p>log.</p>
+<p>After calling one of those functions, we will want one with the vector value.</p>
+<p>Here is one.</p>
+<p>It&#39;s get vector parameter names.</p>
+<p>So let&#39;s test it out.</p>
+<p>Let&#39;s go to output log.</p>
+<p>And before doing that, I would recommend you to also copy the path of the asset.</p>
+<p>Make sure that you are in Python command line mode, and let me initialize editor, asset library and</p>
+<p>material editing library and assign them to some variables.</p>
+<p>Then we can use editor asset library dot load assets to load our material instance and assign it to</p>
+<p>some variable, and then print output of the get names method.</p>
+<p>Great.</p>
+<p>We have a list of two parameters.</p>
+<p>And as you can see it&#39;s not snake case like it was in case of editor properties.</p>
+<p>So now we know that there is a difference.</p>
+<p>And there was a pretty high chance of making a mistake.</p>
+<p>And now we could try modifying one of those properties that we&#39;ve copied.</p>
+<p>Let&#39;s set it to some simple value.</p>
+<p>So let&#39;s get back to the documentation.</p>
+<p>And check if there is some setter.</p>
+<p>It&#39;s not the material instance.</p>
+<p>That&#39;s how all of them start.</p>
+<p>And now we have to find the vector one.</p>
+<p>Yes, there is one set material instance vector parameter value which takes instance object then parameter</p>
+<p>name.</p>
+<p>And value.</p>
+<p>And also you could add some association, but we&#39;re not going to use it.</p>
+<p>Let&#39;s go back to Unreal Engine.</p>
+<p>We can close that material parent and I will call material editing library dot set material instance</p>
+<p>vector parameter value instance as a material instance named obviously instance.</p>
+<p>There was a mistake in my code and then parameter name copied which is just emissive color zero one</p>
+<p>and some value passed as a list.</p>
+<p>Because lists are accepted by methods and functions which expect vectors.</p>
+<p>Hit enter and now we can open our asset as you can see.</p>
+<p>The preview wasn&#39;t really updated, but.</p>
+<p>When you open emissive color, it&#39;s enabled and Argb values are set to exactly the ones that we used.</p>
+<p>We can go back to the log to check it, and it should be 0.1, 0.2, 0.3, 0.4, which is correct.</p>
+<p>That was a short introduction, but it&#39;s not enough to create a good tool.</p>
+<p>If we made a material import script, we would want it to be robust first.</p>
+<p>We may want to find out if someone modified the parent material names and crash if the script is not</p>
+<p>compatible.</p>
+<p>This way we have a crash that brings attention and someone debugs it.</p>
+<p>If for some reason there was no error at all or error was logged into the console, but there was no</p>
+<p>actual crash and we processed the file, then we could have a lot of badly processed files that were</p>
+<p>submitted and no one noticed the issue.</p>
+<p>Second, we may want to clear parameter before introducing new changes.</p>
+<p>If my script modifies five parameters of, for example, ten available, then there is a high chance</p>
+<p>that somebody modified the remaining ones and he may expect having them reset to default.</p>
+<p>If we don&#39;t do it, we may get different outcomes for various users who will process their files.</p>
+<p>Some of them will have the default value, some of them will have something that they have set and they</p>
+<p>may have forgotten about it.</p>
+<p>So your tool should either clear those parameters or ask the user, or it should be explicit that it</p>
+<p>doesn&#39;t clear it.</p>
+<p>So let&#39;s implement it.</p>
+<p>Let&#39;s go to PyCharm.</p>
+<p>I already imported unreal module and assigned editor, asset library and material editing library to</p>
+<p>a variable.</p>
+<p>Let&#39;s now load our asset.</p>
+<p>Obviously use editor asset, library dot load asset and pass the path.</p>
+<p>I wanted to be assigned to a variable and I am using typing.</p>
+<p>This is unreleased material instance constant, which is the type that our set.</p>
+<p>Material instance vector parameter value expects.</p>
+<p>And this is the type we will load.</p>
+<p>Material instances can be constant and can be dynamic.</p>
+<p>If you are interested, you should dive into documentation.</p>
+<p>The rule of thumb is that constant ones are calculated before engine is running, and dynamic can be</p>
+<p>changed during runtime.</p>
+<p>After it&#39;s loaded, we can clear all the parameters we just call material editing library.</p>
+<p>Clear all material instance parameters and pass instance as an argument.</p>
+<p>Once we have done it, we could.</p>
+<p>To the modification of the parameter the way we did before, but maybe let&#39;s introduce some wrapper.</p>
+<p>Let&#39;s make a new function called set material vector and it gets material instance.</p>
+<p>Then parameter name and value.</p>
+<p>Before doing a modification I want to assert.</p>
+<p>Assert parameter name is in the names available to be modified.</p>
+<p>So material editing library dot get vector parameter names.</p>
+<p>This way the script will crash if anything goes wrong.</p>
+<p>If you want to, you can throw some exception and you can also handle it.</p>
+<p>But this is the simplest way for me.</p>
+<p>Whilst this is done, we can use material editing, library, set material instance vector parameter</p>
+<p>value and as you can see I am returning it because the original method also returns a boolean value.</p>
+<p>So let&#39;s keep it compatible.</p>
+<p>Now calling it is super simple.</p>
+<p>We can try for both available names.</p>
+<p>And there is also the last line we can add.</p>
+<p>This shouldn&#39;t be necessary in this particular case.</p>
+<p>However, if we modify our material instance, we may want the shader to recompile.</p>
+<p>In that case, we call material editing library dot update material instance, and we have to pass our</p>
+<p>instance as an argument.</p>
+<p>Script is located in my project then content Python.</p>
+<p>So when I restart Unreal Engine it will be available.</p>
+<p>So just give me a second.</p>
+<p>The project loaded.</p>
+<p>So let me go to output log.</p>
+<p>Switch to cmd mode and then execute my script.</p>
+<p>Now let&#39;s go to Content Browser and open the modified file.</p>
+<p>We have two parameters modified.</p>
+<p>They look the same, but we can click on them and make sure they are valid.</p>
+<p>They are.</p>
+<p>And that&#39;s all for this video.</p>
+<p>I hope you will find it very helpful.</p>
+<p>You can use this knowledge to make some importar, or maybe a importar, or simply to update files with</p>
+<p>some batch after updating the parent shader.</p>
+<p>Maybe you have added a new parameter, and you want to set it to all the instances based on some calculations.</p>
+<p>That&#39;s all from me.</p>
+<p>Bye.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -36,6 +36,31 @@
+ 
+ Return the setter's success value, and use `update_material_instance()` when an instance update is required after the edits.
+ 
++## Parameter names, values, and return values
++
++The final screenshot uses vector parameters named `Emissive Color 01` and `Emissive Color 02`, with four-component color values. This cleaned-up equivalent checks both names **before** clearing existing overrides:
++
++```python
++import unreal
++mel = unreal.MaterialEditingLibrary
++instance = unreal.EditorAssetLibrary.load_asset(
++    &quot;/Game/StarterContent/Materials/example_instance&quot;)
++values = {&quot;Emissive Color 01&quot;: (0.1, 0.2, 0.3, 0.4),
++          &quot;Emissive Color 02&quot;: (0.1, 0.2, 0.3, 0.4)}
++available = {str(name) for name in mel.get_vector_parameter_names(instance)}
++missing = set(values) - available
++if missing:
++    raise ValueError(f&quot;Missing vector parameters: {sorted(missing)}&quot;)
++mel.clear_all_material_instance_parameters(instance)
++for name, channels in values.items():
++    changed = mel.set_material_instance_vector_parameter_value(
++        instance, name, unreal.LinearColor(*channels))
++    unreal.log(f&quot;{name}: setter returned {changed}&quot;)
++mel.update_material_instance(instance)
++```
++
++Use an instance whose parent exposes those exact names. Clearing removes **all** instance parameter overrides, not just these two. The course helper returns the setter's Boolean; inspecting the resulting parameter values remains necessary. This example updates the instance but does not explicitly save it.
++
+ ![[Pasted image 20261011135619.png]]
+ 
+ ## Run and inspect
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

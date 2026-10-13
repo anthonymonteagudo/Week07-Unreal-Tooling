@@ -1,0 +1,167 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>34 Undo and Redo operations · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-34">Return to audit</a><a href="33.html">Previous lesson</a> <a href="35.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/34%20Undo%20and%20Redo%20operations.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/34%20Undo%20and%20Redo%20operations%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>34 Undo and Redo operations</h1><p>One transaction for a complete batch</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Undo and Redo for Python Tools — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/34%20Undo%20and%20Redo%20operations.md">Original notes</a></p>
+<p>Wrap supported editor changes in <code>ScopedEditorTransaction</code> so a user can undo a tool&#39;s work through the normal editor history.</p>
+<h2>One transaction for a complete batch</h2>
+<p>The transaction belongs outside the loop when one Undo should cover the batch:</p>
+<pre><code class="language-python">import unreal
+with unreal.ScopedEditorTransaction(&quot;Course batch operation&quot;):
+    for item in items:
+        apply_edit(item)
+</code></pre>
+<p>This is a structural fragment: supply <code>items</code> and the actual <code>apply_edit</code> operation from the lesson. The affected operation/objects must participate in Unreal transactions. A transaction is not a universal rollback for asset creation, imports, file writes, saving, or deletion. Verify what one Undo actually restores instead of inferring it from the scope alone.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211246.png" alt="Course screenshot: Pasted image 20261012211246.png"></p>
+<h2>Define a meaningful transaction</h2>
+<p>Use <code>with unreal.ScopedEditorTransaction(&quot;Operation name&quot;):</code> around the changes. An <code>as</code> variable is unnecessary unless you need to access the transaction object.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211305.png" alt="Course screenshot: Pasted image 20261012211305.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211338.png" alt="Course screenshot: Pasted image 20261012211338.png"></p>
+<p>Nested transactions appear under the outer transaction in the demonstrated history. A wrapper does not make inherently non-undoable operations undoable; the lesson uses mesh import as an example of that limit.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211428.png" alt="Course screenshot: Pasted image 20261012211428.png"></p>
+<h2>Group the compression fix as one action</h2>
+<p>Wrap the texture-compression tool&#39;s batch operation in a transaction named <strong>Fix Texture Compression</strong>. Grouping the batch lets the user undo one tool invocation instead of stepping backward through hundreds of individual assets.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211601.png" alt="Course screenshot: Pasted image 20261012211601.png"></p>
+<h2>Test undo and redo</h2>
+<p>Change several test textures to incorrect compression settings, then run the script and inspect the log.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012212930.png" alt="Course screenshot: Pasted image 20261012212930.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213022.png" alt="Course screenshot: Pasted image 20261012213022.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213154.png" alt="Course screenshot: Pasted image 20261012213154.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213307.png" alt="Course screenshot: Pasted image 20261012213307.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213322.png" alt="Course screenshot: Pasted image 20261012213322.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213337.png" alt="Course screenshot: Pasted image 20261012213337.png"></p>
+<p>Choose <strong>Edit → Undo Fix Texture Compression</strong>, check the values, and redo the operation to confirm they are restored.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213424.png" alt="Course screenshot: Pasted image 20261012213424.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213439.png" alt="Course screenshot: Pasted image 20261012213439.png"></p>
+<h2>Inspect transaction details</h2>
+<p>Open <strong>Edit → Undo History</strong> and select the transaction. Enable <strong>Show Transaction Details</strong> to see affected objects and properties.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213538.png" alt="Course screenshot: Pasted image 20261012213538.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213710.png" alt="Course screenshot: Pasted image 20261012213710.png"></p>
+<p>The recording includes some textures changed before filming, so its transaction contains more assets than the visible setup edits.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213654.png" alt="Course screenshot: Pasted image 20261012213654.png"></p>
+<p>Expand individual objects to inspect modified properties. History consumes memory and older operations can be discarded; it is not a substitute for saving or version control.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213736.png" alt="Course screenshot: Pasted image 20261012213736.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213750.png" alt="Course screenshot: Pasted image 20261012213750.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/33%20Progress%20bars%20for%20slow%20tasks%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/35%20Introduction%20to%20automation%20testing%20in%20Unreal%20Engine%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211246.png" alt="Course screenshot: Pasted image 20261012211246.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211305.png" alt="Course screenshot: Pasted image 20261012211305.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211338.png" alt="Course screenshot: Pasted image 20261012211338.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211428.png" alt="Course screenshot: Pasted image 20261012211428.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211601.png" alt="Course screenshot: Pasted image 20261012211601.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012212930.png" alt="Course screenshot: Pasted image 20261012212930.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213022.png" alt="Course screenshot: Pasted image 20261012213022.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213154.png" alt="Course screenshot: Pasted image 20261012213154.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213307.png" alt="Course screenshot: Pasted image 20261012213307.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213322.png" alt="Course screenshot: Pasted image 20261012213322.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213337.png" alt="Course screenshot: Pasted image 20261012213337.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213424.png" alt="Course screenshot: Pasted image 20261012213424.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213439.png" alt="Course screenshot: Pasted image 20261012213439.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213538.png" alt="Course screenshot: Pasted image 20261012213538.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213710.png" alt="Course screenshot: Pasted image 20261012213710.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213654.png" alt="Course screenshot: Pasted image 20261012213654.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213736.png" alt="Course screenshot: Pasted image 20261012213736.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012213750.png" alt="Course screenshot: Pasted image 20261012213750.png"></p>
+<p>A thing that is missing in our tools is an ability to undo our changes.</p>
+<p>No one wants to discard his work by having to restart engine without saving files, or by reverting</p>
+<p>them in version control system.</p>
+<p>They just need a simple undo and redo system.</p>
+<p>They want to be able to browse the history, click undo redo.</p>
+<p>That&#39;s all.</p>
+<p>And we can implement it by using a simple unreal scoped editor transaction, which is a Python context</p>
+<p>manager for wrapping undoable operations.</p>
+<p>It&#39;s really simple to use just right with unreal scoped editor transaction and provide a name for the</p>
+<p>operation in parentheses.</p>
+<p>I will often refer to that as some transaction.</p>
+<p>You have to keep in mind that not all operations are undoable, even if you do them manually in the</p>
+<p>editor.</p>
+<p>Those will not be undoable in the script.</p>
+<p>For instance, you cannot undo importing a mesh in editor.</p>
+<p>Another thing is that I noticed that some code snippets online use as keyword to assign the transaction</p>
+<p>to some accessible variable.</p>
+<p>I haven&#39;t really found any use case for that, and I will skip it.</p>
+<p>Also, in those snippets, they don&#39;t even call anything on that trans variable.</p>
+<p>And they probably did it because that&#39;s what was shown in unreal documentation.</p>
+<p>Before we jump to any example, there is one more thing to keep in mind.</p>
+<p>You have to know how the transaction history will look when we nest some transactions.</p>
+<p>If you have one or more transactions running inside another transaction, only the outer one will be</p>
+<p>shown in history stack.</p>
+<p>Of course, it will contain all the changes that we made in inner transactions.</p>
+<p>But you just have to keep that in mind in case you want to have some more functions containing transactions</p>
+<p>to be later executed from other functions that also have them.</p>
+<p>Now let&#39;s modify one of our scripts to have undo functionality.</p>
+<p>I will go with fixed texture compression script.</p>
+<p>If you haven&#39;t watched previous videos, this script iterates over textures in starter content slash</p>
+<p>textures directory and ensures that they have proper compression based on asset naming convention.</p>
+<p>You can dive into project sources to get the code if you don&#39;t have it already.</p>
+<p>I want the whole operation to be undoable, so I will just wrap running part of the script in scoped</p>
+<p>editor transaction and I will provide some obvious name like fixed texture compression.</p>
+<p>I also have to fix indentation and that&#39;s actually all I have to do.</p>
+<p>I could have wrapped actual editor property edit in the loop which is here.</p>
+<p>However, it wouldn&#39;t make any sense in my opinion.</p>
+<p>In that case, we would be able to undo operation for every asset that was processed.</p>
+<p>But now imagine processing a thousand of them.</p>
+<p>And now also imagine making some mistake in your script or just calling that by accident.</p>
+<p>Quite a lot of things to undo.</p>
+<p>And what if the undo history was already deleted because it exceeded memory?</p>
+<p>You will not be able to undo all of them, so I will rather keep it as a single operation.</p>
+<p>Okay.</p>
+<p>Enough talk.</p>
+<p>That single line of code is all we had to do, and now we can test it.</p>
+<p>I will move to editor and modify some textures so they have wrong compression settings.</p>
+<p>I will set random some random compression here.</p>
+<p>What do we have here?</p>
+<p>Let it be.</p>
+<p>Maybe alpha.</p>
+<p>Save it.</p>
+<p>And also to that normal map.</p>
+<p>And.</p>
+<p>Let&#39;s pick here.</p>
+<p>I don&#39;t know, maybe.</p>
+<p>User interface.</p>
+<p>That doesn&#39;t really matter.</p>
+<p>We just need some examples and maybe this one set it to, I don&#39;t know, grayscale.</p>
+<p>And now let me go to output log and run my script.</p>
+<p>Looks like it processed something.</p>
+<p>Let&#39;s go to edit tab.</p>
+<p>And as you can see we can undo fixed texture compression.</p>
+<p>Let&#39;s click on it.</p>
+<p>Now we can also redo that stuff.</p>
+<p>Great.</p>
+<p>But what if I want to view the whole transaction stack?</p>
+<p>Let&#39;s go to edit and click on Undo History.</p>
+<p>We have it.</p>
+<p>We have our edits and we also have fixed texture compression.</p>
+<p>Bear in mind that history memory is limited.</p>
+<p>Some old operations may be removed from it to make space for new ones.</p>
+<p>You can even see how much memory it takes at the bottom of the screen.</p>
+<p>And if you want to get rid of it, just use the trash bin icon to clear it.</p>
+<p>But that&#39;s not what is the most interesting part.</p>
+<p>The better thing is that you can use I icon here and enable show transaction details to have more insight.</p>
+<p>Let&#39;s expand the window and we see which textures were processed.</p>
+<p>We can dive into it and we can see even which properties were modified.</p>
+<p>Of course you don&#39;t have full data, but that should be already a great help during debugging.</p>
+<p>And that is actually the end of this video.</p>
+<p>I hope your users will praise you for having and do support in their scripts, and that you&#39;ll find</p>
+<p>it useful.</p>
+<p>Bye.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -3,6 +3,19 @@
+ [[REFINED - Course Index|Course index]] · [[34 Undo and Redo operations|Original notes]]
+ 
+ Wrap supported editor changes in `ScopedEditorTransaction` so a user can undo a tool's work through the normal editor history.
++
++## One transaction for a complete batch
++
++The transaction belongs outside the loop when one Undo should cover the batch:
++
++```python
++import unreal
++with unreal.ScopedEditorTransaction(&quot;Course batch operation&quot;):
++    for item in items:
++        apply_edit(item)
++```
++
++This is a structural fragment: supply `items` and the actual `apply_edit` operation from the lesson. The affected operation/objects must participate in Unreal transactions. A transaction is not a universal rollback for asset creation, imports, file writes, saving, or deletion. Verify what one Undo actually restores instead of inferring it from the scope alone.
+ 
+ ![[Pasted image 20261012211246.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

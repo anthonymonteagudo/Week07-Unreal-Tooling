@@ -1,0 +1,225 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>10 Getting User Selection and Listing Assets · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-10">Return to audit</a><a href="09.html">Previous lesson</a> <a href="11.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/10%20Getting%20User%20Selection%20and%20Listing%20Assets.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/10%20Getting%20User%20Selection%20and%20Listing%20Assets%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>10 Getting User Selection and Listing Assets</h1><p>Keep the selected objects and their identities distinct</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Getting User Selection and Listing Assets — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/10%20Getting%20User%20Selection%20and%20Listing%20Assets.md">Original notes</a></p>
+<p>An <strong>asset</strong> is content stored in the project, such as a static mesh. An <strong>actor</strong> is an object placed in a world; a static mesh actor references a mesh asset. Changing an actor&#39;s transform affects that instance, while changing its referenced asset can affect every instance using it.</p>
+<h2>Keep the selected objects and their identities distinct</h2>
+<p>This compact example connects the selection, path, and loading operations shown below:</p>
+<pre><code class="language-python">import unreal
+for asset in unreal.EditorUtilityLibrary.get_selected_assets():
+    object_path = asset.get_path_name()
+    unreal.log(f&quot;{asset.get_name()} | {object_path} | {asset.get_class().get_name()}&quot;)
+    # Selection already supplied a loaded object. Load only when starting from a path:
+    same_asset = unreal.EditorAssetLibrary.load_asset(object_path)
+</code></pre>
+<p>These are <strong>Content Browser assets</strong>, not actors selected in the level. An object path such as <code>/Game/Props/SM_Crate.SM_Crate</code> is also different from a disk filename or folder/package path.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010225049.png" alt="Course screenshot: Pasted image 20261010225049.png"></p>
+<h2>List and load assets</h2>
+<p>Use <code>EditorAssetLibrary.list_assets()</code> with an Unreal content path such as <code>/Game/StarterContent/Architecture</code>. Check the API&#39;s return type: this call returns paths, not loaded objects. Load an asset with <code>load_asset()</code> before inspecting or editing its properties.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010225757.png" alt="Course screenshot: Pasted image 20261010225757.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010225931.png" alt="Course screenshot: Pasted image 20261010225931.png"></p>
+<p>Unreal exposes several representations:</p>
+<ul>
+<li>Package path: <code>/Game/Folder/Asset</code>.</li>
+<li>Object path: <code>/Game/Folder/Asset.Asset</code>.</li>
+<li><code>get_full_name()</code>: class plus object path, useful for debugging.</li>
+<li><code>get_path_name()</code>: the object&#39;s path.</li>
+<li><code>get_fname()</code>: its Unreal <code>Name</code>.</li>
+</ul>
+<p>The lesson shows a warning when a function receives an object path where a package path is expected. Match the path form to the receiving API rather than assuming all path strings are interchangeable.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010232156.png" alt="Course screenshot: Pasted image 20261010232156.png"></p>
+<p><code>find_asset_data()</code> exposes asset metadata. For loaded objects, <code>isinstance(asset, unreal.StaticMesh)</code> provides a straightforward type check.</p>
+<h2>Get actors through the editor subsystem</h2>
+<p>The course&#39;s UE 5.3+ correction replaces direct subsystem construction with:</p>
+<pre><code class="language-python">actors_subsystem = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
+actors = actors_subsystem.get_all_level_actors()
+selected = actors_subsystem.get_selected_level_actors()
+</code></pre>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010231835.png" alt="Course screenshot: Pasted image 20261010231835.png"></p>
+<p>Subsystem methods require the appropriate instance. Calling one as if it were a static library function can produce a missing-argument error; inspect the signature when moving between Unreal libraries and subsystems.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010232659.png" alt="Course screenshot: Pasted image 20261010232659.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010232852.png" alt="Course screenshot: Pasted image 20261010232852.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010233058.png" alt="Course screenshot: Pasted image 20261010233058.png"></p>
+<p>Actor queries return objects already in the level, so they can be filtered directly with <code>isinstance()</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010233255.png" alt="Course screenshot: Pasted image 20261010233255.png"></p>
+<p>Select actors in the Outliner, then compare <code>get_selected_level_actors()</code> with that selection.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010233353.png" alt="Course screenshot: Pasted image 20261010233353.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010233421.png" alt="Course screenshot: Pasted image 20261010233421.png"></p>
+<h2>Content Browser selection and reference example</h2>
+<p>Use <code>EditorUtilityLibrary.get_selected_assets()</code> for loaded selected assets, or <code>get_selected_asset_data()</code> when asset-data records are sufficient. The captured reference script collects these alongside the listing and actor examples.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010225316.png" alt="Course screenshot: Pasted image 20261010225316.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/09%20Startup%20Scripts%20and%20init_unreal.py%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/11%20Filtering%20Asset%20and%20Actor%20List%20with%20EditorFilterLibrary%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010225049.png" alt="Course screenshot: Pasted image 20261010225049.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010225316.png" alt="Course screenshot: Pasted image 20261010225316.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010225757.png" alt="Course screenshot: Pasted image 20261010225757.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010225931.png" alt="Course screenshot: Pasted image 20261010225931.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010232156.png" alt="Course screenshot: Pasted image 20261010232156.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010231835.png" alt="Course screenshot: Pasted image 20261010231835.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010232659.png" alt="Course screenshot: Pasted image 20261010232659.png"></p>
+<p>different unreal functions have different parameter expectations, thus behave differently
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010232852.png" alt="Course screenshot: Pasted image 20261010232852.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010233058.png" alt="Course screenshot: Pasted image 20261010233058.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010233255.png" alt="Course screenshot: Pasted image 20261010233255.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010233353.png" alt="Course screenshot: Pasted image 20261010233353.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010233421.png" alt="Course screenshot: Pasted image 20261010233421.png"></p>
+<p>Python scripts will generally process some files, whether they are selected by user or simply located</p>
+<p>in some folder, or maybe the level.</p>
+<p>Before grabbing any selection, it is important to remember about difference about selectable content.</p>
+<p>Everything you find in browser in content browser is an asset.</p>
+<p>If you place an asset onto a level, it becomes an actor.</p>
+<p>It&#39;s some instance of that asset that can now have some properties modified on the level, and it will</p>
+<p>not affect other actors nor the original file.</p>
+<p>Once we know the difference, we can start working.</p>
+<p>Let me show a few examples.</p>
+<p>First, you may want to list all assets in a specific directory.</p>
+<p>Each operation of such kind requires finding proper and class that has what you need.</p>
+<p>I like searching in every stub file.</p>
+<p>However, it is probably way easier to search for solution in online documentation.</p>
+<p>Sometimes there are even few classes or few methods that do the same.</p>
+<p>You should enter the page in the TOC and make sure that they are not deprecated.</p>
+<p>Of course they would work.</p>
+<p>However, after some update the code may stop working.</p>
+<p>As you can see, Editor Asset Library isn&#39;t marked as deprecated and it has list asset method that we</p>
+<p>can use.</p>
+<p>So let&#39;s go back to unreal.</p>
+<p>To call this method I would have to call unreal dot Editor asset library dot list asset.</p>
+<p>Each time I will have to rewrite a long line of code.</p>
+<p>So to skip at least few letters, I will assign the editor asset library to a separate variable and</p>
+<p>I will follow this convention along the course.</p>
+<p>Great.</p>
+<p>Now we can try listing assets, and if you want to list all assets in your project, you may try typing</p>
+<p>game.</p>
+<p>However, I have starter content from unreal, so I will list starter content folder slash architecture.</p>
+<p>Great.</p>
+<p>Let&#39;s print that asset list to see what is inside.</p>
+<p>That looks like paths, not like assets.</p>
+<p>If you want to do anything with those files, you have to load assets.</p>
+<p>You need that to check class or get some editor properties or edit it.</p>
+<p>I will focus on the first one from the list.</p>
+<p>So let&#39;s assign that path to a separate variable and now we can load it.</p>
+<p>Editor Asset Library has a method called load asset.</p>
+<p>And I will pass my path there.</p>
+<p>And I already can tell you I expect some trouble.</p>
+<p>We loaded it.</p>
+<p>There was no error.</p>
+<p>However, we got a warning.</p>
+<p>Try convert file name to long.</p>
+<p>Package name was passed and object path.</p>
+<p>So what we got on this list is object path.</p>
+<p>Rather than package name or file path.</p>
+<p>It turns out that some parts of unary code still return old style paths.</p>
+<p>It will either be fixed or new methods will be introduced in the future, so I won&#39;t do anything with</p>
+<p>it.</p>
+<p>However, let me show an example that will explain everything.</p>
+<p>The path that we got looks exactly like that.</p>
+<p>We are loading asset and path is here and leads to some folder.</p>
+<p>And then we have some package name and file name.</p>
+<p>That&#39;s how it&#39;s constructed.</p>
+<p>That causes a warning.</p>
+<p>To fix it, we would have to split that path on this dot and remove the part on the right side.</p>
+<p>Now it works however.</p>
+<p>I wouldn&#39;t really fix it.</p>
+<p>As I said, it is deprecated, so epic will either fix all the code or introduce new methods.</p>
+<p>So in future I would rather stick to using the correct way by epic instead of fixing it ourselves as</p>
+<p>we are.</p>
+<p>Speaking of paths, you can get a so called full name with get full name method from this asset.</p>
+<p>And of course we have to print it because the Python interpreter inside unreal doesn&#39;t print every line</p>
+<p>you get.</p>
+<p>As you can see, get full name isn&#39;t very convenient for us because it returns class and then also object</p>
+<p>path.</p>
+<p>It&#39;s great for debugging if you are writing some code, but not very convenient if you want to process</p>
+<p>it later.</p>
+<p>If you want to get path from the file, use a separate method called Get path name.</p>
+<p>Of course, put it in some print and here, as you can see, you still get the deprecated path.</p>
+<p>Don&#39;t worry about it too much.</p>
+<p>If you want to get just a file name, don&#39;t process this path.</p>
+<p>Instead, you can print a get f name method.</p>
+<p>Great.</p>
+<p>But is there some other way?</p>
+<p>Maybe we could get some information just from the path.</p>
+<p>Of course there is find asset data method in editor asset library that gets just the path.</p>
+<p>Of course we have to print it and we will get package name, then package path, asset name, asset</p>
+<p>class path.</p>
+<p>And of course has that name, which corresponds in this case to the class of the asset.</p>
+<p>From my experience, we often want to filter out listed assets by class.</p>
+<p>There are two simple ways of doing that.</p>
+<p>First, one would be using Getclass method of the asset to get obviously the class.</p>
+<p>However, then you would have to compare it with something and honestly it&#39;s not that convenient.</p>
+<p>The second way is using isinstance Python keywords to check the class and compare it with unreal class.</p>
+<p>So let&#39;s try it.</p>
+<p>It&#39;s super simple, done in a single line and works like charm.</p>
+<p>That was all about assets.</p>
+<p>And now let&#39;s move to actors.</p>
+<p>Two of the things that we have in our outliner, because they are placed on the level.</p>
+<p>We have to use editor actor subsystem.</p>
+<p>And this time before I assign some dot editor actor subsystem to a variable so I have less text on the</p>
+<p>screen.</p>
+<p>Let me try doing it without that and in the wrong way.</p>
+<p>I know there is a get all level actor&#39;s method because I found it in the documentation.</p>
+<p>So let&#39;s try unreal dot editor actor subsystem and now get all level actors.</p>
+<p>Let&#39;s call it.</p>
+<p>We have an error.</p>
+<p>Editor.</p>
+<p>Actor subsystem needs an argument.</p>
+<p>I was trying to find some rule about it, because some of those classes have methods that have self</p>
+<p>parameter, some of them have class parameter.</p>
+<p>And to be honest, they all tend to sometimes behave differently.</p>
+<p>So in my opinion, it&#39;s better to check yourself.</p>
+<p>What happens here is that editor class subsystem wants to be either called with parentheses or to have</p>
+<p>also editor actor subsystem passed as its parameter.</p>
+<p>So to fix this issue all we have to do is to add parentheses here.</p>
+<p>And in the case of Editor Asset Library I was doing that I was adding parentheses.</p>
+<p>However it wasn&#39;t really necessary.</p>
+<p>In this case it is.</p>
+<p>And if you encounter such thing just keep that in mind and try adding those call parameter parentheses.</p>
+<p>Now I will assign it to a variable.</p>
+<p>So I have less chances of making a mistake.</p>
+<p>Maybe also call it again, but this time assign to a variable.</p>
+<p>And you may remember that when we printed assets listed by list assets, we can actually do it again.</p>
+<p>We had some paths in the case of those actors.</p>
+<p>It may look very similar.</p>
+<p>However, we get actual objects.</p>
+<p>You may notice that here is.</p>
+<p>A class and then comes the path.</p>
+<p>This is different.</p>
+<p>It may look similar to what is above it, but it&#39;s completely different.</p>
+<p>That means that if I wanted to filter actors in the level by class, maybe just filter sky atmosphere,</p>
+<p>I can do it without even loading them like I would have to do in case of assets from content browser.</p>
+<p>And as you can see, my short for loop printed a single object which can be found here in the sky in</p>
+<p>the outliner.</p>
+<p>Working with selected ones is also very simple.</p>
+<p>There is simply a separate method for that called get selected level actors.</p>
+<p>We can assign it to a variable and then print the result.</p>
+<p>Here is the directional light.</p>
+<p>Light source then.</p>
+<p>Sky.</p>
+<p>Atmosphere.</p>
+<p>And.</p>
+<p>The skylight, which is correct.</p>
+<p>In next videos we will try to make something more useful, but I think this one was crucial.</p>
+<p>See you soon.</p>
+<p>Bye.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -3,6 +3,21 @@
+ [[REFINED - Course Index|Course index]] · [[10 Getting User Selection and Listing Assets|Original notes]]
+ 
+ An **asset** is content stored in the project, such as a static mesh. An **actor** is an object placed in a world; a static mesh actor references a mesh asset. Changing an actor's transform affects that instance, while changing its referenced asset can affect every instance using it.
++
++## Keep the selected objects and their identities distinct
++
++This compact example connects the selection, path, and loading operations shown below:
++
++```python
++import unreal
++for asset in unreal.EditorUtilityLibrary.get_selected_assets():
++    object_path = asset.get_path_name()
++    unreal.log(f&quot;{asset.get_name()} | {object_path} | {asset.get_class().get_name()}&quot;)
++    # Selection already supplied a loaded object. Load only when starting from a path:
++    same_asset = unreal.EditorAssetLibrary.load_asset(object_path)
++```
++
++These are **Content Browser assets**, not actors selected in the level. An object path such as `/Game/Props/SM_Crate.SM_Crate` is also different from a disk filename or folder/package path.
+ 
+ ![[Pasted image 20261010225049.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

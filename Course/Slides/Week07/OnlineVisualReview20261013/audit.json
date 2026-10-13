@@ -1,0 +1,1875 @@
+{
+  "date": "2026-10-13",
+  "source_deck": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\output\\Week_7_Final_Class_v2.pptx",
+  "source_sha256": "093246b0df53ea74f8743f87ad4602219422a324108dedcec4120d239147e2ef",
+  "queries": [
+    "site.ryandowlingsoka.com unreal batch rename tool preview",
+    "site.nngroup.com usability testing facilitator participant task photo",
+    "site.dev.epicgames.com Unreal Engine reimport assets auto reimport",
+    "site.nngroup.com user experience user interface ketchup bottle",
+    "site.nngroup.com paper prototyping photos examples",
+    "site.nngroup.com error messages guidelines examples",
+    "site.nngroup.com recognition recall user interface examples",
+    "site.nngroup.com copyright classroom images slides permission",
+    "site.nngroup.com Copyright permission slides",
+    "site.blender.org interface undo history",
+    "site.doc.qt.io qt widgets gallery screenshots",
+    "site.microsoft.com powertoys powerrename preview screenshots",
+    "Nielsen Norman Group content licensing reproduce images presentations educational permission",
+    "game artist tools UX error recovery preview GDC pipeline screenshots",
+    "paper prototyping kit photos",
+    "Unreal Engine Interchange preview reimport pipeline screenshot",
+    "site.microsoft.com legal intellectualproperty permissions screenshots",
+    "site.doc.qt.io documentation GNU Free Documentation",
+    "site.epicgames.com Fan Content Policy non-commercial",
+    "site.ryandowlingsoka.com license",
+    "site.doc.qt.io designer tab order screenshot",
+    "site.dev.epicgames.com Execute Python Script Image",
+    "site.dev.epicgames.com Static Mesh Actors Image",
+    "site.w3.org WAI focus visible example screenshot",
+    "site.guerrilla-games.com tools Horizon",
+    "site.gdcvault.com artist tools user interface",
+    "site.isaacoster.com unreal python material setup",
+    "site.artstation.com Isaac Oster Import Export"
+  ],
+  "media_candidates": [
+    {
+      "url": "https://ryandowlingsoka.com/generated/unreal/batch-rename-tool/Untitled-543-8036121dd.png",
+      "alt": "'Untitled'",
+      "id": "ryan-0",
+      "page": "https://ryandowlingsoka.com/unreal/batch-rename-tool/",
+      "size": [
+        543,
+        272
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\ryan-0.png",
+      "sha256": "c67d16eee571c29839cd070cf7fb2d46c7a05d9ed4d49d213cb0376962e43e58"
+    },
+    {
+      "url": "https://ryandowlingsoka.com/generated/unreal/batch-rename-tool/Untitled%201-494-6d499af49.png",
+      "alt": "'Untitled'",
+      "id": "ryan-1",
+      "page": "https://ryandowlingsoka.com/unreal/batch-rename-tool/",
+      "size": [
+        494,
+        199
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\ryan-1.png",
+      "sha256": "07421d52fda4e046d59c62b091664589745482da026e524a97855079415509fa"
+    },
+    {
+      "url": "https://ryandowlingsoka.com/generated/unreal/batch-rename-tool/Untitled%202-650-c31d828f3.png",
+      "alt": "'Untitled'",
+      "id": "ryan-2",
+      "page": "https://ryandowlingsoka.com/unreal/batch-rename-tool/",
+      "size": [
+        650,
+        183
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\ryan-2.png",
+      "sha256": "01443c55832eddbe9746e12498fbbc0e8c0b3381ba1cdb2ab00221abe9b9bddd"
+    },
+    {
+      "url": "https://ryandowlingsoka.com/generated/unreal/batch-rename-tool/Untitled%203-800-80aba1752.png",
+      "alt": "'Untitled'",
+      "id": "ryan-3",
+      "page": "https://ryandowlingsoka.com/unreal/batch-rename-tool/",
+      "size": [
+        800,
+        139
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\ryan-3.png",
+      "sha256": "d7113a7247c5d34ee5c9fe4c1138ee85397e7e1d2654ccd41a3789d7fdd3186c"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/powertoys/images/powerrename/demo.gif",
+      "alt": "PowerRename Demo",
+      "id": "powerrename-0",
+      "page": "https://learn.microsoft.com/en-us/windows/powertoys/powerrename",
+      "size": [
+        1598,
+        1080
+      ],
+      "frames": 1028,
+      "file": "tmp\\week07-online-visuals\\candidates\\powerrename-0.gif",
+      "sha256": "922d683619e83b6afdc56ae4bc0ea27c2f3711c51e0c2ab548b2a69d6cfcd8d4"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/powertoys/images/powerrename/menu.png",
+      "alt": "PowerRename Menu screenshot",
+      "id": "powerrename-1",
+      "page": "https://learn.microsoft.com/en-us/windows/powertoys/powerrename",
+      "size": [
+        1290,
+        851
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\powerrename-1.png",
+      "sha256": "1490a9c7adc076083893f68a652aee2b354498a7490c0d984663ddfc743ca629"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/powertoys/images/powerrename/demo2.gif",
+      "alt": "PowerToys PowerRename Filter demo",
+      "id": "powerrename-2",
+      "page": "https://learn.microsoft.com/en-us/windows/powertoys/powerrename",
+      "size": [
+        1328,
+        876
+      ],
+      "frames": 311,
+      "file": "tmp\\week07-online-visuals\\candidates\\powerrename-2.gif",
+      "sha256": "878172bf08e55335b6de7c110f763b126b3048f06aeea7d0615b62b4a46b606f"
+    },
+    {
+      "url": "https://media.nngroup.com/media/editor/2021/12/08/paper-prototyping-kit-59-1-copy.jpg",
+      "alt": "",
+      "id": "paper-2",
+      "page": "https://www.nngroup.com/articles/paper-prototyping-cutout-kit/",
+      "size": [
+        1000,
+        661
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\paper-2.jpg",
+      "sha256": "37f2cc445d54e5a7b9bcf1d4a2da3d8e6e4e47aeac26225c69c966e36f5f9749"
+    },
+    {
+      "url": "https://media.nngroup.com/media/editor/2021/12/08/img_2358-2-copy.jpg",
+      "alt": "",
+      "id": "paper-3",
+      "page": "https://www.nngroup.com/articles/paper-prototyping-cutout-kit/",
+      "size": [
+        3024,
+        4032
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\paper-3.jpg",
+      "sha256": "beaa4a875f36b73f39a49cbdebff7b27f2c456cd6fe7953659e21170f3af4bca"
+    },
+    {
+      "url": "https://media.nngroup.com/media/editor/2021/12/08/paper-prototyping-kit-60-copy.jpg",
+      "alt": "",
+      "id": "paper-4",
+      "page": "https://www.nngroup.com/articles/paper-prototyping-cutout-kit/",
+      "size": [
+        1000,
+        662
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\paper-4.jpg",
+      "sha256": "7cec7dd970d61575168d9031577a709bc39122c8de82b988e1cb03d593f9ba79"
+    },
+    {
+      "url": "https://media.nngroup.com/media/editor/2021/12/08/img_2502-2-copy.jpg",
+      "alt": "",
+      "id": "paper-5",
+      "page": "https://www.nngroup.com/articles/paper-prototyping-cutout-kit/",
+      "size": [
+        4032,
+        3024
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\paper-5.jpg",
+      "sha256": "4d076cccec3bf244e5580760d73f1f4a61095481d1e27ef152e8ce51c7c8f66b"
+    },
+    {
+      "url": "https://media.nngroup.com/media/editor/2021/12/08/img_2497-2-copy.jpg",
+      "alt": "",
+      "id": "paper-6",
+      "page": "https://www.nngroup.com/articles/paper-prototyping-cutout-kit/",
+      "size": [
+        3024,
+        4032
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\paper-6.jpg",
+      "sha256": "9660768d76f77056c11c9f2bb1c453d1ea4cabd95b79539e8b621db14c3146a9"
+    },
+    {
+      "url": "https://media.nngroup.com/media/editor/2023/04/26/amazon.jpg",
+      "alt": "",
+      "id": "errors-4",
+      "page": "https://www.nngroup.com/articles/error-message-guidelines/",
+      "size": [
+        1384,
+        706
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\errors-4.jpg",
+      "sha256": "b403c54108eb6d6be04cffef72ec36f3863f4da2f725d4a1d760d8641dc83a36"
+    },
+    {
+      "url": "https://media.nngroup.com/media/editor/2023/04/26/clear.jpg",
+      "alt": "",
+      "id": "errors-6",
+      "page": "https://www.nngroup.com/articles/error-message-guidelines/",
+      "size": [
+        1384,
+        1574
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\errors-6.jpg",
+      "sha256": "988f87e882c0a760ed22e6726228be2b79c1dcc95c6aaa1ba23d68a24afaa282"
+    },
+    {
+      "url": "https://media.nngroup.com/media/editor/2023/04/26/email.jpg",
+      "alt": "",
+      "id": "errors-11",
+      "page": "https://www.nngroup.com/articles/error-message-guidelines/",
+      "size": [
+        1384,
+        743
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\errors-11.jpg",
+      "sha256": "87d4827a9e2513c0ff2ac2e042c36b183808d163eec181f9ee2f42816d3d8435"
+    },
+    {
+      "url": "https://media.nngroup.com/media/editor/2023/04/26/vistaprint.jpg",
+      "alt": "",
+      "id": "errors-13",
+      "page": "https://www.nngroup.com/articles/error-message-guidelines/",
+      "size": [
+        1384,
+        861
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\errors-13.jpg",
+      "sha256": "9d6c71f7688d948f4a4cc36005ccbff5c8719cd5acb3566e073dc29b48e5dad7"
+    },
+    {
+      "url": "https://media.nngroup.com/media/editor/2023/04/26/zazzle.jpg",
+      "alt": "",
+      "id": "errors-14",
+      "page": "https://www.nngroup.com/articles/error-message-guidelines/",
+      "size": [
+        1384,
+        861
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\errors-14.jpg",
+      "sha256": "243109c30d779c7c918f077326d1ef6e3c6b4ca1d98b92aabc52026e40492d83"
+    },
+    {
+      "url": "https://media.nngroup.com/media/editor/2019/11/11/usabilitytesting101-29.png",
+      "alt": "",
+      "id": "testing-5",
+      "page": "https://www.nngroup.com/articles/usability-testing-101/",
+      "size": [
+        1400,
+        933
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\testing-5.png",
+      "sha256": "d680fe2300342a3be44fb27484574bf55067f2ed7912ef2bae3cae4369141f21"
+    },
+    {
+      "url": "https://dev.epicgames.com/community/api/documentation/image/aa6c5cc4-1b84-4131-b17d-7df50fb1c70d?resizing_type=fit",
+      "alt": "Interchange Interface",
+      "id": "epic-import-2",
+      "page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/importing-assets-using-interchange-in-unreal-engine",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://dev.epicgames.com/community/api/documentation/image/3b54c8da-4c3e-40bd-87be-8b08f4f66557?resizing_type=fit",
+      "alt": "Interchange Preview",
+      "id": "epic-import-4",
+      "page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/importing-assets-using-interchange-in-unreal-engine",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://dev.epicgames.com/community/api/documentation/image/3bc1eff1-b19c-4ced-bdfa-2a687291ce4d?resizing_type=fit",
+      "alt": "Interchange Conflicts Preview",
+      "id": "epic-import-5",
+      "page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/importing-assets-using-interchange-in-unreal-engine",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://doc.qt.io/qt-6/images/qformlayout-with-6-children.png",
+      "alt": "Three buttons with text fields in form layout",
+      "id": "qt-layout-4",
+      "page": "https://doc.qt.io/qt-6/layout.html",
+      "size": [
+        262,
+        110
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\qt-layout-4.png",
+      "sha256": "7ed4ee0b31267b877afa442a7c052c63886ce29c611e758e180bb83f2ee85d40"
+    },
+    {
+      "url": "https://doc.qt.io/qt-6.8/images/designer-tab-order-mode.png",
+      "alt": "",
+      "id": "qt-tab-1",
+      "page": "https://doc.qt.io/qt-6.8/designer-tab-order.html",
+      "size": [
+        321,
+        227
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\qt-tab-1.png",
+      "sha256": "1c5d0c88d5f143416b132432d59f8cfb8ea95e13e1261995a6d7ee30a7e3b526"
+    },
+    {
+      "url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/50c292cf-9dca-412e-8bb4-e2243875dc79/placing-a-static-mesh-actor.gif",
+      "alt": "Placing a Static Mesh Actor through drag-and-drop",
+      "id": "epic-actors-2",
+      "page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-actors-in-unreal-engine",
+      "size": [
+        800,
+        536
+      ],
+      "frames": 213,
+      "file": "tmp\\week07-online-visuals\\candidates\\epic-actors-2.gif",
+      "sha256": "60cf23f7becec99dd17d15ad8802efd18941d90356db7269a8c0e3be604aa252"
+    },
+    {
+      "url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/ca73186b-9c02-42a8-8207-c4d3e53b48ba/cubes.png",
+      "alt": "Three Static Mesh Actors using different Materials",
+      "id": "epic-actors-3",
+      "page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-actors-in-unreal-engine",
+      "size": [
+        1603,
+        793
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\epic-actors-3.png",
+      "sha256": "9b20e4e03cb9ff5c6d2ed0f2b95fe03078be43c9424ed8e1fb9d7e71c3087145"
+    },
+    {
+      "url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/eabb79cb-ffd3-4bdc-b3dc-c39bd85bb006/assigning-material-to-static-mesh.gif",
+      "alt": "Changing the Material assigned to a Static Mesh Actor",
+      "id": "epic-actors-4",
+      "page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-actors-in-unreal-engine",
+      "size": [
+        800,
+        553
+      ],
+      "frames": 229,
+      "file": "tmp\\week07-online-visuals\\candidates\\epic-actors-4.gif",
+      "sha256": "3f495e1758fe0485bc5fd8ff39534de6207b43d4c1baa3a53f537d1027b036a5"
+    },
+    {
+      "url": "https://www.w3.org/WAI/content-images/easy-checks/example-keyboard-focus.png",
+      "alt": "Example of navigation field showing visible keyboard focus",
+      "id": "w3c-focus-0",
+      "page": "https://www.w3.org/WAI/test-evaluate/easy-checks/keyboard-focus/",
+      "size": [
+        500,
+        217
+      ],
+      "frames": 1,
+      "file": "tmp\\week07-online-visuals\\candidates\\w3c-focus-0.png",
+      "sha256": "24e6f5d141ce1cf85a2a7227c86892aa6b73533f68225bb28e747c906c98e567"
+    }
+  ],
+  "motion_checks": [
+    {
+      "id": "powerrename-0",
+      "duration_seconds": 34.26,
+      "sample_frames": [
+        0,
+        147,
+        294,
+        441,
+        587,
+        734,
+        881,
+        1027
+      ]
+    },
+    {
+      "id": "powerrename-2",
+      "duration_seconds": 10.36,
+      "sample_frames": [
+        0,
+        44,
+        89,
+        133,
+        178,
+        222,
+        266,
+        310
+      ]
+    },
+    {
+      "id": "epic-actors-2",
+      "duration_seconds": 7.6,
+      "sample_frames": [
+        0,
+        31,
+        61,
+        91,
+        122,
+        152,
+        182,
+        212
+      ]
+    },
+    {
+      "id": "epic-actors-4",
+      "duration_seconds": 9.16,
+      "sample_frames": [
+        0,
+        33,
+        65,
+        98,
+        131,
+        164,
+        196,
+        228
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "n": 10,
+      "kind": "Add",
+      "priority": "Strong",
+      "assets": [
+        "epic-actors-3"
+      ],
+      "heading": "One mesh, visibly different Actors",
+      "why": "The source explicitly identifies the three cubes as Actors using the same mesh with different materials. This makes the relationship concrete before the abstract reference arrows.",
+      "edit": "Keep the title and question. Show the full three-cube image first, then reveal the existing shared-asset diagram. Keep the material override distinct from modifying the shared mesh; do not imply the existing two-node schematic describes the exact three pictured Actors.",
+      "layout": "Wide image across roughly 70% of the content area; a click reveal switches to the existing diagram. Preserve original proportions. Use an external caption: “Same mesh; per-Actor materials.”",
+      "script": "These three Actors use the same mesh. What differs in their appearance? Now trace the references in our diagram. Before changing a material, identify whether you are editing the shared asset or an override on a particular component.",
+      "limit": "An official documentation example, separate from the course fixture. The current page is labeled UE 5.8; no claim that its pictured UI is the classroom build. The static image is sufficient for this conceptual comparison.",
+      "anchor": "06A",
+      "title": "Shared asset, separate placements",
+      "hidden": false
+    },
+    {
+      "n": 15,
+      "kind": "Companion",
+      "priority": "Strong",
+      "assets": [
+        "epic-actors-4"
+      ],
+      "heading": "What a component-level material change looks like",
+      "why": "The short source animation changes the right cube’s material while the other cubes remain visually stable. It is closely related to the current Material Setup task.",
+      "edit": "Keep the practice-tool screenshot, code behavior, PRACTICE MODE label and timing. Add a named “See a material override” link to the companion media. Use it only if students need to see the visual target of the practice operation.",
+      "layout": "9.16-second original GIF, shown large in the companion review. Keep the full editor frame; play once, then return to the actual practice plan. No new slide or extra lecture block.",
+      "script": "This separate Unreal example shows a material override on one Actor. Our practice panel proposes a related kind of assignment, but it does not perform this engine operation. Which object should change, and what must remain unchanged?",
+      "limit": "Do not present the clip as execution of the course Python tool, a newly created material instance, or proof of Undo. It depicts a manual assignment in a separate scene.",
+      "anchor": "09",
+      "title": "Material Setup: a reviewed change",
+      "hidden": false
+    },
+    {
+      "n": 28,
+      "kind": "Replace concept",
+      "priority": "Strong",
+      "assets": [
+        "errors-13",
+        "errors-14"
+      ],
+      "heading": "A design tool can let the intended result go wrong",
+      "why": "NN/g’s published print-design examples contrast a warning about content outside the printable area with an interface that leaves the consequence unclear. This is a real visual-authoring task rather than a machine metaphor.",
+      "edit": "Keep the title and UI/UX definitions. Show the two full screenshots on a reveal; keep the existing assessment question and connect it back to the renamer. Replace the earlier proposed crate-delivery illustration with this sourced comparison.",
+      "layout": "Two equal-size images, labeled Vistaprint and Zazzle in editable slide text. Identify them as separate products, not a matched before/after. Use a large image reveal if text is too small alongside the definitions.",
+      "script": "The text extends past the printable area. Which view helps you predict the consequence? Now return to the renamer: what result did the artist intend, and what evidence would establish it?",
+      "limit": "Historical examples published in 2023, not an assessment of the products today. The pictures show interface feedback, not a purchased physical output. Preserve that distinction.",
+      "anchor": "14",
+      "title": "Interface and experience",
+      "hidden": false
+    },
+    {
+      "n": 30,
+      "kind": "Generated",
+      "priority": "Strong",
+      "assets": [
+        "artist-inspecting-prop"
+      ],
+      "heading": "An artist judging the prop in context",
+      "why": "No inspected online visual closely matched the slide’s specific user story. Reimport settings, generic developer photos and older Datasmith demonstrations change the focus. One bespoke illustration fills the conceptual gap.",
+      "edit": "Keep the title, all three story lines and the question. Put the illustration in the right 45%; reflow the story on the left without reducing its type below the current readable size. If it crowds, use a reveal.",
+      "layout": "Transparent 1536×1024 PNG with navy/teal continuity. Keep the complete artist and lantern scene. Use on white or the deck’s pale lavender; the navy-background preview shows weaker outline separation.",
+      "script": "The artist wants to judge the revised prop in its surroundings. Bringing it into the engine serves that goal. What should update, and what surrounding work should remain stable?",
+      "limit": "Generated concept art, not a before/after or evidence of reimport preservation. Raster only: no editable SVG master. Genuine alpha verified; original output has a maximum alpha of 254, which is retained.",
+      "anchor": "14B",
+      "title": "User stories",
+      "hidden": false
+    },
+    {
+      "n": 31,
+      "kind": "Add",
+      "priority": "Strong",
+      "assets": [
+        "paper-5"
+      ],
+      "heading": "A prototype someone can actually operate",
+      "why": "A photographed paper dropdown demonstrates how a sketch can simulate a choice. It is more informative than a polished illustration of people brainstorming.",
+      "edit": "Keep this slide optional, its title and bullets. Replace the tiny sketch thumbnail with the full paper-dropdown photograph. Preserve the course’s two alternative layouts on live slide 32.",
+      "layout": "Large 4:3 photo beside three short bullets. Do not crop away the hands or paper pieces: they explain the interaction. Keep the credit outside the image.",
+      "script": "The paper pieces let a person make a choice. What could you learn from their attempt before implementing this control? What would still require a working tool?",
+      "limit": "A browser-form prototype, not an Unreal interface. It can support discussion of interaction and labels, not execution correctness. No need to reproduce or distribute the downloadable template kit.",
+      "anchor": "14C",
+      "title": "Sketching before implementation",
+      "hidden": true
+    },
+    {
+      "n": 34,
+      "kind": "Alternative",
+      "priority": "Strong",
+      "assets": [
+        "powerrename-1"
+      ],
+      "heading": "Selection, preview and visible scope in a real rename tool",
+      "why": "The complete PowerRename window presents selection, original names, proposed names and Apply together. The task matches the renaming assessment more closely than generic UX stock imagery.",
+      "edit": "Keep slide 34 optional. Offer this as an alternative to its production-menu example, not a second crowded image. Retain the distinction between filtering visible rows and changing the plan. The same source is a reference option for slide 52, but use it on only one slide.",
+      "layout": "Full screenshot with its proportions unchanged; resize only under Microsoft’s screenshot terms. Point verbally to selection and the Original/Renamed columns. Do not crop or annotate its pixels.",
+      "script": "Before Apply, which names will change? Which controls help you inspect that? Compare what you can see here with what you needed to know in the paper renamer case.",
+      "limit": "Microsoft PowerToys PowerRename, a Windows file tool. Its preview is not evidence of backend stale-plan protection. It is also not an Unreal Actor renamer.",
+      "anchor": "14A",
+      "title": "Mental models and visible scope",
+      "hidden": true
+    },
+    {
+      "n": 38,
+      "kind": "Companion",
+      "priority": "Useful",
+      "assets": [
+        "errors-11"
+      ],
+      "heading": "A warning before an avoidable mistake",
+      "why": "The missing-attachment warning offers a familiar example of noticing a likely problem before completing an action. It gives the class a quick comparison for actionable messages.",
+      "edit": "Keep the course tool’s actual error screenshot as the main evidence. Add this as an optional reveal or companion link only if students need another example. Keep the existing recovery question.",
+      "layout": "Full screenshot, large enough that the warning can be read; no decorative warning icons. If a small layout makes it illegible, leave it in the companion page.",
+      "script": "What problem does this warning identify, and what can the person do next? Now read our tool’s message using those same questions.",
+      "limit": "A separate email-product example published by NN/g, not a claim about the course tool. Preventing an error and recovering after a partial edit are different teaching cases.",
+      "anchor": "15D",
+      "title": "An error should support recovery",
+      "hidden": false
+    },
+    {
+      "n": 39,
+      "kind": "Add",
+      "priority": "Strong",
+      "assets": [
+        "w3c-focus-0"
+      ],
+      "heading": "Show what visible focus actually means",
+      "why": "The WAI figure gives “visible focus” an inspectable appearance. It fills a visual gap on a slide currently dominated by text and a short code excerpt.",
+      "edit": "Keep the title, recovery qualifications and accessibility guidance. Add the intact WAI image alongside the focus sentence; keep its Draft status in the attribution. Preserve slide 56’s Qt-specific code as optional depth.",
+      "layout": "Small supporting image at approximately its native 500-pixel width. Do not generatively upscale or remove the source’s annotation. Use an actual keyboard attempt in the course tool for behavior.",
+      "script": "The outline identifies the active control. Can you tell where focus is in your own tool as you press Tab? A name in code is not enough to show that the experience works.",
+      "limit": "A web example from a draft WAI teaching page. It demonstrates the idea; it does not certify desktop accessibility or show the course tool’s focus order.",
+      "anchor": "15B",
+      "title": "Recovery and accessibility",
+      "hidden": false
+    },
+    {
+      "n": 46,
+      "kind": "Reuse",
+      "priority": "Strong",
+      "assets": [],
+      "heading": "Recover the existing facilitator–task–participant diagram",
+      "why": "Online checking led back to the NN/g role diagram already stored in the course. Final Class v2 removed it from this slide; it still matches the briefing directly.",
+      "edit": "Keep the current three bullets and question. Reintroduce the existing diagram only if it remains legible at the available size; the roles in the course stay Author and Reviewer. Preserve the distinct follow-up photo on slide 45.",
+      "layout": "Existing role diagram on the right; current lab-specific wording on the left. No new generated classroom scene. If the figure is crowded, retain the current plain briefing.",
+      "script": "The author gives the goal and observes. The reviewer attempts it and records what happened. If help is needed, record that help. Which role or instruction needs clarification before we begin?",
+      "limit": "The diagram is a general model. Our reciprocal classroom exercise and three reviewers are not a validated population-wide usability study.",
+      "anchor": "17",
+      "title": "Lab 2: three peer reviews",
+      "hidden": false
+    },
+    {
+      "n": 49,
+      "kind": "Reuse",
+      "priority": "Useful",
+      "assets": [],
+      "heading": "Use the established Week 1 lenses only if they aid synthesis",
+      "why": "The four existing badges offer stronger course continuity than another illustration. Their value is retrieval of familiar questions.",
+      "edit": "Keep the current revision instructions and retest requirement. Optionally add a small, clearly labeled strip of original badges. Do not introduce a new rubric or add another discussion block.",
+      "layout": "Original Constraints, Systems, Leverage and Throughput badges, unchanged. Labels remain editable. Prefer the current clean slide if the badges distract from writing the revision.",
+      "script": "Which lens helps you explain your proposed revision? Choose one observed issue and state what you expect to see when you retest.",
+      "limit": "Reuse, not a new online find. Artistic intent remains the goal examined through the lenses, not an added fifth lens.",
+      "anchor": "20",
+      "title": "One revision supported by evidence",
+      "hidden": false
+    }
+  ],
+  "rejections": [
+    {
+      "title": "Ryan DowlingSoka batch-renamer article",
+      "url": "https://ryandowlingsoka.com/unreal/batch-rename-tool/",
+      "reason": "Strong topic, weak new stills: the four inspected images are small parameters/Blueprint details, not a clear whole-tool preview. Already listed in the course references. Keep the tutorial link; do not inflate the screenshots."
+    },
+    {
+      "title": "Epic Interchange preview and conflicts",
+      "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/importing-assets-using-interchange-in-unreal-engine",
+      "reason": "Promising for slides 14 and 51, but three image downloads returned HTTP 403. Page descriptions were read; pixels were not inspected. Not counted as ready assets. Do not substitute a different importer UI or assert version compatibility."
+    },
+    {
+      "title": "Epic automatic reimport",
+      "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/reimporting-assets-automatically-in-unreal-engine",
+      "reason": "Settings screenshot and workflow explanation are useful references, but not a strong visual of an artist inspecting the revised prop."
+    },
+    {
+      "title": "Unreal Studio Reimport feature video",
+      "url": "https://www.youtube.com/watch?v=F4Ft5wEKdrc",
+      "reason": "Official 2018 Datasmith/Unreal Studio demonstration. Discovery and description checked, footage not inspected. Different workflow; not adopted as evidence for the current Python/import lesson."
+    },
+    {
+      "title": "Qt Designer tab-order screenshot",
+      "url": "https://doc.qt.io/qt-6.8/designer-tab-order.html",
+      "reason": "Directly relevant to slide 56, but only 321×227 and visibly old styling. Keep as a linked optional reference. Do not upscale it into a main slide visual or confuse numbered design-time order with runtime focus."
+    },
+    {
+      "title": "Qt layout and signals documentation",
+      "url": "https://doc.qt.io/qt-6/layout.html",
+      "reason": "The inspected QFormLayout image is only 262×110. The generic signals diagram adds less than the current course-specific callback schematic. Qt documentation uses GFDL 1.3; software licensing is not the artwork license."
+    },
+    {
+      "title": "NN/g paper cutout alternatives",
+      "url": "https://www.nngroup.com/articles/paper-prototyping-cutout-kit/",
+      "reason": "Five photos inspected. Prefer the desktop dropdown for this artist-tool course. Phone cutouts, loading panels and overlays are less closely tied to the present teaching point."
+    },
+    {
+      "title": "NN/g error-image alternatives",
+      "url": "https://www.nngroup.com/articles/error-message-guidelines/",
+      "reason": "Five figures inspected. The print-area pair and attachment warning survive the relevance screen. Amazon checkout and password criteria add a larger domain detour."
+    },
+    {
+      "title": "PowerRename motion",
+      "url": "https://learn.microsoft.com/en-us/windows/powertoys/powerrename",
+      "reason": "Two GIFs inspected through eight time samples each: 34.26-second rename sequence and 10.36-second filter sequence. The full still is easier to teach within the current budget. Motion remains linked from the publisher, not bundled as another live activity."
+    },
+    {
+      "title": "Epic Actor placement GIF",
+      "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-actors-in-unreal-engine",
+      "reason": "7.60-second drag-and-drop example inspected. Clear but less valuable than the material-override animation. It does not demonstrate reimport."
+    },
+    {
+      "title": "NN/g testing photograph",
+      "url": "https://www.nngroup.com/articles/usability-testing-101/",
+      "reason": "The inspected 1400×933 photograph is already on slide 45 and depicts follow-up after a task. Do not reuse it as new evidence of silent observation during an attempt."
+    },
+    {
+      "title": "Guerrilla Horizon tools",
+      "url": "https://www.guerrilla-games.com/read/creating-a-tools-pipeline-for-horizon-zero-dawn",
+      "reason": "Strong existing source, already represented by production screenshots and a 16-second contextual-feedback clip. Keep those assets; do not count the source again as a new visual discovery."
+    },
+    {
+      "title": "Isaac Oster import/export",
+      "url": "https://isaacoster.artstation.com/projects/Dvdrke",
+      "reason": "Topic and author page confirmed through web reading; direct page retrieval returned HTTP 403. No newly inspected high-resolution still, so keep as study reference rather than pretending a clip was reviewed."
+    },
+    {
+      "title": "Generic UI/UX bottle, iceberg, maze and robot metaphors",
+      "url": "https://www.nngroup.com/articles/definition-user-experience/",
+      "reason": "Rejected for this deck. They weaken the connection to actual tool scope, art decisions, and observed results. The newly found print-design example is more precise."
+    }
+  ],
+  "generation_calls": 1,
+  "slides": [
+    {
+      "number": 1,
+      "anchor": "01",
+      "title": "Review & specialization",
+      "hidden": false,
+      "text": [
+        "WEEK 7 / 3:30–6:00 PM",
+        "Review & specialization",
+        "Python in Unreal",
+        "Artist-facing tools and peer feedback",
+        "WEEK 7",
+        "01"
+      ]
+    },
+    {
+      "number": 2,
+      "anchor": "02",
+      "title": "Today’s sequence",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "Today’s sequence",
+        "WEEK 7",
+        "02",
+        "Section",
+        "Focus / proposed time",
+        "1 · Python in Unreal",
+        "Opening, setup, operation · 32 min",
+        "2 · Tool demonstrations",
+        "Contributors · 35 min; then break · 15 min",
+        "3 · Tool assessment",
+        "Initial judgment and evidence · 8 min",
+        "4 · UI/UX for artist tools",
+        "Concepts and task preparation · 20 min",
+        "5 · Peer testing",
+        "Three rounds · 35 min; synthesis · 5 min"
+      ]
+    },
+    {
+      "number": 3,
+      "anchor": "02A",
+      "title": "What you should be able to explain",
+      "hidden": true,
+      "text": [
+        "WEEK 7",
+        "What you should be able to explain",
+        "WEEK 7",
+        "02A",
+        "Scope: what will change?",
+        "Evidence: did it work?",
+        "Use: can a peer succeed?",
+        "Course Unreal fixture · scope and verification are separate checks",
+        "What would make you trust a tool with your project?"
+      ]
+    },
+    {
+      "number": 4,
+      "anchor": "02B",
+      "title": "Tools are part of game production",
+      "hidden": true,
+      "text": [
+        "AAA PRODUCTION · HORIZON ZERO DAWN",
+        "Tools are part of game production",
+        "WEEK 7",
+        "02B",
+        "Guerrilla · Sumaili & van der Steen · GDC 2017 · PDF p.23",
+        "Which repeated task would you remove from this workflow?"
+      ]
+    },
+    {
+      "number": 5,
+      "anchor": "S1",
+      "title": "Python in Unreal",
+      "hidden": false,
+      "text": [
+        "SECTION 1 · OPENING / PYTHON · 32 MINUTES",
+        "Python in Unreal",
+        "WEEK 7",
+        "S1",
+        "Same language",
+        "New host API",
+        "A bounded operation",
+        "Existing course Unreal project capture"
+      ]
+    },
+    {
+      "number": 6,
+      "anchor": "05",
+      "title": "Python across applications",
+      "hidden": true,
+      "text": [
+        "WEEK 7",
+        "Python across applications",
+        "WEEK 7",
+        "05",
+        "Keep loops, functions, conditions, and data structures",
+        "Replace Maya commands with Unreal editor APIs",
+        "Carry over explicit inputs, scope, and useful reports",
+        "Which part of your Maya tool is independent of Maya?"
+      ]
+    },
+    {
+      "number": 7,
+      "anchor": "03",
+      "title": "Python setup in Unreal",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "Python setup in Unreal",
+        "WEEK 7",
+        "03",
+        "Enable project plugins; restart · Output Log → Python input mode",
+        "Historical course setup captures · verify placement in the teaching engine",
+        "Is the input field running Python or console commands?"
+      ]
+    },
+    {
+      "number": 8,
+      "anchor": "04",
+      "title": "First execution",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "First execution",
+        "WEEK 7",
+        "04",
+        "import unreal",
+        "unreal.log(\"Hello Unreal\")",
+        "Output Log: choose Python",
+        "Saved file: File > Execute Python Script",
+        "What evidence tells you the script ran in the intended project?"
+      ]
+    },
+    {
+      "number": 9,
+      "anchor": "06",
+      "title": "Unreal’s object model",
+      "hidden": true,
+      "text": [
+        "WEEK 7",
+        "Unreal’s object model",
+        "WEEK 7",
+        "06",
+        "Entity",
+        "Example",
+        "Why scope matters",
+        "Asset",
+        "A Static Mesh in the Content Browser",
+        "May be referenced by many placements",
+        "Actor",
+        "One placed crate in the level",
+        "Has its own label and transform",
+        "Component",
+        "The Actor’s Static Mesh Component",
+        "References the mesh and can hold overrides",
+        "If two Actors share a mesh, which edits could affect both?"
+      ]
+    },
+    {
+      "number": 10,
+      "anchor": "06A",
+      "title": "Shared asset, separate placements",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "Shared asset, separate placements",
+        "WEEK 7",
+        "06A",
+        "Conceptual relationship · the mesh asset can have multiple references",
+        "Where would you make a change that affects only Actor A?"
+      ]
+    },
+    {
+      "number": 11,
+      "anchor": "07",
+      "title": "Selection is an input",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "Selection is an input",
+        "WEEK 7",
+        "07",
+        "actors = unreal.get_editor_subsystem(",
+        "    unreal.EditorActorSubsystem",
+        ").get_selected_level_actors()",
+        "",
+        "for actor in actors:",
+        "    print(actor.get_actor_label())",
+        "Read-only API example beside the course Outliner capture",
+        "What questions do you have about selection and scope?"
+      ]
+    },
+    {
+      "number": 12,
+      "anchor": "07A",
+      "title": "Disk paths and Unreal asset paths",
+      "hidden": true,
+      "text": [
+        "WEEK 7",
+        "Disk paths and Unreal asset paths",
+        "WEEK 7",
+        "07A",
+        "Kind",
+        "Illustrative example",
+        "Used for",
+        "Disk file",
+        "C:/Exports/Crate.fbx",
+        "Input to an importer",
+        "Content folder",
+        "/Game/Props",
+        "Destination package folder",
+        "Object path",
+        "/Game/Props/Crate.Crate",
+        "A particular Unreal object",
+        "Which path belongs in the source-file field?"
+      ]
+    },
+    {
+      "number": 13,
+      "anchor": "10",
+      "title": "Maya and Unreal handoff",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "Maya and Unreal handoff",
+        "WEEK 7",
+        "10",
+        "Course schematic · file exchange and revision loop",
+        "What must remain stable when the Maya source changes?"
+      ]
+    },
+    {
+      "number": 14,
+      "anchor": "10A",
+      "title": "Explicit import settings",
+      "hidden": true,
+      "text": [
+        "WEEK 7",
+        "Explicit import settings",
+        "WEEK 7",
+        "10A",
+        "task = unreal.AssetImportTask()",
+        "task.filename = source_file",
+        "task.destination_path = \"/Game/Props\"",
+        "task.automated = True",
+        "task.save = False",
+        "tools = unreal.AssetToolsHelpers.get_asset_tools()",
+        "tools.import_asset_tasks([task])",
+        "Configure options for the chosen importer",
+        "Inspect imported_object_paths and the result",
+        "What should happen when the destination already exists?"
+      ]
+    },
+    {
+      "number": 15,
+      "anchor": "09",
+      "title": "Material Setup: a reviewed change",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "Material Setup: a reviewed change",
+        "WEEK 7",
+        "09",
+        "One new material instance",
+        "One assignment on the crate",
+        "Preview before Apply",
+        "Current Material & VFX Tools, Stage 3, practice data",
+        "What changes? What must stay unchanged?"
+      ]
+    },
+    {
+      "number": 16,
+      "anchor": "09F",
+      "title": "The backend checks the promise",
+      "hidden": true,
+      "text": [
+        "WEEK 7",
+        "The backend checks the promise",
+        "WEEK 7",
+        "09F",
+        "current = preview()",
+        "if plan != current:",
+        "    raise RuntimeError(",
+        "        \"Preview is stale or edited. \"",
+        "        \"Run preview() again and review it.\"",
+        "    )",
+        "demo.py · actual guard excerpt; message wrapped for the slide"
+      ]
+    },
+    {
+      "number": 17,
+      "anchor": "08",
+      "title": "Blueprints as an editor interface",
+      "hidden": true,
+      "text": [
+        "WEEK 7",
+        "Blueprints as an editor interface",
+        "WEEK 7",
+        "08",
+        "Layer",
+        "Responsibility",
+        "Editor Utility Widget",
+        "Inputs, scope, actions, and result display",
+        "Execute Python Script",
+        "Pass named inputs and outputs",
+        "Python operation",
+        "Validate, perform the operation, report results",
+        "Should the button contain the whole tool—or call one operation?"
+      ]
+    },
+    {
+      "number": 18,
+      "anchor": "08A",
+      "title": "One operation, multiple interfaces",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "One operation, multiple interfaces",
+        "WEEK 7",
+        "08A",
+        "Course architecture sketch · alternate UI entry points",
+        "Which logic should survive a complete UI redesign?"
+      ]
+    },
+    {
+      "number": 19,
+      "anchor": "09A",
+      "title": "Starting state",
+      "hidden": true,
+      "text": [
+        "WEEK 7",
+        "Starting state",
+        "WEEK 7",
+        "09A",
+        "Existing course capture · Unreal 5.7.4 · six-prop fixture",
+        "Which values can this operation change safely?"
+      ]
+    },
+    {
+      "number": 20,
+      "anchor": "09B",
+      "title": "Result inspection",
+      "hidden": true,
+      "text": [
+        "WEEK 7",
+        "Result inspection",
+        "WEEK 7",
+        "09B",
+        "Existing course capture · same fixture after the controlled operation",
+        "What does this image prove—and what still needs checking?"
+      ]
+    },
+    {
+      "number": 21,
+      "anchor": "09D",
+      "title": "VFX Placement: transfer the workflow",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "VFX Placement: transfer the workflow",
+        "WEEK 7",
+        "09D",
+        "Three markers, three effects",
+        "A repeat placement is blocked",
+        "Reset restores practice data",
+        "Current practice tool; reset is distinct from Unreal Undo",
+        "Do these checks establish frame cost? What questions remain?"
+      ]
+    },
+    {
+      "number": 22,
+      "anchor": "11",
+      "title": "Tool demonstrations",
+      "hidden": false,
+      "text": [
+        "SECTION 2 · 35 MINUTES",
+        "Tool demonstrations",
+        "WEEK 7",
+        "11",
+        "Co-teacher · 15 minutes",
+        "TA · 20 minutes",
+        "Task → scope → result → recovery",
+        "Course material-tool prototype · offline data",
+        "Where does the artist make a decision?"
+      ]
+    },
+    {
+      "number": 23,
+      "anchor": "13",
+      "title": "Break",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "Break",
+        "WEEK 7",
+        "13",
+        "When we return: assess a tool",
+        "Then revisit your assessment through UI/UX",
+        "Apply the same thinking in peer testing"
+      ]
+    },
+    {
+      "number": 24,
+      "anchor": "S3",
+      "title": "Tool assessment",
+      "hidden": false,
+      "text": [
+        "SECTION 3 · 8 MINUTES",
+        "Tool assessment",
+        "WEEK 7",
+        "S3",
+        "Predict the result",
+        "Compare the evidence",
+        "Keep your first judgment",
+        "Course practice interface · offline sample data"
+      ]
+    },
+    {
+      "number": 25,
+      "anchor": "12",
+      "title": "Lab 1: predict the result",
+      "hidden": false,
+      "text": [
+        "GROUP LAB · 8 MINUTES",
+        "Lab 1: predict the result",
+        "WEEK 7",
+        "12",
+        "Starting name",
+        "Selected?",
+        "Expected name",
+        "crate_A",
+        "Yes",
+        "?",
+        "crate_B",
+        "Yes",
+        "?",
+        "SM_crate_C",
+        "Yes",
+        "?",
+        "barrel_D",
+        "No",
+        "?",
+        "Rule: exactly one SM_ prefix on selected assets. Leave all others unchanged."
+      ]
+    },
+    {
+      "number": 26,
+      "anchor": "12A",
+      "title": "Lab 1: evidence and a retest",
+      "hidden": false,
+      "text": [
+        "FICTIONAL TEACHING CASE",
+        "Lab 1: evidence and a retest",
+        "WEEK 7",
+        "12A",
+        "Starting name",
+        "Expected",
+        "Reported result",
+        "crate_A",
+        "SM_crate_A",
+        "SM_crate_A",
+        "crate_B",
+        "SM_crate_B",
+        "SM_crate_B",
+        "SM_crate_C",
+        "SM_crate_C",
+        "SM_SM_crate_C",
+        "barrel_D",
+        "barrel_D",
+        "SM_barrel_D",
+        "The tool says “4 assets updated.” Did the task succeed?"
+      ]
+    },
+    {
+      "number": 27,
+      "anchor": "S4",
+      "title": "UI/UX for artist tools",
+      "hidden": false,
+      "text": [
+        "SECTION 4 · CONCEPTS + TASK PREP · 20 MINUTES",
+        "UI/UX for artist tools",
+        "WEEK 7",
+        "S4",
+        "Understand the task",
+        "Make decisions clear",
+        "Test your assumptions",
+        "Vicarious Visions · Cinematic Builder · GDC 2018 · PDF p.35"
+      ]
+    },
+    {
+      "number": 28,
+      "anchor": "14",
+      "title": "Interface and experience",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "Interface and experience",
+        "WEEK 7",
+        "14",
+        "UI: the controls, labels, and layout",
+        "UX: reaching the intended result in context",
+        "A successful execution can still fail the task",
+        "Which part of your first assessment would you defend?"
+      ]
+    },
+    {
+      "number": 29,
+      "anchor": "14E",
+      "title": "A workflow spans several tools",
+      "hidden": true,
+      "text": [
+        "AAA PRODUCTION · VICARIOUS VISIONS",
+        "A workflow spans several tools",
+        "WEEK 7",
+        "14E",
+        "Jeff Stewart · Vicarious Visions · GDC 2018 · PDF p.9",
+        "What happens immediately before and after your tool?"
+      ]
+    },
+    {
+      "number": 30,
+      "anchor": "14B",
+      "title": "User stories",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "User stories",
+        "WEEK 7",
+        "14B",
+        "As an environment artist…",
+        "I want to bring a revised prop into Unreal…",
+        "So I can inspect it without rebuilding its setup.",
+        "What would count as success for this artist?"
+      ]
+    },
+    {
+      "number": 31,
+      "anchor": "14C",
+      "title": "Sketching before implementation",
+      "hidden": true,
+      "text": [
+        "WEEK 7",
+        "Sketching before implementation",
+        "WEEK 7",
+        "14C",
+        "Sketch two plausible approaches",
+        "Include a failure state",
+        "Test one uncertainty",
+        "Course interaction sketches · illustrative, not validated",
+        "What can a sketch test? What requires a running tool?"
+      ]
+    },
+    {
+      "number": 32,
+      "anchor": "14D",
+      "title": "Two layouts for the same task",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "Two layouts for the same task",
+        "WEEK 7",
+        "14D",
+        "Illustrative sketches · neither layout is a tested recommendation",
+        "Which prediction could a paper test resolve?"
+      ]
+    },
+    {
+      "number": 33,
+      "anchor": "15",
+      "title": "Layout follows the task",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "Layout follows the task",
+        "WEEK 7",
+        "15",
+        "Detail from the current Material Setup practice interface",
+        "Which row tells you what will change on the crate?"
+      ]
+    },
+    {
+      "number": 34,
+      "anchor": "14A",
+      "title": "Mental models and visible scope",
+      "hidden": true,
+      "text": [
+        "WEEK 7",
+        "Mental models and visible scope",
+        "WEEK 7",
+        "14A",
+        "Group by the artist’s task",
+        "Expose relevant scope",
+        "Make expected actions findable",
+        "Jeff Stewart · Vicarious Visions · GDC 2018 · PDF p.24",
+        "Does filtering the report also change what Apply affects?"
+      ]
+    },
+    {
+      "number": 35,
+      "anchor": "14F",
+      "title": "The artist’s model of the work",
+      "hidden": false,
+      "text": [
+        "AAA PRODUCTION · CONTENT MODELS",
+        "The artist’s model of the work",
+        "WEEK 7",
+        "14F",
+        "Jeff Stewart · Vicarious Visions · GDC 2018 · PDF p.35",
+        "Would an artist rather edit a duration or two unrelated events?"
+      ]
+    },
+    {
+      "number": 36,
+      "anchor": "15A",
+      "title": "State and feedback",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "State and feedback",
+        "WEEK 7",
+        "15A",
+        "Detail from the current Material Setup practice interface",
+        "What would you inspect after the completion message?"
+      ]
+    },
+    {
+      "number": 37,
+      "anchor": "15G",
+      "title": "A UI state becomes a Qt decision",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "A UI state becomes a Qt decision",
+        "WEEK 7",
+        "15G",
+        "pending = self.session.pending",
+        "ready = bool(pending) and (",
+        "    not pending[3].get('warnings')",
+        "    or self.ack.isChecked()",
+        ")",
+        "self.apply_button.setEnabled(ready)",
+        "assistants.py, update_apply excerpt from the current tool",
+        "Why must Apply still recheck the operation?"
+      ]
+    },
+    {
+      "number": 38,
+      "anchor": "15D",
+      "title": "An error should support recovery",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "An error should support recovery",
+        "WEEK 7",
+        "15D",
+        "Actual course PySide tool · offline blocked state",
+        "What would you change in this message?"
+      ]
+    },
+    {
+      "number": 39,
+      "anchor": "15B",
+      "title": "Recovery and accessibility",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "Recovery and accessibility",
+        "WEEK 7",
+        "15B",
+        "# Existing PySide view implementation",
+        "self.preview.setAccessibleName(",
+        "    \"Selected Actors change preview\"",
+        ")",
+        "Review consequential changes before applying them",
+        "Test the recovery path you actually offer",
+        "Keep focus, labels, and status understandable",
+        "Could a classmate recover without help?"
+      ]
+    },
+    {
+      "number": 40,
+      "anchor": "16B",
+      "title": "Mission Kontrol: repeatable testing",
+      "hidden": true,
+      "text": [
+        "AAA PRODUCTION · MORTAL KOMBAT 1",
+        "Mission Kontrol: repeatable testing",
+        "WEEK 7",
+        "16B",
+        "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.46",
+        "What knowledge should a tester need before starting?"
+      ]
+    },
+    {
+      "number": 41,
+      "anchor": "16C",
+      "title": "Feedback changes the interface",
+      "hidden": false,
+      "text": [
+        "AAA PRODUCTION · FEEDBACK",
+        "Feedback changes the interface",
+        "WEEK 7",
+        "16C",
+        "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.47",
+        "Which nearby action would make your workflow easier to complete?"
+      ]
+    },
+    {
+      "number": 42,
+      "anchor": "16",
+      "title": "Evidence before explanation",
+      "hidden": true,
+      "text": [
+        "WEEK 7",
+        "Evidence before explanation",
+        "WEEK 7",
+        "16",
+        "Evidence",
+        "Example",
+        "Observation",
+        "The tester chose the wrong destination",
+        "Possible explanation",
+        "The destination label may be unclear",
+        "Proposed change",
+        "Show the full target path",
+        "Retest",
+        "Can a new tester choose the intended target without help?",
+        "What questions remain before we begin testing?"
+      ]
+    },
+    {
+      "number": 43,
+      "anchor": "16E",
+      "title": "A test produces the next question",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "A test produces the next question",
+        "WEEK 7",
+        "16E",
+        "Course testing loop · a possible explanation is not yet a finding",
+        "What questions remain before you write the peer-test task?"
+      ]
+    },
+    {
+      "number": 44,
+      "anchor": "16A",
+      "title": "Your peer-test task",
+      "hidden": false,
+      "text": [
+        "4 MINUTES OF PREPARATION",
+        "Your peer-test task",
+        "WEEK 7",
+        "16A",
+        "A goal, starting inputs and visible success",
+        "Protected scope and a reset method",
+        "One version, one task, three reviewers",
+        "Could a partner attempt this goal without a click-by-click script?"
+      ]
+    },
+    {
+      "number": 45,
+      "anchor": "S5",
+      "title": "Peer testing",
+      "hidden": false,
+      "text": [
+        "SECTION 5 · TESTING 35 MIN + SYNTHESIS 5 MIN",
+        "Peer testing",
+        "WEEK 7",
+        "S5",
+        "Observe an attempt",
+        "Record the evidence",
+        "Choose a retest",
+        "Nielsen Norman Group · follow-up interview after a usability task"
+      ]
+    },
+    {
+      "number": 46,
+      "anchor": "17",
+      "title": "Lab 2: three peer reviews",
+      "hidden": false,
+      "text": [
+        "3-MINUTE BRIEFING",
+        "Lab 2: three peer reviews",
+        "WEEK 7",
+        "17",
+        "Author gives the goal, then observes",
+        "Reviewer attempts and records evidence",
+        "Give the completed sheet to the author",
+        "What questions do you have before the first attempt?"
+      ]
+    },
+    {
+      "number": 47,
+      "anchor": "18",
+      "title": "A ten-minute reciprocal round",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "A ten-minute reciprocal round",
+        "WEEK 7",
+        "18",
+        "Time",
+        "Action",
+        "0:00–0:30",
+        "Author states goal, inputs, success, and safety",
+        "0:30–2:30",
+        "Partner attempts the task",
+        "2:30–4:00",
+        "Record evidence and share",
+        "4:00–8:00",
+        "Swap roles and repeat",
+        "8:00–10:00",
+        "Finish both records and reset",
+        "Record the action, expected result, observed result and help needed."
+      ]
+    },
+    {
+      "number": 48,
+      "anchor": "19",
+      "title": "Partner rotations",
+      "hidden": false,
+      "text": [
+        "WEEK 7",
+        "Partner rotations",
+        "WEEK 7",
+        "19",
+        "Round / time",
+        "Pairs",
+        "First authors",
+        "1 / 5:23–5:33",
+        "A–B and C–D",
+        "A and C",
+        "2 / 5:34–5:44",
+        "A–C and B–D",
+        "A and B",
+        "3 / 5:45–5:55",
+        "A–D and B–C",
+        "A and B",
+        "Later letter tests first. Swap roles at minute 4.",
+        "Same task and start state. One sheet per reviewer, given to the author."
+      ]
+    },
+    {
+      "number": 49,
+      "anchor": "20",
+      "title": "One revision supported by evidence",
+      "hidden": false,
+      "text": [
+        "5-MINUTE SYNTHESIS",
+        "One revision supported by evidence",
+        "WEEK 7",
+        "20",
+        "Preserve one observed strength",
+        "Choose a consequential issue or uncertainty",
+        "Specify the input, action and expected result",
+        "Which evidence changed or strengthened your first judgment?"
+      ]
+    },
+    {
+      "number": 50,
+      "anchor": "07B",
+      "title": "The current project is part of the input",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "The current project is part of the input",
+        "WEEK 7",
+        "07B",
+        "Existing course Unreal capture · project, level and Outliner context",
+        "What context would you include in a useful run report?"
+      ]
+    },
+    {
+      "number": 51,
+      "anchor": "10B",
+      "title": "Reimport needs a prediction",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Reimport needs a prediction",
+        "WEEK 7",
+        "10B",
+        "Change in Maya",
+        "Inspect in Unreal",
+        "Move the pivot",
+        "Placement and transform behavior",
+        "Revise the mesh",
+        "Same intended asset updated",
+        "Change material slots",
+        "Assignments still match their purpose",
+        "How would you detect an unintended duplicate?"
+      ]
+    },
+    {
+      "number": 52,
+      "anchor": "09C",
+      "title": "A preview is a temporary agreement",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "A preview is a temporary agreement",
+        "WEEK 7",
+        "09C",
+        "Course state model · changed inputs require a new preview",
+        "What else could make a preview stale?"
+      ]
+    },
+    {
+      "number": 53,
+      "anchor": "09E",
+      "title": "Change and reset",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Change and reset",
+        "WEEK 7",
+        "09E",
+        "Animated comparison of existing captures · not continuous execution footage",
+        "What can this animation show? What remains unverified?"
+      ]
+    },
+    {
+      "number": 54,
+      "anchor": "15C",
+      "title": "A click connects to an operation",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "A click connects to an operation",
+        "WEEK 7",
+        "15C",
+        "Existing course Qt schematic · signal, callback and visible result",
+        "Where would you stop an invalid operation?"
+      ]
+    },
+    {
+      "number": 55,
+      "anchor": "15E",
+      "title": "Warning and blocked states",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Warning and blocked states",
+        "WEEK 7",
+        "15E",
+        "Actual course PySide tool · offline warning state",
+        "Can the artist proceed? What evidence supports that choice?"
+      ]
+    },
+    {
+      "number": 56,
+      "anchor": "15F",
+      "title": "Keyboard and focus",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Keyboard and focus",
+        "WEEK 7",
+        "15F",
+        "source_field.setFocus()",
+        "QWidget.setTabOrder(source_field, target_field)",
+        "A logical Tab order follows the task",
+        "Visible focus shows the active control",
+        "Shortcuts remain discoverable",
+        "Where does keyboard focus go after an error?"
+      ]
+    },
+    {
+      "number": 57,
+      "anchor": "16D",
+      "title": "Testing continues after release",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Testing continues after release",
+        "WEEK 7",
+        "16D",
+        "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.55",
+        "How will users report a problem after your first release?"
+      ]
+    },
+    {
+      "number": 58,
+      "anchor": "16F",
+      "title": "A useful observation record",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "A useful observation record",
+        "WEEK 7",
+        "16F",
+        "Observed",
+        "Still uncertain",
+        "Paused at the destination field",
+        "Whether the label or the path caused hesitation",
+        "Needed one hint to continue",
+        "Whether the task wording supplied enough context",
+        "Changed an unselected item",
+        "The code cause and the affected scope",
+        "Which statement could another observer verify?"
+      ]
+    },
+    {
+      "number": 59,
+      "anchor": "A1",
+      "title": "Material automation: a later connection",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Material automation: a later connection",
+        "WEEK 7",
+        "A1",
+        "Actual practice-mode interface · sample data, no Unreal connection",
+        "What should remain editable by the artist?"
+      ]
+    },
+    {
+      "number": 60,
+      "anchor": "A2",
+      "title": "Qt: small implementation examples",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Qt: small implementation examples",
+        "WEEK 7",
+        "A2",
+        "form = QFormLayout()",
+        "form.addRow(\"Source file\", source_field)",
+        "form.addRow(\"Destination\", target_field)",
+        "",
+        "source_field.textChanged.connect(update_preview)",
+        "import_button.clicked.connect(run_import)",
+        "Layouts express relationships",
+        "Signals connect actions and feedback",
+        "Which UX decision does each line support?"
+      ]
+    },
+    {
+      "number": 61,
+      "anchor": "A3",
+      "title": "Other production references",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Other production references",
+        "WEEK 7",
+        "A3",
+        "Ubisoft Connect: internal release-tool UX",
+        "Fortnite Tools: inspect and locate overlaps",
+        "Ryan DowlingSoka: batch renaming",
+        "Which workflow problem transfers to your own tool?"
+      ]
+    },
+    {
+      "number": 62,
+      "anchor": "A7",
+      "title": "Unreal production architecture",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Unreal production architecture",
+        "WEEK 7",
+        "A7",
+        "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.26",
+        "Which boundary makes independent changes easier?"
+      ]
+    },
+    {
+      "number": 63,
+      "anchor": "A8",
+      "title": "Existing Unreal widgets as references",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Existing Unreal widgets as references",
+        "WEEK 7",
+        "A8",
+        "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.34",
+        "Which familiar editor control could guide your design?"
+      ]
+    },
+    {
+      "number": 64,
+      "anchor": "A9",
+      "title": "Shareable reproduction steps",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Shareable reproduction steps",
+        "WEEK 7",
+        "A9",
+        "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.51",
+        "What would you attach to a useful bug report?"
+      ]
+    },
+    {
+      "number": 65,
+      "anchor": "A10",
+      "title": "Production feedback is evidence with limits",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Production feedback is evidence with limits",
+        "WEEK 7",
+        "A10",
+        "Jeff Stewart · Vicarious Visions · GDC 2018 · PDF p.13",
+        "What would you need before interpreting this as a causal result?"
+      ]
+    },
+    {
+      "number": 66,
+      "anchor": "A11",
+      "title": "A production prototype evolves",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "A production prototype evolves",
+        "WEEK 7",
+        "A11",
+        "Guerrilla · Sumaili & van der Steen · GDC 2017 · PDF pp.31,33",
+        "Which uncertainty should your next prototype answer?"
+      ]
+    },
+    {
+      "number": 67,
+      "anchor": "A12",
+      "title": "A different discipline, a different view",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "A different discipline, a different view",
+        "WEEK 7",
+        "A12",
+        "Guerrilla · Sumaili & van der Steen · GDC 2017 · PDF p.25",
+        "Which controls would your target artist never need?"
+      ]
+    },
+    {
+      "number": 68,
+      "anchor": "A13",
+      "title": "Reveal detail where the artist is looking",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Reveal detail where the artist is looking",
+        "WEEK 7",
+        "A13",
+        "Guerrilla · GDC 2017 · published world-map clip · 16 seconds",
+        "Play companion clip",
+        "What detail should be persistent, selected, or shown on hover?"
+      ]
+    },
+    {
+      "number": 69,
+      "anchor": "A4",
+      "title": "Python and Unreal: further study",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Python and Unreal: further study",
+        "WEEK 7",
+        "A4",
+        "Epic Python documentation",
+        "Oster: Import / Export",
+        "Oster: Texture Utility",
+        "Oster: Asset Setup",
+        "Karol: Python Automation"
+      ]
+    },
+    {
+      "number": 70,
+      "anchor": "A5",
+      "title": "UI/UX: further study",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "UI/UX: further study",
+        "WEEK 7",
+        "A5",
+        "NN/g: usability testing",
+        "NN/g: task scenarios",
+        "Apple: feedback",
+        "GDC: Jodie Azhar’s tool-design slides",
+        "Qt for Python tutorials"
+      ]
+    },
+    {
+      "number": 71,
+      "anchor": "A6",
+      "title": "Later directions",
+      "hidden": true,
+      "text": [
+        "EXPLORE FURTHER",
+        "Later directions",
+        "WEEK 7",
+        "A6",
+        "Blueprint generators and spline-based artist tools",
+        "PCG, procedural modeling, and larger environments",
+        "Material workflows, VFX, and validation pipelines",
+        "Which direction supports a task you actually need?"
+      ]
+    }
+  ]
+}

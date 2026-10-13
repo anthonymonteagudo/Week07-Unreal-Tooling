@@ -1,0 +1,64 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "python.analysis.extraPaths": [
+    "./Content/Python",
+    "./Intermediate/PythonStub",
+    "./.deps/ui"
+  ],
+  "python.analysis.diagnosticMode": "openFilesOnly",
+  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.exclude": [
+    "**/.venv/**",
+    "**/Intermediate/**",
+    "**/Saved/**",
+    "**/Reference/**",
+    "**/.deps/**"
+  ],
+  "python.testing.unittestEnabled": true,
+  "python.testing.pytestEnabled": false,
+  "python.testing.unittestArgs": [
+    "-v",
+    "-s",
+    "Tests",
+    "-p",
+    "test_*.py"
+  ],
+  "python.testing.cwd": "${workspaceFolder}",
+  "terminal.integrated.env.windows": {
+    "PYTHONPATH": "${workspaceFolder}/Content/Python"
+  },
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    ".venv": true,
+    "Binaries": true,
+    "DerivedDataCache": true,
+    "Intermediate": true,
+    "Saved": true,
+    "**/*.uasset": true,
+    "**/*.umap": true,
+    "**/*.ubulk": true,
+    "**/*.uexp": true,
+    "*.log": true,
+    "**/.deps/**": true
+  },
+  "search.exclude": {
+    "**/.venv/**": true,
+    "**/DerivedDataCache/**": true,
+    "**/Intermediate/**": true,
+    "**/Saved/**": true,
+    "**/Reference/**": true,
+    "**/.deps/**": true
+  },
+  "files.watcherExclude": {
+    "**/DerivedDataCache/**": true,
+    "**/Intermediate/**": true,
+    "**/Saved/**": true,
+    "**/.deps/**": true
+  },
+  "editor.rulers": [
+    100
+  ],
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4
+}

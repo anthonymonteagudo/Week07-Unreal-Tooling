@@ -1,0 +1,851 @@
+{
+  "sourceDeck": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\AgendaRevision20261011\\Week_7_Agenda_330_to_600.pptx",
+  "slides": [
+    {
+      "id": "01",
+      "title": "Review & specialization",
+      "notes": "Original cover retained."
+    },
+    {
+      "id": "02",
+      "title": "Today’s sequence",
+      "tag": "WEEK 7",
+      "table": [
+        [
+          "Part",
+          "Focus"
+        ],
+        [
+          "Python in Unreal",
+          "Setup, data model, and a repeatable operation"
+        ],
+        [
+          "Tool examples",
+          "Inspect the workflow and its limits"
+        ],
+        [
+          "Break",
+          "Then keep the assessment–UX–testing sequence together"
+        ],
+        [
+          "Tool assessment → UI/UX",
+          "Record a first judgment, then reconsider it"
+        ],
+        [
+          "Peer testing",
+          "Three reviews, one priority change, one retest"
+        ]
+      ],
+      "notes": "Today we will connect the Python work you know from Maya to Unreal’s editor. Look at the whole task, not only the code. After the break, you will assess a tool before we discuss UX principles, then immediately apply those principles to a classmate’s tool.",
+      "refs": []
+    },
+    {
+      "id": "02A",
+      "title": "What you should be able to explain",
+      "bullets": [
+        "Which objects a tool will affect",
+        "How you will inspect and verify its result",
+        "How another artist can use it without your help"
+      ],
+      "question": "What would make you trust a tool with your project?",
+      "notes": "By the end, you should be able to explain scope, evidence, and the user’s task. A script finishing without an exception is only one part of success. Keep one tool from your own work in mind as we go.",
+      "refs": [
+        "heuristics"
+      ]
+    },
+    {
+      "id": "05",
+      "title": "Python stays; the host API changes",
+      "bullets": [
+        "Keep loops, functions, conditions, and data structures",
+        "Replace Maya commands with Unreal editor APIs",
+        "Carry over explicit inputs, scope, and useful reports"
+      ],
+      "code": "import unreal\nunreal.log(\"Hello Unreal\")",
+      "question": "Which part of your Maya tool is independent of Maya?",
+      "notes": "Your general Python knowledge carries over. The objects and operations exposed by the host application change. Keep reusable rules separate from host-specific operations where practical. Here, unreal is the module exposed by the editor; installing ordinary Python alone does not create an Unreal editor session.",
+      "refs": [
+        "python",
+        "karol"
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Python setup in Unreal",
+      "bullets": [
+        "Enable Python Editor Script Plugin",
+        "Enable Editor Scripting Utilities; restart the editor",
+        "Choose Python input mode in Output Log"
+      ],
+      "question": "Is the input field running Python or console commands?",
+      "notes": "Enable these plugins for the project you are using and restart. Switch the Output Log input to Python. Unreal supplies its embedded interpreter; do not assume your terminal interpreter has the same modules. We are using Python for editor automation, not runtime gameplay.",
+      "refs": [
+        "python"
+      ]
+    },
+    {
+      "id": "04",
+      "title": "A first run and a script file",
+      "code": "import unreal\nunreal.log(\"Hello Unreal\")\n\n# Project/Content/Python/hello_tools.py\n# File → Execute Python Script",
+      "bullets": [
+        "Save reusable code in a script",
+        "Find its output before adding more behavior"
+      ],
+      "question": "What evidence tells you the script ran in the intended project?",
+      "notes": "Run the small logging example first. Then execute a saved script. Project Content/Python is one of the supported search locations. A saved file gives us something we can inspect, revise, and rerun. Watch the Output Log rather than assuming silence means success.",
+      "refs": [
+        "python"
+      ]
+    },
+    {
+      "id": "06",
+      "title": "Assets, Actors, and Components",
+      "table": [
+        [
+          "Entity",
+          "Example",
+          "Why scope matters"
+        ],
+        [
+          "Asset",
+          "A Static Mesh in the Content Browser",
+          "May be referenced by many placements"
+        ],
+        [
+          "Actor",
+          "One placed crate in the level",
+          "Has its own label and transform"
+        ],
+        [
+          "Component",
+          "The Actor’s Static Mesh Component",
+          "References the mesh and can hold overrides"
+        ]
+      ],
+      "question": "If two Actors share a mesh, which edits could affect both?",
+      "notes": "A placed object and the asset it references are not the same thing. In our existing fixture, six prop Actors use five shared mesh assets. Editing an Actor transform is different from changing the shared asset. A component can also carry a material override. Always identify which layer your operation edits.",
+      "refs": [
+        "python"
+      ],
+      "local": [
+        "Course/Slides/Week07/PrepNotes/sources/oster-07.html",
+        "Course/Slides/Week07/UnrealPythonDemo/index.html"
+      ]
+    },
+    {
+      "id": "07",
+      "title": "Selection is an input",
+      "code": "actors = unreal.get_editor_subsystem(\n    unreal.EditorActorSubsystem\n).get_selected_level_actors()\n\nfor actor in actors:\n    print(actor.get_actor_label())",
+      "bullets": [
+        "Level selection is not Content Browser selection",
+        "Check eligibility before building a change plan"
+      ],
+      "question": "What should your tool do with an empty selection?",
+      "notes": "This read-only example asks the editor Actor subsystem for selected level Actors. It does not retrieve selected Content Browser assets. We can report the labels before attempting any edits. Next check whether each object supports the operation and explain any skipped items.",
+      "refs": [
+        "python"
+      ],
+      "local": [
+        "Week07UnrealPython/Content/Python/week07_tooling/examples/e02_inspect_selection.py"
+      ]
+    },
+    {
+      "id": "07A",
+      "title": "Disk paths and Unreal asset paths",
+      "table": [
+        [
+          "Kind",
+          "Illustrative example",
+          "Used for"
+        ],
+        [
+          "Disk file",
+          "C:/Exports/Crate.fbx",
+          "Input to an importer"
+        ],
+        [
+          "Content folder",
+          "/Game/Props",
+          "Destination package folder"
+        ],
+        [
+          "Object path",
+          "/Game/Props/Crate.Crate",
+          "A particular Unreal object"
+        ]
+      ],
+      "question": "Which path belongs in the source-file field?",
+      "notes": "These are illustrative paths, not files supplied with this slide. Keep the source file, destination folder, and imported object identity distinct. An import task takes a filename and a destination path. Read its resulting object paths to learn what was actually created.",
+      "refs": [
+        "import",
+        "oster"
+      ]
+    },
+    {
+      "id": "10",
+      "title": "A small Maya → Unreal bridge",
+      "table": [
+        [
+          "Step",
+          "Check"
+        ],
+        [
+          "Export one known prop",
+          "Units, orientation, pivot, and intended material slots"
+        ],
+        [
+          "Import to a known destination",
+          "Explicit source file and destination folder"
+        ],
+        [
+          "Inspect in Unreal",
+          "Mesh, scale, orientation, and assignment"
+        ],
+        [
+          "Revise and reimport",
+          "Same intended asset; no unexpected duplicate"
+        ]
+      ],
+      "question": "What must remain stable when the Maya source changes?",
+      "notes": "Treat the file handoff as the first bridge. Remote control between applications is not necessary to explain it. Make one source revision, then check that the intended Unreal asset updates. Importer behavior and settings need to be rehearsed in the engine version used for class.",
+      "refs": [
+        "oster",
+        "import"
+      ],
+      "local": [
+        "Course/Slides/Week07/PrepNotes/Bridge_and_UX.html"
+      ]
+    },
+    {
+      "id": "10A",
+      "title": "An import task makes intent explicit",
+      "code": "task = unreal.AssetImportTask()\ntask.filename = source_file\ntask.destination_path = \"/Game/Props\"\ntask.automated = True\ntask.save = False\nunreal.AssetToolsHelpers.get_asset_tools()\\\n    .import_asset_tasks([task])",
+      "bullets": [
+        "Configure options for the chosen importer",
+        "Inspect imported_object_paths and the result"
+      ],
+      "question": "What should happen when the destination already exists?",
+      "notes": "This is an illustrative API excerpt: source_file must name an existing input and the appropriate importer options still need configuration. Automated import suppresses interaction; it does not prove that the result matches our intent. Saving is deliberately separate here. Reimport and replacement policies require explicit choices rather than relying on this minimal snippet.",
+      "refs": [
+        "import"
+      ]
+    },
+    {
+      "id": "09",
+      "title": "A controlled editor operation",
+      "bullets": [
+        "Collect and inspect a bounded selection",
+        "Preview exact changes before applying them",
+        "Verify results, then demonstrate recovery"
+      ],
+      "code": "import week07_tools as w7\nw7.select_demo()\nplan = w7.preview()\nw7.apply(plan)\nw7.check()",
+      "question": "What should invalidate a preview before Apply?",
+      "notes": "These commands belong to the existing course fixture, not the general Unreal API. Preview produces a plan; Apply should not quietly act on different inputs. The tool’s existing records document a controlled Actor-label and placement operation. Undo history is not a backup, and import recovery may require a different approach.",
+      "refs": [
+        "python"
+      ],
+      "local": [
+        "Course/Slides/Week07/UnrealPythonDemo/index.html",
+        "Week07UnrealPython/Content/Python/week07_tools.py"
+      ]
+    },
+    {
+      "id": "08",
+      "title": "A Blueprint interface can call Python",
+      "table": [
+        [
+          "Layer",
+          "Responsibility"
+        ],
+        [
+          "Editor Utility Widget",
+          "Inputs, scope, actions, and result display"
+        ],
+        [
+          "Execute Python Script",
+          "Pass named inputs and outputs"
+        ],
+        [
+          "Python operation",
+          "Validate, perform the operation, report results"
+        ]
+      ],
+      "question": "Should the button contain the whole tool—or call one operation?",
+      "notes": "This is the Blueprint connection we need today. Epic supports Python execution nodes in editor-only Blueprints such as Editor Utility Widgets. The Execute Python Script node can expose custom inputs and outputs. It does not make Python a gameplay scripting language. Its execution-success output is not a substitute for checking whether the artist’s task succeeded.",
+      "refs": [
+        "python",
+        "euw",
+        "bp",
+        "karolbp"
+      ]
+    },
+    {
+      "id": "09A",
+      "title": "Prop organizer: starting state",
+      "image": "Course/Slides/Week07/UnrealPythonDemo/Captures/01_baseline.png",
+      "caption": "Existing course capture · Unreal 5.7.4 · six-prop fixture",
+      "question": "Which values can this operation change safely?",
+      "notes": "This is the existing baseline capture from the course fixture. The prepared operation changes Actor labels and positions, not the shared mesh assets. Predict the result before looking at the organized capture.",
+      "local": [
+        "Course/Slides/Week07/UnrealPythonDemo/index.html"
+      ]
+    },
+    {
+      "id": "09B",
+      "title": "Prop organizer: inspect the result",
+      "image": "Course/Slides/Week07/UnrealPythonDemo/Captures/02_organized.png",
+      "caption": "Existing course capture · same fixture after the controlled operation",
+      "question": "What does this image prove—and what still needs checking?",
+      "notes": "The second capture shows the arranged props. An image alone does not verify labels, selection boundaries, or recovery. Use the tool’s report and an Undo check to establish those properties. These are previously prepared captures, not a new run performed for this deck.",
+      "local": [
+        "Course/Slides/Week07/UnrealPythonDemo/index.html"
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Tool demonstrations",
+      "bullets": [
+        "Co-teacher examples · 15 minutes",
+        "TA examples · 20 minutes",
+        "For each: task, scope, result, and recovery"
+      ],
+      "question": "Where does the artist make a decision?",
+      "notes": "As you watch the demonstrations, identify the task each tool supports, the scope it changes, how the result is verified, and how the artist recovers. Hold onto examples that connect to your own project. The presenter slots include their questions and handoffs.",
+      "local": [
+        "Course/Slides/Week07/ActivitiesDraft20261012/index.html"
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Break",
+      "bullets": [
+        "When we return: assess a tool",
+        "Then revisit your assessment through UI/UX",
+        "Apply the same thinking in peer testing"
+      ],
+      "notes": "Take the break now. When we return, keep your initial impressions: we will use them as evidence for the discussion rather than replacing them with a checklist immediately.",
+      "local": [
+        "Course/Slides/Week07/ActivitiesDraft20261012/index.html"
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Tool assessment: predict the result",
+      "tag": "GROUP LAB · 8 MINUTES",
+      "table": [
+        [
+          "Starting name",
+          "Selected?",
+          "Expected name"
+        ],
+        [
+          "crate_A",
+          "Yes",
+          "?"
+        ],
+        [
+          "crate_B",
+          "Yes",
+          "?"
+        ],
+        [
+          "SM_crate_C",
+          "Yes",
+          "?"
+        ],
+        [
+          "barrel_D",
+          "No",
+          "?"
+        ]
+      ],
+      "question": "Rule: exactly one SM_ prefix on selected assets. Leave all others unchanged.",
+      "notes": "This is a fictional paper case, not a captured engine bug. Assign a reader, recorder, evidence checker, and reporter. Complete the expected result before seeing the output. When the result is revealed, first write your own answer: would you trust this tool, and what would you change first?",
+      "local": [
+        "Course/Slides/Week07/ActivitiesDraft20261012/group-sheet.html"
+      ]
+    },
+    {
+      "id": "12A",
+      "title": "Tool assessment: compare the evidence",
+      "tag": "FICTIONAL TEACHING CASE",
+      "table": [
+        [
+          "Starting name",
+          "Expected",
+          "Reported result"
+        ],
+        [
+          "crate_A",
+          "SM_crate_A",
+          "SM_crate_A"
+        ],
+        [
+          "crate_B",
+          "SM_crate_B",
+          "SM_crate_B"
+        ],
+        [
+          "SM_crate_C",
+          "SM_crate_C",
+          "SM_SM_crate_C"
+        ],
+        [
+          "barrel_D",
+          "barrel_D",
+          "SM_barrel_D"
+        ]
+      ],
+      "question": "The tool says “4 assets updated.” Did the task succeed?",
+      "notes": "The first two rows are correct. The already-prefixed name gets another prefix, and the unselected barrel changes. Record the behavior before guessing the code cause. Recovery, performance, and a second run remain unknown. Preserve your first priority and the reason for it.",
+      "local": [
+        "Course/Slides/Week07/ActivitiesDraft20261012/reveal.html"
+      ]
+    },
+    {
+      "id": "14",
+      "title": "UI and UX in an artist tool",
+      "bullets": [
+        "UI: the controls, labels, and layout",
+        "UX: reaching the intended result in context",
+        "A successful execution can still fail the task"
+      ],
+      "question": "Which part of your first assessment would you defend?",
+      "notes": "Return to the renamer. A success count did not make the task successful. Some problems were functional errors; a clearer interface cannot repair the wrong mutation. UX also includes understanding scope, finding results, and recovering. Your initial instinct may be sound. We are adding a more precise way to explain and investigate it.",
+      "refs": [
+        "heuristics"
+      ]
+    },
+    {
+      "id": "14B",
+      "title": "User stories and success conditions",
+      "bullets": [
+        "As an environment artist…",
+        "I want to bring a revised prop into Unreal…",
+        "So I can inspect it without rebuilding its setup."
+      ],
+      "question": "What must be observable before we call this successful?",
+      "notes": "This is a classroom example of role, goal, and benefit. It starts a conversation rather than specifying a particular button. Add observable acceptance checks: the intended asset updates, the result is easy to locate, and unrelated work stays unchanged. Ask the artist about their current workflow before treating the story as a verified requirement.",
+      "refs": [
+        "story",
+        "system"
+      ]
+    },
+    {
+      "id": "14C",
+      "title": "Sketch the interaction before coding",
+      "bullets": [
+        "Compare two layouts for the same task",
+        "Show a starting state, a result, and an error",
+        "Use paper—or connect screens in Figma"
+      ],
+      "question": "What can a sketch test? What requires a running tool?",
+      "notes": "A sketch can help test interpretation and flow before implementation. Figma connects frames so a person can try a simulated interaction. It does not verify the Unreal operation. Research on parallel prototyping found benefits in an advertisement-design study; comparing layout alternatives here is our teaching application, not a measured Unreal productivity claim.",
+      "refs": [
+        "paper",
+        "figma",
+        "parallel"
+      ]
+    },
+    {
+      "id": "15",
+      "title": "Group controls around the artist’s task",
+      "image": "Week07UnrealPython/Docs/UI/captures/stage_3_preview.png",
+      "side": [
+        "Scope before action",
+        "Before / after values",
+        "A named Apply action"
+      ],
+      "caption": "Actual PySide interface capture · offline rehearsal with fictional data",
+      "question": "Where would you look first? What questions do you have about your layout?",
+      "notes": "This capture shows the actual PySide implementation using offline sample data. Notice the scope, before-and-after table, and named action. These features support inspection, but they still need testing with users. The backend rules remain separate from the presentation. The screenshot is not evidence of a live Unreal edit.",
+      "refs": [
+        "layout",
+        "gdc"
+      ],
+      "local": [
+        "Week07UnrealPython/Docs/UI/README.md",
+        "Week07UnrealPython/Content/Python/week07_tooling/ui/views.py"
+      ]
+    },
+    {
+      "id": "14A",
+      "title": "Mental models and visible scope",
+      "bullets": [
+        "Ask what the artist expects to change",
+        "Show the target and relevant state",
+        "Use visible choices instead of remembered syntax"
+      ],
+      "question": "Does filtering the report also change what Apply affects?",
+      "notes": "People bring expectations from other tools. In the captured Prop Inspector, filtering displayed rows does not change the reviewed plan; the interface states that explicitly. Ask a tester to predict scope before they act. Their explanation gives us evidence about their mental model, not proof that the implementation is correct.",
+      "refs": [
+        "mental",
+        "recognition"
+      ],
+      "local": [
+        "Week07UnrealPython/Content/Python/week07_tooling/ui/views.py"
+      ]
+    },
+    {
+      "id": "15A",
+      "title": "Feedback and the next action",
+      "image": "Week07UnrealPython/Docs/UI/captures/stage_3_empty.png",
+      "side": [
+        "Name the current state",
+        "Explain the next step",
+        "Distinguish ready from applied"
+      ],
+      "caption": "Actual PySide interface capture · empty offline rehearsal state",
+      "question": "What information belongs beside the action rather than in an alert?",
+      "notes": "Here the empty state says what to do next and the Apply action is unavailable. A disabled control still needs an explanation. After work completes, distinguish changed, skipped, and failed items. Apple’s guidance connects the level of interruption to the consequence: routine status can stay near the work, while a significant actionable risk may warrant interruption.",
+      "refs": [
+        "apple",
+        "heuristics"
+      ],
+      "local": [
+        "Week07UnrealPython/Docs/UI/README.md"
+      ]
+    },
+    {
+      "id": "15B",
+      "title": "Control, recovery, and access",
+      "bullets": [
+        "Review consequential changes before applying them",
+        "Test the recovery path you actually offer",
+        "Keep focus, labels, and status understandable"
+      ],
+      "code": "# Existing PySide view implementation\nself.preview.setAccessibleName(\n    \"Selected Actors change preview\"\n)",
+      "question": "Could a classmate recover without asking the author?",
+      "notes": "Recovery can mean Undo for an editor transaction, or a separate restore and reimport procedure. Do not promise that all operations can be undone. The code excerpt names the preview for accessibility; it is one implementation detail, not a complete accessibility guarantee. Check keyboard operation, visible focus, readable text, and status cues that do not rely on color alone.",
+      "refs": [
+        "ryan",
+        "access",
+        "qt"
+      ],
+      "local": [
+        "Week07UnrealPython/Content/Python/week07_tooling/ui/views.py"
+      ]
+    },
+    {
+      "id": "16",
+      "title": "Observe, interpret, revise, retest",
+      "table": [
+        [
+          "Evidence",
+          "Example"
+        ],
+        [
+          "Observation",
+          "The tester chose the wrong destination"
+        ],
+        [
+          "Possible explanation",
+          "The destination label may be unclear"
+        ],
+        [
+          "Proposed change",
+          "Show the full target path"
+        ],
+        [
+          "Retest",
+          "Can a new tester choose the intended target without help?"
+        ]
+      ],
+      "question": "What questions remain before we begin testing?",
+      "notes": "Separate what happened from why you think it happened. A preference can be useful, but it does not replace observing the task. Keep the version stable across today’s three rounds so findings can be compared. If an emergency fix is necessary, record it. Afterwards choose a change and retest. Three classmates provide useful leads, not proof that every user will succeed.",
+      "refs": [
+        "testing",
+        "tasks"
+      ]
+    },
+    {
+      "id": "16A",
+      "title": "Prepare one peer-test task",
+      "tag": "4 MINUTES",
+      "bullets": [
+        "A goal and a small starting input",
+        "An observable result and protected scope",
+        "A reset state and an honest review mode"
+      ],
+      "question": "Which initial judgment would you now revise—or defend—and why?",
+      "notes": "Write one task that can be attempted in about two minutes. For example, arrange three selected props and leave the light unchanged. State the goal rather than a click sequence. Prefill the author details and task on the short peer sheets. A prototype or recording is still useful, but label it honestly and do not report imagined behavior as observed.",
+      "refs": [
+        "tasks"
+      ],
+      "local": [
+        "Course/Slides/Week07/ActivitiesDraft20261012/peer-sheet.html"
+      ]
+    },
+    {
+      "id": "17",
+      "title": "Peer testing: three perspectives",
+      "tag": "3-MINUTE BRIEFING",
+      "bullets": [
+        "Work in groups of four: A, B, C, D",
+        "Both partners test in every round",
+        "Use the author’s machine; record any help"
+      ],
+      "question": "What will you observe before suggesting a redesign?",
+      "notes": "Use the prepared starting state and the same primary task in all three rounds. Do not spend the round installing a tool on someone else’s machine. If the tool cannot launch promptly, use the prepared fallback and label the review mode. Support an unfinished tool without pretending it is complete.",
+      "local": [
+        "Course/Slides/Week07/ActivitiesDraft20261012/index.html"
+      ]
+    },
+    {
+      "id": "18",
+      "title": "A ten-minute reciprocal round",
+      "table": [
+        [
+          "Time",
+          "Action"
+        ],
+        [
+          "0:00–0:30",
+          "Author states goal, inputs, success, and safety"
+        ],
+        [
+          "0:30–2:30",
+          "Partner attempts the task"
+        ],
+        [
+          "2:30–4:00",
+          "Record evidence and share"
+        ],
+        [
+          "4:00–8:00",
+          "Swap roles and repeat"
+        ],
+        [
+          "8:00–10:00",
+          "Finish both records and reset"
+        ]
+      ],
+      "question": "Allow an attempt before coaching; record assistance when given.",
+      "notes": "During the attempt, observe and allow the tester to explain their expectations. Avoid telling them where to click unless help becomes necessary; if you help, record it. The final two minutes are for finishing and resetting, not expanding to an entirely new task.",
+      "refs": [
+        "testing"
+      ],
+      "local": [
+        "Course/Slides/Week07/ActivitiesDraft20261012/index.html"
+      ]
+    },
+    {
+      "id": "19",
+      "title": "Partner rotations",
+      "table": [
+        [
+          "Round",
+          "Pair 1",
+          "Pair 2"
+        ],
+        [
+          "1",
+          "A ↔ B",
+          "C ↔ D"
+        ],
+        [
+          "2",
+          "A ↔ C",
+          "B ↔ D"
+        ],
+        [
+          "3",
+          "A ↔ D",
+          "B ↔ C"
+        ]
+      ],
+      "bullets": [
+        "One minute to switch between rounds",
+        "Keep the same task and record the version"
+      ],
+      "question": "What repeats across reviews? What depends on the reviewer?",
+      "notes": "Stay within your group. The rotations give each person three different reviewers. Use the same task and start state, and keep observations tied to the actual review mode. Repeated evidence may help prioritize a problem, but a single consequential failure can also deserve attention.",
+      "local": [
+        "Course/Slides/Week07/ActivitiesDraft20261012/index.html"
+      ]
+    },
+    {
+      "id": "20",
+      "title": "Your next revision",
+      "tag": "5-MINUTE SYNTHESIS",
+      "bullets": [
+        "Identify one strength worth preserving",
+        "Choose one consequential improvement",
+        "Describe the evidence your retest should produce"
+      ],
+      "question": "How did your first intuition change after observing someone else?",
+      "notes": "Compare the reviews before selecting a fix. Choose a change that addresses an observed difficulty, explain the reason, and describe a retest. You can also defend an initial decision if the evidence supports it. Record what remains uncertain rather than forcing a confident conclusion.",
+      "refs": [
+        "testing"
+      ],
+      "local": [
+        "Course/Slides/Week07/ActivitiesDraft20261012/reflection.html"
+      ]
+    },
+    {
+      "id": "A1",
+      "title": "Material automation: a later connection",
+      "hidden": true,
+      "image": "Week07UnrealPython/Docs/UI/captures/material_preview.png",
+      "caption": "Actual practice-mode interface · sample data, no Unreal connection",
+      "question": "What should remain editable by the artist?",
+      "notes": "This local practice panel illustrates how a prepared parent material, texture inputs, a new instance, and a component assignment can be reviewed before applying. It is not a capture of a live Unreal operation. Oster’s Asset Setup and Texture Utility series provide related Unreal Python study. Keep the first example bounded rather than constructing a full material system during this lesson.",
+      "refs": [
+        "material",
+        "texture"
+      ],
+      "local": [
+        "Week07UnrealPython/Docs/UI/MATERIAL_VFX_SCOPE.md"
+      ]
+    },
+    {
+      "id": "A2",
+      "title": "Qt: small implementation examples",
+      "hidden": true,
+      "code": "form = QFormLayout()\nform.addRow(\"Source file\", source_field)\nform.addRow(\"Destination\", target_field)\n\nsource_field.textChanged.connect(update_preview)\nimport_button.clicked.connect(run_import)",
+      "bullets": [
+        "Layouts express relationships",
+        "Signals connect actions and feedback"
+      ],
+      "question": "Which UX decision does each line support?",
+      "notes": "These are illustrative fragments requiring surrounding widget setup and callbacks. They are not a complete importer. Qt can illustrate general Python GUI concepts while Editor Utility Widgets provide an Unreal-native comparison. Neither toolkit determines the quality of the workflow on its own.",
+      "refs": [
+        "qt",
+        "layout"
+      ]
+    },
+    {
+      "id": "A3",
+      "title": "Professional tools support the next decision",
+      "hidden": true,
+      "bullets": [
+        "Fortnite Tools: inspect and locate overlaps",
+        "Ryan’s Batch Rename: review per-item changes",
+        "Pipeline UX: consider handoffs between tools"
+      ],
+      "question": "Which repeated search or decision could your tool reduce?",
+      "notes": "Epic documents Fortnite Tools as adapted from its technical artists’ tools. Ryan’s public tutorial illustrates a batch-renaming interface. Laura Teeples discusses tool systems and workflow friction at GDC. These are different projects and technologies, not one Python pipeline or proof of a measured productivity gain.",
+      "refs": [
+        "fortnite",
+        "ryan",
+        "system"
+      ]
+    },
+    {
+      "id": "A4",
+      "title": "Python and Unreal: further study",
+      "hidden": true,
+      "links": [
+        [
+          "Epic Python documentation",
+          "python"
+        ],
+        [
+          "Oster: Import / Export",
+          "oster"
+        ],
+        [
+          "Oster: Texture Utility",
+          "texture"
+        ],
+        [
+          "Oster: Asset Setup",
+          "material"
+        ],
+        [
+          "Karol: Python Automation",
+          "karol"
+        ]
+      ],
+      "notes": "Use official documentation for API behavior and the course sources for worked examples. The complete source audit preserves the individual tutorial episodes and the playlist already studied. Paid courses are optional instructor preparation, not student requirements.",
+      "refs": [
+        "python",
+        "oster",
+        "texture",
+        "material",
+        "karol"
+      ]
+    },
+    {
+      "id": "A5",
+      "title": "UI/UX: further study",
+      "hidden": true,
+      "links": [
+        [
+          "NN/g: usability testing",
+          "testing"
+        ],
+        [
+          "NN/g: task scenarios",
+          "tasks"
+        ],
+        [
+          "Apple: feedback",
+          "apple"
+        ],
+        [
+          "GDC: Jodie Azhar’s tool-design slides",
+          "gdc"
+        ],
+        [
+          "Qt for Python tutorials",
+          "qt"
+        ]
+      ],
+      "notes": "These sources support different kinds of claims: professional guidance, examples of practice, and technical implementation. They do not all provide experimental evidence. Use the research supplement for the parallel-prototyping paper and its limits.",
+      "refs": [
+        "testing",
+        "tasks",
+        "apple",
+        "gdc",
+        "qt"
+      ]
+    },
+    {
+      "id": "A6",
+      "title": "Later directions",
+      "hidden": true,
+      "bullets": [
+        "Blueprint generators and spline-based artist tools",
+        "PCG, procedural modeling, and larger environments",
+        "Material workflows, VFX, and validation pipelines"
+      ],
+      "question": "Which direction supports a task you actually need?",
+      "notes": "These are future study directions rather than additional Week 7 objectives. The complete source audit includes Oster’s later topics, the Blueprint courses, and the original C++ editor-tools course. SimonDev and Ben Cloward remain shader-related background rather than Unreal editor-tooling backbones.",
+      "refs": [
+        "karolbp",
+        "material",
+        "texture"
+      ]
+    }
+  ],
+  "sourceKeys": {
+    "python": "https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python",
+    "euw": "https://dev.epicgames.com/documentation/en-us/unreal-engine/editor-utility-widgets-in-unreal-engine",
+    "bp": "https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-blueprints",
+    "import": "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7",
+    "oster": "https://isaacoster.artstation.com/projects/Dvdrke",
+    "texture": "https://isaacoster.artstation.com/projects/qeAwqe",
+    "material": "https://isaacoster.artstation.com/projects/xDB8zR",
+    "karol": "https://www.udemy.com/course/unreal-engine-5-python-automation/",
+    "karolbp": "https://www.udemy.com/course/unreal-engine-blueprint-automation/",
+    "qt": "https://doc.qt.io/qtforpython-6/tutorials/",
+    "layout": "https://doc.qt.io/qtforpython-6.8/overviews/qtwidgets-layout.html",
+    "heuristics": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+    "story": "https://www.nngroup.com/articles/user-story-mapping/",
+    "paper": "https://www.nngroup.com/articles/paper-prototyping/",
+    "parallel": "https://hci.stanford.edu/publications/2010/parallel-prototyping/ParallelPrototyping2010-submitted.pdf",
+    "figma": "https://help.figma.com/hc/en-us/articles/360039823894-Create-and-manage-prototype-flows",
+    "mental": "https://www.nngroup.com/articles/mental-models/",
+    "recognition": "https://www.nngroup.com/articles/recognition-and-recall/",
+    "apple": "https://developer.apple.com/design/human-interface-guidelines/feedback",
+    "wwdc": "https://developer.apple.com/videos/play/wwdc2026/250/",
+    "testing": "https://www.nngroup.com/articles/usability-testing-101/",
+    "tasks": "https://www.nngroup.com/articles/task-scenarios-usability-testing/",
+    "ryan": "https://ryandowlingsoka.com/unreal/batch-rename-tool/",
+    "gdc": "https://media.gdcvault.com/gdc2018/presentations/Jodie_Azhar_ProductionValuesImproving.pdf#page=32",
+    "system": "https://www.gdcvault.com/play/1026441/Tools-Tutorial-Day-The-System",
+    "fortnite": "https://dev.epicgames.com/documentation/fortnite/fortnite-tools-mode-in-fortnite?lang=en-US",
+    "access": "https://developer.microsoft.com/en-us/games/events/gdc/2023/accessible-and-inclusive-developer-tools/"
+  }
+}

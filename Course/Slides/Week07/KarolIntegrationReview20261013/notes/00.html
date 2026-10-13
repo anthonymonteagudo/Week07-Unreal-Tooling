@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>00 UE Python Overview · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-00">Return to audit</a> <a href="01.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/00%20UE%20Python%20Overview.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/00%20UE%20Python%20Overview%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>00 UE Python Overview</h1><p>Course overview and sequence retained; no technical procedure to restore.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>UE Python Overview — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/00%20UE%20Python%20Overview.md">Original notes</a></p>
+<p>Python can automate repetitive Unreal Editor work, from small batch fixes to distributable tools and plugins.</p>
+<h2>Useful automation tasks</h2>
+<ul>
+<li>Validate and fix texture compression settings across many assets.</li>
+<li>Find duplicated actors occupying the same location in a level.</li>
+<li>Create material instances from selected textures.</li>
+<li>Reorganize imported animation hierarchies or convert suitable Blueprint data into data assets.</li>
+</ul>
+<h2>Ways to deliver tools</h2>
+<p>Start with scripts run inside the editor. For repeated processing, run scripts from the command line, including on a remote build machine without opening the editor interface. Larger tools can become plugins with menus and user interfaces for easier distribution.</p>
+<p>The course progresses from setup and script execution to asset automation, validation, debugging, tool interfaces, testing, packaging, and remote control.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/01%20Initial%20Setup%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><h2>Transcript</h2>
+<p>What can you automate in unreal?</p>
+<p>One of the simplest but very useful tools is texture compression settings validator and fixer.</p>
+<p>Instead of manually checking if each texture has proper texture compression, just batch process all</p>
+<p>of them.</p>
+<p>Or write a tool for finding duplicated, overlapping assets on the level and spare time of your level</p>
+<p>designers.</p>
+<p>Or maybe create a tool that automatically creates material instances out of selected textures.</p>
+<p>More complex operations are also possible.</p>
+<p>You can reorder hierarchy of newly imported animations, or maybe even convert blueprints to data assets</p>
+<p>to optimize your game.</p>
+<p>Such automation can be deployed on a remote machine and without even initializing editor UI.</p>
+<p>To improve stability and use less memory, tools don&#39;t need to be limited to scripts called with a line</p>
+<p>of code or a single button.</p>
+<p>They can be complete.</p>
+<p>Plugins with user interfaces can be easily distributed or even sold on Unreal Marketplace.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

@@ -1,0 +1,350 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>12 Texture Compression Settings Validator - Accessing Editor Properties · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-12">Return to audit</a><a href="11.html">Previous lesson</a> <a href="13.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/12%20Texture%20Compression%20Settings%20Validator%20-%20Accessing%20Editor%20Properties.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/12%20Texture%20Compression%20Settings%20Validator%20-%20Accessing%20Editor%20Properties%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>12 Texture Compression Settings Validator - Accessing Editor Properties</h1><p>Compression rule and validation loop</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Texture Compression Validation and Editor Properties — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/12%20Texture%20Compression%20Settings%20Validator%20-%20Accessing%20Editor%20Properties.md">Original notes</a></p>
+<p>Build a batch validator that identifies textures by naming suffix, checks their compression, and optionally fixes mismatches. The suffix-to-compression mapping must reflect the project&#39;s naming and shader conventions.</p>
+<h2>Start with normal maps</h2>
+<p>The course begins with <code>_N</code> normal maps; the naming reference also lists suffixes for diffuse, emissive, masks, roughness, and other texture roles.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011000748.png" alt="Course screenshot: Pasted image 20261011000748.png"></p>
+<p>List assets in the target directory, load each one, and skip anything that is not <code>unreal.Texture2D</code>. Then restrict the first version to names ending in <code>_N</code>. <code>list_assets()</code> searches subdirectories unless recursive listing is disabled.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002349.png" alt="Course screenshot: Pasted image 20261011002349.png"></p>
+<h2>Read and change compression</h2>
+<p>Find the Texture Editor setting, then confirm its Python property name and type. Here it is <code>compression_settings</code>, with values from <code>unreal.TextureCompressionSettings</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002553.png" alt="Course screenshot: Pasted image 20261011002553.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002617.png" alt="Course screenshot: Pasted image 20261011002617.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002708.png" alt="Course screenshot: Pasted image 20261011002708.png"></p>
+<p>Read the current value with <code>get_editor_property(&quot;compression_settings&quot;)</code>. Compare it against <code>TC_NORMALMAP</code>; only report or change it when they differ. Apply the change through <code>set_editor_property()</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002750.png" alt="Course screenshot: Pasted image 20261011002750.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002852.png" alt="Course screenshot: Pasted image 20261011002852.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002925.png" alt="Course screenshot: Pasted image 20261011002925.png"></p>
+<h2>Test a deliberate mismatch</h2>
+<p>Give a test normal map an incorrect compression setting, save it, and execute the script. The course&#39;s first test uses <code>py fix_normalmap_compression.py</code> in Cmd mode.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003036.png" alt="Course screenshot: Pasted image 20261011003036.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003146.png" alt="Course screenshot: Pasted image 20261011003146.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003409.png" alt="Course screenshot: Pasted image 20261011003409.png"></p>
+<p>The example log includes path-format deprecation warnings. Filtering those warnings makes the demonstration&#39;s messages easier to see, but does not resolve the underlying warnings. Locate the reported asset and check its compression in the editor.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003436.png" alt="Course screenshot: Pasted image 20261011003436.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003601.png" alt="Course screenshot: Pasted image 20261011003601.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003625.png" alt="Course screenshot: Pasted image 20261011003625.png"></p>
+<h2>Separate validation from fixes</h2>
+<p>Wrap the code in a function accepting a directory and an <code>apply_fix</code> flag. Report mismatches in either mode; modify assets only when the flag is enabled. Use an <code>if __name__ == &quot;__main__&quot;:</code> entry point so the script can be run directly or imported by another tool.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003852.png" alt="Course screenshot: Pasted image 20261011003852.png"></p>
+<h2>Expand the naming rules</h2>
+<p>Use a dictionary mapping suffixes to compression enum values. Convert <code>get_fname()</code> to a string, find a matching suffix, and skip names with no rule. Use the selected compression value for both the comparison and setter.</p>
+<h2>Compression rule and validation loop</h2>
+<p>The final lesson rule uses <code>_N</code> for normal maps, <code>_D</code> and <code>_E</code> for default compression, <code>_R</code> for grayscale, and <code>_M</code> for <strong>default</strong> compression. <code>_M</code> starts as grayscale in an intermediate screenshot, then changes because the demonstrated mask texture packs multiple channels.</p>
+<p>This consolidated version accepts loaded textures and defaults to reporting. It makes the report/apply distinction explicit; supply <code>apply_fix=True</code> only for the intended edit.</p>
+<pre><code class="language-python">import unreal
+
+COMPRESSION_BY_SUFFIX = {
+    &quot;_N&quot;: unreal.TextureCompressionSettings.TC_NORMALMAP,
+    &quot;_D&quot;: unreal.TextureCompressionSettings.TC_DEFAULT,
+    &quot;_E&quot;: unreal.TextureCompressionSettings.TC_DEFAULT,
+    &quot;_M&quot;: unreal.TextureCompressionSettings.TC_DEFAULT,
+    &quot;_R&quot;: unreal.TextureCompressionSettings.TC_GRAYSCALE,
+}
+
+def check_compression(textures, apply_fix=False):
+    for texture in textures:
+        if not isinstance(texture, unreal.Texture2D):
+            continue
+        expected = next((value for suffix, value in COMPRESSION_BY_SUFFIX.items()
+                         if texture.get_name().endswith(suffix)), None)
+        if expected is None:
+            continue
+        actual = texture.get_editor_property(&quot;compression_settings&quot;)
+        if actual == expected:
+            continue
+        unreal.log_warning(f&quot;{texture.get_path_name()}: {actual} -&gt; {expected}&quot;)
+        if apply_fix:
+            texture.set_editor_property(&quot;compression_settings&quot;, expected)
+            if texture.get_editor_property(&quot;compression_settings&quot;) != expected:
+                raise RuntimeError(f&quot;Compression did not update: {texture.get_path_name()}&quot;)
+</code></pre>
+<p>The explicit readback above is an audit addition. It verifies the property after the write; it does not save the asset. A folder-based caller must first load each path returned by the asset query. Naming conventions are project rules, not universal texture semantics.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003954.png" alt="Course screenshot: Pasted image 20261011003954.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011004404.png" alt="Course screenshot: Pasted image 20261011004404.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011005638.png" alt="Course screenshot: Pasted image 20261011005638.png"></p>
+<p>The initial mapping proposes grayscale for some single-channel maps. The final demonstration uses Default for Starter Content&#39;s <code>_M</code> textures to preserve that content&#39;s conventions. Treat these mappings as project decisions.</p>
+<h2>Verify the batch result</h2>
+<p>Introduce several mismatches, run the expanded script, and inspect its messages and changed textures. Save the intended asset changes after review.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011011109.png" alt="Course screenshot: Pasted image 20261011011109.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011011144.png" alt="Course screenshot: Pasted image 20261011011144.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011011218.png" alt="Course screenshot: Pasted image 20261011011218.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011011318.png" alt="Course screenshot: Pasted image 20261011011318.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011011258.png" alt="Course screenshot: Pasted image 20261011011258.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/11%20Filtering%20Asset%20and%20Actor%20List%20with%20EditorFilterLibrary%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/13%20Importance%20of%20PropertyAccessChangeNotifyMode%20in%20setting%20editor%20properties%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011000748.png" alt="Course screenshot: Pasted image 20261011000748.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002349.png" alt="Course screenshot: Pasted image 20261011002349.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002553.png" alt="Course screenshot: Pasted image 20261011002553.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002617.png" alt="Course screenshot: Pasted image 20261011002617.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002708.png" alt="Course screenshot: Pasted image 20261011002708.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002750.png" alt="Course screenshot: Pasted image 20261011002750.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002852.png" alt="Course screenshot: Pasted image 20261011002852.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011002925.png" alt="Course screenshot: Pasted image 20261011002925.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003146.png" alt="Course screenshot: Pasted image 20261011003146.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003036.png" alt="Course screenshot: Pasted image 20261011003036.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003409.png" alt="Course screenshot: Pasted image 20261011003409.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003436.png" alt="Course screenshot: Pasted image 20261011003436.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003601.png" alt="Course screenshot: Pasted image 20261011003601.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003625.png" alt="Course screenshot: Pasted image 20261011003625.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003852.png" alt="Course screenshot: Pasted image 20261011003852.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011003954.png" alt="Course screenshot: Pasted image 20261011003954.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011004404.png" alt="Course screenshot: Pasted image 20261011004404.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011005638.png" alt="Course screenshot: Pasted image 20261011005638.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011011109.png" alt="Course screenshot: Pasted image 20261011011109.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011011144.png" alt="Course screenshot: Pasted image 20261011011144.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011011218.png" alt="Course screenshot: Pasted image 20261011011218.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011011318.png" alt="Course screenshot: Pasted image 20261011011318.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011011258.png" alt="Course screenshot: Pasted image 20261011011258.png"></p>
+<p>We finally got past the most boring part of the course.</p>
+<p>It&#39;s time to make something practical.</p>
+<p>I will show you how to access and modify editor properties by making a practical script to validate</p>
+<p>and fix texture compression settings, something that would take a huge amount of time if done by hand.</p>
+<p>And the bigger the project, the more time you would need.</p>
+<p>I&#39;m using Unreal Starter content, which follows specific naming convention.</p>
+<p>Your project may follow a different one, but it certainly should have one.</p>
+<p>Diffuse and albedo textures and with underscore d suffix in their names.</p>
+<p>Similarly underscore n for normal map and so on for other textures.</p>
+<p>There are various cheat sheets online with naming conventions, and I&#39;m using one from GitHub.</p>
+<p>You will find the link in the source code related with this recording.</p>
+<p>Following this convention lets us identify texture type by name.</p>
+<p>It would be best to have some mapping between texture type and compression settings.</p>
+<p>We will soon have one in Python dictionary.</p>
+<p>However, we will begin with something simpler.</p>
+<p>Let&#39;s start bashing the most basic script and then refine it.</p>
+<p>I have created fix_normalmap_compression.py file in my content Python.</p>
+<p>I want to list all assets in game slash starter content slash textures, and I will use editor asset</p>
+<p>library to do that.</p>
+<p>By default, list assets includes subfolders of the given directory.</p>
+<p>You can use recursive argument set to false to limit your script to specific location, but I will keep</p>
+<p>it as is.</p>
+<p>Then I will iterate over the textures in the location.</p>
+<p>We have to first load the file, and then we have to make sure that it actually is a texture.</p>
+<p>So I will check it the way I did it before, which is using this instance keyword and comparing to type</p>
+<p>from the unreal setup file.</p>
+<p>I use texture 2d class, and if you are working with some other assets, you should check them and make</p>
+<p>sure that you are using the correct one.</p>
+<p>For instance, I am using texture 2D.</p>
+<p>However, if I had some maybe browser browser type of textures, maybe I would want to use just the</p>
+<p>texture class which is a parent of texture 2D.</p>
+<p>However, in my case I know that I&#39;m working with two dimensional plane and they will all be texture</p>
+<p>to the class.</p>
+<p>Also as I will be loading assets listed by Editor Asset Library.</p>
+<p>Please don&#39;t be surprised if you run your code and have deprecation warning.</p>
+<p>You may have skipped past videos, so I would like to inform you that it depends on your engine version</p>
+<p>and list assets returns a path which is a deprecated one.</p>
+<p>It still works and we don&#39;t have to worry about it.</p>
+<p>However, just expect a lot of warnings in the log.</p>
+<p>We will filter those later.</p>
+<p>Okay, let&#39;s also add some name check and I will be checking only for suffix underscore n, which corresponds</p>
+<p>to normal map.</p>
+<p>Once we have everything working, we will use a mapping that will cover more cases.</p>
+<p>Now we need to check compression setting on this asset.</p>
+<p>Compression setting is a so-called editor property.</p>
+<p>Editor.</p>
+<p>Properties names often match names displayed to the user in Asset Editor.</p>
+<p>In most cases, you need them to be lowercase and with underscores, but it&#39;s very easy to get one.</p>
+<p>In that case, it would be something like compress, underscore without compress alpha or compression</p>
+<p>underscore settings.</p>
+<p>That&#39;s super simple.</p>
+<p>However, not all of those properties may be accessible in that way.</p>
+<p>It&#39;s good to identify class of your asset first, in our case texture 2D, and then check available</p>
+<p>editor properties in the documentation.</p>
+<p>As you can see, there is something called compression settings here, which means that we don&#39;t have</p>
+<p>to worry about it.</p>
+<p>However, in the next video I will show you a case of material instance which properties can be modified</p>
+<p>with Python, however, have to be accessed in a different way.</p>
+<p>So let&#39;s get it.</p>
+<p>Getting back to PyCharm.</p>
+<p>And I will have to call a method, get editor property on my asset and pass the name of property that</p>
+<p>I want to get.</p>
+<p>Once we have it, we will have an object.</p>
+<p>We can try calling it in our Unreal Editor.</p>
+<p>Let&#39;s list some example assets and maybe let&#39;s load the first from the list.</p>
+<p>Once it&#39;s loaded, let&#39;s assign the property to some variable and print it.</p>
+<p>Great.</p>
+<p>We have an object.</p>
+<p>Now we can compare this object with type from our unreal stub.</p>
+<p>So let&#39;s do it.</p>
+<p>If current compression is not equal on real texture compression settings.</p>
+<p>And now we need to find the one that corresponds to the correct.</p>
+<p>In our case we should have TC underscore normal map, which is very obvious for normal maps.</p>
+<p>However, there are no specific compression settings for diffuse or albedo, or maybe things like Metalness.</p>
+<p>You will have to figure out which one of those should be needed.</p>
+<p>Once we have the compression mapping done, you will see the compression settings proposed by me.</p>
+<p>So let&#39;s use this normal map here.</p>
+<p>And we could also print some information about what has been done.</p>
+<p>And now we have to set it.</p>
+<p>So our asset which is texture variable dot.</p>
+<p>And now we call set editor property.</p>
+<p>And it gets parameter name with compression settings as a name.</p>
+<p>And then another parameter which is value.</p>
+<p>And here we will pass the value used before which is.</p>
+<p>DC normal map.</p>
+<p>Great.</p>
+<p>We can save it and we could run our script to do that.</p>
+<p>I will restart my project soon, but first I will change the settings on this texture.</p>
+<p>So it actually is executed on something.</p>
+<p>So compression settings and maybe set.</p>
+<p>Yeah, masks or even HDR.</p>
+<p>And close it.</p>
+<p>And let me close my folder and my project after saving all assets.</p>
+<p>The project has been restarted.</p>
+<p>We have a single asset to be fixed and obviously a whole folder of texture.</p>
+<p>I would like to switch my command line mode to cmd, and now I can execute pie and name of my script.</p>
+<p>It is in Content Python folder, so there is no need to give it a full path.</p>
+<p>After pressing enter.</p>
+<p>I have a lot of warnings I told you about.</p>
+<p>This is the deprecation warning and I would like to filter it out.</p>
+<p>So I will just press on filters and disable warnings.</p>
+<p>Now I have information fixing compression settings on and path to my texture.</p>
+<p>I can find this texture in Content browser to make sure that the fix was applied.</p>
+<p>Let me open it and compression settings equal to normal map.</p>
+<p>This is great, but we could make this script more robust.</p>
+<p>And maybe also use compression mapping.</p>
+<p>So this is what I will focus now on.</p>
+<p>First thing I would like to do with my script is wrapping this code in some method.</p>
+<p>This way I will be able to import it from some other part of code and to use it, but I will be also</p>
+<p>able to run it as a single action script.</p>
+<p>So first let&#39;s wrap it.</p>
+<p>And as you can see, I pass a directory because it may be a custom one and a variable apply fix, which</p>
+<p>will later indicate if I want to apply the fix.</p>
+<p>Or maybe I want to only print which textures are wrong.</p>
+<p>Let&#39;s fix the indentation.</p>
+<p>And as I added this method, I would want to keep the ability to run the script with a single line which</p>
+<p>is pi space fixed Normalmap compression dot pi and execute it.</p>
+<p>So it&#39;s time to add if name equals main comparison.</p>
+<p>And then let&#39;s execute our new method, giving it the directory to our textures folder.</p>
+<p>This is the default one obviously can be tweaked.</p>
+<p>Now let&#39;s make it actually use those arguments.</p>
+<p>The directory should be used in listing assets inside the method.</p>
+<p>That is taken care of, and now we have to take care of applying the fix.</p>
+<p>So checking if the compression is right is okay.</p>
+<p>And maybe we should print information that there is a wrong compression, not that we are fixing it.</p>
+<p>Now if apply fix.</p>
+<p>Then we are doing it.</p>
+<p>And maybe another print that would inform user that something was fixed.</p>
+<p>So print.</p>
+<p>I&#39;m using f string here to insert variables in a simpler manner.</p>
+<p>Asset path and compression was set to string.</p>
+<p>And for now this is the compression that is used above.</p>
+<p>However, soon we will use it in a variable.</p>
+<p>How about the mapping?</p>
+<p>We need something very simple.</p>
+<p>We need a dictionary where key is suffix like here and value is correct compression.</p>
+<p>Let me paste it right here.</p>
+<p>And now I would like to skip all textures that don&#39;t use any of those suffixes.</p>
+<p>So we have to modify line 25 which was checking if we have underscore n.</p>
+<p>This has to be removed.</p>
+<p>We will run a for loop.</p>
+<p>Let&#39;s cache a name of our asset which is texture dot get f name which is get file name and.</p>
+<p>I usually use typing in Python, so I would like to cast it to string.</p>
+<p>However, this isn&#39;t really necessary.</p>
+<p>Get file name method returns as something like name.</p>
+<p>Which is an unreal name.</p>
+<p>And if you go into that, it can be.</p>
+<p>Some other name, object, or string.</p>
+<p>Great.</p>
+<p>Let&#39;s get back to our script.</p>
+<p>Let&#39;s make some boolean variable.</p>
+<p>If we had a name matching suffix, so it will be called name match and it begins as a false value.</p>
+<p>Let&#39;s make the loop for suffix in compression settings, because these are obviously suffixes.</p>
+<p>Kiss because we are not iterating over the values, we want to iterate over the keys.</p>
+<p>And if name ends with suffix.</p>
+<p>Name of match is set to true.</p>
+<p>And we could also break the loop so it stops executing.</p>
+<p>After the loop has finished.</p>
+<p>If we didn&#39;t have a match, we want to continue, which will mean that we skip iterating over this single</p>
+<p>asset.</p>
+<p>While we were iterating over those names, we could also memorize the name, or rather the kind of our</p>
+<p>compression.</p>
+<p>So let&#39;s create a value initialized as none.</p>
+<p>Correct.</p>
+<p>Compression is none.</p>
+<p>And after setting name match, let&#39;s set correct compression to compression mapping.</p>
+<p>Accessed by our suffix.</p>
+<p>So if it was underscore D, we would get unreal texture compression settings by default.</p>
+<p>Now we have to use that value.</p>
+<p>Correct compression.</p>
+<p>Cause in place of our normal map in line 38 on my screen, and also in the line that calls set editor</p>
+<p>property.</p>
+<p>To be more than 100% sure that we don&#39;t break current and resin.</p>
+<p>We could also make sure that Metalness is set to default because this is what is used by Unreal Project.</p>
+<p>However, this is not what I would personally use for this kind of material, so that is just a suggestion</p>
+<p>from me.</p>
+<p>And that is no longer fixed.</p>
+<p>Normalmap compression.</p>
+<p>It fixes a bit more things, so I will rename it to.</p>
+<p>Texture compression.</p>
+<p>I will also copy name because we will need that script later.</p>
+<p>And now I would like to break some compression settings like this one should be masks.</p>
+<p>And also maybe this one should be set to HDR.</p>
+<p>And maybe also this diffuse texture should be set to normal map.</p>
+<p>I probably modified some other textures in a short break as well, so there will be maybe more cases</p>
+<p>that will be changed after script execution.</p>
+<p>However.</p>
+<p>Those three should be there for sure.</p>
+<p>Now I will save all my assets by the file menu and it&#39;s time to restart the project.</p>
+<p>After the restart, we follow the same steps we followed before we just execute the script.</p>
+<p>Hit enter.</p>
+<p>Got a bunch of errors?</p>
+<p>Filter them out and as you can see, we have a lot of textures that had wrong settings and the settings</p>
+<p>were applied.</p>
+<p>We can make sure.</p>
+<p>Let&#39;s copy a name of one of those assets.</p>
+<p>That&#39;s underscore M.</p>
+<p>Let&#39;s search for it.</p>
+<p>And what type of compression it is.</p>
+<p>It is default.</p>
+<p>This is the meta list that I told you I will set to default.</p>
+<p>However, if it was my shader, I would try using grayscale.</p>
+<p>That&#39;s all for this video.</p>
+<p>In the next one, I will show you how we modify material instances because it is a bit different.</p>
+<p>By.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -60,6 +60,43 @@
+ 
+ Use a dictionary mapping suffixes to compression enum values. Convert `get_fname()` to a string, find a matching suffix, and skip names with no rule. Use the selected compression value for both the comparison and setter.
+ 
++## Compression rule and validation loop
++
++The final lesson rule uses `_N` for normal maps, `_D` and `_E` for default compression, `_R` for grayscale, and `_M` for **default** compression. `_M` starts as grayscale in an intermediate screenshot, then changes because the demonstrated mask texture packs multiple channels.
++
++This consolidated version accepts loaded textures and defaults to reporting. It makes the report/apply distinction explicit; supply `apply_fix=True` only for the intended edit.
++
++```python
++import unreal
++
++COMPRESSION_BY_SUFFIX = {
++    &quot;_N&quot;: unreal.TextureCompressionSettings.TC_NORMALMAP,
++    &quot;_D&quot;: unreal.TextureCompressionSettings.TC_DEFAULT,
++    &quot;_E&quot;: unreal.TextureCompressionSettings.TC_DEFAULT,
++    &quot;_M&quot;: unreal.TextureCompressionSettings.TC_DEFAULT,
++    &quot;_R&quot;: unreal.TextureCompressionSettings.TC_GRAYSCALE,
++}
++
++def check_compression(textures, apply_fix=False):
++    for texture in textures:
++        if not isinstance(texture, unreal.Texture2D):
++            continue
++        expected = next((value for suffix, value in COMPRESSION_BY_SUFFIX.items()
++                         if texture.get_name().endswith(suffix)), None)
++        if expected is None:
++            continue
++        actual = texture.get_editor_property(&quot;compression_settings&quot;)
++        if actual == expected:
++            continue
++        unreal.log_warning(f&quot;{texture.get_path_name()}: {actual} -&gt; {expected}&quot;)
++        if apply_fix:
++            texture.set_editor_property(&quot;compression_settings&quot;, expected)
++            if texture.get_editor_property(&quot;compression_settings&quot;) != expected:
++                raise RuntimeError(f&quot;Compression did not update: {texture.get_path_name()}&quot;)
++```
++
++The explicit readback above is an audit addition. It verifies the property after the write; it does not save the asset. A folder-based caller must first load each path returned by the asset query. Naming conventions are project rules, not universal texture semantics.
++
+ ![[Pasted image 20261011003954.png]]
+ 
+ ![[Pasted image 20261011004404.png]]
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

@@ -1,0 +1,103 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>02 VS Code Autocomplete Setup · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-02">Return to audit</a><a href="01.html">Previous lesson</a> <a href="03.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/02%20VS%20Code%20Autocomplete%20Setup.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/02%20VS%20Code%20Autocomplete%20Setup%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>02 VS Code Autocomplete Setup</h1><p>IDE interpreter/stub discovery retained; autocomplete remains distinct from runtime execution.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>VS Code Autocomplete Setup — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/02%20VS%20Code%20Autocomplete%20Setup.md">Original notes</a></p>
+<p>Configure VS Code to read the <code>unreal.py</code> stub generated in lesson 01. The course demonstrates UE 5.1 with Python 3.9.7; match the interpreter to your own engine version rather than treating that version as universal.</p>
+<h2>Install Python support</h2>
+<p>Install Microsoft&#39;s <strong>Python</strong> and <strong>Pylance</strong> extensions. Restart VS Code if prompted.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010191640.png" alt="Course screenshot: Pasted image 20261010191640.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010191701.png" alt="Course screenshot: Pasted image 20261010191701.png"></p>
+<p>Select the appropriate Python interpreter. The demonstrated settings expose it under <strong>Python → Default Interpreter Path</strong>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010191805.png" alt="Course screenshot: Pasted image 20261010191805.png"></p>
+<h2>Add the stub folder</h2>
+<p>Open the extra-path settings and add <code>&lt;Project&gt;/Intermediate/PythonStub</code>, the folder containing <code>unreal.py</code>. In JSON, quote the path and use forward slashes or escaped backslashes.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010191926.png" alt="Course screenshot: Pasted image 20261010191926.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192115.png" alt="Course screenshot: Pasted image 20261010192115.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192302.png" alt="Course screenshot: Pasted image 20261010192302.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192323.png" alt="Course screenshot: Pasted image 20261010192323.png"></p>
+<p>Restart VS Code. The lesson shows both <code>python.autoComplete.extraPaths</code> and <code>python.analysis.extraPaths</code> pointing at the stub folder after restart.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192353.png" alt="Course screenshot: Pasted image 20261010192353.png"></p>
+<h2>Confirm autocomplete and navigation</h2>
+<p>Create a Python file, enter <code>import unreal</code>, and type <code>unreal.</code>. Allow time for the large stub to load; completion suggestions should appear.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192439.png" alt="Course screenshot: Pasted image 20261010192439.png"></p>
+<p>Ctrl-click an Unreal symbol to inspect its definition, parameters, and inheritance in the stub.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192615.png" alt="Course screenshot: Pasted image 20261010192615.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192640.png" alt="Course screenshot: Pasted image 20261010192640.png"></p>
+<p>If the generated stub gives unclear or inconsistent type information, compare it with the Python API documentation for the same engine version.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192810.png" alt="Course screenshot: Pasted image 20261010192810.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/01%20Initial%20Setup%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/03%20Typing%20in%20Python%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p>Let&#39;s go step by step through a setup of Autocompletion in Visual Studio Code.</p>
+<p>Of course, there is a separate video for PyCharm users.</p>
+<p>Before starting Visual Code, you should install Python on your machine.</p>
+<p>You can find correct version in documentation.</p>
+<p>According to current docs of Unreal Engine 5.1, we need Python 3.9.7.</p>
+<p>You can find it on Python.org slash downloads.</p>
+<p>If you have to pick some more custom version.</p>
+<p>If you want to set specific Python interpreter, you can do it by setting your Python environment variable</p>
+<p>in your system.</p>
+<p>However, we are not going to perform it.</p>
+<p>I suppose you have everything installed and now it&#39;s time to go to VS code and install two important</p>
+<p>plugins.</p>
+<p>So let&#39;s go to extensions and first plugin is called Python.</p>
+<p>It&#39;s by Microsoft so it should be safe.</p>
+<p>We have to have it installed.</p>
+<p>And the other one is called pylons.</p>
+<p>Pylons is also by Microsoft.</p>
+<p>If it says that there is a restart needed, then please pause the video and restart.</p>
+<p>I have the extensions installed so I&#39;m going to keep going with the video.</p>
+<p>By installing those extensions, we got support for Python.</p>
+<p>However, we also have to pick the right Python interpreter version.</p>
+<p>Of course, you may have had some some of these versions picked already by VS code, so we have to make</p>
+<p>sure that this is a correct one.</p>
+<p>There is a gear icon in bottom left corner.</p>
+<p>Let&#39;s click on it and pick settings.</p>
+<p>Now find.</p>
+<p>Extensions and navigate to Python once you have done it.</p>
+<p>We can select default interpreter path and as you can see, I already have it as Python 3.9.</p>
+<p>Make sure that this is the correct one for you.</p>
+<p>Once that is covered, scroll a bit up and find autocomplete extra paths.</p>
+<p>We have to edit those settings Json.</p>
+<p>After clicking we have a new entry added and we can paste path to our stub here.</p>
+<p>Where exactly is our stub located?</p>
+<p>It&#39;s in the project files intermediate folder, then python stub folder.</p>
+<p>So let&#39;s copy the path paste it.</p>
+<p>And as it doesn&#39;t have the double quotes let&#39;s add them ourselves.</p>
+<p>Also we have to fix slashes.</p>
+<p>Whilst that is covered, the last thing of Autocompletion setup is to restart vs code.</p>
+<p>After the restart, a new entry has been added automatically to my settings.</p>
+<p>If you see it on my screen and you are wondering if you have missed something, then no you didn&#39;t.</p>
+<p>Everything is correct.</p>
+<p>Now our task is to check if until completion works.</p>
+<p>Let&#39;s press Ctrl N on the keyboard to open a new file and import unreal.</p>
+<p>It may appear white text and for few seconds it may be loading this tab.</p>
+<p>So be aware of that and please be patient.</p>
+<p>Below we can type unreal.</p>
+<p>Place a dot and we should have auto completion working.</p>
+<p>We can press Ctrl on any class or any method from our file and we will be transported to unreal.</p>
+<p>Py file.</p>
+<p>As you can see you have some information about inheritance.</p>
+<p>Like you see that achievement, right?</p>
+<p>Delegate is based on multicast delegate base and we can check what it is based on.</p>
+<p>However, I have been working with Python in Unreal for some time, and there were cases when such classes</p>
+<p>were based on objects or unreal objects, while in real life they were based on some other unreal types.</p>
+<p>So if you want to be 100% sure what objects are based on which classes, you can go to official unreal</p>
+<p>API documentation.</p>
+<p>And this one should be always correct.</p>
+<p>I hope everything is working fine for you and I will see you in the next video.</p>
+<p>Bye!</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010191640.png" alt="Course screenshot: Pasted image 20261010191640.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010191701.png" alt="Course screenshot: Pasted image 20261010191701.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010191805.png" alt="Course screenshot: Pasted image 20261010191805.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010191926.png" alt="Course screenshot: Pasted image 20261010191926.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192115.png" alt="Course screenshot: Pasted image 20261010192115.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192302.png" alt="Course screenshot: Pasted image 20261010192302.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192323.png" alt="Course screenshot: Pasted image 20261010192323.png"></p>
+<p>then restart</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192353.png" alt="Course screenshot: Pasted image 20261010192353.png"></p>
+<p>now, first file, to test:</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192439.png" alt="Course screenshot: Pasted image 20261010192439.png"></p>
+<p>you can control click unreal functions now to see more about them:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192615.png" alt="Course screenshot: Pasted image 20261010192615.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192640.png" alt="Course screenshot: Pasted image 20261010192640.png"></p>
+<p>however, still some discrepancies, so it can be best to check ue python docs:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010192810.png" alt="Course screenshot: Pasted image 20261010192810.png"></p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

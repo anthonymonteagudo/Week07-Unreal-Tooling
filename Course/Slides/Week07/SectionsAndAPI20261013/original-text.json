@@ -1,0 +1,286 @@
+[
+  {
+    "number": 1,
+    "text": "WEEK 7 / 3:30\u20136:00 PM\nReview & specialization\nPython in Unreal\nArtist-facing tools and peer feedback\nWEEK 7\n01"
+  },
+  {
+    "number": 2,
+    "text": "WEEK 7\nToday\u2019s sequence\nWEEK 7\n02\nSection\nFocus / proposed time\n1 \u00b7 Python in Unreal\nOpening, setup, operation \u00b7 32 min\n2 \u00b7 Tool demonstrations\nContributors \u00b7 35 min; then break \u00b7 15 min\n3 \u00b7 Tool assessment\nInitial judgment and evidence \u00b7 8 min\n4 \u00b7 UI/UX for artist tools\nConcepts and task preparation \u00b7 20 min\n5 \u00b7 Peer testing\nThree rounds \u00b7 35 min; synthesis \u00b7 5 min"
+  },
+  {
+    "number": 3,
+    "text": "WEEK 7\nWhat you should be able to explain\nWEEK 7\n02A\nScope: what will change?\nEvidence: did it work?\nUse: can a peer succeed?\nCourse Unreal fixture \u00b7 scope and verification are separate checks\nWhat would make you trust a tool with your project?"
+  },
+  {
+    "number": 4,
+    "text": "AAA PRODUCTION \u00b7 HORIZON ZERO DAWN\nTools are part of game production\nWEEK 7\n02B\nGuerrilla \u00b7 Sumaili & van der Steen \u00b7 GDC 2017 \u00b7 PDF p.23\nWhich repeated task would you remove from this workflow?"
+  },
+  {
+    "number": 5,
+    "text": "SECTION 1 \u00b7 OPENING / PYTHON \u00b7 32 MINUTES\nPython in Unreal\nWEEK 7\nS1\nSame language\nNew host API\nA bounded operation\nExisting course Unreal project capture"
+  },
+  {
+    "number": 6,
+    "text": "WEEK 7\nPython across applications\nWEEK 7\n05\nKeep loops, functions, conditions, and data structures\nReplace Maya commands with Unreal editor APIs\nCarry over explicit inputs, scope, and useful reports\nWhich part of your Maya tool is independent of Maya?"
+  },
+  {
+    "number": 7,
+    "text": "WEEK 7\nPython setup in Unreal\nWEEK 7\n03\nEnable project plugins; restart \u00b7 Output Log \u2192 Python input mode\nHistorical course setup captures \u00b7 verify placement in the teaching engine\nIs the input field running Python or console commands?"
+  },
+  {
+    "number": 8,
+    "text": "WEEK 7\nFirst execution\nWEEK 7\n04\nimport unreal\nunreal.log(\"Hello Unreal\")\nOutput Log: choose Python\nSaved file: File > Execute Python Script\nWhat evidence tells you the script ran in the intended project?"
+  },
+  {
+    "number": 9,
+    "text": "WEEK 7\nUnreal\u2019s object model\nWEEK 7\n06\nEntity\nExample\nWhy scope matters\nAsset\nA Static Mesh in the Content Browser\nMay be referenced by many placements\nActor\nOne placed crate in the level\nHas its own label and transform\nComponent\nThe Actor\u2019s Static Mesh Component\nReferences the mesh and can hold overrides\nIf two Actors share a mesh, which edits could affect both?"
+  },
+  {
+    "number": 10,
+    "text": "WEEK 7\nShared asset, separate placements\nWEEK 7\n06A\nConceptual relationship \u00b7 the mesh asset can have multiple references\nWhere would you make a change that affects only Actor A?"
+  },
+  {
+    "number": 11,
+    "text": "WEEK 7\nSelection is an input\nWEEK 7\n07\nactors = unreal.get_editor_subsystem(\n    unreal.EditorActorSubsystem\n).get_selected_level_actors()\n\nfor actor in actors:\n    print(actor.get_actor_label())\nRead-only API example beside the course Outliner capture\nWhat questions do you have about selection and scope?"
+  },
+  {
+    "number": 12,
+    "text": "WEEK 7\nDisk paths and Unreal asset paths\nWEEK 7\n07A\nKind\nIllustrative example\nUsed for\nDisk file\nC:/Exports/Crate.fbx\nInput to an importer\nContent folder\n/Game/Props\nDestination package folder\nObject path\n/Game/Props/Crate.Crate\nA particular Unreal object\nWhich path belongs in the source-file field?"
+  },
+  {
+    "number": 13,
+    "text": "WEEK 7\nMaya and Unreal handoff\nWEEK 7\n10\nCourse schematic \u00b7 file exchange and revision loop\nWhat must remain stable when the Maya source changes?"
+  },
+  {
+    "number": 14,
+    "text": "WEEK 7\nExplicit import settings\nWEEK 7\n10A\ntask = unreal.AssetImportTask()\ntask.filename = source_file\ntask.destination_path = \"/Game/Props\"\ntask.automated = True\ntask.save = False\ntools = unreal.AssetToolsHelpers.get_asset_tools()\ntools.import_asset_tasks([task])\nConfigure options for the chosen importer\nInspect imported_object_paths and the result\nWhat should happen when the destination already exists?"
+  },
+  {
+    "number": 15,
+    "text": "WEEK 7\nMaterial Setup: a reviewed change\nWEEK 7\n09\nOne new material instance\nOnly the target cube changes\nUndo restores the assignment\nActual Unreal 5.7.4 result from the current tool\nWhat changes? What must stay unchanged?"
+  },
+  {
+    "number": 16,
+    "text": "WEEK 7\nThe backend checks the promise\nWEEK 7\n09F\ncurrent = preview()\nif plan != current:\n    raise RuntimeError(\n        \"Preview is stale or edited. \"\n        \"Run preview() again and review it.\"\n    )\ndemo.py \u00b7 actual guard excerpt; message wrapped for the slide"
+  },
+  {
+    "number": 17,
+    "text": "WEEK 7\nBlueprints as an editor interface\nWEEK 7\n08\nLayer\nResponsibility\nEditor Utility Widget\nInputs, scope, actions, and result display\nExecute Python Script\nPass named inputs and outputs\nPython operation\nValidate, perform the operation, report results\nShould the button contain the whole tool\u2014or call one operation?"
+  },
+  {
+    "number": 18,
+    "text": "WEEK 7\nOne operation, multiple interfaces\nWEEK 7\n08A\nCourse architecture sketch \u00b7 alternate UI entry points\nWhich logic should survive a complete UI redesign?"
+  },
+  {
+    "number": 19,
+    "text": "WEEK 7\nStarting state\nWEEK 7\n09A\nExisting course capture \u00b7 Unreal 5.7.4 \u00b7 six-prop fixture\nWhich values can this operation change safely?"
+  },
+  {
+    "number": 20,
+    "text": "WEEK 7\nResult inspection\nWEEK 7\n09B\nExisting course capture \u00b7 same fixture after the controlled operation\nWhat does this image prove\u2014and what still needs checking?"
+  },
+  {
+    "number": 21,
+    "text": "WEEK 7\nVFX Placement: transfer the workflow\nWEEK 7\n09D\nThree markers, three effects\nRepeated placement is blocked\nUndo removes this batch\nActual Unreal result with the reviewed classroom fountain\nDo these checks establish frame cost? What questions remain?"
+  },
+  {
+    "number": 22,
+    "text": "SECTION 2 \u00b7 35 MINUTES\nTool demonstrations\nWEEK 7\n11\nCo-teacher \u00b7 15 minutes\nTA \u00b7 20 minutes\nTask \u2192 scope \u2192 result \u2192 recovery\nCourse material-tool prototype \u00b7 offline data\nWhere does the artist make a decision?"
+  },
+  {
+    "number": 23,
+    "text": "WEEK 7\nBreak\nWEEK 7\n13\nWhen we return: assess a tool\nThen revisit your assessment through UI/UX\nApply the same thinking in peer testing"
+  },
+  {
+    "number": 24,
+    "text": "SECTION 3 \u00b7 8 MINUTES\nTool assessment\nWEEK 7\nS3\nPredict the result\nCompare the evidence\nKeep your first judgment\nCourse practice interface \u00b7 offline sample data"
+  },
+  {
+    "number": 25,
+    "text": "GROUP LAB \u00b7 8 MINUTES\nLab 1: predict the result\nWEEK 7\n12\nStarting name\nSelected?\nExpected name\ncrate_A\nYes\n?\ncrate_B\nYes\n?\nSM_crate_C\nYes\n?\nbarrel_D\nNo\n?\nRule: exactly one SM_ prefix on selected assets. Leave all others unchanged."
+  },
+  {
+    "number": 26,
+    "text": "FICTIONAL TEACHING CASE\nLab 1: evidence and a retest\nWEEK 7\n12A\nStarting name\nExpected\nReported result\ncrate_A\nSM_crate_A\nSM_crate_A\ncrate_B\nSM_crate_B\nSM_crate_B\nSM_crate_C\nSM_crate_C\nSM_SM_crate_C\nbarrel_D\nbarrel_D\nSM_barrel_D\nThe tool says \u201c4 assets updated.\u201d Did the task succeed?"
+  },
+  {
+    "number": 27,
+    "text": "SECTION 4 \u00b7 CONCEPTS + TASK PREP \u00b7 20 MINUTES\nUI/UX for artist tools\nWEEK 7\nS4\nUnderstand the task\nMake decisions clear\nTest your assumptions\nVicarious Visions \u00b7 Cinematic Builder \u00b7 GDC 2018 \u00b7 PDF p.35"
+  },
+  {
+    "number": 28,
+    "text": "WEEK 7\nInterface and experience\nWEEK 7\n14\nUI: the controls, labels, and layout\nUX: reaching the intended result in context\nA successful execution can still fail the task\nWhich part of your first assessment would you defend?"
+  },
+  {
+    "number": 29,
+    "text": "AAA PRODUCTION \u00b7 VICARIOUS VISIONS\nA workflow spans several tools\nWEEK 7\n14E\nJeff Stewart \u00b7 Vicarious Visions \u00b7 GDC 2018 \u00b7 PDF p.9\nWhat happens immediately before and after your tool?"
+  },
+  {
+    "number": 30,
+    "text": "WEEK 7\nUser stories\nWEEK 7\n14B\nAs an environment artist\u2026\nI want to bring a revised prop into Unreal\u2026\nSo I can inspect it without rebuilding its setup.\nWhat would count as success for this artist?"
+  },
+  {
+    "number": 31,
+    "text": "WEEK 7\nSketching before implementation\nWEEK 7\n14C\nSketch two plausible approaches\nInclude a failure state\nTest one uncertainty\nCourse interaction sketches \u00b7 illustrative, not validated\nWhat can a sketch test? What requires a running tool?"
+  },
+  {
+    "number": 32,
+    "text": "WEEK 7\nTwo layouts for the same task\nWEEK 7\n14D\nIllustrative sketches \u00b7 neither layout is a tested recommendation\nWhich prediction could a paper test resolve?"
+  },
+  {
+    "number": 33,
+    "text": "WEEK 7\nLayout follows the task\nWEEK 7\n15\nDetail from the current Material Setup practice interface\nWhich row tells you what will change on the crate?"
+  },
+  {
+    "number": 34,
+    "text": "WEEK 7\nMental models and visible scope\nWEEK 7\n14A\nGroup by the artist\u2019s task\nExpose relevant scope\nMake expected actions findable\nJeff Stewart \u00b7 Vicarious Visions \u00b7 GDC 2018 \u00b7 PDF p.24\nDoes filtering the report also change what Apply affects?"
+  },
+  {
+    "number": 35,
+    "text": "AAA PRODUCTION \u00b7 CONTENT MODELS\nThe artist\u2019s model of the work\nWEEK 7\n14F\nJeff Stewart \u00b7 Vicarious Visions \u00b7 GDC 2018 \u00b7 PDF p.35\nWould an artist rather edit a duration or two unrelated events?"
+  },
+  {
+    "number": 36,
+    "text": "WEEK 7\nState and feedback\nWEEK 7\n15A\nDetail from the current Material Setup practice interface\nWhat would you inspect after the completion message?"
+  },
+  {
+    "number": 37,
+    "text": "WEEK 7\nA UI state becomes a Qt decision\nWEEK 7\n15G\npending = self.session.pending\nready = bool(pending) and (\n    not pending[3].get('warnings')\n    or self.ack.isChecked()\n)\nself.apply_button.setEnabled(ready)\nassistants.py, update_apply excerpt from the current tool\nWhy must Apply still recheck the operation?"
+  },
+  {
+    "number": 38,
+    "text": "WEEK 7\nAn error should support recovery\nWEEK 7\n15D\nActual course PySide tool \u00b7 offline blocked state\nWhat would you change in this message?"
+  },
+  {
+    "number": 39,
+    "text": "WEEK 7\nRecovery and accessibility\nWEEK 7\n15B\n# Existing PySide view implementation\nself.preview.setAccessibleName(\n    \"Selected Actors change preview\"\n)\nReview consequential changes before applying them\nTest the recovery path you actually offer\nKeep focus, labels, and status understandable\nCould a classmate recover without help?"
+  },
+  {
+    "number": 40,
+    "text": "AAA PRODUCTION \u00b7 MORTAL KOMBAT 1\nMission Kontrol: repeatable testing\nWEEK 7\n16B\nEtienne Palmer-Campbell \u00b7 NetherRealm \u00b7 GDC 2025 \u00b7 PDF p.46\nWhat knowledge should a tester need before starting?"
+  },
+  {
+    "number": 41,
+    "text": "AAA PRODUCTION \u00b7 FEEDBACK\nFeedback changes the interface\nWEEK 7\n16C\nEtienne Palmer-Campbell \u00b7 NetherRealm \u00b7 GDC 2025 \u00b7 PDF p.47\nWhich nearby action would make your workflow easier to complete?"
+  },
+  {
+    "number": 42,
+    "text": "WEEK 7\nEvidence before explanation\nWEEK 7\n16\nEvidence\nExample\nObservation\nThe tester chose the wrong destination\nPossible explanation\nThe destination label may be unclear\nProposed change\nShow the full target path\nRetest\nCan a new tester choose the intended target without help?\nWhat questions remain before we begin testing?"
+  },
+  {
+    "number": 43,
+    "text": "WEEK 7\nA test produces the next question\nWEEK 7\n16E\nCourse testing loop \u00b7 a possible explanation is not yet a finding\nWhat questions remain before you write the peer-test task?"
+  },
+  {
+    "number": 44,
+    "text": "4 MINUTES OF PREPARATION\nYour peer-test task\nWEEK 7\n16A\nA goal, starting inputs and visible success\nProtected scope and a reset method\nOne version, one task, three reviewers\nCould a partner attempt this goal without a click-by-click script?"
+  },
+  {
+    "number": 45,
+    "text": "SECTION 5 \u00b7 TESTING 35 MIN + SYNTHESIS 5 MIN\nPeer testing\nWEEK 7\nS5\nObserve an attempt\nRecord the evidence\nChoose a retest\nNielsen Norman Group \u00b7 follow-up interview after a usability task"
+  },
+  {
+    "number": 46,
+    "text": "3-MINUTE BRIEFING\nLab 2: three peer reviews\nWEEK 7\n17\nAuthor gives the goal, then observes\nReviewer attempts and records evidence\nGive the completed sheet to the author\nWhat questions do you have before the first attempt?"
+  },
+  {
+    "number": 47,
+    "text": "WEEK 7\nA ten-minute reciprocal round\nWEEK 7\n18\nTime\nAction\n0:00\u20130:30\nAuthor states goal, inputs, success, and safety\n0:30\u20132:30\nPartner attempts the task\n2:30\u20134:00\nRecord evidence and share\n4:00\u20138:00\nSwap roles and repeat\n8:00\u201310:00\nFinish both records and reset\nRecord the action, expected result, observed result and help needed."
+  },
+  {
+    "number": 48,
+    "text": "WEEK 7\nPartner rotations\nWEEK 7\n19\nRound / time\nPairs\nFirst authors\n1 / 5:23\u20135:33\nA\u2013B and C\u2013D\nA and C\n2 / 5:34\u20135:44\nA\u2013C and B\u2013D\nA and B\n3 / 5:45\u20135:55\nA\u2013D and B\u2013C\nA and B\nLater letter tests first. Swap roles at minute 4.\nSame task and start state. One sheet per reviewer, given to the author."
+  },
+  {
+    "number": 49,
+    "text": "5-MINUTE SYNTHESIS\nOne revision supported by evidence\nWEEK 7\n20\nPreserve one observed strength\nChoose a consequential issue or uncertainty\nSpecify the input, action and expected result\nWhich evidence changed or strengthened your first judgment?"
+  },
+  {
+    "number": 50,
+    "text": "EXPLORE FURTHER\nThe current project is part of the input\nWEEK 7\n07B\nExisting course Unreal capture \u00b7 project, level and Outliner context\nWhat context would you include in a useful run report?"
+  },
+  {
+    "number": 51,
+    "text": "EXPLORE FURTHER\nReimport needs a prediction\nWEEK 7\n10B\nChange in Maya\nInspect in Unreal\nMove the pivot\nPlacement and transform behavior\nRevise the mesh\nSame intended asset updated\nChange material slots\nAssignments still match their purpose\nHow would you detect an unintended duplicate?"
+  },
+  {
+    "number": 52,
+    "text": "EXPLORE FURTHER\nA preview is a temporary agreement\nWEEK 7\n09C\nCourse state model \u00b7 changed inputs require a new preview\nWhat else could make a preview stale?"
+  },
+  {
+    "number": 53,
+    "text": "EXPLORE FURTHER\nChange and reset\nWEEK 7\n09E\nAnimated comparison of existing captures \u00b7 not continuous execution footage\nWhat can this animation show? What remains unverified?"
+  },
+  {
+    "number": 54,
+    "text": "EXPLORE FURTHER\nA click connects to an operation\nWEEK 7\n15C\nExisting course Qt schematic \u00b7 signal, callback and visible result\nWhere would you stop an invalid operation?"
+  },
+  {
+    "number": 55,
+    "text": "EXPLORE FURTHER\nWarning and blocked states\nWEEK 7\n15E\nActual course PySide tool \u00b7 offline warning state\nCan the artist proceed? What evidence supports that choice?"
+  },
+  {
+    "number": 56,
+    "text": "EXPLORE FURTHER\nKeyboard and focus\nWEEK 7\n15F\nsource_field.setFocus()\nQWidget.setTabOrder(source_field, target_field)\nA logical Tab order follows the task\nVisible focus shows the active control\nShortcuts remain discoverable\nWhere does keyboard focus go after an error?"
+  },
+  {
+    "number": 57,
+    "text": "EXPLORE FURTHER\nTesting continues after release\nWEEK 7\n16D\nEtienne Palmer-Campbell \u00b7 NetherRealm \u00b7 GDC 2025 \u00b7 PDF p.55\nHow will users report a problem after your first release?"
+  },
+  {
+    "number": 58,
+    "text": "EXPLORE FURTHER\nA useful observation record\nWEEK 7\n16F\nObserved\nStill uncertain\nPaused at the destination field\nWhether the label or the path caused hesitation\nNeeded one hint to continue\nWhether the task wording supplied enough context\nChanged an unselected item\nThe code cause and the affected scope\nWhich statement could another observer verify?"
+  },
+  {
+    "number": 59,
+    "text": "EXPLORE FURTHER\nMaterial automation: a later connection\nWEEK 7\nA1\nActual practice-mode interface \u00b7 sample data, no Unreal connection\nWhat should remain editable by the artist?"
+  },
+  {
+    "number": 60,
+    "text": "EXPLORE FURTHER\nQt: small implementation examples\nWEEK 7\nA2\nform = QFormLayout()\nform.addRow(\"Source file\", source_field)\nform.addRow(\"Destination\", target_field)\n\nsource_field.textChanged.connect(update_preview)\nimport_button.clicked.connect(run_import)\nLayouts express relationships\nSignals connect actions and feedback\nWhich UX decision does each line support?"
+  },
+  {
+    "number": 61,
+    "text": "EXPLORE FURTHER\nOther production references\nWEEK 7\nA3\nUbisoft Connect: internal release-tool UX\nFortnite Tools: inspect and locate overlaps\nRyan DowlingSoka: batch renaming\nWhich workflow problem transfers to your own tool?"
+  },
+  {
+    "number": 62,
+    "text": "EXPLORE FURTHER\nUnreal production architecture\nWEEK 7\nA7\nEtienne Palmer-Campbell \u00b7 NetherRealm \u00b7 GDC 2025 \u00b7 PDF p.26\nWhich boundary makes independent changes easier?"
+  },
+  {
+    "number": 63,
+    "text": "EXPLORE FURTHER\nExisting Unreal widgets as references\nWEEK 7\nA8\nEtienne Palmer-Campbell \u00b7 NetherRealm \u00b7 GDC 2025 \u00b7 PDF p.34\nWhich familiar editor control could guide your design?"
+  },
+  {
+    "number": 64,
+    "text": "EXPLORE FURTHER\nShareable reproduction steps\nWEEK 7\nA9\nEtienne Palmer-Campbell \u00b7 NetherRealm \u00b7 GDC 2025 \u00b7 PDF p.51\nWhat would you attach to a useful bug report?"
+  },
+  {
+    "number": 65,
+    "text": "EXPLORE FURTHER\nProduction feedback is evidence with limits\nWEEK 7\nA10\nJeff Stewart \u00b7 Vicarious Visions \u00b7 GDC 2018 \u00b7 PDF p.13\nWhat would you need before interpreting this as a causal result?"
+  },
+  {
+    "number": 66,
+    "text": "EXPLORE FURTHER\nA production prototype evolves\nWEEK 7\nA11\nGuerrilla \u00b7 Sumaili & van der Steen \u00b7 GDC 2017 \u00b7 PDF pp.31,33\nWhich uncertainty should your next prototype answer?"
+  },
+  {
+    "number": 67,
+    "text": "EXPLORE FURTHER\nA different discipline, a different view\nWEEK 7\nA12\nGuerrilla \u00b7 Sumaili & van der Steen \u00b7 GDC 2017 \u00b7 PDF p.25\nWhich controls would your target artist never need?"
+  },
+  {
+    "number": 68,
+    "text": "EXPLORE FURTHER\nReveal detail where the artist is looking\nWEEK 7\nA13\nGuerrilla \u00b7 GDC 2017 \u00b7 published world-map clip \u00b7 16 seconds\nPlay companion clip\nWhat detail should be persistent, selected, or shown on hover?"
+  },
+  {
+    "number": 69,
+    "text": "EXPLORE FURTHER\nPython and Unreal: further study\nWEEK 7\nA4\nEpic Python documentation\nOster: Import / Export\nOster: Texture Utility\nOster: Asset Setup\nKarol: Python Automation"
+  },
+  {
+    "number": 70,
+    "text": "EXPLORE FURTHER\nUI/UX: further study\nWEEK 7\nA5\nNN/g: usability testing\nNN/g: task scenarios\nApple: feedback\nGDC: Jodie Azhar\u2019s tool-design slides\nQt for Python tutorials"
+  },
+  {
+    "number": 71,
+    "text": "EXPLORE FURTHER\nLater directions\nWEEK 7\nA6\nBlueprint generators and spline-based artist tools\nPCG, procedural modeling, and larger environments\nMaterial workflows, VFX, and validation pipelines\nWhich direction supports a task you actually need?"
+  }
+]

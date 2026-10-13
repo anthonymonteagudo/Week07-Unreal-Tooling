@@ -1,0 +1,192 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>43 Remote Control Preset Controllers · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-43">Return to audit</a><a href="42.html">Previous lesson</a> <a href="44.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/43%20Remote%20Control%20Preset%20Controllers.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/43%20Remote%20Control%20Preset%20Controllers%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>43 Remote Control Preset Controllers</h1><p>Conditional/Else, On Modified, Bind, functions and web-controller sequence retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Remote Control Preset Controllers — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/43%20Remote%20Control%20Preset%20Controllers.md">Original notes</a></p>
+<p>Controllers let one input drive several exposed properties. Use them to replace repeated manual changes, such as updating the driver name, text color, and car paint together.</p>
+<h2>Apply team settings with conditions</h2>
+<p>Open the preset&#39;s <strong>Logic</strong> view, add a string controller named <strong>Team</strong>, and attach a <strong>Conditional</strong> behavior.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021156.png" alt="Course screenshot: Pasted image 20261013021156.png"></p>
+<p>For the yellow-team condition, add actions for driver text, text color, and car-paint color, then set the desired values. Drag exposed properties into the action list or choose them with the add control. Enter the matching team value to test all three changes together.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013020912.png" alt="Course screenshot: Pasted image 20261013020912.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013020936.png" alt="Course screenshot: Pasted image 20261013020936.png"></p>
+<p>Add a second condition and action set for the red team. An <strong>Else</strong> condition can provide a fallback. The <strong>On Modified</strong> behavior instead runs its actions whenever the controller changes; the lesson demonstrates setting a light&#39;s color this way.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021016.png" alt="Course screenshot: Pasted image 20261013021016.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021044.png" alt="Course screenshot: Pasted image 20261013021044.png"></p>
+<h2>Bind several properties to one value</h2>
+<p>Drag an exposed color property into the controller list to create a controller with a <strong>Bind</strong> behavior. Add another compatible color property to that binding so a single color adjustment affects both. This is useful for coordinated lights or branding colors.</p>
+<p>Use distinct controller names to separate a shared control from each individually exposed property.</p>
+<h2>Expose a function for more complex behavior</h2>
+<p>Use the preset&#39;s function control to expose a Blueprint library or actor function. The demonstration adds <strong>Print String</strong>, calls it, checks Output Log, and expands its parameters to change the message.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021311.png" alt="Course screenshot: Pasted image 20261013021311.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021356.png" alt="Course screenshot: Pasted image 20261013021356.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021443.png" alt="Course screenshot: Pasted image 20261013021443.png"></p>
+<p>A function can support more involved actions, such as triggering an animation or effect, while the preset provides the button.</p>
+<h2>Add controllers to the web UI</h2>
+<p>In the web app&#39;s <strong>Design</strong> mode, add the exposed function and controls. The <strong>Controllers</strong> group supplies the shared color control; the original properties still allow individual adjustments. Verify that the shared controller updates all bound values and rename it clearly.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021518.png" alt="Course screenshot: Pasted image 20261013021518.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021549.png" alt="Course screenshot: Pasted image 20261013021549.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/42%20Remote%20Control%20Preset%20and%20WebApp%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/44%20Python%20and%20Remote%20Control%20API%20%2B%20Testing%20API%20with%20Insomnia%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021156.png" alt="Course screenshot: Pasted image 20261013021156.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013020912.png" alt="Course screenshot: Pasted image 20261013020912.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013020936.png" alt="Course screenshot: Pasted image 20261013020936.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021016.png" alt="Course screenshot: Pasted image 20261013021016.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021044.png" alt="Course screenshot: Pasted image 20261013021044.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021311.png" alt="Course screenshot: Pasted image 20261013021311.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021356.png" alt="Course screenshot: Pasted image 20261013021356.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021443.png" alt="Course screenshot: Pasted image 20261013021443.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021518.png" alt="Course screenshot: Pasted image 20261013021518.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013021549.png" alt="Course screenshot: Pasted image 20261013021549.png"></p>
+<p>In the previous video, we made a remote preset that we can use to access and modify properties from</p>
+<p>the scene.</p>
+<p>We are able to modify things like the text, paint the car, paint, color, text, actual value, lights,</p>
+<p>and even camera settings.</p>
+<p>We have a really nice web interface, but we still have to do a lot of manual actions.</p>
+<p>For instance, if we are changing the current team from team yellow to team red, we have to manually</p>
+<p>update the driver text, text color, and the car paint.</p>
+<p>Instead, we could have some simple preset that says which colors and the text values are for which</p>
+<p>team, and the logic behind the remote control preset would set them once we type the current team name,</p>
+<p>and that is what we are going to do.</p>
+<p>Then we are going to create a new web application interface from scratch, because we are not going</p>
+<p>to use all those properties we have exposed before.</p>
+<p>So let me open the remote control preset.</p>
+<p>And now we are going to access the logic tab using that logic button on the right side, the button</p>
+<p>that we haven&#39;t used so far even once.</p>
+<p>So let&#39;s click here.</p>
+<p>And as you can see we have some new widgets.</p>
+<p>There is a controller tab and two tabs that remain a mystery.</p>
+<p>Controller will be something that will be used to control our behavior.</p>
+<p>We can use some string value like a team name.</p>
+<p>We can use some boolean that would be switched to enable or disable something, but we can also use</p>
+<p>properties that we have exposed before.</p>
+<p>For starters, we are going to go with a string.</p>
+<p>But don&#39;t worry, in the later part of the video we will also use one of those properties.</p>
+<p>So let me use that add button and create a string controller.</p>
+<p>I wanted to store a team name, so let&#39;s put a meaningful name here by double clicking and renaming</p>
+<p>it to team.</p>
+<p>When I clicked on it, you probably also noticed that one of those mysterious widgets became available.</p>
+<p>Once we have a control selected, we can add some behavior to it.</p>
+<p>There are a few of those available like bind, conditional, modify, path and their names are quite</p>
+<p>obvious.</p>
+<p>And for that string variable, I think we are going to jump straight into conditional because I want</p>
+<p>to make a condition that my string.</p>
+<p>Is equal to some team name, and in that case we are applying team related settings.</p>
+<p>If this value like that team name, let&#39;s put a placeholder here is equal to yellow.</p>
+<p>Then I want my car paint to be yellow.</p>
+<p>You can also change the behavior to else.</p>
+<p>And in that case it doesn&#39;t check if there is any value here.</p>
+<p>But let&#39;s go with that equals.</p>
+<p>If the team is yellow, the driver will be yellow.</p>
+<p>Venom.</p>
+<p>So I&#39;m looking for the property with the driver text and I will set the value as yellow venom.</p>
+<p>And I would like to also set car paint color and text color.</p>
+<p>So let me drag those here as well.</p>
+<p>And as you can see it is pretty simple.</p>
+<p>Actions are.</p>
+<p>Generally the properties we have exposed and we apply new values to them.</p>
+<p>If you click on that plus button, you will get a list of all available properties.</p>
+<p>But in my opinion, dragging them from left side to right side of the screen is more convenient.</p>
+<p>If you want to add all of them at once, you can also use that button here at all available actions.</p>
+<p>But I would be rather cautious and I don&#39;t really see a reason for using it right now.</p>
+<p>So let&#39;s change that color to white.</p>
+<p>I mean yellow and also the carpet color to yellow.</p>
+<p>We can actually test it right now.</p>
+<p>Let me make the viewport bigger and let&#39;s name it yellow.</p>
+<p>That works.</p>
+<p>So let&#39;s also add support for the red team.</p>
+<p>Add a new behavior conditional.</p>
+<p>Red and the red driver will be called the Knight Skull.</p>
+<p>A badass name for fast red car.</p>
+<p>And let&#39;s also drag and drop those colors and let it be something reddish.</p>
+<p>So our logic is very simple, but we no longer have to adjust all those properties by hand.</p>
+<p>We can change the team name to red or to yellow and everything happens at once.</p>
+<p>But that&#39;s not all.</p>
+<p>There are also more behaviors.</p>
+<p>In my opinion.</p>
+<p>The more interesting one is, uh, bind.</p>
+<p>But as there is some unmodified and yeah, let&#39;s do it.</p>
+<p>Maybe on the modification, um, let&#39;s change the light color to blue.</p>
+<p>Of course, once it will be modified and changed to blue, each time it happens again, nothing will</p>
+<p>be changed because we are going to set blue as blue.</p>
+<p>But we can do it once to demonstrate that it works.</p>
+<p>I&#39;m just adding a new letter here.</p>
+<p>Pressing enter and yay!</p>
+<p>The color changed.</p>
+<p>But let&#39;s talk about binding because it&#39;s way more interesting.</p>
+<p>We can set color on a single variable and affect more of them, and that is great.</p>
+<p>For instance, right now we are adjusting color on two of those materials at once, but we could actually</p>
+<p>do it with binding.</p>
+<p>So let me remove the controller we have here.</p>
+<p>And let&#39;s add a new one and we are not going to use.</p>
+<p>That list from the add button.</p>
+<p>Instead, we&#39;re going to our exposed properties and just drag and drop one of those color properties.</p>
+<p>It automatically has a bind behavior added, but there are others also available.</p>
+<p>If you select that bind behavior, you can see that it points to itself already, like we are already</p>
+<p>modifying the property that it depends on and that is fine.</p>
+<p>Like I get it.</p>
+<p>That&#39;s how they solved the the programming issue of doing that.</p>
+<p>Um, now we can also add a new color here.</p>
+<p>So let&#39;s drag and drop it.</p>
+<p>And now we have two of them and maybe we will change it to blue.</p>
+<p>And both of them are modified.</p>
+<p>And that&#39;s nice, because if you have lots of lights in the scene and you want to change the color at</p>
+<p>once, that&#39;s when you use it.</p>
+<p>I wouldn&#39;t use it for some more complex operations.</p>
+<p>If you really want something more complex, you can use a blueprint function.</p>
+<p>And this can be very powerful.</p>
+<p>Imagine running animation with a blueprint because there already is a blueprint function for that.</p>
+<p>Or you can make some custom logging.</p>
+<p>Or maybe you are streaming and someone made a donation.</p>
+<p>You can press a button that will spawn some nice particles on your screen as a reward.</p>
+<p>And same thing may happen when you pick some winner or some driver who won the race or anything.</p>
+<p>So if you want to expose some blueprint function in the remote control preset, then just head here</p>
+<p>to that F icon.</p>
+<p>And you can access blueprint function library.</p>
+<p>You can search for it, but you can also go to even actor functions.</p>
+<p>And for instance that Lotus car has something like set mobility.</p>
+<p>Or maybe we can set radial damage.</p>
+<p>Everything is up to you and to just demonstrate that it works.</p>
+<p>We can make a simple print.</p>
+<p>So we&#39;re going to add a print string function.</p>
+<p>And if I call it.</p>
+<p>Our output log will be populated with those hello prints.</p>
+<p>Of course you can access some properties.</p>
+<p>Just press that little triangle here and we can change it to maybe tech Art corner.</p>
+<p>And you will be able to call that blueprint function even from our web app.</p>
+<p>And that&#39;s what we are going to do.</p>
+<p>I have a clean interface.</p>
+<p>Let me open the design tab, go to properties and look for our.</p>
+<p>Print string pattern.</p>
+<p>So let&#39;s now open the output log.</p>
+<p>And let&#39;s test it.</p>
+<p>It seems to work.</p>
+<p>We can also play with our colors.</p>
+<p>But there&#39;s one difference now.</p>
+<p>We have a new controller tab here.</p>
+<p>So that means that we can still separately control the driver text, like making it pink.</p>
+<p>And the base color of the car could be green, but if you want to control all of them, then just use</p>
+<p>that new text render color controller.</p>
+<p>And now yes, now you are adjusting them at once.</p>
+<p>So remember to rename those controllers so you don&#39;t confuse them with original values that you have</p>
+<p>used.</p>
+<p>And that&#39;s all.</p>
+<p>I really see lots of possibilities of using things like virtual production, and I don&#39;t know how useful</p>
+<p>for you it is right now, but for me, even though I don&#39;t use it on a daily basis, it&#39;s mind blowing</p>
+<p>what you can do with that tech.</p>
+<p>Imagine having a virtual studio.</p>
+<p>You would have your scenery in unreal, but your actor, your news presenter would be on a green screen,</p>
+<p>but you would have same light setup as in Unreal Engine, and your lighting technician could access</p>
+<p>such web application interface using a tablet so he would walk around on the set, adjust settings,</p>
+<p>and you would have same settings adjusted in real life and in Unreal Engine, so you could have better</p>
+<p>visual parity.</p>
+<p>Of course, for people working on TV sets already, it&#39;s not anything mind blowing.</p>
+<p>I mean, there was Mandalorian released with that tech and it&#39;s getting more and more popular in use,</p>
+<p>but it&#39;s great to see that we can do that really cheap.</p>
+<p>I mean, the only thing you would have to do would be program some controllers yourself for the actual</p>
+<p>scene.</p>
+<p>But making things here in unreal is super simple.</p>
+<p>And if you are not interested in virtual production, in television, in visual effects, that&#39;s fine.</p>
+<p>In next videos you will see how you can use remote control with Python code and how you can use it to</p>
+<p>communicate an external application with unreal.</p>
+<p>And that&#39;s it for now.</p>
+<p>Till next time.</p>
+<p>Bye.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

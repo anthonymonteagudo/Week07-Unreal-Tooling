@@ -1,0 +1,330 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>44 Python and Remote Control API + Testing API with Insomnia · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-44">Return to audit</a><a href="43.html">Previous lesson</a> <a href="45.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/44%20Python%20and%20Remote%20Control%20API%20%2B%20Testing%20API%20with%20Insomnia.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/44%20Python%20and%20Remote%20Control%20API%20%2B%20Testing%20API%20with%20Insomnia%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>44 Python and Remote Control API + Testing API with Insomnia</h1><p>External Python request and two levels of JSON</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Calling Python Through the Remote Control API — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/44%20Python%20and%20Remote%20Control%20API%20%2B%20Testing%20API%20with%20Insomnia.md">Original notes</a></p>
+<p>Expose an Unreal-recognized Python class, then call its functions from an HTTP client. The course uses Insomnia for exploration and generates Python client code afterward.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022124.png" alt="Course screenshot: Pasted image 20261013022124.png"></p>
+<h2>Register a callable class</h2>
+<p>Decorate an <code>unreal.Object</code> subclass with <code>@unreal.uclass()</code> and exposed methods with <code>@unreal.ufunction</code>. Declare the return type and metadata in the decorator.</p>
+<pre><code class="language-python">import unreal
+
+@unreal.uclass()
+class RemoteControlDemo(unreal.Object):
+    @unreal.ufunction(ret=bool, meta=dict(Category=&quot;TechArtCorner&quot;))
+    def ping_unreal(self):
+        return True
+</code></pre>
+<p>Execute this definition inside Unreal before calling it remotely.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022556.png" alt="Course screenshot: Pasted image 20261013022556.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022614.png" alt="Course screenshot: Pasted image 20261013022614.png"></p>
+<h2>Send the first request</h2>
+<p>Enable the Remote Control API and check its <strong>HTTP Server Port</strong> in Project Settings. The demonstrated endpoint is <code>http://localhost:30010/remote/object/call</code>; the web interface uses a different port.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022637.png" alt="Course screenshot: Pasted image 20261013022637.png"></p>
+<p>Create a <strong>PUT</strong> request and choose a JSON body, which supplies <code>Content-Type: application/json</code>. An empty or invalid body can produce a server error response; no connection requires checking the running server, host, and port first.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022701.png" alt="Course screenshot: Pasted image 20261013022701.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022751.png" alt="Course screenshot: Pasted image 20261013022751.png"></p>
+<p>Use the class default object&#39;s path and the exact function name:</p>
+<pre><code class="language-json">{
+  &quot;objectPath&quot;: &quot;/Engine/PythonTypes.Default__RemoteControlDemo&quot;,
+  &quot;functionName&quot;: &quot;ping_unreal&quot;
+}
+</code></pre>
+<p>The response should contain <code>ReturnValue: true</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022926.png" alt="Course screenshot: Pasted image 20261013022926.png"></p>
+<h2>Pass parameters and return structured data</h2>
+<p>Declare parameter types in order with <code>params=[int, str]</code>; the method accepts the matching arguments after <code>self</code>. The course&#39;s attempted list/tuple return declarations fail. Its workaround is a single string return containing JSON-serialized data:</p>
+<pre><code class="language-python">@unreal.ufunction(ret=str, params=[int, str],
+                  meta=dict(Category=&quot;TechArtCorner&quot;))
+def return_params(self, integer, string):
+    return json.dumps({&quot;integer&quot;: integer, &quot;string&quot;: string})
+</code></pre>
+<p>Place this method inside the class and add <code>import json</code>. Re-execute the updated class in Unreal; the demonstrated editor reinstantiates it.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013023319.png" alt="Course screenshot: Pasted image 20261013023319.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013023340.png" alt="Course screenshot: Pasted image 20261013023340.png"></p>
+<p>Change <code>functionName</code> to <code>return_params</code> and add the named parameters:</p>
+<pre><code class="language-json">{
+  &quot;objectPath&quot;: &quot;/Engine/PythonTypes.Default__RemoteControlDemo&quot;,
+  &quot;functionName&quot;: &quot;return_params&quot;,
+  &quot;parameters&quot;: {&quot;integer&quot;: 1234, &quot;string&quot;: &quot;It&#39;s alive!&quot;}
+}
+</code></pre>
+<p>The outer response is JSON; its <code>ReturnValue</code> is another JSON string. Decode that string to recover the dictionary. This pattern suits small serializable results rather than bulk asset data.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013023641.png" alt="Course screenshot: Pasted image 20261013023641.png"></p>
+<h2>Move the request into an external tool</h2>
+<p>Use <strong>Generate Client Code</strong> to inspect Python, shell, or other client examples. For the Python <code>requests</code> option, install the package into the external tool&#39;s interpreter.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013023711.png" alt="Course screenshot: Pasted image 20261013023711.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013023941.png" alt="Course screenshot: Pasted image 20261013023941.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013024102.png" alt="Course screenshot: Pasted image 20261013024102.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013024144.png" alt="Course screenshot: Pasted image 20261013024144.png"></p>
+<p>Send the generated request and inspect status, response text, and decoded data. With <code>requests</code>, the final dictionary can be obtained with <code>json.loads(response.json()[&quot;ReturnValue&quot;])</code> after confirming the request succeeded.</p>
+<h2>External Python request and two levels of JSON</h2>
+<p>Run this in the external tool after registering the example class inside Unreal and starting the demonstrated server:</p>
+<pre><code class="language-python">import json
+import requests
+response = requests.put(
+    &quot;http://localhost:30010/remote/object/call&quot;,
+    json={&quot;objectPath&quot;: &quot;/Engine/PythonTypes.Default__RemoteControlDemo&quot;,
+          &quot;functionName&quot;: &quot;return_params&quot;,
+          &quot;parameters&quot;: {&quot;integer&quot;: 1234, &quot;string&quot;: &quot;It&#39;s alive!&quot;}},
+    timeout=10,
+)
+response.raise_for_status()
+outer = response.json()
+payload = json.loads(outer[&quot;ReturnValue&quot;])
+print(payload)
+</code></pre>
+<p>The timeout and HTTP-status check are audit additions. The inner decode is needed because this particular function returns a JSON <strong>string</strong>. The earlier Boolean <code>ping_unreal</code> result does not need another <code>json.loads</code> call.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013024206.png" alt="Course screenshot: Pasted image 20261013024206.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013024228.png" alt="Course screenshot: Pasted image 20261013024228.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013024304.png" alt="Course screenshot: Pasted image 20261013024304.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013024250.png" alt="Course screenshot: Pasted image 20261013024250.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/43%20Remote%20Control%20Preset%20Controllers%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/45%20Remote%20Control%20Python%20Progress%20Bar%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022124.png" alt="Course screenshot: Pasted image 20261013022124.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022556.png" alt="Course screenshot: Pasted image 20261013022556.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022614.png" alt="Course screenshot: Pasted image 20261013022614.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022637.png" alt="Course screenshot: Pasted image 20261013022637.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022701.png" alt="Course screenshot: Pasted image 20261013022701.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022751.png" alt="Course screenshot: Pasted image 20261013022751.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013022926.png" alt="Course screenshot: Pasted image 20261013022926.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013023319.png" alt="Course screenshot: Pasted image 20261013023319.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013023340.png" alt="Course screenshot: Pasted image 20261013023340.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013023641.png" alt="Course screenshot: Pasted image 20261013023641.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013023711.png" alt="Course screenshot: Pasted image 20261013023711.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013023941.png" alt="Course screenshot: Pasted image 20261013023941.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013024102.png" alt="Course screenshot: Pasted image 20261013024102.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013024144.png" alt="Course screenshot: Pasted image 20261013024144.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013024206.png" alt="Course screenshot: Pasted image 20261013024206.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013024228.png" alt="Course screenshot: Pasted image 20261013024228.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013024304.png" alt="Course screenshot: Pasted image 20261013024304.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013024250.png" alt="Course screenshot: Pasted image 20261013024250.png"></p>
+<p>If remote control preset videos didn&#39;t satisfy your needs, this and following videos will hopefully</p>
+<p>do.</p>
+<p>We are jumping into triggering Python code in unreal using a remote control API.</p>
+<p>It means you can make calls using Curl, Python, Java, or any client or language you would like.</p>
+<p>In the first video in that section, we will just create two simple functions.</p>
+<p>One will ping unreal, so it returns us a true boolean if it&#39;s working, and the other one will take</p>
+<p>some parameters and we will return them to make sure that we pass them correctly.</p>
+<p>For testing purposes, I will use insomnia, which is an API testing software on a free Apache license.</p>
+<p>It is similar to postman and if you are a postman user, you will have no trouble following the tutorial.</p>
+<p>But I want everyone to be able to follow.</p>
+<p>So if you don&#39;t have any testing client, just download insomnia for free.</p>
+<p>Before we make any calls to the API, we have to expose some Python classes and functions that unreal</p>
+<p>will recognize.</p>
+<p>Luckily for us, when we make some mistakes and when we continue testing, we usually will be able to</p>
+<p>override already declared classes by just pasting the code in that output log, and we will probably</p>
+<p>demonstrate it in the video.</p>
+<p>I need to declare an unreal class, and to do that we use a decorator.</p>
+<p>Unreal.</p>
+<p>Dot your class.</p>
+<p>Remember about adding parentheses on at the end here.</p>
+<p>And now we can declare some class.</p>
+<p>Let me call it remote control demo.</p>
+<p>That class has to be based on unreal object type.</p>
+<p>And now we have to declare some functions.</p>
+<p>Each time.</p>
+<p>When we declare a function recognized by unreal, we have to use a decorator.</p>
+<p>And if we want to return some value, we should specify that in the decorator.</p>
+<p>It&#39;s pretty simple.</p>
+<p>Just write unreal dot your function.</p>
+<p>And now I would like to create some pink function that will return a boolean.</p>
+<p>So let equals bool.</p>
+<p>And we also have to provide a meta parameter.</p>
+<p>It is a dictionary and it stores parameters like you function in C plus plus.</p>
+<p>So if you are declaring some function in C plus plus, you might have to provide data like category</p>
+<p>where that code should be categorized as.</p>
+<p>And I will just go with tech Art corner.</p>
+<p>I don&#39;t have anything specific that I would like to target where creating a dict and it takes category.</p>
+<p>Category is equal to tech art corner.</p>
+<p>You can put name of your tool or something here.</p>
+<p>Okay then we are just going to define ping unreal and that returns true.</p>
+<p>We can copy and paste this code straight into unreal, and make sure that we are able to make some testing</p>
+<p>API call with insomnia, so let&#39;s copy it.</p>
+<p>Go to the Python console, hit enter.</p>
+<p>There were no errors.</p>
+<p>And one last reminder is that you have to have a remote control plugin enabled.</p>
+<p>If you have that enabled, you can go to Project Settings.</p>
+<p>Then look for remote control and you will find remote control Http server port.</p>
+<p>That port is in my case 310.</p>
+<p>And that means that I will call localhost with that port and insomnia, or in my Python client.</p>
+<p>So let me bring insomnia.</p>
+<p>And we don&#39;t have any collection, any document, any testing data yet.</p>
+<p>I am beginning, as someone who has launched insomnia for the first time.</p>
+<p>So let me create some kind of a new project, new collection, and I will call it remote.</p>
+<p>Control.</p>
+<p>Unreal.</p>
+<p>Hit enter and here on the left side next to that filter tab, we can press plus button and create a</p>
+<p>new request.</p>
+<p>Unreal gives us some Http server.</p>
+<p>So I&#39;m going to pick Http request.</p>
+<p>And we have to specify type of the request to put.</p>
+<p>And also we are pasting the path that goes to localhost, the port we have here, slash remote slash</p>
+<p>object slash call.</p>
+<p>And please remember that it is not an encrypted connection, so it&#39;s Http, not Https.</p>
+<p>Our request is almost done, but it doesn&#39;t tell unreal what we actually want to call.</p>
+<p>So if we press send we will get back some message.</p>
+<p>And if you don&#39;t get any message, it means that you can&#39;t even reach the server.</p>
+<p>So it may be worth testing even straight after creating an empty request.</p>
+<p>But if you get that error message.</p>
+<p>And you have all plugins and server running.</p>
+<p>Then just head to body section and use that little icon here to change type to Json.</p>
+<p>And as we changed it, it also added a new header.</p>
+<p>So if you are using any other kind of the client, remember that you have to have content type header</p>
+<p>set as application Json.</p>
+<p>Otherwise you may be able to send Json, but it could be sent as a clean text.</p>
+<p>And there is a chance that unreal wouldn&#39;t understand the command.</p>
+<p>Let&#39;s get back to Jason.</p>
+<p>Open the Json and we need to pass two parameters.</p>
+<p>First is object path.</p>
+<p>And that leads to what we are actually calling.</p>
+<p>So object path.</p>
+<p>And it always starts in the same way.</p>
+<p>So it&#39;s going to be some kind of like engine Python types.</p>
+<p>That dot default to underscores.</p>
+<p>And now we paste name of our class.</p>
+<p>We declared class called Remote Control Demo.</p>
+<p>And that&#39;s what we are going to paste.</p>
+<p>Let&#39;s put it here.</p>
+<p>And then we are accessing some function that belongs to this class.</p>
+<p>So we have to pass a new parameter function name.</p>
+<p>And my function was called being unreal.</p>
+<p>I know you may be just typing in following the video and you may make some mistakes.</p>
+<p>Make some typos, so don&#39;t worry.</p>
+<p>Those Json snippets will be attached to the source code of the function.</p>
+<p>So if you download zip with source code from the course, it is there.</p>
+<p>You can just do a copy paste.</p>
+<p>As I have typed all those parameters that we need, we can press send and we get a return value.</p>
+<p>That is true.</p>
+<p>And what if we wanted to declare a function that takes some parameters and then it would return them.</p>
+<p>We need to declare a new function, and that means we are using a decorator to declare it.</p>
+<p>We will return some parameters.</p>
+<p>And for starters, let me put just a boolean here.</p>
+<p>And then we declare meta, which is also that dict that we used before.</p>
+<p>What we are missing right now is declaring parameters we get.</p>
+<p>That can be done with a simple params statement.</p>
+<p>It takes a list of parameters, or rather a list of types that we&#39;re going to get.</p>
+<p>So let&#39;s get integer and string.</p>
+<p>That&#39;s it.</p>
+<p>Now we can declare a function.</p>
+<p>I will call it return params.</p>
+<p>And now the first param that we will get is integer.</p>
+<p>So let me name it.</p>
+<p>Yeah just integer.</p>
+<p>And the second one is string.</p>
+<p>Number of those parameters here must be matching number of elements in that list.</p>
+<p>And of course there is self parameter.</p>
+<p>Additionally from now on we are able to access them.</p>
+<p>But we probably don&#39;t want to return a boolean.</p>
+<p>It would be perfect if we were able to return both parameters.</p>
+<p>So we would create some tuple like integer and string.</p>
+<p>And unfortunately it&#39;s not going to work.</p>
+<p>I know, I know, we have a return type specified as boolean, and we may want to declare it as a list</p>
+<p>of arguments like with params, but unreal simply doesn&#39;t support it.</p>
+<p>And we can actually try declaring such function in unreal and see what error we are getting.</p>
+<p>So let me copy this code, go to unreal, paste it and it cannot create a return property list for function</p>
+<p>return params.</p>
+<p>You may be trying to declare a tuple, maybe it will work.</p>
+<p>So let&#39;s use the typing.</p>
+<p>We have some tuple and we have to add an import from typing import.</p>
+<p>Topple.</p>
+<p>Who knows?</p>
+<p>Maybe it&#39;s going to work.</p>
+<p>Unfortunately it didn&#39;t.</p>
+<p>But I have found a workaround for doing that.</p>
+<p>In insomnia, we are sending parameters as a Json, which is simply a string.</p>
+<p>Why don&#39;t we use Json both ways?</p>
+<p>If we have any data that is serializable, we can send it as a string.</p>
+<p>Of course, if that is some texture, the string will be huge and we probably should avoid such requests.</p>
+<p>But when it comes to things like having few integers or strings, we could just create a dictionary</p>
+<p>and then make a Json string out of it.</p>
+<p>So let&#39;s first create a dictionary.</p>
+<p>Instead of using those two values, we are passing them as a dict and now we can make a string.</p>
+<p>So before doing that let me import Json module.</p>
+<p>Import Json.</p>
+<p>And then.</p>
+<p>I&#39;m gonna use Json dumps function to dump that dictionary.</p>
+<p>The last thing is to make sure that the return type was updated, and we are going to return a simple</p>
+<p>type, which is a string.</p>
+<p>So let me copy the code of the whole class and also remove that unused import.</p>
+<p>That&#39;s copied.</p>
+<p>Now paste into unreal.</p>
+<p>And as you can see, we can overwrite old code.</p>
+<p>As I mentioned in the beginning of the video.</p>
+<p>And now let&#39;s open insomnia and make a new request.</p>
+<p>Let&#39;s duplicate the old one.</p>
+<p>I will call it.</p>
+<p>Return values and the old one will be called ping.</p>
+<p>And now that return values should be updated so it uses a correct function name.</p>
+<p>So the function name is return.</p>
+<p>Let me make sure I&#39;m using the correct name its return params.</p>
+<p>And we also have to pass the parameters.</p>
+<p>So let&#39;s add a new entry to the Json.</p>
+<p>It&#39;s going to be named parameters and it is a new Json.</p>
+<p>So the first parameter is integer.</p>
+<p>The value will be one, two, three, four, and the second parameter is a string of value.</p>
+<p>Let it be.</p>
+<p>It&#39;s alive.</p>
+<p>We&#39;re good.</p>
+<p>Let&#39;s send the request.</p>
+<p>And we just got an integer back and the string, which is nice.</p>
+<p>You would have to write some code that can parse the dictionary, but that would be super simple as</p>
+<p>there already is a nice Json module in Python.</p>
+<p>So you have created some code that can be called remotely and you are testing it with insomnia.</p>
+<p>You know that it&#39;s working correctly, but now you would like to use it in some application.</p>
+<p>Having insomnia.</p>
+<p>It&#39;s very, very simple.</p>
+<p>You don&#39;t have to do much.</p>
+<p>You see that send button?</p>
+<p>It has some additional options.</p>
+<p>If you open them, just click on generate client code and you can pick any client you want to use.</p>
+<p>You can go with C code.</p>
+<p>You can go with Simple Shell for C URL, which is great because now you can try testing code with PowerShell,</p>
+<p>or maybe with some Linux shell.</p>
+<p>You can change from c url to wget, or just go with the simple Python.</p>
+<p>It also can change the type of the request.</p>
+<p>There is an Http client request, but personally I prefer using request module.</p>
+<p>That code is way more readable to me.</p>
+<p>We can copy this code to clipboard and before testing it, just make sure that requests module is installed.</p>
+<p>So let me go to PyCharm settings.</p>
+<p>You can also just call a pip command.</p>
+<p>Let&#39;s find requests.</p>
+<p>Install the package, and now all I have to do is to go to my Python console.</p>
+<p>Import said module and paste the code.</p>
+<p>And we just got a return value.</p>
+<p>And we also have some debugger attached so we can open the response we have.</p>
+<p>It works okay.</p>
+<p>And have some text with the data.</p>
+<p>We need it.</p>
+<p>That&#39;s great.</p>
+<p>In the next video I will show you how to make some progress bar.</p>
+<p>So if you run some processing remotely, user has a visual feedback and that&#39;s it for now by.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -96,6 +96,28 @@
+ 
+ Send the generated request and inspect status, response text, and decoded data. With `requests`, the final dictionary can be obtained with `json.loads(response.json()[&quot;ReturnValue&quot;])` after confirming the request succeeded.
+ 
++## External Python request and two levels of JSON
++
++Run this in the external tool after registering the example class inside Unreal and starting the demonstrated server:
++
++```python
++import json
++import requests
++response = requests.put(
++    &quot;http://localhost:30010/remote/object/call&quot;,
++    json={&quot;objectPath&quot;: &quot;/Engine/PythonTypes.Default__RemoteControlDemo&quot;,
++          &quot;functionName&quot;: &quot;return_params&quot;,
++          &quot;parameters&quot;: {&quot;integer&quot;: 1234, &quot;string&quot;: &quot;It's alive!&quot;}},
++    timeout=10,
++)
++response.raise_for_status()
++outer = response.json()
++payload = json.loads(outer[&quot;ReturnValue&quot;])
++print(payload)
++```
++
++The timeout and HTTP-status check are audit additions. The inner decode is needed because this particular function returns a JSON **string**. The earlier Boolean `ping_unreal` result does not need another `json.loads` call.
++
+ ![[Pasted image 20261013024206.png]]
+ 
+ ![[Pasted image 20261013024228.png]]
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

@@ -1,0 +1,275 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>40 Python Scripts in Asset Scripted Action Blueprints · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-40">Return to audit</a><a href="39.html">Previous lesson</a> <a href="41.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/08%20Python%20and%20Blueprints/40%20Python%20Scripts%20in%20Asset%20Scripted%20Action%20Blueprints.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/08%20Python%20and%20Blueprints/40%20Python%20Scripts%20in%20Asset%20Scripted%20Action%20Blueprints%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>40 Python Scripts in Asset Scripted Action Blueprints</h1><p>Node execution and result wiring</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Python Scripts in Asset Scripted Action Blueprints — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/08%20Python%20and%20Blueprints/40%20Python%20Scripts%20in%20Asset%20Scripted%20Action%20Blueprints.md">Original notes</a></p>
+<p>An <strong>Asset Action Utility</strong> can expose a simple Content Browser action and parameter dialog while Python performs the asset work. This example assigns a chosen material instance to every material slot on selected static-mesh assets.</p>
+<h2>Create the utility</h2>
+<p>Enable <strong>Editor Scripting Utilities</strong> alongside the existing Python setup. Create an <strong>Editor Utility Blueprint</strong> based on <code>AssetActionUtility</code>; <code>ActorActionUtility</code> is the corresponding option for level actors. Use an Editor Utility Widget when a more elaborate interface is needed.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233950.png" alt="Course screenshot: Pasted image 20261012233950.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012234013.png" alt="Course screenshot: Pasted image 20261012234013.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012234047.png" alt="Course screenshot: Pasted image 20261012234047.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012234241.png" alt="Course screenshot: Pasted image 20261012234241.png"></p>
+<h2>Pass selected assets into Python</h2>
+<p>Create an <code>AssignMaterial</code> custom event and enable <strong>Call in Editor</strong>. Connect <strong>Get Selected Assets</strong> to an input named <code>selected_assets</code> on <strong>Execute Python Script</strong>. Iterate the incoming Unreal array directly; converting it to a Python list is unnecessary for a simple loop.</p>
+<p>The conversion slide is conceptual: typed Unreal arrays require the appropriate typed construction/cast, as discussed in lesson 19. Import required modules inside the Python node. During development, <code>importlib.reload</code> can reload edited modules, but existing state or references may still need attention.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012234404.png" alt="Course screenshot: Pasted image 20261012234404.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012235457.png" alt="Course screenshot: Pasted image 20261012235457.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012235551.png" alt="Course screenshot: Pasted image 20261012235551.png"></p>
+<p>Compile, save, and run the action through <strong>Scripted Asset Actions</strong>. Printing the selection confirms that the node receives objects rather than paths that must be loaded again.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012235622.png" alt="Course screenshot: Pasted image 20261012235622.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012235705.png" alt="Course screenshot: Pasted image 20261012235705.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012235756.png" alt="Course screenshot: Pasted image 20261012235756.png"></p>
+<h2>Add the material picker and assignment</h2>
+<p>Add a <code>MaterialInstance</code> object-reference input to the event. Unreal creates a picker in the action&#39;s parameter dialog. Add the matching <code>material_instance</code> input to the Python node and connect it.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013000830.png" alt="Course screenshot: Pasted image 20261013000830.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013000933.png" alt="Course screenshot: Pasted image 20261013000933.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001154.png" alt="Course screenshot: Pasted image 20261013001154.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001321.png" alt="Course screenshot: Pasted image 20261013001321.png"></p>
+<p>For each supported static mesh, iterate its material slots and call <code>set_material</code>:</p>
+<pre><code class="language-python">import unreal
+
+for asset in selected_assets:
+    if isinstance(asset, unreal.StaticMesh):
+        for slot_index in range(len(asset.static_materials)):
+            asset.set_material(slot_index, material_instance)
+</code></pre>
+<p>This changes the mesh asset&#39;s material slots, affecting its uses; it is not an actor-only material override. Validate the supplied material before applying the change.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001345.png" alt="Course screenshot: Pasted image 20261013001345.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001404.png" alt="Course screenshot: Pasted image 20261013001404.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001429.png" alt="Course screenshot: Pasted image 20261013001429.png"></p>
+<h2>Return a result and check the assets</h2>
+<p>Add a Boolean output, assign <code>result = True</code> when the operation completes, and connect that output through Boolean-to-string conversion to <strong>Print String</strong>. Ensure it reaches the string input rather than the world-context input.</p>
+<h2>Node execution and result wiring</h2>
+<p>Use <strong>Shift+Enter</strong> for a newline while editing the Python script field. Keep <code>import unreal</code> inside the node&#39;s code. An optional <strong>Is Python Available</strong> branch can produce an understandable fallback when Python is unavailable.</p>
+<p>An output pin named <code>result</code> receives a Python variable assignment such as <code>result = True</code>; this is not a <code>return</code> statement at the top level. Set a meaningful result only after the intended work completes. The node&#39;s execution-success output says the script executed successfully, which is different from proving that every selected asset satisfied the tool&#39;s requirements.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001621.png" alt="Course screenshot: Pasted image 20261013001621.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001711.png" alt="Course screenshot: Pasted image 20261013001711.png"></p>
+<p>Run the action, select a material, and inspect the asset previews, material slots, and returned value.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001804.png" alt="Course screenshot: Pasted image 20261013001804.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001815.png" alt="Course screenshot: Pasted image 20261013001815.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001844.png" alt="Course screenshot: Pasted image 20261013001844.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001902.png" alt="Course screenshot: Pasted image 20261013001902.png"></p>
+<h2>Restrict where the action appears</h2>
+<p>Without a class restriction, the action can appear for unsuitable assets, as in this material selection.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013002214.png" alt="Course screenshot: Pasted image 20261013002214.png"></p>
+<p>In <strong>Class Defaults → Supported Classes</strong>, add <code>StaticMesh</code>. Check that the action disappears for unsupported selections and remains available for meshes. Retain the Python type check as well.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013002115.png" alt="Course screenshot: Pasted image 20261013002115.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013002153.png" alt="Course screenshot: Pasted image 20261013002153.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013002253.png" alt="Course screenshot: Pasted image 20261013002253.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/07%20Releasing%20Tools/39%20Packing%20Python%20Tool%20As%20Unreal%20Plugin%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/41%20Remote%20Control%20in%20Unreal%20-%20Overview%20and%20Quick%20Setup%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233950.png" alt="Course screenshot: Pasted image 20261012233950.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012234013.png" alt="Course screenshot: Pasted image 20261012234013.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012234047.png" alt="Course screenshot: Pasted image 20261012234047.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012234241.png" alt="Course screenshot: Pasted image 20261012234241.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012234404.png" alt="Course screenshot: Pasted image 20261012234404.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012235457.png" alt="Course screenshot: Pasted image 20261012235457.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012235551.png" alt="Course screenshot: Pasted image 20261012235551.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012235622.png" alt="Course screenshot: Pasted image 20261012235622.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012235705.png" alt="Course screenshot: Pasted image 20261012235705.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012235756.png" alt="Course screenshot: Pasted image 20261012235756.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013000830.png" alt="Course screenshot: Pasted image 20261013000830.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013000933.png" alt="Course screenshot: Pasted image 20261013000933.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001154.png" alt="Course screenshot: Pasted image 20261013001154.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001321.png" alt="Course screenshot: Pasted image 20261013001321.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001345.png" alt="Course screenshot: Pasted image 20261013001345.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001404.png" alt="Course screenshot: Pasted image 20261013001404.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001429.png" alt="Course screenshot: Pasted image 20261013001429.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001621.png" alt="Course screenshot: Pasted image 20261013001621.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001711.png" alt="Course screenshot: Pasted image 20261013001711.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001804.png" alt="Course screenshot: Pasted image 20261013001804.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001815.png" alt="Course screenshot: Pasted image 20261013001815.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001844.png" alt="Course screenshot: Pasted image 20261013001844.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013001902.png" alt="Course screenshot: Pasted image 20261013001902.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013002115.png" alt="Course screenshot: Pasted image 20261013002115.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013002153.png" alt="Course screenshot: Pasted image 20261013002153.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013002214.png" alt="Course screenshot: Pasted image 20261013002214.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013002253.png" alt="Course screenshot: Pasted image 20261013002253.png"></p>
+<p>This training doesn&#39;t focus on blueprints, but they are worth mentioning because they can be combined</p>
+<p>with Python.</p>
+<p>This video will be a brief introduction.</p>
+<p>We will create a tool that assigns a material picked by user to selected assets.</p>
+<p>It could be done with blueprints or Python only.</p>
+<p>But I want to demonstrate to you how to combine these words together.</p>
+<p>Soon you will also notice that this is a great way of adding a simple UI to your tools.</p>
+<p>Before we start, we have to make sure that Editor Scripting Utilities plugin is enabled.</p>
+<p>So click on edit and go to plugins.</p>
+<p>Search for it editor, scripting utilities.</p>
+<p>And if you just enabled it, you may be asked to restart the editor.</p>
+<p>Once that step is finished, we can create the blueprint.</p>
+<p>Press right click in Content Browser and navigate to Editor Utilities.</p>
+<p>You can choose either editor utility, Blueprint or Editor Utility widget.</p>
+<p>The blueprints are just a simple logic, and if they need some user input, they will automatically</p>
+<p>generate a simple interface.</p>
+<p>Widgets can be used for something more advanced.</p>
+<p>They can be used to create a more advanced interface with so-called UMG UI designer.</p>
+<p>To be honest, I think UMG is a great tool, and if you need more advanced interface for your scripts,</p>
+<p>this is the way to implement it in a way that is fully supported by Unreal Engine.</p>
+<p>I will pick blueprint because I want to specify only a single material input that will be set on selected</p>
+<p>assets, and I want to leverage the fact that I will have the UI generated for me.</p>
+<p>So let&#39;s click on it.</p>
+<p>And now we have to pick a parent class for the tool.</p>
+<p>Ask yourself what do you want to automate?</p>
+<p>Is it processing actors or assets?</p>
+<p>If assets then pick asset action utility.</p>
+<p>If actors pick actor action utility it may not be visible in common classes, but you can always search</p>
+<p>for it and then select.</p>
+<p>I want to process assets so I will pick asset action utility.</p>
+<p>Let&#39;s pick some name.</p>
+<p>It could be called BP underscore assign material.</p>
+<p>Hit enter.</p>
+<p>And now let&#39;s double click on it to open it in editor.</p>
+<p>I will dock it here so I don&#39;t have to change windows.</p>
+<p>What you see is an event graph.</p>
+<p>Here you can create logic of our tool.</p>
+<p>We have to begin by creating a custom event that will run our action.</p>
+<p>Right click and search for custom event.</p>
+<p>Pick some name that suits you.</p>
+<p>This name will be later visible in the UI.</p>
+<p>I will go with assign material.</p>
+<p>Then we have to go to details panel and enable call in editor.</p>
+<p>Otherwise we won&#39;t be able to call it from Content Rower.</p>
+<p>Let&#39;s now demonstrate that it works by simply printing list of selected assets.</p>
+<p>We can drag a new node out of the initial one and then search for get selected assets.</p>
+<p>It returns some array.</p>
+<p>We could print array elements with a print string node, but I think it would be great to demonstrate</p>
+<p>it with Python.</p>
+<p>So let&#39;s add a new node called Execute Python script.</p>
+<p>The few other nodes related to Python.</p>
+<p>Is Python available?</p>
+<p>Returns true if Python interpreter is available in your editor build.</p>
+<p>It can be used to add some fallback behavior to your tool.</p>
+<p>There are also execute Python command nodes for executing one liners.</p>
+<p>I don&#39;t really use them running execute Python script lets me do everything I want, and what is important</p>
+<p>for me lets me execute more lines of code than a single one, so it&#39;s just very handy.</p>
+<p>Let&#39;s select the node we have created on the right side.</p>
+<p>You can add a new input in the details panel.</p>
+<p>I will name it Selected Assets.</p>
+<p>Please note that you don&#39;t specify type of object.</p>
+<p>I recommend to use a lot of assets that check if object type in your code is the one that you were expecting.</p>
+<p>It is very easy to introduce bugs by passing for instance, some asset path instead of actual asset,</p>
+<p>and so on.</p>
+<p>The variable we just created is now available to the script.</p>
+<p>We just have to connect return value of get selected assets to selected assets variable in the script.</p>
+<p>Then we can iterate over the array and print each asset.</p>
+<p>If you want to add a new line of code, don&#39;t press enter.</p>
+<p>You have to press shift and enter.</p>
+<p>The value we just passed to the script is an unreal array.</p>
+<p>Unreal arrays don&#39;t need casting to Python list each time you want to read them, but casting in both</p>
+<p>directions may be useful if you want to return such value later.</p>
+<p>I recommend casting it to unreal type to be sure that everything works fine when that variable is accessed</p>
+<p>by the node.</p>
+<p>Also, remember that if you want to use unreal module, you have to import it on top of the script.</p>
+<p>Same goes with any module you have added to the project.</p>
+<p>If they are discoverable by unreal, they can be called and executed, but you have to import them each</p>
+<p>time.</p>
+<p>Also, if you load them once, they may need to be reloaded with import lib reload function.</p>
+<p>If you introduce some changes but didn&#39;t restart the editor since the last lounge.</p>
+<p>I am not going to call unreal module, so I will just remove the import but keep that in mind.</p>
+<p>Let&#39;s now save the file, then compile it and go to Content drawer.</p>
+<p>You can find some example asset folder, right click on some asset and you will see a new section called</p>
+<p>Scripted Asset Actions which has our tool called Assign Material.</p>
+<p>I will click on it to execute it.</p>
+<p>And we can check output log.</p>
+<p>Here is the asset we had selected.</p>
+<p>And we can also select more assets and execute the tool again.</p>
+<p>This time we printed four of them, which means that it works with selecting multiple assets.</p>
+<p>Notice that these values are not just paths to assets.</p>
+<p>It has some object information and class.</p>
+<p>That&#39;s because they are actual assets loaded to memory.</p>
+<p>That means that we don&#39;t have to use asset editor library in that execute Python script, because we</p>
+<p>already have it loaded.</p>
+<p>Now let&#39;s modify those assets.</p>
+<p>We are going to assign materials to static mesh assets.</p>
+<p>First select our custom event and use details tab to add a new input.</p>
+<p>This input should be type of material instance.</p>
+<p>I will pick object reference because I am passing object.</p>
+<p>And I will rename input to material underscore instance.</p>
+<p>Now if you save, recompile and use the tool again, you will notice that unreal generated some basic</p>
+<p>interface for us.</p>
+<p>Let&#39;s do it.</p>
+<p>Assign material and we can pick the material instance.</p>
+<p>That&#39;s why it&#39;s so handy to use those blueprints.</p>
+<p>I will click cancel and get back to node editor.</p>
+<p>Let&#39;s make use of that material instance.</p>
+<p>Click on Execute Python script and add a new input.</p>
+<p>I will call it the same way I call it previous input, which is material instance.</p>
+<p>We can now connect the first material instance from the event to the one in execute python script node.</p>
+<p>Then let&#39;s modify the script.</p>
+<p>Each of assets we are going to process has a set material method.</p>
+<p>The method takes material slot number and material instance object.</p>
+<p>Static mesh can have multiple material slots.</p>
+<p>They often have just a single one, but I want my script to set all of them if there is a more of them</p>
+<p>available.</p>
+<p>That&#39;s why I will iterate over length of array of all static materials of the mesh.</p>
+<p>It&#39;s just an editor property of static mesh class.</p>
+<p>Then I will call set material with iterator as material index and material instance as second parameter.</p>
+<p>We could consider the script as done, but it would be great to demonstrate that it can also return</p>
+<p>values that can be used by other nodes.</p>
+<p>I will just return some value as true.</p>
+<p>Once the script is over having the nodes selected, you can go to the details tab and add a new output</p>
+<p>variable.</p>
+<p>I will call mine result.</p>
+<p>Then the only thing you have to do is to write to this variable in the script.</p>
+<p>I will set it to true.</p>
+<p>Then we can log it with print string node.</p>
+<p>Keep in mind that execute python script node doesn&#39;t know type of variable you are returning.</p>
+<p>You have to be aware of that each time we return a boolean value.</p>
+<p>But the print string node expects a string, so we have to add another node to convert it.</p>
+<p>We are searching for boolean to string, and we can turn off context sensitive to see all available</p>
+<p>options.</p>
+<p>And also let&#39;s disconnect it because it for some reason connected to word context object instead to</p>
+<p>string.</p>
+<p>Once this is done, we can save and compile the node.</p>
+<p>Then open the content drawer.</p>
+<p>Select some static meshes.</p>
+<p>Right click go to Scripted Actions, assign material and pick some material instance.</p>
+<p>Then apply.</p>
+<p>We see that thumbnails got updated.</p>
+<p>What?</p>
+<p>We can also open the meshes in editor and see that material slots are using the material we specified.</p>
+<p>Let&#39;s close it and let&#39;s also go to output log.</p>
+<p>Here is Log Blueprint user messages.</p>
+<p>And we just logged that through a variable that was returned by the script.</p>
+<p>The only issue with the tool we just created is that we could execute it on other kinds of assets.</p>
+<p>We could test it ourselves, go to some other folder maybe with materials, right click and here also</p>
+<p>is available assign material script.</p>
+<p>That could lead to a lot of issues.</p>
+<p>To fix it, we have to go back to node editor and click on Class Defaults in the top shelf.</p>
+<p>Then go to the details panel and add a new element to supported classes array.</p>
+<p>Let&#39;s change the type to static mesh.</p>
+<p>You may have to scroll down to find it.</p>
+<p>Here we have it.</p>
+<p>And now save and recompile once more.</p>
+<p>If you now open the content drawer and right click on some material or material instance, that option</p>
+<p>is no longer available.</p>
+<p>Same goes with all other kinds of assets that are not static meshes like the textures.</p>
+<p>But if you go to shapes and select some static mesh, that thing is available.</p>
+<p>To sum up this video, you have just learned how to create a simple blueprint to process selected static</p>
+<p>meshes and how to combine it with Python.</p>
+<p>Scripted asset actions are very powerful and I recommend exploring this topic yourself, even if you</p>
+<p>prefer coding in Python, you can still consider them as a useful for prototyping or for providing simple</p>
+<p>UI to your scripts without need of using any other external library like Pyside.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -51,6 +51,8 @@
+ For each supported static mesh, iterate its material slots and call `set_material`:
+ 
+ ```python
++import unreal
++
+ for asset in selected_assets:
+     if isinstance(asset, unreal.StaticMesh):
+         for slot_index in range(len(asset.static_materials)):
+@@ -68,6 +70,12 @@
+ ## Return a result and check the assets
+ 
+ Add a Boolean output, assign `result = True` when the operation completes, and connect that output through Boolean-to-string conversion to **Print String**. Ensure it reaches the string input rather than the world-context input.
++
++## Node execution and result wiring
++
++Use **Shift+Enter** for a newline while editing the Python script field. Keep `import unreal` inside the node's code. An optional **Is Python Available** branch can produce an understandable fallback when Python is unavailable.
++
++An output pin named `result` receives a Python variable assignment such as `result = True`; this is not a `return` statement at the top level. Set a meaningful result only after the intended work completes. The node's execution-success output says the script executed successfully, which is different from proving that every selected asset satisfied the tool's requirements.
+ 
+ ![[Pasted image 20261013001621.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

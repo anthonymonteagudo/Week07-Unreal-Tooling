@@ -1,0 +1,172 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>16 ImportRules Plugin - Run Custom post Import Action · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-16">Return to audit</a><a href="15.html">Previous lesson</a> <a href="17.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/16%20ImportRules%20Plugin%20-%20Run%20Custom%20post%20Import%20Action.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/16%20ImportRules%20Plugin%20-%20Run%20Custom%20post%20Import%20Action%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>16 ImportRules Plugin - Run Custom post Import Action</h1><p>Plugin roles and folder rules</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Post Import Actions with ImportRules — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/16%20ImportRules%20Plugin%20-%20Run%20Custom%20post%20Import%20Action.md">Original notes</a></p>
+<p>Post-import rules apply consistent processing as source files become Unreal assets. This lesson uses Ryan Dowling Soka&#39;s <strong>UnrealImporterRules-Python</strong> plugin; lesson 17 builds a callback directly with <code>ImportSubsystem</code>.</p>
+<h2>Plugin roles and folder rules</h2>
+<p>This note starts partway through the example. The screenshots belong to the <strong>UnrealImporterRules-Python</strong> approach credited to Ryan DowlingSoka: a query identifies applicable imports, and an action handles the matched object. Keep that plugin/framework dependency distinct from a standalone Unreal script.</p>
+<p>The demonstrated destination mapping is <code>environment → Enviro</code>, <code>weapons → Weapons</code>, and <code>deco → Deco</code> under the chosen content root. Retain the query&#39;s filtering and inspect the destination construction before enabling an action that moves an asset. Lesson 17 rebuilds the idea with Unreal&#39;s import callback directly.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011155152.png" alt="Course screenshot: Pasted image 20261011155152.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011155617.png" alt="Course screenshot: Pasted image 20261011155617.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011155632.png" alt="Course screenshot: Pasted image 20261011155632.png"></p>
+<h2>Install and inspect the plugin</h2>
+<p>The course downloads the repository archive, extracts the plugin into the project&#39;s <code>Plugins</code> directory, restarts Unreal, and checks that <strong>ImporterRules (Python)</strong> is enabled.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011161102.png" alt="Course screenshot: Pasted image 20261011161102.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011161853.png" alt="Course screenshot: Pasted image 20261011161853.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011161921.png" alt="Course screenshot: Pasted image 20261011161921.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011161954.png" alt="Course screenshot: Pasted image 20261011161954.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162101.png" alt="Course screenshot: Pasted image 20261011162101.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162128.png" alt="Course screenshot: Pasted image 20261011162128.png"></p>
+<p>Rules combine <strong>queries</strong>, which decide whether an asset qualifies, with <strong>actions</strong>, which perform the change. Review the query and action base classes, source-path query, and supplied texture examples before adding a custom rule.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011161115.png" alt="Course screenshot: Pasted image 20261011161115.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011161140.png" alt="Course screenshot: Pasted image 20261011161140.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162316.png" alt="Course screenshot: Pasted image 20261011162316.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162436.png" alt="Course screenshot: Pasted image 20261011162436.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162652.png" alt="Course screenshot: Pasted image 20261011162652.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162814.png" alt="Course screenshot: Pasted image 20261011162814.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162946.png" alt="Course screenshot: Pasted image 20261011162946.png"></p>
+<h2>Inspect imported metadata</h2>
+<p>Import the example FBX and open <strong>Asset Actions → Show Metadata</strong>. Its <code>FBX.mesh_type</code> tag contains a value such as <code>environment</code>; the rule will use this to choose a destination folder.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011163214.png" alt="Course screenshot: Pasted image 20261011163214.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011163127.png" alt="Course screenshot: Pasted image 20261011163127.png"></p>
+<h2>Create the query and move action</h2>
+<p>The custom query reads <code>FBX.mesh_type</code> through <code>EditorAssetSubsystem</code> and accepts recognized values. The action maps that value to a folder, builds a destination under <code>/Game</code>, and appends the existing asset name.</p>
+<p>Use <code>EditorAssetLibrary.rename_asset(source_path, destination_path)</code> to move the asset. Keeping the final asset name unchanged makes this a folder move rather than a rename.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011165334.png" alt="Course screenshot: Pasted image 20261011165334.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011165357.png" alt="Course screenshot: Pasted image 20261011165357.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011165806.png" alt="Course screenshot: Pasted image 20261011165806.png"></p>
+<h2>Register and initialize the rule</h2>
+<p>Following the supplied registration example, register a rule for <code>unreal.StaticMesh</code> with lists containing the custom query and action instances. Import the module from <code>init_unreal.py</code> so registration happens at startup.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011170007.png" alt="Course screenshot: Pasted image 20261011170007.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011170433.png" alt="Course screenshot: Pasted image 20261011170433.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011170527.png" alt="Course screenshot: Pasted image 20261011170527.png"></p>
+<h2>Verify a fresh import</h2>
+<p>Restart and import the FBX. The demonstration creates the destination folder and moves the mesh into it. Its metadata then includes <code>importer_rules_applied</code> with the string value <code>True</code>, recording that the rules have run.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011170607.png" alt="Course screenshot: Pasted image 20261011170607.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/15%20Find%20Duplicated%20Actors%20On%20The%20Level%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/17%20Post%20Import%20Actions%20Using%20ImportSubsystem%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011155152.png" alt="Course screenshot: Pasted image 20261011155152.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011155617.png" alt="Course screenshot: Pasted image 20261011155617.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011155632.png" alt="Course screenshot: Pasted image 20261011155632.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011161102.png" alt="Course screenshot: Pasted image 20261011161102.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011161853.png" alt="Course screenshot: Pasted image 20261011161853.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011161921.png" alt="Course screenshot: Pasted image 20261011161921.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011161954.png" alt="Course screenshot: Pasted image 20261011161954.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162101.png" alt="Course screenshot: Pasted image 20261011162101.png"></p>
+<p>then restart editor</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162128.png" alt="Course screenshot: Pasted image 20261011162128.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011161115.png" alt="Course screenshot: Pasted image 20261011161115.png"></p>
+<p>Query
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011161140.png" alt="Course screenshot: Pasted image 20261011161140.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162316.png" alt="Course screenshot: Pasted image 20261011162316.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162436.png" alt="Course screenshot: Pasted image 20261011162436.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162652.png" alt="Course screenshot: Pasted image 20261011162652.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162814.png" alt="Course screenshot: Pasted image 20261011162814.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011162946.png" alt="Course screenshot: Pasted image 20261011162946.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011163214.png" alt="Course screenshot: Pasted image 20261011163214.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011163127.png" alt="Course screenshot: Pasted image 20261011163127.png">
+^ basically no metadata</p>
+<p>Custom Import rule:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011165334.png" alt="Course screenshot: Pasted image 20261011165334.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011165357.png" alt="Course screenshot: Pasted image 20261011165357.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011165806.png" alt="Course screenshot: Pasted image 20261011165806.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011170007.png" alt="Course screenshot: Pasted image 20261011170007.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011170433.png" alt="Course screenshot: Pasted image 20261011170433.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011170527.png" alt="Course screenshot: Pasted image 20261011170527.png"></p>
+<p>Result after import (with new custom code):
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011170607.png" alt="Course screenshot: Pasted image 20261011170607.png"></p>
+<p>Then let&#39;s add here another slash.</p>
+<p>And let&#39;s use created object and f name.</p>
+<p>And why am I doing it this way?</p>
+<p>It&#39;s because unreal doesn&#39;t really have a move method.</p>
+<p>It has a rename asset method that will serve as something that can move asset to another folder.</p>
+<p>When we are renaming the asset, we are changing its path and we have to keep the name as the old one.</p>
+<p>If we don&#39;t do it, we will also accidentally rename it.</p>
+<p>If we just change the path, it will move it to another folder.</p>
+<p>So we just created a new destination path that leads somewhere in game into our defined folder and keeps</p>
+<p>his name intact.</p>
+<p>And then we can call renaming.</p>
+<p>And that&#39;s editor asset library dot rename asset.</p>
+<p>And first argument is source asset path and then destination asset path.</p>
+<p>So created object get path name that gets us the source path.</p>
+<p>And then.</p>
+<p>Destination path, and at the end of the action, let&#39;s just return true.</p>
+<p>If you need to check documentation, just middle.</p>
+<p>Click on the rename asset and you will see that it is equivalent to move operation.</p>
+<p>I was searching for an alternative that would be used only for moving, but sorry I wasn&#39;t able to find</p>
+<p>it, but that&#39;s what I found in documentation.</p>
+<p>Okay.</p>
+<p>We have a query.</p>
+<p>And we have an action now.</p>
+<p>We should make them just.</p>
+<p>Do you remember the post import texture to these settings?</p>
+<p>At the top of the file, there were imported rules manager dot register rules.</p>
+<p>So let&#39;s copy this line and start registering rules ourselves.</p>
+<p>Import the rules manager has to be imported.</p>
+<p>Let&#39;s let PyCharm do it automatically.</p>
+<p>And let&#39;s set class type first.</p>
+<p>In my case, it&#39;s unreal.</p>
+<p>Static mesh.</p>
+<p>And then let&#39;s add some rules.</p>
+<p>It is a list.</p>
+<p>So even though there is only a single rule, I still have to define a list.</p>
+<p>It will be just a single element one.</p>
+<p>And then let&#39;s create rule object.</p>
+<p>Object consists of queries and obviously it has to be imported.</p>
+<p>Let&#39;s import it.</p>
+<p>So queries also another list.</p>
+<p>And that will be contains mesh type property.</p>
+<p>And don&#39;t forget about adding braces on the end.</p>
+<p>So we create object.</p>
+<p>And after queries.</p>
+<p>Another parameter will be actions.</p>
+<p>Also a list.</p>
+<p>And my action is move matched based on type.</p>
+<p>Let&#39;s reformat the file in PyCharm.</p>
+<p>The shortcut is Ctrl alt L.</p>
+<p>It&#39;s done.</p>
+<p>It&#39;s over.</p>
+<p>But now we have to import our file into init.</p>
+<p>Unreal.</p>
+<p>So during the import.</p>
+<p>This part of code will be executed.</p>
+<p>So.</p>
+<p>In it underscore unreal pi.</p>
+<p>And.</p>
+<p>That&#39;s.</p>
+<p>Import examples dot.</p>
+<p>Tech art corner example.</p>
+<p>And now the only thing we have to do is go back to unreal.</p>
+<p>Close it and restart.</p>
+<p>So in it, unreal is executed on the editor, start engine, restart it.</p>
+<p>And I would like you to note that I don&#39;t have a folder named enviro nor weapons, so we will test if</p>
+<p>it works, even if that folder is non-existent yet.</p>
+<p>And let me drag and drop my example monkey fbx file into engine import all.</p>
+<p>We have the same smoothing group information error that we had actually warning, not error.</p>
+<p>So that&#39;s not that bad.</p>
+<p>Let&#39;s ignore it.</p>
+<p>And enviro folder has just been created, and I would like you to notice that if we go to asset actions</p>
+<p>on this asset and check show metadata, we can see that there is a new tag called importer rules applied</p>
+<p>through.</p>
+<p>So Ryan Dowling soccer explained it on his blog post, and it&#39;s been added by the import rules.</p>
+<p>So we know that they have been executed at least once.</p>
+<p>I hope it has been useful for you and we just installed plugin from GitHub.</p>
+<p>That&#39;s great.</p>
+<p>Now we know how to do it.</p>
+<p>We created import rules, but we also got metadata tags from NFB.</p>
+<p>And I hope that if you ever need to add some additional data to assets, maybe even to textures, animations</p>
+<p>or whatever, then now you will know that you can use them in unreal.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -3,6 +3,12 @@
+ [[REFINED - Course Index|Course index]] · [[16 ImportRules Plugin - Run Custom post Import Action|Original notes]]
+ 
+ Post-import rules apply consistent processing as source files become Unreal assets. This lesson uses Ryan Dowling Soka's **UnrealImporterRules-Python** plugin; lesson 17 builds a callback directly with `ImportSubsystem`.
++
++## Plugin roles and folder rules
++
++This note starts partway through the example. The screenshots belong to the **UnrealImporterRules-Python** approach credited to Ryan DowlingSoka: a query identifies applicable imports, and an action handles the matched object. Keep that plugin/framework dependency distinct from a standalone Unreal script.
++
++The demonstrated destination mapping is `environment → Enviro`, `weapons → Weapons`, and `deco → Deco` under the chosen content root. Retain the query's filtering and inspect the destination construction before enabling an action that moves an asset. Lesson 17 rebuilds the idea with Unreal's import callback directly.
+ 
+ ![[Pasted image 20261011155152.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

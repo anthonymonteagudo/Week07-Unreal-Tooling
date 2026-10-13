@@ -1,0 +1,213 @@
+[
+  {
+    "number": 7,
+    "anchor": "03",
+    "kind": "live",
+    "title": "Explain the editor host, then show its execution control",
+    "sources": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "edits": "Keep the title and plugin screenshot. Add a one-line host reminder beneath the existing setup instruction. Keep the visible question; do not turn this into a package-installation exercise.",
+    "copy": "Run editor scripts inside Unreal.\nIDE autocomplete describes the API; it does not provide a running editor.\nIs this input field running Python or console commands?",
+    "script": "The language is still Python, but Unreal supplies the objects and editor functions. Our IDE can describe that API without running the editor. Before I execute anything, check this input field: is it in Python mode or console-command mode? What is unclear about where this code runs?",
+    "rationale": "Prevents the common mistake of running an editor example in a normal terminal or putting the autocomplete stub on the runtime path.",
+    "timing": "Within anchor 03’s existing 2:45. Replace 20 seconds of setup narration; keep the setup question.",
+    "layout": "Keep the current screenshot and existing theme. Add one small host caption next to the Output Log label, not another diagram."
+  },
+  {
+    "number": 8,
+    "anchor": "04",
+    "kind": "live",
+    "title": "Make saved-file execution reproducible",
+    "sources": [
+      6,
+      7,
+      8
+    ],
+    "edits": "Keep the Hello Unreal code and title. Replace the version-specific “File > Execute Python Script” instruction with “Saved file: editor Execute Python Script command.” In preparation, verify the menu location in the actual classroom build; Karol’s screenshot shows Tools.",
+    "copy": "Output Log: choose Python\nSaved file: editor Execute Python Script command\nA second import does not rerun a cached module.\nWhich execution route would you use for a repeatable script?",
+    "script": "This short command confirms that we are talking to Unreal. The same operation can live in a saved file. During development, importing a module again is not the same as rerunning the file: Python may use its cached module. What would you like clarified about the two execution routes?",
+    "rationale": "Adds the missing practical execution detail without introducing debugger installation during class.",
+    "timing": "Existing 2 minutes. Use a prepared file, not live typing of a path.",
+    "layout": "Keep the existing code block. Place the saved-file route below it; use no new capture until the classroom menu has been verified."
+  },
+  {
+    "number": 10,
+    "anchor": "06A",
+    "kind": "live",
+    "title": "Preserve the shared-asset versus placement distinction",
+    "sources": [
+      10,
+      11,
+      40
+    ],
+    "edits": "Keep the title, diagram and prediction. Add “This demo assigns a component override” to narration; keep Karol’s shared-mesh action as optional contrast.",
+    "copy": "One shared mesh; two actor placements.\nThis demo changes one component’s material override.\nWhere would you make a change that affects only Actor A?",
+    "script": "These placements refer to the same mesh asset. Today we assign an override to the selected actor’s component. Karol’s Blueprint action instead changes material slots on the mesh asset itself, which can affect its other uses. Point to the place we should change if Actor B must remain untouched. What questions do you have about that scope?",
+    "rationale": "Avoids transplanting a superficially similar material script that violates the demo’s protected-scope promise.",
+    "timing": "Existing 3 minutes, including the existing 45-second prediction pause.",
+    "layout": "Retain the current shared-mesh diagram. Put the component-override caption beside Actor A; link the contrasting source as Explore further."
+  },
+  {
+    "number": 11,
+    "anchor": "07",
+    "kind": "live",
+    "title": "Show that there are two independent selections",
+    "sources": [
+      10,
+      11,
+      40
+    ],
+    "edits": "Keep the actor-subsystem example. Add a compact second line naming EditorUtilityLibrary.get_selected_assets(), labeled Content Browser. Keep selected actors and selected assets visually separate.",
+    "copy": "Level selection → target actor components\nContent Browser selection → input textures\nDo both selections belong to the same tool operation?\nQuestions about selection or paths?",
+    "script": "The Outliner selection tells us which placements may change. The Content Browser selection supplies the three textures. Those are separate collections. We already have loaded objects, so we do not need to load them again just to inspect them. Which collection would you check if the tool reported a missing normal map?",
+    "rationale": "Connects the simple selection snippet directly to the two-input Material Setup workflow.",
+    "timing": "Existing 3 minutes. Use the existing 45-second question pause for this check.",
+    "layout": "Keep the current code area. Add two short labeled rows and point to the existing baseline capture in the live run sheet; avoid adding another live slide."
+  },
+  {
+    "number": 13,
+    "anchor": "10",
+    "kind": "live",
+    "title": "Give the handoff an explicit reimport prediction",
+    "sources": [
+      19,
+      20
+    ],
+    "edits": "Keep the Maya-to-Unreal schematic and title. Make the source filename, destination and expected replacement behavior explicit in the prepared demonstration. Do not describe the Material/VFX assistant as having an importer.",
+    "copy": "Source file → import settings → Unreal asset\nPredict the destination and replacement behavior.\nAfter a revision, inspect the result and check for unintended duplicates.\nWhat must survive the reimport?",
+    "script": "An import needs more than a filename. We choose where it goes and what happens if the asset is already there. Before the revision, predict which asset should change and what must remain. After the import, inspect the returned asset path and the result in the editor. What questions do you have about the handoff?",
+    "rationale": "Karol provides the missing task/options vocabulary. The current assistant does not expose this workflow, so it belongs to the separate prepared handoff.",
+    "timing": "Keep the existing 7 minutes: 1-minute schematic, 5-minute prepared handoff/revision, 1-minute questions. If the importer has not been rehearsed, use labeled existing material rather than improvise a new feature.",
+    "layout": "Retain the schematic. Use current optional slide 14 / anchor 10A for the task recipe; restore explicit FBX options in the handout, not a dense live slide."
+  },
+  {
+    "number": 15,
+    "anchor": "09",
+    "kind": "live",
+    "title": "Use one blocked input to explain the existing validation",
+    "sources": [
+      12,
+      13,
+      14,
+      21,
+      34,
+      40
+    ],
+    "edits": "Keep title, blue-cube result and protected-cube comparison. Replace the three bullets with the proposed sequence below. Replace the live duplicate-name attempt with a missing-texture attempt; keep duplicate-name behavior in optional study material. Do not modify texture settings during the demonstration.",
+    "copy": "Preview checks the texture set and target slot.\nApply creates one instance and changes one component.\nUndo restores the assignment; the new asset remains.\nWhat changes? What must stay unchanged?",
+    "script": "First I have left one texture out. The tool blocks the operation before changing the scene. I will select the complete set and preview again. Check the destination, the texture mapping, the target and slot. After Apply, the blue cube changes and the protected cube stays plain. We inspect the actual parameter state as well as the message. Undo restores the assignment, but it does not remove the new instance asset. What questions do you have about those two results?",
+    "rationale": "Uses an existing failure path to teach validation, state inspection and recovery. Karol’s texture fixer is not copied into an actor-only tool that promises to leave shared inputs unchanged.",
+    "timing": "Same 7 minutes / 3:49–3:56: 0:00–0:45 prediction; 0:45–1:30 missing-input block and correction; 1:30–3:00 Preview/Apply; 3:00–4:15 result/protected scope; 4:15–5:15 Undo and retained asset; 5:15–7:00 questions and recovery buffer.",
+    "layout": "Keep the existing actual result image. Use the existing native preview capture in the run sheet while demonstrating inputs. No new blocked-state capture is claimed."
+  },
+  {
+    "number": 16,
+    "anchor": "09F",
+    "kind": "optional",
+    "title": "Replace the older backend excerpt with the current workflow",
+    "sources": [
+      13,
+      34,
+      37
+    ],
+    "edits": "Keep the optional backend-check topic. Replace the older propdemo.py excerpt and source label with WorkflowSession.apply from workflows.py. Show a short exact excerpt, with omitted surrounding code labeled.",
+    "copy": "require(self.backend.snapshot(kind, request) == snapshot,\n        \"Selection, scene, preset or destination changed. Preview again.\")\n\nChanged input invalidates the reviewed plan.\nThen rerun rules, acknowledge warnings and execute.\nWhat else could make a preview stale?",
+    "script": "Disabling a button is useful feedback, but it is not the final check. Apply compares a fresh snapshot with the reviewed one, reruns the rules, and only then calls the backend. The live material backend also reads the texture parameter back after setting it. A return flag alone was not enough in the recorded rehearsal.",
+    "rationale": "Aligns the code being taught with the current Material/VFX implementation and a real recorded bug, rather than an older prop workflow.",
+    "timing": "Optional study replacement; adds zero live minutes. Link from slide 15.",
+    "layout": "Keep the current code-slide layout. Link the current source file and live rehearsal record; do not present an illustrative snippet as the entire apply method."
+  },
+  {
+    "number": 18,
+    "anchor": "08A",
+    "kind": "live",
+    "title": "Name the actual native implementation",
+    "sources": [
+      29,
+      32,
+      39,
+      40
+    ],
+    "edits": "Keep title and shared-backend structure. For a slide describing the current demo, replace the lower box “Editor Utility / Blueprint UI” with “Native Slate / editor panel.” Keep Blueprint/EUW as an optional alternative on slide 17 / anchor 08, not a claim about the current panel.",
+    "copy": "PySide UI + native Slate editor panel → shared Python rules → Unreal editor API\nSame operation and validation; different interfaces.\nWhich logic should survive a complete UI redesign?",
+    "script": "Both interfaces call the same workflow. The current native panel is built with Slate; the other view uses PySide. Karol’s Asset Action Utility shows another possible entry point, but changing the interface should not duplicate our validation rules. Which parts would you keep if the interface were redesigned? What questions do you have about where the logic belongs?",
+    "rationale": "Corrects the mismatch between the generic Blueprint diagram and the current demo while preserving the valuable separation of UI and operation.",
+    "timing": "Existing 2 minutes / 3:56–3:58. Compare interfaces briefly; do not run the whole workflow twice.",
+    "layout": "Reuse the current diagram geometry/theme. Change only the lower UI label and caption; existing native/PySide captures are linked in the live run sheet."
+  },
+  {
+    "number": 21,
+    "anchor": "09D",
+    "kind": "live",
+    "title": "Treat repeat blocking and Undo as observable results",
+    "sources": [
+      15,
+      25,
+      34
+    ],
+    "edits": "Keep the three-effects capture, title and repeat/Undo sequence. Keep the performance boundary explicit; do not add procedural scattering, graph editing or cost inspection.",
+    "copy": "Three tagged anchors → three prepared effects.\nA repeat is blocked. Undo removes this batch.\nPlacement checks do not measure frame cost.\nWhat would you inspect before claiming performance?",
+    "script": "We expect one effect at each of these three anchors. A second attempt should be blocked because those anchors are occupied. After Undo, inspect the Outliner and the scene. These checks establish bounded placement and recovery. They do not tell us the frame cost on target hardware. What questions do you have about what this result proves?",
+    "rationale": "Transfers Karol’s duplicate detection and transaction concepts without expanding the agreed VFX scope.",
+    "timing": "Keep 4 minutes / 3:58–4:02, including 2 minutes for questions/recovery as scheduled.",
+    "layout": "Retain actual VFX and repeat-block captures from the run sheet. No new performance visualization."
+  },
+  {
+    "number": 25,
+    "anchor": "12",
+    "kind": "live",
+    "title": "Keep the prefix lab, strengthen its technical evidence",
+    "sources": [
+      21,
+      22,
+      35,
+      37
+    ],
+    "edits": "Keep the exact-one-SM_ rule and existing lab structure. Add the expected untouched set to the instructor answer guide, not another student implementation task. A success-count message is insufficient evidence.",
+    "copy": "Rule: exactly one SM_ prefix on selected assets. Leave all others unchanged.\nPredict the resulting names and identify what must remain untouched.\nWhat evidence would distinguish success from “the script ran”?",
+    "script": "Write the expected names before running anything. Include an already-prefixed asset and something outside the selected set. If the tool reports four updates, that count does not tell us whether the naming rule or protected scope was respected. What would you inspect next?",
+    "rationale": "Connects automated validation to the existing observation lab without replacing the UX assessment or changing assignment requirements.",
+    "timing": "Keep the combined 8-minute Lab 1 block across anchors 12 and 12A.",
+    "layout": "Keep the current lab visual and worksheet. Add a small expected/observed/protected-scope row to the instructor guide as a proposed revision."
+  },
+  {
+    "number": 43,
+    "anchor": "16E",
+    "kind": "live",
+    "title": "Turn a confirmed defect into a regression check",
+    "sources": [
+      35,
+      36,
+      37,
+      38
+    ],
+    "edits": "Keep title, Observe → Interpret → Revise → Retest loop and peer-test question. Add an optional study pointer, “Explore further: from a confirmed defect to a regression test.” Do not replace peer testing with an automation lecture.",
+    "copy": "Observe the attempt → investigate the cause → revise → retest.\nA confirmed defect can become a repeatable regression check.\nWhat questions remain before you write the peer-test task?",
+    "script": "A useful observation names the input, action, expected result and what actually happened. Once we confirm a defect, we can turn the repeatable part into a regression check. For example, an incomplete texture set must not create an asset. That automated check still cannot tell us whether a new artist understands the error message. What questions remain before you write your peer-test task?",
+    "rationale": "Separates correctness evidence from usability evidence while giving student observations a practical engineering destination.",
+    "timing": "Use 30–40 seconds inside anchor 16E’s existing 3:30; retain the final question pause and all peer-testing time.",
+    "layout": "Keep the loop visual. Add a discreet optional link to the existing test example; no new live slide."
+  },
+  {
+    "number": 59,
+    "anchor": "A1",
+    "kind": "optional",
+    "title": "Update the appendix that still calls material automation “later”",
+    "sources": [
+      12,
+      13,
+      14,
+      39
+    ],
+    "edits": "Replace “Material automation: a later connection” with “Material Setup: implementation details.” Keep this optional; label practice captures as practice and point to the current live run sheet for editor evidence.",
+    "copy": "Material Setup: implementation details\nRead inputs → validate → preview → apply → inspect.\nTexture rules and exact parent parameter names are project contracts.\nExplore further: a read-only texture validation report.",
+    "script": "The material workflow is already part of today’s live demonstration. This appendix explains its implementation and a possible extension: reporting every texture-setting mismatch in one readable table while leaving the inputs unchanged.",
+    "rationale": "Removes stale framing and gives Karol’s deeper texture/material content a clear optional home.",
+    "timing": "Zero live minutes; optional appendix replacement.",
+    "layout": "Keep the existing practice image with its honest label; link to the actual native preview/result captures separately."
+  }
+]

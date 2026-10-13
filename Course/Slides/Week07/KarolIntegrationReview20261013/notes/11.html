@@ -1,0 +1,193 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>11 Filtering Asset and Actor List with EditorFilterLibrary · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-11">Return to audit</a><a href="10.html">Previous lesson</a> <a href="12.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/11%20Filtering%20Asset%20and%20Actor%20List%20with%20EditorFilterLibrary.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/11%20Filtering%20Asset%20and%20Actor%20List%20with%20EditorFilterLibrary%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>11 Filtering Asset and Actor List with EditorFilterLibrary</h1><p>Actor collection, subsystem access, filtering and selection scope retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Filtering Assets and Actors with EditorFilterLibrary — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/11%20Filtering%20Asset%20and%20Actor%20List%20with%20EditorFilterLibrary.md">Original notes</a></p>
+<p><code>EditorFilterLibrary</code> provides reusable filters for object lists. Some work on both assets and actors; others target actor labels, tags, or asset names specifically.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010233759.png" alt="Course screenshot: Pasted image 20261010233759.png"></p>
+<h2>Prepare object lists</h2>
+<p>List asset paths and load them into an asset list. Retrieve level actors through <code>EditorActorSubsystem</code>. These filters operate on objects, not on the path strings returned by <code>list_assets()</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010234006.png" alt="Course screenshot: Pasted image 20261010234006.png"></p>
+<p>A simple Python equivalent for filtering static meshes is:</p>
+<pre><code class="language-python">meshes = [asset for asset in assets if isinstance(asset, unreal.StaticMesh)]
+</code></pre>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010234054.png" alt="Course screenshot: Pasted image 20261010234054.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010234137.png" alt="Course screenshot: Pasted image 20261010234137.png"></p>
+<h2>Include or exclude a class</h2>
+<p>Call <code>EditorFilterLibrary.by_class()</code> with the object list and desired Unreal class. <code>EditorScriptingFilterType.INCLUDE</code> keeps matches; <code>EXCLUDE</code> keeps everything else. Convert the returned Unreal array with <code>list()</code> when useful for inspection.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010234331.png" alt="Course screenshot: Pasted image 20261010234331.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010235132.png" alt="Course screenshot: Pasted image 20261010235132.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010235244.png" alt="Course screenshot: Pasted image 20261010235244.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010235255.png" alt="Course screenshot: Pasted image 20261010235255.png"></p>
+<h2>Match names</h2>
+<p><code>by_id_name()</code> supports these <code>EditorScriptingStringMatchType</code> choices:</p>
+<ul>
+<li><code>CONTAINS</code>: match a substring, such as <code>Effect</code>.</li>
+<li><code>EXACT_MATCH</code>: match the entire name, such as <code>Blueprint_Effect_Fire</code>.</li>
+<li><code>MATCHES_WILDCARD</code>: match a pattern, such as <code>Blueprint_Effect_*</code>.</li>
+</ul>
+<p>An exact search for only <code>Effect</code> will not match a longer name containing that word.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010235616.png" alt="Course screenshot: Pasted image 20261010235616.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011000012.png" alt="Course screenshot: Pasted image 20261011000012.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011000121.png" alt="Course screenshot: Pasted image 20261011000121.png"></p>
+<h2>Choose for clarity, then measure</h2>
+<p>The lesson&#39;s timings favor a Python comprehension for class filtering but the library for name filtering. These are measurements of particular examples, not a universal ranking. Prefer readable code, and benchmark the actual workload if filtering becomes a bottleneck.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011000154.png" alt="Course screenshot: Pasted image 20261011000154.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011000218.png" alt="Course screenshot: Pasted image 20261011000218.png"></p>
+<p>Reference example combining the demonstrated filters:</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010233907.png" alt="Course screenshot: Pasted image 20261010233907.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/10%20Getting%20User%20Selection%20and%20Listing%20Assets%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/12%20Texture%20Compression%20Settings%20Validator%20-%20Accessing%20Editor%20Properties%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010233759.png" alt="Course screenshot: Pasted image 20261010233759.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010233907.png" alt="Course screenshot: Pasted image 20261010233907.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010234006.png" alt="Course screenshot: Pasted image 20261010234006.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010234054.png" alt="Course screenshot: Pasted image 20261010234054.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010234137.png" alt="Course screenshot: Pasted image 20261010234137.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010234331.png" alt="Course screenshot: Pasted image 20261010234331.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010235132.png" alt="Course screenshot: Pasted image 20261010235132.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010235244.png" alt="Course screenshot: Pasted image 20261010235244.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010235255.png" alt="Course screenshot: Pasted image 20261010235255.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010235616.png" alt="Course screenshot: Pasted image 20261010235616.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011000012.png" alt="Course screenshot: Pasted image 20261011000012.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011000121.png" alt="Course screenshot: Pasted image 20261011000121.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011000154.png" alt="Course screenshot: Pasted image 20261011000154.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011000218.png" alt="Course screenshot: Pasted image 20261011000218.png"></p>
+<p>We did some exercises with finding assets, and you may be in a situation when you already have some</p>
+<p>list of assets that needs filtering.</p>
+<p>Maybe you just listed them a minute ago with your code, or you received the list from another tool.</p>
+<p>Now you need to narrow the list to only have the few assets you are looking for.</p>
+<p>Maybe you want to filter them by class, maybe by name, or by checking if they are selected.</p>
+<p>If there was a built in solution, you would probably like to use one over writing the implementation</p>
+<p>yourself.</p>
+<p>And well, there is one and it is called Editor Filter Library.</p>
+<p>It is a very small utility library that you may like, and who knows, maybe it will even grow a little</p>
+<p>in future because I think epic could add a few additional filters.</p>
+<p>It can filter both assets and actors, but not all of the functions that are provided can support both.</p>
+<p>The list of available filters is quite a big for a single video, and I already recorded one where I</p>
+<p>showed almost all of them.</p>
+<p>I ended up with almost 20 minute video, and I thought that maybe it&#39;s not the right approach.</p>
+<p>I&#39;m going to show you 1 or 2 of those filters and possible options, and I really think the documentation</p>
+<p>is so easy to read that after this video, it will be all you need to do it yourself.</p>
+<p>So let me begin by creating some example list of assets and actors.</p>
+<p>I&#39;m just going to paste the code that is super similar to what we did in previous tutorial, where we</p>
+<p>learned how to use editor subsystem to get all level actors, and how to use Editor asset library to</p>
+<p>list assets.</p>
+<p>As you can see in the code, I am listing all the assets that are in Unreal Starter content provided</p>
+<p>by epic, but of course you can do it on some level of your own.</p>
+<p>When it comes to actors, I am listing all the actors on the level.</p>
+<p>It may seem that there is not many of them, but there is also a lot of landscape proxies.</p>
+<p>So in the end, we have around 138 actors on the level.</p>
+<p>And don&#39;t ask me how I know it.</p>
+<p>Let&#39;s suppose you would like to go through our assets and list only those which are static meshes.</p>
+<p>You can write either your own for loop or write a list comprehension.</p>
+<p>Let&#39;s go with list comprehension because it is better for performance and also it is just a one liner.</p>
+<p>So let&#39;s create one.</p>
+<p>It&#39;s going to be asset for asset in assets.</p>
+<p>And this is going to return the same list we already had before filtering.</p>
+<p>But now we can add an if statement.</p>
+<p>And let&#39;s check this instance.</p>
+<p>And let&#39;s see if asset is an unreal dot static mesh.</p>
+<p>And of course it would be best if we did it in Python Repl mode.</p>
+<p>So this way the result is going to be printed.</p>
+<p>So we have lots of assets.</p>
+<p>And if we look here here is a static mesh.</p>
+<p>Another static mesh.</p>
+<p>And I don&#39;t see anything that is not a static mesh.</p>
+<p>So it seems to work.</p>
+<p>But what if we could do it easier.</p>
+<p>Let&#39;s see the documentation.</p>
+<p>And there is something like filtering by class.</p>
+<p>So it expects target array.</p>
+<p>That&#39;s our assets.</p>
+<p>Expects object class.</p>
+<p>That&#39;s static mesh.</p>
+<p>And the filter type is already a default.</p>
+<p>And it&#39;s either include or exclude.</p>
+<p>So if it is include it&#39;s going to return static meshes.</p>
+<p>If it&#39;s exclude it&#39;s going to return everything that is not a static mesh.</p>
+<p>And of course you shouldn&#39;t believe me.</p>
+<p>You should check in the documentation.</p>
+<p>Make sure.</p>
+<p>So if you go here you see that include and exclude are the only two possible options.</p>
+<p>So let me copy the name of this library so I have a lower chance of making a typo.</p>
+<p>Let&#39;s paste it here and then do filtering by class.</p>
+<p>And we will filter assets list and object class is going to be unreal.</p>
+<p>Static mesh.</p>
+<p>If we hit enter, we are going to receive an unreal array.</p>
+<p>But of course we can just cast it to the Python one and it is going to print as the result, which should</p>
+<p>be exactly the same as what we have written before.</p>
+<p>But we didn&#39;t have to write the loop ourselves if we would like to get everything that is not a static</p>
+<p>mesh, we can get back to our function call and let&#39;s use filter type and it&#39;s going to be unreal editor</p>
+<p>scripting filter type exclude.</p>
+<p>Hit enter.</p>
+<p>And now we have some textures.</p>
+<p>Um more textures.</p>
+<p>So here&#39;s a material, and I guess there will be a lot of all other kinds of assets, like like this</p>
+<p>particle system here, but no static mesh.</p>
+<p>So it looks like it worked.</p>
+<p>Let&#39;s go back to the documentation.</p>
+<p>Many of those filters don&#39;t have many options we could use.</p>
+<p>We can filter by a single property like object class or some tag.</p>
+<p>And we can change filter type.</p>
+<p>We can either include or exclude the results, but there are few filters that require more parameters.</p>
+<p>We can either use filtering by actor label or by id name, which is an asset filter to show you what</p>
+<p>are the possibilities if we have more properties that the function accepts, let&#39;s say we would like</p>
+<p>to filter our assets by ID name.</p>
+<p>This is not a strict name check.</p>
+<p>Usually um, we have three different approaches.</p>
+<p>We are going to provide some string.</p>
+<p>We are going to look for like effect.</p>
+<p>And we can decide on the string match type.</p>
+<p>If it contains then we will be looking for just a part.</p>
+<p>If it&#39;s like scripting and it&#39;s contained in editor.</p>
+<p>Scripting utilities, then we will have the match.</p>
+<p>However, if it&#39;s about the exact match, then we will not have the match unless we use exactly scripting</p>
+<p>utilities.</p>
+<p>But we could also use some wildcard and maybe we would be looking for editor scripting and then some</p>
+<p>wildcards.</p>
+<p>So it could be utilities library or something else.</p>
+<p>And this is what I&#39;m going to demonstrate.</p>
+<p>Let&#39;s go back to unreal.</p>
+<p>And here&#39;s my test folder with some blueprints.</p>
+<p>We&#39;re going to look for those blueprint effects.</p>
+<p>And the list of all assets we already have listed before.</p>
+<p>So we have an empty output log prepared.</p>
+<p>And we can simply look for substring effect.</p>
+<p>So that&#39;s searching by ID assets name substring effect.</p>
+<p>And let me wrap it with the list.</p>
+<p>It&#39;s returning effect.</p>
+<p>Explosion effect.</p>
+<p>Fire and some other effects.</p>
+<p>Now we could try making it an exact match and see if we will find anything.</p>
+<p>So let&#39;s add this parameter here.</p>
+<p>String match.</p>
+<p>unrelated or scripting string match type exact match hit enter and we got nothing.</p>
+<p>But if we just correct this substring to be blueprint effect fire, then we will get this single asset.</p>
+<p>However, I personally would like to find all of those which start with blueprint effect.</p>
+<p>And I know there are different variants like explosion, fire, smoke and I want to find all of them.</p>
+<p>So I&#39;m going to reuse the previous line of code, but without the fire in the substring.</p>
+<p>And instead I&#39;m using asterisk as a wildcard.</p>
+<p>And I&#39;m not gonna use exact match.</p>
+<p>Instead it&#39;s going to be matches wildcard.</p>
+<p>And now we have blueprint effect explosion Affect fire and others.</p>
+<p>So I believe you don&#39;t need to see any more examples.</p>
+<p>You can just go through the documentation and as you can see, using this library is very simple.</p>
+<p>Should you use it or not?</p>
+<p>Is it better to than your own Python implementation?</p>
+<p>Not really better.</p>
+<p>When it comes to performance, it is not necessarily faster.</p>
+<p>I compared speed of filtering by class versus a list comprehension that uses isinstance to filter out</p>
+<p>static meshes, and Python implementation was over five times faster.</p>
+<p>However, when I tested filtering by name, the editor filter library was faster.</p>
+<p>Difference was close to 50%.</p>
+<p>Sometimes your own implementations will require additional operations in Python.</p>
+<p>But sometimes it will do only the most basic operations like isinstance check, which are very fast.</p>
+<p>So I wouldn&#39;t be very concerned by speed in this case, unless your tool is already slow and you want</p>
+<p>to improve it.</p>
+<p>In that case, you should measure use the faster solution.</p>
+<p>And of course include the comment in the code explaining why you have chosen this one over another.</p>
+<p>But during my daily work, I wouldn&#39;t choose one solution over another.</p>
+<p>Hoping for code speed up.</p>
+<p>I would rather treat built in solution as a way to write less code and to quickly get something that</p>
+<p>works.</p>
+<p>And that is less error prone because if someone already implemented some filter for you, then there</p>
+<p>is a high chance it is working correctly.</p>
+<p>That&#39;s it for today and see you in the next tutorial.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

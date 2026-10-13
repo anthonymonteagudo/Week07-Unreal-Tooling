@@ -1,0 +1,88 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>08 Running Script via Commandline · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-08">Return to audit</a><a href="07.html">Previous lesson</a> <a href="09.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/08%20Running%20Script%20via%20Commandline.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/08%20Running%20Script%20via%20Commandline%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>08 Running Script via Commandline</h1><p>Full-editor versus headless commandlet execution, arguments, initialization limits and output-file verification retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Running Scripts via the Command Line — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/08%20Running%20Script%20via%20Commandline.md">Original notes</a></p>
+<p>Command-line execution is useful for batch asset processing and build automation. Choose the execution mode according to the editor state your script needs.</p>
+<h2>Full editor or headless execution</h2>
+<p><strong>Full editor:</strong> loads the project and startup level before running the script. It provides more editor initialization but takes longer to start.</p>
+<p><strong>Headless commandlet:</strong> runs without the editor interface and skips much of that initialization. Scripts may need to load their required assets or levels explicitly.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222314.png" alt="Course screenshot: Pasted image 20261010222314.png"></p>
+<p>The course uses these argument patterns; replace the executable, project, and script paths with your own:</p>
+<pre><code class="language-text">UnrealEditor.exe &quot;C:/Projects/MyProject.uproject&quot; -ExecutePythonScript=&quot;C:/Scripts/my_script.py&quot;
+UnrealEditor.exe &quot;C:/Projects/MyProject.uproject&quot; -run=pythonscript -script=&quot;C:/Scripts/my_script.py&quot;
+</code></pre>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222422.png" alt="Course screenshot: Pasted image 20261010222422.png"></p>
+<h2>Check executable and path details</h2>
+<p>Locate the correct Unreal executable in the engine installation; its name can differ between versions. Quote paths containing spaces, and check slash direction if Unreal cannot find the script. Use the dedicated Python arguments shown above instead of startup <code>ExecCmd</code> plus <code>py</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222631.png" alt="Course screenshot: Pasted image 20261010222631.png"></p>
+<p>A discoverable script can be passed by filename, such as <code>hello.py</code>, instead of its absolute path.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222810.png" alt="Course screenshot: Pasted image 20261010222810.png"></p>
+<h2>Verify execution</h2>
+<p>The demonstration modifies <code>hello.py</code> to write an empty file with a unique name. That output provides visible evidence that the script ran after the process exits.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010223022.png" alt="Course screenshot: Pasted image 20261010223022.png"></p>
+<p>Run once with the full editor and once headlessly, then check for the generated files.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222936.png" alt="Course screenshot: Pasted image 20261010222936.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010223118.png" alt="Course screenshot: Pasted image 20261010223118.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/07%20Running%20Scripts%20From%20Editor%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/09%20Startup%20Scripts%20and%20init_unreal.py%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222314.png" alt="Course screenshot: Pasted image 20261010222314.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222422.png" alt="Course screenshot: Pasted image 20261010222422.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222631.png" alt="Course screenshot: Pasted image 20261010222631.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222810.png" alt="Course screenshot: Pasted image 20261010222810.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010223022.png" alt="Course screenshot: Pasted image 20261010223022.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222936.png" alt="Course screenshot: Pasted image 20261010222936.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010223118.png" alt="Course screenshot: Pasted image 20261010223118.png"></p>
+<p>Unreal allows for executing Python scripts via command line arguments.</p>
+<p>It&#39;s extremely useful when you want to run some asset processing, especially on the build system.</p>
+<p>There are two ways of running it.</p>
+<p>First, one is with full editor.</p>
+<p>In this case, unreal will launch and open specified project.</p>
+<p>Then loads default startup level and run the script once everything is loaded.</p>
+<p>Second way is headless.</p>
+<p>It is very fast to execute because it doesn&#39;t need to initialize many things, nor to open the user</p>
+<p>interface.</p>
+<p>On the other side, it may be tricky to load various assets this way.</p>
+<p>In both cases, you have to locate your own relaunch file, then insert project path and finally command</p>
+<p>to run the script.</p>
+<p>Commands are visible on the screen and they should be very simple to use.</p>
+<p>Before I demonstrate it, let&#39;s talk about three important details.</p>
+<p>To run and read this way you need to call Unreal Editor.</p>
+<p>Executable name of this file may depend on engine version.</p>
+<p>It may be different than in the video or even in the documentation.</p>
+<p>I recommend finding the path manually in the installation folder.</p>
+<p>As you can see, I&#39;ve put the path that works for me on the screen, and that is for unreal 5.1.</p>
+<p>However, when I was checking documentation for 5.0 it was different, so please check each time.</p>
+<p>Also, if unreal cannot run the script, you most likely pass the script with wrong slash direction.</p>
+<p>And lastly, use advised commands.</p>
+<p>Do not use exact cmd followed by by command as it may lead to bugs.</p>
+<p>I also have some good news for you.</p>
+<p>If the script is discoverable by unreal, you can pass just the file name instead of full path.</p>
+<p>And that&#39;s all the theory you need.</p>
+<p>Let&#39;s try executing the script now.</p>
+<p>I modified it a bit so it creates a file with random file name each time it&#39;s executed.</p>
+<p>This is just to visually check if the script executed because engine will close after the execution.</p>
+<p>Let&#39;s get to console.</p>
+<p>I have a command line prepared.</p>
+<p>It&#39;s obviously the one you have seen on the presentation.</p>
+<p>However, with my project and my name of the script, the script is discoverable because it&#39;s in content</p>
+<p>Python folder, so I didn&#39;t specify the full path this way.</p>
+<p>I&#39;m running it in editor mode, so it will show interface for a short while, then execute.</p>
+<p>And if everything goes fine then we should see a new file in the folder here.</p>
+<p>It finished execution.</p>
+<p>Let&#39;s see if we have a new file.</p>
+<p>Yes we have.</p>
+<p>So now let&#39;s try executing it.</p>
+<p>But in the headless mode.</p>
+<p>And this time to execute it in two different ways.</p>
+<p>I passed an absolute path.</p>
+<p>Let&#39;s press enter.</p>
+<p>And I expect not to see any interface.</p>
+<p>However, there should be a small console.</p>
+<p>Also a good thing to know is that according to documentation, you don&#39;t have to specify script as a</p>
+<p>path.</p>
+<p>You could also enter a command line and a script itself in the command line, and you would have to</p>
+<p>separate the lines using slash.</p>
+<p>And however, it doesn&#39;t seem to be very convenient.</p>
+<p>The command shows and execution finished.</p>
+<p>Let&#39;s check our file folder and we have a new file with random name, which means that everything executed</p>
+<p>perfectly.</p>
+<p>This is all about running Python from command line in unreal and see you in the next video.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

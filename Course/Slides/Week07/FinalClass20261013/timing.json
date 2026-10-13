@@ -1,0 +1,308 @@
+[
+  {
+    "id": "01",
+    "title": "Review & specialization",
+    "minutes": 0.5,
+    "start": 0,
+    "end": 0.5,
+    "block": "Opening",
+    "cue": "Welcome; name the editor-tooling and user-testing goals."
+  },
+  {
+    "id": "02",
+    "title": "Today’s sequence",
+    "minutes": 0.5,
+    "start": 0.5,
+    "end": 1,
+    "block": "Opening",
+    "cue": "Show the route. No round-robin discussion here."
+  },
+  {
+    "id": "S1",
+    "title": "Python in Unreal",
+    "minutes": 0.25,
+    "start": 1,
+    "end": 1.25,
+    "block": "Python",
+    "cue": "Same Python language, new host API."
+  },
+  {
+    "id": "03",
+    "title": "Python setup in Unreal",
+    "minutes": 2.75,
+    "start": 1.25,
+    "end": 4,
+    "block": "Python",
+    "cue": "Show the prepared editor. Plugin setup is a demonstration, not an installation workshop."
+  },
+  {
+    "id": "04",
+    "title": "First execution",
+    "minutes": 2,
+    "start": 4,
+    "end": 6,
+    "block": "Python",
+    "cue": "One log statement and its output. Allow one short clarification."
+  },
+  {
+    "id": "06A",
+    "title": "Shared asset, separate placements",
+    "minutes": 3,
+    "start": 6,
+    "end": 9,
+    "block": "Python",
+    "cue": "Asset versus Actor versus Component. Include a 45-second scope prediction."
+  },
+  {
+    "id": "07",
+    "title": "Selection is an input",
+    "minutes": 3,
+    "start": 9,
+    "end": 12,
+    "block": "Python",
+    "cue": "Inspect selected Actors. Reserve 45 seconds for questions about selection."
+  },
+  {
+    "id": "10",
+    "title": "Maya and Unreal handoff",
+    "minutes": 7,
+    "start": 12,
+    "end": 19,
+    "block": "Python demo",
+    "cue": "1 min handoff diagram and paths; 5 min prepared export/import and one revision; 1 min inspection/questions."
+  },
+  {
+    "id": "09",
+    "title": "Material Setup: a reviewed change",
+    "minutes": 7,
+    "start": 19,
+    "end": 26,
+    "block": "Python demo",
+    "cue": "1 min recipe; 4 min inspect/preview/apply; 2 min verify affected and protected scope."
+  },
+  {
+    "id": "08A",
+    "title": "One operation, multiple interfaces",
+    "minutes": 2,
+    "start": 26,
+    "end": 28,
+    "block": "Python",
+    "cue": "One shared operation behind Qt or an Editor Utility Widget. No Blueprint construction."
+  },
+  {
+    "id": "09D",
+    "title": "VFX Placement: transfer the workflow",
+    "minutes": 4,
+    "start": 28,
+    "end": 32,
+    "block": "Python",
+    "cue": "2 min Undo and result check; 2 min questions or demo recovery reserve. End this block at elapsed 32:00."
+  },
+  {
+    "id": "11",
+    "title": "Tool demonstrations",
+    "minutes": 35,
+    "start": 32,
+    "end": 67,
+    "block": "Contributor demos",
+    "cue": "Co-teacher 15 min, TA 20 min. Questions, introductions and transitions are inside those slots."
+  },
+  {
+    "id": "13",
+    "title": "Break",
+    "minutes": 15,
+    "start": 67,
+    "end": 82,
+    "block": "Break",
+    "cue": "Full break; resume at elapsed 82:00."
+  },
+  {
+    "id": "S3",
+    "title": "Tool assessment",
+    "minutes": 0.25,
+    "start": 82,
+    "end": 82.25,
+    "block": "Assessment",
+    "cue": "Orient groups to the sheet."
+  },
+  {
+    "id": "12",
+    "title": "Lab 1: predict the result",
+    "minutes": 4.75,
+    "start": 82.25,
+    "end": 87,
+    "block": "Assessment",
+    "cue": "45 sec roles/instructions; 3 min individual prediction and group comparison; 1 min record trust judgment."
+  },
+  {
+    "id": "12A",
+    "title": "Lab 1: evidence and a retest",
+    "minutes": 3,
+    "start": 87,
+    "end": 90,
+    "block": "Assessment",
+    "cue": "Reveal and inspect for 1 min; discuss evidence for 1 min; record first priority for 1 min."
+  },
+  {
+    "id": "S4",
+    "title": "UI/UX for artist tools",
+    "minutes": 0.25,
+    "start": 90,
+    "end": 90.25,
+    "block": "UX",
+    "cue": "Transition from their assessment."
+  },
+  {
+    "id": "14",
+    "title": "Interface and experience",
+    "minutes": 0.75,
+    "start": 90.25,
+    "end": 91,
+    "block": "UX",
+    "cue": "Success count versus successful task. Revisit one initial judgment."
+  },
+  {
+    "id": "14B",
+    "title": "User stories",
+    "minutes": 1.5,
+    "start": 91,
+    "end": 92.5,
+    "block": "UX",
+    "cue": "Role, goal, benefit and observable success. Include before/after workflow."
+  },
+  {
+    "id": "14D",
+    "title": "Two layouts for the same task",
+    "minutes": 1.5,
+    "start": 92.5,
+    "end": 94,
+    "block": "UX",
+    "cue": "Compare two sketches; briefly identify paper/Figma as prototype methods."
+  },
+  {
+    "id": "15",
+    "title": "Layout follows the task",
+    "minutes": 1.5,
+    "start": 94,
+    "end": 95.5,
+    "block": "UX",
+    "cue": "Scope, preview and action grouping. One short student prediction."
+  },
+  {
+    "id": "14F",
+    "title": "The artist’s model of the work",
+    "minutes": 1.5,
+    "start": 95.5,
+    "end": 97,
+    "block": "UX",
+    "cue": "Artist-facing duration versus internal spawn/kill events. One production example."
+  },
+  {
+    "id": "15A",
+    "title": "State and feedback",
+    "minutes": 1,
+    "start": 97,
+    "end": 98,
+    "block": "UX",
+    "cue": "State and next action. Explain the unavailable Apply control."
+  },
+  {
+    "id": "15G",
+    "title": "A UI state becomes a Qt decision",
+    "minutes": 1,
+    "start": 98,
+    "end": 99,
+    "block": "UX",
+    "cue": "Point to enabled-state logic. No Qt syntax walkthrough."
+  },
+  {
+    "id": "15D",
+    "title": "An error should support recovery",
+    "minutes": 1,
+    "start": 99,
+    "end": 100,
+    "block": "UX",
+    "cue": "Ask for the next recovery action, then take one answer."
+  },
+  {
+    "id": "15B",
+    "title": "Recovery and accessibility",
+    "minutes": 1,
+    "start": 100,
+    "end": 101,
+    "block": "UX",
+    "cue": "Keyboard, focus, labels and recovery. One accessible name is only a starting point."
+  },
+  {
+    "id": "16C",
+    "title": "Feedback changes the interface",
+    "minutes": 1.5,
+    "start": 101,
+    "end": 102.5,
+    "block": "UX",
+    "cue": "Brief Mission Kontrol context; QA feedback changed adjacent controls."
+  },
+  {
+    "id": "16E",
+    "title": "A test produces the next question",
+    "minutes": 3.5,
+    "start": 102.5,
+    "end": 106,
+    "block": "UX",
+    "cue": "90 sec observation/hypothesis/retest example, then 2 min student questions or recovery reserve."
+  },
+  {
+    "id": "16A",
+    "title": "Your peer-test task",
+    "minutes": 4,
+    "start": 106,
+    "end": 110,
+    "block": "Task preparation",
+    "cue": "Protected writing time. Start by elapsed 106:00. Check goal, input, result and reset."
+  },
+  {
+    "id": "S5",
+    "title": "Peer testing",
+    "minutes": 0.25,
+    "start": 110,
+    "end": 110.25,
+    "block": "Peer briefing",
+    "cue": "Introduce observer and participant roles."
+  },
+  {
+    "id": "17",
+    "title": "Lab 2: three peer reviews",
+    "minutes": 1,
+    "start": 110.25,
+    "end": 111.25,
+    "block": "Peer briefing",
+    "cue": "Use author machine; observe before coaching; declare fallback mode."
+  },
+  {
+    "id": "18",
+    "title": "A ten-minute reciprocal round",
+    "minutes": 1,
+    "start": 111.25,
+    "end": 112.25,
+    "block": "Peer briefing",
+    "cue": "Explain the reciprocal ten-minute round."
+  },
+  {
+    "id": "19",
+    "title": "Partner rotations",
+    "minutes": 32.75,
+    "start": 112.25,
+    "end": 145,
+    "block": "Peer testing",
+    "cue": "45 sec assign A–D; round 1 at 113:00, switch 123:00–124:00, round 2 124:00–134:00, switch to 135:00, round 3 to 145:00."
+  },
+  {
+    "id": "20",
+    "title": "One revision supported by evidence",
+    "minutes": 5,
+    "start": 145,
+    "end": 150,
+    "block": "Synthesis",
+    "cue": "2 min compare evidence, 2 min choose one change and retest, 1 min record unresolved questions."
+  }
+]

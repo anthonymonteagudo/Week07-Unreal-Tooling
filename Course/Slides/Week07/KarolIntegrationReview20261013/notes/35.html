@@ -1,0 +1,141 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>35 Introduction to automation testing in Unreal Engine · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-35">Return to audit</a><a href="34.html">Previous lesson</a> <a href="36.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/35%20Introduction%20to%20automation%20testing%20in%20Unreal%20Engine.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/35%20Introduction%20to%20automation%20testing%20in%20Unreal%20Engine%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>35 Introduction to automation testing in Unreal Engine</h1><p>Test categories, plugins, filters, results and excluded-versus-passed distinction retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Introduction to Automation Testing in Unreal Engine — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/35%20Introduction%20to%20automation%20testing%20in%20Unreal%20Engine.md">Original notes</a></p>
+<p>Automated tests run repeatable checks and compare actual behavior with an expected result. They are useful for editor tools as well as engine code: a small test can catch a regression before it reaches an artist.</p>
+<h2>Choose the appropriate test</h2>
+<ul>
+<li><strong>Unit:</strong> check a small API or isolated operation.</li>
+<li><strong>Feature:</strong> check a larger system or workflow.</li>
+<li><strong>Smoke:</strong> run a very quick basic check; the course reference specifies less than one second.</li>
+<li><strong>Stress:</strong> exercise demanding or repeated conditions.</li>
+<li><strong>Screenshot comparison:</strong> detect visual changes against a reference.</li>
+</ul>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222025.png" alt="Course screenshot: Pasted image 20261012222025.png"></p>
+<h2>Enable the plugins</h2>
+<p>Some built-in test collections have their own plugins. For the course&#39;s Python tests, enable <strong>Python Automation Test</strong>, accept the displayed beta notice, and restart. The earlier scripting plugins remain part of the project setup.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222119.png" alt="Course screenshot: Pasted image 20261012222119.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222134.png" alt="Course screenshot: Pasted image 20261012222134.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222147.png" alt="Course screenshot: Pasted image 20261012222147.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222159.png" alt="Course screenshot: Pasted image 20261012222159.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222216.png" alt="Course screenshot: Pasted image 20261012222216.png"></p>
+<h2>Run and inspect tests</h2>
+<p>Open <strong>Tools → Session Frontend</strong>, select the local editor session/worker, and open <strong>Automation</strong>. Check the filters if a category appears to be missing.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222242.png" alt="Course screenshot: Pasted image 20261012222242.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222338.png" alt="Course screenshot: Pasted image 20261012222338.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222457.png" alt="Course screenshot: Pasted image 20261012222457.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222703.png" alt="Course screenshot: Pasted image 20261012222703.png"></p>
+<p>Select individual tests or a category, then <strong>Start Tests</strong>. Larger selections can take time and occupy the editor. Review the results and the <strong>Automation Testing Log</strong> in Message Log; a green result alone does not explain what was exercised.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222609.png" alt="Course screenshot: Pasted image 20261012222609.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222813.png" alt="Course screenshot: Pasted image 20261012222813.png"></p>
+<h2>Exclude a test deliberately</h2>
+<p>Use the test&#39;s pencil control to mark it excluded and record a reason. The exclusion can be saved in configuration and affect other users or automated runs. To restore the test, clear its excluded setting.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223103.png" alt="Course screenshot: Pasted image 20261012223103.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223137.png" alt="Course screenshot: Pasted image 20261012223137.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223250.png" alt="Course screenshot: Pasted image 20261012223250.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223414.png" alt="Course screenshot: Pasted image 20261012223414.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223427.png" alt="Course screenshot: Pasted image 20261012223427.png"></p>
+<p>An excluded test is skipped, not passed. The result symbol and log make that distinction visible; inspect warnings and exclusions when evaluating a run.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223503.png" alt="Course screenshot: Pasted image 20261012223503.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223515.png" alt="Course screenshot: Pasted image 20261012223515.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/34%20Undo%20and%20Redo%20operations%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/36%20Writing%20your%20first%20Python%20test%20for%20Unreal%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222025.png" alt="Course screenshot: Pasted image 20261012222025.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222119.png" alt="Course screenshot: Pasted image 20261012222119.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222134.png" alt="Course screenshot: Pasted image 20261012222134.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222147.png" alt="Course screenshot: Pasted image 20261012222147.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222159.png" alt="Course screenshot: Pasted image 20261012222159.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222216.png" alt="Course screenshot: Pasted image 20261012222216.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222242.png" alt="Course screenshot: Pasted image 20261012222242.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222338.png" alt="Course screenshot: Pasted image 20261012222338.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222457.png" alt="Course screenshot: Pasted image 20261012222457.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222703.png" alt="Course screenshot: Pasted image 20261012222703.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222609.png" alt="Course screenshot: Pasted image 20261012222609.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012222813.png" alt="Course screenshot: Pasted image 20261012222813.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223103.png" alt="Course screenshot: Pasted image 20261012223103.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223137.png" alt="Course screenshot: Pasted image 20261012223137.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223250.png" alt="Course screenshot: Pasted image 20261012223250.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223414.png" alt="Course screenshot: Pasted image 20261012223414.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223427.png" alt="Course screenshot: Pasted image 20261012223427.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223503.png" alt="Course screenshot: Pasted image 20261012223503.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012223515.png" alt="Course screenshot: Pasted image 20261012223515.png"></p>
+<p>Automated tests are a key ingredient to stability of your game and tools.</p>
+<p>They are so important that they have grown into concepts like test driven development, where they are</p>
+<p>widely spread in various branches of IT, and programming.</p>
+<p>They are often forgotten when it comes to technical art.</p>
+<p>If you haven&#39;t heard about tests, maybe that&#39;s because you come from non programming background.</p>
+<p>They are simply an automated way to run parts of your code or blueprints and test if achieved results</p>
+<p>match expected ones.</p>
+<p>You can skip them if you are making a prototype or a quick demo project, but in my opinion they can</p>
+<p>be useful even in those cases.</p>
+<p>If you are working on some commercial add on or an in-house tool, you should implement them as quickly</p>
+<p>as possible.</p>
+<p>As the software grows, you will just modify them and add more tests.</p>
+<p>This way you can start finding bugs quickly, but also you have less work to do later when you realize</p>
+<p>that there is a whole plugin to be tested and you have zero tests.</p>
+<p>In following video we will create some tests, but in this one I just want to give you some overview</p>
+<p>and run tests already implemented by Epic Games.</p>
+<p>Epic has divided tests into a few types that are well documented.</p>
+<p>You can have unit tests for API level verification, feature tests that run in game, some smoke tests</p>
+<p>that are in general quick checks that should complete in less than a second, and so on.</p>
+<p>Don&#39;t be overwhelmed by the documentation.</p>
+<p>In my opinion, it is intended to help mostly game engine programmers and not technical artists who</p>
+<p>use Python.</p>
+<p>Testing with Python will be quite simple, and you will not have to dive into that many technical details.</p>
+<p>There is also an important note in documentation that says that some tests were moved to their own plugins.</p>
+<p>This way you can choose to include them in your package builds, or obviously not.</p>
+<p>If you want you can enable them just go to plugins.</p>
+<p>Search for tests, and those are editor tests as well as runtime.</p>
+<p>Tests.</p>
+<p>You can find more plugins they may be useful for you like gauntlet may be very useful for game programmers,</p>
+<p>and that&#39;s why I recommend you diving into that and reading which plugin is for what.</p>
+<p>For instance, you can find some plugin called PHP Automation Test Builder that may be used to test</p>
+<p>PHP files.</p>
+<p>And what is more, it has a nice documentation with examples.</p>
+<p>The one plugin that we will actually need is Python Automation Test.</p>
+<p>It will let us create Python tests.</p>
+<p>We can enable it.</p>
+<p>Of course it has to be enabled together with other plugins that we already enabled.</p>
+<p>If you have skipped setup video at the beginning of the course, these plugins are Python editor, script</p>
+<p>plugin sequencer.</p>
+<p>Editing and editor.</p>
+<p>Scripting utilities.</p>
+<p>Once you have it enabled, don&#39;t restart Unreal Engine yet.</p>
+<p>We will create tests in next video, but you don&#39;t need those plugins running to be able to follow the</p>
+<p>current one.</p>
+<p>Let&#39;s close plugin window and navigate to Tools Session frontend.</p>
+<p>According to the documentation, it is a tool for managing applications and deploying to consoles.</p>
+<p>For us, it will be just a test launcher.</p>
+<p>First thing to do here is to select the device that we want to use.</p>
+<p>In bigger companies, you will probably have DevOps team support, and you will be able to pick more</p>
+<p>than a single machine or even a game console.</p>
+<p>In our case, the only thing displayed here on the left side is our own computer.</p>
+<p>We have to keep it selected.</p>
+<p>If you deselect it, you will notice a warning like this one.</p>
+<p>Now we can go to automation tab and select tests that we want to run.</p>
+<p>If you can&#39;t see some of them, remember that combo box applies filtering by test type.</p>
+<p>Let&#39;s run some quick smoke tests for the engine.</p>
+<p>Just select them here.</p>
+<p>You can pick whole engine category or maybe just asset registry or a specific test.</p>
+<p>And then click Start Tests to run.</p>
+<p>Don&#39;t be scared if you land some other kind of test and editor has frozen some tests, may take some</p>
+<p>quite huge amount of time to execute and they will just freeze.</p>
+<p>At some point you will get the same summary I have, and if you have a lot of tests that are slow,</p>
+<p>you will get a freeze, a prompt with notification, and another freeze because another test will start</p>
+<p>running.</p>
+<p>If for any reason some of those tests are failing and you cannot fix them right now, you can exclude</p>
+<p>them from the execution.</p>
+<p>Just use the pencil on the right side.</p>
+<p>And the same thing that applies to launching is here.</p>
+<p>You can apply it for whole category or just a single test.</p>
+<p>I will apply it to export path.</p>
+<p>Use the pencil.</p>
+<p>Add some reason like test tutorial.</p>
+<p>You can force having a warning in a log.</p>
+<p>I will keep it as false.</p>
+<p>Press okay and run tests again.</p>
+<p>As you can see, one of them was skipped and that&#39;s fine.</p>
+<p>If you want to be able to run that again just uncheck this checkbox and run it.</p>
+<p>That works.</p>
+<p>I hope this brief introduction is a good base for both those of you who have programming and artistic</p>
+<p>backgrounds.</p>
+<p>And the next videos we will analyze a Python test and then implement our own.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

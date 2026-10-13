@@ -1,0 +1,377 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>39 Packing Python Tool As Unreal Plugin · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-39">Return to audit</a><a href="38.html">Previous lesson</a> <a href="40.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/07%20Releasing%20Tools/39%20Packing%20Python%20Tool%20As%20Unreal%20Plugin.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/07%20Releasing%20Tools/39%20Packing%20Python%20Tool%20As%20Unreal%20Plugin%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>39 Packing Python Tool As Unreal Plugin</h1><p>Module layout and startup call</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Packaging the Python Tool as an Unreal Plugin — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/07%20Releasing%20Tools/39%20Packing%20Python%20Tool%20As%20Unreal%20Plugin.md">Original notes</a></p>
+<p>Combine the texture-compression validator, context-menu entry, icon, and progress dialog into a distributable plugin. Keep the validation logic separate from editor UI setup.</p>
+<h2>Create the plugin and Python folder</h2>
+<p>The finished tool appears in Plugins and adds <strong>Fix Compression Settings</strong> to a texture&#39;s context menu. Its Output Log reports the processed textures.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231619.png" alt="Course screenshot: Pasted image 20261012231619.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231642.png" alt="Course screenshot: Pasted image 20261012231642.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231725.png" alt="Course screenshot: Pasted image 20261012231725.png"></p>
+<p>Create the <code>FixTextureCompression</code> plugin and fill in its version, category, author, and documentation details. Enable plugin content in the Content Browser, create <code>Content/Python</code>, and add that folder to the IDE&#39;s content roots.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231758.png" alt="Course screenshot: Pasted image 20261012231758.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231827.png" alt="Course screenshot: Pasted image 20261012231827.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231913.png" alt="Course screenshot: Pasted image 20261012231913.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231948.png" alt="Course screenshot: Pasted image 20261012231948.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232008.png" alt="Course screenshot: Pasted image 20261012232008.png"></p>
+<p>The package&#39;s <code>__init__.py</code> and Unreal&#39;s startup file <code>init_unreal.py</code> serve different purposes. The latter will register the menu when Unreal initializes Python.</p>
+<h2>Module layout and startup call</h2>
+<p>A minimal arrangement matching the lesson is:</p>
+<pre><code class="language-text">FixTextureCompression/
+  FixTextureCompression.uplugin
+  Content/Python/
+    init_unreal.py
+    fix_compression.py
+    setup_fix_compression_ui.py
+</code></pre>
+<p><code>init_unreal.py</code> imports <code>setup_ui</code> from <code>setup_fix_compression_ui</code> and calls it. If using a package subfolder instead, retain its <code>__init__.py</code> and use package-qualified imports. Keep the core module free of startup/menu side effects.</p>
+<p>The original normalization checks <code>isinstance(assets, list)</code> and wraps anything else in a list. That supports a single texture and a Python list, but an Unreal array would be wrapped as one item. The demonstrated menu avoids this by looping over selected assets and passing <strong>one texture at a time</strong>. For a batch API, deliberately convert the selection with <code>list(selection)</code> or support Unreal arrays explicitly.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232059.png" alt="Course screenshot: Pasted image 20261012232059.png"></p>
+<h2>Adapt the core function to selected objects</h2>
+<p>Copy the existing validator into a clearly named module such as <code>fix_compression.py</code>. Remove obsolete demonstration code and the directory-based script entry point.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232139.png" alt="Course screenshot: Pasted image 20261012232139.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232157.png" alt="Course screenshot: Pasted image 20261012232157.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232223.png" alt="Course screenshot: Pasted image 20261012232223.png"></p>
+<p>Change the input to accept a <code>Texture2D</code> or a list of textures. Normalize a single texture to a list, skip unsupported objects, and use the already-loaded objects instead of loading asset paths again. Retain the suffix-to-compression mapping and <code>apply_fix</code> behavior; use the texture&#39;s name in log messages.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232428.png" alt="Course screenshot: Pasted image 20261012232428.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232501.png" alt="Course screenshot: Pasted image 20261012232501.png"></p>
+<h2>Connect selection and progress</h2>
+<p>In the UI module, the menu callback gets selected assets and processes each texture with the core validation function. Use <code>ScopedSlowTask</code> with the selection count, show a cancellable dialog, check cancellation in the loop, and advance progress by one per item.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232628.png" alt="Course screenshot: Pasted image 20261012232628.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232706.png" alt="Course screenshot: Pasted image 20261012232706.png"></p>
+<h2>Register the texture menu entry</h2>
+<p>Put registration in <code>setup_ui()</code> inside <code>setup_fix_compression_ui.py</code>. Target <code>ContentBrowser.AssetContextMenu.Texture</code> and its <code>GetAssetActions</code> section. Set the label, tooltip, and icon, then connect the execution callback.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232804.png" alt="Course screenshot: Pasted image 20261012232804.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232846.png" alt="Course screenshot: Pasted image 20261012232846.png"></p>
+<p>The course locates the <code>Checker</code> brush in <code>EditorStyle</code>, avoiding a dependency on an optional plugin&#39;s icon. Verify the style and brush names against the demonstrated engine resources.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232955.png" alt="Course screenshot: Pasted image 20261012232955.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233023.png" alt="Course screenshot: Pasted image 20261012233023.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233050.png" alt="Course screenshot: Pasted image 20261012233050.png"></p>
+<h2>Initialize and verify</h2>
+<p>Have <code>init_unreal.py</code> import and call <code>setup_ui()</code>. Restart Unreal, test the menu with one texture and then a multi-selection, and inspect both the changed settings and log output.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233125.png" alt="Course screenshot: Pasted image 20261012233125.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233432.png" alt="Course screenshot: Pasted image 20261012233432.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233508.png" alt="Course screenshot: Pasted image 20261012233508.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233553.png" alt="Course screenshot: Pasted image 20261012233553.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/38%20Suppressing%20warnings%20in%20Python%20tests%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/08%20Python%20and%20Blueprints/40%20Python%20Scripts%20in%20Asset%20Scripted%20Action%20Blueprints%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231619.png" alt="Course screenshot: Pasted image 20261012231619.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231642.png" alt="Course screenshot: Pasted image 20261012231642.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231725.png" alt="Course screenshot: Pasted image 20261012231725.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231758.png" alt="Course screenshot: Pasted image 20261012231758.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231827.png" alt="Course screenshot: Pasted image 20261012231827.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231913.png" alt="Course screenshot: Pasted image 20261012231913.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231948.png" alt="Course screenshot: Pasted image 20261012231948.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232008.png" alt="Course screenshot: Pasted image 20261012232008.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232059.png" alt="Course screenshot: Pasted image 20261012232059.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232139.png" alt="Course screenshot: Pasted image 20261012232139.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232157.png" alt="Course screenshot: Pasted image 20261012232157.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232223.png" alt="Course screenshot: Pasted image 20261012232223.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232428.png" alt="Course screenshot: Pasted image 20261012232428.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232501.png" alt="Course screenshot: Pasted image 20261012232501.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232628.png" alt="Course screenshot: Pasted image 20261012232628.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232706.png" alt="Course screenshot: Pasted image 20261012232706.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232804.png" alt="Course screenshot: Pasted image 20261012232804.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232846.png" alt="Course screenshot: Pasted image 20261012232846.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012232955.png" alt="Course screenshot: Pasted image 20261012232955.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233023.png" alt="Course screenshot: Pasted image 20261012233023.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233050.png" alt="Course screenshot: Pasted image 20261012233050.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233125.png" alt="Course screenshot: Pasted image 20261012233125.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233432.png" alt="Course screenshot: Pasted image 20261012233432.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233508.png" alt="Course screenshot: Pasted image 20261012233508.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012233553.png" alt="Course screenshot: Pasted image 20261012233553.png"></p>
+<p>Let&#39;s combine things we have learned so far.</p>
+<p>We will take our texture compression, fixing script and pocket into a plugin that adds a new functionality</p>
+<p>to our user interface.</p>
+<p>We will be able to disable or enable this plugin any time, and also it will have some nice icon.</p>
+<p>I hope you have watched video on texture compression settings validator, but also on adding custom</p>
+<p>menu actions and on adding new menu entry icon.</p>
+<p>The first step is actually creating some basic plugin with no files.</p>
+<p>Let&#39;s go to edit and then plugins.</p>
+<p>On the left side you have the add button and we want to select content only.</p>
+<p>If you have compiled the editor from C plus plus you may have some additional options, but I have only</p>
+<p>this one.</p>
+<p>Let&#39;s pick some name.</p>
+<p>We will call it Fix texture compression.</p>
+<p>Arthur is tech art corner.</p>
+<p>And you can put some description if you want to.</p>
+<p>Let&#39;s create the plugin.</p>
+<p>Now we can find it on the list.</p>
+<p>It&#39;s been added to other tab, but if you want to put it in some other one, just go to edit.</p>
+<p>And here you can type some other category name.</p>
+<p>Also you can change version name or docs URL and I think this is very handy.</p>
+<p>You can put here your confluence URL, maybe your GitHub repository.</p>
+<p>Something useful.</p>
+<p>Now let&#39;s close it.</p>
+<p>We are not going to restart the editor yet.</p>
+<p>We have to prepare the plugin itself and later we will restart.</p>
+<p>So let&#39;s go to Content Browser and on the list here we can see plugins.</p>
+<p>But if that is not visible just go to settings and enable Show Plugin content.</p>
+<p>I&#39;m gonna click with right mouse button showing explorer.</p>
+<p>And as you can see, the directory is empty.</p>
+<p>I will create a new folder called Python.</p>
+<p>So we have our content Python directory that will be always discovered by Andrew Langdon.</p>
+<p>Now let&#39;s copy this path because it will be very useful and let&#39;s switch to PyCharm.</p>
+<p>In my case.</p>
+<p>But it can also be Visual Studio.</p>
+<p>If you are using VS code, you have to add this directory to the workspace yourself.</p>
+<p>And if you are using PyCharm, you can follow my steps.</p>
+<p>I will open project settings.</p>
+<p>Then go to project.</p>
+<p>Project structure.</p>
+<p>Add content root.</p>
+<p>And here I&#39;m going to paste the path to that Python folder.</p>
+<p>Apply it.</p>
+<p>And here we have it.</p>
+<p>So let&#39;s create some basic init file.</p>
+<p>So the location is treated as a Python package.</p>
+<p>And we are not going to put anything.</p>
+<p>This is just to make sure that we don&#39;t have any imports that are broken.</p>
+<p>If you have issues with import errors check out Import Error video in the course.</p>
+<p>It also has some tutorial on creating plug ins by the way.</p>
+<p>Now let&#39;s make the code for fixing compression.</p>
+<p>We already have it.</p>
+<p>We have fixed texture compression file in our content slash Python folder.</p>
+<p>If you haven&#39;t followed the video, I recommend you to do so.</p>
+<p>But you don&#39;t have to type it all yourself.</p>
+<p>Just download source files attached to the course.</p>
+<p>So we are going to introduce some little changes.</p>
+<p>So let&#39;s create a new file and I will make sure I name it differently.</p>
+<p>So I have less conflicts.</p>
+<p>So new file.</p>
+<p>And I would just call it fixed compression.</p>
+<p>Okay, let&#39;s move it to the left side and I will copy literally everything so I can close the old file.</p>
+<p>And I will be sure that I&#39;m working on the correct one.</p>
+<p>So how is it really going to work?</p>
+<p>I will click on a single asset in unreal or maybe on multiple of them, and I will get a list of selected</p>
+<p>objects.</p>
+<p>Then I will pass it through this method or function and the fix will be applied.</p>
+<p>So the issue here is that our current function.</p>
+<p>Requires directory, not an object, so we will change it in just a minute.</p>
+<p>But before we do it, let&#39;s remove this zombie code here.</p>
+<p>Zombie code, which is a code that is dead unused.</p>
+<p>But we still think that we will bring it back to life someday.</p>
+<p>And I will also add editor utility library import here so we don&#39;t have to do it later.</p>
+<p>Okay.</p>
+<p>And now back to our method.</p>
+<p>We don&#39;t need the directory.</p>
+<p>We need list of assets or maybe a single asset.</p>
+<p>So let it be assets.</p>
+<p>And let&#39;s make some typing.</p>
+<p>I want either a list or a single one.</p>
+<p>So let&#39;s make a union and then list of let it be texture 2D.</p>
+<p>So unreal texture 2D.</p>
+<p>Or unreal texture 2D.</p>
+<p>And let&#39;s fix imports.</p>
+<p>So we have to import those names from the typing module.</p>
+<p>And what&#39;s going on.</p>
+<p>Union is used for saying that it can be either that type A or B.</p>
+<p>So we just type something like this and it can be either A or B.</p>
+<p>That&#39;s great.</p>
+<p>But if you want to have a of specific types then you make list.</p>
+<p>And that&#39;s a.</p>
+<p>So that is all the magic here.</p>
+<p>The only important thing is that when we use typing and we use simple data types like boolean here or</p>
+<p>like integer, we use lowercase.</p>
+<p>If we use more complex types you should use uppercase.</p>
+<p>And those will be imported from the typing module.</p>
+<p>That&#39;s it.</p>
+<p>I have attached a file about typing already, so keep that in mind.</p>
+<p>So back to our function.</p>
+<p>We don&#39;t need to get upset pathless.</p>
+<p>But we will be using for loop for iterating.</p>
+<p>So lets make sure that if we were provided a single object, it is still packed into some list.</p>
+<p>So if not as instance to check the type assets and check if its a list.</p>
+<p>This time we are not using typing, so its lowercase assets equals an array made of assets.</p>
+<p>That&#39;s it.</p>
+<p>And now we no longer have something like a set path list.</p>
+<p>So let&#39;s switch this name to asset.</p>
+<p>And we are not iterating over some asset path.</p>
+<p>So maybe let&#39;s call it just texture.</p>
+<p>And we no longer need to load this asset because I suppose that we will pass unreal objects to this</p>
+<p>method.</p>
+<p>And here I have an error because I used lowercase d.</p>
+<p>So now it is fixed.</p>
+<p>We can also fix file formatting and let&#39;s move on.</p>
+<p>We have some check that checks if we are working with texture 2D.</p>
+<p>I think I want to keep it because if by any mistake, we will be able to pass a method of wrong file</p>
+<p>formats to this to this function.</p>
+<p>I don&#39;t want it to crash.</p>
+<p>Imagine, like maybe we would be able to select multiple files in the UI, and for some reason they</p>
+<p>wouldn&#39;t be restricted to just textures.</p>
+<p>So in that case it&#39;s not going to crash.</p>
+<p>It will just skip them.</p>
+<p>And that&#39;s actually good.</p>
+<p>But maybe we should log information to the output so you can just make some print or warning.</p>
+<p>Anyway, let&#39;s continue fixing our names of variables that changed.</p>
+<p>See, this asset path is not available anymore.</p>
+<p>So we can put our texture here.</p>
+<p>And if you don&#39;t want to print it as an object, then maybe you should get some name and that&#39;s it.</p>
+<p>So let&#39;s do the same thing below.</p>
+<p>And we no longer have any errors.</p>
+<p>We don&#39;t need this if name equals main, because we are not going to execute it as a script.</p>
+<p>So.</p>
+<p>Let&#39;s remove it and we are halfway there.</p>
+<p>Now we should make some code that is responsible for adding this functionality to user interface.</p>
+<p>So let&#39;s create a new file.</p>
+<p>And I will call it setup fix compression UI.</p>
+<p>And now we can refer to menu entry icon file.</p>
+<p>That one is also available in the source files.</p>
+<p>So the first thing is obviously importing unreal.</p>
+<p>And then we have some class that contains script that executes our functionality.</p>
+<p>And here we have some code that adds it to the interface.</p>
+<p>So maybe start with the functionality.</p>
+<p>Let&#39;s copy this class.</p>
+<p>And I am not going to print anything here.</p>
+<p>So let&#39;s remove it.</p>
+<p>And the first thing I want to do is to get list of selected assets.</p>
+<p>To do it I need editor utility library.</p>
+<p>So I will add it right here.</p>
+<p>And now selected assets equals.</p>
+<p>Editor.</p>
+<p>Utility library.</p>
+<p>Cat selected assets.</p>
+<p>And when you middle mouse click on it.</p>
+<p>You will see that it returns an array of objects.</p>
+<p>These are not just asset paths.</p>
+<p>These are actual unreal objects, so we don&#39;t have to load them when we pass them to the function.</p>
+<p>That&#39;s great.</p>
+<p>Okay.</p>
+<p>The next step would be to process those textures.</p>
+<p>But think about it, there may be hundreds of them.</p>
+<p>So user needs some progress bar on the other side.</p>
+<p>If there is just a single texture or three of them, maybe we could skip it.</p>
+<p>On one hand, it&#39;s nice to display the progress bar always because user knows that something was done.</p>
+<p>On the other hand, you may want to skip it.</p>
+<p>I will not make a conditional check that either adds or skips adding the progress bar.</p>
+<p>But if you prefer to, it&#39;s up to you.</p>
+<p>So we will have some number of steps.</p>
+<p>Each texture or each file to be processed is a single step.</p>
+<p>So total steps equals length of our selected assets array.</p>
+<p>Create.</p>
+<p>And now we can use with unreal scope slow task to add the progress bar.</p>
+<p>So it takes number of steps and some name.</p>
+<p>So fixing.</p>
+<p>Texture compression.</p>
+<p>I think it&#39;s well descriptive for user.</p>
+<p>Let&#39;s make this window a bit wider.</p>
+<p>And also add as slow task so we can access this progress bar as a variable.</p>
+<p>So now the first thing we do is show it.</p>
+<p>So make dialogue can cancel.</p>
+<p>Yeah.</p>
+<p>Why not let user cancel it.</p>
+<p>And now let&#39;s go step by step through all those textures.</p>
+<p>We want users to be able to cancel them.</p>
+<p>So we want to process them one by one.</p>
+<p>If we didn&#39;t want to let user do it, we would just process all of them at once.</p>
+<p>So let&#39;s iterate over them for texture in selected assets.</p>
+<p>And first make sure user hasn&#39;t stopped it.</p>
+<p>So if slow task should cancel then we are stopping the loop with the break keyword.</p>
+<p>And if not, then just validate.</p>
+<p>Compression settings and pass the texture.</p>
+<p>We already made sure that it always works over textures, so we don&#39;t have to validate the type in our</p>
+<p>script here.</p>
+<p>But we have to import this function and we have a conflict.</p>
+<p>This is because I have copied function from another file, and now I have two files with function of</p>
+<p>the same name.</p>
+<p>So the new file I have created is fixed compression.</p>
+<p>And I&#39;m picking this one.</p>
+<p>And make sure you are not picking the wrong one if you did the same as I did.</p>
+<p>So now we have processed our texture and we have to update the progress bar.</p>
+<p>So slow task and our progress frame.</p>
+<p>And let&#39;s enter one.</p>
+<p>Great.</p>
+<p>Our functionality is ready, but it&#39;s not ready to use yet because it wasn&#39;t added to user interface.</p>
+<p>So let&#39;s go back to menu entry icon file and scroll down.</p>
+<p>I will hide the project files on the left side so we have more space on the screen.</p>
+<p>First thing, let&#39;s create a method called setup UI.</p>
+<p>Now let&#39;s copy the whole code.</p>
+<p>It was all explained in many Entriken video, so I&#39;ll just skip it.</p>
+<p>We have to adjust it to our needs.</p>
+<p>Asset context menu makes sure that this functionality will be accessible only on specific assets, so</p>
+<p>you can either use the script that I have provided in one of those videos, or just go to Source Files</p>
+<p>and find a file called Available Menu Names.</p>
+<p>Here you can find content browser, asset context, menu texture, which is where we want our functionality</p>
+<p>to be placed.</p>
+<p>I will leave you a section as cat asset actions, but we have to change those names.</p>
+<p>So maybe let&#39;s call it just fix compression settings and let&#39;s copy it to the label.</p>
+<p>And tooltips would be something like apply texture compression settings based on assets suffix.</p>
+<p>So let me paste it.</p>
+<p>Now let&#39;s scroll down and we have to adjust our icon.</p>
+<p>Everyone likes custom icons, so that was also explained before.</p>
+<p>But in the video about those styles, we were browsing in UMG style.</p>
+<p>So I thought maybe let&#39;s pick something else.</p>
+<p>So I opened my favorite tool for browsing files, which is called everything, and I just searched for</p>
+<p>files called style CPP.</p>
+<p>Then I was using some content filter and I was looking for things called texture, and I was trying</p>
+<p>to add a little dot here because many of those icons have a dot like pallet dot icon.</p>
+<p>I was looking for those and I was testing them, and I haven&#39;t really found anything I liked, but I</p>
+<p>found a checker texture and that checker texture is in slate editor style.</p>
+<p>And what was quite important for me is that this file is in engine source, because many of those files</p>
+<p>are in some plugins, like here, and they wouldn&#39;t be available for us anymore if you have disabled</p>
+<p>those plugins in settings.</p>
+<p>So it&#39;s just nice to have something built in in our engine.</p>
+<p>So let&#39;s find this slate editor style.</p>
+<p>We can browse it here.</p>
+<p>And you see I found a checker here.</p>
+<p>This checker is 16 by 16 pixels icon, and it doesn&#39;t really have any small or big version, so I just</p>
+<p>copied the name when I was prototyping.</p>
+<p>And you will see soon that it really fits our tool.</p>
+<p>I liked it, so let&#39;s pick this one.</p>
+<p>But we also have to.</p>
+<p>Adjust the style setting property because it&#39;s no longer you and style.</p>
+<p>This is slate editor style, and we have to make sure that we are using the correct name.</p>
+<p>So let&#39;s scroll up.</p>
+<p>Maybe to the top of the file.</p>
+<p>And here we have a slide style set called Editor Style.</p>
+<p>So that&#39;s all we need.</p>
+<p>Let&#39;s paste it here and we are almost good to go.</p>
+<p>The only issue is that if we open the editor and we have this plugin loaded.</p>
+<p>None of this code will be executed.</p>
+<p>So to do it we need a simple init unreal file.</p>
+<p>So let&#39;s create it.</p>
+<p>Init underscore unreal.</p>
+<p>And if we have a file called this way, it will be always executed when the editor starts.</p>
+<p>So let&#39;s execute setup.py, let&#39;s import it and it&#39;s done.</p>
+<p>I will go through the files to make sure that we have no errors.</p>
+<p>Looks like everything is fine.</p>
+<p>So now I can go back to my unreal editor and restart it so everything reloads.</p>
+<p>Engine has restarted and the only thing we have to do now is to test it.</p>
+<p>So let&#39;s go to some starter content texture folder.</p>
+<p>Right click and we have nice checker texture with fixed compression settings here.</p>
+<p>And as you may have noticed, I&#39;m not sure if it was caught on the recording.</p>
+<p>There was some progress bar.</p>
+<p>We can try selecting more of those files.</p>
+<p>And click it, and this time the progress bar was visible for just a fraction of second longer, but</p>
+<p>it was visible.</p>
+<p>We can go to output log, see that there is no errors.</p>
+<p>We had some notification about wrong compression settings, so I believe it was fixed.</p>
+<p>So in this video we summarized the knowledge from other recordings and we haven&#39;t really done anything</p>
+<p>new, but I still think that it helps you a little to bring your thoughts together and create a tool</p>
+<p>that now can be actually used and delivered to other artists.</p>
+<p>See you in the next video.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -27,6 +27,23 @@
+ ![[Pasted image 20261012232008.png]]
+ 
+ The package's `__init__.py` and Unreal's startup file `init_unreal.py` serve different purposes. The latter will register the menu when Unreal initializes Python.
++
++## Module layout and startup call
++
++A minimal arrangement matching the lesson is:
++
++```text
++FixTextureCompression/
++  FixTextureCompression.uplugin
++  Content/Python/
++    init_unreal.py
++    fix_compression.py
++    setup_fix_compression_ui.py
++```
++
++`init_unreal.py` imports `setup_ui` from `setup_fix_compression_ui` and calls it. If using a package subfolder instead, retain its `__init__.py` and use package-qualified imports. Keep the core module free of startup/menu side effects.
++
++The original normalization checks `isinstance(assets, list)` and wraps anything else in a list. That supports a single texture and a Python list, but an Unreal array would be wrapped as one item. The demonstrated menu avoids this by looping over selected assets and passing **one texture at a time**. For a batch API, deliberately convert the selection with `list(selection)` or support Unreal arrays explicitly.
+ 
+ ![[Pasted image 20261012232059.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

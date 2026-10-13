@@ -1,0 +1,11 @@
+{
+  "empty_selection": true,
+  "unrelated_actor_rejected": true,
+  "baseline_fails": true,
+  "shared_asset_example": true,
+  "stale_selection_rejected": true,
+  "six_changed": true,
+  "all_pass_after_apply": true,
+  "second_apply_noop": true,
+  "reset_restores_baseline": true
+}

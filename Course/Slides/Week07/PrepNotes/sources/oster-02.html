@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>L2 Using UE Python API</title><style>*{box-sizing:border-box}body{margin:0;background:#faf9fc;color:#25222b;font:17px/1.65 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:36px 28px 80px}h1{font-size:38px;line-height:1.16}h2{margin-top:44px;line-height:1.25}a{color:#594396}nav{display:flex;gap:20px;flex-wrap:wrap;border-block:1px solid #ddd;padding:16px 0}table{border-collapse:collapse;width:100%;font-size:15px}th,td{text-align:left;padding:12px;border:1px solid #d9d5e0;vertical-align:top}th{background:#eeeaf4}pre{background:#eeeaf4;padding:18px;white-space:pre-wrap;overflow-wrap:anywhere}code{font-family:Consolas,monospace}img{display:block;max-width:100%;height:auto;margin:20px 0}p,li{overflow-wrap:anywhere}blockquote{border-left:4px solid #9476b8;margin-left:0;padding-left:20px}.meta{color:#635a6d;font-size:14px}li{margin:7px 0}button{font:inherit;padding:8px 16px}@media(max-width:700px){main{padding:20px 14px}table{display:block;overflow-x:auto}h1{font-size:30px}}@media print{nav,button{display:none}body{background:white}}</style></head><body><main><nav><a href="../index.html">Week 7 prep guide</a><a href="../source_index.html">Source notes</a><a href="../../AgendaRevision20261010/Preparation_and_Source_Compilation.html">Agenda compilation</a><a href="../../UnrealPythonDemo/index.html">Week 7 Python demo</a></nav><h1>L2 Using UE Python API</h1><p class="meta">Study note snapshot • 10 October 2026 • Copied snippets may contain errors. See the preparation guide before reuse.</p><p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/02%20Isaac%20Oster%20-%20Utilizing%20Python%20for%20Editor%20Scripting%20in%20Unreal%20Engine/L2%20Using%20UE%20Python%20API.md">Original note</a> · <a href="../../../../Readers/oster-02-709a6b3b.html">Unmodified Markdown snapshot</a></p><p>Script:
+	
+	import unreal
+	
+	def listAssetPaths():
+	
+	    EAL = unreal.EditorAssetLibrary
+	
+	    assetPaths = EAL.list_assets(&#39;/Game&#39;, recursive=True, include_folder=False)</p>
+<pre><code>    unreal.log(f&quot;Found {len(assetPaths)} assets&quot;)
+
+    for assetPath in assetPaths:
+
+        unreal.log(assetPath)
+
+listAssetPaths()
+</code></pre>
+<p>Result in Output Log:</p>
+<pre><code>LogPython: import importlib
+import import_assets as TS
+TS = importlib.reload(TS)
+LogPython: Found 1038 assets
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Albedo_Specular_01a.MF_Albedo_Specular_01a
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Angle_Blend_01a.MF_Angle_Blend_01a
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_BarkUVMap.MF_BarkUVMap
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Camera_Depth_Landscape_01a.MF_Camera_Depth_Landscape_01a
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_CustomGrassWind.MF_CustomGrassWind
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Damaged_Wood.MF_Damaged_Wood
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Debris_01a.MF_Debris_01a
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Detail_Normal_01a.MF_Detail_Normal_01a
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Displacment_01a.MF_Displacment_01a
+</code></pre>
+</main></body></html>

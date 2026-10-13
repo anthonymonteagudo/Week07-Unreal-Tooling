@@ -1,0 +1,139 @@
+{
+  "reviewed": "2026-10-12",
+  "scope": "Source visual candidates; linked remote previews, not a licensed redistribution pack. No new SVG/PNG diagrams authored.",
+  "visuals": [
+    {
+      "id": "V1",
+      "title": "Fortnite Tools · selection information and shortcuts",
+      "type": "Real UEFN documentation screenshot",
+      "url": "https://dev.epicgames.com/community/api/documentation/image/7c32e772-e902-41c7-81ac-6257d81e711a?resizing_type=fit",
+      "source": "fortnite",
+      "credit": "Epic Games · Fortnite Tools Mode documentation",
+      "use": "14A and 15: point to selection information, named groups, and visible shortcut help. Enlarge the original to read labels.",
+      "rights": "Copyright Epic Games; linked source preview for commentary. No open-content license verified. Preserve credit; this is not a redistributable course-owned asset. Image endpoint returned HTTP 403 during checking; locate the named figure on the source page. Screenshot content has not been visually verified.",
+      "preview": false
+    },
+    {
+      "id": "V2",
+      "title": "Fortnite Tools · an empty-operation message",
+      "type": "Real UEFN documentation screenshot",
+      "url": "https://dev.epicgames.com/community/api/documentation/image/25c7296b-ef4f-4e07-9642-362568b38aa8?resizing_type=fit",
+      "source": "fortnite",
+      "credit": "Epic Games · Fortnite Tools Mode documentation",
+      "use": "15A: inspect where the message appears and whether it tells the artist what happened. Critique it; a production example need not be perfect.",
+      "rights": "Copyright Epic Games; source preview only, no open-content license verified. Image endpoint returned HTTP 403 during checking; locate the named figure on the source page. Screenshot content has not been visually verified.",
+      "preview": false
+    },
+    {
+      "id": "V3",
+      "title": "Fortnite Tools · Find Overlap controls",
+      "type": "Real UEFN documentation screenshot",
+      "url": "https://dev.epicgames.com/community/api/documentation/image/451f58e3-d090-44e0-822a-a3ad436f4b8e?resizing_type=fit",
+      "source": "fortnite",
+      "credit": "Epic Games · Fortnite Tools Mode documentation",
+      "use": "Optional production case: focus a reported problem in the viewport; compare inspection and modification actions. Use at near-native size, not as a tiny full-screen thumbnail.",
+      "rights": "Copyright Epic Games; source preview only, no open-content license verified. Image endpoint returned HTTP 403 during checking; locate the named figure on the source page. Screenshot content has not been visually verified.",
+      "preview": false
+    },
+    {
+      "id": "V4",
+      "title": "Lyra · parametric window example",
+      "type": "Real Unreal sample-project image",
+      "url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/ae807cb8-72ea-449d-9976-c5916515cbe3/advancedwindow.png",
+      "source": "lyra",
+      "credit": "Epic Games · Geometry Tools in Lyra",
+      "use": "Optional: show the creative outcomes supported by an artist tool. Pair with source-page controls; this image alone does not establish usability.",
+      "rights": "Copyright Epic Games; source preview only, no open-content license verified.",
+      "preview": true
+    },
+    {
+      "id": "V5",
+      "title": "Lyra · generate, place, revise, bake",
+      "type": "Published animated workflow",
+      "url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/07921806-a621-4360-bc2b-e74c96e61d65/workflow.gif",
+      "source": "lyra",
+      "credit": "Epic Games · Geometry Tools in Lyra",
+      "use": "Optional short clip: show tool → asset → repeated placements → update. Link to play; not automatically animated in this review.",
+      "rights": "Copyright Epic Games; linked media, not downloaded or relicensed.",
+      "preview": false
+    },
+    {
+      "id": "V6",
+      "title": "Double Diamond",
+      "type": "Professional process diagram · CC BY 4.0",
+      "url": "https://www.designcouncil.org.uk/fileadmin/uploads/dc/Photos/banners/Double_Diamond.png",
+      "source": "diamond",
+      "credit": "Double Diamond by Design Council · CC BY 4.0 · original, unmodified",
+      "use": "Optional design process: understand the artist’s problem before committing to a tool. The model supports iteration; do not teach it as rigid waterfall stages.",
+      "rights": "Source page explicitly licenses this Double Diamond under CC BY 4.0. Credit Design Council, link source and license, identify changes if adapted. The license does not automatically cover every image on the site.",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "preview": true
+    },
+    {
+      "id": "V7",
+      "title": "Learnability · repeated-task completion curve",
+      "type": "Professional explanatory chart · hypothetical data",
+      "url": "https://media.nngroup.com/media/editor/2019/09/18/filebackup.png",
+      "source": "learning",
+      "credit": "Alita Kendrick / Nielsen Norman Group · How to Measure Learnability",
+      "use": "Optional: distinguish first-use ease from repeated-use efficiency. The plotted values are hypothetical, not studio results or a guaranteed improvement.",
+      "rights": "NN/g reserves artwork rights. Direct source link only; do not treat a free article as a free slide-image license. Its policy requires permission to copy artwork.",
+      "preview": false
+    },
+    {
+      "id": "V8",
+      "title": "Visual-design principles poster",
+      "type": "Professional visual reference PDF",
+      "url": "https://media.nngroup.com/media/articles/attachments/Principles_Visual_Design-Letter.pdf",
+      "source": "proximity",
+      "credit": "Nielsen Norman Group · 5 Principles of Visual Design in UX",
+      "use": "Instructor reference for hierarchy and grouping. Prefer one relevant example over projecting a dense all-principles poster.",
+      "rights": "NN/g artwork: linked reference, not copied into this review. See publisher policy for permitted physical reprints and artwork reuse.",
+      "preview": false,
+      "source_url": "https://www.nngroup.com/articles/principles-visual-design/"
+    },
+    {
+      "id": "V9",
+      "title": "Batch Rename · three-part tool walkthrough",
+      "type": "Author’s free videos and implementation",
+      "url": "https://ryandowlingsoka.com/unreal/batch-rename-tool/",
+      "source": "rename",
+      "credit": "Ryan DowlingSoka · Batch Rename Editor Widget Tutorial",
+      "use": "15B: inspect row-level choices and recovery; choose a relevant frame during instructor viewing. No timestamp is fabricated and no video frame is claimed captured.",
+      "rights": "Author page/video remains linked. Repository licensing does not automatically license blog/video artwork.",
+      "preview": false
+    },
+    {
+      "id": "V10",
+      "title": "Material Parameters Helper · author walkthrough",
+      "type": "Professional Unreal tool breakdown",
+      "url": "https://ryandowlingsoka.com/unreal/material-parameters-helper/",
+      "source": "material",
+      "credit": "Ryan DowlingSoka · Material Parameters Helper: Odds and Ends",
+      "use": "Optional materials connection: finding a parameter and jumping to its owning expression. Source explains this behavior and its production origins.",
+      "rights": "Linked author walkthrough; no video screenshot or open artwork license claimed.",
+      "preview": false
+    },
+    {
+      "id": "V11",
+      "title": "Accessible and inclusive developer tools",
+      "type": "Microsoft GDC 2023 free session",
+      "url": "https://developer.microsoft.com/en-us/games/events/gdc/2023/accessible-and-inclusive-developer-tools/",
+      "source": "access",
+      "credit": "Microsoft Game Dev · GDC 2023",
+      "use": "15B / optional accessibility: creator-facing keyboard controls, screen readers, scaling, and high contrast. Session description verified; full video not watched.",
+      "rights": "Link to official video page; no redistribution or clip license established.",
+      "preview": false
+    },
+    {
+      "id": "V12",
+      "title": "Existing group assessment · result reveal",
+      "type": "Local fictional teaching example",
+      "url": "../ActivitiesDraft20261012/reveal.html",
+      "credit": "Course activity draft · 12 October 2026",
+      "use": "14: reopen the existing name/result table. It is a fictional case, not a captured Unreal bug or measured studio test.",
+      "rights": "Existing course-authored activity; retain its fictional label. No screenshot generated in this pass.",
+      "preview": false
+    }
+  ]
+}

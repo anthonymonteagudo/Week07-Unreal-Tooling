@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>09 Startup Scripts and init_unreal.py · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-09">Return to audit</a><a href="08.html">Previous lesson</a> <a href="10.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/09%20Startup%20Scripts%20and%20init_unreal.py.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/09%20Startup%20Scripts%20and%20init_unreal.py%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>09 Startup Scripts and init_unreal.py</h1><p>Startup registration and editor-session context retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Startup Scripts and init_unreal.py — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/09%20Startup%20Scripts%20and%20init_unreal.py.md">Original notes</a></p>
+<p>Use startup scripts to initialize tools, register callbacks, or configure shared paths when Unreal starts.</p>
+<h2>Automatic initialization</h2>
+<p>Create <code>init_unreal.py</code> in a discoverable Python directory, such as <code>&lt;Project&gt;/Content/Python</code>. Add a distinctive log message so you can confirm that it executes.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010223922.png" alt="Course screenshot: Pasted image 20261010223922.png"></p>
+<h2>Register a named startup script</h2>
+<p>Create a separately named script, such as <code>startup_script.py</code>, with a different log message.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010224116.png" alt="Course screenshot: Pasted image 20261010224116.png"></p>
+<p>Add it under <strong>Project Settings → Python → Startup Scripts</strong>. A discoverable script can be entered by filename. Restart Unreal to apply the setting.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010224226.png" alt="Course screenshot: Pasted image 20261010224226.png"></p>
+<h2>Verify both entry points</h2>
+<p>Search the Output Log for the messages from both files. If the log is noisy, use <strong>Filters → Categories → LogPython</strong> to narrow the output.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010224300.png" alt="Course screenshot: Pasted image 20261010224300.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010224331.png" alt="Course screenshot: Pasted image 20261010224331.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/08%20Running%20Script%20via%20Commandline%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/10%20Getting%20User%20Selection%20and%20Listing%20Assets%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010223922.png" alt="Course screenshot: Pasted image 20261010223922.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010224116.png" alt="Course screenshot: Pasted image 20261010224116.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010224226.png" alt="Course screenshot: Pasted image 20261010224226.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010224300.png" alt="Course screenshot: Pasted image 20261010224300.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010224331.png" alt="Course screenshot: Pasted image 20261010224331.png"></p>
+<p>When working with custom pipeline, it may be very important to run some scripts on startup.</p>
+<p>Sometimes it&#39;s some variable initialization, sometimes registering callbacks, or maybe even some file</p>
+<p>synchronization.</p>
+<p>Unreal lets you specify startup scripts, either in settings or by creating special init underscore</p>
+<p>unreal files.</p>
+<p>Let&#39;s create some init unreal file first.</p>
+<p>The rule is simple if unreal finds a file called init underscore unreal dot pi in any of discoverable</p>
+<p>paths, it will be launched automatically.</p>
+<p>So let&#39;s go to PyCharm or your IDE of choice and create a new file in our project slash content slash</p>
+<p>Python to make sure that it can be discovered by the engine.</p>
+<p>I will create a new file and obviously call this as I said, which is init underscore unreal dot pi.</p>
+<p>Great.</p>
+<p>But I want to have some very obvious print here which will tell me that this exact file was executed.</p>
+<p>So let&#39;s do it.</p>
+<p>Print executing content.</p>
+<p>Slash.</p>
+<p>Python init.</p>
+<p>Unreal.</p>
+<p>Great.</p>
+<p>Next, let&#39;s create some script that will have a custom name and will be later set to be used as a startup</p>
+<p>script in settings.</p>
+<p>We are already doing things in content slash Python, so let&#39;s create a new file in the same folder</p>
+<p>and maybe call it startup.</p>
+<p>Underscore script.</p>
+<p>Dot py.</p>
+<p>I want to have a different print this time so I know which one comes from which file.</p>
+<p>So I&#39;m printing just executing startup script defined in settings.</p>
+<p>Great.</p>
+<p>Let&#39;s save those.</p>
+<p>And now get back to unreal.</p>
+<p>Let&#39;s go to Edit Project Settings and search for Python.</p>
+<p>We have to add the second script to array in startup scripts.</p>
+<p>It is discoverable by the engine, so we will only specify its name.</p>
+<p>Great.</p>
+<p>And as I edited those settings, I got a notification in the corner.</p>
+<p>That restart is required to apply new settings.</p>
+<p>So I will use that button now.</p>
+<p>As you can see in the console on the newly restarted project, both files executed.</p>
+<p>If you have any issues finding that, you can always use search log function.</p>
+<p>Or even filter log messages.</p>
+<p>You have a filters button here and there are categories.</p>
+<p>You can disabled all but Python and that way you will see only Python logs.</p>
+<p>However, those aren&#39;t that disturbing to me so I will keep everything enabled.</p>
+<p>I hope this is all you need to know about startup scripts and see you in the next video.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

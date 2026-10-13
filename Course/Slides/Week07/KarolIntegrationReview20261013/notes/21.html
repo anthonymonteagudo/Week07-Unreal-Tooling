@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>21 Why you need asset validation · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-21">Return to audit</a><a href="20.html">Previous lesson</a> <a href="22.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/21%20Why%20you%20need%20asset%20validation.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/21%20Why%20you%20need%20asset%20validation%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>21 Why you need asset validation</h1><p>Validation workflow and interpreting results retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Why Asset Validation Matters — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/21%20Why%20you%20need%20asset%20validation.md">Original notes</a></p>
+<p>Validators catch repeatable content problems early, before they become debugging tasks for artists, developers, and QA. Run them while working and before submitting content.</p>
+<h2>Useful project checks</h2>
+<ul>
+<li>Naming conventions, so search and automation can identify assets consistently.</li>
+<li>Texture dimensions, compression, and other project-specific texture rules.</li>
+<li>Triangle budgets for different asset categories.</li>
+</ul>
+<p>Materials and Blueprints in Starter Content provide the demonstration assets.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011232500.png" alt="Course screenshot: Pasted image 20261011232500.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011232539.png" alt="Course screenshot: Pasted image 20261011232539.png"></p>
+<p>Choose rules that fit the project. A square-texture rule or a triangle limit is a content policy; an exception may deserve a warning instead of a hard failure.</p>
+<h2>Run validation in the editor</h2>
+<p>Select assets, right-click, and choose <strong>Asset Actions → Validate Assets</strong>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011232708.png" alt="Course screenshot: Pasted image 20261011232708.png"></p>
+<p>Review the results in the Message Log. Open <strong>Window → Message Log</strong> if it does not appear automatically.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011232819.png" alt="Course screenshot: Pasted image 20261011232819.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011232943.png" alt="Course screenshot: Pasted image 20261011232943.png"></p>
+<p>The example warns that a Blueprint name should begin with <code>BP_</code>. A useful message identifies the violated rule and what to change.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011233029.png" alt="Course screenshot: Pasted image 20261011233029.png"></p>
+<p>The same validation approach can support build-system checks after submissions, giving the team faster feedback as the project grows.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/20%20Batch%20Import%20Textures%20%28Automated%20Asset%20Import%29%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/22%20Naming%20Convention%20Validator%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p>Intro to asset validation in Unreal Engine
+	How little amount of work can have a big impact
+		On your Unreal project stability and save time</p>
+<p>Detecting bugs for you</p>
+<p>All those small things
+	Naming conventions
+	Square Textures. Power of two dimensions.
+	Compression settings.
+	Polycount.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011232500.png" alt="Course screenshot: Pasted image 20261011232500.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011232539.png" alt="Course screenshot: Pasted image 20261011232539.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011232708.png" alt="Course screenshot: Pasted image 20261011232708.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011232819.png" alt="Course screenshot: Pasted image 20261011232819.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011232943.png" alt="Course screenshot: Pasted image 20261011232943.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011233029.png" alt="Course screenshot: Pasted image 20261011233029.png"></p>
+<p>Hello and welcome to Asset Validation in Unreal Engine introduction.</p>
+<p>I will tell you why you need asset validation and how little amount of work can have a big impact on</p>
+<p>your project.</p>
+<p>Stability validators are scripts that detect bugs in your assets.</p>
+<p>They can be run any time, but most importantly, they should run before you submit anything into the</p>
+<p>project.</p>
+<p>They can catch all those low hanging fruits that are easy to miss.</p>
+<p>But sometimes even more complex issues.</p>
+<p>Think of all those things like naming convention.</p>
+<p>Maybe your assets should start with specific prefix textures with t underscore, materials with m underscore,</p>
+<p>and so on.</p>
+<p>If that is not correct, you will struggle finding your assets with name search, but also some scripts</p>
+<p>may work incorrectly.</p>
+<p>Or if your assets don&#39;t have square textures or those textures are not power of two, then your game</p>
+<p>will probably have a bit lower performance.</p>
+<p>Same with texture compression.</p>
+<p>It impacts both performance and the final look of the game.</p>
+<p>And lastly, maybe you are working on a low poly game and you would like to have a notification if your</p>
+<p>asset exceeds expected poly count.</p>
+<p>In that case, it may be done on purpose.</p>
+<p>You may not want to fail artists work, but you should at least warn him.</p>
+<p>Such issues are usually really easy to miss.</p>
+<p>You work on lots of assets and you will make mistakes, and after a few days someone may notice it and</p>
+<p>he will either fix it right away or just create a ticket in JIRA.</p>
+<p>Then wait a few more days.</p>
+<p>Ticket goes back to you, you fix it and then this task goes to QA team for verification.</p>
+<p>That&#39;s a lot of hassle and all that could have been prevented with a simple validator.</p>
+<p>So let me show you how users use validators in Unreal Engine.</p>
+<p>It really is as simple as it can be.</p>
+<p>Just select few desired assets right mouse button on them, go to Asset Actions and pick Validate assets.</p>
+<p>Now we have a window with log.</p>
+<p>But if that window didn&#39;t pop up for you for any reason, then just navigate to the main unreal toolbar,</p>
+<p>find window and open Message log.</p>
+<p>And now back to our errors.</p>
+<p>As you can see, we had some validation going on and we have a warning.</p>
+<p>That warning tells me that this blueprint is not named correctly.</p>
+<p>The name should start with BP underscore, which is my project naming convention.</p>
+<p>And this exact validator will be implemented by us together in the next video in the course.</p>
+<p>Such validator can be used by user just like we did it, or it can even run on some build system.</p>
+<p>If you have an observer that runs after each submit, then you can even create almost live logs of stability</p>
+<p>of your assets.</p>
+<p>And that&#39;s it!</p>
+<p>I hope this intro was helpful and see you in the next video where we will jump into implementation.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

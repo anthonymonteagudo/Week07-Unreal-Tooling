@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>01 Initial Setup · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-01">Return to audit</a><a href="00.html">Previous lesson</a> <a href="02.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/01%20Initial%20Setup.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/01%20Initial%20Setup%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>01 Initial Setup</h1><p>Plugin setup and IDE preparation retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Initial Setup — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/01%20Initial%20Setup.md">Original notes</a></p>
+<p>Prepare an Unreal project for editor scripting and generate the Python stub used by your IDE for autocomplete. A blank project is sufficient.</p>
+<h2>Enable scripting plugins</h2>
+<p>Open <strong>Edit → Plugins → Scripting</strong>. The course enables <strong>Editor Scripting Utilities</strong>, <strong>Python Editor Script Plugin</strong>, and <strong>Sequencer Scripting</strong>. It also enables <strong>Python Foundation Packages</strong>, which supplies additional Python packages in the demonstrated engine version.</p>
+<p>Restart Unreal after changing the plugins.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010202910.png" alt="Course screenshot: Pasted image 20261010202910.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010203028.png" alt="Course screenshot: Pasted image 20261010203028.png"></p>
+<h2>Generate the Unreal Python stub</h2>
+<p>In <strong>Edit → Project Settings</strong>, search for <strong>Python</strong> and enable <strong>Developer Mode</strong>. Restart again to generate the stub.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010203417.png" alt="Course screenshot: Pasted image 20261010203417.png"></p>
+<p>The generated file is <code>&lt;Project&gt;/Intermediate/PythonStub/unreal.py</code>. It describes the exposed Unreal Python API for IDE assistance. Developer Mode refreshes it on editor startup, including after changes to exposed functionality.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010203821.png" alt="Course screenshot: Pasted image 20261010203821.png"></p>
+<p>Next, point your IDE at the containing <code>PythonStub</code> folder.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/00%20UE%20Python%20Overview%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/02%20VS%20Code%20Autocomplete%20Setup%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p>I hope you already have some Unreal Engine project.</p>
+<p>If you don&#39;t, some blank one based on default presets will be all you need.</p>
+<p>We will quickly set everything up in the engine and then set up your ID in the next video.</p>
+<p>The first step we have to do is enabling some plugins.</p>
+<p>Let&#39;s go to edit plugins and for easier search, let&#39;s find scripting tab on the left side.</p>
+<p>The most important plugins is editor scripting utilities as well as.</p>
+<p>Sequencer scripting.</p>
+<p>And Python editor script plugin.</p>
+<p>There is also a new plugin called Python Foundation Packages, which is simply the most common Python</p>
+<p>packages that you may want to use like NumPy or PyTorch.</p>
+<p>We can enable those, and maybe thanks to that, you will not have to ask those Python modules yourself.</p>
+<p>So let&#39;s take this one as well.</p>
+<p>Now we have to restart our engine.</p>
+<p>Once the engine has restarted, we have one thing left to do in unreal.</p>
+<p>Open edit and go to Project Settings.</p>
+<p>We have to find Python tab.</p>
+<p>However, there is too many tabs on the left side, so let&#39;s just use the search bar.</p>
+<p>We search for Python.</p>
+<p>And here there is a section called.</p>
+<p>Python developer mode.</p>
+<p>Let&#39;s enable it.</p>
+<p>Once it&#39;s enabled, we sadly have to restart once again and this time it may take a short while.</p>
+<p>Great Engine has restarted once again and enabling developer mode turned on generating python stub file</p>
+<p>called unreal.py.</p>
+<p>We can find it in our project folder by entering into intermediate, then python stub.</p>
+<p>We will use that file in the next videos to set it up in either PyCharm or Visual Studio Code, and</p>
+<p>this file will be updated on the next engine startup.</p>
+<p>Whether there were some changes introduced by engine update or local changes that exposed any new Cplusplus</p>
+<p>functionalities to the Python level.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010202910.png" alt="Course screenshot: Pasted image 20261010202910.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010203028.png" alt="Course screenshot: Pasted image 20261010203028.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010203417.png" alt="Course screenshot: Pasted image 20261010203417.png"></p>
+<p>Result:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010203821.png" alt="Course screenshot: Pasted image 20261010203821.png"></p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

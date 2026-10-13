@@ -1,0 +1,496 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>19 Batch Import FBX Meshes (Asset Import Task) · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-19">Return to audit</a><a href="18.html">Previous lesson</a> <a href="20.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/19%20Batch%20Import%20FBX%20Meshes%20%28Asset%20Import%20Task%29.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/19%20Batch%20Import%20FBX%20Meshes%20%28Asset%20Import%20Task%29%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>19 Batch Import FBX Meshes (Asset Import Task)</h1><p>Construct options, then attach them to every task</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Batch Importing FBX Meshes with AssetImportTask — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/19%20Batch%20Import%20FBX%20Meshes%20%28Asset%20Import%20Task%29.md">Original notes</a></p>
+<p>Create one <code>AssetImportTask</code> per source file, configure shared FBX options, then submit the task collection to Asset Tools. This separates file discovery, import settings, and execution.</p>
+<h2>Discover source files</h2>
+<p>Use <code>Path(source_folder).glob(&quot;*.fbx&quot;)</code> to select FBX files in one folder, or <code>rglob(&quot;*.fbx&quot;)</code> to include subfolders. This is a glob pattern, not a regular expression. Unrelated files are excluded.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213413.png" alt="Course screenshot: Pasted image 20261011213413.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213659.png" alt="Course screenshot: Pasted image 20261011213659.png"></p>
+<h2>Configure each task</h2>
+<p>The important task fields are:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>automated</code></td>
+<td>Suppress interactive import prompts for batch processing.</td>
+</tr>
+<tr>
+<td><code>filename</code></td>
+<td>Full source-file path, converted from <code>Path</code> to <code>str</code>.</td>
+</tr>
+<tr>
+<td><code>destination_path</code></td>
+<td>Unreal content folder, such as <code>/Game/Enviro</code>.</td>
+</tr>
+<tr>
+<td><code>destination_name</code></td>
+<td>Asset name, taken from the source path&#39;s <code>stem</code>.</td>
+</tr>
+<tr>
+<td><code>replace_existing</code></td>
+<td>Allow replacement of existing assets.</td>
+</tr>
+<tr>
+<td><code>save</code></td>
+<td>Save imported assets.</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td>Asset-type-specific import settings.</td>
+</tr>
+</tbody></table>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213813.png" alt="Course screenshot: Pasted image 20261011213813.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213855.png" alt="Course screenshot: Pasted image 20261011213855.png"></p>
+<p>The demonstration enables replacement and saving. Inspect the import log for failures even when the task is automated.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011214143.png" alt="Course screenshot: Pasted image 20261011214143.png"></p>
+<h2>Configure FBX and static mesh options</h2>
+<p>Create shared <code>FbxImportUI</code> options outside the loop. The example enables mesh and material import, disables texture import, and enables automatic type detection. Attach <code>FbxStaticMeshImportData</code> through <code>static_mesh_import_data</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011214403.png" alt="Course screenshot: Pasted image 20261011214403.png"></p>
+<p><code>combine_meshes</code> combines multiple mesh objects from an FBX into one imported mesh. The Blender examples contrast a simple mesh with a file containing several separate objects.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011214557.png" alt="Course screenshot: Pasted image 20261011214557.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215039.png" alt="Course screenshot: Pasted image 20261011215039.png"></p>
+<p><code>remove_degenerates</code> handles degenerate geometry during import. Inspect source geometry when triangulation warnings or missing objects appear; the screenshot demonstrates a geometry problem in Blender. Degenerate triangles and non-manifold geometry are related troubleshooting topics, but are not synonymous.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215129.png" alt="Course screenshot: Pasted image 20261011215129.png"></p>
+<h2>Execute and inspect tasks</h2>
+<p>Use <code>AssetToolsHelpers.get_asset_tools().import_asset_tasks(tasks)</code>. Read each task&#39;s <code>imported_object_paths</code> afterward to report what was imported; the call itself is shown returning <code>None</code> in the stub.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215507.png" alt="Course screenshot: Pasted image 20261011215507.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215338.png" alt="Course screenshot: Pasted image 20261011215338.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215612.png" alt="Course screenshot: Pasted image 20261011215612.png"></p>
+<h2>Construct options, then attach them to every task</h2>
+<p>This consolidated example keeps the key fields shown in the FBX screenshots. Paths are placeholders; calling the last line performs the import. The course explicitly enables replacement and saving here.</p>
+<pre><code class="language-python">from pathlib import Path
+import unreal
+
+options = unreal.FbxImportUI()
+options.set_editor_property(&quot;import_mesh&quot;, True)
+options.set_editor_property(&quot;import_materials&quot;, True)
+options.set_editor_property(&quot;import_textures&quot;, False)
+options.set_editor_property(&quot;automated_import_should_detect_type&quot;, True)
+mesh_options = options.get_editor_property(&quot;static_mesh_import_data&quot;)
+mesh_options.set_editor_property(&quot;combine_meshes&quot;, True)
+mesh_options.set_editor_property(&quot;remove_degenerates&quot;, True)
+
+tasks = []
+for filename in [&quot;C:/Exports/Crate.fbx&quot;]:
+    task = unreal.AssetImportTask()
+    task.set_editor_property(&quot;filename&quot;, filename)
+    task.set_editor_property(&quot;destination_path&quot;, &quot;/Game/Imported&quot;)
+    task.set_editor_property(&quot;destination_name&quot;, Path(filename).stem)
+    task.set_editor_property(&quot;automated&quot;, True)
+    task.set_editor_property(&quot;replace_existing&quot;, True)
+    task.set_editor_property(&quot;save&quot;, True)
+    task.set_editor_property(&quot;options&quot;, options)
+    tasks.append(task)
+unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks(tasks)
+</code></pre>
+<p><code>static_mesh_import_data</code> holds the nested mesh settings. If using <code>unreal.Array.cast(unreal.AssetImportTask, tasks)</code>, use its returned array; merely calling a conversion and discarding it does not replace the Python list. Inspect each task&#39;s <code>imported_object_paths</code> afterward. These are the course&#39;s FBX options, not verified settings for every later engine/importer version.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215721.png" alt="Course screenshot: Pasted image 20261011215721.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215802.png" alt="Course screenshot: Pasted image 20261011215802.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215841.png" alt="Course screenshot: Pasted image 20261011215841.png"></p>
+<p>Asset Tools exposes other useful operations. Check deprecation notes before reusing them: the captured <code>open_editor_for_assets</code> entry points to <code>AssetEditorSubsystem</code> as its replacement.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215414.png" alt="Course screenshot: Pasted image 20261011215414.png"></p>
+<h2>Python lists and Unreal arrays</h2>
+<p>A Python list works in the demonstrated call. If an API or type checker requires an explicit Unreal array, construct <code>unreal.Array(unreal.AssetImportTask)</code> or convert a list with <code>unreal.Array.cast(unreal.AssetImportTask, tasks)</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011220056.png" alt="Course screenshot: Pasted image 20261011220056.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011220135.png" alt="Course screenshot: Pasted image 20261011220135.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011220305.png" alt="Course screenshot: Pasted image 20261011220305.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011220806.png" alt="Course screenshot: Pasted image 20261011220806.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011220608.png" alt="Course screenshot: Pasted image 20261011220608.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011220843.png" alt="Course screenshot: Pasted image 20261011220843.png"></p>
+<p>Complete import demonstration and resulting assets:</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213313.png" alt="Course screenshot: Pasted image 20261011213313.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213325.png" alt="Course screenshot: Pasted image 20261011213325.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213341.png" alt="Course screenshot: Pasted image 20261011213341.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/18%20Remove%20Unused%20Assets%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/20%20Batch%20Import%20Textures%20%28Automated%20Asset%20Import%29%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213313.png" alt="Course screenshot: Pasted image 20261011213313.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213325.png" alt="Course screenshot: Pasted image 20261011213325.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213341.png" alt="Course screenshot: Pasted image 20261011213341.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213413.png" alt="Course screenshot: Pasted image 20261011213413.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213659.png" alt="Course screenshot: Pasted image 20261011213659.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213813.png" alt="Course screenshot: Pasted image 20261011213813.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011213855.png" alt="Course screenshot: Pasted image 20261011213855.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011214143.png" alt="Course screenshot: Pasted image 20261011214143.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011214403.png" alt="Course screenshot: Pasted image 20261011214403.png"></p>
+<p>Note...
+Some meshes are simple:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011214557.png" alt="Course screenshot: Pasted image 20261011214557.png"></p>
+<p>Some meshes are made up of separate geometry, or are more complex:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215039.png" alt="Course screenshot: Pasted image 20261011215039.png"></p>
+<p>Also some geometry have degenerate issues (non-manifold geometry):
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215129.png" alt="Course screenshot: Pasted image 20261011215129.png">
+To address this in code...
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215507.png" alt="Course screenshot: Pasted image 20261011215507.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215338.png" alt="Course screenshot: Pasted image 20261011215338.png"><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215414.png" alt="Course screenshot: Pasted image 20261011215414.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215612.png" alt="Course screenshot: Pasted image 20261011215612.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215721.png" alt="Course screenshot: Pasted image 20261011215721.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215802.png" alt="Course screenshot: Pasted image 20261011215802.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011215841.png" alt="Course screenshot: Pasted image 20261011215841.png"></p>
+<p>Array() overview:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011220056.png" alt="Course screenshot: Pasted image 20261011220056.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011220135.png" alt="Course screenshot: Pasted image 20261011220135.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011220305.png" alt="Course screenshot: Pasted image 20261011220305.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011220806.png" alt="Course screenshot: Pasted image 20261011220806.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011220608.png" alt="Course screenshot: Pasted image 20261011220608.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011220843.png" alt="Course screenshot: Pasted image 20261011220843.png"></p>
+<p>Importing assets with Python is one of the most common uses of automation in Unreal Engine.</p>
+<p>You can import a whole folder of assets using a single script.</p>
+<p>It executes in just a blink of an eye and voila!</p>
+<p>We have not only meshes, but also the materials imported.</p>
+<p>Required code is quite simple.</p>
+<p>But first, let me give you a short introduction.</p>
+<p>We will discover all FBX files in a given folder.</p>
+<p>For each one of those files, we will create an import task.</p>
+<p>It is just all the data required to execute a task by some person.</p>
+<p>That means in our case, that task knows what file we are importing, where it goes so it knows the</p>
+<p>destination path and name of the asset, but it also knows what kind of asset we are importing.</p>
+<p>It may know what are the settings of the import like.</p>
+<p>You could have automated everything import, but if you have specific settings you demand from your</p>
+<p>meshes, maybe you want them to import textures or not, you want to import materials or not.</p>
+<p>Such things can be declared in import options and those can be stored in the task.</p>
+<p>And that&#39;s it.</p>
+<p>Once we create a list of all those tasks, we go one by one and execute them.</p>
+<p>Luckily, we don&#39;t have to do it ourselves.</p>
+<p>Everything is already prepared in unreal.</p>
+<p>It has its own class for tasks and there is also a function that can execute them.</p>
+<p>So without further ado, let&#39;s begin.</p>
+<p>I will start with locating my files.</p>
+<p>I have some source path that leads to my test folder with three FBX meshes.</p>
+<p>But be prepared.</p>
+<p>What if I had some PowerPoint presentation there?</p>
+<p>Or a texture?</p>
+<p>Literally anything.</p>
+<p>I will go with PowerPoint.</p>
+<p>You don&#39;t want to be imported, right?</p>
+<p>And you don&#39;t want it to create any errors.</p>
+<p>So when searching for source files, we have to filter by extension.</p>
+<p>And the easiest way to do it is by using a Pathlib module.</p>
+<p>And honestly, if you don&#39;t know what Pathlib is, that&#39;s when you should pause this video and Google.</p>
+<p>Because Pathlib is a module for handling paths in Python, it uses objects, is super simple, and I</p>
+<p>am almost sure that we already used it in the tutorial.</p>
+<p>But who knows, maybe you skipped some part of the course and you don&#39;t remember, so no problem, you</p>
+<p>can just copy a line of code I&#39;m using here, but remember to import this path object from Pathlib.</p>
+<p>If you dive deeper into what the function does, it looks for files that are located in a given location,</p>
+<p>which is this folder.</p>
+<p>But it doesn&#39;t look into folders beneath.</p>
+<p>So if we had another folder here and we had more meshes inside, this folder wouldn&#39;t be scanned.</p>
+<p>If you really want to iterate over all those folders, then you have to change glob function to add</p>
+<p>glob, which is like recursive glob.</p>
+<p>And what is taken as a parameter.</p>
+<p>Do you just use a regular expression that operates over the file name?</p>
+<p>Regular expressions may be tedious and difficult to use, but when it comes to extensions, it&#39;s super</p>
+<p>simple.</p>
+<p>It&#39;s just asterisks dot and I don&#39;t know PNG or blend file or obj.</p>
+<p>And in our case it is just an FB, so that&#39;s great.</p>
+<p>The last thing when it comes to all those paths is destination path.</p>
+<p>In my case, I would like it to go to enviro folder and that path is actually a game slash enviro.</p>
+<p>We can now iterate over all assets to import and create tasks.</p>
+<p>That will be the loop.</p>
+<p>We will create tasks here and we will assign them to some list.</p>
+<p>We can start with using a list object.</p>
+<p>Um, we could go with typing and let&#39;s say that this is going to be unreal.</p>
+<p>Dot.</p>
+<p>Asset.</p>
+<p>Import task.</p>
+<p>And it starts as an empty list.</p>
+<p>And later, who knows, maybe we will change it to Unreal array, but it doesn&#39;t make much difference.</p>
+<p>Let&#39;s create this task as unreal dot.</p>
+<p>Asset import task.</p>
+<p>Remember about parentheses here to initialize the object.</p>
+<p>We will do some stuff with this object.</p>
+<p>And at the end we will append it to our list.</p>
+<p>So what about the task object properties?</p>
+<p>When we go into the documentation with middle mouse click, we will see that there is plenty of parameters</p>
+<p>and they are exposed as editor properties.</p>
+<p>But they also have some getters and setters.</p>
+<p>So you don&#39;t have to call those functions like get editor property or set editor property to access</p>
+<p>it.</p>
+<p>The first parameter I will set is automated.</p>
+<p>Basically, when you import mesh like FBX, unreal shows a dialog and asks you what import options would</p>
+<p>you like to pick?</p>
+<p>And there may be even more dialogues.</p>
+<p>In case of FB messages.</p>
+<p>Sometimes there is something wrong with order of vertexes and unreal may ask you if you want to resolve</p>
+<p>it.</p>
+<p>It&#39;s great while you are manually working with things and that happens.</p>
+<p>But when you leave your computer to import a thousand of meshes, you don&#39;t want it to pause at some</p>
+<p>moment because the mesh number 27 didn&#39;t have some setting picked, and now unreal is just waiting until</p>
+<p>you click through the dialog.</p>
+<p>Even if you want to catch such cases, just print that to the log or to some file on your desktop.</p>
+<p>So once all the processing is done, you can just go through files that are incorrect.</p>
+<p>That may really save you if you are doing something on a remote machine, or if you are just leaving</p>
+<p>your machine to import files, it&#39;s 4:00 pm, you&#39;re going home and you expect everything to be working</p>
+<p>at 8 a.m. next day in the studio.</p>
+<p>So we will set task automated as true.</p>
+<p>We also have to pick a task destination name, destination path and file name.</p>
+<p>The destination name and path simply tell you where the file is going.</p>
+<p>So.</p>
+<p>And we have our task destination path that is just the destination path, which is the folder game.</p>
+<p>And while.</p>
+<p>Task, destination name is name of the asset, and we can take it from our input file path that is path</p>
+<p>to our source asset.</p>
+<p>And that is listed by Pathlib module.</p>
+<p>So it is a path object which has a step function that will return you just the name.</p>
+<p>When you are processing those things, make sure that you never pass Excel path object into any of unreal</p>
+<p>properties just because they are not supported.</p>
+<p>In many cases, all you have to do is to cast it to the string.</p>
+<p>However, I do know that this stem is returned actually as a string, so I am not doing it.</p>
+<p>But if I was, for instance, passing this input file path.</p>
+<p>As a file name, which I&#39;m going to do then yes, I have to cast it.</p>
+<p>So the next parameter is aforementioned task file name.</p>
+<p>This is.</p>
+<p>The input file and I know it may be confusing.</p>
+<p>File name sounds like the asset file name that we&#39;re creating, but this is actually path to the input</p>
+<p>file.</p>
+<p>So cast to this string and here goes input file path.</p>
+<p>Nice.</p>
+<p>And then we can decide if we want to replace an existing asset if we already had it in engine.</p>
+<p>What does it mean?</p>
+<p>Let&#39;s go to unreal.</p>
+<p>And can you see those assets here?</p>
+<p>They are already imported.</p>
+<p>So what would happen if I.</p>
+<p>Rerun my script.</p>
+<p>If replace existing is enabled, I&#39;m just going to re-import them.</p>
+<p>But if it was disabled.</p>
+<p>Those files would be just skipped and that&#39;s it.</p>
+<p>You may also notice that some of them have asterisks here and some not.</p>
+<p>The meshes don&#39;t have them.</p>
+<p>That&#39;s because I had save set to true in my script.</p>
+<p>That may be very useful because if you are importing assets and saving them, that means that even if</p>
+<p>application crashes, you are not losing any data.</p>
+<p>So I will set replace existing to true and save to true.</p>
+<p>And these are the settings that I would almost always set for any asset I am importing.</p>
+<p>So if you are importing textures animations you have to set those.</p>
+<p>These are common, but there are also settings that are specific for specific asset type like meshes.</p>
+<p>And those can be stored in a property called options.</p>
+<p>When we go here to the docs.</p>
+<p>It just tells you import options specific to the type of asset.</p>
+<p>But when you start searching for them for that import option or some keyword, then you will discover</p>
+<p>that there are lots of them here.</p>
+<p>And for instance, if you are importing just an FBX, there is a so called FBX import UI.</p>
+<p>Here we have it and sadly it&#39;s based only on object, so we cannot do a right mouse button and search</p>
+<p>for other classes that inherit from it.</p>
+<p>That would probably make searching for those import options simpler, but documentation is your friend</p>
+<p>and I think it will be sufficient.</p>
+<p>Let&#39;s assign task options and we&#39;ll have some options object here.</p>
+<p>And options don&#39;t exist yet.</p>
+<p>Let&#39;s create them.</p>
+<p>But we don&#39;t have to create them in the loop.</p>
+<p>Recreating them thousand times for thousand assets wouldn&#39;t be efficient.</p>
+<p>We want to have same options everywhere.</p>
+<p>So we will declare them somewhere here.</p>
+<p>And options equals unreal dot FBX import UI.</p>
+<p>And here we can set the settings we need.</p>
+<p>There are things like import mesh, which may sound obvious, but PHP file can be also used for storing</p>
+<p>animations.</p>
+<p>So yeah, we have to enable import mesh.</p>
+<p>We will also pick import materials and maybe set import textures to false because I want to keep it</p>
+<p>lightweight.</p>
+<p>But textures may be important to you.</p>
+<p>So you would set them as true.</p>
+<p>So those first three parameters can go here without any other explanation.</p>
+<p>But there is one pretty interesting option here.</p>
+<p>It is called automated import should detect type.</p>
+<p>That literally means that this importer would try to figure out what exactly you are importing.</p>
+<p>We will set it to true for our convenience, but if you scroll down, you will notice that there are</p>
+<p>things like mesh type to import and you just pass FBX import type.</p>
+<p>So.</p>
+<p>Options.</p>
+<p>Automated import mesh should detect type true.</p>
+<p>And I already know that my example assets are all static meshes, and those things like static mesh</p>
+<p>or skinned mesh also have their own options.</p>
+<p>And we can declare them here.</p>
+<p>Let&#39;s assign them static.</p>
+<p>Static mesh import data equals and I will create a variable of the same name.</p>
+<p>And let&#39;s declare it.</p>
+<p>Maybe here in the line ten that is FB static mesh import data.</p>
+<p>But you can already see that there are more like FB mesh import data, FB skeletal mesh import data,</p>
+<p>FB scene import option, static mesh, blah blah blah.</p>
+<p>It&#39;s really hard to describe all of them, but they are pretty well distributed in the documentation</p>
+<p>and in the code.</p>
+<p>So when you pick something that looks like it fits your needs, then dive into it.</p>
+<p>We will go with static mesh import data and honestly we will set only two settings.</p>
+<p>First of them.</p>
+<p>Is combined meshes, and I think I didn&#39;t really mention what it does.</p>
+<p>And it may be unclear for some of you.</p>
+<p>I will quickly open blender so we can picture what I mean.</p>
+<p>Some meshes are quite self-contained, like this.</p>
+<p>Suzanne Model appears as a single mesh in my scene collection, but when I go into edit mode, I am</p>
+<p>actually able to select only the I.</p>
+<p>Or maybe whole head and we can separate them.</p>
+<p>But some assets are created of many mesh objects and we can just start adding more of them.</p>
+<p>Now our scene collection tells us that there are three meshes.</p>
+<p>We can export them as a single FBX.</p>
+<p>But unreal is still able to import all of them separately.</p>
+<p>The thing is that very often we create some asset that is consisting of more smaller objects, but it&#39;s</p>
+<p>still a single asset.</p>
+<p>You don&#39;t want to create a gun that has too many separate objects.</p>
+<p>I know it may be animated and so on, but very often you just need a single asset in unreal.</p>
+<p>So that&#39;s why we set combined meshes to true.</p>
+<p>It&#39;s for importing them as one mesh.</p>
+<p>But of course you can set it to false.</p>
+<p>And if you never worked with that setting I actually advise you to experiment.</p>
+<p>But let me set it to true.</p>
+<p>There&#39;s also another setting that has a weird name, and it&#39;s called Remove Degenerates, and the documentation</p>
+<p>will tell you that it removes degenerative triangles.</p>
+<p>What it does.</p>
+<p>It basically doesn&#39;t import polygons or vertexes that are causing trouble to unreal.</p>
+<p>You can probably ignore that setting, but you cannot ignore warnings from unreal.</p>
+<p>Sometimes you will get an information that it wasn&#39;t able to triangulate some face, and for that reason</p>
+<p>a whole object wasn&#39;t imported.</p>
+<p>So in that case, if my scene had any object that had a small issue with the geometry and honestly creating</p>
+<p>it is quite simple.</p>
+<p>Like.</p>
+<p>Right now we probably have a non-manifold wireframe already because I just created a mesh that isn&#39;t</p>
+<p>physically possible and we can.</p>
+<p>Even, uh, around searching for non manifolds.</p>
+<p>And if I try to import that whole FBX to unreal right now, this sphere will not import only those two</p>
+<p>and you will get that warning.</p>
+<p>That warning is most likely because somewhere on this mesh there is a non manifold geometry.</p>
+<p>And I don&#39;t know how it works in Maya or 3ds Max, but in blender all you have to do is to search for</p>
+<p>select by trait non-manifold and it will literally select all those vertices.</p>
+<p>So that&#39;s how you can track this issue.</p>
+<p>And yeah, that is probably a degenerate triangle, but I didn&#39;t dive into algorithm that epic implemented.</p>
+<p>Anyway, our code is almost ready.</p>
+<p>We have all the settings needed for the tasks.</p>
+<p>We have a task list, but we don&#39;t execute them yet.</p>
+<p>You cannot just run task.</p>
+<p>Dot.</p>
+<p>I don&#39;t know, execute or run.</p>
+<p>You have to pass this task to something that executes it.</p>
+<p>At least that&#39;s how it&#39;s implemented in unreal.</p>
+<p>And that is pretty simple.</p>
+<p>It is executed by assets tools.</p>
+<p>We shouldn&#39;t create asset tools object directly, but we can get it using a function.</p>
+<p>So let&#39;s call unreal asset tools helpers.</p>
+<p>And then we call get asset tools.</p>
+<p>And that&#39;s it.</p>
+<p>Then we can just run import asset tasks pass our list as a parameter.</p>
+<p>And that&#39;s it.</p>
+<p>But let&#39;s not stop here.</p>
+<p>Let&#39;s dive deeper, because I just want to remind you that there are more functions like that.</p>
+<p>You can import task with dialog, and then you will be able to pick the destination path for your assets,</p>
+<p>which is great.</p>
+<p>There are some things like open editor for assets, which is very useful because later you can open</p>
+<p>those assets in editor.</p>
+<p>That&#39;s great.</p>
+<p>And you can also find references to objects.</p>
+<p>Export meshes.</p>
+<p>Export assets.</p>
+<p>I really recommend you to look into that class.</p>
+<p>It&#39;s very, very useful.</p>
+<p>Oh, yeah.</p>
+<p>And once all of that is done, we can print a list of objects we imported.</p>
+<p>And we can copy this code right now.</p>
+<p>But you already have seen how it works.</p>
+<p>And just paste it.</p>
+<p>And we re-imported the assets we already have, and they were re-imported because a replace.</p>
+<p>Existing was set to true.</p>
+<p>That&#39;s here.</p>
+<p>Earlier in the tutorial, I mentioned that we can do something with the task list.</p>
+<p>Right now.</p>
+<p>It is highlighted here because PyCharm knows that this is not the type we were expecting.</p>
+<p>In PyCharm, there is like a kind of a comment that can disable checking the type for specific line.</p>
+<p>It&#39;s probably different for other editors, but it&#39;s not perfect because right now I can pass a string</p>
+<p>called potato here, and there is no type checking that tells me that there is an error.</p>
+<p>So we can either live with having that thing here highlighted, or we can just switch to using unreal</p>
+<p>type.</p>
+<p>And in many cases using unreleased will not be useful.</p>
+<p>But let&#39;s mention it so you at least know how to use it in the future.</p>
+<p>And I guess it&#39;s not the first time I will be explaining it and not the last time.</p>
+<p>So instead of using list.</p>
+<p>We can use unreal array and we have to initialize it with those brackets here.</p>
+<p>But we also should pass a type that it will contain here.</p>
+<p>So it could be integer.</p>
+<p>It could be string.</p>
+<p>But in our case this is unreal asset import task.</p>
+<p>So we have to put it here.</p>
+<p>This array behaves kinda like arrays in Python, like those lists.</p>
+<p>It has upand it has extent, it has insert.</p>
+<p>So the code we already have will work.</p>
+<p>This will work like this happened, but it&#39;s not identical to this in Python.</p>
+<p>So on the one hand, everything works.</p>
+<p>And we no longer have this highlight here because it&#39;s correct type.</p>
+<p>On the other hand, it still may be annoying.</p>
+<p>So this is one of the solutions here.</p>
+<p>But another one is just converting the Python list to the unreal one.</p>
+<p>So how do we do it?</p>
+<p>Let&#39;s bring the old code back.</p>
+<p>And we can even put that unreal staff file on the right side here.</p>
+<p>So we have a cheat sheet.</p>
+<p>This class has something called cast.</p>
+<p>So we can call unreal array.</p>
+<p>And now we are not using parenthesis.</p>
+<p>We are just calling a class function.</p>
+<p>And now we have cast.</p>
+<p>And first we want to tell it what is the data we are going to store.</p>
+<p>So this is unreal asset import task.</p>
+<p>And then we pass the object that we are casting.</p>
+<p>So this is tasks.</p>
+<p>And we can actually use this line instead of the one here.</p>
+<p>And we will have that highlight fixed.</p>
+<p>I think it is pretty inconvenient for you to write it this way.</p>
+<p>Um, but maybe in some point of future you will just have to do something with unreal arrays.</p>
+<p>Maybe there will be some function that expects an array.</p>
+<p>And yeah, that&#39;s what you&#39;re gonna do.</p>
+<p>So let&#39;s copy this code to make sure it works.</p>
+<p>You know, for the last time.</p>
+<p>Let&#39;s paste it here.</p>
+<p>There were no errors.</p>
+<p>The files are still here.</p>
+<p>We got that information that we imported something.</p>
+<p>So I am happy with the result.</p>
+<p>I know that some of you may not be importing fbcs, you may be importing textures, and this tutorial</p>
+<p>may be partially helpful, but may not be an exact solution.</p>
+<p>But I&#39;m sorry there are so many types of assets, I just can&#39;t cover all of them.</p>
+<p>But I think this video is the base knowledge you need and it will really.</p>
+<p>Get you going.</p>
+<p>Thanks a lot and hopefully see you in the next video.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -60,6 +60,39 @@
+ 
+ ![[Pasted image 20261011215612.png]]
+ 
++## Construct options, then attach them to every task
++
++This consolidated example keeps the key fields shown in the FBX screenshots. Paths are placeholders; calling the last line performs the import. The course explicitly enables replacement and saving here.
++
++```python
++from pathlib import Path
++import unreal
++
++options = unreal.FbxImportUI()
++options.set_editor_property(&quot;import_mesh&quot;, True)
++options.set_editor_property(&quot;import_materials&quot;, True)
++options.set_editor_property(&quot;import_textures&quot;, False)
++options.set_editor_property(&quot;automated_import_should_detect_type&quot;, True)
++mesh_options = options.get_editor_property(&quot;static_mesh_import_data&quot;)
++mesh_options.set_editor_property(&quot;combine_meshes&quot;, True)
++mesh_options.set_editor_property(&quot;remove_degenerates&quot;, True)
++
++tasks = []
++for filename in [&quot;C:/Exports/Crate.fbx&quot;]:
++    task = unreal.AssetImportTask()
++    task.set_editor_property(&quot;filename&quot;, filename)
++    task.set_editor_property(&quot;destination_path&quot;, &quot;/Game/Imported&quot;)
++    task.set_editor_property(&quot;destination_name&quot;, Path(filename).stem)
++    task.set_editor_property(&quot;automated&quot;, True)
++    task.set_editor_property(&quot;replace_existing&quot;, True)
++    task.set_editor_property(&quot;save&quot;, True)
++    task.set_editor_property(&quot;options&quot;, options)
++    tasks.append(task)
++unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks(tasks)
++```
++
++`static_mesh_import_data` holds the nested mesh settings. If using `unreal.Array.cast(unreal.AssetImportTask, tasks)`, use its returned array; merely calling a conversion and discarding it does not replace the Python list. Inspect each task's `imported_object_paths` afterward. These are the course's FBX options, not verified settings for every later engine/importer version.
++
+ ![[Pasted image 20261011215721.png]]
+ 
+ ![[Pasted image 20261011215802.png]]
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

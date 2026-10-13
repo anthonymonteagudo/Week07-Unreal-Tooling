@@ -1,0 +1,226 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>25 Triangle Count Validator · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-25">Return to audit</a><a href="24.html">Previous lesson</a> <a href="26.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/25%20Triangle%20Count%20Validator.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/25%20Triangle%20Count%20Validator%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>25 Triangle Count Validator</h1><p>Read and convert the registry tag</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Triangle Count Validator — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/25%20Triangle%20Count%20Validator.md">Original notes</a></p>
+<p>Check a mesh&#39;s recorded triangle count against a project budget. The course uses Asset Registry tags, avoiding a custom traversal of mesh sections just to obtain a count already recorded by Unreal.</p>
+<h2>Locate the recorded count</h2>
+<p>Compare the more involved Blueprint counting example with the triangle information shown in asset tooltips and the mesh editor.</p>
+<h2>Read and convert the registry tag</h2>
+<p>The screenshot&#39;s <code>Triangles</code> tag is registry data, not a triangle count obtained by traversing mesh geometry. In the demonstrated approach, convert an object path to a package path, use an Unreal name for the tag key, and convert the returned string before comparing:</p>
+<pre><code class="language-python">package_path = asset.get_path_name().rsplit(&quot;.&quot;, 1)[0]
+tags = unreal.EditorAssetLibrary.get_tag_values(package_path)
+key = unreal.Name(&quot;Triangles&quot;)
+if key not in tags:
+    result = unreal.DataValidationResult.NOT_VALIDATED
+else:
+    triangle_count = int(tags[key])
+    result = (unreal.DataValidationResult.INVALID if triangle_count &gt; 2500
+              else unreal.DataValidationResult.VALID)
+</code></pre>
+<p>This is the decision fragment inside the course validator (<code>asset</code> and <code>unreal</code> are supplied there). Keep its pass/fail logging too. The example budget is 2,500 triangles; it is not a universal asset budget or a proof of runtime performance.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012025128.png" alt="Course screenshot: Pasted image 20261012025128.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012025107.png" alt="Course screenshot: Pasted image 20261012025107.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012025148.png" alt="Course screenshot: Pasted image 20261012025148.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012025239.png" alt="Course screenshot: Pasted image 20261012025239.png"></p>
+<p><code>EditorAssetLibrary.get_tag_values()</code> retrieves Asset Registry tags by asset path. These tags differ from the custom metadata used for import rules.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012025612.png" alt="Course screenshot: Pasted image 20261012025612.png"></p>
+<h2>Implement eligibility and lookup</h2>
+<p>Create an <code>EditorValidatorBase</code> subclass that accepts static and skeletal meshes. Obtain a package path in the form expected by <code>get_tag_values()</code>; the recording strips the final object-name portion to avoid its engine version&#39;s object-path warning.</p>
+<p>If <code>Triangles</code> is missing, report a warning and return <code>NOT_VALIDATED</code>. Do not treat missing data as a successful count check.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012115808.png" alt="Course screenshot: Pasted image 20261012115808.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012120117.png" alt="Course screenshot: Pasted image 20261012120117.png"></p>
+<h2>Compare against a budget</h2>
+<p>Tag values are strings, so convert <code>Triangles</code> to <code>int</code> before comparing. The example uses <code>TRIS_COUNT_MAX = 2500</code>. If the count exceeds the limit, call <code>asset_fails()</code> with both the measured count and limit, then return <code>INVALID</code>; otherwise return <code>VALID</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161303.png" alt="Course screenshot: Pasted image 20261012161303.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161331.png" alt="Course screenshot: Pasted image 20261012161331.png"></p>
+<p>Different categories may need different budgets. Choose them from folder structure or metadata, or use separate validators whose eligibility checks target each category.</p>
+<h2>Register and verify</h2>
+<p>Instantiate the validator, add it to <code>EditorValidatorSubsystem</code>, and run validation on the test folder.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161357.png" alt="Course screenshot: Pasted image 20261012161357.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161530.png" alt="Course screenshot: Pasted image 20261012161530.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161550.png" alt="Course screenshot: Pasted image 20261012161550.png"></p>
+<p>The demonstrated statue has 4,024 triangles and fails the 2,500-triangle limit. The error includes the count and threshold so the required change is clear.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161620.png" alt="Course screenshot: Pasted image 20261012161620.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161640.png" alt="Course screenshot: Pasted image 20261012161640.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/24%20Power%20of%20two%20texture%20size%20validator%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/05%20Developing%20Code%20More%20Efficiently/26%20Working%20with%20dir%28%29%20and%20help%28%29%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p>Assets to validate:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012025128.png" alt="Course screenshot: Pasted image 20261012025128.png"></p>
+<p>Get triangle count (in BP; note: not efficient):
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012025107.png" alt="Course screenshot: Pasted image 20261012025107.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012025148.png" alt="Course screenshot: Pasted image 20261012025148.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012025239.png" alt="Course screenshot: Pasted image 20261012025239.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012025612.png" alt="Course screenshot: Pasted image 20261012025612.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012115808.png" alt="Course screenshot: Pasted image 20261012115808.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012120117.png" alt="Course screenshot: Pasted image 20261012120117.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161303.png" alt="Course screenshot: Pasted image 20261012161303.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161331.png" alt="Course screenshot: Pasted image 20261012161331.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161357.png" alt="Course screenshot: Pasted image 20261012161357.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161530.png" alt="Course screenshot: Pasted image 20261012161530.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161550.png" alt="Course screenshot: Pasted image 20261012161550.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161620.png" alt="Course screenshot: Pasted image 20261012161620.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012161640.png" alt="Course screenshot: Pasted image 20261012161640.png"></p>
+<p>Let&#39;s create a triangle count validator.</p>
+<p>We may have many assets and testing their triangle count one by one manually would take so much time.</p>
+<p>So we will create a validator and there may be some ways to calculate the triangle count.</p>
+<p>You could get all mesh sections from a specific asset, count number of triangles, then sum it up and</p>
+<p>you would have the result.</p>
+<p>But that would be not the best way.</p>
+<p>It wouldn&#39;t be efficient.</p>
+<p>It would have to calculate triangle count for each asset, but we already have it.</p>
+<p>If we open some mesh, we have the triangle count here in the corner, and we can even preview that</p>
+<p>count when hovering over the assets in content browser.</p>
+<p>And as you can see, there is a bunch of useful information.</p>
+<p>There is disk size, materials, vertices, but also triangles and that data can be accessed with a</p>
+<p>very simple trick.</p>
+<p>All those values are so-called tags.</p>
+<p>These are not metadata tags.</p>
+<p>Metadata is stuff that is imported from file like PHP, or is set manually by you or by some of your</p>
+<p>tools.</p>
+<p>Tags are something different.</p>
+<p>They are a bunch of data set by Unreal Engine, but that data, technically speaking, could also be</p>
+<p>expanded.</p>
+<p>But we usually don&#39;t do that.</p>
+<p>So there is a bunch of keys like vertices and triangles, and we can get them with get tag values method</p>
+<p>that comes from Editor Asset Library.</p>
+<p>There is only one key thing here.</p>
+<p>We have to make sure that our asset actually has such tag.</p>
+<p>In most cases it will not be an issue.</p>
+<p>But you know you could try calling that function on texture and I wouldn&#39;t expect triangle count to</p>
+<p>be there.</p>
+<p>So having that said and keeping all of that in mind, let&#39;s jump straight into implementation.</p>
+<p>I have a validate triangle count file with a boilerplate here.</p>
+<p>I would like to validate meshes and we can have two kinds of meshes.</p>
+<p>Static mesh which is just regular mesh like furniture chair some ball anything.</p>
+<p>And also skeletal mesh which is skinned and typically used for some animation.</p>
+<p>So that&#39;s why we will return a result of this instance of either static mesh or a skeletal mesh.</p>
+<p>And then we have to implement validation.</p>
+<p>So let&#39;s get back to our unreleased tab here.</p>
+<p>And as you can see get tag values doesn&#39;t expect asset.</p>
+<p>It expects asset path.</p>
+<p>But here we have asset assets which is unloaded object.</p>
+<p>So we need to get that path.</p>
+<p>And right now when I&#39;m working with Android 5.4 or some other older version of unreal, if we do that,</p>
+<p>we will get an incorrect path.</p>
+<p>I mean, it will work perfectly fine, but it will return some warning telling me that it is using a</p>
+<p>deprecated path.</p>
+<p>So if you are a person from future who is working with unreal that no longer has any values which are</p>
+<p>deprecated, it&#39;s fine.</p>
+<p>But if you are using an older unreal you have to make a little fix.</p>
+<p>We have to remove the last chunk of our path because the path is going to be like, you know, path</p>
+<p>to some file.</p>
+<p>Now file and file.</p>
+<p>It is actually package and object path.</p>
+<p>But that&#39;s not important in that case.</p>
+<p>Actually, that&#39;s a thing that was explained in one of the first videos in the course, but I guess</p>
+<p>it was a long.</p>
+<p>Time ago and you could have skipped that part.</p>
+<p>So let&#39;s create a so-called correct path, which is a perfect name for a variable.</p>
+<p>In that case, the correct variable correct path.</p>
+<p>And first let&#39;s get asset and we&#39;ll get path name.</p>
+<p>Then we have to split it by dot and we&#39;ll get bunch of parts of name.</p>
+<p>And I would like to make sure that we merge them together.</p>
+<p>But we get rid of the last bit.</p>
+<p>So here we remove the last bit.</p>
+<p>And now let&#39;s make a little trick with join function to merge it together into a single string.</p>
+<p>Maybe not the most convenient way, but it will save your users from seeing hundreds of warnings and</p>
+<p>that may be worth it.</p>
+<p>So now we can get those tag values.</p>
+<p>It&#39;s just editor asset library dot get tag values.</p>
+<p>And let&#39;s get correct path.</p>
+<p>But we don&#39;t know if triangles is actually there.</p>
+<p>It most certainly is.</p>
+<p>But what if something went wrong.</p>
+<p>We should display a warning.</p>
+<p>So if triangles is not in tag values we can print some warning and let me paste that.</p>
+<p>So it goes a bit faster.</p>
+<p>And then we can return a status which I believe shouldn&#39;t be just a fail.</p>
+<p>Let&#39;s make it, um, not validated.</p>
+<p>All right.</p>
+<p>So we went past this if statement, supposing that everything is correct.</p>
+<p>And now we should check if the triangle count is fine.</p>
+<p>So triangle count is tag values.</p>
+<p>And let&#39;s get triangles.</p>
+<p>And now let&#39;s fix two things.</p>
+<p>First thing is that we have this annoying highlight.</p>
+<p>So let me cast it to name.</p>
+<p>So PyCharm knows that the variable type is correct.</p>
+<p>And the second thing is that those tag values always return a string.</p>
+<p>Seriously, when you go to this tab, it says it&#39;s a map that maps some name onto strings.</p>
+<p>So even though we know those values can be something else, like float values, integers, we still</p>
+<p>got strings.</p>
+<p>So we have to cast it into integer.</p>
+<p>And now everything is fine.</p>
+<p>Let&#39;s compare the value we have with some max value, and I believe it is worth having it as a global</p>
+<p>variable on top of the file.</p>
+<p>so I will name it threes count max and I can set it to some low number like 2500.</p>
+<p>Now let&#39;s just check if triangle count is higher than our limit.</p>
+<p>And if it is we should show a descriptive information.</p>
+<p>So I would like to know that as it has too many triangles I would like to know how many triangles it</p>
+<p>has.</p>
+<p>And I want to know what is the max triangle count, because without that it&#39;s too ambiguous and hard</p>
+<p>to fix.</p>
+<p>So here we have it.</p>
+<p>And if this if statement didn&#39;t trigger, then everything is probably fine.</p>
+<p>So let&#39;s return invalid not invalid.</p>
+<p>Let&#39;s return unreal data validation result valid.</p>
+<p>So one last comment before we run it.</p>
+<p>You might have different policies for different assets and it&#39;s up to you how you implement it.</p>
+<p>Very often characters have more triangles than environment assets, so if you have some nice structure</p>
+<p>in your folder where characters are in different locations, then furniture, vehicles, weapons and</p>
+<p>so on, then you can use those rules, make some if statements or something else to drive this validator</p>
+<p>flow and use different max values.</p>
+<p>You can also store metadata, which will tell you what kind of asset it is.</p>
+<p>And you can use this metadata instead of location.</p>
+<p>And if you don&#39;t want to have bloated validate loaded asset method you can also do that in can validate</p>
+<p>asset.</p>
+<p>That means that you would have separate validators for different kinds of assets like triangle characters,</p>
+<p>validator, triangle, environment, validator and those would run only in specific folders.</p>
+<p>So you would implement it here, like if not this folder then skip and that&#39;s it.</p>
+<p>So now let&#39;s test it.</p>
+<p>And we have to implement the registration of our validator.</p>
+<p>And we did that already in three previous videos.</p>
+<p>So I will just paste it.</p>
+<p>And if you skipped any of those you only have to get editor validator subsystem.</p>
+<p>Then initialize your validator as some variable and use add validator function to register it.</p>
+<p>So once we have it, let&#39;s go straight to unreal.</p>
+<p>Let&#39;s paste that code.</p>
+<p>I also need to call the function that registers at all.</p>
+<p>And now I will test it on a whole folder of starting content.</p>
+<p>So if you don&#39;t have this folder, it&#39;s just starting content plugin from Epic Games.</p>
+<p>And now let&#39;s go to Asset Actions validate assets and looks like it&#39;s fine for most of them.</p>
+<p>But there is one statue asset that has over 4000 triangles.</p>
+<p>And that&#39;s why it failed.</p>
+<p>So we validated about 18 assets with a single click.</p>
+<p>And think of how tedious this work would be to do manually if you had, for instance, a hundred of</p>
+<p>them.</p>
+<p>And that&#39;s it.</p>
+<p>In this video, we implemented last of Validators that were shown as an example in the introductory</p>
+<p>video, and I hope it satisfies your needs.</p>
+<p>See you in the next video.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -7,6 +7,24 @@
+ ## Locate the recorded count
+ 
+ Compare the more involved Blueprint counting example with the triangle information shown in asset tooltips and the mesh editor.
++
++## Read and convert the registry tag
++
++The screenshot's `Triangles` tag is registry data, not a triangle count obtained by traversing mesh geometry. In the demonstrated approach, convert an object path to a package path, use an Unreal name for the tag key, and convert the returned string before comparing:
++
++```python
++package_path = asset.get_path_name().rsplit(&quot;.&quot;, 1)[0]
++tags = unreal.EditorAssetLibrary.get_tag_values(package_path)
++key = unreal.Name(&quot;Triangles&quot;)
++if key not in tags:
++    result = unreal.DataValidationResult.NOT_VALIDATED
++else:
++    triangle_count = int(tags[key])
++    result = (unreal.DataValidationResult.INVALID if triangle_count &gt; 2500
++              else unreal.DataValidationResult.VALID)
++```
++
++This is the decision fragment inside the course validator (`asset` and `unreal` are supplied there). Keep its pass/fail logging too. The example budget is 2,500 triangles; it is not a universal asset budget or a proof of runtime performance.
+ 
+ ![[Pasted image 20261012025128.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

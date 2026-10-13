@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>32 Menu Entries - Additional Notes · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-32">Return to audit</a><a href="31.html">Previous lesson</a> <a href="33.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/32%20Menu%20Entries%20-%20Additional%20Notes.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/32%20Menu%20Entries%20-%20Additional%20Notes%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>32 Menu Entries - Additional Notes</h1><p>Owner/entry/section/menu cleanup methods, submenu naming and owner-versus-menu identity retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Removing Menus and Entries — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/32%20Menu%20Entries%20-%20Additional%20Notes.md">Original notes</a></p>
+<p>Use <code>ToolMenus</code> cleanup methods when unloading or rebuilding custom UI.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>unregister_owner_by_name(owner_name)</code></td>
+<td>Registrations belonging to that owner.</td>
+</tr>
+<tr>
+<td><code>remove_section(menu_name, section)</code></td>
+<td>A section of a menu.</td>
+</tr>
+<tr>
+<td><code>remove_entry(menu_name, section, name)</code></td>
+<td>A specific entry.</td>
+</tr>
+<tr>
+<td><code>remove_menu(menu_name)</code></td>
+<td>A registered menu.</td>
+</tr>
+</tbody></table>
+<h2>Resolve the submenu path</h2>
+<p>A submenu&#39;s name is its parent&#39;s name plus <code>.</code> plus the new internal name. For example:</p>
+<pre><code class="language-python">submenu = asset_context_menu.add_sub_menu(
+    &quot;Custom.Menu&quot;, &quot;CustomMenu&quot;, &quot;SomeName&quot;, &quot;&quot;
+)
+</code></pre>
+<p>Under <code>ContentBrowser.AssetContextMenu.StaticMesh</code>, this creates the path <code>ContentBrowser.AssetContextMenu.StaticMesh.SomeName</code>.</p>
+<h2>Clean up by the registered identifiers</h2>
+<p>Use the <strong>actual owner name</strong> for owner cleanup. It is not automatically the same as the submenu path: the creation example above uses <code>Custom.Menu</code> as owner.</p>
+<pre><code class="language-python">menus = unreal.ToolMenus.get()
+menus.unregister_owner_by_name(&quot;Custom.Menu&quot;)
+menus.remove_menu(&quot;ContentBrowser.AssetContextMenu.StaticMesh.SomeName&quot;)
+menus.refresh_all_widgets()
+</code></pre>
+<p>If child entries were registered with another owner, unregister that owner too. The original example unregisters the submenu path, which applies only when entries actually used that path as their owner. Refresh widgets after cleanup to update the interface.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/31%20Followup%20to%20Menu%20Entries%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/33%20Progress%20bars%20for%20slow%20tasks%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><h4>Removing Menus</h4>
+<p>ToolMenus class has few useful methods:</p>
+<ul>
+<li><p><code>unregister_owner_by_name(self, owner_name: Name)</code></p>
+</li>
+<li><p><code>remove_section(self, menu_name: Name, section: Name)</code></p>
+</li>
+<li><p><code>remove_menu(self, menu_name: Name)</code></p>
+</li>
+<li><p><code>remove_entry(self, menu_name: Name, section: Name, name: Name)</code></p>
+</li>
+</ul>
+<p>With those you can unregister any menu entry or even whole menu and all it&#39;s children.</p>
+<p>When you register a new menu, it&#39;s name is &quot;parent name&quot; + &quot;.&quot; + &quot;new menu name&quot;.</p>
+<p>So for instance if I extend</p>
+<p><code>&quot;ContentBrowser.AssetContextMenu.StaticMesh&quot;</code></p>
+<p>with</p>
+<p><code>asset_context_menu.add_sub_menu(&quot;Custom.Menu&quot;,&quot;CustomMenu&quot;,&quot;SomeName&quot;,&quot;&quot;)</code></p>
+<p>then I should refer to it as</p>
+<p><code>&quot;ContentBrowser.AssetContextMenu.StaticMesh.SomeName&quot;</code></p>
+<p>Knowing that name, we can unregister all sub entries and the menu:</p>
+<ol>
+<li>menus = unreal.ToolMenus.get()</li>
+<li>menus.unregister_owner_by_name(&quot;ContentBrowser.AssetContextMenu.StaticMesh.SomeName&quot;)</li>
+<li>menus.remove_menu(&quot;ContentBrowser.AssetContextMenu.StaticMesh.SomeName&quot;)</li>
+</ol>
+<p>I recommend refreshing widgets after that operation but my tests show that it&#39;s not necessary:</p>
+<ol>
+<li>menus.refresh_all_widgets()</li>
+</ol>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

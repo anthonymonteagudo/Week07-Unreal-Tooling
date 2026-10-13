@@ -1,0 +1,125 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>23 Square texture validator · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-23">Return to audit</a><a href="22.html">Previous lesson</a> <a href="24.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/23%20Square%20texture%20validator.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/23%20Square%20texture%20validator%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>23 Square texture validator</h1><p>Boundary cases to follow while reading the validator</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Square Texture Validator — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/23%20Square%20texture%20validator.md">Original notes</a></p>
+<p>Enforce a project&#39;s square-texture rule by comparing width and height. This check is separate from power-of-two validation: a 128 × 512 texture passes the latter but is not square.</p>
+<h2>Prepare contrasting examples</h2>
+<p>Use square and nonsquare textures. Before the custom validator is registered, the existing validation can report them as valid because it is not checking this rule.</p>
+<h2>Boundary cases to follow while reading the validator</h2>
+<p>Check width <strong>and</strong> height independently: <code>256 × 512</code> should pass a power-of-two rule, while <code>300 × 512</code> and <code>256 × 300</code> should fail. A square-texture rule would be a different requirement. Test an unsupported asset too, which should remain <code>NOT_VALIDATED</code> rather than pass a texture check it never received.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012004640.png" alt="Course screenshot: Pasted image 20261012004640.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012004454.png" alt="Course screenshot: Pasted image 20261012004454.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012004717.png" alt="Course screenshot: Pasted image 20261012004717.png"></p>
+<h2>Implement the check</h2>
+<p>Create an <code>EditorValidatorBase</code> subclass and restrict it to <code>unreal.Texture2D</code>. Compare <code>asset.blueprint_get_size_x()</code> with <code>asset.blueprint_get_size_y()</code>.</p>
+<p>Register an instance through <code>EditorValidatorSubsystem.add_validator()</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012005040.png" alt="Course screenshot: Pasted image 20261012005040.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012005121.png" alt="Course screenshot: Pasted image 20261012005121.png"></p>
+<h2>Report the failure explicitly</h2>
+<p>The first implementation returns <code>INVALID</code> without calling the failure-reporting helper. The lesson demonstrates that this does not produce the intended visible failure result.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012005528.png" alt="Course screenshot: Pasted image 20261012005528.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012005446.png" alt="Course screenshot: Pasted image 20261012005446.png"></p>
+<p>On a mismatch, call <code>self.asset_fails(asset, unreal.Text(&quot;Texture is not square&quot;))</code> and return <code>DataValidationResult.INVALID</code>. Otherwise, return <code>VALID</code>. The message gives the user a concrete reason for the failure.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012011124.png" alt="Course screenshot: Pasted image 20261012011124.png"></p>
+<h2>Verify the Message Log</h2>
+<p>Run <strong>Validate Assets</strong> again. Nonsquare examples should now fail with the square-texture validator&#39;s message; square examples should pass.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012011900.png" alt="Course screenshot: Pasted image 20261012011900.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012012039.png" alt="Course screenshot: Pasted image 20261012012039.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012012129.png" alt="Course screenshot: Pasted image 20261012012129.png"></p>
+<p>Keep temporary console-test registration separate from normal startup registration so importing the module does not repeatedly add validators.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/22%20Naming%20Convention%20Validator%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/24%20Power%20of%20two%20texture%20size%20validator%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012004640.png" alt="Course screenshot: Pasted image 20261012004640.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012004454.png" alt="Course screenshot: Pasted image 20261012004454.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012004717.png" alt="Course screenshot: Pasted image 20261012004717.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012005040.png" alt="Course screenshot: Pasted image 20261012005040.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012005121.png" alt="Course screenshot: Pasted image 20261012005121.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012011124.png" alt="Course screenshot: Pasted image 20261012011124.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012005528.png" alt="Course screenshot: Pasted image 20261012005528.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012005446.png" alt="Course screenshot: Pasted image 20261012005446.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012011900.png" alt="Course screenshot: Pasted image 20261012011900.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012012039.png" alt="Course screenshot: Pasted image 20261012012039.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012012129.png" alt="Course screenshot: Pasted image 20261012012129.png"></p>
+<p>Hello there!</p>
+<p>I have a few example textures, but not all of them are correct.</p>
+<p>The normal map texture on the right side is perfectly fine.</p>
+<p>Its dimensions are 2048 on 2048.</p>
+<p>That means that it is square and that those dimensions are power of two, which means that we will have</p>
+<p>optimal game performance.</p>
+<p>However, other textures have different dimensions.</p>
+<p>This so-called use texture has 1080.</p>
+<p>This non-square has 128 on 512, which is power of two.</p>
+<p>But it is not square.</p>
+<p>And we have one entirely wrong textures, which has weird texture dimensions and it is not square.</p>
+<p>We don&#39;t have a validator for that.</p>
+<p>If I click Validate Assets and open message log, it will look like everything is fine.</p>
+<p>So in this tutorial we will make sure that we have square textures and in the next tutorial we will</p>
+<p>make sure that we have power of two dimensions.</p>
+<p>And what is more, this time we will show a fail information and in the previous video we just used</p>
+<p>a warning.</p>
+<p>So I have prepared a little boiler plate with square texture validator already declared.</p>
+<p>And we have two empty functions here.</p>
+<p>First let&#39;s go to can validate assets.</p>
+<p>I would like to validate only texture 2D class.</p>
+<p>So let me paste this Isinstance check and make sure that indentation is fine.</p>
+<p>And now we can check if dimensions are correct.</p>
+<p>We will check if x and y dimensions are equal.</p>
+<p>And to get those dimensions we have to call a function called blueprint Getsize x or getsize y.</p>
+<p>I have no idea why it has to be called with blueprint prefix and, but this is a correct function,</p>
+<p>so don&#39;t be scared by that.</p>
+<p>And now let&#39;s make sure that it is equal to y dimension.</p>
+<p>And of course we need some if statement, so we will fail if these are not equal.</p>
+<p>And now one thing is important, I will return invalid status.</p>
+<p>But you will notice that it&#39;s not enough to show a warning to the user.</p>
+<p>Anyway, I just want you to see that.</p>
+<p>So unreal data validation result invalid.</p>
+<p>And of course if everything went fine and this if statement didn&#39;t trigger, we return valid.</p>
+<p>The last thing we need to do is to create some registered texture validators function.</p>
+<p>So let me do that.</p>
+<p>And we need to get our editable validator subsystem.</p>
+<p>Then declare that square validator.</p>
+<p>And lastly we will add that validator.</p>
+<p>Also at the end of the file I will just call this function so I can copy everything and paste it to</p>
+<p>so unreal.</p>
+<p>Of course, don&#39;t keep that thing here in your code because it will be executed each time this file</p>
+<p>is imported.</p>
+<p>So let&#39;s get back to unreal.</p>
+<p>Let&#39;s paste it here.</p>
+<p>Hit enter and now validate all those assets.</p>
+<p>Go to message log and looks like it is fine, but it shouldn&#39;t.</p>
+<p>We are almost sure that we returned invalid.</p>
+<p>There is of course a chance that we did something wrong, but I think we didn&#39;t.</p>
+<p>So I will close unreal and slowly start restarting it.</p>
+<p>And the thing that we are missing is calling asset fails.</p>
+<p>So let&#39;s call self dot asset fails.</p>
+<p>First we pass our asset, then some message like um texture is not square and this is completely correct,</p>
+<p>but PyCharm is already highlighting that we expect text type.</p>
+<p>So I will just cast it to unreal dot text.</p>
+<p>So I get rid of this warning and let me copy it all again.</p>
+<p>Go to unreal.</p>
+<p>We don&#39;t need that window.</p>
+<p>I will just hide it.</p>
+<p>Go to output log, paste the code and run validation once again.</p>
+<p>And now we see that we actually failed.</p>
+<p>So returning invalid is not enough.</p>
+<p>We should do it, but we still have to call and that assert fails or assert warning function.</p>
+<p>What is more, just returning the status wouldn&#39;t give user any useful information.</p>
+<p>So we still have to do that, because the only way to pass the message out is by this function.</p>
+<p>So we see that the texture is not square.</p>
+<p>We see that it was square texture validator.</p>
+<p>And that&#39;s it.</p>
+<p>I hope you learned something.</p>
+<p>And in the next video we will do almost exactly the same thing.</p>
+<p>But this time we will check if texture is power of two.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -7,6 +7,10 @@
+ ## Prepare contrasting examples
+ 
+ Use square and nonsquare textures. Before the custom validator is registered, the existing validation can report them as valid because it is not checking this rule.
++
++## Boundary cases to follow while reading the validator
++
++Check width **and** height independently: `256 × 512` should pass a power-of-two rule, while `300 × 512` and `256 × 300` should fail. A square-texture rule would be a different requirement. Test an unsupported asset too, which should remain `NOT_VALIDATED` rather than pass a texture check it never received.
+ 
+ ![[Pasted image 20261012004640.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

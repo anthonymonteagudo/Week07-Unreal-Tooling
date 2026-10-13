@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>41 Remote Control in Unreal - Overview and Quick Setup · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-41">Return to audit</a><a href="40.html">Previous lesson</a> <a href="42.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/41%20Remote%20Control%20in%20Unreal%20-%20Overview%20and%20Quick%20Setup.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/41%20Remote%20Control%20in%20Unreal%20-%20Overview%20and%20Quick%20Setup%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>41 Remote Control in Unreal - Overview and Quick Setup</h1><p>Remote API versus web interface/plugin distinction retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Introduction to Remote Control — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/41%20Remote%20Control%20in%20Unreal%20-%20Overview%20and%20Quick%20Setup.md">Original notes</a></p>
+<p>Remote Control provides a way for an external interface or application to interact with Unreal. The course follows two workflows:</p>
+<ul>
+<li><strong>Presets and the web interface:</strong> expose scene properties and controls for tasks such as virtual-production lighting, camera adjustment, and branding.</li>
+<li><strong>Direct API calls:</strong> invoke exposed functions from another application, including Python pipeline tools, without requiring a preset UI.</li>
+</ul>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013003444.png" alt="Course screenshot: Pasted image 20261013003444.png"></p>
+<p>Enable <strong>Remote Control API</strong>. Enable <strong>Remote Control Web Interface</strong> as well for the browser UI, then restart the editor. Protocol plugins such as OSC, MIDI, or DMX are additional integrations rather than requirements for the basic HTTP examples.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013003140.png" alt="Course screenshot: Pasted image 20261013003140.png"></p>
+<p>The direct-call examples use HTTP requests with JSON containing an <code>objectPath</code>, <code>functionName</code>, and optional <code>parameters</code>. The following lessons first build a preset interface, then expose Python functions and a remotely controlled progress dialog.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/08%20Python%20and%20Blueprints/40%20Python%20Scripts%20in%20Asset%20Scripted%20Action%20Blueprints%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/42%20Remote%20Control%20Preset%20and%20WebApp%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013003444.png" alt="Course screenshot: Pasted image 20261013003444.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013003140.png" alt="Course screenshot: Pasted image 20261013003140.png"></p>
+<p>You can control Unreal Editor behavior using remote control API.</p>
+<p>That means communication between unreal and external tools is possible without too much hassle, and</p>
+<p>creating your own custom solutions.</p>
+<p>We could divide topics in this course section into two categories.</p>
+<p>First being remote control with use of so called remote Control preset that lets us expose certain properties</p>
+<p>from our scene and then create a web interface to control them.</p>
+<p>And second.</p>
+<p>Simply being able to call Python code remotely.</p>
+<p>Working with Remote Control preset will be most suitable for those who work with virtual production</p>
+<p>projects.</p>
+<p>It may not have much use for those who are just working on their own game, but don&#39;t worry, I got</p>
+<p>you covered.</p>
+<p>Calling Python code remotely will come handy for all those of you who want to create custom tools.</p>
+<p>For instance, you could automatically import Mesh to Unreal after it was exported from some other modeling</p>
+<p>software.</p>
+<p>That two category distinction is a bit artificial.</p>
+<p>At the end of the day, anything you call using remote API is based on the same principles it bases</p>
+<p>on the same API that is similar to a Rest API that many backend developers use.</p>
+<p>It&#39;s just a call to some URL that additionally contains some data, which in our case are in a form</p>
+<p>of Json.</p>
+<p>Those parameters will be an object or a class that you call, then function name and if needed, some</p>
+<p>additional parameters.</p>
+<p>And that was the overview.</p>
+<p>Now let&#39;s enable required plugins and you will be ready to jump straight into the tutorials on remote</p>
+<p>control.</p>
+<p>Go to Edit Plugins and let&#39;s search for remote control.</p>
+<p>As you may see, there are plenty of plugins because some of them are made for those who want to control</p>
+<p>their scene with Midi, OSC, or DMX plugins.</p>
+<p>That is for light technicians and musicians.</p>
+<p>For us, the most important one is remote control API.</p>
+<p>But also remote control.</p>
+<p>Web interface will come handy when working with Remote Control Preset and the automatically created</p>
+<p>web app.</p>
+<p>And that&#39;s it.</p>
+<p>Now you can jump straight into the next video, starting with a remote control preset.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

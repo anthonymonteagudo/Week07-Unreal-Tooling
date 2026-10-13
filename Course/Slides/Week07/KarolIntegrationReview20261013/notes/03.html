@@ -1,0 +1,113 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>03 Typing in Python · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-03">Return to audit</a><a href="02.html">Previous lesson</a> <a href="06.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/03%20Typing%20in%20Python.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/03%20Typing%20in%20Python%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>03 Typing in Python</h1><p>Typing guidance retained; links to the original supporting material remain available.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Typing in Python — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/03%20Typing%20in%20Python.md">Original notes</a></p>
+<p>Type hints describe the values a variable, parameter, or function result is intended to hold. They improve autocomplete and help an IDE identify mistakes; they do not by themselves enforce types at runtime.</p>
+<h2>Basic annotations</h2>
+<p>Use <code>:</code> for parameters and variables, and <code>-&gt;</code> for a function&#39;s return type.</p>
+<pre><code class="language-python">def return_string(name: str) -&gt; str:
+    return &quot;Here is your string &quot; + name
+
+my_variable: int = 1
+another_variable: int
+my_list_of_integers: list[int] = [1, 2]
+my_dict: dict[str, float] = {&quot;value&quot;: 1.5}
+</code></pre>
+<p>An annotation alone does not assign a value. You can also annotate a loop variable before its loop:</p>
+<pre><code class="language-python">i: int
+for i in range(10):
+    print(i)
+</code></pre>
+<h2>Collections and multiple possible types</h2>
+<p>Built-in collection annotations such as <code>list[int]</code> suit Python 3.9+. For older versions, use types from <code>typing</code>, such as <code>List[int]</code>.</p>
+<pre><code class="language-python">from typing import List, Optional, Union
+
+older_style: List[int] = [1, 2]
+noneable_var: Optional[str] = None
+multiple_types: Union[str, int] = 1
+mixed_values: list[Union[str, int]] = [&quot;value&quot;, 1]
+</code></pre>
+<p><code>Optional[str]</code> means <code>str</code> or <code>None</code>. <code>Union[str, int]</code> means either type; <code>str | int</code> is the newer Python 3.10+ notation. A list of mixed values needs one element annotation containing the union. These examples correct the inconsistent union and list syntax in the source notes.</p>
+<p><code>Any</code> permits an unspecified type, while <code>Callable</code> describes a callable such as a function.</p>
+<h2>Legacy type comments</h2>
+<p>For older codebases that need comment-based annotations:</p>
+<pre><code class="language-python">def my_function(some_string, value):
+    # type: (str, int) -&gt; None
+    pass
+
+my_list = []  # type: list
+</code></pre>
+<p>Reference: <a href="https://docs.python.org/3/library/typing.html">Python typing documentation</a> and <a href="https://peps.python.org/pep-0484/">PEP 484</a>.</p>
+<p>Course handout: <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/typing_in_python.pdf">Typing in Python</a>.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/02%20VS%20Code%20Autocomplete%20Setup%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/06%20Making%20scripts%20discoverable%20by%20Unreal%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p>You will soon notice that almost all of the code in the course is heavily type hinted.</p>
+<p>It may be confusing to some of you, especially because it&#39;s not common in tutorials and on stackoverflow.</p>
+<p>You can <strong>download PDF attached to this lecture</strong> or simply keep reading as the content is the same but it has better formatting and is more readable.</p>
+<h4>Typing in Python</h4>
+<p>This course uses a lot of typed Python code which is still a not popular enough feature but certainly a good one.</p>
+<p>Python is a dynamically typed language and most of the Python code you see in web does not use type hints.</p>
+<p>No wonder why some of you may be confused when following the course. Everything will clarify soon! This document should enough to get you start using it!</p>
+<p><strong>What is Typing in Python</strong></p>
+<p>Typing in Python is just a notation used to hint types of variables. It is not only a visual help for developer but also for your IDE.</p>
+<p>If your IDE does not detect proper type of the object, you may fix it with type hints.</p>
+<p>Thanks to that you will have better auto completion and simple errors will be highlighted.</p>
+<p>It does not matter which IDE you use. As long as it supports Python (like VS Code or PyCharm), it will support type hints.</p>
+<p><strong>How to use it</strong></p>
+<p>Basic typing support was added in Python 2 however it&#39;s different in Python 3. We will follow Python 3 notation as that is what Unreal Engine uses however you will find some hints at the bottom of this document if your modules have to be cross compatible.</p>
+<p>Let&#39;s try adding type hints to a function.</p>
+<ol>
+<li>def return_string(name: str) → str:</li>
+<li>return &quot;Here is your string &quot; + name</li>
+</ol>
+<p>As you can see, we type parameters by adding a colon and type name.</p>
+<p>We can do the same for variables. You can but don&#39;t have to assign value to variable when writing a type hint.</p>
+<p>→ Arrow is only used for specifying return type.</p>
+<ol>
+<li>my_variable: int = 1</li>
+<li>another_variable: int # this is also correct</li>
+<li>my_list_of_integers: list[int] = [1, 2] # typing lists is simple!</li>
+<li>my_dict: dict[str, float] = {&quot;value&quot;: 1.5} # even dictionaries are simple!</li>
+</ol>
+<p>Even loop iterators can be typed!</p>
+<ol>
+<li>i: int</li>
+<li>for i in range(10):</li>
+<li>print(i)</li>
+</ol>
+<p><strong>Types from typing module</strong></p>
+<p>On Python 3.8 and earlier you may have to make type hints of complex types (List, Set, Dict and Tuple) with types imported from typing module.</p>
+<ol>
+<li>from typing import List </li>
+<li>my_list_of_integers: List[int] = [1, 2]</li>
+</ol>
+<p><strong>But what if my variable can be None or maybe multiple types?</strong></p>
+<p>It can be solved with Optional and Union types.</p>
+<ol>
+<li>from typing import Union, Optional </li>
+<li>noneable_var: Optional[str] # str or None </li>
+<li>multiple_types: Union[str | int] # notice | operator! </li>
+<li>mutliple_types_arr: list[str, int]</li>
+</ol>
+<p>You can also use Any type as a wild card or even Callable type for functions!</p>
+<p><strong>Python 2 and 3 compatibility?</strong></p>
+<p>You can follow suggested syntax for Python 2.7. It should work fine in IDE&#39;s and is based on comments so it is safe to introduce.</p>
+<p>Typing functions:</p>
+<ol>
+<li>def my_function(some_string, value):</li>
+<li><h1>type: (str, int) → None</h1>
+</li>
+<li><h1>^ above you can see parameter and return value types</h1>
+</li>
+</ol>
+<p>You can do it also for just specific arguments if you divide function declaration for few lines. It&#39;s not the cleanest approach but works.</p>
+<ol>
+<li>def three_param_function( param1, param2, # type: int</li>
+<li>param3):</li>
+</ol>
+<p>The same kind of comment is used for variables in function body.</p>
+<p><code>my_list = [] # type: list</code></p>
+<p><strong>More?</strong></p>
+<p>Still hungry? Want to find out more?</p>
+<p>Typing is well described in Python documentation: <a href="https://docs.python.org/3/library/typing.html">https://docs.python.org/3/library/typing.html</a></p>
+<p>Check out this PEP as well: <a href="https://peps.python.org/pep-0484/">https://peps.python.org/pep-0484/</a></p>
+<p>Resources for this lecture</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

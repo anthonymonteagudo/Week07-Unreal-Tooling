@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tool UX · Peer test worksheet</title><style>
+*{box-sizing:border-box}body{margin:0;background:#ececf0;color:#19191d;font:14px/1.32 Arial,sans-serif}.screen{max-width:816px;margin:20px auto;padding:0 24px}a{color:#43327e}.page{width:816px;min-height:1056px;margin:24px auto;padding:48px 54px;background:white}h1{font-size:27px;line-height:1.15;margin:0 0 8px}h2{font-size:18px;margin:12px 0 6px}p{margin:7px 0}.meta,footer{font-size:11px;color:#444}.line{height:23px;border-bottom:1px solid #b7b7bd}.write{height:46px;background:repeating-linear-gradient(white 0,white 25px,#b7b7bd 26px,white 27px)}.short{height:34px}.row{display:flex;gap:24px}.row>div{flex:1}table{width:100%;border-collapse:collapse;font-size:13px}th,td{border:1px solid #aaa;padding:5px;text-align:left;vertical-align:top}th{background:#f3f3f5}td.blank{height:54px}.checks{font-size:14px}footer{margin-top:12px}button{font:inherit;padding:8px 14px;cursor:pointer}@page{size:Letter;margin:0}@media print{body{background:white}.screen{display:none}.page{width:8.5in;height:11in;min-height:0;margin:0;padding:.5in .56in;break-after:page;overflow:visible}.page:last-child{break-after:auto}a{color:inherit}h2{break-after:avoid}}@media screen and (max-width:850px){.page{width:calc(100% - 24px);min-height:0;padding:28px 24px}.row{flex-wrap:wrap}.row>div{min-width:190px}}
+</style></head><body>
+<div class="screen"><a href="Bridge_and_UX.html">Instructor guide</a> · <button onclick="window.print()">Print worksheet</button><p>Two-page handout · Letter, portrait, 100% scale. Write on a printed copy. This page does not save typed responses.</p></div>
+<section class="page">
+<p class="meta">TECHNICAL ART · TOOL DESIGN &amp; USER EXPERIENCE · 1 OF 2</p><h1>Watch someone use your tool</h1><p>Test the tool's design by observing a realistic task. Your partner is helping you find what to improve.</p>
+<div class="row"><div><strong>Tool / application / version</strong><div class="line"></div></div><div><strong>Author / tester / date</strong><div class="line"></div></div></div>
+<h2>1 · Define the job</h2><p>Who is this for, and what repetitive or difficult job does it help them do?</p><div class="write"></div>
+<p>Write one realistic task for your partner. Give the goal and starting data; leave the route through the interface for them to discover.</p><div class="write"></div>
+<p><strong>Example:</strong> “This prop has a revised source mesh. Update its Unreal asset while keeping its material assignment.”</p>
+<p>What visible evidence will count as success? What must remain unchanged?</p><div class="write"></div>
+<h2>2 · Prepare the test</h2><p class="checks">☐ Use a copy or recoverable test scene. &nbsp; ☐ Record the starting state.<br>☐ Make the required inputs available. &nbsp; ☐ Explain how to stop safely.</p>
+<p><strong>Tester:</strong> operate the tool and say what you expect and notice.<br><strong>Author:</strong> observe before explaining. Record every hint or intervention. Step in if work is at risk.</p>
+<h2>3 · First use</h2><p>Before acting, ask: “What do you expect this tool to affect?”</p><div class="line"></div>
+<table><thead><tr><th style="width:34%">Moment / action</th><th style="width:33%">What the tester expected or said</th><th>What actually happened / help given</th></tr></thead><tbody><tr><td class="blank"></td><td></td><td></td></tr><tr><td class="blank"></td><td></td><td></td></tr></tbody></table>
+<p class="checks"><strong>Outcome:</strong> ☐ Completed independently &nbsp; ☐ Completed with help &nbsp; ☐ Not completed</p><p>Evidence that the result is correct (inspect the output, not just the success message):</p><div class="line"></div>
+<footer>Keep observations separate from guesses: “Looked for the output for 30 seconds” is evidence; “did not pay attention” is an interpretation.</footer>
+</section>
+<section class="page">
+<p class="meta">TECHNICAL ART · TOOL DESIGN &amp; USER EXPERIENCE · 2 OF 2</p><h1>Find one useful improvement</h1>
+<h2>4 · Recovery and repeat use</h2><p>Choose one relevant case on test data: empty selection, wrong input type, missing file, conflicting name, or a second run. Predict what should happen before trying it.</p>
+<div class="row"><div><strong>Case / expected behavior</strong><div class="write"></div></div><div><strong>Observed behavior / recovery</strong><div class="write"></div></div></div>
+<p>Could the tester tell what changed, what failed, and what to do next? If Undo is unavailable, is another recovery route clear and workable?</p><div class="write short"></div>
+<h2>5 · Review the interface</h2><p>Mark each row: <strong>✓ clear</strong>, <strong>! needs work</strong>, or <strong>— not observed</strong>. Add evidence.</p>
+<table><thead><tr><th style="width:8%">Mark</th><th style="width:51%">Question</th><th>Example / evidence</th></tr></thead><tbody>
+<tr><td></td><td>Can the user identify the next action and its scope?</td><td></td></tr>
+<tr><td></td><td>Are labels, defaults, and units familiar and clear?</td><td></td></tr>
+<tr><td></td><td>Are invalid inputs caught before unwanted changes?</td><td></td></tr>
+<tr><td></td><td>Are progress, results, and partial failures understandable?</td><td></td></tr>
+<tr><td></td><td>Can users recover or repeat the operation predictably?</td><td></td></tr>
+<tr><td></td><td>Are text, keyboard focus, and non-color cues usable?</td><td></td></tr>
+</tbody></table>
+<h2>6 · Choose one change</h2><p>Which observed problem matters most? Consider blocked work, wrong results, repeated confusion, and effort. Preserve something that already worked well.</p>
+<div class="row"><div><strong>Keep: what worked?</strong><div class="write short"></div></div><div><strong>Change: problem + evidence</strong><div class="write short"></div></div></div>
+<p><strong>Proposed change and why it should help:</strong></p><div class="write"></div>
+<p><strong>Retest:</strong> repeat which task, from what starting state, and look for what improvement?</p><div class="write"></div>
+<p class="checks">☐ Retested: result below &nbsp; ☐ Retest planned after implementation</p><div class="line"></div>
+<footer>Original course worksheet, informed by Jakob Nielsen's <a href="https://www.nngroup.com/articles/ten-usability-heuristics/">10 Usability Heuristics</a> and Marieke McCloskey's <a href="https://www.nngroup.com/articles/task-scenarios-usability-testing/">Task Scenarios for Usability Testing</a> (Nielsen Norman Group), and the course's artist-tool UX notes. One peer test identifies issues; it does not establish universal usability.</footer>
+</section></body></html>

@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>26 Working with dir() and help() · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-26">Return to audit</a><a href="25.html">Previous lesson</a> <a href="27.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/05%20Developing%20Code%20More%20Efficiently/26%20Working%20with%20dir%28%29%20and%20help%28%29.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/05%20Developing%20Code%20More%20Efficiently/26%20Working%20with%20dir%28%29%20and%20help%28%29%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>26 Working with dir() and help()</h1><p>dir() and help() examples, inherited methods, Optional return values and the unnecessary print(help(...)) wrapper explained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Inspecting Unreal Objects with dir and help — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/05%20Developing%20Code%20More%20Efficiently/26%20Working%20with%20dir%28%29%20and%20help%28%29.md">Original notes</a></p>
+<p>Use Python introspection when a stub or documentation page does not show an inherited method clearly. Both classes and existing objects can be inspected.</p>
+<h2>List available names</h2>
+<p><code>dir(unreal.StaticMesh)</code> returns available attribute names, including inherited members. Printing the entire list works but is difficult to scan.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012164842.png" alt="Course screenshot: Pasted image 20261012164842.png"></p>
+<p>Print one name per line instead:</p>
+<pre><code class="language-python">for name in dir(unreal.StaticMesh):
+    print(name)
+</code></pre>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012180239.png" alt="Course screenshot: Pasted image 20261012180239.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012180254.png" alt="Course screenshot: Pasted image 20261012180254.png"></p>
+<p>The example finds <code>get_world</code>, which is inherited and was not listed directly on the class&#39;s documentation page.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012180352.png" alt="Course screenshot: Pasted image 20261012180352.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012180415.png" alt="Course screenshot: Pasted image 20261012180415.png"></p>
+<h2>Inspect a method</h2>
+<p>Pass the method itself to <code>help()</code>, without calling it:</p>
+<pre><code class="language-python">help(unreal.StaticMesh.get_world)
+</code></pre>
+<p>The output describes the signature and return value. Here, <code>Optional[World]</code> means a world object or <code>None</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012180515.png" alt="Course screenshot: Pasted image 20261012180515.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012180538.png" alt="Course screenshot: Pasted image 20261012180538.png"></p>
+<p><code>help()</code> prints its own output. The screenshot&#39;s extra <code>print(help(...))</code> also prints <code>None</code>, the return value of <code>help()</code>; that wrapper is unnecessary.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/25%20Triangle%20Count%20Validator%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/05%20Developing%20Code%20More%20Efficiently/27%20Remote%20debugging%20with%20VS%20Code%20and%20debugpy%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p>dir()
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012164842.png" alt="Course screenshot: Pasted image 20261012164842.png">
+preferred call:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012180239.png" alt="Course screenshot: Pasted image 20261012180239.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012180254.png" alt="Course screenshot: Pasted image 20261012180254.png"></p>
+<p>Note, this is useful, because some functions are missing from the online docs:
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012180352.png" alt="Course screenshot: Pasted image 20261012180352.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012180415.png" alt="Course screenshot: Pasted image 20261012180415.png"></p>
+<p>help()
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012180515.png" alt="Course screenshot: Pasted image 20261012180515.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012180538.png" alt="Course screenshot: Pasted image 20261012180538.png">
+If you struggle with stamps and documentation because classes docs don&#39;t show all inherited methods</p>
+<p>and properties, you may want to take advantage of built in Python deal method that returns them as</p>
+<p>a list.</p>
+<p>It can be executed on objects like assets or actors, but also just on classes.</p>
+<p>Let&#39;s try it on unreal.</p>
+<p>Static mesh class.</p>
+<p>I pass it as an argument to the deal method, and of course I wrap everything in a print.</p>
+<p>We got some results, but it isn&#39;t very human readable.</p>
+<p>Let&#39;s print each item in a separate line.</p>
+<p>Way better.</p>
+<p>As you can see, printed values include methods like get word.</p>
+<p>Which were inherited from some superclass but were not declared in static mesh class.</p>
+<p>So if we were looking for it in documentation of static mesh, we would find nothing.</p>
+<p>That&#39;s why you may need to use the tier method.</p>
+<p>Once you have found such method or property, you may want to also know how it works.</p>
+<p>It can be done by calling help method and passing that property as an argument.</p>
+<p>Let&#39;s call help.</p>
+<p>And pass unreal static mesh and now use dot to refer to get word and remember not to call it with any</p>
+<p>parentheses after the method name.</p>
+<p>Of course I have to wrap it with the print.</p>
+<p>And after hitting enter we get a very simple but definitely useable information.</p>
+<p>We know what argument it needs.</p>
+<p>It needs nothing.</p>
+<p>In this case it gets self because we call it on an object.</p>
+<p>So self is already included and it returns optional word, which means that we will get either none</p>
+<p>or actual word object.</p>
+<p>Calling.</p>
+<p>Different help may not be my go to way of finding out how things work, but it&#39;s definitely useful when</p>
+<p>you want to get a full view of the class toolbox without searching for it for too long.</p>
+<p>I hope the video was useful and see you in the next one.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

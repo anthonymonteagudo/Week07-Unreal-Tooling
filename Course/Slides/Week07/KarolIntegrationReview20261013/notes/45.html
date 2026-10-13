@@ -1,0 +1,287 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>45 Remote Control Python Progress Bar · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-45">Return to audit</a><a href="44.html">Previous lesson</a> <a href="46.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/45%20Remote%20Control%20Python%20Progress%20Bar.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/45%20Remote%20Control%20Python%20Progress%20Bar%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>45 Remote Control Python Progress Bar</h1><p>Corrected boundary and cleanup fragments</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Remote Control Python Progress Bar — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/45%20Remote%20Control%20Python%20Progress%20Bar.md">Original notes</a></p>
+<p>An external tool may need to start an Unreal progress dialog, update it across several API calls, and close it afterward. Unlike a single <code>with ScopedSlowTask(...)</code> block, this example keeps the task and its progress state alive between calls.</p>
+<h2>Keep shared state</h2>
+<p>Store the active <code>ScopedSlowTask</code> in a module-level variable initialized to <code>None</code>. Store total steps and current step in a small dataclass, both initially zero. Use a unique Unreal class name such as <code>ProgressBarTechArtCorner</code>; <code>ProgressBar</code> conflicts with an existing Unreal type.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025819.png" alt="Course screenshot: Pasted image 20261013025819.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025256.png" alt="Course screenshot: Pasted image 20261013025256.png"></p>
+<h2>Implement all three operations before testing</h2>
+<p><strong>Start</strong> takes <code>steps</code> and <code>label</code>, declares <code>params=[int, str]</code>, and returns a Boolean. Reject a second start while a task exists. Create the slow task, set the state&#39;s total steps and reset its current step, call <code>__enter__()</code>, and display it with <code>make_dialog()</code>.</p>
+<p>The later correction below adds the initially omitted total-step assignment.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025611.png" alt="Course screenshot: Pasted image 20261013025611.png"></p>
+<p><strong>Increment</strong> returns false if there is no active task or no remaining work. Otherwise, increment the counter and call <code>enter_progress_frame(1)</code>.</p>
+<p>Use <code>current_step &lt; steps</code> before incrementing. The screenshot&#39;s <code>&lt;=</code> allows one extra increment and should not be copied unchanged.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025706.png" alt="Course screenshot: Pasted image 20261013025706.png"></p>
+<p><strong>Finish</strong> exits the scope, clears the active task back to <code>None</code>, and resets the state. Return true after successful cleanup, or false if there was no active task. The demonstrated API&#39;s <code>__exit__</code> parameters are optional.</p>
+<h2>Corrected boundary and cleanup fragments</h2>
+<p>Within the increment method, test <code>state.current_step &lt; state.steps</code> before increasing the counter. Reject nonpositive step totals when starting a task. Within the Boolean finish method, successful cleanup must explicitly return <code>True</code>; omitting it returns Python <code>None</code> despite the declared Boolean interface.</p>
+<p>The essential cleanup sequence is:</p>
+<pre><code class="language-python"># Method fragment: progress_task and state refer to the retained module state.
+progress_task.__exit__(None, None, None)
+progress_task = None
+state.steps = 0
+state.current_step = 0
+# The enclosing Boolean finish method then returns True.
+</code></pre>
+<p>Declare the relevant module variable <code>global</code> inside a method that reassigns it. Implement and test finish before exposing start; an external caller should invoke finish from its own <code>finally</code> block. This multi-request lifetime is more fragile than the single-scope progress loop in lesson 33.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025727.png" alt="Course screenshot: Pasted image 20261013025727.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025745.png" alt="Course screenshot: Pasted image 20261013025745.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025805.png" alt="Course screenshot: Pasted image 20261013025805.png"></p>
+<p>Register the complete class before starting a remote task. The early demonstration starts a modal dialog before implementing the finish operation and must restart Unreal to recover.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025325.png" alt="Course screenshot: Pasted image 20261013025325.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025525.png" alt="Course screenshot: Pasted image 20261013025525.png"></p>
+<h2>Exercise the lifecycle remotely</h2>
+<p>Execute the complete code in Unreal. Send a JSON <strong>PUT</strong> request to <code>http://localhost:30010/remote/object/call</code>:</p>
+<pre><code class="language-json">{
+  &quot;objectPath&quot;: &quot;/Engine/PythonTypes.Default__ProgressBarTechArtCorner&quot;,
+  &quot;functionName&quot;: &quot;progress_bar_start&quot;,
+  &quot;parameters&quot;: {&quot;steps&quot;: 4, &quot;label&quot;: &quot;It&#39;s alive!&quot;}
+}
+</code></pre>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013030014.png" alt="Course screenshot: Pasted image 20261013030014.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013030050.png" alt="Course screenshot: Pasted image 20261013030050.png"></p>
+<p>Duplicate the request for <code>progress_bar_increment</code> and then <code>progress_bar_finish</code>. Neither requires the <code>parameters</code> object; remove its preceding comma as well so the JSON remains valid. Verify the Boolean response for each operation. The external tool should finish the task even if its own processing fails.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013030152.png" alt="Course screenshot: Pasted image 20261013030152.png"></p>
+<h2>Investigate progress overflow</h2>
+<p>The lesson shows an overflow warning during manual testing and a later run without it. Keep the total work, increment count, and scope lifetime consistent; a faster run alone does not establish why an earlier overflow occurred. In particular, correct the increment boundary above before reusing the example.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013030229.png" alt="Course screenshot: Pasted image 20261013030229.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013030306.png" alt="Course screenshot: Pasted image 20261013030306.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/44%20Python%20and%20Remote%20Control%20API%20%2B%20Testing%20API%20with%20Insomnia%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/46%20Direct%20FBX%20Mesh%20Export%20From%20Blender%20to%20Unreal%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025256.png" alt="Course screenshot: Pasted image 20261013025256.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025325.png" alt="Course screenshot: Pasted image 20261013025325.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025525.png" alt="Course screenshot: Pasted image 20261013025525.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025611.png" alt="Course screenshot: Pasted image 20261013025611.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025706.png" alt="Course screenshot: Pasted image 20261013025706.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025727.png" alt="Course screenshot: Pasted image 20261013025727.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025745.png" alt="Course screenshot: Pasted image 20261013025745.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025805.png" alt="Course screenshot: Pasted image 20261013025805.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013025819.png" alt="Course screenshot: Pasted image 20261013025819.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013030014.png" alt="Course screenshot: Pasted image 20261013030014.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013030050.png" alt="Course screenshot: Pasted image 20261013030050.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013030152.png" alt="Course screenshot: Pasted image 20261013030152.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013030229.png" alt="Course screenshot: Pasted image 20261013030229.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013030306.png" alt="Course screenshot: Pasted image 20261013030306.png"></p>
+<p>It is best if you are watching this video after the recording about exposing Python classes and functions</p>
+<p>to remote control API.</p>
+<p>You are just going to build on that knowledge, and we will make some nice progress bar that you can</p>
+<p>start displaying.</p>
+<p>Increment progress and finish using insomnia and then some Python code.</p>
+<p>In one of the first videos in the course, I showed you how to create a single progress bar that was</p>
+<p>just 1 or 2 lines of code, with a wrapper that creates a scoped slow task that wraps the whole code</p>
+<p>that is executed.</p>
+<p>The thing is that when we are executing code remotely, we can&#39;t have everything in a single function.</p>
+<p>We may be processing something not in a drill, but outside of it.</p>
+<p>And in that case, we can just iterate over some loop in some scoped task wrapper.</p>
+<p>In unreal, we have to call increments from our application and make sure that the progress bar in unreal</p>
+<p>is updating.</p>
+<p>For that purpose, we need to create a progress bar, start function, increment function, and finish</p>
+<p>function.</p>
+<p>You can make more utils if you would like to, but these are the three basic ones.</p>
+<p>All those three should know what is the current state of the progress bar, and they should be able</p>
+<p>to access that progress bar.</p>
+<p>That means that those two things, the state of it and the progress bar itself, have to be a global</p>
+<p>variables.</p>
+<p>So we are going to declare them on top of the file.</p>
+<p>And the first one is slow task just because it is unreal scoped slow task.</p>
+<p>If we are not calling any code that will be running slowly and would need a widget, we&#39;re not even</p>
+<p>creating that.</p>
+<p>We&#39;re just declaring it as none.</p>
+<p>And to avoid errors in my IDE, I will just add some type hint that tells me that it can be either none</p>
+<p>or unreal dot scoped slow task.</p>
+<p>Now I know that my autocompletion in IDE will be correct.</p>
+<p>It tells me to impart this name from some ctypes module, but I know it is contained in typing module,</p>
+<p>so I will make that import manually.</p>
+<p>Then we are going to declare some context, which is current step of the progress bar and number of</p>
+<p>steps that we expect in total.</p>
+<p>So if we are importing five meshes, there will be five steps and after each finished.</p>
+<p>In part I will increment current step by one.</p>
+<p>We can use some integer values, we can use some dictionary, or we can use a data class.</p>
+<p>And I will go with the data class approach.</p>
+<p>So data class and that will be class progress bar state.</p>
+<p>It has some number of steps.</p>
+<p>That is an integer and default value is zero and also has current step counter that also is integer</p>
+<p>that defaults to zero.</p>
+<p>We need to import that decorator from data classes module.</p>
+<p>And we&#39;re good.</p>
+<p>Let&#39;s create a global variable.</p>
+<p>And that will be called progress.</p>
+<p>Bar state.</p>
+<p>And let&#39;s initialize progress bar state.</p>
+<p>That&#39;s it.</p>
+<p>And now we can start exposing our progress bar controller to the API.</p>
+<p>So we need to create some new class and new class.</p>
+<p>And we sadly cannot just call it progress bar.</p>
+<p>That name is already used by unreal.</p>
+<p>So if you declare it you will get some meaningful, actually meaningful because I tested it error in</p>
+<p>unreal.</p>
+<p>But you may skip it and if you don&#39;t notice it, you will end up wondering what&#39;s going wrong.</p>
+<p>So I will call it Progress Bar tech Art corner.</p>
+<p>And that, of course, is based on your object.</p>
+<p>Now let&#39;s declare a function and this one will be just starting our progress bar.</p>
+<p>And I know that we need number of steps and some label which is message that we are going to display.</p>
+<p>So we will need two parameters integer and string.</p>
+<p>I would also like to return a true value if everything went correct and false if there was any issue.</p>
+<p>So we will have a return type bool.</p>
+<p>So unreal function and return type is boolean.</p>
+<p>Params are going to be integer and string.</p>
+<p>And we also need that meta with your function properties.</p>
+<p>So um meta equals dict.</p>
+<p>And that has some category equal to Tecate corner.</p>
+<p>Now we can define our progress bar.</p>
+<p>Progress bar.</p>
+<p>Start that is, taking steps parameter and label.</p>
+<p>So we are going to create a new slow task.</p>
+<p>And if that slow task is already existing, that means that something went wrong.</p>
+<p>So in that case, we should return false.</p>
+<p>If we were, for instance, going to finish displaying of the progress bar, we should have the initialize</p>
+<p>that which is simply setting it to none.</p>
+<p>So first let&#39;s try accessing the global variable.</p>
+<p>And now if it isn&#39;t none we are just going to return false.</p>
+<p>Honestly, if that is not false, it means probably that is this a programmer&#39;s fault?</p>
+<p>So before trying to handle it in the code, I would rather try to detect that false value and fix my</p>
+<p>issue.</p>
+<p>Now let&#39;s declare a slow task as unreal scoped slow task and that takes number of steps.</p>
+<p>And label.</p>
+<p>What you have to do is to just start the slow task.</p>
+<p>So slow task enter.</p>
+<p>And we want to display the dialog.</p>
+<p>So also slow task make dialog.</p>
+<p>And at the end, let&#39;s return.</p>
+<p>True.</p>
+<p>We can actually start testing this code right now.</p>
+<p>We can just copy all that code, paste it into unreal.</p>
+<p>There was no errors, at least not yet.</p>
+<p>So let&#39;s go to insomnia and let&#39;s create a new Http request.</p>
+<p>Remember to set it to put.</p>
+<p>Also remember to paste the correct URL which is http localhost and the number of port that you are using.</p>
+<p>That 30010 is the default ten slash remote slash object slash call.</p>
+<p>Go to body and change type to Json.</p>
+<p>Once it&#39;s done, we&#39;re going to create a Json that contains object path, which leads to engine Python.</p>
+<p>Python types default and after two underscores.</p>
+<p>There we have name of our class.</p>
+<p>The next parameter is going to be function name, which is progress bar start.</p>
+<p>And then we pass some patterns.</p>
+<p>So I will have four steps and my label will be isalive so we can send it.</p>
+<p>Return value was true.</p>
+<p>And if I drag insomnia to the left side of my monitor setup, we see that we have that it&#39;s a live widget.</p>
+<p>So the bad thing is that right now, we no longer can interact with that code.</p>
+<p>So we will have to restart Android to be able to write some code that increments or finishes, uh,</p>
+<p>the widget.</p>
+<p>But at least we know that we were able to actually show some window.</p>
+<p>So I will quickly restart unreal.</p>
+<p>And in the meantime we will be writing more code to be exposed before we implement Incrementation and</p>
+<p>closing the progress bar.</p>
+<p>I have to admit to making a mistake.</p>
+<p>I have forgotten that when we set slow task step&#39;s number to the maybe initial four, then we also should</p>
+<p>set number of steps for our progress bar state variable.</p>
+<p>So I am going to do it right now.</p>
+<p>Let&#39;s access it with global keyword and then progress bar bar state dot steps and set it to steps.</p>
+<p>Now the error is corrected and we can start implementing increment function by copying the new function</p>
+<p>decorator we used already.</p>
+<p>Let me paste it.</p>
+<p>And we are going to return a boolean to indicate if everything went correctly or not.</p>
+<p>But we are not going to take any parameters.</p>
+<p>So let me remove that params code here and let&#39;s declare progress our increment function.</p>
+<p>We want to check that slow task we are going to increment actually exists.</p>
+<p>So we are going to access it using global keyword and check.</p>
+<p>If not slow task then return false.</p>
+<p>Don&#39;t look at the code above.</p>
+<p>Here we were making sure that it didn&#39;t exist, and now we are making sure that it actually exists.</p>
+<p>Hence that little difference here with the Not keyword.</p>
+<p>If current step is lower or equal to the number of all steps, then we can progress.</p>
+<p>So if progress bar state and we have to access progress bar with the global keyword.</p>
+<p>If progress bar state current step is lower or equal to progress bar state steps, then we are going</p>
+<p>to increment current step by one and also call enter progress frame function on the slow task and also</p>
+<p>with value of one.</p>
+<p>Then we are going to return true.</p>
+<p>There is some possibility that you made a mistake and now current step is bigger than number of all</p>
+<p>steps you could do.</p>
+<p>In that case, unreal will show you an error in the console log, but the program will probably work.</p>
+<p>You could try catching that case and write some else, and maybe just close the modal window, or even</p>
+<p>throw your own exception.</p>
+<p>However, to keep things simple, I will just return false so we will see that it&#39;s wrong in insomnia.</p>
+<p>Let&#39;s also declare a finish function.</p>
+<p>So I&#39;m going to reuse that decorator from the past and declare progress bar finish.</p>
+<p>It is also checking if slow task exists.</p>
+<p>And if it does exist, we call exit.</p>
+<p>You may see a highlight here.</p>
+<p>Highlight says that we haven&#39;t filled required parameters, but if you middle mouse click on that you</p>
+<p>will see that those parameters were optional so we can skip them without any consequences.</p>
+<p>Once that slow task has exited, we should set it as none because the start function expects it to be</p>
+<p>none and then initializes it.</p>
+<p>So here we have it.</p>
+<p>And also it would be nice to reset current step and number of steps in our progress bar state.</p>
+<p>So I will access it with the global keyword again.</p>
+<p>And honestly, to keep it simple, I will just set it to a new object that will use the default values</p>
+<p>from the data class.</p>
+<p>And that&#39;s all we can start testing.</p>
+<p>So let me copy the whole code.</p>
+<p>Pasted to unreal.</p>
+<p>Or maybe.</p>
+<p>Also let&#39;s clear the log.</p>
+<p>Let&#39;s paste it here.</p>
+<p>No errors, at least not yet.</p>
+<p>And we can call progress bar start.</p>
+<p>We have some progress bar.</p>
+<p>And now let me duplicate this request and modify it so we have one for incrementing it increment.</p>
+<p>Let&#39;s go to Json and we no longer need any parameters.</p>
+<p>I will remove those.</p>
+<p>And I also have to keep in mind to remove that trailing comma because otherwise the Json will be incorrect.</p>
+<p>Then let&#39;s just rename this start to increment and we can start testing.</p>
+<p>It has returned true value.</p>
+<p>The first call may not update anything, but then it starts to work.</p>
+<p>And sometimes it hangs for a while on the last one.</p>
+<p>Lastly, we can duplicate it to create a finished call.</p>
+<p>And we only need to rename it to finish.</p>
+<p>Then send.</p>
+<p>And how we sometimes get an exception.</p>
+<p>That says that we had a work overflow in the flow, in the slow task.</p>
+<p>You have to keep in mind that each time we execute some remote call that is in a single function, it</p>
+<p>should take some single frame of the editor.</p>
+<p>And when we were testing, we were modifying calls and wasting that time.</p>
+<p>So we simply exceeded expected time that the task takes during a single frame.</p>
+<p>So it doesn&#39;t mean that our code is wrong.</p>
+<p>It only means that when you create some tool that is calling this slow task and iterating, it should</p>
+<p>be a simple and short iteration.</p>
+<p>And if it takes longer time than maybe it should just create more steps when you will be creating things</p>
+<p>like maybe exporting assets from one tool and automatically importing it into unreal, then the code</p>
+<p>will be executing probably quite fast, and you will not be entering things manually and, you know,</p>
+<p>creating those delays.</p>
+<p>So that issue will probably not exist.</p>
+<p>And even if we test manually, we will not have this error each time we can clear the log.</p>
+<p>Go back to insomnia.</p>
+<p>Click progress bar start increment few times.</p>
+<p>And then finish.</p>
+<p>And now we were way quicker, so nothing wrong happened.</p>
+<p>And that&#39;s it.</p>
+<p>If you just implement code that does some import, does some processing, then now you can have a full</p>
+<p>fledged remote control from an external application and really do something useful.</p>
+<p>I hope you liked it and see you in the next videos.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -27,6 +27,23 @@
+ ![[Pasted image 20261013025706.png]]
+ 
+ **Finish** exits the scope, clears the active task back to `None`, and resets the state. Return true after successful cleanup, or false if there was no active task. The demonstrated API's `__exit__` parameters are optional.
++
++## Corrected boundary and cleanup fragments
++
++Within the increment method, test `state.current_step &lt; state.steps` before increasing the counter. Reject nonpositive step totals when starting a task. Within the Boolean finish method, successful cleanup must explicitly return `True`; omitting it returns Python `None` despite the declared Boolean interface.
++
++The essential cleanup sequence is:
++
++```python
++# Method fragment: progress_task and state refer to the retained module state.
++progress_task.__exit__(None, None, None)
++progress_task = None
++state.steps = 0
++state.current_step = 0
++# The enclosing Boolean finish method then returns True.
++```
++
++Declare the relevant module variable `global` inside a method that reassigns it. Implement and test finish before exposing start; an external caller should invoke finish from its own `finally` block. This multi-request lifetime is more fragile than the single-scope progress loop in lesson 33.
+ 
+ ![[Pasted image 20261013025727.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

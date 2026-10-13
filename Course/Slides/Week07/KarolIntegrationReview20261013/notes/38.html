@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>38 Suppressing warnings in Python tests · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-38">Return to audit</a><a href="37.html">Previous lesson</a> <a href="39.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/38%20Suppressing%20warnings%20in%20Python%20tests.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/38%20Suppressing%20warnings%20in%20Python%20tests%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>38 Suppressing warnings in Python tests</h1><p>Exact workaround shown in the original</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Handling Expected Warnings in Python Tests — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/38%20Suppressing%20warnings%20in%20Python%20tests.md">Original notes</a></p>
+<p>When a test deliberately exercises a condition that logs a warning or error, register the expected message with <code>unreal.AutomationLibrary.add_expected_log_error</code>. This tells the automation system which log output belongs to the test scenario.</p>
+<h2>Register the expectation</h2>
+<p>The course uses these arguments: a message pattern, the expected occurrence count, and whether matching must be exact. With non-exact matching, the pattern can use a regular expression.</p>
+<pre><code class="language-python">unreal.AutomationLibrary.add_expected_log_error(
+    &quot;Failed to set (.*) compression settings to (.*)&quot;,
+    0,
+    False,
+)
+</code></pre>
+<p>The example uses <code>0</code> for an unrestricted number of matches. The course also observes a failure when an expected message does not appear. Register expectations close to the operation being tested and make the pattern specific enough to avoid accepting unrelated failures.</p>
+<h2>Understand the demonstrated workaround</h2>
+<p>The lesson demonstrates emitting a matching warning immediately after registering it, ensuring that a match exists even if the operation does not produce one. This is a workaround for that expectation, not evidence that the operation produced the intended warning.</p>
+<p>For a test intended to verify a warning path, exercise the actual condition and check its output. Avoid using a synthetic matching message to conceal that the real path was never reached.</p>
+<h2>Exact workaround shown in the original</h2>
+<p>The original&#39;s synthetic message is:</p>
+<pre><code class="language-python">unreal.log_warning(&quot;Failed to set my_texture compression settings to TC_NORMALMAP&quot;)
+</code></pre>
+<p>It is placed after <code>add_expected_log_error(...)</code> to ensure a matching message exists. Keep it labeled as a workaround when comparing with the source. It does <strong>not</strong> verify that the actual setter produced the expected warning. The source also omits a comma between <code>0</code> and <code>False</code>; the corrected registration above includes it.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/37%20Appendix%20-%20New%20to%20automated%20tests%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/07%20Releasing%20Tools/39%20Packing%20Python%20Tool%20As%20Unreal%20Plugin%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p>It&#39;s hard to manage Unreal warnings when there are so many parts of code that become deprecated and may be still in use.</p>
+<p>These warnings are important but once we are aware of them, they only make reading test reports more difficult.</p>
+<p>We cannot suppress them per se but we can &quot;expect&quot; them.</p>
+<p>Reference:</p>
+<p><code>_classmethod_ add_expected_log_error(_expected_pattern_string_, _occurrences=1_, _exact_match=False_) → None</code></p>
+<p>Snippet:</p>
+<p><code>unreal.AutomationLibrary.add_expected_log_error(&quot;Warning or error to be expected&quot;, 0 False)</code></p>
+<p>With occurrences set to 0 this snippet will ignore all occurrences of given error. exact_match is set to False so you don&#39;t have to worry about using incomplete warning message.<br>You can use regular expressions to make this error more generic.</p>
+<p>Example:</p>
+<p><code>unreal.AutomationLibrary.add_expected_log_error(&quot;Failed to set ((.*)) compression settings to ((.*))&quot;, 0 False)</code></p>
+<p>The issue you may run into is that this function does not suppress errors. It expects them.<br>So if no such error is found then it raises one itself. To prevent that, I log warning as soon as I add expected log error.</p>
+<p><code>unreal.log_warning(&quot;Failed to set my_texture compression settings to TC_NORMALMAP&quot;)</code></p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -24,6 +24,18 @@
+ 
+ For a test intended to verify a warning path, exercise the actual condition and check its output. Avoid using a synthetic matching message to conceal that the real path was never reached.
+ 
++
++## Exact workaround shown in the original
++
++The original's synthetic message is:
++
++```python
++unreal.log_warning(&quot;Failed to set my_texture compression settings to TC_NORMALMAP&quot;)
++```
++
++It is placed after `add_expected_log_error(...)` to ensure a matching message exists. Keep it labeled as a workaround when comparing with the source. It does **not** verify that the actual setter produced the expected warning. The source also omits a comma between `0` and `False`; the corrected registration above includes it.
++
++
+ ---
+ 
+ [[37 Appendix - New to automated tests - REFINED|← Previous lesson]] · [[39 Packing Python Tool As Unreal Plugin - REFINED|Next lesson →]]
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

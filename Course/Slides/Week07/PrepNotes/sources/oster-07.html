@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>L7 Working with Static Mesh Actors and Components</title><style>*{box-sizing:border-box}body{margin:0;background:#faf9fc;color:#25222b;font:17px/1.65 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:36px 28px 80px}h1{font-size:38px;line-height:1.16}h2{margin-top:44px;line-height:1.25}a{color:#594396}nav{display:flex;gap:20px;flex-wrap:wrap;border-block:1px solid #ddd;padding:16px 0}table{border-collapse:collapse;width:100%;font-size:15px}th,td{text-align:left;padding:12px;border:1px solid #d9d5e0;vertical-align:top}th{background:#eeeaf4}pre{background:#eeeaf4;padding:18px;white-space:pre-wrap;overflow-wrap:anywhere}code{font-family:Consolas,monospace}img{display:block;max-width:100%;height:auto;margin:20px 0}p,li{overflow-wrap:anywhere}blockquote{border-left:4px solid #9476b8;margin-left:0;padding-left:20px}.meta{color:#635a6d;font-size:14px}li{margin:7px 0}button{font:inherit;padding:8px 16px}@media(max-width:700px){main{padding:20px 14px}table{display:block;overflow-x:auto}h1{font-size:30px}}@media print{nav,button{display:none}body{background:white}}</style></head><body><main><nav><a href="../index.html">Week 7 prep guide</a><a href="../source_index.html">Source notes</a><a href="../../AgendaRevision20261010/Preparation_and_Source_Compilation.html">Agenda compilation</a><a href="../../UnrealPythonDemo/index.html">Week 7 Python demo</a></nav><h1>L7 Working with Static Mesh Actors and Components</h1><p class="meta">Study note snapshot • 10 October 2026 • Copied snippets may contain errors. See the preparation guide before reuse.</p><p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/02%20Isaac%20Oster%20-%20Utilizing%20Python%20for%20Editor%20Scripting%20in%20Unreal%20Engine/L7%20Working%20with%20Static%20Mesh%20Actors%20and%20Components.md">Original note</a> · <a href="../../../../Readers/oster-07-c35399a0.html">Unmodified Markdown snapshot</a></p><pre><code>def getStaticMeshInstanceCounts():
+
+  
+
+    levelActors = unreal.EditorActorSubsystem().get_all_level_actors()
+
+  
+
+    staticMeshActors = []
+
+    staticMeshActorCounts = []
+
+  
+
+    for levelActor in levelActors:
+
+        if (levelActor.get_class().get_name()) == &#39;StaticMeshActor&#39;:
+
+            staticMeshComponent = levelActor.static_mesh_component
+
+            staticMesh = staticMeshComponent.static_mesh
+
+            staticMeshActors.appen(staticMesh.get_name())
+
+  
+
+    processedActors = []
+
+    for staticMeshActor in staticMeshActors:
+
+        if staticMeshActor not in processedActors:
+
+            actorCounts = (staticMeshActor, staticMeshActors.count(staticMeshActor))
+
+            staticMeshActorCounts.append(actorCounts)
+
+            processedActors.append(staticMeshActor)
+
+  
+
+    staticMeshActorCounts.sort(key = lambda a: a[1], reverse = True)
+
+  
+
+    # for item in staticMeshActorCounts: print(item)
+
+  
+
+    LODData = getStaticMeshLODData()
+
+  
+
+    # for item in LODData: print (item)
+
+  
+
+    aggregateTriCounts - []
+
+  
+
+    for i in range(len(staticMeshActorCounts)):
+
+        for j in range(len(LODData)):
+
+            if staticMeshActorCounts[i][0] == LODData[j][0]:
+
+                aggregateTriCount = (staticMeshActorCounts[i][0], staticMeshActorCounts[i][1] * LODData[j][1])
+
+                aggregateTriCounts.append(aggregateTriCount)
+
+  
+
+    aggregateTriCounts.sort(key = lambda a: a[1], reverse = True)
+
+  
+
+    for item in aggregateTriCounts: print (item)
+</code></pre>
+</main></body></html>

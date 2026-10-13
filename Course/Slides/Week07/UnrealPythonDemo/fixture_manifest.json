@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "asset": "/Game/Northwood/EpicContent/Megascans/3D_Assets/Wooden_Crate_udribbjqx/Wooden_Crate_LOD0_udribbjqx",
+    "bounds_min": [
+      -27.934480667114258,
+      -19.509960174560547,
+      -0.049999237060546875
+    ],
+    "scale": 2.0671265376650805
+  },
+  {
+    "id": 1,
+    "asset": "/Game/Northwood/EpicContent/Megascans/3D_Assets/Wooden_Barrel_udlmcdhqx/Wooden_Barrel_LOD0_udlmcdhqx",
+    "bounds_min": [
+      -17.868494033813477,
+      -18.39621925354004,
+      -0.08625221252441406
+    ],
+    "scale": 2.58767622562339
+  },
+  {
+    "id": 2,
+    "asset": "/Game/Northwood/EpicContent/Megascans/3D_Assets/Wooden_Crate_udribbjqx/Wooden_Crate_LOD0_udribbjqx",
+    "bounds_min": [
+      -27.934480667114258,
+      -19.509960174560547,
+      -0.049999237060546875
+    ],
+    "scale": 2.0671265376650805
+  },
+  {
+    "id": 3,
+    "asset": "/Game/Northwood/EpicContent/Megascans/3D_Assets/Wooden_Ammo_Crate_uehqdivfa/Wooden_Ammo_Crate_LOD0_uehqdivfa",
+    "bounds_min": [
+      -121.11817932128906,
+      -40.29931640625,
+      -1.755697250366211
+    ],
+    "scale": 0.47816601851784296
+  },
+  {
+    "id": 4,
+    "asset": "/Game/Northwood/EpicContent/Megascans/3D_Assets/Old_Wooden_Bench_ueigebjfa/Old_Wooden_Bench_LOD0_ueigebjfa",
+    "bounds_min": [
+      -85.66191101074219,
+      -22.935199737548828,
+      -0.6232643127441406
+    ],
+    "scale": 0.6694260975843729
+  },
+  {
+    "id": 5,
+    "asset": "/Game/Northwood/EpicContent/Megascans/3D_Assets/Wooden_Chair_ukipagtbw_00/Wooden_Chair_LOD0_ukipagtbw",
+    "bounds_min": [
+      -26.025615692138672,
+      -24.87336540222168,
+      -0.2915458679199219
+    ],
+    "scale": 1.3254518789797771
+  }
+]

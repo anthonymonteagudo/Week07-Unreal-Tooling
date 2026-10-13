@@ -1,0 +1,294 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>29 Adding Custom Menu Actions · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-29">Return to audit</a><a href="27.html">Previous lesson</a> <a href="30.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/29%20Adding%20Custom%20Menu%20Actions.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/29%20Adding%20Custom%20Menu%20Actions%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>29 Adding Custom Menu Actions</h1><p>Minimal action and registration</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Adding Custom Menu Actions — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/29%20Adding%20Custom%20Menu%20Actions.md">Original notes</a></p>
+<p>Expose frequently used scripts through Unreal menus so artists can run them without entering Python commands. This lesson adds actions to the main Edit menu and to the static mesh context menu.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012192605.png" alt="Course screenshot: Pasted image 20261012192605.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012192850.png" alt="Course screenshot: Pasted image 20261012192850.png"></p>
+<h2>Identify menus and sections</h2>
+<p>Enable <strong>Editor Preferences → General → Miscellaneous → Display UI Extension Points</strong>, then restart. The overlay shows internal section names such as <code>EditMain</code>, which can differ from visible labels.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012193047.png" alt="Course screenshot: Pasted image 20261012193047.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012193138.png" alt="Course screenshot: Pasted image 20261012193138.png"></p>
+<p>Get the menu manager with <code>unreal.ToolMenus.get()</code>, then find a known menu such as <code>LevelEditor.MainMenu.Edit</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012193205.png" alt="Course screenshot: Pasted image 20261012193205.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012193307.png" alt="Course screenshot: Pasted image 20261012193307.png"></p>
+<p>The course&#39;s discovery script searches transient menu objects and collects their <code>menu_name</code> values. Its internal object paths are version-dependent; inspect a known object before reusing the search pattern. Lesson 31 provides the simpler <code>ToolMenus.Edit</code> discovery command.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012194242.png" alt="Course screenshot: Pasted image 20261012194242.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012194334.png" alt="Course screenshot: Pasted image 20261012194334.png"></p>
+<h2>Create a submenu</h2>
+<p>Find <code>LevelEditor.MainMenu</code>, call <code>add_sub_menu()</code> with owner, section, internal name, and visible label, then call <code>refresh_all_widgets()</code> to display the change.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012194438.png" alt="Course screenshot: Pasted image 20261012194438.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012194605.png" alt="Course screenshot: Pasted image 20261012194605.png"></p>
+<h2>Define the Python action</h2>
+<p>Subclass <code>unreal.ToolMenuEntryScript</code>, decorate it with <code>@unreal.uclass()</code>, and override <code>execute(self, context)</code> using <code>@unreal.ufunction(override=True)</code>. Start with a log message to verify the action.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012194657.png" alt="Course screenshot: Pasted image 20261012194657.png"></p>
+<p>Instantiate the script object and call <code>init_entry()</code> with the target menu, section, internal entry name, label, and tooltip. Then call <code>register_menu_entry()</code>.</p>
+<h2>Minimal action and registration</h2>
+<p>This reconstruction joins the separate definition and registration screenshots:</p>
+<pre><code class="language-python">import unreal
+
+@unreal.uclass()
+class ExampleMenuAction(unreal.ToolMenuEntryScript):
+    @unreal.ufunction(override=True)
+    def execute(self, context):
+        unreal.log(&quot;Menu action executed&quot;)
+
+entry = ExampleMenuAction()
+entry.init_entry(
+    owner_name=&quot;KarolExample&quot;, menu=&quot;LevelEditor.MainMenu.Edit&quot;,
+    section=&quot;EditMain&quot;, name=&quot;KarolExampleAction&quot;,
+    label=&quot;Example Python Action&quot;, tool_tip=&quot;Run the course example&quot;)
+entry.register_menu_entry()
+unreal.ToolMenus.get().refresh_all_widgets()
+</code></pre>
+<p>Keep a reference to the entry in the registering module. For the later static-mesh action, create a separate entry targeting <code>ContentBrowser.AssetContextMenu.StaticMesh</code> and <code>GetAssetActions</code>. Register once per intended lifecycle; repeatedly executing registration code is not a reload-management strategy.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012194955.png" alt="Course screenshot: Pasted image 20261012194955.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195055.png" alt="Course screenshot: Pasted image 20261012195055.png"></p>
+<p>Click the new entry and verify its output.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195154.png" alt="Course screenshot: Pasted image 20261012195154.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195246.png" alt="Course screenshot: Pasted image 20261012195246.png"></p>
+<h2>Restrict an action to static meshes</h2>
+<p>Use <code>ContentBrowser.AssetContextMenu.StaticMesh</code> as the target menu. Initialize a separate script object and choose the appropriate section, such as <code>GetAssetActions</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195614.png" alt="Course screenshot: Pasted image 20261012195614.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195657.png" alt="Course screenshot: Pasted image 20261012195657.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195717.png" alt="Course screenshot: Pasted image 20261012195717.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195737.png" alt="Course screenshot: Pasted image 20261012195737.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195810.png" alt="Course screenshot: Pasted image 20261012195810.png"></p>
+<p>Check that the action appears and runs for static meshes, then confirm it is absent from the material context menu.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195952.png" alt="Course screenshot: Pasted image 20261012195952.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012200037.png" alt="Course screenshot: Pasted image 20261012200037.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012200102.png" alt="Course screenshot: Pasted image 20261012200102.png"></p>
+<p>Put registration in a startup script or <code>init_unreal.py</code> to recreate the entries in later editor sessions.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/05%20Developing%20Code%20More%20Efficiently/27%20Remote%20debugging%20with%20VS%20Code%20and%20debugpy%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/30%20Menu%20Entry%20Icon%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012192605.png" alt="Course screenshot: Pasted image 20261012192605.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012192850.png" alt="Course screenshot: Pasted image 20261012192850.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012193047.png" alt="Course screenshot: Pasted image 20261012193047.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012193138.png" alt="Course screenshot: Pasted image 20261012193138.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012193205.png" alt="Course screenshot: Pasted image 20261012193205.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012193307.png" alt="Course screenshot: Pasted image 20261012193307.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012194242.png" alt="Course screenshot: Pasted image 20261012194242.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012194334.png" alt="Course screenshot: Pasted image 20261012194334.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012194438.png" alt="Course screenshot: Pasted image 20261012194438.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012194605.png" alt="Course screenshot: Pasted image 20261012194605.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012194657.png" alt="Course screenshot: Pasted image 20261012194657.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012194955.png" alt="Course screenshot: Pasted image 20261012194955.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195055.png" alt="Course screenshot: Pasted image 20261012195055.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195154.png" alt="Course screenshot: Pasted image 20261012195154.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195246.png" alt="Course screenshot: Pasted image 20261012195246.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195614.png" alt="Course screenshot: Pasted image 20261012195614.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195657.png" alt="Course screenshot: Pasted image 20261012195657.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195717.png" alt="Course screenshot: Pasted image 20261012195717.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195737.png" alt="Course screenshot: Pasted image 20261012195737.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195810.png" alt="Course screenshot: Pasted image 20261012195810.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012195952.png" alt="Course screenshot: Pasted image 20261012195952.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012200037.png" alt="Course screenshot: Pasted image 20261012200037.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012200102.png" alt="Course screenshot: Pasted image 20261012200102.png"></p>
+<p>The scripts we made so far may be useful, but they lack being simple to use.</p>
+<p>If a tool is to be used readily and by a programmer, it can be called as a Python command.</p>
+<p>However, commonly used tools and anything that artists use in general should be available via interface.</p>
+<p>This video will teach you how to add a menu entry that will execute a script.</p>
+<p>This can be added to editor file menus and new submenus, and even added to existing menus or context</p>
+<p>menus of a specific asset types like static meshes or textures.</p>
+<p>Doing that is both simple and tricky at the same time.</p>
+<p>It requires a very little code, however, may be tricky because there is not much documentation about</p>
+<p>it.</p>
+<p>Unreal Python API provides access to tool, menus, tool, menu entry, and few other useful classes.</p>
+<p>Objects based on those classes have to be assigned to already existing interface objects.</p>
+<p>These are accessed by name and can be very tricky to find exactly because of that reason.</p>
+<p>If, for instance, you want to add an entry to edit menu in level editor, you have to specify level</p>
+<p>editor dot main menu dot edit path.</p>
+<p>Then if you want this entry to be located under edit section, you have to specify edit main section</p>
+<p>name.</p>
+<p>As you may have noticed, Edit Main doesn&#39;t directly correspond to section name visible to the user,</p>
+<p>which is just main.</p>
+<p>Before we add a new menu item, we have to find a way to see correct names.</p>
+<p>To do that, please go to Edit Editor Preferences and then navigate to miscellaneous.</p>
+<p>Then enable display UI Extension Points.</p>
+<p>After enabling Restart editor.</p>
+<p>As you can see now, there is a lot of green debugs on the screen.</p>
+<p>These are names of UI components.</p>
+<p>If you want to learn more about this system, read and read documentation regarding slate UI.</p>
+<p>We now know names of many entries.</p>
+<p>For instance, here we can see that this is called Edit Main.</p>
+<p>The thing is that we still don&#39;t know paths of available menus per editor or per window.</p>
+<p>For instance, we don&#39;t know names on content browser or some asset view option that could be actually</p>
+<p>extended, but we haven&#39;t found that name anywhere.</p>
+<p>We can change it by listing available menus.</p>
+<p>We can leverage unreal, find object method, and list all similar objects by name.</p>
+<p>But before we do it, we need to find the name of at least one menu entry.</p>
+<p>I know that there is a menu called Level Editor.</p>
+<p>Main menu, so let me access it.</p>
+<p>We have to switch to output log and then obtain tool menus object using unreal tool menus dot get method.</p>
+<p>Once we have this object, we can find menu by name using find menu method.</p>
+<p>Let&#39;s call it.</p>
+<p>And now we can print the object we have print edit menu.</p>
+<p>And we have some object path.</p>
+<p>That&#39;s great.</p>
+<p>That&#39;s what we needed.</p>
+<p>Those paths will be similar in all cases.</p>
+<p>They start with engine slash transient dot tool menus.</p>
+<p>And later there is registered menu underscore and some number.</p>
+<p>All those menus will be named accordingly.</p>
+<p>They will be differing only by the number.</p>
+<p>But you have to keep in mind that in the past it used to be named tool menus underscore some number</p>
+<p>and in future that may also change.</p>
+<p>That&#39;s why I wanted you to execute this code yourself, because then we will create a function that</p>
+<p>lists all the menus by name, and if anything changes in the future, you could be using an outdated</p>
+<p>script.</p>
+<p>Let&#39;s go to code.</p>
+<p>Let&#39;s obviously begin by importing unreal module and then start typing some function.</p>
+<p>I will call it list menu, and I am going to iterate over some numbers to construct the name of unreal</p>
+<p>object.</p>
+<p>And if we retrieve any object by that name, that means that we have found an existing menu name.</p>
+<p>The menu we previously printed had a number of 88, and I suppose that we will not reach 1000.</p>
+<p>If we ever reach 1000, we can obviously try with a higher number, but right now my function will have</p>
+<p>a default number of iterations set to 1000.</p>
+<p>Then I need some for loop that will iterate over this range.</p>
+<p>And I have to use unreal find object method to look if there is any unreal object called this way.</p>
+<p>The iterator is used to construct the string.</p>
+<p>As I said before, name of those objects used to be different and the script should be compatible with</p>
+<p>unreal four.</p>
+<p>Let&#39;s add the compatibility code and as you can see, I skip all objects that are not found.</p>
+<p>Then let&#39;s obtain the menu name, which is just a string made from our object.</p>
+<p>And the property called Menu Name.</p>
+<p>We can also make another check that checks not if the object is none, but maybe name of the menu is</p>
+<p>none.</p>
+<p>So if menu underscore name is none.</p>
+<p>Then continue.</p>
+<p>If none of those checks was triggered, we should add the name to some list.</p>
+<p>However, list can tolerate duplicates.</p>
+<p>If we use a set, we will have it covered without writing any additional code.</p>
+<p>So let&#39;s create a set called Menu List.</p>
+<p>And if everything went fine and we found some object, let&#39;s assign it to our set.</p>
+<p>So menu list dot add menu name and let&#39;s return a list.</p>
+<p>I&#39;m casting it to a list because it&#39;s simply a more common type than set.</p>
+<p>But you can keep it as a set.</p>
+<p>Now we only have to execute and print the results.</p>
+<p>So print and list menu.</p>
+<p>I feel I should give credit to original author of the idea.</p>
+<p>So I have to mention that the solution I&#39;ve just shown you is an updated solution presented by Fkd or</p>
+<p>a user on Unreal Engine forum.</p>
+<p>Once we have the script, first let&#39;s reformat it.</p>
+<p>Copy and move to unreal.</p>
+<p>Now let&#39;s paste it and execute.</p>
+<p>Here we have a lot of lot of menus and they may need a little reformatting.</p>
+<p>But this is certainly useful data.</p>
+<p>You will find both the script and the list in the course source files.</p>
+<p>If you want to have most up to date data.</p>
+<p>Please run the script yourself.</p>
+<p>And now, once this is done, we can switch to making actual menu entry.</p>
+<p>First step is finding menu that you want to extend.</p>
+<p>Browse the list we have just generated and find something that matches your expectations.</p>
+<p>Names will start with name of the window so they are very easy to filter.</p>
+<p>I want to add submenu to a current editor which is level editor.</p>
+<p>That means that first I have to obtain tool menus object.</p>
+<p>The way we did before I will assign it to menus variable and then I want to use it to call find menu</p>
+<p>method with the name from the generated list as an argument.</p>
+<p>I will assign it to main menu variable.</p>
+<p>After that preparation, we can create a new custom menu by calling add submenu on the menu object.</p>
+<p>First, in those arguments we have to provide owner, then section name and lastly menu name and label.</p>
+<p>And nothing happened.</p>
+<p>That&#39;s because some operations trigger a refresh immediately, but not this one.</p>
+<p>We have to use tool menus, object and call refresh all widgets method ourselves.</p>
+<p>Now we have a new label in the main menu.</p>
+<p>And as you can see, menu label is not the same as menu name.</p>
+<p>And that is why it&#39;s very important to have that debug overlay.</p>
+<p>We not only can make our own submenus, we can also edit the ones that already exist.</p>
+<p>That would mean creating a so called tool menu entry object.</p>
+<p>However, we want to run a Python script and in that case we should go with tool menu entry script class.</p>
+<p>Let&#39;s prepare such and then add it to interface.</p>
+<p>First let&#39;s create a new class based on unreal dot tool menu entry script.</p>
+<p>I will call it my script object.</p>
+<p>Then we have to override execute function which will contain our script.</p>
+<p>I just want to call some simple print to make sure that something was executed.</p>
+<p>Because we need to register it as an unreal class.</p>
+<p>We have to add a new class decorator to class definition.</p>
+<p>Let&#39;s do it!</p>
+<p>And we also have to add one to the method.</p>
+<p>It is decorator.</p>
+<p>Your function this time.</p>
+<p>And we are actually overriding inherited method.</p>
+<p>So we have to set override to true.</p>
+<p>Once we have it let&#39;s enter.</p>
+<p>Now the class is finished.</p>
+<p>We need to find some menu that we want to extend and then initialize our object.</p>
+<p>I am extending level editor main menu but specifically added sub menu.</p>
+<p>So let&#39;s use tools menus.</p>
+<p>Find menu once again and assign edit menu to a variable.</p>
+<p>Then I can initialize my Python object and assign it to another variable called script object calling</p>
+<p>it is not all.</p>
+<p>We also have to call init entry method.</p>
+<p>That method will get some parameters first owner name and menu name.</p>
+<p>We&#39;re just using edit menu and accessing menu name parameter.</p>
+<p>Then we have to specify section and to do that we need the debug overlay.</p>
+<p>We simply open that menu and we see that there is such section.</p>
+<p>Good name and label are specified by us and you can also provide a tooltip.</p>
+<p>Let&#39;s execute that line.</p>
+<p>And now we can call Register menu entry on our object.</p>
+<p>As you can see we have just added a new entry to the UI.</p>
+<p>And if we click on it it executes properly according to output log.</p>
+<p>Let&#39;s make another example.</p>
+<p>This time we will extend context menu of static meshes in context browser.</p>
+<p>Thanks to that, artists will have a tool that can be launched or static meshes, but not on any other</p>
+<p>kind of asset.</p>
+<p>Thanks to that, we will avoid some mistakes.</p>
+<p>We want to add something here.</p>
+<p>So let&#39;s find menu by name and assign it to variable.</p>
+<p>I know it&#39;s called content browser dot asset context menu dot static mesh.</p>
+<p>So let&#39;s go back to output log and assign it.</p>
+<p>Then initialize script object the same way we did before and call init entry.</p>
+<p>This time I&#39;m using asset context menu instead of edit menu.</p>
+<p>And also section is a bit different.</p>
+<p>You can navigate back to Content Browser, right click on some asset.</p>
+<p>And here we have get Asset Actions.</p>
+<p>I will use this one.</p>
+<p>But you can also try common asset actions or something else like asset context.</p>
+<p>Explore menu options.</p>
+<p>Getting back to output log let&#39;s apply.</p>
+<p>And we also have to register menu entry.</p>
+<p>That&#39;s done.</p>
+<p>And test it.</p>
+<p>Getting back to Content Browser, let&#39;s right click on some asset.</p>
+<p>And as you can see we have Unreal Engine five Python AI Automation Course submenu.</p>
+<p>Let&#39;s click on it.</p>
+<p>And script was executed.</p>
+<p>Now if I navigate to some other folder maybe with materials and right click.</p>
+<p>There is no such thing added.</p>
+<p>That means that we achieved goal that was set.</p>
+<p>You have just learned how to flawlessly introduce new menu entries that execute script, but you have</p>
+<p>to be aware that they will disappear once you restart the editor.</p>
+<p>To avoid it, put menu entries creation code to some startup script.</p>
+<p>Startup scripts and init unreal file are covered in previous videos in the course.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -44,6 +44,30 @@
+ 
+ Instantiate the script object and call `init_entry()` with the target menu, section, internal entry name, label, and tooltip. Then call `register_menu_entry()`.
+ 
++## Minimal action and registration
++
++This reconstruction joins the separate definition and registration screenshots:
++
++```python
++import unreal
++
++@unreal.uclass()
++class ExampleMenuAction(unreal.ToolMenuEntryScript):
++    @unreal.ufunction(override=True)
++    def execute(self, context):
++        unreal.log(&quot;Menu action executed&quot;)
++
++entry = ExampleMenuAction()
++entry.init_entry(
++    owner_name=&quot;KarolExample&quot;, menu=&quot;LevelEditor.MainMenu.Edit&quot;,
++    section=&quot;EditMain&quot;, name=&quot;KarolExampleAction&quot;,
++    label=&quot;Example Python Action&quot;, tool_tip=&quot;Run the course example&quot;)
++entry.register_menu_entry()
++unreal.ToolMenus.get().refresh_all_widgets()
++```
++
++Keep a reference to the entry in the registering module. For the later static-mesh action, create a separate entry targeting `ContentBrowser.AssetContextMenu.StaticMesh` and `GetAssetActions`. Register once per intended lifecycle; repeatedly executing registration code is not a reload-management strategy.
++
+ ![[Pasted image 20261012194955.png]]
+ 
+ ![[Pasted image 20261012195055.png]]
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

@@ -1,0 +1,120 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>24 Power of two texture size validator · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-24">Return to audit</a><a href="23.html">Previous lesson</a> <a href="25.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/24%20Power%20of%20two%20texture%20size%20validator.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/24%20Power%20of%20two%20texture%20size%20validator%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>24 Power of two texture size validator</h1><p>Separate dimension limits from power-of-two rules</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Power of Two Texture Size Validator — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/24%20Power%20of%20two%20texture%20size%20validator.md">Original notes</a></p>
+<p>Keep the allowed-dimensions rule separate from the square-texture rule. Independent validators make each policy easier to change, diagnose, or disable.</p>
+<h2>Separate dimension limits from power-of-two rules</h2>
+<p>The size validator is a separate constraint: compare both width and height with the configured limit. Test exactly at the limit, one dimension over it, and both dimensions over it. A texture can satisfy the power-of-two rule from lesson 23 and still exceed the project&#39;s size budget. Keep the limit and the reported failing dimension visible in the message.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012020757.png" alt="Course screenshot: Pasted image 20261012020757.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012020830.png" alt="Course screenshot: Pasted image 20261012020830.png"></p>
+<h2>Define supported sizes</h2>
+<p>Restrict validation to <code>Texture2D</code>. The course uses an explicit tuple:</p>
+<pre><code class="language-python">valid_sizes = (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192)
+</code></pre>
+<p>This is an allowed-size policy, not a general test for every mathematical power of two: for example, it excludes 1 and values above 8192.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012021025.png" alt="Course screenshot: Pasted image 20261012021025.png"></p>
+<h2>Check both dimensions</h2>
+<p>Read X and Y using <code>blueprint_get_size_x()</code> and <code>blueprint_get_size_y()</code>. Fail when <strong>either</strong> dimension is absent from <code>valid_sizes</code>.</p>
+<p>Call <code>asset_fails()</code> with a message describing the allowed dimensions and return <code>INVALID</code>; otherwise, return <code>VALID</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012021330.png" alt="Course screenshot: Pasted image 20261012021330.png"></p>
+<h2>Register both validators</h2>
+<p>Extend the texture-registration function to instantiate and add the new validator alongside the square-texture validator. Remove the temporary standalone registration call when normal startup registration takes over.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012021347.png" alt="Course screenshot: Pasted image 20261012021347.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012021536.png" alt="Course screenshot: Pasted image 20261012021536.png"></p>
+<h2>Test the rules independently</h2>
+<p>Validate the mixed texture selection. Some textures should fail only the square rule, some only the allowed-size rule, some both, and some neither. Review the distinct messages in the Message Log.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012021713.png" alt="Course screenshot: Pasted image 20261012021713.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012021728.png" alt="Course screenshot: Pasted image 20261012021728.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/23%20Square%20texture%20validator%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/25%20Triangle%20Count%20Validator%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012020757.png" alt="Course screenshot: Pasted image 20261012020757.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012020830.png" alt="Course screenshot: Pasted image 20261012020830.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012021025.png" alt="Course screenshot: Pasted image 20261012021025.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012021330.png" alt="Course screenshot: Pasted image 20261012021330.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012021347.png" alt="Course screenshot: Pasted image 20261012021347.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012021536.png" alt="Course screenshot: Pasted image 20261012021536.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012021713.png" alt="Course screenshot: Pasted image 20261012021713.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012021728.png" alt="Course screenshot: Pasted image 20261012021728.png"></p>
+<p>In previous tutorial we implemented a square texture validator.</p>
+<p>It would be a pity to not record a tutorial on checking if texture dimensions are power of two.</p>
+<p>So I will keep everything in the same file called validate texture, but I will just add another validator</p>
+<p>to that file.</p>
+<p>I want those two validators to be separate objects because those things should be kept granular.</p>
+<p>It&#39;s like unit tests in your code.</p>
+<p>They should test for a specific thing and not multitude of them.</p>
+<p>If one thing is broken or you want to disable or alter one thing, you modify just this one.</p>
+<p>You don&#39;t have to make a refactor of a bigger body.</p>
+<p>So I just added a power of two texture validator boilerplate just like the last time, and now we have</p>
+<p>to implement it.</p>
+<p>It&#39;s going to be the same as in the past example.</p>
+<p>We will validate only unreal texture 2D.</p>
+<p>So that&#39;s why in can validate asset I will paste this line that checks if it is an instance of texture</p>
+<p>2D.</p>
+<p>Then we should validate our texture size, and some people may run some mathematical function that will</p>
+<p>generate you power of two or, you know, do some modulo operation and so on.</p>
+<p>But let&#39;s be honest and let&#39;s be realistic.</p>
+<p>We want to check if texture is one of few available dimensions.</p>
+<p>And you usually have things like two, four, eight, 16, 32, blah, blah, blah.</p>
+<p>And it goes up to 296.</p>
+<p>And if you are crazy, you have an 8-K texture and you don&#39;t need mathematics for that.</p>
+<p>And also, if you are going to validate 1000 assets at once, you really don&#39;t want to run that math</p>
+<p>each time.</p>
+<p>So instead of using some crazy math, we will just declare a tuple of valid sizes.</p>
+<p>And then we just check if x and y dimensions fall into them and to get them, you know, we already</p>
+<p>know how to get them.</p>
+<p>You just call a blueprint get size CSX or blueprint.</p>
+<p>Getsize.</p>
+<p>Why?</p>
+<p>So if my sys x is not in valid sizes, then something is wrong.</p>
+<p>But we also want to cover the y case so either one or another is wrong and we already fail.</p>
+<p>So let&#39;s put an Or statement here.</p>
+<p>Paste what I just copied and change x to y.</p>
+<p>And that&#39;s it.</p>
+<p>Now we just have to show some meaningful info.</p>
+<p>So self assert fails to fail the validation asset and our message will be um texture dimensions x and</p>
+<p>y.</p>
+<p>If someone didn&#39;t get it uh are not one of.</p>
+<p>And we can even print all those valid sizes here.</p>
+<p>So let&#39;s make it an F string so I can use a variable inside that string.</p>
+<p>Curly braces and now valid sizes.</p>
+<p>And the last thing to do is to return invalid, just like here.</p>
+<p>But if this code didn&#39;t trigger, we want to return valid.</p>
+<p>So now we got it.</p>
+<p>And to get this get rid of this highlight here we can cast it to unreal text just like in the previous</p>
+<p>video.</p>
+<p>The last thing to do is to update the function that registers validators.</p>
+<p>So we need power of two of validator.</p>
+<p>And let me instantiate it.</p>
+<p>Power of two validator.</p>
+<p>And let me now add it to validator subsystem.</p>
+<p>And as in the last case I have this registered extra validators call here so I can copy this code to</p>
+<p>unreal.</p>
+<p>But you shouldn&#39;t keep it in your code.</p>
+<p>So once you are done with testing, comment it out.</p>
+<p>I will fix all those lines here because we no longer need fancy spacing for tutorial purposes.</p>
+<p>And let&#39;s move to unreal with the code already copied.</p>
+<p>I still have those four test textures.</p>
+<p>I will go to output log paste my code.</p>
+<p>Now we have the validator, and let&#39;s select those four textures and see what kind of errors we will</p>
+<p>get during validation.</p>
+<p>So let&#39;s scroll to the right side and we have both validation errors.</p>
+<p>Texture is not square and texture dimensions are not power of two.</p>
+<p>Not all textures show us the same errors because some of them are completely fine.</p>
+<p>Some of them, like this one, are entirely wrong, but texture like this one is power of two.</p>
+<p>It is just not square.</p>
+<p>So that&#39;s it and I hope this tutorial will help you have better game stability and less performance</p>
+<p>issues with textures.</p>
+<p>Till next time.</p>
+<p>Bye!</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -3,6 +3,10 @@
+ [[REFINED - Course Index|Course index]] · [[24 Power of two texture size validator|Original notes]]
+ 
+ Keep the allowed-dimensions rule separate from the square-texture rule. Independent validators make each policy easier to change, diagnose, or disable.
++
++## Separate dimension limits from power-of-two rules
++
++The size validator is a separate constraint: compare both width and height with the configured limit. Test exactly at the limit, one dimension over it, and both dimensions over it. A texture can satisfy the power-of-two rule from lesson 23 and still exceed the project's size budget. Keep the limit and the reported failing dimension visible in the message.
+ 
+ ![[Pasted image 20261012020757.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

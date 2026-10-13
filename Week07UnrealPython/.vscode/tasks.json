@@ -1,0 +1,206 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "UI OFFLINE — Week 7: Material and VFX assistants",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "Scripts/assistants.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "detail": "Primary Material/VFX demo. Fictional practice data; no Unreal connection."
+    },
+    {
+      "label": "Week 7 Python: run draft checkpoint",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "Scripts/lessons.py",
+        "run",
+        "${input:checkpoint}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "detail": "Optional prop foundations with stable IDs. Main demo order: Docs/DEMO_SEQUENCE.md."
+    },
+    {
+      "label": "Week 7 Python: list draft checkpoints",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "Scripts/lessons.py",
+        "list"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "detail": "Optional prop foundations with stable IDs. Main demo order: Docs/DEMO_SEQUENCE.md."
+    },
+    {
+      "label": "Week 7 Python: check Python syntax",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "Scripts/dev.py",
+        "check"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Week 7 Python: test pure Python rules",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "Scripts/dev.py",
+        "test"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Week 7 Python: check development setup",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "Scripts/dev.py",
+        "doctor"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ENGINE — Week 7: test in separate Unreal editor",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "Scripts/dev.py",
+        "editor-test"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "ENGINE — Week 7: refresh Unreal autocomplete",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "Scripts/dev.py",
+        "stubs"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "UI OFFLINE — Week 7: open teaching stage",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "Scripts/assistants.py",
+        "--stage",
+        "${input:uiStage}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "detail": "Material Setup and VFX Placement: functional → guided → refined; identical safeguards."
+    },
+    {
+      "label": "UI OFFLINE — Week 7: quality gates",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "Scripts/ui_quality.py",
+        "--stage",
+        "${input:uiStage}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "UI OFFLINE — Week 7: render without opening a window",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "Scripts/assistants.py",
+        "--stage",
+        "${input:uiStage}",
+        "--render",
+        "Docs/UI/captures"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "detail": "Capture the selected Material/VFX stage using actual offscreen PySide widgets."
+    },
+    {
+      "label": "UI OFFLINE — Week 7: render Material and VFX assistants",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": [
+        "Scripts/assistants.py",
+        "--render",
+        "Docs/UI/captures"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "detail": "Primary Material/VFX demo. Fictional practice data; no Unreal connection."
+    }
+  ],
+  "inputs": [
+    {
+      "id": "checkpoint",
+      "type": "pickString",
+      "description": "Optional prop foundation (01–07; 08 is reading only)",
+      "options": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07"
+      ],
+      "default": "01"
+    },
+    {
+      "id": "uiStage",
+      "type": "pickString",
+      "description": "Material/VFX UI: 1 functional, 2 guided, 3 refined",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "default": "3"
+    }
+  ]
+}

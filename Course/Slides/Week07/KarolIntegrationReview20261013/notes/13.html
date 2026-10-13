@@ -1,0 +1,233 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>13 Importance of PropertyAccessChangeNotifyMode in setting editor properties · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-13">Return to audit</a><a href="12.html">Previous lesson</a> <a href="14.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/13%20Importance%20of%20PropertyAccessChangeNotifyMode%20in%20setting%20editor%20properties.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/13%20Importance%20of%20PropertyAccessChangeNotifyMode%20in%20setting%20editor%20properties%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>13 Importance of PropertyAccessChangeNotifyMode in setting editor properties</h1><p>Notifying nested-property write</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Editor Property Change Notifications — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/13%20Importance%20of%20PropertyAccessChangeNotifyMode%20in%20setting%20editor%20properties.md">Original notes</a></p>
+<p>Setting a visible property value is not always enough: Unreal may also need an editor change notification to rebuild dependent data. The example changes a texture&#39;s source color space and exposes a failure that produces no obvious Python exception.</p>
+<h2>Establish a working manual result</h2>
+<p>Import separate copies of a texture. On one copy, change <strong>Source Color Settings → Color Space</strong> to sRGB manually, save, and reopen it. Keep that copy as a reference.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012314.png" alt="Course screenshot: Pasted image 20261011012314.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012408.png" alt="Course screenshot: Pasted image 20261011012408.png"></p>
+<h2>Reproduce the scripted failure</h2>
+<p>Load another copy and inspect the <code>Texture2D</code>, source-color-settings, and color-space properties in the stub.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012634.png" alt="Course screenshot: Pasted image 20261011012634.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012716.png" alt="Course screenshot: Pasted image 20261011012716.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012800.png" alt="Course screenshot: Pasted image 20261011012800.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012902.png" alt="Course screenshot: Pasted image 20261011012902.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012928.png" alt="Course screenshot: Pasted image 20261011012928.png"></p>
+<p>The direct assignment shown in the lesson updates <code>texture.source_color_settings.color_space</code>, then saves the texture. Although the visible value changes, the texture turns black because the dependent chromaticity values were not regenerated.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011013115.png" alt="Course screenshot: Pasted image 20261011013115.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011013347.png" alt="Course screenshot: Pasted image 20261011013347.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011013508.png" alt="Course screenshot: Pasted image 20261011013508.png"></p>
+<p>Compare the manually edited and scripted assets, including their dependent properties. Toggling the setting manually can reveal the missing update.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011013603.png" alt="Course screenshot: Pasted image 20261011013603.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011013804.png" alt="Course screenshot: Pasted image 20261011013804.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011014128.png" alt="Course screenshot: Pasted image 20261011014128.png"></p>
+<p>Reading the outer property with <code>get_editor_property()</code> does not fix a later direct assignment to the inner property. The write itself needs the appropriate notification.</p>
+<h2>Notifying nested-property write</h2>
+<p>The key difference in the successful screenshot is the <strong>inner property&#39;s setter</strong>, not just how the outer struct was read:</p>
+<pre><code class="language-python">import unreal
+texture = unreal.EditorAssetLibrary.load_asset(&quot;/Game/Textures/T_Example&quot;)
+settings = texture.get_editor_property(&quot;source_color_settings&quot;)
+settings.set_editor_property(
+    &quot;color_space&quot;, unreal.TextureColorSpace.TCS_S_RGB,
+    notify_mode=unreal.PropertyAccessChangeNotifyMode.ALWAYS,
+)
+unreal.EditorAssetLibrary.save_loaded_asset(texture)
+</code></pre>
+<p>Replace the illustrative asset path. This is the course&#39;s source-color-space example, not a general instruction to change every texture to sRGB. Compare the resulting appearance and dependent values with the manual reference.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015031.png" alt="Course screenshot: Pasted image 20261011015031.png"></p>
+<h2>Set the edited property with notification</h2>
+<p>Call <code>set_editor_property(&quot;color_space&quot;, ...)</code> on the source color settings, then save the texture. The lesson demonstrates <code>PropertyAccessChangeNotifyMode.ALWAYS</code> to force notification.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015057.png" alt="Course screenshot: Pasted image 20261011015057.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015123.png" alt="Course screenshot: Pasted image 20261011015123.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015205.png" alt="Course screenshot: Pasted image 20261011015205.png"></p>
+<p>The modes are:</p>
+<ul>
+<li><code>DEFAULT</code>: notify when the value changes.</li>
+<li><code>ALWAYS</code>: notify even when the assigned value is unchanged.</li>
+<li><code>NEVER</code>: suppress the change notification.</li>
+</ul>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012053.png" alt="Course screenshot: Pasted image 20261011012053.png"></p>
+<p>On a fresh texture, <code>NEVER</code> reproduces the black result. Using the notifying setter restores the expected appearance and chromaticity values.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015338.png" alt="Course screenshot: Pasted image 20261011015338.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015408.png" alt="Course screenshot: Pasted image 20261011015408.png"></p>
+<p>When scripted and manual edits differ, compare the resulting asset state instead of checking only the property you assigned.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/12%20Texture%20Compression%20Settings%20Validator%20-%20Accessing%20Editor%20Properties%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/14%20Editing%20Material%20Instance%20Parameters%20-%20Material%20Editing%20Library%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012053.png" alt="Course screenshot: Pasted image 20261011012053.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012314.png" alt="Course screenshot: Pasted image 20261011012314.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012408.png" alt="Course screenshot: Pasted image 20261011012408.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012634.png" alt="Course screenshot: Pasted image 20261011012634.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012716.png" alt="Course screenshot: Pasted image 20261011012716.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012800.png" alt="Course screenshot: Pasted image 20261011012800.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012902.png" alt="Course screenshot: Pasted image 20261011012902.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011012928.png" alt="Course screenshot: Pasted image 20261011012928.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011013115.png" alt="Course screenshot: Pasted image 20261011013115.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011013347.png" alt="Course screenshot: Pasted image 20261011013347.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011013508.png" alt="Course screenshot: Pasted image 20261011013508.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011013603.png" alt="Course screenshot: Pasted image 20261011013603.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011013804.png" alt="Course screenshot: Pasted image 20261011013804.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011014128.png" alt="Course screenshot: Pasted image 20261011014128.png"></p>
+<p> <img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015031.png" alt="Course screenshot: Pasted image 20261011015031.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015057.png" alt="Course screenshot: Pasted image 20261011015057.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015123.png" alt="Course screenshot: Pasted image 20261011015123.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015205.png" alt="Course screenshot: Pasted image 20261011015205.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015338.png" alt="Course screenshot: Pasted image 20261011015338.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011015408.png" alt="Course screenshot: Pasted image 20261011015408.png"></p>
+<p>Hello.</p>
+<p>I prepared a real life case of an issue with setting editor properties, and I hope it will save you</p>
+<p>a lot of time and at the same time it will explain you what property access change notify parameter</p>
+<p>of setting editor properties is.</p>
+<p>Let&#39;s think of our scenario.</p>
+<p>Let&#39;s say that we always import our textures with specific settings that turn out not to be the defaults</p>
+<p>of unreal.</p>
+<p>For instance, those settings may be source color space.</p>
+<p>So let&#39;s import this texture that I am supposed to edit manually.</p>
+<p>And we can scroll a bit lower to texture.</p>
+<p>Then advanced.</p>
+<p>And let&#39;s find source color settings.</p>
+<p>We may want to change the color space.</p>
+<p>The color space right now is none.</p>
+<p>And I will set it to sRGB.</p>
+<p>And now let&#39;s save it.</p>
+<p>We can close it.</p>
+<p>We can open it again and everything works.</p>
+<p>So now we will open one of those textures, maybe the first example that has number one in the title.</p>
+<p>And then we are gonna do the same operation with the code.</p>
+<p>First I will import unreal and then initialize some editor asset library variable as an alias to unreal</p>
+<p>editor asset library.</p>
+<p>And then we can load our asset.</p>
+<p>I already have a path prepared.</p>
+<p>That&#39;s the asset.</p>
+<p>And then we can start accessing the properties.</p>
+<p>If we open the generated documentation or the one that is available online, we will notice that there</p>
+<p>is a source color space property and we can start looking for it.</p>
+<p>And scrolling here.</p>
+<p>That&#39;s here.</p>
+<p>But also there are just some getters and setters available.</p>
+<p>And even though not all of them are listed here.</p>
+<p>Some of them are just derived from the texture class, and maybe we will be able to find our source,</p>
+<p>texture, color space, blah blah blah somewhere here.</p>
+<p>We have it and we see that it expects some texture color settings.</p>
+<p>So then we can dive into it.</p>
+<p>And it also has some editor properties like color space but also property setters.</p>
+<p>And there is a lot of them including color space.</p>
+<p>It&#39;s very convenient to use them for a Python programmer like me, and that would be the first thing</p>
+<p>I would do.</p>
+<p>I wouldn&#39;t use set editor, property set editor, setting, nor other getting setting functions.</p>
+<p>If there are properties available, they are just convenient and I always know what type I&#39;m getting</p>
+<p>because we have nice typing here.</p>
+<p>But what happens if we do it in our code?</p>
+<p>We can try accessing everything via properties.</p>
+<p>Hit enter, and then we can also use Editor Asset Library to save this loaded asset.</p>
+<p>It seems correct, but let&#39;s open it and it&#39;s pure black.</p>
+<p>When we scroll down go to Texture Advanced.</p>
+<p>We will notice that it seems to be correct.</p>
+<p>We have set color space to the correct value.</p>
+<p>So what is going on?</p>
+<p>It turns out that unreal didn&#39;t call the code that should be triggered by this change.</p>
+<p>And I already know, because I was debugging this issue, that it should have refreshed this chromaticity</p>
+<p>value of argb and white channels, but it didn&#39;t.</p>
+<p>If we open the file that we used in the previous example, let me open it here and we scroll down to</p>
+<p>chromaticity.</p>
+<p>We see that it was set and we can even go to the texture we just processed.</p>
+<p>Switch to none and back to sRGB.</p>
+<p>And those values will be filled correctly and it will work.</p>
+<p>It&#39;s very hard to debug those issues because it seems intuitive to use those property setters and getters</p>
+<p>that were exposed.</p>
+<p>And what&#39;s more, we don&#39;t get any errors.</p>
+<p>If we go to our output log, there is literally no warning.</p>
+<p>So what may happen is that somebody just reported you a bug.</p>
+<p>And not only.</p>
+<p>You have no idea why it happens, but also some property that you are setting is correct.</p>
+<p>And what I would do in that case would be to create same asset twice in two different locations and</p>
+<p>then start comparing values.</p>
+<p>You can create a script that does it for huge loads of assets, but even just scrolling through it and</p>
+<p>having those assets side by side or maybe switching between them is already a great help.</p>
+<p>But once we have noticed the issue and we kind of know what&#39;s going on.</p>
+<p>We should be able to fix it some way.</p>
+<p>And the thing is that when we scroll down to chromaticity, it&#39;s not like.</p>
+<p>A default one for sRGB and zero for non color.</p>
+<p>In this case, those values look like they should be computated.</p>
+<p>So I either have to fix them myself, but I shouldn&#39;t um use some default value like 1 or 0, or I should</p>
+<p>find a way to trigger unreal code.</p>
+<p>And I was trying to reset the value to the default one.</p>
+<p>And it turns out there is no default for chromatic.</p>
+<p>I was also trying to reset the value and set it again.</p>
+<p>Save the file, and what I find out was that all I had to do is to find a proper way of setting the</p>
+<p>value that triggers parts of unreal that will regenerate it.</p>
+<p>And I was trying to do it using those properties from Python, and it turned out it was a really, really</p>
+<p>wrong way.</p>
+<p>For instance, I wasn&#39;t sure how to get the source color settings property.</p>
+<p>I thought that maybe if I get it, um, using get editor property, then it will fix the issue and we</p>
+<p>can try doing that.</p>
+<p>We just executed the code.</p>
+<p>Um, let&#39;s me paste it again, because for some reason, there is so many things in log that we cannot</p>
+<p>see it.</p>
+<p>I was trying to get editor property of source color settings and then set color space on it.</p>
+<p>And I did it on bricks two, which is this texture file.</p>
+<p>And when I did it.</p>
+<p>It didn&#39;t work.</p>
+<p>So what I found out is that I can access those properties that I&#39;m not editing directly with property</p>
+<p>setters or getters so I can.</p>
+<p>Access source color settings the pythonic way.</p>
+<p>But when I&#39;m modifying something like color space, it is safer to use set editor property so we can</p>
+<p>try this first texture.</p>
+<p>And what we are going to do this time is to access the source color settings.</p>
+<p>With property getter, but we will use set editor property function on color space and then we will</p>
+<p>save it.</p>
+<p>So once that is done.</p>
+<p>Everything seems to be fine.</p>
+<p>And when we scroll down, those values were generated.</p>
+<p>And that happens because when we use set editor property.</p>
+<p>It uses a notify mode.</p>
+<p>Which describes a priority of notifying other pieces of code in unreal that we modified something.</p>
+<p>Right now we are using default, but if something is going wrong, you can also try using always or</p>
+<p>if you want to suppress it, you can use never.</p>
+<p>If we find this class, there are only those three parameters default.</p>
+<p>Never or always.</p>
+<p>And if we try, for instance, going with always, we can try on this fourth texture.</p>
+<p>Right now we have another separate parameter property access change notify mode.</p>
+<p>Always.</p>
+<p>The last thing I have to do is to save this texture.</p>
+<p>And now.</p>
+<p>It does work correctly, but I can prove you that this property access change notify was the thing that</p>
+<p>was important in doing the fix by testing it with the never mode.</p>
+<p>But the file we have here already has chromaticity set, so I will import a new one.</p>
+<p>Number five.</p>
+<p>Let&#39;s open it to make sure that chromaticity is zero.</p>
+<p>Yes it is.</p>
+<p>And now let&#39;s test the code.</p>
+<p>Let&#39;s paste it here.</p>
+<p>Our mode is set to never.</p>
+<p>Hit enter.</p>
+<p>And the texture is pure black and chromaticity is zero.</p>
+<p>So let&#39;s fix it once again.</p>
+<p>We can do it by either removing this never parameter or by changing it to always.</p>
+<p>And that is done.</p>
+<p>It looks fine and I hope I saved you a lot of debugging.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -44,6 +44,23 @@
+ 
+ Reading the outer property with `get_editor_property()` does not fix a later direct assignment to the inner property. The write itself needs the appropriate notification.
+ 
++## Notifying nested-property write
++
++The key difference in the successful screenshot is the **inner property's setter**, not just how the outer struct was read:
++
++```python
++import unreal
++texture = unreal.EditorAssetLibrary.load_asset(&quot;/Game/Textures/T_Example&quot;)
++settings = texture.get_editor_property(&quot;source_color_settings&quot;)
++settings.set_editor_property(
++    &quot;color_space&quot;, unreal.TextureColorSpace.TCS_S_RGB,
++    notify_mode=unreal.PropertyAccessChangeNotifyMode.ALWAYS,
++)
++unreal.EditorAssetLibrary.save_loaded_asset(texture)
++```
++
++Replace the illustrative asset path. This is the course's source-color-space example, not a general instruction to change every texture to sRGB. Compare the resulting appearance and dependent values with the manual reference.
++
+ ![[Pasted image 20261011015031.png]]
+ 
+ ## Set the edited property with notification
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

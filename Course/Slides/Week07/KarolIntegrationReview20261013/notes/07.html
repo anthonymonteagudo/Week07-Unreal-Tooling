@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>07 Running Scripts From Editor · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-07">Return to audit</a><a href="06.html">Previous lesson</a> <a href="08.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/07%20Running%20Scripts%20From%20Editor.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/07%20Running%20Scripts%20From%20Editor%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>07 Running Scripts From Editor</h1><p>Execution commands behind the screenshots</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Running Scripts From the Editor — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/07%20Running%20Scripts%20From%20Editor.md">Original notes</a></p>
+<p>Use the Output Log for interactive commands or the Tools menu to execute an existing Python file.</p>
+<h2>Import a module</h2>
+<p>Select <strong>Python</strong> in the Output Log command dropdown. Import a module from a discoverable directory, then call its functions. The example imports <code>hello</code> and prints its top-level message.</p>
+<h2>Execution commands behind the screenshots</h2>
+<p>In the Output Log&#39;s <strong>Python</strong> input mode, enter a quoted absolute script path, for example <code>&quot;C:/MyProject/Content/Python/hello.py&quot;</code>. In <strong>Cmd</strong> mode, use <code>py &quot;C:/MyProject/Content/Python/hello.py&quot;</code>. Replace the example path with your file. The menu command shown in this course is <strong>Tools → Execute Python Script</strong>; menu placement can differ between editor versions.</p>
+<p>A module in a discoverable Python folder can instead be imported:</p>
+<pre><code class="language-python">import hello
+</code></pre>
+<p>Import executes a module&#39;s top-level code on its first import in that interpreter session. Repeating <code>import hello</code> does not rerun edited code. For an intentional development reload, use <code>import importlib; importlib.reload(hello)</code> and account for any callbacks or other state created previously.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010221121.png" alt="Course screenshot: Pasted image 20261010221121.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010221229.png" alt="Course screenshot: Pasted image 20261010221229.png"></p>
+<h2>Execute a file from the console</h2>
+<p>In <strong>Cmd</strong> mode, the demonstrated command is <code>py</code> followed by the quoted script path.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010221356.png" alt="Course screenshot: Pasted image 20261010221356.png"></p>
+<p>The course documentation warns against using this through the editor&#39;s startup <code>ExecCmd</code> argument: the script may run before the editor or startup level is ready. Lesson 08 covers the dedicated startup arguments.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010221505.png" alt="Course screenshot: Pasted image 20261010221505.png"></p>
+<h2>Execute through the Tools menu</h2>
+<p>Choose <strong>Tools → Execute Python Script</strong>, browse to the <code>.py</code> file, and open it. Confirm its output in the log.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010221844.png" alt="Course screenshot: Pasted image 20261010221844.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222054.png" alt="Course screenshot: Pasted image 20261010222054.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222118.png" alt="Course screenshot: Pasted image 20261010222118.png"></p>
+<p>Use <strong>Tools → Recent Python Scripts</strong> to run a recently executed file again.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222142.png" alt="Course screenshot: Pasted image 20261010222142.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/06%20Making%20scripts%20discoverable%20by%20Unreal%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/08%20Running%20Script%20via%20Commandline%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p>Importing Module
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010221121.png" alt="Course screenshot: Pasted image 20261010221121.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010221229.png" alt="Course screenshot: Pasted image 20261010221229.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010221356.png" alt="Course screenshot: Pasted image 20261010221356.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010221505.png" alt="Course screenshot: Pasted image 20261010221505.png"></p>
+<p>Tools Menu
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010221844.png" alt="Course screenshot: Pasted image 20261010221844.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222054.png" alt="Course screenshot: Pasted image 20261010222054.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222118.png" alt="Course screenshot: Pasted image 20261010222118.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010222142.png" alt="Course screenshot: Pasted image 20261010222142.png"></p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -7,6 +7,18 @@
+ ## Import a module
+ 
+ Select **Python** in the Output Log command dropdown. Import a module from a discoverable directory, then call its functions. The example imports `hello` and prints its top-level message.
++
++## Execution commands behind the screenshots
++
++In the Output Log's **Python** input mode, enter a quoted absolute script path, for example `&quot;C:/MyProject/Content/Python/hello.py&quot;`. In **Cmd** mode, use `py &quot;C:/MyProject/Content/Python/hello.py&quot;`. Replace the example path with your file. The menu command shown in this course is **Tools → Execute Python Script**; menu placement can differ between editor versions.
++
++A module in a discoverable Python folder can instead be imported:
++
++```python
++import hello
++```
++
++Import executes a module's top-level code on its first import in that interpreter session. Repeating `import hello` does not rerun edited code. For an intentional development reload, use `import importlib; importlib.reload(hello)` and account for any callbacks or other state created previously.
+ 
+ ![[Pasted image 20261010221121.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

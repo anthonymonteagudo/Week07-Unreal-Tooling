@@ -1,0 +1,394 @@
+[
+  {
+    "id": "01",
+    "title": "Week 7",
+    "section": "intro",
+    "minutes": 0.25,
+    "start": 0,
+    "end": 0.25
+  },
+  {
+    "id": "02",
+    "title": "Today’s sequence",
+    "section": "intro",
+    "minutes": 0.5,
+    "start": 0.25,
+    "end": 0.75
+  },
+  {
+    "id": "S1",
+    "title": "Python in Unreal",
+    "section": "python",
+    "minutes": 0.25,
+    "start": 0.75,
+    "end": 1
+  },
+  {
+    "id": "03",
+    "title": "Python setup in Unreal",
+    "section": "python",
+    "minutes": 1,
+    "start": 1,
+    "end": 2
+  },
+  {
+    "id": "04",
+    "title": "Executing Python in the editor",
+    "section": "python",
+    "minutes": 1,
+    "start": 2,
+    "end": 3
+  },
+  {
+    "id": "04A",
+    "title": "Finding an Unreal API call",
+    "section": "python",
+    "minutes": 1,
+    "start": 3,
+    "end": 4
+  },
+  {
+    "id": "07",
+    "title": "Two selections, two API calls",
+    "section": "python",
+    "minutes": 1.5,
+    "start": 4,
+    "end": 5.5
+  },
+  {
+    "id": "07C",
+    "title": "Actor, component and shared mesh",
+    "section": "python",
+    "minutes": 1.5,
+    "start": 5.5,
+    "end": 7
+  },
+  {
+    "id": "06A",
+    "title": "Shared asset, separate placements",
+    "section": "python",
+    "minutes": 1.5,
+    "start": 7,
+    "end": 8.5
+  },
+  {
+    "id": "07A",
+    "title": "Disk paths and Unreal asset paths",
+    "section": "python",
+    "minutes": 1,
+    "start": 8.5,
+    "end": 9.5
+  },
+  {
+    "id": "S1A",
+    "title": "Instructor demos",
+    "section": "demos",
+    "minutes": 0.25,
+    "start": 9.5,
+    "end": 9.75
+  },
+  {
+    "id": "10",
+    "title": "Maya and Blender publishing",
+    "section": "demos",
+    "minutes": 1,
+    "start": 9.75,
+    "end": 10.75
+  },
+  {
+    "id": "10A",
+    "title": "An import task describes one job",
+    "section": "demos",
+    "minutes": 1,
+    "start": 10.75,
+    "end": 11.75
+  },
+  {
+    "id": "10C",
+    "title": "Importer options and returned paths",
+    "section": "demos",
+    "minutes": 0.75,
+    "start": 11.75,
+    "end": 12.5
+  },
+  {
+    "id": "10D",
+    "title": "Bridge demo: publish, revise, verify",
+    "section": "demos",
+    "minutes": 4,
+    "start": 12.5,
+    "end": 16.5
+  },
+  {
+    "id": "09G",
+    "title": "Texture properties: inspect before editing",
+    "section": "demos",
+    "minutes": 1,
+    "start": 16.5,
+    "end": 17.5
+  },
+  {
+    "id": "09H",
+    "title": "A small texture validation report",
+    "section": "demos",
+    "minutes": 1,
+    "start": 17.5,
+    "end": 18.5
+  },
+  {
+    "id": "09I",
+    "title": "Component assignment and Undo",
+    "section": "demos",
+    "minutes": 1,
+    "start": 18.5,
+    "end": 19.5
+  },
+  {
+    "id": "09",
+    "title": "Material Setup: a reviewed change",
+    "section": "demos",
+    "minutes": 4,
+    "start": 19.5,
+    "end": 23.5
+  },
+  {
+    "id": "09F",
+    "title": "Apply rechecks the reviewed inputs",
+    "section": "demos",
+    "minutes": 0.75,
+    "start": 23.5,
+    "end": 24.25
+  },
+  {
+    "id": "08A",
+    "title": "Two interfaces, one Python workflow",
+    "section": "demos",
+    "minutes": 1.25,
+    "start": 24.25,
+    "end": 25.5
+  },
+  {
+    "id": "09J",
+    "title": "VFX placement uses Actors and components",
+    "section": "demos",
+    "minutes": 1,
+    "start": 25.5,
+    "end": 26.5
+  },
+  {
+    "id": "09D",
+    "title": "VFX Placement: transfer the workflow",
+    "section": "demos",
+    "minutes": 4,
+    "start": 26.5,
+    "end": 30.5
+  },
+  {
+    "id": "09K",
+    "title": "Python and demo questions",
+    "section": "demos",
+    "minutes": 1.5,
+    "start": 30.5,
+    "end": 32
+  },
+  {
+    "id": "11",
+    "title": "Contributor demos",
+    "section": "contributors",
+    "minutes": 35,
+    "start": 32,
+    "end": 67
+  },
+  {
+    "id": "13",
+    "title": "Break",
+    "section": "break",
+    "minutes": 15,
+    "start": 67,
+    "end": 82
+  },
+  {
+    "id": "S3",
+    "title": "Lab 1\nTool assessment",
+    "section": "lab",
+    "minutes": 0.25,
+    "start": 82,
+    "end": 82.25
+  },
+  {
+    "id": "12",
+    "title": "Lab 1: predict the result",
+    "section": "lab",
+    "minutes": 4.75,
+    "start": 82.25,
+    "end": 87
+  },
+  {
+    "id": "12A",
+    "title": "Lab 1: evidence and a retest",
+    "section": "lab",
+    "minutes": 3,
+    "start": 87,
+    "end": 90
+  },
+  {
+    "id": "S4",
+    "title": "UI/UX for\nartist tools",
+    "section": "ux",
+    "minutes": 0.25,
+    "start": 90,
+    "end": 90.25
+  },
+  {
+    "id": "14",
+    "title": "Interface and experience",
+    "section": "ux",
+    "minutes": 0.75,
+    "start": 90.25,
+    "end": 91
+  },
+  {
+    "id": "14B",
+    "title": "User stories",
+    "section": "ux",
+    "minutes": 1.5,
+    "start": 91,
+    "end": 92.5
+  },
+  {
+    "id": "14D",
+    "title": "Two layouts for the same task",
+    "section": "ux",
+    "minutes": 1.5,
+    "start": 92.5,
+    "end": 94
+  },
+  {
+    "id": "15",
+    "title": "Layout follows the task",
+    "section": "ux",
+    "minutes": 1.5,
+    "start": 94,
+    "end": 95.5
+  },
+  {
+    "id": "14F",
+    "title": "The artist’s model of the work",
+    "section": "ux",
+    "minutes": 1.5,
+    "start": 95.5,
+    "end": 97
+  },
+  {
+    "id": "15A",
+    "title": "State and feedback",
+    "section": "ux",
+    "minutes": 1,
+    "start": 97,
+    "end": 98
+  },
+  {
+    "id": "15G",
+    "title": "A UI state becomes a Qt decision",
+    "section": "ux",
+    "minutes": 1,
+    "start": 98,
+    "end": 99
+  },
+  {
+    "id": "15D",
+    "title": "An error should support recovery",
+    "section": "ux",
+    "minutes": 1,
+    "start": 99,
+    "end": 100
+  },
+  {
+    "id": "15B",
+    "title": "Recovery and accessibility",
+    "section": "ux",
+    "minutes": 1,
+    "start": 100,
+    "end": 101
+  },
+  {
+    "id": "16C",
+    "title": "Feedback changes the interface",
+    "section": "ux",
+    "minutes": 1.5,
+    "start": 101,
+    "end": 102.5
+  },
+  {
+    "id": "16E",
+    "title": "A test produces the next question",
+    "section": "ux",
+    "minutes": 3.5,
+    "start": 102.5,
+    "end": 106
+  },
+  {
+    "id": "S4A",
+    "title": "Peer-test\npreparation",
+    "section": "prep",
+    "minutes": 0.25,
+    "start": 106,
+    "end": 106.25
+  },
+  {
+    "id": "16A",
+    "title": "Your peer-test task",
+    "section": "prep",
+    "minutes": 3.75,
+    "start": 106.25,
+    "end": 110
+  },
+  {
+    "id": "S5",
+    "title": "Lab 2\nPeer testing",
+    "section": "peer",
+    "minutes": 0.25,
+    "start": 110,
+    "end": 110.25
+  },
+  {
+    "id": "17",
+    "title": "Lab 2: three peer reviews",
+    "section": "peer",
+    "minutes": 1,
+    "start": 110.25,
+    "end": 111.25
+  },
+  {
+    "id": "18",
+    "title": "A ten-minute reciprocal round",
+    "section": "peer",
+    "minutes": 1,
+    "start": 111.25,
+    "end": 112.25
+  },
+  {
+    "id": "19",
+    "title": "Partner rotations",
+    "section": "peer",
+    "minutes": 32.75,
+    "start": 112.25,
+    "end": 145
+  },
+  {
+    "id": "S6",
+    "title": "Reflection\nand next revision",
+    "section": "synthesis",
+    "minutes": 0.25,
+    "start": 145,
+    "end": 145.25
+  },
+  {
+    "id": "20",
+    "title": "One revision supported by evidence",
+    "section": "synthesis",
+    "minutes": 4.75,
+    "start": 145.25,
+    "end": 150
+  }
+]

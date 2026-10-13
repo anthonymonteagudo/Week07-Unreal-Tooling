@@ -1,0 +1,11 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "Week 7 Material and VFX Tools",
+  "Description": "Native Slate presentation for the existing Python Material and VFX workflows.",
+  "Category": "Editor",
+  "CanContainContent": false,
+  "Modules": [{"Name":"Week07Tools","Type":"Editor","LoadingPhase":"Default","PlatformAllowList":["Win64"]}],
+  "Plugins": [{"Name":"PythonScriptPlugin","Enabled":true},{"Name":"Niagara","Enabled":true}]
+}

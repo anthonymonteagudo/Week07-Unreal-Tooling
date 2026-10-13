@@ -1,0 +1,271 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>22 Naming Convention Validator · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-22">Return to audit</a><a href="21.html">Previous lesson</a> <a href="23.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/22%20Naming%20Convention%20Validator.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/22%20Naming%20Convention%20Validator%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>22 Naming Convention Validator</h1><p>Validator registration and class matching</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Naming Convention Validator — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/22%20Naming%20Convention%20Validator.md">Original notes</a></p>
+<p>Create an <code>EditorValidatorBase</code> subclass that checks asset prefixes and produces actionable warnings. The course&#39;s final example treats a naming mismatch as a warning while leaving the validation result valid.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011233417.png" alt="Course screenshot: Pasted image 20261011233417.png"></p>
+<h2>Define supported assets</h2>
+<p>Decorate the class with <code>@unreal.uclass()</code> and overridden functions with <code>@unreal.ufunction(override=True)</code>. The eligibility method accepts textures, Blueprints, materials, and material instances.</p>
+<p>The recording uses <code>can_validate_asset</code> and <code>validate_loaded_asset</code>; its stub already marks older names as deprecated in favor of <code>K2</code> variants. Match override names and signatures to the engine version being used.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011233500.png" alt="Course screenshot: Pasted image 20261011233500.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011235322.png" alt="Course screenshot: Pasted image 20261011235322.png"></p>
+<h2>Check the prefix</h2>
+<p>Convert <code>asset.get_fname()</code> to a string and check the expected prefix:</p>
+<table>
+<thead>
+<tr>
+<th>Asset category</th>
+<th>Prefix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Texture</td>
+<td><code>T_</code></td>
+</tr>
+<tr>
+<td>Blueprint</td>
+<td><code>BP_</code></td>
+</tr>
+<tr>
+<td>Material</td>
+<td><code>M_</code></td>
+</tr>
+<tr>
+<td>Material instance</td>
+<td><code>MI_</code></td>
+</tr>
+</tbody></table>
+<p>The demonstration uses <code>match</code> to organize the cases; older Python versions can use <code>if</code> and <code>elif</code>. Ensure the type dispatch covers the same subclasses accepted by the eligibility check—an exact class comparison is narrower than <code>isinstance()</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012000135.png" alt="Course screenshot: Pasted image 20261012000135.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012000200.png" alt="Course screenshot: Pasted image 20261012000200.png"></p>
+<p>Return <code>DataValidationResult.VALID</code> for a matching name. For a mismatch, call <code>asset_warning()</code> with a message such as “Name should start with BP_,” then return the result required by the project&#39;s policy. Use <code>unreal.Text</code> where the API expects it.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012001339.png" alt="Course screenshot: Pasted image 20261012001339.png"></p>
+<h2>Register and test</h2>
+<p>Obtain <code>EditorValidatorSubsystem</code>, instantiate the validator, and pass it to <code>add_validator()</code>. Defining the class alone does not register it.</p>
+<h2>Validator registration and class matching</h2>
+<p>The screenshots define a decorated <code>EditorValidatorBase</code> subclass, override <code>can_validate_asset(self, asset)</code> and <code>validate_loaded_asset(self, asset)</code>, then register an <strong>instance</strong>:</p>
+<pre><code class="language-python">validator = AssetPrefixValidator()  # Class defined in the preceding screenshots.
+subsystem = unreal.get_editor_subsystem(unreal.EditorValidatorSubsystem)
+subsystem.add_validator(validator)
+</code></pre>
+<p>Keep the validator instance available for the session. The lesson&#39;s class eligibility includes textures, Blueprints, materials, and material instances. Use inheritance-aware checks such as <code>isinstance(asset, unreal.Texture)</code> when a rule should include <code>Texture2D</code>; an exact <code>asset.__class__ == unreal.Texture</code> comparison excludes subclasses. Prefixes are project policy. Return a validation result consistent with the emitted pass/fail messages; use <code>NOT_VALIDATED</code> for assets the rule does not handle. These override signatures are historical course examples—check the installed engine&#39;s base class before reusing the whole validator.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012001528.png" alt="Course screenshot: Pasted image 20261012001528.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012002102.png" alt="Course screenshot: Pasted image 20261012002102.png"></p>
+<p>Validate selected examples and inspect the warning messages.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012001720.png" alt="Course screenshot: Pasted image 20261012001720.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012002224.png" alt="Course screenshot: Pasted image 20261012002224.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012002254.png" alt="Course screenshot: Pasted image 20261012002254.png"></p>
+<p>Call the registration function from <code>init_unreal.py</code> for future sessions. Keep validator registration organized so the team can find, disable, or adapt rules when moving tools between projects.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012002334.png" alt="Course screenshot: Pasted image 20261012002334.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/21%20Why%20you%20need%20asset%20validation%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/23%20Square%20texture%20validator%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011233417.png" alt="Course screenshot: Pasted image 20261011233417.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011233500.png" alt="Course screenshot: Pasted image 20261011233500.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261011235322.png" alt="Course screenshot: Pasted image 20261011235322.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012000135.png" alt="Course screenshot: Pasted image 20261012000135.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012000200.png" alt="Course screenshot: Pasted image 20261012000200.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012001339.png" alt="Course screenshot: Pasted image 20261012001339.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012001528.png" alt="Course screenshot: Pasted image 20261012001528.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012002102.png" alt="Course screenshot: Pasted image 20261012002102.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012001720.png" alt="Course screenshot: Pasted image 20261012001720.png"><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012002224.png" alt="Course screenshot: Pasted image 20261012002224.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012002254.png" alt="Course screenshot: Pasted image 20261012002254.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012002334.png" alt="Course screenshot: Pasted image 20261012002334.png"></p>
+<p>In this tutorial we will make our first validator.</p>
+<p>We will validate asset naming convention.</p>
+<p>I suppose textures will be named with t underscore, blueprints with BP underscore and materials m underscore.</p>
+<p>So in case like this one, I would like to be able to detect issues with a single click.</p>
+<p>This BP light studio can be validated with right mouse button.</p>
+<p>Asset actions validate assets.</p>
+<p>And if you have no window popping up, just go to window and find Message Lock.</p>
+<p>As you can see, this BP Light studio is validated and has no issues.</p>
+<p>But what if we validate those assets here?</p>
+<p>Validate assets.</p>
+<p>And here we have some issues We have warnings.</p>
+<p>Let&#39;s scroll to the right side.</p>
+<p>And as you can see those assets have incorrect names.</p>
+<p>Those names should start with BP underscore.</p>
+<p>And there is a name of validator in case someone wants to debug it.</p>
+<p>And that&#39;s basically it.</p>
+<p>Let&#39;s go to PyCharm.</p>
+<p>Now in order to create our own validator we have to inherit from Unreal Editor validator base class.</p>
+<p>We will have to implement two very important methods.</p>
+<p>The first one is called can validate asset and it just determines if we are able to run validation at</p>
+<p>all.</p>
+<p>Because what if your validator checks if triangle count is bigger or lower than some number?</p>
+<p>It should run on static meshes, but should skip all the textures.</p>
+<p>And that&#39;s the use case here.</p>
+<p>The second method we have to implement is called validate loaded asset.</p>
+<p>It literally validates the asset after it&#39;s loaded.</p>
+<p>And that means we can access editor properties if we wish to.</p>
+<p>And it returns data validation result.</p>
+<p>Data validation result is just an enumerator.</p>
+<p>And it will tell you if asset was a validated, not validated or is invalid.</p>
+<p>So this is kind of like two states.</p>
+<p>It&#39;s either good or bad.</p>
+<p>But what if there is something in the middle?</p>
+<p>We can have an asset naming convention validator that will show warning if naming is wrong, but will</p>
+<p>not fail entirely.</p>
+<p>So if you want to do something like that, just scroll down and you can call a so called asset warning.</p>
+<p>It just takes the asset we were validating and some message.</p>
+<p>And as you can see, there are also other methods that can mark your validation as successful or make</p>
+<p>a complete fail out of it.</p>
+<p>So we are almost done with going through those Python steps, but I have just one more little comment.</p>
+<p>I think using names like validate loaded asset can validate asset are pretty straightforward, and that&#39;s</p>
+<p>why I used them.</p>
+<p>But if you read that code, you will notice that those are actually marked as deprecated.</p>
+<p>And they were renamed to K2 and validate asset and so on.</p>
+<p>So in this very video I will use old naming and it will work.</p>
+<p>It will probably make this tutorial more approachable to users of old unreal versions.</p>
+<p>But in future I must I may start using newer ones, so don&#39;t be scared.</p>
+<p>If you notice that something changed rapidly between videos.</p>
+<p>And now let&#39;s start implementation.</p>
+<p>I will import unreal as always and let&#39;s create our class.</p>
+<p>But before I do it, I have to declare it as unreal class.</p>
+<p>So that&#39;s unreal.</p>
+<p>You class decorator.</p>
+<p>And then I can create an asset prefix validator and it has to inherit from that editor validator base</p>
+<p>I will just paste initialization code to make it faster.</p>
+<p>And now let&#39;s implement can validate asset.</p>
+<p>We have to implement this method.</p>
+<p>But it is overriding a built in method of some class or maybe interface.</p>
+<p>Who knows what&#39;s under the hood in C plus plus.</p>
+<p>And in that case we should use unreal.</p>
+<p>Dot new function decorator.</p>
+<p>And because I know I am actually overriding something that is there under the hood, then I have to</p>
+<p>set override to true.</p>
+<p>And that&#39;s it.</p>
+<p>That&#39;s pretty simple.</p>
+<p>So now we can return true if we want this validator to run or false if not.</p>
+<p>But we have this asset available so we could use it to make some if statement or something like that.</p>
+<p>And I would like my validator to support textures, blueprint materials and material instances.</p>
+<p>I know there is way more assets, but naming convention conventions can have so many rules.</p>
+<p>And I just want to make a simple example.</p>
+<p>So let&#39;s apply it only to those four classes.</p>
+<p>I will paste it here.</p>
+<p>But remember right now we are checking if asset is of instance of some class.</p>
+<p>But you can also use this subclass to check if it&#39;s a subclass of maybe unreal 2D texture of something.</p>
+<p>So that is just a very, very brief commentary.</p>
+<p>Now, as we know, if our validator were run or not, we should implement actual validation.</p>
+<p>So again unreal Ufunction override.</p>
+<p>And let&#39;s implement a validate loaded asset.</p>
+<p>And I already have some hint here.</p>
+<p>So we know it&#39;s taking parameter asset which is some object and returns data validation result.</p>
+<p>I have made a little cut and paste it as short cheat sheet.</p>
+<p>We will use t underscore for texture.</p>
+<p>M underscore for material and so on.</p>
+<p>We should check what class we have and then check if the condition is met.</p>
+<p>If you are using alt unreal version, you have to do something like if is instance of texture.</p>
+<p>Then check if name starts with t underscore.</p>
+<p>And we&#39;ll also have to grab the name.</p>
+<p>However, when we are using unreal 5.4 or newer, then we have Python 3.11 or newer, and those bring</p>
+<p>us a much syntax, which is similar to switch case from other languages.</p>
+<p>If you are a programmer.</p>
+<p>If you are not, it&#39;s just a very simple syntax that can replace using multiple if else statements.</p>
+<p>So I think you will figure it out and catch it pretty quickly.</p>
+<p>We will need to store a variable with class of our object, and it would be nice to also have this name.</p>
+<p>Name is just asset get F name and I will cast it to string.</p>
+<p>So I don&#39;t have any highlights from PyCharm.</p>
+<p>Then let&#39;s get asset class.</p>
+<p>So it&#39;s asset dot underscore underscore class.</p>
+<p>And because I am using this match syntax then I just put keyword match here.</p>
+<p>And if it is a texture we just do unreal texture and pass.</p>
+<p>If it&#39;s blueprint then also pass and so on.</p>
+<p>It&#39;s pretty simple.</p>
+<p>So once this part of code is reached, it will just look for the case that matches.</p>
+<p>And that&#39;s it.</p>
+<p>And we also know that there will be no other kinds of classes because can validate asset.</p>
+<p>Make sure that it will not run for them If everything is correct, then we should return a result that</p>
+<p>is valid.</p>
+<p>So we will just check if name starts appropriately and return valid.</p>
+<p>If none of those returns were reached.</p>
+<p>Then we most likely have an issue, so we should return invalid.</p>
+<p>Pretty simple.</p>
+<p>So return unreal dot data validation result invalid.</p>
+<p>But in that case we are entirely failing our execution.</p>
+<p>Now user has this bad read fail notification and maybe we just want to let him slip.</p>
+<p>So in that case we will mark it as valid.</p>
+<p>But we will use that as a warning.</p>
+<p>So self dot asset warning here we pass our asset and there is some message.</p>
+<p>And I would like this message to be as helpful as possible.</p>
+<p>So first we will always print the name of asset and that is done for us when asset fails.</p>
+<p>Unreal shows you which asset failed so we don&#39;t have to care about that.</p>
+<p>But we should give user a descriptive information.</p>
+<p>That name should start with and we could write this information for all of those lines, but it would</p>
+<p>be too much work.</p>
+<p>So let&#39;s make a boilerplate without actual prefix, which is here, and we can merge it with the suffix</p>
+<p>or the prefix if it is not correct, and I will fix it for all those occurrences two left, one left</p>
+<p>and material instance, which is the last one.</p>
+<p>And now we have a nice message like name should start with BP underscore.</p>
+<p>And we can just pass a message variable.</p>
+<p>And that is completely correct.</p>
+<p>But we have stabbed.</p>
+<p>That tells us that this should be an unreal text variable.</p>
+<p>So I will just cast it.</p>
+<p>So I get rid of that annoying highlight.</p>
+<p>So our validator is implemented.</p>
+<p>The issue is that it&#39;s not fully operational yet.</p>
+<p>We have the validator but it does nothing.</p>
+<p>It&#39;s not called because it&#39;s not registered.</p>
+<p>Some unreal classes need to be registered manually and some don&#39;t, and that&#39;s the case when we have</p>
+<p>to do it.</p>
+<p>So let&#39;s create a function that will register it.</p>
+<p>Let&#39;s call it register asset prefix validator.</p>
+<p>And now we have to get editor validator subsystem.</p>
+<p>So let me paste that line.</p>
+<p>We have to create instance of our validator.</p>
+<p>So let me copy this name validator equals and here it is.</p>
+<p>And then we call editor validator subsystem add validator.</p>
+<p>And we pass our validator object there.</p>
+<p>So once this register function is called our validator will be registered.</p>
+<p>So let me copy it I will go to unreal.</p>
+<p>And now I have a freshly restarted Unreal Engine.</p>
+<p>That means that if I validate assets right now my validator will not work yet.</p>
+<p>So validate assets Everything works.</p>
+<p>So now let&#39;s go to output log and paste that Python code.</p>
+<p>And once it paste it is pasted.</p>
+<p>We also have to register our validator.</p>
+<p>And now we can do it again while date assets.</p>
+<p>And now we have those warnings name should start with BP underscore.</p>
+<p>That&#39;s really it.</p>
+<p>But if you want your validator to be present all the time for all users, then you have to register</p>
+<p>it on editor startup.</p>
+<p>To do it, just remember to go to your init unreal file and then the register prefix validator there.</p>
+<p>Don&#39;t forget to import this line.</p>
+<p>And now if you restart your project, the validator will already be there.</p>
+<p>If you are working on a project that really requires validation and is growing and growing, then consider</p>
+<p>having it all structured some way.</p>
+<p>You may want to have validators in different plugins, because if some plugin introduces a logic that</p>
+<p>needs validation, then the validator certainly should be there.</p>
+<p>But you may also consider having a separate plugin for validation.</p>
+<p>The only important thing is that you and your fellow developers know where these validators are registered,</p>
+<p>because you may need to disable, enable or modify them.</p>
+<p>It is also important, especially important if you are working on multiple projects at once.</p>
+<p>And that&#39;s because you are very likely going to create a new project and slowly move plugins and features</p>
+<p>from one project to another.</p>
+<p>But the new project will be full of prototyping and unfinished stuff, and those validators would simply</p>
+<p>cause too many red flags.</p>
+<p>And validation is indeed very important, but sometimes it can just block your eyesight completely.</p>
+<p>It&#39;s just about having some golden ratio.</p>
+<p>I hope this tutorial was useful.</p>
+<p>And you know what I gotta say?</p>
+<p>See you in the next video!</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -41,6 +41,18 @@
+ 
+ Obtain `EditorValidatorSubsystem`, instantiate the validator, and pass it to `add_validator()`. Defining the class alone does not register it.
+ 
++## Validator registration and class matching
++
++The screenshots define a decorated `EditorValidatorBase` subclass, override `can_validate_asset(self, asset)` and `validate_loaded_asset(self, asset)`, then register an **instance**:
++
++```python
++validator = AssetPrefixValidator()  # Class defined in the preceding screenshots.
++subsystem = unreal.get_editor_subsystem(unreal.EditorValidatorSubsystem)
++subsystem.add_validator(validator)
++```
++
++Keep the validator instance available for the session. The lesson's class eligibility includes textures, Blueprints, materials, and material instances. Use inheritance-aware checks such as `isinstance(asset, unreal.Texture)` when a rule should include `Texture2D`; an exact `asset.__class__ == unreal.Texture` comparison excludes subclasses. Prefixes are project policy. Return a validation result consistent with the emitted pass/fail messages; use `NOT_VALIDATED` for assets the rule does not handle. These override signatures are historical course examples—check the installed engine's base class before reusing the whole validator.
++
+ ![[Pasted image 20261012001528.png]]
+ 
+ ![[Pasted image 20261012002102.png]]
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

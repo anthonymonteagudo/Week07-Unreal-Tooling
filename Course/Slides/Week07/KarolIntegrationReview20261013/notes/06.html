@@ -1,0 +1,160 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>06 Making scripts discoverable by Unreal · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-06">Return to audit</a><a href="03.html">Previous lesson</a> <a href="07.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/06%20Making%20scripts%20discoverable%20by%20Unreal.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/06%20Making%20scripts%20discoverable%20by%20Unreal%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>06 Making scripts discoverable by Unreal</h1><p>Minimal script to reproduce the result</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Making Scripts Discoverable by Unreal — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/06%20Making%20scripts%20discoverable%20by%20Unreal.md">Original notes</a></p>
+<p>Unreal must be able to find a Python module before you can import it. Keep project scripts in <code>&lt;Project&gt;/Content/Python</code> for a portable, self-contained setup.</p>
+<h2>Try the Python console</h2>
+<p>Open <strong>Output Log</strong>, change the command mode to <strong>Python</strong> or <strong>Python REPL</strong>, and run a simple command.</p>
+<h2>Minimal script to reproduce the result</h2>
+<p>Save this as <code>Content/Python/hello.py</code>, then execute the saved file from Unreal:</p>
+<pre><code class="language-python">import unreal
+unreal.log(&quot;Hello Unreal&quot;)
+</code></pre>
+<p>The <code>unreal</code> module comes from the editor&#39;s embedded interpreter. Selecting Unreal&#39;s Python executable in an IDE does not turn a standalone terminal process into the editor.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010204557.png" alt="Course screenshot: Pasted image 20261010204557.png"></p>
+<h2>Choose a script location</h2>
+<p>The course lists these discoverable locations:</p>
+<ul>
+<li><code>Content/Python</code> inside the project, engine installation, or an enabled plugin.</li>
+<li><code>Documents/UnrealEngine/Python</code> inside the user&#39;s directory.</li>
+</ul>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010204659.png" alt="Course screenshot: Pasted image 20261010204659.png"></p>
+<p>For a custom location, add its directory under <strong>Project Settings → Python → Additional Paths</strong>, then restart.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010205156.png" alt="Course screenshot: Pasted image 20261010205156.png"></p>
+<p>The course also demonstrates environment-variable paths through <code>UE_PYTHONPATH</code> or <code>PYTHONPATH</code>. Availability depends on the Python environment configuration shown in the settings.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010205538.png" alt="Course screenshot: Pasted image 20261010205538.png"></p>
+<p>For a session-only path, append the directory containing your modules to <code>sys.path</code>:</p>
+<pre><code class="language-python">import sys
+sys.path.append(&quot;C:/MyTools/Python&quot;)
+</code></pre>
+<p>To repeat that setup on startup, put it in a registered startup script or in a discoverable <code>init_unreal.py</code>. The directory belongs on <code>sys.path</code>, not the path to an individual <code>.py</code> file.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010210418.png" alt="Course screenshot: Pasted image 20261010210418.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010205919.png" alt="Course screenshot: Pasted image 20261010205919.png"></p>
+<h2>Create and import a test module</h2>
+<p>Enable <strong>Show Empty Folders</strong> in the Content Browser if needed. Developer, plugin, and engine content visibility can also help when navigating script locations. Create <code>Content/Python</code> and open that directory in your IDE.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010210355.png" alt="Course screenshot: Pasted image 20261010210355.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010211232.png" alt="Course screenshot: Pasted image 20261010211232.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010220620.png" alt="Course screenshot: Pasted image 20261010220620.png"></p>
+<p>Create <code>hello.py</code> there. Python files exist on disk but are not Unreal assets, so they will not appear as normal Content Browser assets.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010220651.png" alt="Course screenshot: Pasted image 20261010220651.png"></p>
+<p>Define a <code>say_hi()</code> function using <code>unreal.log()</code>, with a separate top-level <code>print()</code> to make the initial import visible.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010220530.png" alt="Course screenshot: Pasted image 20261010220530.png"></p>
+<p>Restart if needed, import <code>hello</code>, then call <code>hello.say_hi()</code>. Check the Output Log for both messages.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010220902.png" alt="Course screenshot: Pasted image 20261010220902.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/03%20Typing%20in%20Python%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/07%20Running%20Scripts%20From%20Editor%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p>Executing commands
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010204557.png" alt="Course screenshot: Pasted image 20261010204557.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010204659.png" alt="Course screenshot: Pasted image 20261010204659.png"></p>
+<p>Additional Paths
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010205156.png" alt="Course screenshot: Pasted image 20261010205156.png"></p>
+<p>UE_PYTHONPATH or PYTHONPATH
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010205538.png" alt="Course screenshot: Pasted image 20261010205538.png"></p>
+<p>Adding script to sys.path
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010210418.png" alt="Course screenshot: Pasted image 20261010210418.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010205919.png" alt="Course screenshot: Pasted image 20261010205919.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010210355.png" alt="Course screenshot: Pasted image 20261010210355.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010211232.png" alt="Course screenshot: Pasted image 20261010211232.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010220620.png" alt="Course screenshot: Pasted image 20261010220620.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010220651.png" alt="Course screenshot: Pasted image 20261010220651.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010220530.png" alt="Course screenshot: Pasted image 20261010220530.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261010220902.png" alt="Course screenshot: Pasted image 20261010220902.png"></p>
+<p>Unreal engine has a built in Python command support similar to the one in programs like Maya or Blender.</p>
+<p>If you are experimenting or want to execute a few lines of code, all you need to do is to open output</p>
+<p>log, switch command line mode to Python or Python Repl and type some command.</p>
+<p>It may be sufficient at the very beginning, but sooner or later you will want to share your scripts</p>
+<p>and be able to run them quickly, or even make tools from them, or have some shared modules.</p>
+<p>In that case, before even running a script, you want it to be discoverable by the engine.</p>
+<p>It&#39;s best to keep your scripts in content slash Python subfolder of your project, or the main unreal</p>
+<p>installation, or any plugin that you want to modify.</p>
+<p>You can also put it in documents slash Unreal Engine slash Python folder in your system.</p>
+<p>However, I prefer to keep everything in my projects or plugins so it&#39;s self-contained and easier to</p>
+<p>share and develop.</p>
+<p>There are also other ways for those who want to set more specific paths.</p>
+<p>Let&#39;s go through them one by one.</p>
+<p>First way is to go to edit.</p>
+<p>Project settings and find Python.</p>
+<p>Here is a section called Additional Paths.</p>
+<p>All we need to do is add a new element to the array and paste the path.</p>
+<p>It will be discovered by the engine after the restart.</p>
+<p>Second way is adding script to either your Python path or Python path environment variable.</p>
+<p>You could do it either in system variables or if you run engine with custom command line, you can construct</p>
+<p>the env variable yourself in the shell session and then run it.</p>
+<p>The last way is adding script path directly to Sys.path.</p>
+<p>We could do that in output log.</p>
+<p>Import cis and then run the command cis path dot append and put the path to the script in brackets.</p>
+<p>That should work if you are just testing the script.</p>
+<p>However, if it should run on each engine startup, you can either add some setup script to startup</p>
+<p>scripts in plugins.</p>
+<p>To do that, we go to Project Settings again.</p>
+<p>Let&#39;s find Python.</p>
+<p>And here is startup script.</p>
+<p>So just create similar script to the comment we typed in the output log and put it right here.</p>
+<p>Or you could create a script called init.</p>
+<p>Unreal.</p>
+<p>Py.</p>
+<p>We have to create that file in the folder that is already discoverable by the engine, and whatever</p>
+<p>is inside the script will be launched automatically on startup.</p>
+<p>As we already know how to make our scripts discoverable.</p>
+<p>Let&#39;s try running some Hello world and put it in content slash Python folder of our project.</p>
+<p>As you can see, there is no such folder.</p>
+<p>Or maybe it&#39;s hidden.</p>
+<p>I recommend changing content browser settings if you are to work on exclamation.</p>
+<p>Click on the settings gear on the right side and enable Show Empty folders.</p>
+<p>Enabled here.</p>
+<p>Then shall developers content and show plugins content.</p>
+<p>I would also enable show.</p>
+<p>Engine content.</p>
+<p>We can also try making sure that this folder doesn&#39;t exist by right clicking on content folder and showing</p>
+<p>it in explorer.</p>
+<p>As you can see, it&#39;s empty.</p>
+<p>So I will create such folder in the content browser.</p>
+<p>Right click new folder and call it Python.</p>
+<p>I will navigate to that folder in Windows File Explorer and I will create a hello.py file.</p>
+<p>As you can see, this file exists in fact.</p>
+<p>However, it is not visible in Unreal Engine.</p>
+<p>Python files are not considered as assets and they remain hidden.</p>
+<p>Be aware of that and don&#39;t freak out.</p>
+<p>My idea of choice is PyCharm.</p>
+<p>So I will add this folder to my project structure.</p>
+<p>If you work on VS code, you can simply open vs.</p>
+<p>In this folder I will go to File Settings.</p>
+<p>Then navigate to project PyCharm Project Structure and add new content route.</p>
+<p>This content route will lead to my.</p>
+<p>Project slash content slash Python folder, I will apply.</p>
+<p>And now I can edit my hello file.</p>
+<p>Our hello world will be super simple.</p>
+<p>We will have some say hi function that says hi.</p>
+<p>And maybe let&#39;s print something simple on each import.</p>
+<p>Please note that I&#39;m using Unreal Logging in the first place, but in the second I&#39;m using the default</p>
+<p>Python print just to show that there are two ways of printing, and each of them works a bit differently.</p>
+<p>The file was saved, so let&#39;s go to the engine and restart it.</p>
+<p>So the script is discovered on engine startup.</p>
+<p>My project has just restarted.</p>
+<p>Let&#39;s go to output log.</p>
+<p>Make sure that we are using Python command line and see if we can import the function that we just created.</p>
+<p>It works.</p>
+<p>It printed the message that always prints when we are importing things.</p>
+<p>And now we can say hi.</p>
+<p>Everything is correct.</p>
+<p>That&#39;s all about making scripts discoverable by unreal.</p>
+<p>And in the next video I will show you different ways of running your scripts or tools.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -7,6 +7,17 @@
+ ## Try the Python console
+ 
+ Open **Output Log**, change the command mode to **Python** or **Python REPL**, and run a simple command.
++
++## Minimal script to reproduce the result
++
++Save this as `Content/Python/hello.py`, then execute the saved file from Unreal:
++
++```python
++import unreal
++unreal.log(&quot;Hello Unreal&quot;)
++```
++
++The `unreal` module comes from the editor's embedded interpreter. Selecting Unreal's Python executable in an IDE does not turn a standalone terminal process into the editor.
+ 
+ ![[Pasted image 20261010204557.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

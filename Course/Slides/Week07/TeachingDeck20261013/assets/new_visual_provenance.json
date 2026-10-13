@@ -1,0 +1,22 @@
+[
+  {
+    "file": "nng-testing-photo.png",
+    "url": "https://media.nngroup.com/media/editor/2019/11/11/usabilitytesting101-29.png",
+    "article": "https://www.nngroup.com/articles/usability-testing-101/",
+    "context": "Photo taken during follow-up interview after a task; no alteration.",
+    "credit": "Nielsen Norman Group",
+    "retrieved": "2026-10-13",
+    "sha256": "d680fe2300342a3be44fb27484574bf55067f2ed7912ef2bae3cae4369141f21",
+    "rights": "Copyright holder retains rights; public access is not an open license."
+  },
+  {
+    "file": "nng-testing-flow.png",
+    "url": "https://media.nngroup.com/media/editor/2019/11/11/usabilitytesting101_final1.png",
+    "article": "https://www.nngroup.com/articles/usability-testing-101/",
+    "context": "Published facilitator, participant and tasks diagram; no alteration.",
+    "credit": "Nielsen Norman Group",
+    "retrieved": "2026-10-13",
+    "sha256": "69c5f79eddc44aea6c4ef9b0366dfc935f4f288a07a2ddad96c751f45e627416",
+    "rights": "Copyright holder retains rights; public access is not an open license."
+  }
+]

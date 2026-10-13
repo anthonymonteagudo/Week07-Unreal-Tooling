@@ -1,0 +1,2766 @@
+{
+  "date": "2026-10-13",
+  "priorAudit": "../ProductionHandoff20261013/source_audit.json",
+  "allLinks": [
+    {
+      "url": "https://isaacoster.artstation.com/",
+      "title": "public portfolio",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/community/learning/courses/wk4/an-in-depth-look-at-using-python-for-game-development/vymW/an-in-depth-look-at-using-python-for-game-development-introduction",
+      "title": "Open the Epic course",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/G8ZDYa",
+      "title": "Author’s page",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/qeAwqe",
+      "title": "Series page",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": [
+        "A1",
+        "A4",
+        "A6"
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/community/learning/tutorials/wZEz/unreal-engine-building-a-texture-utility-with-the-unreal-python-api",
+      "title": "Code and tutorial",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=0u32V9GYGIw",
+      "title": "01 · Get Materials",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=fwptQCT2sSA",
+      "title": "02 · Get Textures",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rSVX9QTHvPg",
+      "title": "03 · Get/Set Texture Properties",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/Dvdrke",
+      "title": "Series page",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html",
+        "PrepNotes/Bridge_and_UX.html"
+      ],
+      "usedBy": [
+        "07A",
+        "10",
+        "10B",
+        "A4"
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/community/learning/tutorials/LnE7/unreal-engine-asset-import-export-using-unreal-python-api",
+      "title": "Code and tutorial",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=72n-UmfmepQ",
+      "title": "Import assets into Unreal 5 with the Python API",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=TwCIRSCKe54",
+      "title": "Export assets from Unreal 5 with the Python API",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/xDB8zR",
+      "title": "Series page",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": [
+        "A1",
+        "A4",
+        "A6"
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/community/learning/tutorials/xrnE/unreal-engine-asset-setup-with-the-unreal-python-api",
+      "title": "Code and tutorial",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=yv7o43xsJ3I",
+      "title": "Asset Setup 01",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=GIY_UI5uFDM",
+      "title": "Asset Setup 02",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=mpV9zfjxP2I",
+      "title": "Asset Setup 03",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/el0XE3",
+      "title": "Parts 01 and 02",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/community/learning/tutorials/4x7v/unreal-engine-enable-nanite-with-python",
+      "title": "Code and tutorial",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/zP5bDm",
+      "title": "All nine lessons",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/community/learning/tutorials/aVyX/unreal-engine-pyqt-for-maya-and-unreal",
+      "title": "Epic tutorial",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=8Q95jhdhJ-I",
+      "title": "05 · Getting started with Unreal",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/XJYWZD",
+      "title": "Open tutorial collection",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/qJVOrz",
+      "title": "Open all videos",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/kNlRy2",
+      "title": "Author’s course page",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=FC3vjONjPvY&list=PLpoXxlr0idMkGMOH6o7npkW3DaZoeZ5M-",
+      "title": "Course playlist",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/L4BG9v",
+      "title": "Project breakdown and video",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://fab.com/s/68ccdd8e94b9",
+      "title": "Linked project listing",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/Bkexqm",
+      "title": "Breakdown and video",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/6LRZWn",
+      "title": "Eleven-chapter series",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/kN1ZJA",
+      "title": "Open breakdown",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://isaacoster.artstation.com/projects/JvDXDa",
+      "title": "Open walkthrough",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=CHFbrs7qEtE",
+      "title": "Video: Editor Scripting part 8",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/community/learning/tutorials/oLqe/epic-for-indies-automating-material-creation-in-unreal-engine-with-python",
+      "title": "Epic tutorial",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://ryandowlingsoka.com/unreal/post-asset-import-rules/",
+      "title": "Article",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://github.com/Ryan-DowlingSoka/UnrealImporterRules-Python",
+      "title": "Python example repository",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://ryandowlingsoka.com/unreal/python-in-unreal/",
+      "title": "Read the article",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Bridge_and_UX.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.rendereverything.com/automatic-material-creation-in-unreal-engine-with-python/",
+      "title": "Article and inline Python",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://medium.com/@TechArtCorner/filtering-asset-and-actor-lists-with-unreal-editorfilterlibrary-python-59ac8234b395",
+      "title": "Filter asset/Actor lists",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://medium.com/@TechArtCorner/executing-python-scripts-from-unreal-engine-5-menus-90b917981020",
+      "title": "Add Python scripts to Unreal menus",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://medium.com/@TechArtCorner/python-remote-debugging-debug-external-applications-with-pycharm-1da72a88fde0",
+      "title": "Remote debugging with PyCharm",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://forums.unrealengine.com/t/inside-unreal-simplifying-tool-creation-with-blueprints-python/629768",
+      "title": "Session and example links",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/community/learning/tutorials/vEyw/lifecycle-of-a-texture-in-unreal-engine-for-virtual-production",
+      "title": "Article linked by Oster",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLKgYiIAqG99cwlb4Y2Pu-cSb_Vw14-t0c",
+      "title": "Open source",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://ryandowlingsoka.com/unreal/batch-rename-tool/",
+      "title": "Open source",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Bridge_and_UX.html",
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "15B",
+        "A3"
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/community/learning/tutorials/k8lx/execute-python-files-in-blueprints-utilities-unreal-engine-5-tutorial",
+      "title": "Open source",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://ryandowlingsoka.com/unreal/material-parameters-helper/",
+      "title": "Open source",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/data-validation-in-unreal-engine?application_version=5.7",
+      "title": "Open source",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/write-editor-tests-with-python-in-unreal-engine?application_version=5.7",
+      "title": "Open source",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/community/learning/tutorials/WBJky/python-in-unreal-engine-5-7-intermediate-guide-to-editor-tool-automation",
+      "title": "Open source",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://tutorialsearch.io/courses/unreal-engine-5-python-automation-udm63603",
+      "title": "Open source",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+      "title": "Open principles",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Bridge_and_UX.html",
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "02A",
+        "14",
+        "15A",
+        "15D",
+        "15E"
+      ]
+    },
+    {
+      "url": "https://www.nngroup.com/articles/task-scenarios-usability-testing/",
+      "title": "Writing test tasks",
+      "origin": [
+        "PrepNotes/Unreal_Tutorial_Index.html",
+        "PrepNotes/Bridge_and_UX.html",
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "16",
+        "16E",
+        "16A",
+        "16F",
+        "A5"
+      ]
+    },
+    {
+      "url": "https://www.udemy.com/course/unreal-engine-5-python-automation/",
+      "title": "Unreal Engine 5 Python Automation — Karol Kowalczyk",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": [
+        "05",
+        "A4"
+      ]
+    },
+    {
+      "url": "https://www.udemy.com/course/ue4python/",
+      "title": "Python for Unreal Engine Editor Tools Scripting — Muhammad A. Moniem",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.udemy.com/course/becoming-an-unreal-automation-expert/",
+      "title": "Becoming an Unreal Automation Expert — Tim Großmann, Andreas Hauber, Jonas Roth",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://medium.com/@TechArtCorner/getting-started-with-python-in-unreal-engine-5-15a2ae765d86",
+      "title": "Getting Started With Python in Unreal Engine 5",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://medium.com/@TechArtCorner/i-dont-do-pip-install-in-unreal-engine-f78ce635415d",
+      "title": "I don't do pip install in Unreal Engine",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://medium.com/@TechArtCorner/all-the-ways-you-can-set-metadata-tags-in-unreal-engine-38793d08dcc0",
+      "title": "All the ways you can set Metadata Tags in Unreal Engine",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://medium.com/@TechArtCorner/using-details-view-widget-in-editor-utility-widgets-in-unreal-engine-37af4a6b48a3",
+      "title": "Using Details View in Editor Utility Widgets",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://medium.com/@TechArtCorner/selectors-and-pickers-with-dragn-drop-support-in-ue-a-single-property-view-in-unreal-engine-5511ab679b2a",
+      "title": "Single Property View: selectors and pickers",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://youtu.be/UzMgV_964lA",
+      "title": "Remote Control tutorial",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.udemy.com/course/unreal-engine-blueprint-automation/",
+      "title": "Blueprint Automation course",
+      "origin": [
+        "PrepNotes/Research_Background.html",
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "08",
+        "A6"
+      ]
+    },
+    {
+      "url": "https://simondev.io/",
+      "title": "SimonDev",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.bencloward.com/resources.shtml",
+      "title": "Ben Cloward's resources",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/community/learning/tutorials/K8Pe/getting-started-with-python-in-unreal-engine",
+      "title": "Tuatara: Getting started with Python in Unreal Engine",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://github.com/Tuatara-VFX/getting-started-python-ue",
+      "title": "project repository",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://github.com/AlexQuevillon/UnrealPythonLibrary",
+      "title": "Alex Quevillon: UnrealPythonLibrary",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/playlist?list=PLBLmKCAjA25Br8cOVzUroqi_Nwipg-IdP",
+      "title": "Python in UE4 series",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.cgmasteracademy.com/showcase/compositing-lighting",
+      "title": "CGMA catalog",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=5_PM63_oFH0",
+      "title": "CGMA's Python course preview",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.thegnomonworkshop.com/workshops/master-rigging-python-scripting-in-maya",
+      "title": "Gnomon Workshop: Master Rigging & Python Scripting in Maya",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.fxphd.com/courses/",
+      "title": "fxphd catalog",
+      "origin": [
+        "PrepNotes/Research_Background.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.udemy.com/course/unreal-5-blueprint-tools-for-artists/",
+      "title": "Unreal 5 Blueprint Tools for Artists, by Thomas Harle",
+      "origin": [
+        "PrepNotes/Research_Background.html",
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python?application_version=5.7",
+      "title": "Epic's Python documentation",
+      "origin": [
+        "PrepNotes/Research_Background.html",
+        "PrepNotes/Bridge_and_UX.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://help.autodesk.com/cloudhelp/2024/ENU/Maya-Interoperability/files/GUID-6CCE943A-2ED4-4CEE-96D4-9CB19C28F4E0.htm",
+      "title": "Autodesk FBX export commands",
+      "origin": [
+        "PrepNotes/Bridge_and_UX.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7",
+      "title": "UE5.7 AssetImportTask",
+      "origin": [
+        "PrepNotes/Bridge_and_UX.html"
+      ],
+      "usedBy": [
+        "07A",
+        "10",
+        "10A",
+        "10B"
+      ]
+    },
+    {
+      "url": "https://help.autodesk.com/cloudhelp/2025/ENU/UnrealLiveLink/files/UnrealLiveLink_exporting_to_unreal_html.html",
+      "title": "Send to Unreal explanation",
+      "origin": [
+        "PrepNotes/Bridge_and_UX.html"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.gdcvault.com/play/1020642/Technical-Artist-Bootcamp-User-Experience",
+      "title": "Technical Artist Bootcamp: User Experience Design Applied to Technical Art",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.gdcvault.com/play/1026441/Tools-Tutorial-Day-The-System",
+      "title": "The System of Tools: Reducing Frustration in a Daily Workflow",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "14B"
+      ]
+    },
+    {
+      "url": "https://media.gdcvault.com/gdc2018/presentations/Jodie_Azhar_ProductionValuesImproving.pdf#page=32",
+      "title": "Technical Artist Bootcamp: Production Values: Improving Quality, Longevity and Scalability",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "15",
+        "A5"
+      ]
+    },
+    {
+      "url": "https://media.gdcvault.com/gdceurope2013/Presentations/824221DavidLightbrown.pdf",
+      "title": "The User Experience of Game Development Tools",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.nngroup.com/articles/user-story-mapping/",
+      "title": "Mapping User Stories in Agile",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "14B"
+      ]
+    },
+    {
+      "url": "https://www.nngroup.com/articles/ux-user-stories/",
+      "title": "Accounting for UX Work with User Stories in Agile Projects",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.nngroup.com/articles/paper-prototyping/",
+      "title": "Paper Prototyping: Getting User Data Before You Code",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "14C",
+        "14D"
+      ]
+    },
+    {
+      "url": "https://www.nngroup.com/articles/usability-testing-101/",
+      "title": "Usability Testing 101",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "16",
+        "16E",
+        "18",
+        "20",
+        "16F",
+        "A5"
+      ]
+    },
+    {
+      "url": "https://www.nngroup.com/articles/parallel-and-iterative-design/",
+      "title": "Parallel & Iterative Design",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.nngroup.com/articles/mental-models/",
+      "title": "Mental Models",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "14A"
+      ]
+    },
+    {
+      "url": "https://www.nngroup.com/articles/recognition-and-recall/",
+      "title": "Memory Recognition and Recall in User Interfaces",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "14A"
+      ]
+    },
+    {
+      "url": "https://hci.stanford.edu/publications/2010/parallel-prototyping/ParallelPrototyping2010-submitted.pdf",
+      "title": "Parallel Prototyping Leads to Better Design Results, More Divergence, and Increased Self-Efficacy",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "14C",
+        "14D"
+      ]
+    },
+    {
+      "url": "https://doi.org/10.3758/BF03195514",
+      "title": "Beyond the five-user assumption: Benefits of increased sample sizes in usability testing",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://developer.apple.com/videos/play/wwdc2026/250/",
+      "title": "Principles of great design",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://developer.apple.com/videos/play/wwdc2017/802/",
+      "title": "Essential Design Principles",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://developer.apple.com/design/human-interface-guidelines/feedback",
+      "title": "Feedback · Human Interface Guidelines",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "15A",
+        "15E",
+        "A5"
+      ]
+    },
+    {
+      "url": "https://help.figma.com/hc/en-us/articles/360039823894-Create-and-manage-prototype-flows",
+      "title": "Create and manage prototype flows",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "14C",
+        "14D"
+      ]
+    },
+    {
+      "url": "https://www.nngroup.com/articles/visibility-system-status/",
+      "title": "Status",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.nngroup.com/articles/error-message-guidelines/",
+      "title": "Errors",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.nngroup.com/articles/gestalt-proximity/",
+      "title": "Proximity",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.nngroup.com/articles/usability-heuristics-complex-applications/",
+      "title": "Complex",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/fortnite/fortnite-tools-mode-in-fortnite?lang=en-US",
+      "title": "Fortnite",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "A3"
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/lyra-geometry-tools-in-unreal-engine",
+      "title": "Lyra",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://developer.microsoft.com/en-us/games/events/gdc/2023/accessible-and-inclusive-developer-tools/",
+      "title": "Access",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "15B"
+      ]
+    },
+    {
+      "url": "https://www.designcouncil.org.uk/resources/the-double-diamond/",
+      "title": "Diamond",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.nngroup.com/articles/measure-learnability/",
+      "title": "Learning",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.nngroup.com/copyright-and-reprint-info/",
+      "title": "Copyright",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://doc.qt.io/qtforpython-6/tutorials/",
+      "title": "Qt for Python tutorials",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "08A",
+        "15B",
+        "15F",
+        "A2",
+        "A5"
+      ]
+    },
+    {
+      "url": "https://doc.qt.io/qtforpython-6.8/overviews/qtwidgets-layout.html",
+      "title": "Qt layout management",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": [
+        "15",
+        "A2"
+      ]
+    },
+    {
+      "url": "https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/QLineEdit.html",
+      "title": "QLineEdit input validation",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.udemy.com/course/qt-for-python-pyside6-gui-for-beginners/",
+      "title": "Daniel Gakwaya: Qt for Python fundamentals · 12h 1m",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.linkedin.com/learning/ux-design-6-paper-prototyping",
+      "title": "Chris Nodder: Paper Prototyping · 24m",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.linkedin.com/learning/ux-foundations-usability-testing",
+      "title": "Chris Nodder: Usability Testing · 1h 29m",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.qt.io/academy/course-catalog",
+      "title": "Qt Academy course catalog",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.udemy.com/course/unreal-engine-creating-widgets-for-ui/",
+      "title": "Unreal Engine: Creating Widgets for UI · 3h 31m",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.udemy.com/course/unreal-engine-5-blueprint-prefabs-editor-utility-widgets/",
+      "title": "Automation using Editor Utility Widgets · 6h 51m",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.udemy.com/course/unreal-materials/",
+      "title": "Unreal Materials: Build Real Shader Effects · 3h 10m",
+      "origin": [
+        "ProductionHandoff20261013/deck_handoff.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python",
+      "title": "Epic: Python editor scripting",
+      "origin": [
+        "ProductionHandoff20261013/source_audit.json"
+      ],
+      "usedBy": [
+        "05",
+        "03",
+        "04",
+        "06",
+        "06A",
+        "07",
+        "09",
+        "08",
+        "08A",
+        "A4"
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/editor-utility-widgets-in-unreal-engine",
+      "title": "Epic: Editor Utility Widgets",
+      "origin": [
+        "ProductionHandoff20261013/source_audit.json"
+      ],
+      "usedBy": [
+        "08",
+        "08A"
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-blueprints",
+      "title": "Epic: editor scripting with Blueprints",
+      "origin": [
+        "ProductionHandoff20261013/source_audit.json"
+      ],
+      "usedBy": [
+        "08"
+      ]
+    },
+    {
+      "url": "https://www.udemy.com/course/unrealengine5-c-one-course-solution-for-extending-editor/",
+      "title": "Vince Petrelli: custom editor tools",
+      "origin": [
+        "ProductionHandoff20261013/source_audit.json"
+      ],
+      "usedBy": []
+    },
+    {
+      "url": "https://www.guerrilla-games.com/read/creating-a-tools-pipeline-for-horizon-zero-dawn",
+      "title": "Guerrilla · Horizon tools pipeline (GDC 2017)",
+      "origin": [
+        "Expanded visual lecture"
+      ],
+      "usedBy": [
+        "02B",
+        "A13"
+      ]
+    },
+    {
+      "url": "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf",
+      "title": "Guerrilla · published GDC 2017 slides",
+      "origin": [
+        "Expanded visual lecture"
+      ],
+      "usedBy": [
+        "02B",
+        "A11",
+        "A12",
+        "A13"
+      ]
+    },
+    {
+      "url": "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf",
+      "title": "Jeff Stewart · Build Great Tools (GDC 2018)",
+      "origin": [
+        "Expanded visual lecture"
+      ],
+      "usedBy": [
+        "14E",
+        "14F",
+        "A10"
+      ]
+    },
+    {
+      "url": "https://gdcvault.com/play/1035569/Tools-Summit-Mission-Kontrol-Revolutionizing",
+      "title": "NetherRealm · Mission Kontrol session (GDC 2025)",
+      "origin": [
+        "Expanded visual lecture"
+      ],
+      "usedBy": [
+        "16B"
+      ]
+    },
+    {
+      "url": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf",
+      "title": "NetherRealm · Mission Kontrol slides (GDC 2025)",
+      "origin": [
+        "Expanded visual lecture"
+      ],
+      "usedBy": [
+        "16B",
+        "16C",
+        "16D",
+        "A7",
+        "A8",
+        "A9"
+      ]
+    },
+    {
+      "url": "https://www.gdcvault.com/play/1027943/Tools-Summit-Ubisoft-Connect-Building",
+      "title": "Ubisoft · internal release-tool UX (GDC 2022)",
+      "origin": [
+        "Expanded visual lecture"
+      ],
+      "usedBy": [
+        "A3"
+      ]
+    },
+    {
+      "url": "https://doc.qt.io/qtforpython-6/tutorials/basictutorial/signals_and_slots.html",
+      "title": "Qt for Python · signals and slots",
+      "origin": [
+        "Expanded visual lecture"
+      ],
+      "usedBy": [
+        "15C"
+      ]
+    },
+    {
+      "url": "https://doc.qt.io/qt-6/focus.html",
+      "title": "Qt · keyboard focus",
+      "origin": [
+        "Expanded visual lecture"
+      ],
+      "usedBy": [
+        "15F"
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/ScopedEditorTransaction?application_version=5.7",
+      "title": "Epic · ScopedEditorTransaction (UE 5.7)",
+      "origin": [
+        "Expanded visual lecture"
+      ],
+      "usedBy": [
+        "09D"
+      ]
+    },
+    {
+      "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/widget-reflector-in-unreal-engine",
+      "title": "Epic · Widget Reflector",
+      "origin": [
+        "Expanded visual lecture"
+      ],
+      "usedBy": [
+        "A8"
+      ]
+    }
+  ],
+  "curatedRecords": [
+    {
+      "id": "G1",
+      "category": "GDC",
+      "priority": "Start here",
+      "title": "Technical Artist Bootcamp: User Experience Design Applied to Technical Art",
+      "credit": "Chad Moore · WB/Turbine · GDC 2014",
+      "url": "https://www.gdcvault.com/play/1020642/Technical-Artist-Bootcamp-User-Experience",
+      "use": "The closest topic match: UX applied to tools made by a technical-art team. Use to motivate considering artists throughout development.",
+      "status": "Official indexed session description verified; tagged free content. Direct page retrieval failed on retry; full video not watched."
+    },
+    {
+      "id": "G2",
+      "category": "GDC",
+      "priority": "Start here",
+      "title": "The System of Tools: Reducing Frustration in a Daily Workflow",
+      "credit": "Laura Teeples · 343 Industries · GDC 2019",
+      "url": "https://www.gdcvault.com/play/1026441/Tools-Tutorial-Day-The-System",
+      "use": "Use the workflow-system framing for Maya → export → Unreal → verify. Friction can accumulate between tools as well as inside a panel.",
+      "status": "Official session description read; free-content listing. Full video not watched; no clip timestamps verified."
+    },
+    {
+      "id": "G3",
+      "category": "GDC",
+      "priority": "Start here",
+      "title": "Technical Artist Bootcamp: Production Values: Improving Quality, Longevity and Scalability",
+      "credit": "Jodie Azhar · GDC 2018 · presentation PDF",
+      "url": "https://media.gdcvault.com/gdc2018/presentations/Jodie_Azhar_ProductionValuesImproving.pdf#page=32",
+      "use": "PDF pages 32–35 discuss familiar interface conventions, hierarchy, grouping, defaults, and tool flow. A concrete LOD Tools example supports professional relevance.",
+      "status": "Free PDF text and speaker notes inspected; screenshot assets not extracted. Industry guidance, not a controlled study. Avoid turning fewer clicks into a universal goal."
+    },
+    {
+      "id": "G4",
+      "category": "GDC",
+      "priority": "Further study",
+      "title": "The User Experience of Game Development Tools",
+      "credit": "David Lightbown · Ubisoft · GDC Europe 2013",
+      "url": "https://media.gdcvault.com/gdceurope2013/Presentations/824221DavidLightbrown.pdf",
+      "use": "Foundational game-tool UX preparation. Use as a broader resource after the directly applicable TA sessions.",
+      "status": "Free presentation surfaced by search; session synopsis reviewed, deck not read in full."
+    },
+    {
+      "id": "U1",
+      "category": "UX guidance",
+      "priority": "Start here",
+      "title": "Mapping User Stories in Agile",
+      "credit": "Nielsen Norman Group",
+      "url": "https://www.nngroup.com/articles/user-story-mapping/",
+      "use": "Use a short artist journey to connect individual tasks to the overall workflow. A story map is larger than one role–goal–benefit sentence.",
+      "status": "Free article read. Teach only the small task-framing portion here; no Agile process prerequisite."
+    },
+    {
+      "id": "U2",
+      "category": "UX guidance",
+      "priority": "Further study",
+      "title": "Accounting for UX Work with User Stories in Agile Projects",
+      "credit": "Nielsen Norman Group",
+      "url": "https://www.nngroup.com/articles/ux-user-stories/",
+      "use": "Useful instructor background for attaching usability criteria to a story.",
+      "status": "Free article reviewed through search extract. Do not turn this into sprint-management instruction."
+    },
+    {
+      "id": "U3",
+      "category": "UX guidance",
+      "priority": "Start here",
+      "title": "Paper Prototyping: Getting User Data Before You Code",
+      "credit": "Jakob Nielsen · 2003",
+      "url": "https://www.nngroup.com/articles/paper-prototyping/",
+      "use": "Test a sketched interface before implementation. Let the participant indicate actions and have a facilitator supply the next paper state.",
+      "status": "Free article read. Paper can reveal interpretation and flow issues; it cannot establish Unreal correctness or runtime performance."
+    },
+    {
+      "id": "U4",
+      "category": "UX guidance",
+      "priority": "Start here",
+      "title": "Usability Testing 101",
+      "credit": "Nielsen Norman Group",
+      "url": "https://www.nngroup.com/articles/usability-testing-101/",
+      "use": "Use a realistic goal, observe the attempt, and record assistance. Distinguish what people do from their opinions about the design.",
+      "status": "Free article read. Student peer reviews are formative evidence, not representative validation of a professional tool."
+    },
+    {
+      "id": "U5",
+      "category": "UX guidance",
+      "priority": "Further study",
+      "title": "Parallel & Iterative Design",
+      "credit": "Nielsen Norman Group · updated 2024",
+      "url": "https://www.nngroup.com/articles/parallel-and-iterative-design/",
+      "use": "Useful diagrams distinguish exploring alternatives from refining successive versions.",
+      "status": "Free article reviewed. Do not project its historical improvement percentages onto this class or Unreal tools."
+    },
+    {
+      "id": "P1",
+      "category": "Psychology",
+      "priority": "Start here",
+      "title": "Mental Models",
+      "credit": "Nielsen Norman Group · updated 2026",
+      "url": "https://www.nngroup.com/articles/mental-models/",
+      "use": "People predict behavior using what they believe about a system. Ask what an artist expects before revealing the result.",
+      "status": "Free article read; professional synthesis, not an Unreal experiment."
+    },
+    {
+      "id": "P2",
+      "category": "Psychology",
+      "priority": "Start here",
+      "title": "Memory Recognition and Recall in User Interfaces",
+      "credit": "Nielsen Norman Group",
+      "url": "https://www.nngroup.com/articles/recognition-and-recall/",
+      "use": "Visible options, paths, and examples can reduce the need to remember syntax or hidden state.",
+      "status": "Free guidance reviewed. Recognition does not imply showing every advanced setting simultaneously."
+    },
+    {
+      "id": "R1",
+      "category": "Research paper",
+      "priority": "Start here",
+      "title": "Parallel Prototyping Leads to Better Design Results, More Divergence, and Increased Self-Efficacy",
+      "credit": "Dow et al. · ACM TOCHI · 2010",
+      "url": "https://hci.stanford.edu/publications/2010/parallel-prototyping/ParallelPrototyping2010-submitted.pdf",
+      "use": "A study of 33 participants designing web advertisements compared parallel and serial prototyping with equal time and feedback. The parallel condition performed better on the reported design outcomes. Teaching inference: compare a few layout alternatives before polishing one.",
+      "status": "Free author manuscript; methods, results, and discussion inspected. Participants were not professional designers; task was ad design, not editor-tool usability. No numerical gain transferred to Unreal."
+    },
+    {
+      "id": "R2",
+      "category": "Research paper",
+      "priority": "Further study",
+      "title": "Beyond the five-user assumption: Benefits of increased sample sizes in usability testing",
+      "credit": "Laura Faulkner · 2003",
+      "url": "https://doi.org/10.3758/BF03195514",
+      "use": "The published abstract reports substantial variation in problems found by five-person samples drawn from 60 users. Small tests can help without guaranteeing that all important problems have been found.",
+      "status": "Free abstract only; full publisher article paywalled. Not required reading or a free full-paper recommendation."
+    },
+    {
+      "id": "A1",
+      "category": "Apple",
+      "priority": "Start here",
+      "title": "Principles of great design",
+      "credit": "Apple · WWDC26 · 17:16",
+      "url": "https://developer.apple.com/videos/play/wwdc2026/250/",
+      "use": "Useful chapters: agency 1:52, familiarity 6:04, simplicity 11:13. Transfer control, familiar behavior, and clear hierarchy to artist tools.",
+      "status": "Official transcript and chapter list read; video not watched end to end. These are design recommendations, not experimental proof."
+    },
+    {
+      "id": "A2",
+      "category": "Apple",
+      "priority": "Further study",
+      "title": "Essential Design Principles",
+      "credit": "Mike Stern · Apple · WWDC17",
+      "url": "https://developer.apple.com/videos/play/wwdc2017/802/",
+      "use": "Mental-model explanation around 29:36–32:00. Use expectations to discuss why a familiar-looking control can still surprise a user.",
+      "status": "Official transcript excerpt verified; useful targeted segment, not a recommendation to watch the whole talk first."
+    },
+    {
+      "id": "A3",
+      "category": "Apple",
+      "priority": "Start here",
+      "title": "Feedback · Human Interface Guidelines",
+      "credit": "Apple Developer",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/feedback",
+      "use": "Match interruption to consequence: routine status can stay near the work; significant, actionable risks can warrant interruption.",
+      "status": "Free guidance read. Adapt the principle to Unreal conventions; do not imitate Apple styling or assume all confirmations are helpful."
+    },
+    {
+      "id": "F1",
+      "category": "Prototyping",
+      "priority": "Start here",
+      "title": "Create and manage prototype flows",
+      "credit": "Figma Learn",
+      "url": "https://help.figma.com/hc/en-us/articles/360039823894-Create-and-manage-prototype-flows",
+      "use": "Connected frames let an instructor demonstrate a starting state, action, and result. The documented flow feature is available on all plans and requires edit access.",
+      "status": "Official help read. A Figma file/account may be needed to author; no student account or installation required for this lesson."
+    },
+    {
+      "id": "UX-heuristics",
+      "category": "UX / professional examples",
+      "title": "Heuristics",
+      "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-status",
+      "category": "UX / professional examples",
+      "title": "Status",
+      "url": "https://www.nngroup.com/articles/visibility-system-status/",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-errors",
+      "category": "UX / professional examples",
+      "title": "Errors",
+      "url": "https://www.nngroup.com/articles/error-message-guidelines/",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-proximity",
+      "category": "UX / professional examples",
+      "title": "Proximity",
+      "url": "https://www.nngroup.com/articles/gestalt-proximity/",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-tasks",
+      "category": "UX / professional examples",
+      "title": "Tasks",
+      "url": "https://www.nngroup.com/articles/task-scenarios-usability-testing/",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-complex",
+      "category": "UX / professional examples",
+      "title": "Complex",
+      "url": "https://www.nngroup.com/articles/usability-heuristics-complex-applications/",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-fortnite",
+      "category": "UX / professional examples",
+      "title": "Fortnite",
+      "url": "https://dev.epicgames.com/documentation/fortnite/fortnite-tools-mode-in-fortnite?lang=en-US",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-lyra",
+      "category": "UX / professional examples",
+      "title": "Lyra",
+      "url": "https://dev.epicgames.com/documentation/unreal-engine/lyra-geometry-tools-in-unreal-engine",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-rename",
+      "category": "UX / professional examples",
+      "title": "Rename",
+      "url": "https://ryandowlingsoka.com/unreal/batch-rename-tool/",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-material",
+      "category": "UX / professional examples",
+      "title": "Material",
+      "url": "https://ryandowlingsoka.com/unreal/material-parameters-helper/",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-access",
+      "category": "UX / professional examples",
+      "title": "Access",
+      "url": "https://developer.microsoft.com/en-us/games/events/gdc/2023/accessible-and-inclusive-developer-tools/",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-diamond",
+      "category": "UX / professional examples",
+      "title": "Diamond",
+      "url": "https://www.designcouncil.org.uk/resources/the-double-diamond/",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-learning",
+      "category": "UX / professional examples",
+      "title": "Learning",
+      "url": "https://www.nngroup.com/articles/measure-learnability/",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "UX-copyright",
+      "category": "UX / professional examples",
+      "title": "Copyright",
+      "url": "https://www.nngroup.com/copyright-and-reprint-info/",
+      "use": "Supports the original slide draft; see linked slide for the specific teaching application.",
+      "status": "Carried forward from the 12 October source review; no new full-video review."
+    },
+    {
+      "id": "QT1",
+      "category": "Qt technical reference",
+      "title": "Qt for Python tutorials",
+      "url": "https://doc.qt.io/qtforpython-6/tutorials/",
+      "use": "Buttons, signals/slots, dialogs, and tables: implementation examples for UX decisions.",
+      "status": "Official curriculum/documentation checked in prior conversation, 12 October. Course contents not completed by assistant. Durations are listed video time."
+    },
+    {
+      "id": "QT2",
+      "category": "Qt technical reference",
+      "title": "Qt layout management",
+      "url": "https://doc.qt.io/qtforpython-6.8/overviews/qtwidgets-layout.html",
+      "use": "Label/field alignment and resizing; use to explain grouping.",
+      "status": "Official curriculum/documentation checked in prior conversation, 12 October. Course contents not completed by assistant. Durations are listed video time."
+    },
+    {
+      "id": "QT3",
+      "category": "Qt technical reference",
+      "title": "QLineEdit input validation",
+      "url": "https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/QLineEdit.html",
+      "use": "Input constraints; distinguish syntax validation from a valid asset operation.",
+      "status": "Official curriculum/documentation checked in prior conversation, 12 October. Course contents not completed by assistant. Durations are listed video time."
+    },
+    {
+      "id": "C1",
+      "category": "Optional paid study",
+      "title": "Karol: Unreal Engine Blueprint Automation · 8h 35m",
+      "url": "https://www.udemy.com/course/unreal-engine-blueprint-automation/",
+      "use": "Best companion for editor actions, data-driven tools, and Editor Utility Widgets.",
+      "status": "Official curriculum/documentation checked in prior conversation, 12 October. Course contents not completed by assistant. Durations are listed video time."
+    },
+    {
+      "id": "C2",
+      "category": "Optional paid study",
+      "title": "Daniel Gakwaya: Qt for Python fundamentals · 12h 1m",
+      "url": "https://www.udemy.com/course/qt-for-python-pyside6-gui-for-beginners/",
+      "use": "Selective preparation: widgets, layouts, Designer, dialogs. Not required viewing.",
+      "status": "Official curriculum/documentation checked in prior conversation, 12 October. Course contents not completed by assistant. Durations are listed video time."
+    },
+    {
+      "id": "C3",
+      "category": "Optional paid study",
+      "title": "Thomas Harle: Blueprint Tools for Artists · 7h 2m",
+      "url": "https://www.udemy.com/course/unreal-5-blueprint-tools-for-artists/",
+      "use": "Later scene-building tools, exposed parameters, generators, and splines.",
+      "status": "Official curriculum/documentation checked in prior conversation, 12 October. Course contents not completed by assistant. Durations are listed video time."
+    },
+    {
+      "id": "C4",
+      "category": "Optional paid study",
+      "title": "Chris Nodder: Paper Prototyping · 24m",
+      "url": "https://www.linkedin.com/learning/ux-design-6-paper-prototyping",
+      "use": "Short preparation for layout sketching and paper interaction tests.",
+      "status": "Official curriculum/documentation checked in prior conversation, 12 October. Course contents not completed by assistant. Durations are listed video time."
+    },
+    {
+      "id": "C5",
+      "category": "Optional paid study",
+      "title": "Chris Nodder: Usability Testing · 1h 29m",
+      "url": "https://www.linkedin.com/learning/ux-foundations-usability-testing",
+      "use": "Moderation, observation, and interpreting findings.",
+      "status": "Official curriculum/documentation checked in prior conversation, 12 October. Course contents not completed by assistant. Durations are listed video time."
+    },
+    {
+      "id": "C6",
+      "category": "Free course",
+      "title": "Qt Academy course catalog",
+      "url": "https://www.qt.io/academy/course-catalog",
+      "use": "Getting Started with Qt for Python: 30-minute orientation; authoring may require account/setup.",
+      "status": "Official curriculum/documentation checked in prior conversation, 12 October. Course contents not completed by assistant. Durations are listed video time."
+    },
+    {
+      "id": "C7",
+      "category": "Optional paid study",
+      "title": "Unreal Engine: Creating Widgets for UI · 3h 31m",
+      "url": "https://www.udemy.com/course/unreal-engine-creating-widgets-for-ui/",
+      "use": "Game-menu examples; transferable widget implementation skills.",
+      "status": "Official curriculum/documentation checked in prior conversation, 12 October. Course contents not completed by assistant. Durations are listed video time."
+    },
+    {
+      "id": "C8",
+      "category": "Optional paid study",
+      "title": "Automation using Editor Utility Widgets · 6h 51m",
+      "url": "https://www.udemy.com/course/unreal-engine-5-blueprint-prefabs-editor-utility-widgets/",
+      "use": "Prefab/data-asset project; secondary alternative to Karol.",
+      "status": "Official curriculum/documentation checked in prior conversation, 12 October. Course contents not completed by assistant. Durations are listed video time."
+    },
+    {
+      "id": "C9",
+      "category": "Optional paid study",
+      "title": "Unreal Materials: Build Real Shader Effects · 3h 10m",
+      "url": "https://www.udemy.com/course/unreal-materials/",
+      "use": "Future shader block; content an automation tool might configure.",
+      "status": "Official curriculum/documentation checked in prior conversation, 12 October. Course contents not completed by assistant. Durations are listed video time."
+    }
+  ],
+  "tutorialGroups": [
+    {
+      "title": "Unreal Python API introduction",
+      "category": "week7",
+      "links": [
+        {
+          "title": "Open the Epic course",
+          "url": "https://dev.epicgames.com/community/learning/courses/wk4/an-in-depth-look-at-using-python-for-game-development/vymW/an-in-depth-look-at-using-python-for-game-development-introduction"
+        },
+        {
+          "title": "Author’s page",
+          "url": "https://isaacoster.artstation.com/projects/G8ZDYa"
+        }
+      ],
+      "context": "   Already covered   Already completed  Free course  Unreal Python API introduction \n  Open the Epic course  ·  Author’s page  ·  Existing lesson notes   Use as a reference for selection, asset/Actor/Component relationships, properties, materials, and API discovery. The alternate course titles and ArtStation listing refer to the same introductory course.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Texture inspection and manipulation · Building a Texture Utility",
+      "category": "week7",
+      "links": [
+        {
+          "title": "Series page",
+          "url": "https://isaacoster.artstation.com/projects/qeAwqe"
+        },
+        {
+          "title": "Code and tutorial",
+          "url": "https://dev.epicgames.com/community/learning/tutorials/wZEz/unreal-engine-building-a-texture-utility-with-the-unreal-python-api"
+        },
+        {
+          "title": "01 · Get Materials",
+          "url": "https://www.youtube.com/watch?v=0u32V9GYGIw"
+        },
+        {
+          "title": "02 · Get Textures",
+          "url": "https://www.youtube.com/watch?v=fwptQCT2sSA"
+        },
+        {
+          "title": "03 · Get/Set Texture Properties",
+          "url": "https://www.youtube.com/watch?v=rSVX9QTHvPg"
+        }
+      ],
+      "context": "   As needed   Material option  Free · 3 tutorials  Texture inspection and manipulation · Building a Texture Utility   Series page  ·  Code and tutorial  \n   01 · Get Materials    02 · Get Textures    03 · Get/Set Texture Properties     Teaching use:  trace selected content to materials/textures, report settings, then make a bounded change. The source’s level-wide scope should be narrowed for the first student exercise.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Asset handling · Import / Export with Unreal Python",
+      "category": "week7",
+      "links": [
+        {
+          "title": "Series page",
+          "url": "https://isaacoster.artstation.com/projects/Dvdrke"
+        },
+        {
+          "title": "Code and tutorial",
+          "url": "https://dev.epicgames.com/community/learning/tutorials/LnE7/unreal-engine-asset-import-export-using-unreal-python-api"
+        },
+        {
+          "title": "Import assets into Unreal 5 with the Python API",
+          "url": "https://www.youtube.com/watch?v=72n-UmfmepQ"
+        },
+        {
+          "title": "Export assets from Unreal 5 with the Python API",
+          "url": "https://www.youtube.com/watch?v=TwCIRSCKe54"
+        }
+      ],
+      "context": "   Use now   Bridge preparation  Free · 2 tutorials  Asset handling · Import / Export with Unreal Python   Series page  ·  Code and tutorial     Import assets into Unreal 5 with the Python API  — suggested first for this demo.   Export assets from Unreal 5 with the Python API  — retain for the outbound workflow.    Teaching use:  explain disk paths versus Unreal asset paths and how import becomes repeatable. Rehearse the actual file types and importer used in UE5.7.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Material-instance creation · Asset Setup",
+      "category": "week7",
+      "links": [
+        {
+          "title": "Series page",
+          "url": "https://isaacoster.artstation.com/projects/xDB8zR"
+        },
+        {
+          "title": "Code and tutorial",
+          "url": "https://dev.epicgames.com/community/learning/tutorials/xrnE/unreal-engine-asset-setup-with-the-unreal-python-api"
+        },
+        {
+          "title": "Asset Setup 01",
+          "url": "https://www.youtube.com/watch?v=yv7o43xsJ3I"
+        },
+        {
+          "title": "Asset Setup 02",
+          "url": "https://www.youtube.com/watch?v=GIY_UI5uFDM"
+        },
+        {
+          "title": "Asset Setup 03",
+          "url": "https://www.youtube.com/watch?v=mpV9zfjxP2I"
+        }
+      ],
+      "context": "   As needed   Material option  Free · 3 tutorials  Material-instance creation · Asset Setup   Series page  ·  Code and tutorial     Asset Setup 01    Asset Setup 02    Asset Setup 03    The series organizes imported textures and geometry, creates a material instance, connects the parent and texture parameters, and assigns it to a static mesh. The author labels the episodes numerically; no invented per-episode topic boundaries are implied here.   Demo proposal:  one texture set + prepared master material → inspect → preview → create/update instance → assign → verify. The proposal is not an implemented replacement demo.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Enable Nanite with Python",
+      "category": "optional",
+      "links": [
+        {
+          "title": "Parts 01 and 02",
+          "url": "https://isaacoster.artstation.com/projects/el0XE3"
+        },
+        {
+          "title": "Code and tutorial",
+          "url": "https://dev.epicgames.com/community/learning/tutorials/4x7v/unreal-engine-enable-nanite-with-python"
+        }
+      ],
+      "context": "   Later   Saved · validation / optimization  Free · 2 tutorials  Enable Nanite with Python   Parts 01 and 02  ·  Code and tutorial   Check assigned materials before modifying eligible mesh assets. Useful as a second validation example. The description discusses UE5.1-era Nanite restrictions; verify eligibility rules in the teaching engine. Save mainly for optimization/asset validation.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "PyQt for Maya and Unreal · Unreal-focused route",
+      "category": "optional",
+      "links": [
+        {
+          "title": "All nine lessons",
+          "url": "https://isaacoster.artstation.com/projects/zP5bDm"
+        },
+        {
+          "title": "Epic tutorial",
+          "url": "https://dev.epicgames.com/community/learning/tutorials/aVyX/unreal-engine-pyqt-for-maya-and-unreal"
+        },
+        {
+          "title": "05 · Getting started with Unreal",
+          "url": "https://www.youtube.com/watch?v=8Q95jhdhJ-I"
+        }
+      ],
+      "context": "   Later   Saved · UI / tool delivery  Free · mixed-host series  PyQt for Maya and Unreal · Unreal-focused route   All nine lessons  ·  Epic tutorial  ·  05 · Getting started with Unreal   Retained because it has an explicit Unreal lesson and Unreal templates. Skip lesson 03, Calling Maya Functions. Shared Qt concepts remain useful, but examples outside lesson 05 are not represented as exclusively Unreal-based.   Lesson map   Introduction to Qt Designer  Working with UI Components  Calling Maya Functions — skip for this request  Radio Buttons and Combobox  Getting started with Unreal — target lesson  Working with File Dialog  Working with Subwidgets, Part 1  Working with Subwidgets, Part 2  Managing UI Appearance with Style Sheets    Defer full Qt setup until the Python workflow is working; not needed for the first material automation demo.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Unreal PCG Tutorials",
+      "category": "later",
+      "links": [
+        {
+          "title": "Open tutorial collection",
+          "url": "https://isaacoster.artstation.com/projects/XJYWZD"
+        }
+      ],
+      "context": "   Later   Saved · PCG week  Free tutorial collection  Unreal PCG Tutorials   Open tutorial collection   Fundamental PCG concepts and workflows. A starting point before larger procedural projects. The text-accessible page did not expose a reliable full episode inventory; no episode count or completion claim is recorded.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "PCG City Tutorial · UE5.6",
+      "category": "later",
+      "links": [
+        {
+          "title": "Open all videos",
+          "url": "https://isaacoster.artstation.com/projects/qJVOrz"
+        }
+      ],
+      "context": "   Later   Saved · PCG week  Free · introduction + 10 lessons  PCG City Tutorial · UE5.6   Open all videos   Introductory procedural city project with landscape/texture sampling, custom attributes, and parent-Blueprint data accessed through a loop graph.   Lesson map   Initial Setup  Landscape and Texture Sampling  Large and Medium Buildings  City Center 01  City Center 02  City Noise  Neighborhoods 01  PCG Loops  Neighborhoods 02  Tuning     Later connection:  textures become generation inputs; carry forward explicit data roles from Week 7.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Procedural Modeling with Unreal 5",
+      "category": "later",
+      "links": [
+        {
+          "title": "Author’s course page",
+          "url": "https://isaacoster.artstation.com/projects/kNlRy2"
+        },
+        {
+          "title": "Course playlist",
+          "url": "https://www.youtube.com/watch?v=FC3vjONjPvY&list=PLpoXxlr0idMkGMOH6o7npkW3DaZoeZ5M-"
+        }
+      ],
+      "context": "   Later   Saved · procedural tools / Blueprints  Free videos · demo project sold separately  Procedural Modeling with Unreal 5   Author’s course page  ·  Course playlist   Modeling Mode, Blueprint basics, Editor Utilities, instanced meshes, Geometry Scripting, procedural animation, and Sequencer. Closely related to a later artist-tool-building lesson. Distinct from PCG framework instruction and from Week 7 Python.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Procedural Cell Tower · UE5.5",
+      "category": "later",
+      "links": [
+        {
+          "title": "Project breakdown and video",
+          "url": "https://isaacoster.artstation.com/projects/L4BG9v"
+        },
+        {
+          "title": "Linked project listing",
+          "url": "https://fab.com/s/68ccdd8e94b9"
+        }
+      ],
+      "context": "   Later   Saved · advanced PCG / HLSL  Project + overview  Procedural Cell Tower · UE5.5   Project breakdown and video  ·  Linked project listing   Parameterized Blueprint containing PCG graphs and HLSL. Use for exposed controls and procedural system organization. Not verified as a full step-by-step series; project price/access not checked.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Procedural Death Star · UE5.5 PCG and HLSL",
+      "category": "later",
+      "links": [
+        {
+          "title": "Breakdown and video",
+          "url": "https://isaacoster.artstation.com/projects/Bkexqm"
+        }
+      ],
+      "context": "   Later   Saved · advanced PCG / materials  Project breakdown  Procedural Death Star · UE5.5 PCG and HLSL   Breakdown and video   Point generation/culling, tagged control Actors, loops, and PCG data passed into materials. Strong later synthesis example; not a confirmed beginner tutorial series.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Procedural Landscapes with Gaea 2 and Unreal 5",
+      "category": "later",
+      "links": [
+        {
+          "title": "Eleven-chapter series",
+          "url": "https://isaacoster.artstation.com/projects/6LRZWn"
+        }
+      ],
+      "context": "   Later   Saved · landscapes / texture workflows  Free videos · Gaea-to-Unreal  Procedural Landscapes with Gaea 2 and Unreal 5   Eleven-chapter series   Explicitly a mixed-application landscape pipeline, not Unreal Python training. For Unreal-focused viewing, prioritize chapters 3 and 5–11; external asset preparation is context.   Chapter map   Intro to Gaea  Exporting Gaea Assets  Tiling Assets in Unreal  Gaea Terrain for Height Maps  Landscape Resolution and Components  Landscape Layer Masks  Working with the Texture Graph  Fixing Tiling Textures  Adding Normal and ORD Maps  Displacement and Material Function  Tuning Material Parameters    ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Zombie Horde with Vertex Animated Textures and HLSL in Niagara",
+      "category": "later",
+      "links": [
+        {
+          "title": "Open breakdown",
+          "url": "https://isaacoster.artstation.com/projects/kN1ZJA"
+        }
+      ],
+      "context": "   Later   Saved · Niagara / VAT / HLSL  Project breakdown  Zombie Horde with Vertex Animated Textures and HLSL in Niagara   Open breakdown   AnimToTexture preparation with an Editor Utility Widget and HLSL-driven Niagara behavior. A later example of tooling that prepares assets consumed by runtime systems. Not cataloged as a Python course or a step-by-step series.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Director Blueprint Example",
+      "category": "later",
+      "links": [
+        {
+          "title": "Open walkthrough",
+          "url": "https://isaacoster.artstation.com/projects/JvDXDa"
+        }
+      ],
+      "context": "   Later   Saved · Sequencer / Blueprint events  One-off walkthrough  Director Blueprint Example   Open walkthrough   Sequence-triggered custom events that change material assignments. Reserve for Sequencer/Blueprint context; distinguish those events from editor Python execution.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "PentaPixels · Automating Material Creation in Unreal with Python",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Video: Editor Scripting part 8",
+          "url": "https://www.youtube.com/watch?v=CHFbrs7qEtE"
+        },
+        {
+          "title": "Epic tutorial",
+          "url": "https://dev.epicgames.com/community/learning/tutorials/oLqe/epic-for-indies-automating-material-creation-in-unreal-engine-with-python"
+        }
+      ],
+      "context": "   As needed   Reference · closest additional demo match  PentaPixels · Automating Material Creation in Unreal with Python   Video: Editor Scripting part 8  ·  Epic tutorial   Texture-name classification, master-material construction, material instances, and texture assignment, with Editor Utility Widgets. More direct overlap with the desired demo than general editor scripting. Curriculum/description checked; implementation quality and UE5.7 behavior not independently tested.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Ryan DowlingSoka · Unreal Post Asset Import Actions",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Article",
+          "url": "https://ryandowlingsoka.com/unreal/post-asset-import-rules/"
+        },
+        {
+          "title": "Python example repository",
+          "url": "https://github.com/Ryan-DowlingSoka/UnrealImporterRules-Python"
+        }
+      ],
+      "context": "   As needed   Reference · import rules  Ryan DowlingSoka · Unreal Post Asset Import Actions   Article  ·  Python example repository   Rule-based post-import changes with texture-setting examples, comparing Python, C++, and Blueprint approaches. Study the Python implementation for this week; defer the broader architecture. Published 2023, so importer behavior needs a version check.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Ryan DowlingSoka · Python in Unreal Tips",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Read the article",
+          "url": "https://ryandowlingsoka.com/unreal/python-in-unreal/"
+        }
+      ],
+      "context": "   As needed   Reference · development workflow  Ryan DowlingSoka · Python in Unreal Tips   Read the article   Autocomplete, workspace setup, progress dialogs, asynchronous work, and VS Code debugging. Instructor preparation for reliable tools; not another student prerequisite.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Gatis Kurzemnieks · Automatic Material Creation",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Article and inline Python",
+          "url": "https://www.rendereverything.com/automatic-material-creation-in-unreal-engine-with-python/"
+        }
+      ],
+      "context": "   As needed   Reference · compact material code example  Gatis Kurzemnieks · Automatic Material Creation   Article and inline Python   Create/reuse material instances for selected meshes, assign named texture parameters, and apply the material. Uses Epic’s  unreal  module. Older 2020/2021 example with hardcoded path/naming assumptions; useful to read and adapt, not run unchanged.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Scope, launch, and debug a Python tool",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Filter asset/Actor lists",
+          "url": "https://medium.com/@TechArtCorner/filtering-asset-and-actor-lists-with-unreal-editorfilterlibrary-python-59ac8234b395"
+        },
+        {
+          "title": "Add Python scripts to Unreal menus",
+          "url": "https://medium.com/@TechArtCorner/executing-python-scripts-from-unreal-engine-5-menus-90b917981020"
+        },
+        {
+          "title": "Remote debugging with PyCharm",
+          "url": "https://medium.com/@TechArtCorner/python-remote-debugging-debug-external-applications-with-pycharm-1da72a88fde0"
+        }
+      ],
+      "context": "   As needed   Saved · Karol / Tech Art Corner  Scope, launch, and debug a Python tool    Filter asset/Actor lists  — scope eligible inputs.   Add Python scripts to Unreal menus  — make a working tool accessible.   Remote debugging with PyCharm  — instructor troubleshooting.   Public articles; Medium access may vary. More Karol links and the preferred paid course remain in the  expanded prep library .  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Epic · Simplifying Tool Creation with Blueprints & Python",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Session and example links",
+          "url": "https://forums.unrealengine.com/t/inside-unreal-simplifying-tool-creation-with-blueprints-python/629768"
+        }
+      ],
+      "context": "   As needed   Already bookmarked · editor UI bridge  Epic · Simplifying Tool Creation with Blueprints & Python   Session and example links   Optional prepared button-to-Python demonstration. Do not expand into a second Blueprint-authoring lesson during Week 7.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Shaun Comly · Lifecycle of a Texture in Unreal Engine",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Article linked by Oster",
+          "url": "https://dev.epicgames.com/community/learning/tutorials/vEyw/lifecycle-of-a-texture-in-unreal-engine-for-virtual-production"
+        }
+      ],
+      "context": "   As needed   Reference · texture rationale  Shaun Comly · Lifecycle of a Texture in Unreal Engine   Article linked by Oster   Background for why texture settings matter. This is texture-system context rather than a Python tutorial; retained as the author-recommended companion reading.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Unreal Engine 5 Python Automation · YouTube playlist",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Open source",
+          "url": "https://www.youtube.com/playlist?list=PLKgYiIAqG99cwlb4Y2Pu-cSb_Vw14-t0c"
+        }
+      ],
+      "context": "   Already covered   Already completed · instructor liked it  Unreal Engine 5 Python Automation · YouTube playlist   Open source   User confirms having worked through this alongside Oster and found it very good. Existing A1–A4 notes link to it. Treat as a known reference, not new weekend homework. This does not establish completion of the separately sold Udemy course or every current upload.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Ryan DowlingSoka · Batch Rename Editor Widget",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Open source",
+          "url": "https://ryandowlingsoka.com/unreal/batch-rename-tool/"
+        }
+      ],
+      "context": "   Use now   Reference · free · 3-part series  Ryan DowlingSoka · Batch Rename Editor Widget   Open source   Episode 1: layout; episode 2: Blueprint/Python logic; episode 3: finish and Actor actions. Excellent concrete UI/UX companion: individual row control, numbering, and Undo/Redo. 2021 examples need version checks; omit the example’s eval-based expression feature in a beginner adaptation.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Matt Lake · Execute Python Files in Blueprint Utilities",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Open source",
+          "url": "https://dev.epicgames.com/community/learning/tutorials/k8lx/execute-python-files-in-blueprints-utilities-unreal-engine-5-tutorial"
+        }
+      ],
+      "context": "   As needed   Reference · free · UI bridge  Matt Lake · Execute Python Files in Blueprint Utilities   Open source   UE5.0-era focused tutorial: launch an external Python file from an Editor Utility Widget. Useful for a prepared front end. The page also links setup, inline execution, and input/output-variable tutorials. A small bridge into UI delivery, not a reason to add a full Blueprint lesson.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Ryan DowlingSoka · Material Parameters Helper",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Open source",
+          "url": "https://ryandowlingsoka.com/unreal/material-parameters-helper/"
+        }
+      ],
+      "context": "   Later   Reference · free · later material tooling  Ryan DowlingSoka · Material Parameters Helper   Open source   Production tool breakdown for managing parameters across nested material functions. Strong inspiration for the coming material block and for tool organization. Advanced editor tooling; not a beginner Python-only tutorial.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Epic · Data Validation",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Open source",
+          "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/data-validation-in-unreal-engine?application_version=5.7"
+        }
+      ],
+      "context": "   As needed   Reference · free · validation depth  Epic · Data Validation   Open source   Reference for turning explicit content rules into validators. Python validators need registration with the validator subsystem. For the first lab, a simple report can teach the workflow before introducing framework plumbing. Use documentation matching the teaching engine.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Epic · Write Editor Tests with Python",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Open source",
+          "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/write-editor-tests-with-python-in-unreal-engine?application_version=5.7"
+        }
+      ],
+      "context": "   Later   Reference · free · later automated QA  Epic · Write Editor Tests with Python   Open source   PythonAutomationTest, test discovery, latent work, screenshots, and output checking. Instructor depth for a later review-image or regression-testing workflow. Distinct from the human usability test on the lab sheet; version-check the examples.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Python in Unreal Engine 5.7 · Intermediate Guide to Editor Tool Automation",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Open source",
+          "url": "https://dev.epicgames.com/community/learning/tutorials/WBJky/python-in-unreal-engine-5-7-intermediate-guide-to-editor-tool-automation"
+        }
+      ],
+      "context": "   As needed   Saved · Spanish per instructor  Python in Unreal Engine 5.7 · Intermediate Guide to Editor Tool Automation   Open source   User-provided supplement. Title/page located, but body and video were not accessible in this research pass. Language is recorded from the instructor; English captions, runtime, and detailed coverage are unverified.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "TutorialSearch · UE5 Python Automation listing",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Open source",
+          "url": "https://tutorialsearch.io/courses/unreal-engine-5-python-automation-udm63603"
+        }
+      ],
+      "context": "   As needed   Discovery only · not a separate course  TutorialSearch · UE5 Python Automation listing   Open source   Saved as a discovery lead. This page could not be retrieved in the research pass, so its accuracy, completeness, pricing, and any ranking criteria are unverified. Check the original instructor/provider listing before using it to choose a course.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Nielsen Norman Group · Principles and test tasks",
+      "category": "supplements",
+      "links": [
+        {
+          "title": "Open principles",
+          "url": "https://www.nngroup.com/articles/ten-usability-heuristics/"
+        },
+        {
+          "title": "Writing test tasks",
+          "url": "https://www.nngroup.com/articles/task-scenarios-usability-testing/"
+        }
+      ],
+      "context": "   Use now   Reference · free · UI/UX reference  Nielsen Norman Group · Principles and test tasks   Open principles  ·  Writing test tasks   Use a small selection of principles with concrete tool examples. Pair with the linked instructor guide and student sheet for realistic task-based peer observation. General UX reference intentionally applied to Unreal tools, not an Unreal API tutorial.  ",
+      "status": "Preserved from the existing 10 October tutorial review; not a claim of full viewing."
+    },
+    {
+      "title": "Epic: Python editor scripting",
+      "category": "Primary technical reference",
+      "links": [
+        {
+          "title": "Epic: Python editor scripting",
+          "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python"
+        }
+      ],
+      "context": "Technical reference for the refined deck. General documentation defaults to current engine; the import-task API is explicitly UE 5.7.",
+      "status": "Page inspected 13 October 2026."
+    },
+    {
+      "title": "Epic: Editor Utility Widgets",
+      "category": "Primary technical reference",
+      "links": [
+        {
+          "title": "Epic: Editor Utility Widgets",
+          "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/editor-utility-widgets-in-unreal-engine"
+        }
+      ],
+      "context": "Technical reference for the refined deck. General documentation defaults to current engine; the import-task API is explicitly UE 5.7.",
+      "status": "Page inspected 13 October 2026."
+    },
+    {
+      "title": "Epic: editor scripting with Blueprints",
+      "category": "Primary technical reference",
+      "links": [
+        {
+          "title": "Epic: editor scripting with Blueprints",
+          "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-blueprints"
+        }
+      ],
+      "context": "Technical reference for the refined deck. General documentation defaults to current engine; the import-task API is explicitly UE 5.7.",
+      "status": "Page inspected 13 October 2026."
+    },
+    {
+      "title": "Epic: AssetImportTask, UE 5.7",
+      "category": "Primary technical reference",
+      "links": [
+        {
+          "title": "Epic: AssetImportTask, UE 5.7",
+          "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7"
+        }
+      ],
+      "context": "Technical reference for the refined deck. General documentation defaults to current engine; the import-task API is explicitly UE 5.7.",
+      "status": "Page inspected 13 October 2026."
+    },
+    {
+      "title": "Unreal Engine 5 C++: Create Custom Editor Tools",
+      "category": "Later / optional paid course",
+      "links": [
+        {
+          "title": "Vince Petrelli: custom editor tools",
+          "url": "https://www.udemy.com/course/unrealengine5-c-one-course-solution-for-extending-editor/"
+        }
+      ],
+      "context": "Original user-suggested C++ course; defer full implementation. Relevant editor-tool examples, but Python and a small Blueprint interface tie-in remain the Week 7 focus.",
+      "status": "Official curriculum inspected in the earlier course comparison; not completed. Restored during this audit because the earlier URL register omitted it."
+    }
+  ],
+  "visuals": [
+    {
+      "anchor": "02B",
+      "title": "Tools are part of game production",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/horizon-editor.png",
+      "credit": "Guerrilla · Sumaili & van der Steen · GDC 2017 · PDF p.23",
+      "source": {
+        "id": "horizon-editor",
+        "file": "horizon-editor.png",
+        "source": "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf#page=23",
+        "credit": "Dan Sumaili and Sander van der Steen / Guerrilla, GDC 2017",
+        "pdf_page": 23,
+        "crop_pdf_points": null,
+        "crop_render_pixels": null,
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "c7c17240f032ac6a73459d37740f649142934b711da4e6c049a93a893464ea43"
+      },
+      "refs": [
+        "https://www.guerrilla-games.com/read/creating-a-tools-pipeline-for-horizon-zero-dawn",
+        "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "06A",
+      "title": "Shared asset, separate placements",
+      "file": "Course/Visuals/Week07/shared-asset.png",
+      "credit": "Conceptual relationship · the mesh asset can have multiple references",
+      "source": null,
+      "refs": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python"
+      ],
+      "method": "Original editable course schematic",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "10",
+      "title": "Maya and Unreal handoff",
+      "file": "Course/Visuals/Week07/handoff.png",
+      "credit": "Course schematic · file exchange and revision loop",
+      "source": null,
+      "refs": [
+        "https://isaacoster.artstation.com/projects/Dvdrke",
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7"
+      ],
+      "method": "Original editable course schematic",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "08A",
+      "title": "One operation, multiple interfaces",
+      "file": "Course/Visuals/Week07/interface-backend.png",
+      "credit": "Course architecture sketch · alternate UI entry points",
+      "source": null,
+      "refs": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python",
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/editor-utility-widgets-in-unreal-engine",
+        "https://doc.qt.io/qtforpython-6/tutorials/"
+      ],
+      "method": "Original editable course schematic",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "09A",
+      "title": "Starting state",
+      "file": "Course/Slides/Week07/UnrealPythonDemo/Captures/01_baseline.png",
+      "credit": "Existing course capture · Unreal 5.7.4 · six-prop fixture",
+      "source": null,
+      "refs": [],
+      "method": "Existing course capture or schematic; see slide notes",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "09B",
+      "title": "Result inspection",
+      "file": "Course/Slides/Week07/UnrealPythonDemo/Captures/02_organized.png",
+      "credit": "Existing course capture · same fixture after the controlled operation",
+      "source": null,
+      "refs": [],
+      "method": "Existing course capture or schematic; see slide notes",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "09D",
+      "title": "Recovery is observable behavior",
+      "file": "Course/Slides/Week07/UnrealPythonDemo/Captures/04_undo_transaction.png",
+      "credit": "Existing course capture · transaction entry in Unreal",
+      "source": null,
+      "refs": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/ScopedEditorTransaction?application_version=5.7"
+      ],
+      "method": "Existing course capture or schematic; see slide notes",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "14E",
+      "title": "A workflow spans several tools",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/vv-world-builder.png",
+      "credit": "Jeff Stewart · Vicarious Visions · GDC 2018 · PDF p.9",
+      "source": {
+        "id": "vv-world-builder",
+        "file": "vv-world-builder.png",
+        "source": "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=9",
+        "credit": "Jeff Stewart / Vicarious Visions, GDC 2018",
+        "pdf_page": 9,
+        "crop_pdf_points": [
+          90,
+          54,
+          450,
+          324
+        ],
+        "crop_render_pixels": [
+          360,
+          216,
+          1800,
+          1296
+        ],
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "f3f3ffbd1ff69fb3857c71a4220717e2a5c9e898bd063bb4a05c121604c09a60"
+      },
+      "refs": [
+        "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "14D",
+      "title": "Two layouts for the same task",
+      "file": "Course/Visuals/Week07/tool-layouts.png",
+      "credit": "Illustrative sketches · neither layout is a tested recommendation",
+      "source": null,
+      "refs": [
+        "https://www.nngroup.com/articles/paper-prototyping/",
+        "https://hci.stanford.edu/publications/2010/parallel-prototyping/ParallelPrototyping2010-submitted.pdf",
+        "https://help.figma.com/hc/en-us/articles/360039823894-Create-and-manage-prototype-flows"
+      ],
+      "method": "Original editable course schematic",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "15",
+      "title": "Layout follows the task",
+      "file": "Week07UnrealPython/Docs/UI/captures/stage_3_preview.png",
+      "credit": "Detail crops from the course PySide tool · offline sample data",
+      "source": null,
+      "refs": [
+        "https://doc.qt.io/qtforpython-6.8/overviews/qtwidgets-layout.html",
+        "https://media.gdcvault.com/gdc2018/presentations/Jodie_Azhar_ProductionValuesImproving.pdf#page=32"
+      ],
+      "method": "Existing course capture or schematic; see slide notes",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "14F",
+      "title": "The artist’s model of the work",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/vv-content-model.png",
+      "credit": "Jeff Stewart · Vicarious Visions · GDC 2018 · PDF p.35",
+      "source": {
+        "id": "vv-content-model",
+        "file": "vv-content-model.png",
+        "source": "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=35",
+        "credit": "Jeff Stewart / Vicarious Visions, GDC 2018",
+        "pdf_page": 35,
+        "crop_pdf_points": [
+          90,
+          54,
+          450,
+          324
+        ],
+        "crop_render_pixels": [
+          360,
+          216,
+          1800,
+          1296
+        ],
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "de4b252c300093797b5145a5a9ac9e54b6261d13fb04eca9a930497fe5c87bf5"
+      },
+      "refs": [
+        "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "15A",
+      "title": "State and feedback",
+      "file": "Week07UnrealPython/Docs/UI/captures/stage_3_empty.png",
+      "credit": "Detail crops from the course PySide tool · empty offline state",
+      "source": null,
+      "refs": [
+        "https://developer.apple.com/design/human-interface-guidelines/feedback",
+        "https://www.nngroup.com/articles/ten-usability-heuristics/"
+      ],
+      "method": "Existing course capture or schematic; see slide notes",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "15D",
+      "title": "An error should support recovery",
+      "file": "Week07UnrealPython/Docs/UI/captures/material_blocked.png",
+      "credit": "Actual course PySide tool · offline blocked state",
+      "source": null,
+      "refs": [
+        "https://www.nngroup.com/articles/ten-usability-heuristics/"
+      ],
+      "method": "Existing course capture or schematic; see slide notes",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "16B",
+      "title": "Mission Kontrol: repeatable testing",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/mk-first.png",
+      "credit": "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.46",
+      "source": {
+        "id": "mk-first",
+        "file": "mk-first.png",
+        "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=46",
+        "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+        "pdf_page": 46,
+        "crop_pdf_points": [
+          30,
+          54,
+          510,
+          324
+        ],
+        "crop_render_pixels": [
+          120,
+          216,
+          2040,
+          1296
+        ],
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "ea0df413bf387c47d7cbb582f5b0ea3d597ebef7baf3600fc2d35117122c559a"
+      },
+      "refs": [
+        "https://gdcvault.com/play/1035569/Tools-Summit-Mission-Kontrol-Revolutionizing",
+        "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "16C",
+      "title": "Feedback changes the interface",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/mk-feedback.png",
+      "credit": "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.47",
+      "source": {
+        "id": "mk-feedback",
+        "file": "mk-feedback.png",
+        "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=47",
+        "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+        "pdf_page": 47,
+        "crop_pdf_points": [
+          30,
+          54,
+          510,
+          324
+        ],
+        "crop_render_pixels": [
+          120,
+          216,
+          2040,
+          1296
+        ],
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "d375f9b5a3fa2a7fdbd4cf1feac9548f1b9fc76dabb4b80dc4fe1a9d0fcfecc8"
+      },
+      "refs": [
+        "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "16E",
+      "title": "A test produces the next question",
+      "file": "Course/Visuals/Week07/test-loop.png",
+      "credit": "Course testing loop · a possible explanation is not yet a finding",
+      "source": null,
+      "refs": [
+        "https://www.nngroup.com/articles/usability-testing-101/",
+        "https://www.nngroup.com/articles/task-scenarios-usability-testing/"
+      ],
+      "method": "Original editable course schematic",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "07B",
+      "title": "The current project is part of the input",
+      "file": "Course/Slides/Week07/UnrealPythonDemo/Captures/05_demo_ready_editor.png",
+      "credit": "Existing course Unreal capture · project, level and Outliner context",
+      "source": null,
+      "refs": [],
+      "method": "Existing course capture or schematic; see slide notes",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "09C",
+      "title": "A preview is a temporary agreement",
+      "file": "Course/Visuals/Week07/reviewed-plan.png",
+      "credit": "Course state model · changed inputs require a new preview",
+      "source": null,
+      "refs": [],
+      "method": "Original editable course schematic",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "09E",
+      "title": "Change and reset",
+      "file": "Course/Slides/Week07/UnrealPythonDemo/Captures/week07_unreal_python_comparison.gif",
+      "credit": "Animated comparison of existing captures · not continuous execution footage",
+      "source": null,
+      "refs": [],
+      "method": "Animated comparison of existing course captures",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "15C",
+      "title": "A click connects to an operation",
+      "file": "Course/Visuals/Week03/qt-click-route-light.png",
+      "credit": "Existing course Qt schematic · signal, callback and visible result",
+      "source": null,
+      "refs": [
+        "https://doc.qt.io/qtforpython-6/tutorials/basictutorial/signals_and_slots.html"
+      ],
+      "method": "Original editable course schematic",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "15E",
+      "title": "Warning and blocked states",
+      "file": "Week07UnrealPython/Docs/UI/captures/vfx_warning.png",
+      "credit": "Actual course PySide tool · offline warning state",
+      "source": null,
+      "refs": [
+        "https://developer.apple.com/design/human-interface-guidelines/feedback",
+        "https://www.nngroup.com/articles/ten-usability-heuristics/"
+      ],
+      "method": "Existing course capture or schematic; see slide notes",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "16D",
+      "title": "Testing continues after release",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/mk-lifecycle.png",
+      "credit": "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.55",
+      "source": {
+        "id": "mk-lifecycle",
+        "file": "mk-lifecycle.png",
+        "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=55",
+        "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+        "pdf_page": 55,
+        "crop_pdf_points": [
+          30,
+          54,
+          510,
+          324
+        ],
+        "crop_render_pixels": [
+          120,
+          216,
+          2040,
+          1296
+        ],
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "1777886e342d1dfb92aae4e5a8e4cf259e843e56f785f4b6356ef957f183f472"
+      },
+      "refs": [
+        "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": {
+        "left": 0.025,
+        "right": 0.025,
+        "top": 0.18,
+        "bottom": 0.32
+      },
+      "media": null
+    },
+    {
+      "anchor": "A1",
+      "title": "Material automation: a later connection",
+      "file": "Week07UnrealPython/Docs/UI/captures/material_preview.png",
+      "credit": "Actual practice-mode interface · sample data, no Unreal connection",
+      "source": null,
+      "refs": [
+        "https://isaacoster.artstation.com/projects/xDB8zR",
+        "https://isaacoster.artstation.com/projects/qeAwqe"
+      ],
+      "method": "Existing course capture or schematic; see slide notes",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "A7",
+      "title": "Unreal production architecture",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/mk-architecture.png",
+      "credit": "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.26",
+      "source": {
+        "id": "mk-architecture",
+        "file": "mk-architecture.png",
+        "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=26",
+        "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+        "pdf_page": 26,
+        "crop_pdf_points": [
+          30,
+          54,
+          510,
+          324
+        ],
+        "crop_render_pixels": [
+          120,
+          216,
+          2040,
+          1296
+        ],
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "68cafda0417af62f7136db3b27be3cf82184d92e653842791f107a278f4712c5"
+      },
+      "refs": [
+        "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": {
+        "left": 0.025,
+        "right": 0.025,
+        "top": 0.06,
+        "bottom": 0.36
+      },
+      "media": null
+    },
+    {
+      "anchor": "A8",
+      "title": "Existing Unreal widgets as references",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/mk-reflector.png",
+      "credit": "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.34",
+      "source": {
+        "id": "mk-reflector",
+        "file": "mk-reflector.png",
+        "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=34",
+        "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+        "pdf_page": 34,
+        "crop_pdf_points": [
+          30,
+          54,
+          510,
+          324
+        ],
+        "crop_render_pixels": [
+          120,
+          216,
+          2040,
+          1296
+        ],
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "3dc54c32e22acdcb360312fa7d0a537edcdab467faab7e2b1d0af9ffb32776a0"
+      },
+      "refs": [
+        "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf",
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/widget-reflector-in-unreal-engine"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "A9",
+      "title": "Shareable reproduction steps",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/mk-share.png",
+      "credit": "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.51",
+      "source": {
+        "id": "mk-share",
+        "file": "mk-share.png",
+        "source": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=51",
+        "credit": "Etienne Palmer-Campbell / NetherRealm Studios, GDC 2025",
+        "pdf_page": 51,
+        "crop_pdf_points": [
+          30,
+          54,
+          510,
+          324
+        ],
+        "crop_render_pixels": [
+          120,
+          216,
+          2040,
+          1296
+        ],
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "09d5620bb1fb3e2a6a63c9ba645332c3caa44bdb3cca2e5f6c80d1e874610681"
+      },
+      "refs": [
+        "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "A10",
+      "title": "Production feedback is evidence with limits",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/vv-survey.png",
+      "credit": "Jeff Stewart · Vicarious Visions · GDC 2018 · PDF p.13",
+      "source": {
+        "id": "vv-survey",
+        "file": "vv-survey.png",
+        "source": "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=13",
+        "credit": "Jeff Stewart / Vicarious Visions, GDC 2018",
+        "pdf_page": 13,
+        "crop_pdf_points": [
+          90,
+          54,
+          450,
+          324
+        ],
+        "crop_render_pixels": [
+          360,
+          216,
+          1800,
+          1296
+        ],
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "af5fff567a9b32e84fe055b41cf4693ad29c090958a069db6ba2b8dfc7cfa7b4"
+      },
+      "refs": [
+        "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "A11",
+      "title": "A production prototype evolves",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/horizon-prototype.png",
+      "credit": "Guerrilla · Sumaili & van der Steen · GDC 2017 · PDF pp.31,33",
+      "source": {
+        "id": "horizon-prototype",
+        "file": "horizon-prototype.png",
+        "source": "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf#page=31",
+        "credit": "Dan Sumaili and Sander van der Steen / Guerrilla, GDC 2017",
+        "pdf_page": 31,
+        "crop_pdf_points": null,
+        "crop_render_pixels": null,
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "1fc445a6aab1d702eb4530c7a0847b89bcdd7f9e4f1025595a6a399a29a85cad"
+      },
+      "refs": [
+        "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "A11",
+      "title": "A production prototype evolves",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/horizon-node-editor.png",
+      "credit": "Guerrilla · Sumaili & van der Steen · GDC 2017 · PDF pp.31,33",
+      "source": {
+        "id": "horizon-node-editor",
+        "file": "horizon-node-editor.png",
+        "source": "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf#page=33",
+        "credit": "Dan Sumaili and Sander van der Steen / Guerrilla, GDC 2017",
+        "pdf_page": 33,
+        "crop_pdf_points": null,
+        "crop_render_pixels": null,
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "c7e37fb6a3e4ed6d8fdf76ea2c167350abc22f597fd6ff75dd70cc9049f385b7"
+      },
+      "refs": [
+        "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "A12",
+      "title": "A different discipline, a different view",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/horizon-dialogue.png",
+      "credit": "Guerrilla · Sumaili & van der Steen · GDC 2017 · PDF p.25",
+      "source": {
+        "id": "horizon-dialogue",
+        "file": "horizon-dialogue.png",
+        "source": "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf#page=25",
+        "credit": "Dan Sumaili and Sander van der Steen / Guerrilla, GDC 2017",
+        "pdf_page": 25,
+        "crop_pdf_points": null,
+        "crop_render_pixels": null,
+        "method": "Rasterized published PDF figure; original pixels and proportions retained",
+        "rights": "Third-party presentation excerpt with attribution. Public access is not a redistribution license.",
+        "use": "Teaching analysis of production tooling",
+        "sha256": "828d541008b4877fcdebb1921773050eae9970e9d603b789f8b06eb2acea2bdd"
+      },
+      "refs": [
+        "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf"
+      ],
+      "method": "Rasterized published PDF figure; original pixels and proportions retained",
+      "displayCrop": null,
+      "media": null
+    },
+    {
+      "anchor": "A13",
+      "title": "Reveal detail where the artist is looking",
+      "file": "Course/Slides/Week07/ExpandedDeck20261013/assets/guerrilla-map-poster.png",
+      "credit": "Guerrilla · GDC 2017 · published world-map clip · 16 seconds",
+      "source": null,
+      "refs": [
+        "https://www.guerrilla-games.com/read/creating-a-tools-pipeline-for-horizon-zero-dawn",
+        "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf"
+      ],
+      "method": "Existing course capture or schematic; see slide notes",
+      "displayCrop": null,
+      "media": "Course/Slides/Week07/ExpandedDeck20261013/media.html#horizon-demo"
+    }
+  ],
+  "movie": {
+    "file": "assets/guerrilla-source-demo.mov",
+    "poster": "assets/guerrilla-map-poster.png",
+    "durationSeconds": 16.366016,
+    "width": 1920,
+    "height": 1080,
+    "source": "https://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pptx",
+    "sourcePart": "ppt/media/media8.mov",
+    "sourceSlide": 109,
+    "sha256": "7ad90a25d774c3f0cea814a70df172889040f43e64b8bc9b13d8984830c435e7",
+    "credit": "Dan Sumaili and Sander van der Steen · Guerrilla · GDC 2017",
+    "method": "Original movie bytes extracted from the studio-published presentation. Poster is an unaltered browser-decoded frame at 10 seconds.",
+    "rights": "Third-party copyrighted production footage; publication is not an open license.",
+    "verification": "Local playback and seeking verified in Microsoft Edge; not embedded as PowerPoint video."
+  }
+}

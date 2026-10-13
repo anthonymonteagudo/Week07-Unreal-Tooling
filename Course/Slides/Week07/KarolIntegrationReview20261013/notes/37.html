@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>37 Appendix - New to automated tests · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-37">Return to audit</a><a href="36.html">Previous lesson</a> <a href="38.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/37%20Appendix%20-%20New%20to%20automated%20tests.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/37%20Appendix%20-%20New%20to%20automated%20tests%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>37 Appendix - New to automated tests</h1><p>Coverage limitations, isolated checks, boundaries, functional workflows and handout link retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Appendix — New to Automated Tests — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/37%20Appendix%20-%20New%20to%20automated%20tests.md">Original notes</a></p>
+<p>Automated tests provide repeatable evidence that code behaves as intended. Start with a few useful checks and expand them as the tool develops.</p>
+<h2>Coverage is only one measure</h2>
+<p>Code coverage reports which code ran during testing. It does not establish that the expectations were useful or that every input and failure case was checked. Even 100% coverage can coexist with weak tests.</p>
+<h2>Write useful unit tests</h2>
+<p>A unit test targets a small piece of behavior. Keep it fast, isolated, repeatable, and able to determine its own pass/fail result. Clean up temporary assets or state so one test does not alter another&#39;s outcome.</p>
+<p>Cover the normal successful case, expected failures, and meaningful boundaries: invalid input, empty collections, unexpected numeric values, failed saves, and exceptions where relevant. Investigate flaky tests that alternate between passing and failing under apparently identical conditions.</p>
+<p>Group related checks clearly. In the simple Unreal Python runner used in this course, remember to call the test functions explicitly.</p>
+<h2>Test the complete workflow too</h2>
+<p>A functional test checks how the parts work together. For an importer, verify that the asset appears in the correct location with the expected name and compression settings, rather than only testing the helper that creates its filename.</p>
+<p>Use your own manual experience with the tool and QA feedback to identify realistic scenarios. If time is limited, prioritize important user workflows and costly failures; a few meaningful tests are more useful than a large collection of trivial checks.</p>
+<p>Original handout: <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/appendix_new_to_automated_tests.docx">appendix_new_to_automated_tests.docx</a>.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/36%20Writing%20your%20first%20Python%20test%20for%20Unreal%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/38%20Suppressing%20warnings%20in%20Python%20tests%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><h4><strong>You will find nicely formatted pdf version of this article as an attachment!</strong></h4>
+<p>I&#39;ve shown you how testing works in Unreal and how it is different from typical Python unit testing but you may feel it doesn’t lead you anywhere because you need to gain skill in writing tests before you apply it to UE.</p>
+<p>This topic deserves a separate course but you should not be left without any guidance.</p>
+<h4><strong>Test coverage</strong></h4>
+<p>Coverage is a percentage of code that is executed in tests.<br>Keep in mind that coverage does not equal having all possible cases tested.</p>
+<p>The higher the value the better but tests quality is more important.<br>You may have 100% coverage and tests that are useless.</p>
+<h4><strong>What my tests should be like?</strong></h4>
+<p>**First, write some Unit tests.<br>**These are meant to test smallest testable parts of your tools.</p>
+<p>Keep those tests <strong>Fast</strong> and <strong>Isolated</strong>. If you create/modify some asset, it should be removed/reverted when test finishes. You don’t want your test to break other tests or to corrupt the environment!<br>Make sure these tests are <strong>Repeatable</strong>. If tests fails from time to time it can be called flaky”. Limit such tests to minimum.<br>They should be <strong>Self-Validating</strong> which means that they have clear output – they either fail or pass.</p>
+<p>Make it <strong>Thorough</strong>:</p>
+<ul>
+<li><p>All happy scenarios (everything goes well, no fails)</p>
+</li>
+<li><p>Fail scenarios, especially exceptions! Test what happens if you get incorrect user input, negative values for math operations or maybe cannot save file.</p>
+</li>
+<li><p>Cover all edge cases!</p>
+</li>
+</ul>
+<p>Feel free to keep all those scenarios as separate tests. This way the code will be less cluttered. On the other hand, Epic’s tests often contain many checks in a singe Python function. Thanks to that it takes less space on the screen and there’s lower chance of forgetting to call such function at the bottom of the file.<br>I advise you to find some middle ground 😊.</p>
+<p>**Got the Unit tests? Then write some Functional tests.<br>**These are meant to test smallest testable parts of your tools.</p>
+<p>Unit tests are great but they don’t really test the application. They test some small isolated bits of it. While unit tests may pass, an actual human could completely break your code.</p>
+<p>So write tests that act like a human!</p>
+<p>That’s it! Got texture importer? Run it from A to Z. Import the texture, check if it was imported to correct location, if the name is right, if compression settings are proper.</p>
+<p>Got trouble designing the test? Try to use the tool before you write test for it. Try to break it. If you can, ask you QA team for help.<br>Then implement scenarios you have figured out.</p>
+<h4><strong>What now?</strong></h4>
+<p>Write those tests!</p>
+<p>If you are unsure there to begin, pick some simple function or data type and write unit tests for it.</p>
+<p>If you are more experienced, think about your priorities. It’s worth having huge unit tests coverage and additional functional tests but gamedev is a dynamic environment. If you are short on time, it may be best to write just few functional tests. They will at least test the tool in a way similar to how it is used.</p>
+<h4><strong>External tutorials.</strong></h4>
+<p>There are plenty of great tutorials but Udemy did not let me link them here. For URLs please check attached pdf version of the article.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

@@ -1,0 +1,97 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>33 Progress bars for slow tasks · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-33">Return to audit</a><a href="32.html">Previous lesson</a> <a href="34.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/33%20Progress%20bars%20for%20slow%20tasks.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/33%20Progress%20bars%20for%20slow%20tasks%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>33 Progress bars for slow tasks</h1><p>Complete progress-loop pattern</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Progress Bars for Slow Tasks — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/33%20Progress%20bars%20for%20slow%20tasks.md">Original notes</a></p>
+<p>Long Python operations can block editor interaction. Use <code>ScopedSlowTask</code> to show progress and provide cancellation between units of work.</p>
+<h2>Create a scoped task</h2>
+<p>Pass the total work amount and a dialog message to <code>unreal.ScopedSlowTask</code>. Keep it in a <code>with</code> block so the task is closed when the block exits.</p>
+<h2>Complete progress-loop pattern</h2>
+<p>This reproduces the course&#39;s 100-step simulation. The sleep only makes the dialog visible; replace it with real work in a tool.</p>
+<pre><code class="language-python">import time
+import unreal
+with unreal.ScopedSlowTask(100, &quot;Processing examples&quot;) as progress:
+    progress.make_dialog(True)  # Show a Cancel control.
+    for index in range(100):
+        if progress.should_cancel():
+            break
+        time.sleep(0.1)
+        progress.enter_progress_frame(1, f&quot;Completed {index + 1} / 100&quot;)
+</code></pre>
+<p>Cancellation is cooperative: the loop checks between work units. It stops remaining work and does not undo completed edits. Keep total work and progress increments consistent.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210853.png" alt="Course screenshot: Pasted image 20261012210853.png"></p>
+<p>Call <code>make_dialog(can_cancel=True)</code> to display a cancelable dialog. For work that is usually quick, use <code>make_dialog_delayed()</code> so the dialog appears only after the specified delay.</p>
+<h2>Advance progress and honor cancellation</h2>
+<p>Before each unit of work, check <code>should_cancel()</code> and break if requested. Advance with <code>enter_progress_frame(1)</code> for one unit. Showing a Cancel button alone does not stop the script; the loop must check it.</p>
+<p>The course simulates 100 steps with a short sleep per iteration:</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211032.png" alt="Course screenshot: Pasted image 20261012211032.png"></p>
+<p>Replace the simulated delay with the actual processing, and make sure the total and increments describe the same amount of work.</p>
+<h2>Verify the interaction</h2>
+<p>Run the script, check that the percentage advances, then cancel before completion and verify that the loop exits.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211050.png" alt="Course screenshot: Pasted image 20261012211050.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211115.png" alt="Course screenshot: Pasted image 20261012211115.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/32%20Menu%20Entries%20-%20Additional%20Notes%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/34%20Undo%20and%20Redo%20operations%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012210853.png" alt="Course screenshot: Pasted image 20261012210853.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211032.png" alt="Course screenshot: Pasted image 20261012211032.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211050.png" alt="Course screenshot: Pasted image 20261012211050.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012211115.png" alt="Course screenshot: Pasted image 20261012211115.png"></p>
+<p>Python scripts block unreal interface until they finish.</p>
+<p>In case of slow operations, the editor may appear to have frozen.</p>
+<p>In such case, we should use a progress bar so the user knows that the editor is still processing and</p>
+<p>that he doesn&#39;t have to restart the engine.</p>
+<p>Let me show you how to implement it.</p>
+<p>Slow task code should be wrapped with unreal scoped slow task context manager.</p>
+<p>When using the manager it will take two variables.</p>
+<p>First is total number of steps and the second one is dialogue name.</p>
+<p>In my case there will be 100 steps and dialogue name will be just slow task in progress.</p>
+<p>I&#39;m using alias to name that context manager as slow task because we will use it to call methods on</p>
+<p>it.</p>
+<p>First thing is making sure that the dialogue is visible.</p>
+<p>We have to call slow task dot make dialogue and if it was already visible, nothing will happen.</p>
+<p>If you want your task to be cancelable, you have to specify can console as true.</p>
+<p>Also, you don&#39;t have to show make dialogue if your task is not taking a specific amount of time.</p>
+<p>In some cases, you will be processing assets and if user selected, only a few of them, effect will</p>
+<p>be immediate.</p>
+<p>However, if he is processing all assets on the level, it may become a bit slow.</p>
+<p>So instead of make dialogue you can use make dialogue delayed.</p>
+<p>This time you specify delay as a float value and if that value is exceeded, the progress bar is shown.</p>
+<p>Once our dialog is visible, we can run some slow task to simulate it.</p>
+<p>I will run a loop that triggers a sleep for a 10th of a second each iteration.</p>
+<p>Each iteration should begin with checking if user has clicked cancel button, and if he did, we will</p>
+<p>break the loop.</p>
+<p>After the iteration, we should advance progress bar by a specific number of frames.</p>
+<p>In my case, that will be just a single frame.</p>
+<p>Let&#39;s call slow task dot, enter progress frame and set it to one.</p>
+<p>All that code can now be copied and executed in editor to show how it works.</p>
+<p>Paste it.</p>
+<p>And let&#39;s also check if we can cancel the operation.</p>
+<p>We do.</p>
+<p>It worked.</p>
+<p>You have just learned how to make your tools more user friendly, and I hope that you will apply this</p>
+<p>knowledge soon at work by.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -7,6 +7,24 @@
+ ## Create a scoped task
+ 
+ Pass the total work amount and a dialog message to `unreal.ScopedSlowTask`. Keep it in a `with` block so the task is closed when the block exits.
++
++## Complete progress-loop pattern
++
++This reproduces the course's 100-step simulation. The sleep only makes the dialog visible; replace it with real work in a tool.
++
++```python
++import time
++import unreal
++with unreal.ScopedSlowTask(100, &quot;Processing examples&quot;) as progress:
++    progress.make_dialog(True)  # Show a Cancel control.
++    for index in range(100):
++        if progress.should_cancel():
++            break
++        time.sleep(0.1)
++        progress.enter_progress_frame(1, f&quot;Completed {index + 1} / 100&quot;)
++```
++
++Cancellation is cooperative: the loop checks between work units. It stops remaining work and does not undo completed edits. Keep total work and progress increments consistent.
+ 
+ ![[Pasted image 20261012210853.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

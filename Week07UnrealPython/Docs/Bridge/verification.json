@@ -1,0 +1,246 @@
+{
+  "date": "2026-10-13",
+  "versions": {
+    "blender": "5.1.1",
+    "maya": "2027",
+    "unreal": "5.7.4"
+  },
+  "offline_suite": {
+    "passed": 66,
+    "command": "Scripts/dev.py test"
+  },
+  "source_preservation": {
+    "blender_transforms_and_modifier": "PASS",
+    "maya_transforms_selection_modified_and_undo_state": "PASS"
+  },
+  "real_engine_import_reimport": {
+    "status": "PASS",
+    "engine": "5.7.4-51494982+++UE5+Release-5.7",
+    "hosts": [
+      {
+        "host": "blender",
+        "first": {
+          "asset_path": "/Game/Week07/Bridge/SM_Compare_Blender.SM_Compare_Blender",
+          "revision": "19ee7e9339c943758fc929f7fb1aa6c3",
+          "dimensions_cm": [
+            120.00001525878906,
+            60.00001525878906,
+            180.0
+          ],
+          "updated_existing": false
+        },
+        "second": {
+          "asset_path": "/Game/Week07/Bridge/SM_Compare_Blender.SM_Compare_Blender",
+          "revision": "7549c72790fb480da9c9646da4599fcf",
+          "dimensions_cm": [
+            120.00001525878906,
+            60.00001525878906,
+            220.0
+          ],
+          "updated_existing": true
+        },
+        "two_instances_updated": true,
+        "component_material_preserved": true
+      },
+      {
+        "host": "maya",
+        "first": {
+          "asset_path": "/Game/Week07/Bridge/SM_Compare_Maya.SM_Compare_Maya",
+          "revision": "265752790fe24a44b28d1fb145d5eda4",
+          "dimensions_cm": [
+            120.0,
+            60.0,
+            180.0
+          ],
+          "updated_existing": false
+        },
+        "second": {
+          "asset_path": "/Game/Week07/Bridge/SM_Compare_Maya.SM_Compare_Maya",
+          "revision": "b8ebf5453cd441869fc054e75c1b9717",
+          "dimensions_cm": [
+            120.0,
+            60.0,
+            220.0
+          ],
+          "updated_existing": true
+        },
+        "two_instances_updated": true,
+        "component_material_preserved": true
+      }
+    ]
+  },
+  "real_process_publish_send_acknowledge": {
+    "status": "PASS",
+    "engine": "5.7.4-51494982+++UE5+Release-5.7",
+    "responses": [
+      {
+        "id": "13f52e71cc354a47847bbdc8cddb3dc4",
+        "ok": true,
+        "asset_path": "/Game/Week07/Bridge/SM_Live_Blender.SM_Live_Blender",
+        "revision": "223dfdb288f54350854024d090e1e059",
+        "dimensions_cm": [
+          120.00001525878906,
+          60.00001525878906,
+          220.0
+        ],
+        "updated_existing": true
+      },
+      {
+        "id": "6ecf46238ba44ad3804390781db47101",
+        "ok": true,
+        "asset_path": "/Game/Week07/Bridge/SM_Live_Blender.SM_Live_Blender",
+        "revision": "c2d8c65e21304feeafc5277688165111",
+        "dimensions_cm": [
+          120.00001525878906,
+          60.00001525878906,
+          180.0
+        ],
+        "updated_existing": false
+      },
+      {
+        "id": "f5c62766b50f41479c46fe476e1790a1",
+        "ok": true,
+        "asset_path": "/Game/Week07/Bridge/SM_Live_Maya.SM_Live_Maya",
+        "revision": "70dd3c326dca4b3aa0da641e6b53db36",
+        "dimensions_cm": [
+          120.0,
+          60.0,
+          180.0
+        ],
+        "updated_existing": false
+      },
+      {
+        "id": "f7552baa3a5043ecab28de6314669ff8",
+        "ok": true,
+        "asset_path": "/Game/Week07/Bridge/SM_Live_Maya.SM_Live_Maya",
+        "revision": "35e7977f10e6494aa420c34e9f7ec143",
+        "dimensions_cm": [
+          120.0,
+          60.0,
+          220.0
+        ],
+        "updated_existing": true
+      }
+    ],
+    "matching_vertices_cm": {
+      "Blender": [
+        [
+          -60.0,
+          -30.0,
+          0.0
+        ],
+        [
+          -60.0,
+          -30.0,
+          220.0
+        ],
+        [
+          -60.0,
+          30.0,
+          0.0
+        ],
+        [
+          -60.0,
+          30.0,
+          220.0
+        ],
+        [
+          60.0,
+          -30.0,
+          0.0
+        ],
+        [
+          60.0,
+          -30.0,
+          140.0
+        ],
+        [
+          60.0,
+          30.0,
+          0.0
+        ],
+        [
+          60.0,
+          30.0,
+          140.0
+        ]
+      ],
+      "Maya": [
+        [
+          -60.0,
+          -30.0,
+          -0.0
+        ],
+        [
+          -60.0,
+          -30.0,
+          220.0
+        ],
+        [
+          -60.0,
+          30.0,
+          0.0
+        ],
+        [
+          -60.0,
+          30.0,
+          220.0
+        ],
+        [
+          60.0,
+          -30.0,
+          -0.0
+        ],
+        [
+          60.0,
+          -30.0,
+          140.0
+        ],
+        [
+          60.0,
+          30.0,
+          0.0
+        ],
+        [
+          60.0,
+          30.0,
+          140.0
+        ]
+      ]
+    }
+  },
+  "ui_checks": {
+    "blender": "Native sidebar registered in real background Blender",
+    "maya": "Actual PySide6 window rendered offscreen in mayapy; live GUI clicking not tested",
+    "unreal": "Native Tools menu installed in live receiver test"
+  },
+  "standalone_student_project": {
+    "status": "PASS",
+    "project": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\BridgeStudentPackCheck",
+    "placed_instances": 4,
+    "mesh_materials_preserved": true,
+    "source_loaded_from_extracted_project": true,
+    "imports": [
+      {
+        "asset_path": "/Game/Week07/Bridge/SM_Compare_Blender.SM_Compare_Blender",
+        "revision": "7549c72790fb480da9c9646da4599fcf",
+        "dimensions_cm": [
+          120.00001525878906,
+          60.00001525878906,
+          220.0
+        ],
+        "updated_existing": true
+      },
+      {
+        "asset_path": "/Game/Week07/Bridge/SM_Compare_Maya.SM_Compare_Maya",
+        "revision": "b8ebf5453cd441869fc054e75c1b9717",
+        "dimensions_cm": [
+          120.0,
+          60.0,
+          220.0
+        ],
+        "updated_existing": true
+      }
+    ]
+  }
+}

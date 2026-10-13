@@ -1,0 +1,309 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>42 Remote Control Preset and WebApp · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-42">Return to audit</a><a href="41.html">Previous lesson</a> <a href="43.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/42%20Remote%20Control%20Preset%20and%20WebApp.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/42%20Remote%20Control%20Preset%20and%20WebApp%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>42 Remote Control Preset and WebApp</h1><p>Preset groups, material parameter versus material slot, widget ranges and Control/Design sequence retained.</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Remote Control Preset and Web App — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/42%20Remote%20Control%20Preset%20and%20WebApp.md">Original notes</a></p>
+<p>Build a browser interface that changes a demonstration scene&#39;s driver text, car color, lighting, and camera. The course&#39;s starting project uses Unreal 5.3.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013003952.png" alt="Course screenshot: Pasted image 20261013003952.png"></p>
+<h2>Prepare the scene and plugins</h2>
+<p>Enable <strong>Remote Control API</strong> and <strong>Remote Control Web Interface</strong>, then restart. The virtual-production template may already enable the API while leaving the web interface disabled.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013003929.png" alt="Course screenshot: Pasted image 20261013003929.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013004015.png" alt="Course screenshot: Pasted image 20261013004015.png"></p>
+<p>For the demonstration camera, enable <strong>Look at Tracking</strong> and select the car actor. Set focus to <strong>Tracking</strong> and use the same actor so camera movement preserves its subject and focus.</p>
+<h2>Expose and group properties</h2>
+<p>Create a <strong>Remote Control Preset</strong> from the Content Browser. Use the eye/expose control beside an actor property to add it; the additional options can expose a sub-property such as one location axis.</p>
+<p>Create a <strong>Camera</strong> group for location, focal length, and aperture. Move existing entries from <strong>All</strong> into that group. If entries seem to disappear, check and reset the preset&#39;s filters.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013014749.png" alt="Course screenshot: Pasted image 20261013014749.png"></p>
+<p>Create a <strong>Lights</strong> group, then expose the spotlight&#39;s location, intensity, and color. Newly exposed properties are added to the active group.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013014830.png" alt="Course screenshot: Pasted image 20261013014830.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013014905.png" alt="Course screenshot: Pasted image 20261013014905.png"></p>
+<p>Create <strong>Team Branding</strong> for the driver text, text color, and car-paint color. To expose a material parameter, create and assign a material instance, open it, and expose its <code>BaseColor</code> vector parameter. Exposing the actor&#39;s material slot instead would allow replacing the material, rather than adjusting its color.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015030.png" alt="Course screenshot: Pasted image 20261013015030.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015141.png" alt="Course screenshot: Pasted image 20261013015141.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015226.png" alt="Course screenshot: Pasted image 20261013015226.png"></p>
+<p>Save the modified scene/assets and preset before building the interface.</p>
+<h2>Build the browser interface</h2>
+<p>Click <strong>Web App</strong>, choose <strong>Build Your Own UI</strong>, switch from <strong>Control</strong> to <strong>Design</strong>, and select the preset. Project Settings contains separate web-interface/server settings; check the configured port if the page cannot open.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015306.png" alt="Course screenshot: Pasted image 20261013015306.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015325.png" alt="Course screenshot: Pasted image 20261013015325.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015718.png" alt="Course screenshot: Pasted image 20261013015718.png"></p>
+<p>Drag properties or whole groups onto the canvas to create connected widgets. Rearrange related controls together and choose appropriate widget types: color pickers, text fields, dials, sliders, or location joysticks.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015826.png" alt="Course screenshot: Pasted image 20261013015826.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015933.png" alt="Course screenshot: Pasted image 20261013015933.png"></p>
+<h2>Tune ranges and labels</h2>
+<p>Set usable ranges for the scene. The demonstration uses aperture <code>1.2–32</code> and focal length <code>8–300</code>; these are example control limits. Adjust light-intensity limits to suit the scene too.</p>
+<p>Switch back to <strong>Control</strong> and verify that each widget changes the intended scene property.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013020029.png" alt="Course screenshot: Pasted image 20261013020029.png"></p>
+<p>The preset&#39;s property details can also define widget type, range, and description. Give similar properties clear names such as <strong>Camera Location</strong> and <strong>Light Location</strong> so the operator can distinguish them.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013020103.png" alt="Course screenshot: Pasted image 20261013020103.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013020126.png" alt="Course screenshot: Pasted image 20261013020126.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/41%20Remote%20Control%20in%20Unreal%20-%20Overview%20and%20Quick%20Setup%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/43%20Remote%20Control%20Preset%20Controllers%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013003952.png" alt="Course screenshot: Pasted image 20261013003952.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013003929.png" alt="Course screenshot: Pasted image 20261013003929.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013004015.png" alt="Course screenshot: Pasted image 20261013004015.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013014749.png" alt="Course screenshot: Pasted image 20261013014749.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013014830.png" alt="Course screenshot: Pasted image 20261013014830.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013014905.png" alt="Course screenshot: Pasted image 20261013014905.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015030.png" alt="Course screenshot: Pasted image 20261013015030.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015141.png" alt="Course screenshot: Pasted image 20261013015141.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015226.png" alt="Course screenshot: Pasted image 20261013015226.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015306.png" alt="Course screenshot: Pasted image 20261013015306.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015325.png" alt="Course screenshot: Pasted image 20261013015325.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015718.png" alt="Course screenshot: Pasted image 20261013015718.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015826.png" alt="Course screenshot: Pasted image 20261013015826.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013015933.png" alt="Course screenshot: Pasted image 20261013015933.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013020029.png" alt="Course screenshot: Pasted image 20261013020029.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013020103.png" alt="Course screenshot: Pasted image 20261013020103.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261013020126.png" alt="Course screenshot: Pasted image 20261013020126.png"></p>
+<p>Web application.</p>
+<p>Remote control is, in my opinion, mostly valuable for virtual production.</p>
+<p>You could think of some usage for game development, but as it is an editor only feature, I believe</p>
+<p>it will remain used mostly for video producers.</p>
+<p>No one stops you from creating your own solution for the game, and we&#39;ve seen that in the past.</p>
+<p>That&#39;s what multiplayer is based on.</p>
+<p>But that is not a remote control API in unreal.</p>
+<p>Before we dive into API and remote control presets, let&#39;s imagine we are directing a live online event.</p>
+<p>Maybe it is an esport event, and we are going to showcase a car that some player is going to drive.</p>
+<p>Here is one of the crew members and we don&#39;t know who will be the driver.</p>
+<p>Or maybe the cars are assigned to players randomly and each team has different colors.</p>
+<p>In that case, we may have to change the text over the car and also car and text colors.</p>
+<p>Similar case would happen if we were making a live giveaway to random users, perhaps to our Twitch</p>
+<p>supporters.</p>
+<p>A winner would be picked randomly and we would have to modify the text on the go.</p>
+<p>That means we would like to have a simple interface for changing all the parameters.</p>
+<p>We don&#39;t want to manually go through selecting actors and changing their details, and that is exactly</p>
+<p>what we are going to do in this video.</p>
+<p>Let&#39;s suppose we are changing the driver name.</p>
+<p>Maybe we want Elon Musk to drive it.</p>
+<p>I believe yellow doesn&#39;t fit Ellen for some reason.</p>
+<p>I think blue would be way better.</p>
+<p>So let&#39;s change the car color.</p>
+<p>Then the text render color.</p>
+<p>And maybe we should also adjust color of the light so we have some nice contrast.</p>
+<p>What about this pink vibe?</p>
+<p>And what if we want to get rid of the light completely?</p>
+<p>We can just turn intensity to zero.</p>
+<p>That&#39;s great.</p>
+<p>But we also should allow some camera movement.</p>
+<p>We need some dynamics.</p>
+<p>So maybe we want it to move left or right, or maybe we want to change speed of that movement because</p>
+<p>right now it is a bit too slow.</p>
+<p>And now it is way better.</p>
+<p>But we want to move a bit up.</p>
+<p>In that case, my interface doesn&#39;t fit properly in the UI, but we do have it.</p>
+<p>So let me scale the window of the browser.</p>
+<p>And now we can move the camera up.</p>
+<p>We already have set up a lookat object in detail setup of the camera, so we don&#39;t have to correct the</p>
+<p>camera rotation, but we may want to change zoom and that also can be exposed.</p>
+<p>We just have to expose focal length of the camera.</p>
+<p>I have also exposed current aperture.</p>
+<p>And that means we can have a blurry background.</p>
+<p>But because there is not much detail in that background, you may not really see how it works.</p>
+<p>Like.</p>
+<p>And also those values that are adjustable here are not very realistic, but hopefully.</p>
+<p>We can always go to exposed properties.</p>
+<p>Select any of those and change minimal and maximal value.</p>
+<p>And that&#39;s all we are going to cover in this video.</p>
+<p>So without further ado, let&#39;s start with a clean project.</p>
+<p>And if you don&#39;t want to create a setup yourself.</p>
+<p>There is a starting point.</p>
+<p>Virtual production demo project created with unreal 5.3 attached to the course files.</p>
+<p>This is a VP demo.</p>
+<p>Unreal 5.3 starting point.</p>
+<p>It is attached in a zip file and was created using a virtual production preset.</p>
+<p>It is a bit different and still requires a little modification.</p>
+<p>The preset automatically enables some plugins for virtual production, but skips one that we need.</p>
+<p>So let&#39;s go to Edit plugins and as you can see, remote Control API is enabled by default.</p>
+<p>However, remote control web interface is not and that is the plugin that we need to start creating</p>
+<p>that web browser widgets for controlling our scene.</p>
+<p>So let me enable it and then restart the editor.</p>
+<p>I&#39;m done with the restart.</p>
+<p>Let me show you the little modifications I introduced to this project.</p>
+<p>The first thing that you noticed is that I added a car model.</p>
+<p>Don&#39;t worry about it.</p>
+<p>There is no copyright because it is from public domain.</p>
+<p>We also have some text and some light, and I also removed all those texts from the preset that had</p>
+<p>a list of enabled or disabled plugins and other settings.</p>
+<p>The last thing is the camera and camera has actually some nice modifications that you may want to introduce</p>
+<p>in your project as well.</p>
+<p>So if we select the camera.</p>
+<p>And start moving it.</p>
+<p>You will notice that it always tracks our Lotus seven model.</p>
+<p>Also, it makes sure that it is in focus.</p>
+<p>How to do that?</p>
+<p>Just scroll to look at tracking settings.</p>
+<p>Enable it and then select actor to track and pick some object that you want to track.</p>
+<p>That&#39;s it.</p>
+<p>Same thing with focusing.</p>
+<p>Scroll to focus settings.</p>
+<p>By default focus method was probably set to manual, so just change it to tracking.</p>
+<p>Then pick actor to track.</p>
+<p>And in my case that&#39;s the car actor.</p>
+<p>That&#39;s it.</p>
+<p>We can start exposing all things we would like to be able to modify using the web browser widget.</p>
+<p>So head to Content Browser right mouse button, scroll to Remote control and pick Remote Control preset.</p>
+<p>Let&#39;s open it.</p>
+<p>And I like to keep it docked in the main screen.</p>
+<p>We can start with exposing camera settings for sure.</p>
+<p>I would like to expose a location.</p>
+<p>The only thing I have to do is to click on that eye icon and it will be automatically exposed.</p>
+<p>If you want to let your user tweak maybe only the vertical axis, you have to use those three dots and</p>
+<p>expose the axis.</p>
+<p>And as you can see, you can have two separate controls.</p>
+<p>For the data that is actually belonging to the same property, and that is fine.</p>
+<p>And you can even start tweaking it right here in the remote control preset.</p>
+<p>So it&#39;s probably already more convenient than clicking through all those actors and opening little tabs.</p>
+<p>If you don&#39;t need web application, but you want to have five actors with some basic properties to be</p>
+<p>controlled with.</p>
+<p>You can just find them.</p>
+<p>Expose them here.</p>
+<p>Okay, I don&#39;t want that z axis, so I will right mouse button on it and delete.</p>
+<p>I will leave the location.</p>
+<p>Let&#39;s also expose vocal.</p>
+<p>Let me search for it.</p>
+<p>Um, I have a run component selected now.</p>
+<p>It will work.</p>
+<p>Let&#39;s expose focal length and maybe aperture because I am a lens freak.</p>
+<p>Okay, we already have three properties exposed and I think in future there will be more of them.</p>
+<p>It&#39;s hard to keep that clean and neat if it&#39;s all in the same group.</p>
+<p>So let me add a new one and call it camera.</p>
+<p>Now we have to go to the all group and just drag and drop one property by one.</p>
+<p>If you&#39;re unsure where some property is, you can always get back to the all category and search for</p>
+<p>it.</p>
+<p>That&#39;s it.</p>
+<p>You can also enable a filtering and filter even by a data type, maybe by an array.</p>
+<p>But remember that if you can&#39;t see anything in your groups, then you just probably have forgotten that</p>
+<p>you clicked on one of those filters.</p>
+<p>And you can always go back there and press reset filters.</p>
+<p>That&#39;s it.</p>
+<p>Let me create a new group for the light.</p>
+<p>The pink light that leads our car.</p>
+<p>So new group lights because maybe there will be multiple of them in future.</p>
+<p>Let&#39;s pick the light.</p>
+<p>It&#39;s the spotlight.</p>
+<p>And now let&#39;s expose location and as you can see, it is automatically added to the group that was active.</p>
+<p>So we don&#39;t have to do that.</p>
+<p>All drag and dropping.</p>
+<p>Let&#39;s also expose intensity and the light color.</p>
+<p>The last thing is.</p>
+<p>Branding.</p>
+<p>We want to have specific driver text and car color for the driver.</p>
+<p>So let&#39;s call the group team branding.</p>
+<p>And now the first thing to adjust would be text.</p>
+<p>So let&#39;s expose that text value and also the color.</p>
+<p>And the last thing is car.</p>
+<p>I would like to adjust material color car paint to be specific.</p>
+<p>And when that asset when that actor is selected I don&#39;t see any eye icon nor three dots.</p>
+<p>We have an information that we have to override the material in order to expose this property to remote</p>
+<p>control, but that information may be ambiguous to you.</p>
+<p>If you start thinking about how we use materials, you will remember that a material may have some property</p>
+<p>exposed, like this parameter called base color, but you should override it using a material instance.</p>
+<p>And that is what we are going to do.</p>
+<p>Just go back to Content Browser.</p>
+<p>You can use that browse to asset icon.</p>
+<p>Right.</p>
+<p>Mouse button on that glass.</p>
+<p>Paint or gloss paint.</p>
+<p>Create material instance.</p>
+<p>And we are going to assign the instance instead of the material master.</p>
+<p>Now we still don&#39;t get any override button.</p>
+<p>Or maybe we do can expose the property and we can go here to remote control.</p>
+<p>But that means that I can change material completely, and that&#39;s not what I wanted to do.</p>
+<p>I wanted to change the color.</p>
+<p>So let me remove it from here, delete.</p>
+<p>And instead I can open this material instance in editor.</p>
+<p>Go to global vector parameter values and expose that base color property.</p>
+<p>Once we have it done.</p>
+<p>We have it in our remote control preset.</p>
+<p>And before doing anything else, let me go to file and save all because now, after modifying all those</p>
+<p>assets and modifying the remote control preset, I am really scared of having any troubles or crashes,</p>
+<p>so that gets me covered.</p>
+<p>I would say we are almost done.</p>
+<p>We can start creating the web interface, and the only thing we have to do is to click on that web app</p>
+<p>button in the Remote Control preset editor.</p>
+<p>It opens a website.</p>
+<p>This website can be opened with any browser and leads to your localhost and then some port.</p>
+<p>If this port is taken for any reason because maybe one of your tools uses it, you can always change</p>
+<p>it.</p>
+<p>Just go to edit.</p>
+<p>Project settings.</p>
+<p>Search for remote control.</p>
+<p>And in those settings you can change the port.</p>
+<p>And as you can see, there is also a web server.</p>
+<p>So if you have any issues with that you can start playing with the settings.</p>
+<p>And now let&#39;s get back to the browser.</p>
+<p>We have only few choices and the first one seems obvious.</p>
+<p>Build your own UI.</p>
+<p>So let&#39;s click here and the tab is empty.</p>
+<p>That is because we are in control mode, which is not meant for editing.</p>
+<p>After clicking on that button, we are in design mode.</p>
+<p>We have to pick the preset.</p>
+<p>We only have one and then we can start creating the widgets.</p>
+<p>You can go to widgets tab and start selecting widgets manually, but each time you do it you have to</p>
+<p>modify some settings.</p>
+<p>Maybe you will have to, um, set the property that is used by the slider.</p>
+<p>You have to pick, for instance, intensity.</p>
+<p>And doing that for 10 or 20 parameters would be too annoying.</p>
+<p>So let me select it, press delete on the keyboard, get rid of those and do it all in a nicer way.</p>
+<p>Just go to properties and drag and drop properties you&#39;d like.</p>
+<p>And guess what?</p>
+<p>You don&#39;t even have to track them one by one.</p>
+<p>Instead, you can just track a whole category.</p>
+<p>So let me drag all of them.</p>
+<p>And we are almost done.</p>
+<p>I would like to reorganize all of it and maybe also change the display of some properties.</p>
+<p>For instance, current aperture doesn&#39;t have to be a slider.</p>
+<p>Maybe I want to have a tile.</p>
+<p>Same with current focal length.</p>
+<p>And those two could even have some more settings because aperture shouldn&#39;t be a negative number.</p>
+<p>It also shouldn&#39;t be a zero or too low.</p>
+<p>So let me set minimum as 1.2 and maximum let it be 32.</p>
+<p>Similarly with focal length.</p>
+<p>Let&#39;s set minimum minimum to eight and max to 300.</p>
+<p>We can also start playing with relative location of things and.</p>
+<p>This one is.</p>
+<p>Going to be maybe a joystick.</p>
+<p>Oh, and let me make another one as joystick as well.</p>
+<p>Let&#39;s also reorganize color parameters so they are in a single row.</p>
+<p>Here is the text.</p>
+<p>Here is the light intensity.</p>
+<p>That&#39;s it.</p>
+<p>So we can already start playing with those parameters.</p>
+<p>When we are in the design mode, we can start changing maybe the text color to pink or base color of</p>
+<p>the car.</p>
+<p>But if you are done, just disable design.</p>
+<p>And that&#39;s it.</p>
+<p>Let&#39;s change light intensity.</p>
+<p>Maybe light color.</p>
+<p>And let&#39;s set intensity to a higher number.</p>
+<p>And as you can see, having 20 as a maximum isn&#39;t working well.</p>
+<p>So let me go back to the design tab.</p>
+<p>Let&#39;s find intensity and maximum should be 400.</p>
+<p>Now I can go back to control mode.</p>
+<p>Find that intensity.</p>
+<p>And now we have a nice blue light.</p>
+<p>I would say that we are done, but I would like to also tell you that you can always set the default</p>
+<p>widget type in unreal.</p>
+<p>So next time when you create your UI, you will have it.</p>
+<p>You will have the property being for instance a dial.</p>
+<p>So we can find maybe light intensity.</p>
+<p>Go to details.</p>
+<p>Make it a bit bigger.</p>
+<p>Let me select intensity once again.</p>
+<p>And we can change the range or change the dial.</p>
+<p>Now it is a dial.</p>
+<p>I can even add some description like the card corner.</p>
+<p>And when I get back to my UI.</p>
+<p>It will be already modified, and I no longer have an issue of not knowing what that intensity is for</p>
+<p>because, for instance, here we have two relative location properties and I have no idea which one</p>
+<p>is which.</p>
+<p>So we can just go to camera location and name it camera location.</p>
+<p>And when we are back to our web UI.</p>
+<p>It is already renamed.</p>
+<p>I hope you will find this video useful.</p>
+<p>If you are making mostly games and not a virtual production related things, and I think that remote</p>
+<p>control.</p>
+<p>Chapter in the course is still for you because you can call Python functions remotely or even blueprints.</p>
+<p>It just that that we don&#39;t really do it using remote control presets.</p>
+<p>I mean, you could, but from my experience, using remote control presets in that case usually isn&#39;t</p>
+<p>necessary at all and doesn&#39;t make your work easier.</p>
+<p>Thank you and see you in the next video.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>No change: no consequential omission found in this pass.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

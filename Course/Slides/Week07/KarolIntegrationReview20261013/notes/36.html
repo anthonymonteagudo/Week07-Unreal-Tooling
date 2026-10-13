@@ -1,0 +1,315 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>36 Eritinh your first Python test for Unreal · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#note-36">Return to audit</a><a href="35.html">Previous lesson</a> <a href="37.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/36%20Eritinh%20your%20first%20Python%20test%20for%20Unreal.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/36%20Writing%20your%20first%20Python%20test%20for%20Unreal%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>36 Eritinh your first Python test for Unreal</h1><p>Why a discovered test file may not execute its checks</p><p class="meta">Read-only rendered snapshot, 13 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Exact audit changes</button></div><article class="document" id="refined"><h1>Writing Your First Python Test for Unreal — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/36%20Eritinh%20your%20first%20Python%20test%20for%20Unreal.md">Original notes</a></p>
+<p>The <strong>Python Automation Test</strong> plugin discovers scripts named <code>test_*.py</code> in discoverable Python locations. A discovered script still needs to execute its checks: merely defining a function does not run it.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224024.png" alt="Course screenshot: Pasted image 20261012224024.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224014.png" alt="Course screenshot: Pasted image 20261012224014.png"></p>
+<h2>Separate project tests from unrelated packages</h2>
+<p>The Python category may include tests bundled with <strong>Python Foundation Packages</strong>. Some expect a separate framework or dependencies such as <code>pytest</code>; discovering those files does not automatically adapt them to Unreal&#39;s runner.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224110.png" alt="Course screenshot: Pasted image 20261012224110.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224126.png" alt="Course screenshot: Pasted image 20261012224126.png"></p>
+<h2>Why a discovered test file may not execute its checks</h2>
+<p>The package screenshots contrast framework conventions. For example, pytest can collect a named function, whereas a standalone script that merely defines it does nothing:</p>
+<pre><code class="language-python">def test_upper():
+    assert &quot;foo&quot;.upper() == &quot;FOO&quot;
+</code></pre>
+<p>A <code>unittest.TestCase</code> uses a runner such as <code>unittest.main()</code>. The course&#39;s Unreal script examples explicitly call their check functions and report failures through Unreal logging. Python <code>assert</code> itself is valid; the important distinction is how the file is discovered, how the test is invoked, and how that runner receives failures. Do not interpret an uncalled function as a passed check.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224444.png" alt="Course screenshot: Pasted image 20261012224444.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224603.png" alt="Course screenshot: Pasted image 20261012224603.png"></p>
+<p>For the course demonstration, exclude the unrelated package tests with a reason, then select the Python Script Plugin examples. Treat this as narrowing the demonstration, rather than resolving the excluded failures.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224725.png" alt="Course screenshot: Pasted image 20261012224725.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224758.png" alt="Course screenshot: Pasted image 20261012224758.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224815.png" alt="Course screenshot: Pasted image 20261012224815.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224907.png" alt="Course screenshot: Pasted image 20261012224907.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225025.png" alt="Course screenshot: Pasted image 20261012225025.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225106.png" alt="Course screenshot: Pasted image 20261012225106.png"></p>
+<h2>Read Unreal&#39;s examples</h2>
+<p>Add the engine plugin&#39;s <code>Content/Python</code> directory to the IDE&#39;s content roots if needed. Inspect examples such as <code>test_type_hints.py</code>, <code>test_wrapper_types.py</code>, and <code>test_source_control.py</code> to see how checks, error logging, and explicit test calls are organized.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225412.png" alt="Course screenshot: Pasted image 20261012225412.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225517.png" alt="Course screenshot: Pasted image 20261012225517.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225602.png" alt="Course screenshot: Pasted image 20261012225602.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225840.png" alt="Course screenshot: Pasted image 20261012225840.png"></p>
+<p>Run the selected examples and inspect both errors and warnings.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225950.png" alt="Course screenshot: Pasted image 20261012225950.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230034.png" alt="Course screenshot: Pasted image 20261012230034.png"></p>
+<h2>Write and call a minimal check</h2>
+<p>Save a project script such as <code>test_string_helpers.py</code> in a discoverable Python folder. The essential pattern is:</p>
+<pre><code class="language-python">import unreal
+
+def test_upper():
+    actual = &quot;foo&quot;.upper()
+    if actual != &quot;FOO&quot;:
+        unreal.log_error(f&quot;Expected FOO, got {actual!r}&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    test_upper()
+</code></pre>
+<p>The check logs an error when its expectation fails. Unreal&#39;s example scripts also explicitly call their test functions.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230639.png" alt="Course screenshot: Pasted image 20261012230639.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230656.png" alt="Course screenshot: Pasted image 20261012230656.png"></p>
+<h2>Prove that failure is detected</h2>
+<p>Add an intentionally failing check, refresh the Automation test list, and run the script. In the first attempt below, the new function is defined but never called, so the script appears to pass.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230736.png" alt="Course screenshot: Pasted image 20261012230736.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230809.png" alt="Course screenshot: Pasted image 20261012230809.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230822.png" alt="Course screenshot: Pasted image 20261012230822.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230901.png" alt="Course screenshot: Pasted image 20261012230901.png"></p>
+<p>Call the failing function and rerun. Its error should now appear in the test result and log. Remove the deliberate failure after verifying the test wiring.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230924.png" alt="Course screenshot: Pasted image 20261012230924.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230945.png" alt="Course screenshot: Pasted image 20261012230945.png"></p>
+<h2>Keep test side effects contained</h2>
+<p>The source-control example can create or modify files. Inspect its paths and cleanup behavior before running it against working content; keep test assets isolated and restore their state afterward.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231020.png" alt="Course screenshot: Pasted image 20261012231020.png"></p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/35%20Introduction%20to%20automation%20testing%20in%20Unreal%20Engine%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/37%20Appendix%20-%20New%20to%20automated%20tests%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224024.png" alt="Course screenshot: Pasted image 20261012224024.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224014.png" alt="Course screenshot: Pasted image 20261012224014.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224110.png" alt="Course screenshot: Pasted image 20261012224110.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224126.png" alt="Course screenshot: Pasted image 20261012224126.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224444.png" alt="Course screenshot: Pasted image 20261012224444.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224603.png" alt="Course screenshot: Pasted image 20261012224603.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224725.png" alt="Course screenshot: Pasted image 20261012224725.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224758.png" alt="Course screenshot: Pasted image 20261012224758.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224815.png" alt="Course screenshot: Pasted image 20261012224815.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012224907.png" alt="Course screenshot: Pasted image 20261012224907.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225025.png" alt="Course screenshot: Pasted image 20261012225025.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225106.png" alt="Course screenshot: Pasted image 20261012225106.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225412.png" alt="Course screenshot: Pasted image 20261012225412.png">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225517.png" alt="Course screenshot: Pasted image 20261012225517.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225602.png" alt="Course screenshot: Pasted image 20261012225602.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225840.png" alt="Course screenshot: Pasted image 20261012225840.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012225950.png" alt="Course screenshot: Pasted image 20261012225950.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230034.png" alt="Course screenshot: Pasted image 20261012230034.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230639.png" alt="Course screenshot: Pasted image 20261012230639.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230656.png" alt="Course screenshot: Pasted image 20261012230656.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230736.png" alt="Course screenshot: Pasted image 20261012230736.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230809.png" alt="Course screenshot: Pasted image 20261012230809.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230822.png" alt="Course screenshot: Pasted image 20261012230822.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230901.png" alt="Course screenshot: Pasted image 20261012230901.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230924.png" alt="Course screenshot: Pasted image 20261012230924.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012230945.png" alt="Course screenshot: Pasted image 20261012230945.png"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261012231020.png" alt="Course screenshot: Pasted image 20261012231020.png"></p>
+<p>I hope you watched the previous video with Introduction to Automation Tests in Unreal.</p>
+<p>If you haven&#39;t, the most important thing in this video was to enable Python Automation test plugin.</p>
+<p>Of course, remember to restart the editor afterwards.</p>
+<p>This plugin provides us a simple feature.</p>
+<p>If your Python script name starts with test underscore, and it can be discovered by unreal just like</p>
+<p>any other script, it will be recognized as a test.</p>
+<p>The plugin we have just enabled already has some test examples.</p>
+<p>Let&#39;s find them.</p>
+<p>Close plugins tab and go to tools.</p>
+<p>Southern front end.</p>
+<p>Make sure your computer is selected on the left side and switch to automation tab.</p>
+<p>Python tests are in editor slash Python category.</p>
+<p>You may have noticed that there is a lot of tests coming from Python Foundation Packages plugin.</p>
+<p>It is a plugin that provides us with popular Python packages like NumPy, and is bundled with Unreal</p>
+<p>Engine by default.</p>
+<p>That plugin may be disabled for you, so don&#39;t be surprised if you cannot see it here.</p>
+<p>I also had it disabled in the past here in the excluded, so I will reverse that to default.</p>
+<p>If you want to run it, you can enable the plugin and but to be honest, it&#39;s just for example purposes.</p>
+<p>So now let&#39;s turn on all Python tests and start them.</p>
+<p>That will take a short while because there are 500 of them and it&#39;s it is expected to have a lot of</p>
+<p>fails and that is fine.</p>
+<p>What&#39;s going on?</p>
+<p>Before we dive into that, let&#39;s take a look on how to write tests in Python.</p>
+<p>In general, Python tests are just some conditional checks made with asserts.</p>
+<p>There are two main test frameworks.</p>
+<p>One of them is built in and is called unit test module, and another one is py test module and has to</p>
+<p>be installed separately.</p>
+<p>Let&#39;s jump straight to PyCharm and I will create a file called test.</p>
+<p>So it&#39;s recognized as a test classic Python test.</p>
+<p>Let&#39;s suppose we want to test to upper python method that returns uppercase version of whatever string</p>
+<p>we fit to it.</p>
+<p>Let&#39;s go with unit test approach.</p>
+<p>First we have to import it and then we have to create some class based on unit test.</p>
+<p>Test case.</p>
+<p>And let&#39;s find a typo.</p>
+<p>Let&#39;s fix it.</p>
+<p>Then we create tests.</p>
+<p>We start them with test underscore and it will be called upper.</p>
+<p>If you use unit tests, you don&#39;t use Python asserts like this one.</p>
+<p>You use asserts provided by the class.</p>
+<p>So self dot and in our case self dot assert equal will be fine.</p>
+<p>Now let&#39;s create some full string and transform it to upper.</p>
+<p>Then we want to compare it to uppercase version.</p>
+<p>And of course we have to execute this code.</p>
+<p>By the way this example is taken straight from the documentation.</p>
+<p>Underscore equals main.</p>
+<p>And then let&#39;s run it unit test dot main.</p>
+<p>Good.</p>
+<p>Let&#39;s execute it.</p>
+<p>And our log says it works.</p>
+<p>We can see what happens if anything fails.</p>
+<p>For instance, let&#39;s change this out to lowercase.</p>
+<p>And we have the file.</p>
+<p>That&#39;s it.</p>
+<p>Now we can do the same thing using pi test.</p>
+<p>So comment it out.</p>
+<p>Import pi test.</p>
+<p>If you have any error that probably means that you have to install pi test.</p>
+<p>Just install it like it&#39;s any other kind of package.</p>
+<p>Then create some function, name it with test underscore and then upper.</p>
+<p>It&#39;s simpler.</p>
+<p>We use just an assert and the same for to upper that we used here.</p>
+<p>But now we use double equals to compare it.</p>
+<p>And that&#39;s it.</p>
+<p>We can run it using this small triangle.</p>
+<p>And works, of course.</p>
+<p>Here is how to test if it fails.</p>
+<p>We have a nice summary.</p>
+<p>Paul frameworks are way more advanced than what I&#39;ve showed you, and they provide a lot of useful features.</p>
+<p>However, as you can see, making a basic test is very simple.</p>
+<p>The issue is that those two frameworks are used by external modules, and maybe even some of your tools</p>
+<p>at the same time, and they are not supported by Unreal Engine at all.</p>
+<p>Let&#39;s get back to unreal.</p>
+<p>To the logs, and there is a lot of errors with lack of Python module.</p>
+<p>And even if you provide the Python module, it will be still conflicting with how unreal works.</p>
+<p>You can modify Python automation test plugin to your liking, but remember you will have to merge with</p>
+<p>epic changes each time they update something.</p>
+<p>And if you get any external plugin that still uses the epic way, you will have to patch it up.</p>
+<p>This is why I will go with the default approach.</p>
+<p>And I will exclude failing tests using pencil icons.</p>
+<p>So let&#39;s close it here.</p>
+<p>Go to Python Foundation packages and use the pencil to exclude it.</p>
+<p>I will call it call.</p>
+<p>The reason like py test slash unit test is not supported by unreal tests framework.</p>
+<p>And I will also exclude it from running here because if we run event.</p>
+<p>Some of those tests, like here are seven of them.</p>
+<p>It will be still iterating over them and it will clutter my log.</p>
+<p>I want to keep it simple.</p>
+<p>So these are disabled and I am only running Python script plugin.</p>
+<p>And it completed with success.</p>
+<p>There are some other has some warnings, but in general everything past.</p>
+<p>Also, as you can see, epics tests have warnings, so don&#39;t be worried.</p>
+<p>And you may have a lot of issues with deprecated methods that are still available in Python, and I</p>
+<p>would just leave them as warnings.</p>
+<p>And later I will add some note on how to suppress those warnings so you don&#39;t have to apply any hack</p>
+<p>fixes.</p>
+<p>Let&#39;s pick some test, see how it&#39;s written, inspect it, and then we can make our own here on the</p>
+<p>list.</p>
+<p>We have three available and we could begin with test type hints or maybe test source control.</p>
+<p>But before we do it, I recommend adding that plugin to your solution, whether it&#39;s if it&#39;s PyCharm</p>
+<p>or VS code or maybe other kinds of editor.</p>
+<p>So I&#39;m going back to PyCharm.</p>
+<p>Going to settings project structure add content route.</p>
+<p>And I will add.</p>
+<p>Python script plugin.</p>
+<p>Great.</p>
+<p>Let&#39;s navigate to it.</p>
+<p>Content slash Python.</p>
+<p>And maybe let&#39;s open test source control first.</p>
+<p>Go to the top of the file.</p>
+<p>And also maybe open type hints on the right side.</p>
+<p>I want to show you something.</p>
+<p>One of the things is that those tests have a lot of hacks.</p>
+<p>Like here.</p>
+<p>There is a method called local print that is just made to make sure that each variable is used.</p>
+<p>So there is no errors in PyCharm or whatever you use.</p>
+<p>It isn&#39;t the most legit way, but as you can see, that&#39;s what epic follows, so I suppose you can do</p>
+<p>the same.</p>
+<p>They also use type hints.</p>
+<p>You can see them here.</p>
+<p>Pilots just for the developer.</p>
+<p>They are not validated by the test framework.</p>
+<p>Also, we are not using unit test nor pi test here, so they implemented their own simple asserts using</p>
+<p>the logging system.</p>
+<p>How does it work?</p>
+<p>They just check if there is a correct boolean state and they print logs.</p>
+<p>This isn&#39;t the right case because that is just a log.</p>
+<p>But let&#39;s scroll a bit lower and we will surely find some log error.</p>
+<p>Let&#39;s search for it here.</p>
+<p>Here it is.</p>
+<p>If state is source controlled, that is the wrong behavior.</p>
+<p>We just print log error and that&#39;s what they do.</p>
+<p>They also print some warnings.</p>
+<p>So if you want just a warning that is possible.</p>
+<p>And you have seen those warnings already here in our log like switch to console and you have them here.</p>
+<p>So let&#39;s create a new file that is discoverable because it&#39;s in content Python.</p>
+<p>It will start with the test name test underscore and in some tutorial test.</p>
+<p>And let&#39;s make a.</p>
+<p>Test upper method, but in a way that is accepted by epic.</p>
+<p>So let&#39;s follow their convention of naming.</p>
+<p>Test with test.</p>
+<p>Underscore to upper.</p>
+<p>And because we cannot have asserts.</p>
+<p>Let&#39;s assign result of to upper to some variable.</p>
+<p>And then if upper.</p>
+<p>Doesn&#39;t equal four.</p>
+<p>Then we print error.</p>
+<p>Log error, and we will have some clear message for the programmer to explain what went wrong.</p>
+<p>We have some issue here.</p>
+<p>Missed quotes.</p>
+<p>That&#39;s because I used the wrong kind of them.</p>
+<p>That is fine.</p>
+<p>We can fix it.</p>
+<p>And that should work.</p>
+<p>However, this test will not be executed.</p>
+<p>Let&#39;s go back to the test and scroll to the bottom.</p>
+<p>Can you say they execute those methods manually?</p>
+<p>And the better example will be found in test type hints.</p>
+<p>Let&#39;s scroll down.</p>
+<p>And they execute each of them manually.</p>
+<p>That&#39;s important not to forget about executing any of your tests.</p>
+<p>Just make sure to double check if you haven&#39;t skipped anything.</p>
+<p>So I will copy this line.</p>
+<p>Paste that here and execute test upper.</p>
+<p>Good.</p>
+<p>We could also make some tests that fails.</p>
+<p>So dev test fail me and make some unreal log error.</p>
+<p>I was supposed to fail.</p>
+<p>You can restart.</p>
+<p>Unreal.</p>
+<p>But you can also just click on refresh tests.</p>
+<p>We are able to unroll editor, find our project on the list in Python tab and we have test classic Python</p>
+<p>test and test tutorial test.</p>
+<p>So let&#39;s enable them start tests so you can see.</p>
+<p>The one that uses Pytest failed.</p>
+<p>However, the other one completed with success, presumably because I haven&#39;t enabled the test that</p>
+<p>should fail.</p>
+<p>So now we can add it here.</p>
+<p>Can&#39;t go back.</p>
+<p>Refresh, test and execute again, and this time both failed.</p>
+<p>And we have information in the log.</p>
+<p>That&#39;s generally everything you have to know.</p>
+<p>However, you should be cautious about tests made by epic because sometimes they are a bit broken and</p>
+<p>also they may modify files without saving them.</p>
+<p>And that means that after executing them, you may be prompted by Unreal Editor if you want to save</p>
+<p>them or not.</p>
+<p>I recommend to not.</p>
+<p>And also some of their tests like test source control may create some files and they have some hardcoded</p>
+<p>paths.</p>
+<p>And that means that you could break something accidentally.</p>
+<p>For instance, you can have some hardcoded actor names or asset names or even some blueprints.</p>
+<p>And the issue with that is that if you create similarly named file, it may for instance, in future</p>
+<p>look for it by name.</p>
+<p>Or maybe it may have issues with creating name with the same name.</p>
+<p>So just be cautious.</p>
+<p>And also I&#39;ve just shown you how to create a basic test.</p>
+<p>However, creating tests is an art and it is something that cannot be taught in a single tutorial.</p>
+<p>If you are new to that, I really, really recommend diving into that topic.</p>
+<p>Watch some YouTube tutorials, maybe even find some nice e-book.</p>
+<p>Because that will definitely help you and that will increase stability of your code.</p>
+<p>And after some time, you will notice that maybe you have spent a lot of hours writing those tests,</p>
+<p>but after a few months you have saved way, way more time than you actually invested.</p>
+<p>For those of you who were already writing tests or maybe were used to doing that in Python, I&#39;m really</p>
+<p>sorry that the solution I&#39;ve shown you isn&#39;t using pytest or unit tests, but I hope that you will easily</p>
+<p>adopt the new pipeline and that you will write great tests.</p>
+</article><article id="diff" hidden><h2>Changes made to the previous REFINED note</h2><pre>--- REFINED before audit
++++ REFINED after audit
+@@ -15,6 +15,17 @@
+ ![[Pasted image 20261012224110.png]]
+ 
+ ![[Pasted image 20261012224126.png]]
++
++## Why a discovered test file may not execute its checks
++
++The package screenshots contrast framework conventions. For example, pytest can collect a named function, whereas a standalone script that merely defines it does nothing:
++
++```python
++def test_upper():
++    assert &quot;foo&quot;.upper() == &quot;FOO&quot;
++```
++
++A `unittest.TestCase` uses a runner such as `unittest.main()`. The course's Unreal script examples explicitly call their check functions and report failures through Unreal logging. Python `assert` itself is valid; the important distinction is how the file is discovered, how the test is invoked, and how that runner receives failures. Do not interpret an uncalled function as a passed check.
+ 
+ ![[Pasted image 20261012224444.png]]
+ 
+</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

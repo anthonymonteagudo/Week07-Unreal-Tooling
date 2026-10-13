@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A2 Debugging Python in UE5</title><style>*{box-sizing:border-box}body{margin:0;background:#faf9fc;color:#25222b;font:17px/1.65 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:36px 28px 80px}h1{font-size:38px;line-height:1.16}h2{margin-top:44px;line-height:1.25}a{color:#594396}nav{display:flex;gap:20px;flex-wrap:wrap;border-block:1px solid #ddd;padding:16px 0}table{border-collapse:collapse;width:100%;font-size:15px}th,td{text-align:left;padding:12px;border:1px solid #d9d5e0;vertical-align:top}th{background:#eeeaf4}pre{background:#eeeaf4;padding:18px;white-space:pre-wrap;overflow-wrap:anywhere}code{font-family:Consolas,monospace}img{display:block;max-width:100%;height:auto;margin:20px 0}p,li{overflow-wrap:anywhere}blockquote{border-left:4px solid #9476b8;margin-left:0;padding-left:20px}.meta{color:#635a6d;font-size:14px}li{margin:7px 0}button{font:inherit;padding:8px 16px}@media(max-width:700px){main{padding:20px 14px}table{display:block;overflow-x:auto}h1{font-size:30px}}@media print{nav,button{display:none}body{background:white}}</style></head><body><main><nav><a href="../index.html">Week 7 prep guide</a><a href="../source_index.html">Source notes</a><a href="../../AgendaRevision20261010/Preparation_and_Source_Compilation.html">Agenda compilation</a><a href="../../UnrealPythonDemo/index.html">Week 7 Python demo</a></nav><h1>A2 Debugging Python in UE5</h1><p class="meta">Study note snapshot • 10 October 2026 • Copied snippets may contain errors. See the preparation guide before reuse.</p><p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/00%20Unreal%20Python%20Intro/A2%20Debugging%20Python%20in%20UE5.md">Original note</a> · <a href="../../../../Readers/intro-a2-1eadde5b.html">Unmodified Markdown snapshot</a></p><p><a href="https://www.youtube.com/watch?v=IbwLyQtHw_o&list=PLKgYiIAqG99cwlb4Y2Pu-cSb_Vw14-t0c&index=8">https://www.youtube.com/watch?v=IbwLyQtHw_o&amp;list=PLKgYiIAqG99cwlb4Y2Pu-cSb_Vw14-t0c&amp;index=8</a></p>
+<p>Content/Python/debugpy_unreal.py</p>
+<p><img src="../attachments/661bb75dba6a2d9c.png" alt="Historical study screenshot from Pasted image 20260623002723.png"></p>
+<p><img src="../attachments/73f1296e593e1c4a.png" alt="Historical study screenshot from Pasted image 20260623002748.png"></p>
+<p>In unreal cmd line (Python REPL):
+	import unreal
+	unreal.get_interpreter_executable_path()
+	# Output: C:/Program Files/Epic Games/UE_5.7/Engine/Binaries/ThirdParty/Python3/Win64/python.exe</p>
+<p>In windows cmd line:</p>
+<p><img src="../attachments/c15531d3bfaafc23.png" alt="Historical study screenshot from Pasted image 20260623002656.png"></p>
+<p><img src="../attachments/ec37dd6e02e531ed.png" alt="Historical study screenshot from Pasted image 20260623002805.png"></p>
+<p>Test:</p>
+<p><img src="../attachments/8b6b2c3069d7501a.png" alt="Historical study screenshot from Pasted image 20260623002913.png"></p>
+<p>import debugpy
+import debugpy_unreal</p>
+<p>Create launch.json:</p>
+<p><img src="../attachments/6775f139afa1da96.png" alt="Historical study screenshot from Pasted image 20260623003355.png"></p>
+<p>Provided by Unreal:</p>
+<p><img src="../attachments/8a20a75381ee46b0.png" alt="Historical study screenshot from Pasted image 20260623003411.png"></p>
+<p>Final custom launch.json:</p>
+<pre><code>{
+
+    // Use IntelliSense to learn about possible attributes.
+
+    // Hover to view descriptions of existing attributes.
+
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+    &quot;version&quot;: &quot;0.2.0&quot;,
+
+    &quot;configurations&quot;: [
+
+  
+
+        {
+
+            &quot;name&quot;: &quot;UnrealEngine Python&quot;,
+
+            &quot;type&quot;: &quot;debugpy&quot;,
+
+            &quot;request&quot;: &quot;attach&quot;,
+
+            &quot;connect&quot;: {
+
+                &quot;host&quot;: &quot;localhost&quot;,
+
+                &quot;port&quot;: 5678
+
+            },
+
+            &quot;pathMappings&quot;: [
+
+                {
+
+                    &quot;localRoot&quot;: &quot;C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Plugins\\Experimental\\PythonScriptPlugin\\Content\\Python&quot;,
+
+                    &quot;remoteRoot&quot;: &quot;C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Plugins\\Experimental\\PythonScriptPlugin\\Content\\Python&quot;
+
+                },
+
+                {
+
+                    &quot;localRoot&quot;: &quot;D:\\Personal Projects\\Unreal\\TechArtGym\\Content&quot;,
+
+                    &quot;remoteRoot&quot;: &quot;D:\\Personal Projects\\Unreal\\TechArtGym\\Content&quot;
+
+                }
+
+            ],
+
+            &quot;redirectOutput&quot;: true,
+
+            &quot;justMyCode&quot;: false
+
+        }
+
+    ]
+
+}
+</code></pre>
+<p>It&#39;s working!</p>
+<p><img src="../attachments/347990c7fccaf7fc.png" alt="Historical study screenshot from Pasted image 20260623004416.png"></p>
+</main></body></html>

@@ -1,0 +1,5 @@
+{
+  "folders": [{"name": "Week 7 Python Tools", "path": "."}],
+  "settings": {},
+  "extensions": {"recommendations": ["ms-python.python", "ms-python.vscode-pylance", "ms-python.debugpy"]}
+}

@@ -1,0 +1,501 @@
+{
+  "compiled": "2026-10-10",
+  "source_root": "C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes",
+  "documents": [
+    {
+      "id": "oster-full",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine\\Full Script.md",
+      "relative": "02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine/Full Script.md",
+      "sha256": "3f5d0b86a27c4523cb466377bc70c9866ee68a6374d93ea11e78545b7e537cd8",
+      "reader": "sources/oster-full.html",
+      "snapshot": "sources/oster-full.md"
+    },
+    {
+      "id": "oster-01",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine\\L1 Unreal Python API Documentation.md",
+      "relative": "02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine/L1 Unreal Python API Documentation.md",
+      "sha256": "2d915369b3a63b03a055cbfb3129dc26a05651f8f7ee51ed21f669e1eab74bec",
+      "reader": "sources/oster-01.html",
+      "snapshot": "sources/oster-01.md"
+    },
+    {
+      "id": "oster-02",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine\\L2 Using UE Python API.md",
+      "relative": "02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine/L2 Using UE Python API.md",
+      "sha256": "4f6848ec89e199550578602571fd4cb5a9ac2bea7ccb34eedef39f71057ff54c",
+      "reader": "sources/oster-02.html",
+      "snapshot": "sources/oster-02.md"
+    },
+    {
+      "id": "oster-03",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine\\L3 Getting User Input.md",
+      "relative": "02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine/L3 Getting User Input.md",
+      "sha256": "3bc387180bc8eb52301bb695bb25d60b0c3301292cff5b21f9beb6df19bb3cd4",
+      "reader": "sources/oster-03.html",
+      "snapshot": "sources/oster-03.md"
+    },
+    {
+      "id": "oster-04",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine\\L4 Determining Asset Class.md",
+      "relative": "02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine/L4 Determining Asset Class.md",
+      "sha256": "f1c3605a844052cbac91ac7811e8a2dadc63b36651ad31f359f184f44db4c78a",
+      "reader": "sources/oster-04.html",
+      "snapshot": "sources/oster-04.md"
+    },
+    {
+      "id": "oster-05",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine\\L5 Working with Editor Properties.md",
+      "relative": "02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine/L5 Working with Editor Properties.md",
+      "sha256": "8e1936c6924da488fa7bda33271b0ff3dd03b8518f2d374c5295eb62d1131603",
+      "reader": "sources/oster-05.html",
+      "snapshot": "sources/oster-05.md"
+    },
+    {
+      "id": "oster-06",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine\\L6 Gathering Detailed Information on Static Meshes.md",
+      "relative": "02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine/L6 Gathering Detailed Information on Static Meshes.md",
+      "sha256": "dba1f25f09ba40e792a96617afd3a608e2bd096e41bcac584b1a1226b55ff4c9",
+      "reader": "sources/oster-06.html",
+      "snapshot": "sources/oster-06.md"
+    },
+    {
+      "id": "oster-07",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine\\L7 Working with Static Mesh Actors and Components.md",
+      "relative": "02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine/L7 Working with Static Mesh Actors and Components.md",
+      "sha256": "72a1c0e19014502fe31834bcfcf7a2f1160b0e442637ffa14d3e4a10d17f2e75",
+      "reader": "sources/oster-07.html",
+      "snapshot": "sources/oster-07.md"
+    },
+    {
+      "id": "oster-08",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine\\L8 Working with dir(), help(), and Inheritance.md",
+      "relative": "02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine/L8 Working with dir(), help(), and Inheritance.md",
+      "sha256": "ff2f0a55eb52a9ad16e79c566e937a66f25c22990164100b81be52e21080af61",
+      "reader": "sources/oster-08.html",
+      "snapshot": "sources/oster-08.md"
+    },
+    {
+      "id": "oster-09",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine\\L9 Unreal Python API and Blueprints.md",
+      "relative": "02 Isaac Oster - Utilizing Python for Editor Scripting in Unreal Engine/L9 Unreal Python API and Blueprints.md",
+      "sha256": "f8e63d66f0256d1096a1d76fad2d8af41ac29b144be8d97f4087dbab1d124f8a",
+      "reader": "sources/oster-09.html",
+      "snapshot": "sources/oster-09.md"
+    },
+    {
+      "id": "intro-00",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\00 Unreal Python Intro\\00 Setup.md",
+      "relative": "00 Unreal Python Intro/00 Setup.md",
+      "sha256": "62b4b28caa61b55cb38be2b8c299fa21acfb20f3021e68555b2d8530e5419a13",
+      "reader": "sources/intro-00.html",
+      "snapshot": "sources/intro-00.md"
+    },
+    {
+      "id": "intro-a1",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\00 Unreal Python Intro\\A1 Unreal Engine 5 Python Automation Course.md",
+      "relative": "00 Unreal Python Intro/A1 Unreal Engine 5 Python Automation Course.md",
+      "sha256": "4d7259dab4a8e3ede89e7cb01a09c5e658e5f3a306e695d160afe8bafd81ac01",
+      "reader": "sources/intro-a1.html",
+      "snapshot": "sources/intro-a1.md"
+    },
+    {
+      "id": "intro-a2",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\00 Unreal Python Intro\\A2 Debugging Python in UE5.md",
+      "relative": "00 Unreal Python Intro/A2 Debugging Python in UE5.md",
+      "sha256": "81576f91237486156250fab6a7edf61da8a25cadc97b66be04e314096f08105d",
+      "reader": "sources/intro-a2.html",
+      "snapshot": "sources/intro-a2.md"
+    },
+    {
+      "id": "intro-a3",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\00 Unreal Python Intro\\A3 Remote Control API in Unreal Engine.md",
+      "relative": "00 Unreal Python Intro/A3 Remote Control API in Unreal Engine.md",
+      "sha256": "f412f5c546433a52947aa4f451c8c99c1285fa2bec4dd68657d3516a26b4996f",
+      "reader": "sources/intro-a3.html",
+      "snapshot": "sources/intro-a3.md"
+    },
+    {
+      "id": "intro-a4",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\00 Unreal Python Intro\\A4 Batch Import FBX Meshes in Unreal with Python.md",
+      "relative": "00 Unreal Python Intro/A4 Batch Import FBX Meshes in Unreal with Python.md",
+      "sha256": "2d403751879369cdec9552d004490bbb69da1cdb6110cf83eec3458dda3ff7d3",
+      "reader": "sources/intro-a4.html",
+      "snapshot": "sources/intro-a4.md"
+    },
+    {
+      "id": "intro-a5",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\00 Unreal Python Intro\\A5 Asset Validation.md",
+      "relative": "00 Unreal Python Intro/A5 Asset Validation.md",
+      "sha256": "63c2a32bd7ce2bd1a3408a5f2e56cf65308d0b002abcadbd3c2466a8e443dd55",
+      "reader": "sources/intro-a5.html",
+      "snapshot": "sources/intro-a5.md"
+    },
+    {
+      "id": "intro-b1",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\00 Unreal Python Intro\\B1 Utilizing Python for Editor Scripting in Unreal Engine Tutorial.md",
+      "relative": "00 Unreal Python Intro/B1 Utilizing Python for Editor Scripting in Unreal Engine Tutorial.md",
+      "sha256": "7e99bb5c0e870988df9ca52ad9c1340532e620775762f5d01930bfbe369e19ec",
+      "reader": "sources/intro-b1.html",
+      "snapshot": "sources/intro-b1.md"
+    },
+    {
+      "id": "tutorials",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\00 Unreal Python Intro\\UE Python Tutorials.md",
+      "relative": "00 Unreal Python Intro/UE Python Tutorials.md",
+      "sha256": "a587309f55e06faa5d432949dd9712c60c5cc15968b510bd95971240758a0ded",
+      "reader": "sources/tutorials.html",
+      "snapshot": "sources/tutorials.md"
+    },
+    {
+      "id": "api-bookmarks",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\00 Unreal Python Intro\\Unreal Python API Documentation.md",
+      "relative": "00 Unreal Python Intro/Unreal Python API Documentation.md",
+      "sha256": "5ca9a8d6879a49e09294225093de2d4f2c90247aad45b2c13772db1d1af3c6fd",
+      "reader": "sources/api-bookmarks.html",
+      "snapshot": "sources/api-bookmarks.md"
+    },
+    {
+      "id": "ux-checklist",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\FIEA Notes\\Technical_Art_Grad_Notes_Obsidian_Vault\\Artist-Facing Tool UX Checklist.md",
+      "relative": "FIEA Notes/Technical_Art_Grad_Notes_Obsidian_Vault/Artist-Facing Tool UX Checklist.md",
+      "sha256": "68d1b83795d894733320651e35d7a9b1ecd31163168dc29acac0bf91f6edf2e6",
+      "reader": "sources/ux-checklist.html",
+      "snapshot": "sources/ux-checklist.md"
+    },
+    {
+      "id": "fiea-ux",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\FIEA Notes\\Technical_Art_Grad_Notes_Obsidian_Vault\\Lectures\\09 - UI UX.md",
+      "relative": "FIEA Notes/Technical_Art_Grad_Notes_Obsidian_Vault/Lectures/09 - UI UX.md",
+      "sha256": "80256cae356d9c71d2fbdf8e11fa1b66d4c76bb1ebc68021c188f273e949c18e",
+      "reader": "sources/fiea-ux.html",
+      "snapshot": "sources/fiea-ux.md"
+    },
+    {
+      "id": "udemy-scripting",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\01 Udemy - Technical Artist Career Course\\A3 Scripting.md",
+      "relative": "01 Udemy - Technical Artist Career Course/A3 Scripting.md",
+      "sha256": "865e41a31ba7a60f814d72301db1203843b5c63548182c7d4ef16099fbee6033",
+      "reader": "sources/udemy-scripting.html",
+      "snapshot": "sources/udemy-scripting.md"
+    },
+    {
+      "id": "udemy-pipelines",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\01 Udemy - Technical Artist Career Course\\A7 Pipelines.md",
+      "relative": "01 Udemy - Technical Artist Career Course/A7 Pipelines.md",
+      "sha256": "b2513c969372843dec44bae9f83833aaeacf1f7b23fbb4ffd671908eaf23b6e8",
+      "reader": "sources/udemy-pipelines.html",
+      "snapshot": "sources/udemy-pipelines.md"
+    },
+    {
+      "id": "prep-courses",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\Courses for Prep.md",
+      "relative": "Courses for Prep.md",
+      "sha256": "74fdc14acdd16778d8d9cd13725d8a238cd4a3f366a8ae591b2461ff06a49e3f",
+      "reader": "sources/prep-courses.html",
+      "snapshot": "sources/prep-courses.md"
+    }
+  ],
+  "attachments": [
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260628135858.png",
+      "local": "64c2ecdc659f9513.png",
+      "sha256": "64c2ecdc659f95130f4c643cb43777dd0a7fb617789bf701201d5094ee197115"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260628145021.png",
+      "local": "390119efa5e69cbc.png",
+      "sha256": "390119efa5e69cbcd90921587c495d00d712279eff92c8e97bfa6dbb7a7e1557"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260629010947.png",
+      "local": "dab8978acc646165.png",
+      "sha256": "dab8978acc646165a43e5159ab91b321b9eac0b5bdb547d8e48b598bf144ddf1"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260629010958.png",
+      "local": "506c80d3611f8a73.png",
+      "sha256": "506c80d3611f8a73d6c2870c0d308714ed8ba9c4f9cf8fd6c24194181057dcc4"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260629011322.png",
+      "local": "4b73d3c0a798170a.png",
+      "sha256": "4b73d3c0a798170a7f79f84142975bfc7a32285f65df976c61ce84e297a563fe"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260629011721.png",
+      "local": "e0d91ec894dc8c3b.png",
+      "sha256": "e0d91ec894dc8c3bd19602e1198b56fd1a411217b250b0b9237771a4b8586570"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260629011745.png",
+      "local": "c01cb5a3941bc428.png",
+      "sha256": "c01cb5a3941bc4282312c355592a5d1aecc1960b1eadb6c5bfa92607d2549843"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260629011758.png",
+      "local": "cbc3c60f019aa238.png",
+      "sha256": "cbc3c60f019aa238cd1af384e4ed60d96a696e4ebe15dc804f7c49052070a26b"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260629011831.png",
+      "local": "32a578c1386917ec.png",
+      "sha256": "32a578c1386917ecacf45459e3966d345b3a7c6f0d16f27c6b8e2a5f784fa585"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260629011904.png",
+      "local": "c7554ad31150b20c.png",
+      "sha256": "c7554ad31150b20c0b98d11cbda08501c0db907147ae3c96fbe8bb5b3a12c7e6"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260617210142.png",
+      "local": "73c19131700b1e33.png",
+      "sha256": "73c19131700b1e332e32e5b17835d9ac407f81992c69efd1ed31df55fb5c8c49"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260617210156.png",
+      "local": "ba3ce2ff11aa9b44.png",
+      "sha256": "ba3ce2ff11aa9b449688ce7fb20c353b78d80de257d74c5a2f73ff4a90d88acb"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260617210247.png",
+      "local": "61f5e6c2c9ddf163.png",
+      "sha256": "61f5e6c2c9ddf1637b1cb029f76e321127aacc23194d04f750befe9778d36c6c"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260617210852.png",
+      "local": "e951debde349fd3a.png",
+      "sha256": "e951debde349fd3a3e1972107e12e77412a14e9f380384dfbdabc3275aae545e"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260617210330.png",
+      "local": "354b1df39b93ad37.png",
+      "sha256": "354b1df39b93ad3740945d00a5d32f681aa2ee4ab2cb2576b1b3a54c665d75b4"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260617211148.png",
+      "local": "568c097222f4fcf0.png",
+      "sha256": "568c097222f4fcf09aaf772c8389e6e928e6f7d7f57f3e1ca456f62a2ea8a2af"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260617210632.png",
+      "local": "97da57587a177da8.png",
+      "sha256": "97da57587a177da82cdf3480709cfafaa6fe665453246f3ae1b17faba8d4bef7"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260617210936.png",
+      "local": "ad454e69317b08da.png",
+      "sha256": "ad454e69317b08dae669dc40d3f7b699323e02e5050fe13a9b6fa5ba7cdde1d6"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260617211043.png",
+      "local": "6dbe500de47387f4.png",
+      "sha256": "6dbe500de47387f43a498d99fb1e59f887a6bac0821eb75f1e2a853b09972ec0"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623002723.png",
+      "local": "661bb75dba6a2d9c.png",
+      "sha256": "661bb75dba6a2d9c51dbf2a5036e8d4f5ad8b4637fc8de853bb6e7622601a3c1"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623002748.png",
+      "local": "73f1296e593e1c4a.png",
+      "sha256": "73f1296e593e1c4a9520e565c0f33e047f786cc449ed073fa8439b421262868c"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623002656.png",
+      "local": "c15531d3bfaafc23.png",
+      "sha256": "c15531d3bfaafc237742fa7f4625e7a6550db6cf5c74076c03aa67e60e2bcef1"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623002805.png",
+      "local": "ec37dd6e02e531ed.png",
+      "sha256": "ec37dd6e02e531ed5ddf40a473cbdae5275fa08cc39c89e736d9d496fdaee43d"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623002913.png",
+      "local": "8b6b2c3069d7501a.png",
+      "sha256": "8b6b2c3069d7501a7d024c6cafca34cb5c8edfa4610f24307aef6d9004577a59"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623003355.png",
+      "local": "6775f139afa1da96.png",
+      "sha256": "6775f139afa1da9613625160b2414aa474a875172d1df857df974f9d935df6fa"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623003411.png",
+      "local": "8a20a75381ee46b0.png",
+      "sha256": "8a20a75381ee46b0c0a5da396c5e7ea51d7924f11658ddb3e506a0cc4f6bb0be"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623004416.png",
+      "local": "347990c7fccaf7fc.png",
+      "sha256": "347990c7fccaf7fc5a73bbccfea373c18d308fda7e02aca9726215ba370578d2"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623005053.png",
+      "local": "b13cde97bd380595.png",
+      "sha256": "b13cde97bd380595e62c49376372c61e26c1e716ca6118939e842089a8be7090"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623005401.png",
+      "local": "577d5e4ef236c147.png",
+      "sha256": "577d5e4ef236c147e4d79b205442c5e75b4a1cefb16de596777e14733c1aa339"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623005436.png",
+      "local": "204a91fd8b4fac8c.png",
+      "sha256": "204a91fd8b4fac8c452ccd78ed165824ca1301d2f57cc4acbc6e28720afff3f0"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623005522.png",
+      "local": "eb3b7540fca5968b.png",
+      "sha256": "eb3b7540fca5968b23808abae4b656de84c1a33b46af04f4f455ba89d694f066"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623005709.png",
+      "local": "094f4c9696de22d5.png",
+      "sha256": "094f4c9696de22d51fd4f26ca4066e55b2a42ac763586ff18ebe707c828758ac"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623005941.png",
+      "local": "ed7443d9804db27e.png",
+      "sha256": "ed7443d9804db27e74e77f978c9c8025c418c0656440b54e667e08c5a0ec568d"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623010118.png",
+      "local": "9730564ee1fc08ba.png",
+      "sha256": "9730564ee1fc08baf12e0457fde515eb786469598b4c2811b938375e89d3d882"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623010745.png",
+      "local": "e8d65fc16501d42a.png",
+      "sha256": "e8d65fc16501d42adbfbbeffe7ff0ca6d16fa5837f891d88f26e9a9603e1adcd"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623010725.png",
+      "local": "39afcd14a2f57c04.png",
+      "sha256": "39afcd14a2f57c042b5fcb894ad9ec7950f21f30cbd9411194416c7d4517f626"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623010829.png",
+      "local": "c251704b5c20f763.png",
+      "sha256": "c251704b5c20f763e0193b412666380fe50ba5f9654fdac710bb902a9aea24e0"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623011100.png",
+      "local": "0b4d14f55ac3d4e4.png",
+      "sha256": "0b4d14f55ac3d4e492caafd0ba2735600916f454e09ebb112b7e4becb2c2a03b"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623011327.png",
+      "local": "d4e53c66fec945f9.png",
+      "sha256": "d4e53c66fec945f930ae177c7d5281f7220d76631bf9c71d2f22656e4102d0a7"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623011345.png",
+      "local": "3b8184bc18d26046.png",
+      "sha256": "3b8184bc18d26046adb6b9c767ead4e9fd9f4b10ae60f76f3c1887e2f26cf276"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623011620.png",
+      "local": "7017923234f0ee98.png",
+      "sha256": "7017923234f0ee9846829854f073c6cfb39cfbac6ef3d7a68f53346613f3cfc2"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623011641.png",
+      "local": "a4a8ce1380c125ef.png",
+      "sha256": "a4a8ce1380c125ef149abc03e8cd93d554618f6579a166cd0a686a21ba0b5ead"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623011730.png",
+      "local": "2a249cc7ec92344c.png",
+      "sha256": "2a249cc7ec92344ccf40aa4e1ae085a640668b40ee32c153d6391a4f5c8fe5df"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623012554.png",
+      "local": "78cf0d8938c67566.png",
+      "sha256": "78cf0d8938c675664769d016a3f7c403117ab8be5d967437c29ea155dddbf55f"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623012843.png",
+      "local": "987ca90f499c0e4e.png",
+      "sha256": "987ca90f499c0e4e274f7acf2d2821997d372d3efbe7487a94eb7adee8bcb7bc"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623013304.png",
+      "local": "11b2456aeb9f308d.png",
+      "sha256": "11b2456aeb9f308d660c11cbd7dd3c678ac14b124d54fe521944cd0ca2702451"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623013454.png",
+      "local": "c73b13706bb0b6af.png",
+      "sha256": "c73b13706bb0b6af827b9cd8df216e20eb0293949ddd21907251c2f037cbbf9f"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623013550.png",
+      "local": "8275dba0353bb2a0.png",
+      "sha256": "8275dba0353bb2a0e1e4f4b8acf9d5d9a6cd915c611cd286a31ee0df43f590d6"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623022543.png",
+      "local": "390e897135f587be.png",
+      "sha256": "390e897135f587be2f80081f11264b7bcb43fc4ea2d5fe94c0edc8287f951e4f"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623022839.png",
+      "local": "b3059293585e3f0f.png",
+      "sha256": "b3059293585e3f0f58d2e67b0cd1e2fada1c9a8fe01c155ba6d315a7baf9073b"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623022854.png",
+      "local": "1880d927ef316f37.png",
+      "sha256": "1880d927ef316f37b85cf6d1cd2c27f21eacedbe44e0edd5f2d8eb71af0f7f82"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623022919.png",
+      "local": "d54a8db6c5672e32.png",
+      "sha256": "d54a8db6c5672e3252decf0ff2798ebd06580839d6ae60d51a957397a5d9aa11"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260623022955.png",
+      "local": "198efa5e587c028e.png",
+      "sha256": "198efa5e587c028e18e06c46f4fa827a79ea1e02d67fa7b489111c46d56c479d"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260620230730.png",
+      "local": "b347a9caa6ffa841.png",
+      "sha256": "b347a9caa6ffa8411670a30a3f6429d6655c875431727662831c6d4f2736cb4e"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260620230913.png",
+      "local": "1271d20cc1a9bf70.png",
+      "sha256": "1271d20cc1a9bf70377efa23934f49c18b3da88f40a039b28d3215aeb931673c"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260620231012.png",
+      "local": "1191d550810e010c.png",
+      "sha256": "1191d550810e010ced8a33fe1ed0821e55b1de395b1dbf59be6baccc6c418e1e"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260620231110.png",
+      "local": "9900df5464eb767e.png",
+      "sha256": "9900df5464eb767ea19d113e20c733047255956df835186a0be915e49d7b4860"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260620231232.png",
+      "local": "f0eb0150920b5ed0.png",
+      "sha256": "f0eb0150920b5ed0c59033fbc8413b5020fbdf8effd2840a76a2571382129823"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260620231359.png",
+      "local": "94200505981dce80.png",
+      "sha256": "94200505981dce802497e4c4b1f72890069f1abc53fbd2df9bc894c518a316bc"
+    },
+    {
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20260628020615.png",
+      "local": "2f3315b44f9399c8.png",
+      "sha256": "2f3315b44f9399c83d5c91c8388de847e7a0b323aab2354cc4f4e0168c128087"
+    }
+  ],
+  "missing_attachments": []
+}
