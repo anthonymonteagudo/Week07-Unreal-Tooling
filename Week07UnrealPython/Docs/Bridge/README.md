@@ -212,6 +212,10 @@ Edit Mode roof selection with X-ray, a +40 cm Z move, and another Publish & Send
 Both existing Unreal instances updated from 180 to 220 cm. The original baseline
 scene is unchanged; `Samples/Bridge/BridgeCompare_UI_Rehearsal.blend` holds the
 saved UI edit. This does not establish a complete Maya UI rehearsal.
+`Samples/Bridge/UI-Rehearsal/publishes` preserves the two actual UI-produced
+FBX/JSON revision pairs with their original hashes. Both manifests record the
+baseline filename because the second publish preceded Save As; the mesh edit
+was in memory at that point. These are evidence copies, not the active inbox.
 See [actual captures, slide proposal and Karol download review](../../../Course/Slides/Week07/BridgeRehearsal20261013/index.html)
 and `UI-Rehearsal/verification.json`. The animated capture is a sequence of actual
 UI stills, not continuous video. The editor/map is left in the revised state;

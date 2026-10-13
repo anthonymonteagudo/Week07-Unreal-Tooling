@@ -1,0 +1,336 @@
+{
+  "schema_version": 1,
+  "steps": [
+    {
+      "id": "UE01",
+      "stage": "01 Unreal objects",
+      "title": "Unreal host and project",
+      "file": "ue/UE01_host.py",
+      "host": "unreal",
+      "prerequisites": "Unreal editor open, Python Script Plugin enabled.",
+      "expected": "Hello from Unreal, the engine version and the actual project directory.",
+      "recovery": "Read only. Rerun freely.",
+      "experiment": "Change the greeting and run again.",
+      "blocks": [
+        "setup",
+        "focus"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/SystemLibrary?application_version=5.7"
+      ]
+    },
+    {
+      "id": "UE02",
+      "stage": "01 Unreal objects",
+      "title": "Level selection",
+      "file": "ue/UE02_level_selection.py",
+      "host": "unreal",
+      "prerequisites": "Select the target cube, then try an empty selection.",
+      "expected": "Selected Actor count, labels and class names. Empty selection prints zero.",
+      "recovery": "Read only. Selection is manual.",
+      "experiment": "Select both cubes. Predict the count before running.",
+      "blocks": [
+        "setup",
+        "focus"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorActorSubsystem?application_version=5.7"
+      ]
+    },
+    {
+      "id": "UE03",
+      "stage": "01 Unreal objects",
+      "title": "Actor, component and mesh",
+      "file": "ue/UE03_components.py",
+      "host": "unreal",
+      "prerequisites": "Select a mesh Actor; repeat with a camera or light.",
+      "expected": "Component count and shared mesh path. Actors without mesh components print zero.",
+      "recovery": "Read only. No dependency on UE02's variables.",
+      "experiment": "Select two cubes sharing a mesh. Compare their object labels and mesh paths.",
+      "blocks": [
+        "setup",
+        "focus"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/StaticMeshComponent?application_version=5.7"
+      ]
+    },
+    {
+      "id": "UE04",
+      "stage": "02 Unreal asset inspection",
+      "title": "Content Browser selection",
+      "file": "ue/UE04_asset_selection.py",
+      "host": "unreal",
+      "prerequisites": "Select assets in the Content Browser, independently of the Outliner.",
+      "expected": "Asset count, names, class names and object paths.",
+      "recovery": "Read only. Rerun after changing asset selection.",
+      "experiment": "Select one texture and one mesh. Which class names print?",
+      "blocks": [
+        "setup",
+        "focus"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorUtilityLibrary?application_version=5.7"
+      ]
+    },
+    {
+      "id": "UE05",
+      "stage": "02 Unreal asset inspection",
+      "title": "Texture editor properties",
+      "file": "ue/UE05_texture_properties.py",
+      "host": "unreal",
+      "prerequisites": "Select textures; include a non-texture to test eligibility.",
+      "expected": "Texture/skipped counts, compression and sRGB values.",
+      "recovery": "Read only. Shared texture assets remain unchanged.",
+      "experiment": "Compare a normal map with a color texture.",
+      "blocks": [
+        "setup",
+        "focus"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/Texture?application_version=5.7"
+      ]
+    },
+    {
+      "id": "UE06",
+      "stage": "02 Unreal asset inspection",
+      "title": "Read-only validation",
+      "file": "ue/UE06_validation_report.py",
+      "host": "unreal",
+      "prerequisites": "Select textures. The illustrative normal-map suffix is _N.",
+      "expected": "Every mismatching _N texture and final checked/mismatch counts. Zero checked is explicitly inconclusive.",
+      "recovery": "Read only. No repair or saving.",
+      "experiment": "Change only the suffix rule for your project. Predict which assets are eligible.",
+      "blocks": [
+        "setup",
+        "focus",
+        "check"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/Texture?application_version=5.7"
+      ]
+    },
+    {
+      "id": "UE07",
+      "stage": "02 Unreal asset inspection",
+      "title": "Disk paths and asset paths",
+      "file": "ue/UE07_paths.py",
+      "host": "unreal",
+      "prerequisites": "Any Unreal project with the built-in BasicShapes cube available.",
+      "expected": "Project Content disk folder and loaded /Engine object path.",
+      "recovery": "Read only. Loading the cube does not place an Actor.",
+      "experiment": "Which path could a filesystem function inspect?",
+      "blocks": [
+        "setup",
+        "focus"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorAssetLibrary?application_version=5.7"
+      ]
+    },
+    {
+      "id": "BL01",
+      "stage": "03 Blender API comparison",
+      "title": "Blender host and selection",
+      "file": "blender/BL01_host_selection.py",
+      "host": "blender",
+      "prerequisites": "Blender Text Editor, preferably the prepared BridgeCompare.blend.",
+      "expected": "Blender version, mode, selection count, object names/types.",
+      "recovery": "Read only. Rerun freely.",
+      "experiment": "Select a camera and a mesh together. Predict their types.",
+      "blocks": [
+        "setup",
+        "focus"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://docs.blender.org/api/5.1/bpy.context.html"
+      ]
+    },
+    {
+      "id": "BL02",
+      "stage": "03 Blender API comparison",
+      "title": "Object and mesh data",
+      "file": "blender/BL02_object_mesh.py",
+      "host": "blender",
+      "prerequisites": "Select at least one mesh object.",
+      "expected": "Object location, mesh datablock name/users and source polygon count.",
+      "recovery": "Read only. No dependency on BL01's variables.",
+      "experiment": "With linked duplicates, compare Object names and mesh data names.",
+      "blocks": [
+        "setup",
+        "focus"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://docs.blender.org/api/5.1/bpy.types.Object.html"
+      ]
+    },
+    {
+      "id": "BL03",
+      "stage": "03 Blender API comparison",
+      "title": "Evaluated geometry",
+      "file": "blender/BL03_evaluated_mesh.py",
+      "host": "blender",
+      "prerequisites": "Object Mode with exactly one mesh selected. A modifier can make the contrast visible.",
+      "expected": "Source and evaluated polygon counts. They can be equal without a topology-changing modifier.",
+      "recovery": "Read only. Temporary mesh released in finally; modifier is not applied.",
+      "experiment": "Compare counts with a prepared subdivision modifier enabled and disabled.",
+      "blocks": [
+        "setup",
+        "focus"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://docs.blender.org/api/5.1/bpy.types.Object.html"
+      ]
+    },
+    {
+      "id": "BL04",
+      "stage": "03 Blender API comparison",
+      "title": "One FBX export",
+      "file": "blender/BL04_export_fbx.py",
+      "host": "blender",
+      "prerequisites": "Object Mode, one unrigged mesh, no shape keys. FBX exporter available.",
+      "expected": "A nonempty FBX in a new temporary folder; exact path prints.",
+      "recovery": "Writes a new temporary folder each run. Remove only the printed lesson folder afterward. No scene save.",
+      "experiment": "Read use_selection and bake_anim. Predict their effect on scope.",
+      "blocks": [
+        "setup",
+        "focus",
+        "check"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://docs.blender.org/api/5.1/bpy.ops.export_scene.html"
+      ]
+    },
+    {
+      "id": "UE11",
+      "stage": "04 Import preparation and execution",
+      "title": "Prepare an import task",
+      "file": "ue/UE11_import_task.py",
+      "host": "unreal",
+      "prerequisites": "Week07UnrealPython project with Samples/Bridge/Handoffs included.",
+      "expected": "Prepared source and destination. No new Unreal asset.",
+      "recovery": "Read only. Constructs task/options objects but does not execute an import.",
+      "experiment": "Change destination_name in this preparation-only example. What would it identify?",
+      "blocks": [
+        "setup",
+        "options",
+        "task",
+        "check"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7"
+      ]
+    },
+    {
+      "id": "UE12",
+      "stage": "04 Import preparation and execution",
+      "title": "Import and inspect",
+      "file": "ue/UE12_import_and_verify.py",
+      "host": "unreal",
+      "prerequisites": "Same project, PIE stopped, /Game/Week07/APILessons/SM_API_Wedge absent.",
+      "expected": "One unsaved StaticMesh at the exact lesson path, returned paths and bounds.",
+      "recovery": "Creates an unsaved lesson asset. Refuses repeat overwrite. After inspection manually remove only that lesson asset, or use a fresh disposable project copy. Do not assume Undo reverses import.",
+      "experiment": "Compare printed bounds with the supplied wedge's 120 x 60 x 180 cm reference. No size check is implied by file existence.",
+      "blocks": [
+        "setup",
+        "options",
+        "task",
+        "eligibility",
+        "focus",
+        "check"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7"
+      ]
+    },
+    {
+      "id": "UE08",
+      "stage": "05 Controlled edits and verification",
+      "title": "One material override",
+      "file": "ue/UE08_material_override.py",
+      "host": "unreal",
+      "prerequisites": "W07_MaterialVFXLab, PIE stopped. Select only tagged W07_Crate_Target and one existing material/instance.",
+      "expected": "Target slot zero changes; old/new materials print. Protected cube remains unchanged.",
+      "recovery": "One viewport Undo restores the assignment. No new asset or save. Already assigned material creates no new Undo entry.",
+      "experiment": "Try selecting the protected cube. Confirm the check blocks before editing.",
+      "blocks": [
+        "setup",
+        "eligibility",
+        "focus",
+        "check"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/ScopedEditorTransaction?application_version=5.7"
+      ]
+    },
+    {
+      "id": "UE09",
+      "stage": "05 Controlled edits and verification",
+      "title": "Material parameter readback",
+      "file": "ue/UE09_material_readback.py",
+      "host": "unreal",
+      "prerequisites": "Select exactly one MaterialInstanceConstant in the Content Browser.",
+      "expected": "Texture parameter names and resolved texture paths, or None. Zero parameters prints zero.",
+      "recovery": "Read only. Use the instance from the prepared Material/VFX demo.",
+      "experiment": "Compare an expected texture mapping with the reported value.",
+      "blocks": [
+        "setup",
+        "focus"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/MaterialEditingLibrary?application_version=5.7"
+      ]
+    },
+    {
+      "id": "UE10",
+      "stage": "05 Controlled edits and verification",
+      "title": "Niagara component inspection",
+      "file": "ue/UE10_niagara_components.py",
+      "host": "unreal",
+      "prerequisites": "Select the effects produced by the prepared VFX tool, or compare a non-effect Actor.",
+      "expected": "Niagara component counts and referenced system paths. No effects are spawned.",
+      "recovery": "Read only. Use the prepared tool for placement and its demonstrated Undo.",
+      "experiment": "Would three successful placements establish GPU frame cost?",
+      "blocks": [
+        "setup",
+        "focus"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/NiagaraComponent?application_version=5.7"
+      ]
+    },
+    {
+      "id": "PY01",
+      "stage": "06 Connection to the full tool",
+      "title": "A preview snapshot",
+      "file": "python/PY01_preview_snapshot.py",
+      "host": "python",
+      "prerequisites": "Ordinary Python, Unreal Python or Blender Python; no host module required.",
+      "expected": "The changed target differs from the reviewed copy, so BLOCKED prints.",
+      "recovery": "Only local teaching dictionaries change. Rerun resets them.",
+      "experiment": "Comment out the target change and predict the other branch.",
+      "blocks": [
+        "setup",
+        "focus"
+      ],
+      "namespace": "Independent full file. Blocks share this file's namespace in displayed order.",
+      "references": []
+    }
+  ]
+}

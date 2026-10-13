@@ -4263,6 +4263,10 @@
       "bytes": 241
     },
     {
+      "path": "Week07UnrealPython/Content/Python/week07_lessons.py",
+      "bytes": 2692
+    },
+    {
       "path": "Week07UnrealPython/Content/Python/week07_tools.py",
       "bytes": 4174
     },
@@ -4496,7 +4500,7 @@
     },
     {
       "path": "Week07UnrealPython/Deliverables/Week07_Bridge_Student_Pack.zip",
-      "bytes": 1752753
+      "bytes": 1761615
     },
     {
       "path": "Week07UnrealPython/Docs/DEMO_SEQUENCE.md",
@@ -4516,7 +4520,7 @@
     },
     {
       "path": "Week07UnrealPython/Docs/Bridge/README.md",
-      "bytes": 13828
+      "bytes": 14138
     },
     {
       "path": "Week07UnrealPython/Docs/Bridge/unreal-comparison.png",
@@ -4727,6 +4731,78 @@
       "bytes": 51522
     },
     {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/sequence.json",
+      "bytes": 14934
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/blender/BL01_host_selection.py",
+      "bytes": 323
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/blender/BL02_object_mesh.py",
+      "bytes": 461
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/blender/BL03_evaluated_mesh.py",
+      "bytes": 598
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/blender/BL04_export_fbx.py",
+      "bytes": 1273
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/python/PY01_preview_snapshot.py",
+      "bytes": 367
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/ue/UE01_host.py",
+      "bytes": 232
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/ue/UE02_level_selection.py",
+      "bytes": 353
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/ue/UE03_components.py",
+      "bytes": 575
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/ue/UE04_asset_selection.py",
+      "bytes": 327
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/ue/UE05_texture_properties.py",
+      "bytes": 513
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/ue/UE06_validation_report.py",
+      "bytes": 774
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/ue/UE07_paths.py",
+      "bytes": 430
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/ue/UE08_material_override.py",
+      "bytes": 1973
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/ue/UE09_material_readback.py",
+      "bytes": 669
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/ue/UE10_niagara_components.py",
+      "bytes": 552
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/ue/UE11_import_task.py",
+      "bytes": 1454
+    },
+    {
+      "path": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/ue/UE12_import_and_verify.py",
+      "bytes": 2651
+    },
+    {
       "path": "Week07UnrealPython/lesson_materials/week_07_unreal_python/README.md",
       "bytes": 4275
     },
@@ -4895,8 +4971,32 @@
       "bytes": 30528
     },
     {
+      "path": "Week07UnrealPython/Samples/Bridge/UI-Rehearsal/publishes/SM_Compare_Blender/0e540b1873e5402da1001c053d512121/manifest.json",
+      "bytes": 712
+    },
+    {
+      "path": "Week07UnrealPython/Samples/Bridge/UI-Rehearsal/publishes/SM_Compare_Blender/0e540b1873e5402da1001c053d512121/SM_Compare_Blender.fbx",
+      "bytes": 11740
+    },
+    {
+      "path": "Week07UnrealPython/Samples/Bridge/UI-Rehearsal/publishes/SM_Compare_Blender/acdb7d1c39554c28b1aaadc3824fa2cd/manifest.json",
+      "bytes": 712
+    },
+    {
+      "path": "Week07UnrealPython/Samples/Bridge/UI-Rehearsal/publishes/SM_Compare_Blender/acdb7d1c39554c28b1aaadc3824fa2cd/SM_Compare_Blender.fbx",
+      "bytes": 11740
+    },
+    {
+      "path": "Week07UnrealPython/Scripts/api_lessons.py",
+      "bytes": 1427
+    },
+    {
       "path": "Week07UnrealPython/Scripts/assistants.py",
       "bytes": 2300
+    },
+    {
+      "path": "Week07UnrealPython/Scripts/build_api_lesson_catalog.py",
+      "bytes": 8262
     },
     {
       "path": "Week07UnrealPython/Scripts/build_week07.py",
@@ -8776,7 +8876,7 @@
     },
     {
       "path": "Course/Readers/readme-78ab53f5.html",
-      "bytes": 18633
+      "bytes": 18954
     },
     {
       "path": "Course/Readers/readme-78dced28.html",
