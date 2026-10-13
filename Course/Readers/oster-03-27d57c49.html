@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>oster-03</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/PrepNotes/sources/oster-03.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/PrepNotes/sources/oster-03.md<br>Source modified: 2026-10-11T18:29:49.849Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><pre><code>import unreal
+
+
+def listAssetPaths():
+
+    EAL = unreal.EditorAssetLibrary
+  
+    assetPaths = EAL.list_assets(&#39;/Game&#39;, recursive=True, include_folder=False)
+  
+    unreal.log(f&quot;Found {len(assetPaths)} assets&quot;)
+  
+    for assetPath in assetPaths:
+
+        unreal.log(assetPath)
+
+
+def getSelectionContentBrowser():
+
+    EUL = unreal.EditorUtilityLibrary
+
+    selectedAssets = EUL.get_selected_assets()
+
+    for selectedAsset in selectedAssets: print(selectedAssets)
+  
+
+def getAllActors():
+
+    EAS = unreal.EditorActorSubsystem()
+
+
+    actors = EAS.get_all_level_actors()
+
+  
+    for actor in actors: print(actor)
+  
+
+def getSelectedActors():
+
+    EAS = unreal.EditorActorSubsystem()
+  
+    selectedActors = EAS.get_selected_level_actors()
+
+    for selectedActor in selectedActors: print(selectedActor)
+    
+</code></pre>
+</main></body></html>

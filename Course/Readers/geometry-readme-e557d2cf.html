@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EX20 editable geometry sources</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../TechArtMuseumIntegration/Scripts/SandboxGrid/Sources/Geometry_README.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: TechArtMuseumIntegration/Scripts/SandboxGrid/Sources/Geometry_README.md<br>Source modified: 2026-09-09T19:39:37.067Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><h1 id="ex20-editable-geometry-sources">EX20 editable geometry sources</h1>
+<p>The build extracts the existing museum&#39;s <code>01_synthetic_flipped_normals</code> and
+<code>04_synthetic_open_boundary</code> source meshes. It saves both extracted Incorrect
+and locally repaired Correct OBJ files beside this document. These are the
+existing diagnostic objects, with their 200 cm dimensions and pivot retained.
+JSON snapshots preserve explicit vertex IDs, triangle IDs and per-corner UVs.</p>
+<p>The original imported meshes point at an unavailable <code>D:/Personal Projects/...</code>
+FBX location. No files at that location are edited. For a student repair, import
+the supplied Incorrect OBJ into Maya and export a new FBX. Use <strong>Reimport With
+New File</strong> on the sandbox Incorrect asset to select that FBX, rather than using
+its inherited legacy import filename. Preserve material slot count and assign
+the sandbox <code>M_EX20_OneSidedNeutral</code> material after reimport if required.</p>
+<p>Coordinates are centimeters with Z up, matching the source in Unreal. Configure
+Maya for centimeters and Z up before importing, or make an explicit equivalent
+axis conversion and reverse that conversion on export. Keep the pivot at the
+origin and object scale at one. The source&#39;s imported UVs are all <code>(0,0)</code>; this
+is an untextured topology exercise, so UV authoring is not an additional fault.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Pair</th>
+<th>Incorrect</th>
+<th>Exact repair</th>
+<th>Technical verification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ReversedFace</td>
+<td>One +Y face has reversed winding; two triangles (source IDs 2 and 3).</td>
+<td>Reverse only that face&#39;s winding and normals.</td>
+<td>12 triangles before and after; 8 geometric vertices; zero border/nonmanifold edges; consistent winding.</td>
+</tr>
+<tr>
+<td>OpenBoundary</td>
+<td>The -X quad face is absent.</td>
+<td>Fill the single planar four-edge boundary, with winding consistent with neighboring faces.</td>
+<td>10 triangles becomes 12; 8 geometric vertices; four border edges becomes zero; no change to bounds.</td>
+</tr>
+</tbody></table></div>
+<p>Both sandbox variants disable Nanite and use the same opaque, one-sided neutral
+material. This keeps missing/backfacing polygons inspectable with standard
+triangle rendering. The shared rendering changes are controls, rather than
+additional Incorrect faults. Review the fault from the front of each grid bay,
+then orbit to distinguish a backface from an absent polygon.</p>
+<p>The OBJ and topology checks are generated/verified by the headless build. A
+Maya import/export/reimport round trip has not been executed in this task.</p>
+</main></body></html>

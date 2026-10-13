@@ -1,0 +1,206 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 7 · Material &amp; VFX Tools</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/Docs/Students/START_HERE.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/Docs/Students/START_HERE.md<br>Source modified: 2026-10-13T04:15:59.032Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#week-7-material-amp-vfx-tools">Week 7 · Material &amp;amp; VFX Tools</a></li><li><a href="#start-in-practice-mode">Start in practice mode</a></li><li><a href="#task-1-set-up-a-material-instance">Task 1 · Set up a material instance</a></li><li><a href="#task-2-place-prepared-vfx">Task 2 · Place prepared VFX</a></li><li><a href="#see-the-same-tools-evolve">See the same tools evolve</a></li><li><a href="#read-feedback-before-retrying">Read feedback before retrying</a></li><li><a href="#words-used-in-the-tools">Words used in the tools</a></li><li><a href="#when-your-instructor-demonstrates-the-unreal-version">When your instructor demonstrates the Unreal version</a></li><li><a href="#what-passing-validation-means">What passing validation means</a></li><li><a href="#follow-the-code-after-trying-the-task">Follow the code after trying the task</a></li></ul></details><h1 id="week-7-material-amp-vfx-tools">Week 7 · Material &amp; VFX Tools</h1>
+<p><strong>Your workflow: Choose → Preview → Apply → Check.</strong></p>
+<p>Use two small tools to automate repeated work. Material Setup creates and assigns
+a material instance. VFX Placement places a prepared effect at selected markers.
+Both show the proposed changes before you apply them.</p>
+<h2 id="start-in-practice-mode">Start in practice mode</h2>
+<p>Open <code>Week07PythonTools.code-workspace</code> in VS Code. Choose <strong>Terminal → Run Task →
+UI OFFLINE — Week 7: Material and VFX assistants</strong>.</p>
+<p>Alternatively, from the project folder:</p>
+<pre><code class="language-powershell">./.venv/Scripts/python.exe Scripts/assistants.py
+</code></pre>
+<p>The window must say <strong>PRACTICE MODE</strong>. This is a real PySide interface using sample
+data. No Unreal session is needed, and no files or Actors are created by the sample.
+Selections are supplied for you; clicking in Unreal will not affect practice mode.
+If the window cannot start, ask your instructor to check the project environment.</p>
+<p><strong>Reset practice data</strong> restores both sample workflows. Your input fields remain
+as you entered them; the current preview is cleared. Closing/reopening also starts
+with a fresh sample.</p>
+<h2 id="task-1-set-up-a-material-instance">Task 1 · Set up a material instance</h2>
+<p><strong>Goal:</strong> assign one prepared surface to the sample crate.</p>
+<ol>
+<li>Open <strong>Material Setup</strong>. Leave <strong>Parent material</strong> on <em>Prepared surface · practice</em>.</li>
+<li>Use <strong>MI_Crate_Demo</strong> as the new instance name and material slot <strong>0</strong>.
+This practice crate has only slot 0; choosing another slot produces a message
+asking you to return to slot 0 and preview again.</li>
+<li>Select <strong>Preview changes</strong>. Read the summary: <strong>1 new material instance · 1 component assignment</strong>.</li>
+<li>In the table, identify the parent, the three textures and the component receiving
+the assignment. Check the <strong>Before</strong> and <strong>After Apply</strong> columns.</li>
+<li>Select <strong>Apply: create 1 instance</strong>. The status becomes <strong>Completed</strong>, and the
+table changes to <strong>Applied change</strong>. Apply is disabled because that preview has
+already been used.</li>
+<li>Select <strong>Preview changes</strong> again with the same name. Creation should be blocked
+because the instance already exists. Choose a different name or reset the sample.</li>
+</ol>
+<p><strong>Check your understanding:</strong> did this task create a new material graph, change the
+parent, change the shared mesh asset, or assign a component override?</p>
+<p><img src="../../Week07UnrealPython/Docs/UI/captures/material_preview.png" alt="Material Setup preview in practice mode"></p>
+<h2 id="task-2-place-prepared-vfx">Task 2 · Place prepared VFX</h2>
+<p><strong>Goal:</strong> place one prepared steam effect at each of three sample markers.</p>
+<ol>
+<li>Open <strong>VFX Placement</strong>. Choose <em>Steam · practice</em> and leave <strong>Effect scale</strong> at <strong>1.00×</strong>.</li>
+<li>Select <strong>Preview changes</strong>. Expect <strong>3 anchors → 3 new effects</strong> and a loaded
+component count changing from <strong>0 to 3</strong>.</li>
+<li>Review each marker&#39;s position in centimeters and rotation in degrees.</li>
+<li>Select <strong>Apply: place 3 effects</strong>. Check the completion message and applied rows.</li>
+<li>Preview again using the same markers. Duplicate placement should be blocked.</li>
+<li>Select <strong>Reset practice data</strong> to repeat the task.</li>
+</ol>
+<p><strong>Check your understanding:</strong> scale changes the effect&#39;s size. Does that tell you
+its particle count, screen coverage or frame cost? Why should a placement tool
+refuse to pile repeated effects onto the same marker?</p>
+<p><img src="../../Week07UnrealPython/Docs/UI/captures/vfx_preview.png" alt="VFX Placement preview in practice mode"></p>
+<h2 id="see-the-same-tools-evolve">See the same tools evolve</h2>
+<p>The default practice tool is <strong>Stage 3 · Refined</strong>. For the UI/UX comparison, use
+<strong>UI OFFLINE — Week 7: open teaching stage</strong> and choose 1, 2 or 3. Stage 1 shows a
+text review, stage 2 adds comparison tables and guidance, and stage 3 adds progress
+cues and counted actions. Both tasks and their safeguards remain the same.
+Earlier stages use the button <strong>Apply reviewed changes</strong>. Each launch starts with
+fresh practice data. Follow <a href="readme-44ea130d.html">the stage guide</a>
+when your instructor demonstrates the progression.</p>
+<h2 id="read-feedback-before-retrying">Read feedback before retrying</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Message</th>
+<th>Meaning</th>
+<th>Your next action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ready to preview</td>
+<td>There is no reviewed plan yet.</td>
+<td>Choose inputs and preview.</td>
+</tr>
+<tr>
+<td>Ready to apply</td>
+<td>The proposed changes passed the current checks.</td>
+<td>Review the table before applying.</td>
+</tr>
+<tr>
+<td>Review needed</td>
+<td>A density warning needs attention.</td>
+<td>Read the placement count; reduce the live selection if appropriate. Acknowledge only after reviewing.</td>
+</tr>
+<tr>
+<td>Needs attention</td>
+<td>Preview could not produce an acceptable plan.</td>
+<td>Fix the named problem and preview again.</td>
+</tr>
+<tr>
+<td>Completed</td>
+<td>The operation returned successfully.</td>
+<td>Inspect the applied result; don&#39;t repeat Apply.</td>
+</tr>
+<tr>
+<td>Apply stopped</td>
+<td>The operation refused or failed.</td>
+<td>Read the message and inspect any reported partial result before making a fresh preview.</td>
+</tr>
+<tr>
+<td>Instructor setup needed</td>
+<td>A prepared parent or reviewed effect is unavailable.</td>
+<td>Ask your instructor; do not guess asset paths or bypass checks.</td>
+</tr>
+</tbody></table></div>
+<p>Changing a field or switching tools clears the preview. Apply rechecks the current
+selection and scene. A checked warning box never overrides a hard placement limit.</p>
+<h2 id="words-used-in-the-tools">Words used in the tools</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning here</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Parent material</td>
+<td>An existing material that exposes parameters. The tool does not edit its graph.</td>
+</tr>
+<tr>
+<td>Material instance</td>
+<td>An asset using that parent with particular parameter values, such as texture references.</td>
+</tr>
+<tr>
+<td>Material slot</td>
+<td>A numbered assignment on a mesh component. The first slot is 0.</td>
+</tr>
+<tr>
+<td>Component override</td>
+<td>A material assignment for that Actor&#39;s component; the shared mesh asset is unchanged.</td>
+</tr>
+<tr>
+<td>ORM</td>
+<td>One texture carrying occlusion, roughness and metallic data in separate channels.</td>
+</tr>
+<tr>
+<td>Anchor / marker</td>
+<td>A selected Actor whose position and rotation define where an effect goes.</td>
+</tr>
+<tr>
+<td>Effect preset</td>
+<td>An instructor-reviewed Niagara System plus placement policy.</td>
+</tr>
+<tr>
+<td>Preview</td>
+<td>A proposed operation; reading it does not apply it.</td>
+</tr>
+</tbody></table></div>
+<h2 id="when-your-instructor-demonstrates-the-unreal-version">When your instructor demonstrates the Unreal version</h2>
+<p>The header says <strong>UNREAL EDITOR</strong>. Material Setup reads texture selection from the
+Content Browser and Actor selection from the viewport/Outliner. These are different
+selections. VFX Placement reads the instructor&#39;s tagged markers. The prepared
+choices come from the project catalogue, not from student-entered paths.</p>
+<p>Check the actual result in the editor: material assignments on the intended slots,
+and effect placement/orientation at the intended markers. The tool does not save
+automatically. Assignment Undo and new material-asset cleanup are separate concerns;
+follow your instructor&#39;s save/reset instructions. The practice reset button is not
+available in the live tool.</p>
+<p>The native dockable Unreal interface is still being prepared. Current screenshots
+show <strong>PySide practice mode</strong>, not a completed native Unreal tab.</p>
+<h2 id="what-passing-validation-means">What passing validation means</h2>
+<p>The tool checks things it can establish: known inputs, counts, spacing, duplicate
+placements and whether the reviewed plan is still current. Its VFX policy is a
+classroom guardrail, not a measured performance budget. Fewer effects can still be
+expensive. Learn to say <strong>“placement checks passed”</strong>, then measure performance in
+the appropriate rendering/optimization exercise.</p>
+<h2 id="follow-the-code-after-trying-the-task">Follow the code after trying the task</h2>
+<p>Read only the current step; you do not need to understand the whole project at once.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>File</th>
+<th>Question to answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 · Inputs</td>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_tooling/workflow_sample.py">workflow_sample.py</a></td>
+<td>What data describes a texture, target or marker?</td>
+</tr>
+<tr>
+<td>2 · Rules</td>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_tooling/workflows.py">workflows.py</a></td>
+<td>What must be true before a plan can be created?</td>
+</tr>
+<tr>
+<td>3 · Review</td>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_tooling/workflow_presentation.py">workflow_presentation.py</a></td>
+<td>How does plan data become readable before/after rows?</td>
+</tr>
+<tr>
+<td>4 · Interaction</td>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_tooling/ui/assistants.py">assistants.py</a></td>
+<td>Which events invalidate a preview or enable Apply?</td>
+</tr>
+<tr>
+<td>5 · Host boundary</td>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_tooling/editor/workflow_backend.py">workflow_backend.py</a></td>
+<td>Where do data operations become actual Unreal API calls?</td>
+</tr>
+</tbody></table></div>
+<p>Optional Python recap: <a href="readme-680db8cd.html">the numbered checkpoints</a>.
+Those checkpoints introduce the same read → plan → apply distinction with a smaller
+prop-cleanup example. They are reference exercises, not additional required tasks.</p>
+</main></body></html>

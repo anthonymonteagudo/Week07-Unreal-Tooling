@@ -1,0 +1,180 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sandbox Grid — Instructor Answer Key</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../TechArtMuseumIntegration/Docs/SandboxGrid/INSTRUCTOR_KEY.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: TechArtMuseumIntegration/Docs/SandboxGrid/INSTRUCTOR_KEY.md<br>Source modified: 2026-09-09T19:53:08.522Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#sandbox-grid-instructor-answer-key">Sandbox Grid — Instructor Answer Key</a></li><li><a href="#01-exlod-lod-generation-and-distance-switching">01 — EXLOD: LOD generation and distance switching</a></li><li><a href="#02-exmat-a-material-face-assignments">02 — EXMAT-A: Material face assignments</a></li><li><a href="#03-exmat-b-partial-coverage-blend-mode">03 — EXMAT-B: Partial coverage / blend mode</a></li><li><a href="#04-extexmip-texture-minification-mips">04 — EXTEXMIP: Texture minification / mips</a></li><li><a href="#05-ex20-a-geometry-reversed-face">05 — EX20-A: Geometry: reversed face</a></li><li><a href="#06-ex20-b-geometry-open-boundary">06 — EX20-B: Geometry: open boundary</a></li><li><a href="#07-exinst-instancing-the-same-scene-different-structure">07 — EXINST: Instancing: the same scene, different structure</a></li><li><a href="#08-ex23-color-and-numeric-texture-data">08 — EX23: Color and numeric texture data</a></li><li><a href="#09-ex24-normal-map-green-convention">09 — EX24: Normal-map green convention</a></li><li><a href="#10-ex29-uv-orientation-sampling">10 — EX29: UV orientation / sampling</a></li><li><a href="#11-exa-animation-playback-timing">11 — EXA: Animation: playback timing</a></li><li><a href="#12-ex21-morph-targets-missing-payload">12 — EX21: Morph targets: missing payload</a></li><li><a href="#source-handling-and-deferred-work">Source handling and deferred work</a></li></ul></details><h1 id="sandbox-grid-instructor-answer-key">Sandbox Grid — Instructor Answer Key</h1>
+<p><strong>Instructor-only.</strong> This document reveals every fault and repair. Keep it separate from student observation prompts.</p>
+<p>The saved map contains 12 controlled pairs. Asset authoring succeeded; fresh-load validation, live rendering and the limited Play probe are pending at this revision. A configured pair is not a claim that its visual symptom or physical input has been tested.</p>
+<p>For every repair: keep Correct as the reference; change the authoritative Incorrect source/property; preserve the pair&#39;s unrelated geometry, materials, scale, lighting and playback. Re-run the technical check and the visible comparison. The builder intentionally restores the authored defects on rerun.</p>
+<p>The front-facing gold-zone R answer actors show a concise fault/fix. This document adds the full verification and source limits. E inspection is an entry smoke test; exhibit pairs use observation-only presentation actors.</p>
+<h2 id="01-exlod-lod-generation-and-distance-switching">01 — EXLOD: LOD generation and distance switching</h2>
+<p>Bay origin: <strong>(0, 0, 0) cm</strong>. Camera: <code>CAM_EXLOD_Near</code>.</p>
+<p><strong>Objective:</strong> Relate projected size to LOD choice, triangle cost, and silhouette preservation.</p>
+<p><strong>Student observation cue:</strong> Walk backward through the marked views. Compare the silhouettes and the triangle evidence.</p>
+<p><strong>Break:</strong> Duplicate Correct, then remove LOD1 and LOD2 from the duplicate. Keep LOD0, materials, collision, display scale and Nanite state matched.</p>
+<p><strong>Actual Incorrect contract:</strong> Incorrect is missing LOD1 and LOD2; its dense LOD0 remains active at every distance.</p>
+<p><strong>Intended fix:</strong> Open SM_InductionCoil_LOD_Incorrect. Generate LOD1 at 35% and LOD2 at 10%; disable Auto Compute LOD Screen Size and set 1.00 / 0.50 / 0.30. Keep Nanite disabled. After rebuilding, copy Correct bounds extensions to retain matched teaching bounds.</p>
+<p><strong>Verify:</strong> Confirm three descending render triangle counts and matched LOD0/materials/collision, then check silhouette and transitions at near, mid, and far marks using LOD Coloration or the Static Mesh Editor LOD picker.</p>
+<p><strong>Evidence and limits:</strong> Correct render triangle counts: 150,000 / 52,500 / 15,000; Incorrect: 150,000 only. Fresh-load validation confirms screen thresholds 1.00 / 0.50 / 0.30 and reduction fractions 1.0 / 0.35 / 0.10. Automatic rendered switching remains a separate review gate. Both copies disable Nanite to make the conventional-chain defect observable. Rear forced-LOD witnesses are labeled separately from the automatic main specimens. Bounds extensions are normalized on both copies to keep teaching bounds matched.</p>
+<p><strong>Saved assessment assets:</strong></p>
+<ul>
+<li>Correct: <code>/Game/TechArtMuseum/SandboxGrid/EXLOD/SM_InductionCoil_LOD_Correct</code></li>
+<li>Incorrect: <code>/Game/TechArtMuseum/SandboxGrid/EXLOD/SM_InductionCoil_LOD_Incorrect</code></li>
+</ul>
+<h2 id="02-exmat-a-material-face-assignments">02 — EXMAT-A: Material face assignments</h2>
+<p>Bay origin: <strong>(2200, 0, 0) cm</strong>. Camera: <code>CAM_EXMAT-A_Near</code>.</p>
+<p><strong>Objective:</strong> Trace face material IDs from named source groups to Unreal slots.</p>
+<p><strong>Student observation cue:</strong> The required contract is GOLD upper region / BLUE lower region. Compare region assignments.</p>
+<p><strong>Break:</strong> Duplicate Correct source geometry. Exchange the two regions&#39; face material IDs while retaining the same named slots and material objects.</p>
+<p><strong>Actual Incorrect contract:</strong> The face-to-material assignments of the two regions are exchanged. Slot names/order and materials remain identical.</p>
+<p><strong>Intended fix:</strong> In Materials_SlotContract_Incorrect.obj (Maya), assign upper faces to 01_Upper_Gold and lower faces to 02_Lower_Blue. Export/reimport with stable names; quick Unreal repair swaps section material indices.</p>
+<p><strong>Verify:</strong> Upper is gold and lower is blue; 24 triangles, 2 named slots, identical bounds/pivot and actor scale. Reimport preserves named assignments.</p>
+<p><strong>Evidence and limits:</strong> Both meshes have 24 triangles and two named slots: 01_Upper_Gold and 02_Lower_Blue. Sources: Scripts/SandboxGrid/Sources/Materials_SlotContract_Correct.obj, _Incorrect.obj and Materials_SlotContract.mtl (Maya Y-up centimeters). This tests face assignment, not a simultaneous slot-order change.</p>
+<p><strong>Saved assessment assets:</strong></p>
+<ul>
+<li>Correct: <code>/Game/TechArtMuseum/SandboxGrid/Meshes/SM_EXMAT_A_Correct</code></li>
+<li>Incorrect: <code>/Game/TechArtMuseum/SandboxGrid/Meshes/SM_EXMAT_A_Incorrect</code></li>
+</ul>
+<h2 id="03-exmat-b-partial-coverage-blend-mode">03 — EXMAT-B: Partial coverage / blend mode</h2>
+<p>Bay origin: <strong>(4400, 0, 0) cm</strong>. Camera: <code>CAM_EXMAT-B_Near</code>.</p>
+<p><strong>Objective:</strong> Choose a blend mode from the required surface coverage contract.</p>
+<p><strong>Student observation cue:</strong> Requirement: read the striped target THROUGH the colored torus surface. Move sideways and compare occlusion.</p>
+<p><strong>Break:</strong> Duplicate the controlled Translucent material and change only Blend Mode to Opaque. Leave its 0.35 opacity input connected.</p>
+<p><strong>Actual Incorrect contract:</strong> Incorrect material uses Opaque instead of Translucent; the same 0.35 Opacity graph is ignored.</p>
+<p><strong>Intended fix:</strong> Open M_EXMAT_B_Incorrect_Opaque and change Blend Mode to Translucent. Leave opacity 0.35, geometry, material slots and transforms unchanged.</p>
+<p><strong>Verify:</strong> The target remains visible through the torus surface from near and oblique views; both opacity inputs are 0.35 and Blend Mode is Translucent.</p>
+<p><strong>Evidence and limits:</strong> The material graph is cloned from the colleague&#39;s MM_Alpha_01 family, with the same 0.35 opacity on both. The pre-existing MM_Alpha_02 is not treated as an otherwise-identical control. The striped target sits behind the torus so surface transmission can be compared.</p>
+<p><strong>Saved assessment assets:</strong></p>
+<ul>
+<li>Correct: <code>/Game/TechArtMuseum/SandboxGrid/Meshes/SM_EXMAT_B_Correct</code></li>
+<li>Incorrect: <code>/Game/TechArtMuseum/SandboxGrid/Meshes/SM_EXMAT_B_Incorrect</code></li>
+</ul>
+<h2 id="04-extexmip-texture-minification-mips">04 — EXTEXMIP: Texture minification / mips</h2>
+<p>Bay origin: <strong>(0, 2800, 0) cm</strong>. Camera: <code>CAM_EXTEXMIP_Near</code>.</p>
+<p><strong>Objective:</strong> Connect texture minification to aliasing, shimmer, and mip generation.</p>
+<p><strong>Student observation cue:</strong> Four bands contain 1 / 2 / 4 / 8-pixel checks. Compare near, mid, far, then move sideways.</p>
+<p><strong>Break:</strong> Duplicate Correct texture and change only Mip Gen Settings to NoMipmaps.</p>
+<p><strong>Actual Incorrect contract:</strong> Only Mip Gen Settings changes: Incorrect is NoMipmaps. Compression, filtering, pixels and shader are matched.</p>
+<p><strong>Intended fix:</strong> Set T_EXTEXMIP_Incorrect_NoMips &gt; Mip Gen Settings to SimpleAverage (the chosen baseline). Save/rebuild the texture.</p>
+<p><strong>Verify:</strong> Both source previews match at 1:1. Generated mip chain exists; distant high-frequency bands converge without unstable patterns while walking.</p>
+<p><strong>Evidence and limits:</strong> Source: Materials_MipFrequency_1024.png, four 1/2/4/8-pixel checker bands. Expected generated texture chain: 11 levels versus one. Both use identical pixels, TC_DEFAULT, sRGB=True, matched filtering and streaming settings, and the same unlit shader. TAA/TSR may mask temporal shimmer; use the same AA conditions on both. Do not describe a static screenshot as a temporal shimmer test.</p>
+<p><strong>Saved assessment assets:</strong></p>
+<ul>
+<li>Correct: <code>/Game/TechArtMuseum/SandboxGrid/Meshes/SM_EXTEXMIP_Correct</code></li>
+<li>Incorrect: <code>/Game/TechArtMuseum/SandboxGrid/Meshes/SM_EXTEXMIP_Incorrect</code></li>
+</ul>
+<h2 id="05-ex20-a-geometry-reversed-face">05 — EX20-A: Geometry: reversed face</h2>
+<p>Bay origin: <strong>(2200, 2800, 0) cm</strong>. Camera: <code>CAM_EX20-A_Near</code>.</p>
+<p><strong>Objective:</strong> Distinguish face winding from a missing polygon; repair only the owning face.</p>
+<p><strong>Student observation cue:</strong> Orbit the object: is the missing-looking region an absent face or a backface? Compare one-sided shading.</p>
+<p><strong>Break:</strong> Duplicate Correct geometry and reverse only the +Y quad face (source triangles 2 and 3). Both grid actors use yaw 180 so the fault faces the viewer.</p>
+<p><strong>Actual Incorrect contract:</strong> One face has reversed winding (2 source triangle(s)).</p>
+<p><strong>Intended fix:</strong> In the editable Incorrect OBJ, select only the reversed face and reverse its winding/normals; export with the same units, axes and UVs. Reimport the sandbox Incorrect asset.</p>
+<p><strong>Verify:</strong> Orbit from both sides: closed outward-facing surface matches Correct. Check zero border/nonmanifold edges, consistent winding, unchanged bounds and unaffected UVs.</p>
+<p><strong>Evidence and limits:</strong> Correct and Incorrect each retain 12 triangles, 8 geometric positions, zero border/nonmanifold edges and identical bounds. Only Incorrect has the two reversed triangles. Editable source: Geometry_EX20_ReversedFace_Correct.obj / _Incorrect.obj. The source UVs are all zero; this is an untextured topology repair.</p>
+<p><strong>Saved assessment assets:</strong></p>
+<ul>
+<li>Correct: <code>/Game/TechArtMuseum/SandboxGrid/Geometry/SM_EX20_ReversedFace_Correct.SM_EX20_ReversedFace_Correct</code></li>
+<li>Incorrect: <code>/Game/TechArtMuseum/SandboxGrid/Geometry/SM_EX20_ReversedFace_Incorrect.SM_EX20_ReversedFace_Incorrect</code></li>
+</ul>
+<h2 id="06-ex20-b-geometry-open-boundary">06 — EX20-B: Geometry: open boundary</h2>
+<p>Bay origin: <strong>(4400, 2800, 0) cm</strong>. Camera: <code>CAM_EX20-B_Near</code>.</p>
+<p><strong>Objective:</strong> Use border-edge evidence to diagnose a missing face and restore the intended closed volume.</p>
+<p><strong>Student observation cue:</strong> Orbit the opening and inspect border edges. Does the solid meet its watertight contract?</p>
+<p><strong>Break:</strong> Duplicate Correct geometry and delete only the -X quad face. Both grid actors use yaw 90 so the opening faces the viewer.</p>
+<p><strong>Actual Incorrect contract:</strong> One quad face is absent, leaving one boundary loop with four border edges.</p>
+<p><strong>Intended fix:</strong> In the editable Incorrect OBJ, select the four intended border edges and fill the planar face with consistent winding; set its normals/UVs. Reimport the sandbox Incorrect asset.</p>
+<p><strong>Verify:</strong> Orbit from both sides: closed outward-facing surface matches Correct. Check zero border/nonmanifold edges, consistent winding, unchanged bounds and unaffected UVs.</p>
+<p><strong>Evidence and limits:</strong> Correct has 12 triangles and zero border edges. Incorrect has 10 triangles and four border edges; both retain 8 positions and identical bounds. Editable source: Geometry_EX20_OpenBoundary_Correct.obj / _Incorrect.obj. The source UVs are all zero. Repair the intended face; do not globally clean or weld unrelated geometry.</p>
+<p><strong>Saved assessment assets:</strong></p>
+<ul>
+<li>Correct: <code>/Game/TechArtMuseum/SandboxGrid/Geometry/SM_EX20_OpenBoundary_Correct.SM_EX20_OpenBoundary_Correct</code></li>
+<li>Incorrect: <code>/Game/TechArtMuseum/SandboxGrid/Geometry/SM_EX20_OpenBoundary_Incorrect.SM_EX20_OpenBoundary_Incorrect</code></li>
+</ul>
+<h2 id="07-exinst-instancing-the-same-scene-different-structure">07 — EXINST: Instancing: the same scene, different structure</h2>
+<p>Bay origin: <strong>(0, 5600, 0) cm</strong>. Camera: <code>CAM_EXINST_Near</code>.</p>
+<p><strong>Objective:</strong> Separate visual equivalence from actor/component overhead and measured draw submission cost.</p>
+<p><strong>Student observation cue:</strong> Both arrays should look identical. Count their scene objects and compare their rendering structure.</p>
+<p><strong>Break:</strong> Expand the same 64 relative transforms from one ISM into 64 individual StaticMeshActors. Preserve their mesh/material, mobility, shadow and collision settings.</p>
+<p><strong>Actual Incorrect contract:</strong> Incorrect expands 64 compatible repetitions into 64 independent StaticMeshActors instead of one ISM component.</p>
+<p><strong>Intended fix:</strong> Consolidate the 64 compatible repeats into one InstancedStaticMeshComponent, preserving every relative transform, shared mesh, material, mobility, shadow and collision setting.</p>
+<p><strong>Verify:</strong> Confirm 64 matched transforms on each side, then one actor/ISM component versus 64 actors/mesh components. Measure stat RHI and stat scenerendering with only one group visible at a fixed camera before claiming a draw-call or frame-time gain.</p>
+<p><strong>Evidence and limits:</strong> Correct is one actor / one InstancedStaticMeshComponent / 64 instances. Incorrect is 64 actors / 64 StaticMeshComponents. Structural counts are verified independently of draw submissions. r.MeshDrawCommands.DynamicInstancing remains at the project default and may merge compatible individual draws. Profile isolated groups from the same camera before assigning a draw-call or frame-time benefit.</p>
+<p><strong>Saved assessment assets:</strong></p>
+<ul>
+<li>Correct: <code>/Game/TechArtMuseum/SandboxGrid/EXINST/SM_RepeatedObject</code></li>
+<li>Incorrect: <code>/Game/TechArtMuseum/SandboxGrid/EXINST/SM_RepeatedObject</code></li>
+</ul>
+<h2 id="08-ex23-color-and-numeric-texture-data">08 — EX23: Color and numeric texture data</h2>
+<p>Bay origin: <strong>(2200, 5600, 0) cm</strong>. Camera: <code>CAM_EX23_Near</code>.</p>
+<p><strong>Objective:</strong> Distinguish display color from numeric roughness/metallic data.</p>
+<p><strong>Student observation cue:</strong> Compare the lamp metal response under the same light. Trace G to roughness and B to metallic.</p>
+<p><strong>Break:</strong> Duplicate the linear packed texture, enable sRGB and use its compile-consistent Color sampler. Do not alter G/B channel wiring or compression.</p>
+<p><strong>Actual Incorrect contract:</strong> Packed numeric data is marked sRGB. Both textures use identical TC_DEFAULT compression; no channel swaps.</p>
+<p><strong>Intended fix:</strong> Disable sRGB on T_EX23_Data_Incorrect_sRGB. Change that material texture sampler to Linear Color to keep sampler validation consistent with the repaired texture.</p>
+<p><strong>Verify:</strong> Correct and repaired roughness/metallic responses match. Packed map sRGB=False; G-&gt;Roughness and B-&gt;Metallic; Base Color remains sRGB.</p>
+<p><strong>Evidence and limits:</strong> G feeds Roughness and B feeds Metallic on both. Base Color stays sRGB. Both packed textures use TC_DEFAULT. Color versus Linear Color sampler type follows the texture classification for valid compilation; it is not a second independently introduced visual fault. The older prototype also changed compression, so its one-setting claim was not accepted.</p>
+<p><strong>Saved assessment assets:</strong></p>
+<ul>
+<li>Correct: <code>/Game/TechArtMuseum/SandboxGrid/Meshes/SM_EX23_Correct</code></li>
+<li>Incorrect: <code>/Game/TechArtMuseum/SandboxGrid/Meshes/SM_EX23_Incorrect</code></li>
+</ul>
+<h2 id="09-ex24-normal-map-green-convention">09 — EX24: Normal-map green convention</h2>
+<p>Bay origin: <strong>(4400, 5600, 0) cm</strong>. Camera: <code>CAM_EX24_Near</code>.</p>
+<p><strong>Objective:</strong> Test tangent-space direction data under changing light directions.</p>
+<p><strong>Student observation cue:</strong> Compare embossed detail and highlight direction while the bay light changes side.</p>
+<p><strong>Break:</strong> Duplicate Correct normal texture and change only Flip Green Channel from True to False.</p>
+<p><strong>Actual Incorrect contract:</strong> Only Flip Green Channel differs from the imported project baseline. Normal compression, linear interpretation, sampler and geometry are shared.</p>
+<p><strong>Intended fix:</strong> Set T_EX24_Normal_Incorrect_Green &gt; Flip Green Channel to True. Preserve TC_NORMALMAP, sRGB=False and Normal sampler.</p>
+<p><strong>Verify:</strong> Both show the same fine-detail highlight movement at both light positions; texture metadata differs in no fields after repair.</p>
+<p><strong>Evidence and limits:</strong> Correct Flip Green Channel=True is the imported project baseline; Incorrect=False. Both use TC_NORMALMAP, sRGB=False and Normal samplers. This narrower controlled fault replaces the older prototype&#39;s combined compression/sRGB/sampler change. LS_EX24_LightSweep animates matched key lights over eight seconds; pause/scrub both together.</p>
+<p><strong>Saved assessment assets:</strong></p>
+<ul>
+<li>Correct: <code>/Game/TechArtMuseum/SandboxGrid/Meshes/SM_EX24_Correct</code></li>
+<li>Incorrect: <code>/Game/TechArtMuseum/SandboxGrid/Meshes/SM_EX24_Incorrect</code></li>
+</ul>
+<h2 id="10-ex29-uv-orientation-sampling">10 — EX29: UV orientation / sampling</h2>
+<p>Bay origin: <strong>(0, 8400, 0) cm</strong>. Camera: <code>CAM_EX29_Near</code>.</p>
+<p><strong>Objective:</strong> Separate source pixels from the coordinates used to sample them.</p>
+<p><strong>Student observation cue:</strong> Read the labels, arrows and corner colors. Compare their orientation and density.</p>
+<p><strong>Break:</strong> Duplicate Correct material and replace (U,V) sampling with (1-U,V). Preserve texture, channel 0 and density.</p>
+<p><strong>Actual Incorrect contract:</strong> Incorrect material samples (1-U,V), mirroring horizontal orientation only; same texture and UV channel.</p>
+<p><strong>Intended fix:</strong> In M_EX29_Incorrect bypass Multiply/Add mirroring and connect TexCoord channel 0 directly to the texture UVs. Maya extension: fix shell orientation in source UV set instead.</p>
+<p><strong>Verify:</strong> Labels and corner orientation match Correct at equal texel density; shared texture, mesh bounds, channel 0 and material slot remain unchanged.</p>
+<p><strong>Evidence and limits:</strong> The graph is verified as the same texture and channel 0 with unit tiling; only Incorrect applies Multiply(-1,1)+Add(1,0). Both use the same existing coordinate-test geometry. This task does not supply an assessed Maya UV-shell repair source.</p>
+<p><strong>Saved assessment assets:</strong></p>
+<ul>
+<li>Correct: <code>/Game/TechArtMuseum/SandboxGrid/Meshes/SM_EX29_Correct</code></li>
+<li>Incorrect: <code>/Game/TechArtMuseum/SandboxGrid/Meshes/SM_EX29_Incorrect</code></li>
+</ul>
+<h2 id="11-exa-animation-playback-timing">11 — EXA: Animation: playback timing</h2>
+<p>Bay origin: <strong>(2200, 8400, 0) cm</strong>. Camera: <code>CAM_EXA_Near</code>.</p>
+<p><strong>Objective:</strong> Separate animation content from the playback rate that controls presentation timing.</p>
+<p><strong>Student observation cue:</strong> Watch the two runners from the reset/start. Why does their footfall phase drift?</p>
+<p><strong>Break:</strong> Duplicate the Correct presentation Blueprint; change only serialized Animation Data &gt; Play Rate from 1.0 to 1.4. Retain the exact shared skeletal mesh and sequence.</p>
+<p><strong>Actual Incorrect contract:</strong> Incorrect component plays the same shared animation at 1.4x instead of the documented 1.0x.</p>
+<p><strong>Intended fix:</strong> Select the Incorrect skeletal presentation component; set Animation &gt; Anim Play Rate to 1.0. Restart Play so both begin at time zero.</p>
+<p><strong>Verify:</strong> After restart, both remain phase-aligned for two complete loops. Mesh, clip, skeleton, start position and loop flags remain identical; only play rate changes.</p>
+<p><strong>Evidence and limits:</strong> The shared runRoot_Run-derived sequence is 0.6666667 seconds with asset Rate Scale=1.0. The components serialize rates 1.0 / 1.4, looping and playing True, initial position zero. Portable actors: BP_EXA_Correct and BP_EXA_Incorrect. Rendering, elapsed playback and input validation are separate evidence.</p>
+<p><strong>Saved assessment assets:</strong></p>
+<ul>
+<li>Correct: <code>/Game/TechArtMuseum/SandboxGrid/Animation/SK_EXA_Runner_Shared.SK_EXA_Runner_Shared</code></li>
+<li>Incorrect: <code>/Game/TechArtMuseum/SandboxGrid/Animation/SK_EXA_Runner_Shared.SK_EXA_Runner_Shared</code></li>
+<li>Shared animation: <code>/Game/TechArtMuseum/SandboxGrid/Animation/A_EXA_Run_Shared.A_EXA_Run_Shared</code></li>
+</ul>
+<h2 id="12-ex21-morph-targets-missing-payload">12 — EX21: Morph targets: missing payload</h2>
+<p>Bay origin: <strong>(4400, 8400, 0) cm</strong>. Camera: <code>CAM_EX21_Near</code>.</p>
+<p><strong>Objective:</strong> Trace animated curve names to morph-target geometry; distinguish playback from missing deformation data.</p>
+<p><strong>Student observation cue:</strong> The clip is playing on both cubes. Inspect whether its curve names have matching deformation targets.</p>
+<p><strong>Break:</strong> Export the same base mesh without the Blend Shapes payload while retaining the skeleton/material and shared animation. Existing controlled Correct/Incorrect source assets are reused.</p>
+<p><strong>Actual Incorrect contract:</strong> Incorrect mesh lacks the thin and angle morph targets; both use the same animated curves and playback settings.</p>
+<p><strong>Intended fix:</strong> Open the existing MorphCube workfile, verify thin/angle targets and matching vertex correspondence; export the Incorrect mesh with Blend Shapes enabled, then reimport it using the shared skeleton.</p>
+<p><strong>Verify:</strong> Morph target list contains thin and angle. Under the shared 1.0x looping clip, both cubes deform identically; skeleton, material, base geometry and start time stay matched.</p>
+<p><strong>Evidence and limits:</strong> Correct targets are thin and angle; Incorrect has zero targets. The shared 2.4583333-second clip has varying 0..1 curves of those names. Base geometry snapshots, material and skeleton match. Portable actors: BP_EX21_Correct and BP_EX21_Incorrect. MorphCube_Workfile.mb exists, but a Maya clean-machine open/export/reimport test remains unverified.</p>
+<p><strong>Saved assessment assets:</strong></p>
+<ul>
+<li>Correct: <code>/Game/TechArtMuseum/SandboxGrid/Animation/SK_EX21_Morph_Correct.SK_EX21_Morph_Correct</code></li>
+<li>Incorrect: <code>/Game/TechArtMuseum/SandboxGrid/Animation/SK_EX21_Morph_Incorrect.SK_EX21_Morph_Incorrect</code></li>
+<li>Shared animation: <code>/Game/TechArtMuseum/SandboxGrid/Animation/A_EX21_Morph_Shared.A_EX21_Morph_Shared</code></li>
+</ul>
+<h2 id="source-handling-and-deferred-work">Source handling and deferred work</h2>
+<p>EX20&#39;s original FBX import filenames point at an unavailable D: location. Use the supplied editable OBJ files and <strong>Reimport With New File</strong> for a new repaired FBX. Follow <a href="geometry-readme-e557d2cf.html">Geometry_README.md</a>: EX20 sources are Z-up centimeters; EXMAT-A sources are Maya Y-up centimeters. Neither workflow has a tested Maya round trip in this task.</p>
+<p>The map does not remake the animation wing. Additional loop/skin-weight pairs, a skeletal E inspector, Niagara and VAT remain deferred. EX21&#39;s existing Maya working scene must be verified before assigning a DCC repair as a tested student workflow.</p>
+<p>See <a href="readme-c4692628.html">README.md</a> for controls, rebuild boundaries and evidence locations. The machine-readable <a href="../../TechArtMuseumIntegration/Saved/SandboxGrid/BuildReport.json">BuildReport.json</a> records the exact source paths, bay placements and per-station technical controls.</p>
+</main></body></html>

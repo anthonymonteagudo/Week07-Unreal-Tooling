@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Material process diagrams</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week02/Review/MaterialsGuide/materials-process-diagrams.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week02/Review/MaterialsGuide/materials-process-diagrams.md<br>Source modified: 2026-09-09T01:10:26.706Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#material-process-diagrams">Material process diagrams</a></li><li><a href="#illustrated-overview-with-real-ue-imagery">Illustrated overview with real UE imagery</a></li><li><a href="#1-authoring-preparation-and-assignment">1. Authoring, preparation, and assignment</a></li><li><a href="#2-how-one-texture-value-contributes-to-appearance">2. How one texture value contributes to appearance</a></li></ul></details><h1 id="material-process-diagrams">Material process diagrams</h1>
+<p>These diagrams accompany <a href="week2-materials-fundamentals-guide-4cdd3e91.html">the Week 2 materials guide</a>. The PNGs are ready to insert into a deck. The SVGs retain vector text and lines. The Mermaid definitions below provide editable conceptual sources.</p>
+<h2 id="illustrated-overview-with-real-ue-imagery">Illustrated overview with real UE imagery</h2>
+<p><img src="../Slides/Week02/Review/MaterialsGuide/03-material-process-illustrated-v2.png" alt="Material process with Unreal Engine screenshots"></p>
+<p><a href="../Slides/Week02/Review/MaterialsGuide/03-material-process-illustrated-v2.svg">Vector version</a> · <a href="readme-c43192e0.html">Image sources and teaching notes</a></p>
+<p>This version follows the revised visual reference: textures and the Material graph lead into compilation, with the optional Material Instance and assignment branch below. It uses real Epic documentation screenshots of the walnut-floor Material plus a clearly labeled separate instance UI example. The conceptual diagrams below provide simpler references.</p>
+<h2 id="1-authoring-preparation-and-assignment">1. Authoring, preparation, and assignment</h2>
+<p><img src="../Slides/Week02/Review/MaterialsGuide/01-material-authoring.png" alt="Material authoring and rendering overview"></p>
+<p><a href="../Slides/Week02/Review/MaterialsGuide/01-material-authoring.svg">Vector version</a></p>
+<pre><code class="language-mermaid">flowchart TB
+    Graph[&quot;UE Material graph + settings&quot;] --&gt;|compiled with engine code| Compiler[&quot;Shader compilation&quot;]
+    Compiler --&gt;|produces| Programs[&quot;GPU shader programs&quot;]
+    Graph --&gt;|exposes named controls| Instance[&quot;Optional Material Instance&quot;]
+    Texture[&quot;Texture Assets + import settings&quot;] --&gt;|referenced by| Graph
+    Texture --&gt;|selected by texture parameters| Instance
+    Graph --&gt;|can be assigned directly| Assignment[&quot;Mesh component material slot&quot;]
+    Instance --&gt;|can be assigned| Assignment
+    Mesh[&quot;Mesh geometry + attributes&quot;] --&gt;|defines sections and defaults| Assignment
+    Assignment --&gt;|selects surface setup| Draw[&quot;Engine prepares rendering work&quot;]
+    Mesh --&gt;|provides positions, normals and UVs| Draw
+    Texture --&gt;|built into texture resources| Draw
+    Programs --&gt;|executed during| Render[&quot;GPU rendering&quot;]
+    Draw --&gt;|binds data and state for| Render
+    Scene[&quot;Camera, lights and environment&quot;] --&gt;|provide scene context| Render
+    Render --&gt;|produces through multiple passes| Image[&quot;Displayed image&quot;]
+</code></pre>
+<p>Read the shader/program branch first. Then follow the instance and assignment branch. The engine prepares resources for rendering. A texture is referenced and sampled, not transformed into a Material. A Material Instance is optional.</p>
+<p>The PNG/SVG use a compact grouped representation of the same relationships. “Engine prepares rendering work” combines resource preparation, selection, and binding for readability. This is not an exact frame scheduling diagram.</p>
+<h2 id="2-how-one-texture-value-contributes-to-appearance">2. How one texture value contributes to appearance</h2>
+<p><img src="../Slides/Week02/Review/MaterialsGuide/02-texture-evaluation.png" alt="Texture data and surface evaluation"></p>
+<p><a href="../Slides/Week02/Review/MaterialsGuide/02-texture-evaluation.svg">Vector version</a></p>
+<pre><code class="language-mermaid">flowchart LR
+    UV[&quot;Mesh UVs or generated coordinates&quot;] --&gt;|locate a sample| Read[&quot;Texture sample and interpretation&quot;]
+    Tex[&quot;Texture resource + import settings&quot;] --&gt;|provide data and decoding| Read
+    Sampling[&quot;Sampler rules and available mips&quot;] --&gt;|control lookup| Read
+    Read --&gt;|returns values| Math[&quot;Channel selection and graph operations&quot;]
+    Param[&quot;Constants and instance parameters&quot;] --&gt;|supply other values| Math
+    Math --&gt;|calculate| Surface[&quot;Surface attributes: Base Color, Roughness, Normal...&quot;]
+    Surface --&gt;|contribute to| Rendering[&quot;Rendering passes and lighting&quot;]
+    Scene[&quot;Geometry, camera and scene context&quot;] --&gt;|also contribute to| Rendering
+    Rendering --&gt;|scene image through exposure and display processing| Screen[&quot;Displayed image&quot;]
+</code></pre>
+<p>This is a dependency diagram for a common surface-texture workflow. Reading, decoding, and filtering are grouped for clarity, not placed in a claimed hardware execution order. A compiler can fuse or reorganize operations. A deferred path can store surface attributes in intermediate buffers before lighting.</p>
+<p>Some inputs use constants or procedural calculations without texture sampling. Normal textures involve direction decoding and space conversion. Texture dimensions, mips, and shading values are distinct from mesh topology and LODs.</p>
+<p>Technical references: <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts">Epic: Essential Material Concepts</a>, <a href="https://dev.epicgames.com/documentation/unreal-engine/graphics-programming-overview-for-unreal-engine?lang=en-US">Epic: Graphics Programming Overview</a>, <a href="https://learnopengl.com/Getting-started/Textures">LearnOpenGL: Textures</a>.</p>
+</main></body></html>

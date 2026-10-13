@@ -1,0 +1,119 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 3 checkpoint and file manifest</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week03/Production20260913/CHECKPOINT_MANIFEST.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week03/Production20260913/CHECKPOINT_MANIFEST.md<br>Source modified: 2026-09-14T03:16:11.659Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#week-3-checkpoint-and-file-manifest">Week 3 checkpoint and file manifest</a></li><li><a href="#verified-files">Verified files</a></li><li><a href="#remaining-capture-rehearsal-gates">Remaining capture/rehearsal gates</a></li><li><a href="#test-evidence">Test evidence</a></li></ul></details><h1 id="week-3-checkpoint-and-file-manifest">Week 3 checkpoint and file manifest</h1>
+<p>The runnable project is source-controlled at <code>D:/Personal Projects/Maya/Tools</code> and
+published privately at <a href="https://github.com/anthonymonteagudo/Maya-Tools">https://github.com/anthonymonteagudo/Maya-Tools</a>.</p>
+<h2 id="verified-files">Verified files</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>File</th>
+<th>Role</th>
+<th>Host</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>texel_density_workshop/fixtures/texel_density_workshop.ma</code></td>
+<td>Reference, two targets, protected control</td>
+<td>Maya 2022</td>
+<td>Generated and opened by mayapy</td>
+</tr>
+<tr>
+<td><code>support/core.py</code></td>
+<td>Pure density math, validation, tolerance</td>
+<td>Python 3.7+</td>
+<td>Unit tested</td>
+</tr>
+<tr>
+<td><code>support/presets.py</code></td>
+<td>Project-relative JSON load/save/validation</td>
+<td>Python 3.7+</td>
+<td>Unit tested</td>
+</tr>
+<tr>
+<td><code>support/maya_adapter.py</code></td>
+<td>World/UV area, shell scaling, undo, verification</td>
+<td>Maya 2022</td>
+<td>Integration tested with mayapy</td>
+</tr>
+<tr>
+<td><code>support/environment.py</code> / <code>checkpoints/00_environment_and_paths.py</code></td>
+<td>Relative setup and runtime report</td>
+<td>Maya 2022 and 2027</td>
+<td>Root discovery tested with spaces; runtime probed</td>
+</tr>
+<tr>
+<td><code>checkpoints/01_read_predict.py</code></td>
+<td>Reading/futurecoder fallback</td>
+<td>Ordinary Python</td>
+<td>Executable</td>
+</tr>
+<tr>
+<td><code>checkpoints/02_maya_reference.py</code></td>
+<td>Selection and documentation task</td>
+<td>Maya Script Editor</td>
+<td>API calls verified by existing Maya runtime</td>
+</tr>
+<tr>
+<td><code>checkpoints/03_check_density.py</code></td>
+<td>Read-only density report</td>
+<td>Maya Script Editor</td>
+<td>Shared measurement verified</td>
+</tr>
+<tr>
+<td><code>checkpoints/04_apply_density.py</code></td>
+<td>Reference-to-target correction</td>
+<td>Maya Script Editor</td>
+<td>Integration tested</td>
+</tr>
+<tr>
+<td><code>checkpoints/05_poor_ui.py</code></td>
+<td>Deliberately ambiguous but safe UI</td>
+<td>Maya PySide2/PySide6 compatibility boundary</td>
+<td>Window/callback smoke test pending after batch update</td>
+</tr>
+<tr>
+<td><code>student/modify_the_tool.py</code></td>
+<td>One-change pair starter</td>
+<td>Maya PySide2/PySide6 compatibility boundary</td>
+<td>Import/construct test pending after batch update</td>
+</tr>
+<tr>
+<td><code>instructor/texel_density_tool.py</code></td>
+<td>Completed reference UI</td>
+<td>Maya PySide2/PySide6 compatibility boundary</td>
+<td>Full visible Maya rehearsal still required</td>
+</tr>
+<tr>
+<td><code>pyproject.toml</code> / <code>requirements-dev.txt</code></td>
+<td>Pinned Ruff rules/tooling</td>
+<td>External Python</td>
+<td>Ruff 0.12.12 clean</td>
+</tr>
+</tbody></table></div>
+<h2 id="remaining-capture-rehearsal-gates">Remaining capture/rehearsal gates</h2>
+<ul>
+<li>Open the generated scene in the full Maya GUI and visually compare checker scale
+before/after in the UV Editor.</li>
+<li>Capture the poor and completed UI in the same Maya version used in class.</li>
+<li>Confirm the classroom Maya version. Maya 2022/PySide2 is tested; the guarded
+PySide6 path follows Autodesk&#39;s migration guidance but should not be advertised as
+Maya 2025+ compatible until it is exercised in that GUI.</li>
+<li>Rehearse the exact hosted futurecoder navigation and name only tasks students can
+reach reliably; checkpoint 01 remains the offline fallback.</li>
+<li>Verify the actual Week 2 exhibit source/mesh and Unreal reimport mapping before
+claiming the generated fixture reproduces the museum asset end-to-end.</li>
+</ul>
+<h2 id="test-evidence">Test evidence</h2>
+<ul>
+<li>9 pure workshop tests passed; Maya integration is skipped under ordinary Python.</li>
+<li>2 Maya 2022 integration tests passed: targets matched the reference, Apply-twice
+stayed stable, the protected control stayed unchanged, and one Undo restored both
+targets.</li>
+<li>The same 2 integration tests passed under Maya 2027 / Python 3.13; its local runtime
+reports PySide6 6.8.3.</li>
+<li>Existing project regressions remained green: 22 toolkit tests and 12 demo tests.</li>
+<li>Ruff 0.12.12 check and format verification passed for the workshop.</li>
+</ul>
+<p>The generated fixture is intentionally labeled as a teaching fixture. It is not the
+original museum asset and does not assert an Unreal reimport result.</p>
+</main></body></html>

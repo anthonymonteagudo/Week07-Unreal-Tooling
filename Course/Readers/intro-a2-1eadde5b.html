@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>intro-a2</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/PrepNotes/sources/intro-a2.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/PrepNotes/sources/intro-a2.md<br>Source modified: 2026-10-11T18:29:49.887Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><p><a href="https://www.youtube.com/watch?v=IbwLyQtHw_o&amp;list=PLKgYiIAqG99cwlb4Y2Pu-cSb_Vw14-t0c&amp;index=8">https://www.youtube.com/watch?v=IbwLyQtHw_o&amp;list=PLKgYiIAqG99cwlb4Y2Pu-cSb_Vw14-t0c&amp;index=8</a></p>
+<p>Content/Python/debugpy_unreal.py</p>
+<p>![[Pasted image 20260623002723.png]]</p>
+<p>![[Pasted image 20260623002748.png]]</p>
+<p>In unreal cmd line (Python REPL):
+	import unreal
+	unreal.get_interpreter_executable_path()
+	# Output: C:/Program Files/Epic Games/UE_5.7/Engine/Binaries/ThirdParty/Python3/Win64/python.exe</p>
+<p>In windows cmd line:
+![[Pasted image 20260623002656.png]]</p>
+<p>![[Pasted image 20260623002805.png]]</p>
+<p>Test:
+![[Pasted image 20260623002913.png]]
+import debugpy
+import debugpy_unreal</p>
+<p>Create launch.json:
+![[Pasted image 20260623003355.png]]</p>
+<p>Provided by Unreal:
+![[Pasted image 20260623003411.png]]</p>
+<p>Final custom launch.json:</p>
+<pre><code>{
+
+    // Use IntelliSense to learn about possible attributes.
+
+    // Hover to view descriptions of existing attributes.
+
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+    &quot;version&quot;: &quot;0.2.0&quot;,
+
+    &quot;configurations&quot;: [
+
+  
+
+        {
+
+            &quot;name&quot;: &quot;UnrealEngine Python&quot;,
+
+            &quot;type&quot;: &quot;debugpy&quot;,
+
+            &quot;request&quot;: &quot;attach&quot;,
+
+            &quot;connect&quot;: {
+
+                &quot;host&quot;: &quot;localhost&quot;,
+
+                &quot;port&quot;: 5678
+
+            },
+
+            &quot;pathMappings&quot;: [
+
+                {
+
+                    &quot;localRoot&quot;: &quot;C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Plugins\\Experimental\\PythonScriptPlugin\\Content\\Python&quot;,
+
+                    &quot;remoteRoot&quot;: &quot;C:\\Program Files\\Epic Games\\UE_5.7\\Engine\\Plugins\\Experimental\\PythonScriptPlugin\\Content\\Python&quot;
+
+                },
+
+                {
+
+                    &quot;localRoot&quot;: &quot;D:\\Personal Projects\\Unreal\\TechArtGym\\Content&quot;,
+
+                    &quot;remoteRoot&quot;: &quot;D:\\Personal Projects\\Unreal\\TechArtGym\\Content&quot;
+
+                }
+
+            ],
+
+            &quot;redirectOutput&quot;: true,
+
+            &quot;justMyCode&quot;: false
+
+        }
+
+    ]
+
+}
+</code></pre>
+<p>It&#39;s working!
+![[Pasted image 20260623004416.png]]</p>
+</main></body></html>

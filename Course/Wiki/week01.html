@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 1 · Technical Art foundations · Technical Art</title><meta name="description" content="Turn a production problem into an investigation that another person can understand and continue."><link rel="stylesheet" href="assets/wiki.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Technical Art <span>Course wiki</span></a><span class="edition">GAMEDSGN 590 · Fall 2026 · Working edition</span><a href="../Slides/index.html">Instructor slide reviews ↗</a></header><div class="shell"><aside class="sidebar"><form class="search" role="search"><label for="search-input">Find a topic</label><input id="search-input" type="search" autocomplete="off" placeholder="UVs, materials, Python…"><button type="submit">Search</button></form><nav aria-label="Course pages"><section class="nav-group"><h2>Course</h2><a href="index.html" data-page="index">Technical Art course wiki</a><a href="maintaining.html" data-page="maintaining">Maintaining the course wiki</a></section><section class="nav-group"><h2>Weeks</h2><a href="week01.html" data-page="week01" aria-current="page">Week 1 · Technical Art foundations</a><a href="week02.html" data-page="week02">Week 2 · Assets, pipelines, and validation</a><a href="week03.html" data-page="week03">Week 3 · Python, Maya automation, and artist-facing UI</a><a href="week04.html" data-page="week04">Week 4 · Editor tool development<span class="nav-status">Planned</span></a><a href="week05.html" data-page="week05">Week 5 · Applied math for Technical Artists<span class="nav-status">Planned</span></a><a href="week06.html" data-page="week06">Week 6 · Introduction to Technical Animation<span class="nav-status">Planned</span></a><a href="week07.html" data-page="week07">Week 7 · Midterm feedback and reflection<span class="nav-status">Planned</span></a><a href="week08.html" data-page="week08">Week 8 · Real-time rendering pipeline<span class="nav-status">Planned</span></a><a href="week09.html" data-page="week09">Week 9 · Shaders and material systems<span class="nav-status">Planned</span></a><a href="week10.html" data-page="week10">Week 10 · Profiling and optimization<span class="nav-status">Planned</span></a><a href="week11.html" data-page="week11">Week 11 · Procedural content and scalability<span class="nav-status">Planned</span></a><a href="week12.html" data-page="week12">Week 12 · Production systems and maintainability<span class="nav-status">Planned</span></a></section><section class="nav-group"><h2>Topics</h2><a href="meshes.html" data-page="meshes">Mesh anatomy</a><a href="normals.html" data-page="normals">Normals and normal maps</a><a href="uvs.html" data-page="uvs">UVs and texture lookup</a><a href="textures.html" data-page="textures">Texture data and interpretation</a><a href="materials.html" data-page="materials">Materials and shaders</a><a href="handoff.html" data-page="handoff">Maya-to-Unreal handoffs</a><a href="skeletal.html" data-page="skeletal">Skeletal assets</a><a href="representations.html" data-page="representations">Mips, mesh LOD, and streaming</a><a href="validation.html" data-page="validation">Validation and evidence</a><a href="documentation.html" data-page="documentation">Technical documentation</a></section><section class="nav-group"><h2>Practice</h2><a href="museum-lab.html" data-page="museum-lab">Museum investigation lab</a><a href="exhibit.html" data-page="exhibit">Create your own museum exhibit</a><a href="exhibit-record.html" data-page="exhibit-record">Exhibit record template</a></section><section class="nav-group"><h2>Resources</h2><a href="resources.html" data-page="resources">Reading and visual library</a><a href="glossary.html" data-page="glossary">Working glossary</a></section></nav></aside><main id="main"><section id="search-results" hidden aria-label="Search results"><div class="search-heading"><h2>Search results</h2><button id="clear-search">Close search</button></div><p id="search-count" role="status"></p><ul id="result-list"></ul></section><article id="page-content"><div class="page-meta"><span>Weeks</span><span class="status ">Study guide</span><span>Updated 8 September 2026</span></div><h1>Week 1 · Technical Art foundations</h1><p class="lead">Turn a production problem into an investigation that another person can understand and continue.</p><nav class="toc" aria-label="On this page"><strong>On this page</strong><a href="#what-carries-forward">What carries forward</a><a href="#the-four-lenses">The four lenses</a><a href="#observation-before-explanation">Observation before explanation</a><a href="#a-small-retrieval-exercise">A small retrieval exercise</a><a href="#connection-to-week-2">Connection to Week 2</a><a href="#course-grounding">Course grounding</a></nav><h2 id="what-carries-forward">What carries forward</h2><p>Technical Art connects artistic intention with the tools, data, and production conditions needed to achieve it. Sometimes the useful intervention is code. It can also be a clearer standard, a better handoff, a reproducible test, or an explanation that prevents repeated confusion.</p>
+<p>Before choosing a solution, identify the intended experience. An attractive screenshot is only one condition: the asset may also need to survive animation, reimport, another camera, or another person&#39;s changes.</p>
+<h2 id="the-four-lenses">The four lenses</h2><table>
+<thead>
+<tr>
+<th>Lens</th>
+<th>Question to ask</th>
+<th>Asset-pipeline example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Constraints</td>
+<td>What limits the acceptable solution?</td>
+<td>The asset needs to remain readable from the intended camera.</td>
+</tr>
+<tr>
+<td>Systems</td>
+<td>Which people, tools, assets, and dependencies connect?</td>
+<td>Maya assignments, exported identities, UE slots, and materials all participate.</td>
+</tr>
+<tr>
+<td>Leverage</td>
+<td>Could the intervention help repeated work?</td>
+<td>A known import check could become a reusable validator.</td>
+</tr>
+<tr>
+<td>Throughput</td>
+<td>Does the whole workflow produce reliable work more efficiently?</td>
+<td>A quicker export is unhelpful if every import needs manual repair.</td>
+</tr>
+</tbody></table>
+<p>Use the lenses to develop the question. Naming all four without applying them does not explain the production problem.</p>
+<h2 id="observation-before-explanation">Observation before explanation</h2><p>“The label reads backward on this panel” is an observation. “The texture is broken” is a proposed explanation. A mirrored image, UV layout, or material-coordinate operation could produce similar visible results.</p>
+<ol>
+<li>State the intended result.</li>
+<li>Record the actual symptom and conditions.</li>
+<li>Propose an explanation and a plausible alternative.</li>
+<li>Choose evidence that would separate them.</li>
+<li>Describe what remains uncertain.</li>
+</ol>
+<p>This is useful work even when you cannot yet perform the repair.</p>
+<h2 id="a-small-retrieval-exercise">A small retrieval exercise</h2><p>Choose one visible feature in a game or a provided production case. Describe it without guessing its implementation. Apply two lenses to explain why it matters, then identify the first source, measurement, or inspection you would seek.</p>
+<p>For a shading difference, would you inspect geometry first, the texture role, the material connection, or the point where the result first diverges between tools? Explain what your choice could establish.</p>
+<h2 id="connection-to-week-2">Connection to Week 2</h2><p><a href="week02.html">Week 2</a> supplies specific data to inspect: geometry, normals, UVs, textures, assignments, and import settings. The investigation habit remains the same. <a href="week03.html">Week 3</a> will turn a well-understood repeated check into a small program.</p>
+<h2 id="course-grounding">Course grounding</h2><p>This guide summarizes the existing Week 1 student deck: shared vocabulary at slides 78–79, the four lenses at 81–89, the normal-map pipeline case at 130, and observation guidance at 134. The original Canvas journal prompt remains the authority for that activity&#39;s formal requirements.</p>
+</article><footer class="page-footer"><p>Course materials grow through examples, questions, and verified revisions. Use the current Canvas assignment page for deadlines, grading, and submission instructions.</p><a href="content/week01.md">Page source (Markdown)</a> · <a href="maintaining.html">Maintain this wiki</a></footer></main></div><script src="assets/search-index.js"></script><script src="assets/wiki.js"></script></body></html>

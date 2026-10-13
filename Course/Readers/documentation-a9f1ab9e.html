@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>documentation</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Wiki/content/documentation.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Wiki/content/documentation.md<br>Source modified: 2026-09-09T01:39:22.772Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#two-readers-one-exhibit">Two readers, one exhibit</a></li><li><a href="#a-published-example">A published example</a></li><li><a href="#replace-fixed-it-with-evidence">Replace “fixed it” with evidence</a></li><li><a href="#write-a-procedure-someone-can-use">Write a procedure someone can use</a></li><li><a href="#the-handoff-check">The handoff check</a></li></ul></details><h2 id="two-readers-one-exhibit">Two readers, one exhibit</h2>
+<p>The visitor needs to understand the phenomenon. The maintainer needs enough identity, procedure, and evidence to reproduce and reset it. A short explanation and a technical record can serve those purposes while agreeing about what the exhibit demonstrates.</p>
+<p>Documentation earns its length by answering a reader&#39;s question. A list of every action you performed is less useful when it hides the tested claim and decisive evidence.</p>
+<h2 id="a-published-example">A published example</h2>
+<p>The Khronos AlphaBlendModeTest documentation shows an expected appearance and a recognizable failure. The comparison makes its claim inspectable.</p>
+&lt;div class=&quot;split-figures&quot;&gt;&lt;figure&gt;&lt;img src=&quot;assets/images/OpaqueVsBlend.jpg&quot; alt=&quot;Khronos glTF expected opaque-versus-blend comparison&quot;&gt;&lt;figcaption&gt;Expected comparison from the published sample.&lt;/figcaption&gt;&lt;/figure&gt;&lt;figure&gt;&lt;img src=&quot;assets/images/OpaqueFail.jpg&quot; alt=&quot;Khronos sample image illustrating an opaque-mode failure&quot;&gt;&lt;figcaption&gt;Representative failure from the same documentation.&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;
+
+<p>Credit: Ed Mackey / Analytical Graphics, Inc., 2018, CC BY 4.0. <a href="https://github.com/KhronosGroup/glTF-Sample-Assets/blob/main/Models/AlphaBlendModeTest/README.md">Original test README</a>. These are glTF sample images, not evidence of a repaired Unreal course exhibit.</p>
+<h2 id="replace-fixed-it-with-evidence">Replace “fixed it” with evidence</h2>
+<p>Consider the weak note: “Fixed the texture.” It does not identify the asset, the observed problem, the change, or the verification.</p>
+<p>An <strong>illustrative</strong> record can be much more useful:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What to record</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Intended result</td>
+<td>The label reads in the intended direction from the reference view.</td>
+</tr>
+<tr>
+<td>Symptom</td>
+<td>Record the observed reversal and the exact asset/component.</td>
+</tr>
+<tr>
+<td>Hypothesis</td>
+<td>A coordinate transformation may explain the reversal.</td>
+</tr>
+<tr>
+<td>Test</td>
+<td>Compare the same image with the relevant U-coordinate operation changed.</td>
+</tr>
+<tr>
+<td>Change</td>
+<td>Record the actual property, original value, and tested value.</td>
+</tr>
+<tr>
+<td>Evidence</td>
+<td>Use matching views of the observed states and the relevant editor field.</td>
+</tr>
+<tr>
+<td>Verification</td>
+<td>Check orientation, density/scale, the original viewing condition, and unaffected behavior.</td>
+</tr>
+<tr>
+<td>Reset and limits</td>
+<td>Explain how to restore the comparison and what has not been tested.</td>
+</tr>
+</tbody></table></div>
+<p>This table describes a record structure. It does not claim that a particular asset was repaired or establish a compulsory submission format.</p>
+<h2 id="write-a-procedure-someone-can-use">Write a procedure someone can use</h2>
+<p>Identify the correct starting asset and state. Give the action where it becomes necessary. State what the reader should see after a consequential step. Use exact UI labels when they prevent ambiguity, and name the software/importer context.</p>
+<p><a href="https://developers.google.com/style/procedures">Google&#39;s procedure-writing guide</a> is a useful reference for clear steps. A source citation should resolve a concrete uncertainty, such as what an input or import setting controls.</p>
+<h2 id="the-handoff-check">The handoff check</h2>
+<p>Can another person open the intended example, explain the comparison, repeat the verification, and reset it? Can they locate its source and dependencies? A useful record answers those questions without requiring the original author to stand beside it.</p>
+<p>Use the <a href="../Wiki/exhibit-record.html">exhibit-record template</a> as a starting point, then remove irrelevant fields and add the details your example needs.</p>
+</main></body></html>

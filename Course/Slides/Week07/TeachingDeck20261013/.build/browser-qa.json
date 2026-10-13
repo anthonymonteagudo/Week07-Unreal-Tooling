@@ -1,0 +1,47 @@
+{
+  "pages": [
+    {
+      "title": "Week 7 teaching revision",
+      "images": 136,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "title": "Week 7 sources and visuals",
+      "images": 47,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "title": "Week 7 source assessment",
+      "images": 0,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "title": "Week 7 media",
+      "images": 1,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "title": "Week 7 diagrams",
+      "images": 6,
+      "brokenImages": [],
+      "overflow": false
+    }
+  ],
+  "brokenLocal": [],
+  "liveCount": 49,
+  "allCount": 71,
+  "optionalCount": 22,
+  "anchorVisible": true,
+  "movie": {
+    "time": 1.150664,
+    "duration": 16.366016,
+    "width": 1920,
+    "height": 1080,
+    "paused": false,
+    "error": null
+  }
+}

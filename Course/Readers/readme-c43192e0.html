@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UE imagery used in the illustrated material process diagram</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week02/Review/MaterialsGuide/UE_Images/README.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week02/Review/MaterialsGuide/UE_Images/README.md<br>Source modified: 2026-09-09T01:10:26.711Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#ue-imagery-used-in-the-illustrated-material-process-diagram">UE imagery used in the illustrated material process diagram</a></li><li><a href="#source-pages">Source pages</a></li><li><a href="#what-appears-in-the-composition">What appears in the composition</a></li><li><a href="#teaching-notes">Teaching notes</a></li></ul></details><h1 id="ue-imagery-used-in-the-illustrated-material-process-diagram">UE imagery used in the illustrated material process diagram</h1>
+<p>The images are real Unreal Engine editor screenshots published by Epic Games. They were retrieved September 8, 2026. They are not captures of the local museum project. The composition uses rectangular crops, labels, and arrows; UI contents and rendered surfaces were not reconstructed or generated.</p>
+<h2 id="source-pages">Source pages</h2>
+<ul>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts?application_version=5.7">Essential Material Concepts, UE 5.7</a></li>
+<li><a href="https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-material-instance-editor-ui?application_version=5.7">Material Instance Editor UI, UE 5.7</a></li>
+</ul>
+<p>The exact original image URLs are in <a href="../Slides/Week02/Review/MaterialsGuide/UE_Images/sources.json">sources.json</a>. Image credit: Epic Games, Unreal Engine documentation.</p>
+<h2 id="what-appears-in-the-composition">What appears in the composition</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Diagram element</th>
+<th>Source image</th>
+<th>Treatment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Base Color, Roughness, Normal thumbnails</td>
+<td><code>simple-material.png</code></td>
+<td>Magnified crops of the actual Texture Sample node previews</td>
+</tr>
+<tr>
+<td>Material graph</td>
+<td><code>walnut-floor-material.png</code></td>
+<td>Crop retaining the UE node graph, coordinates, connections, and surface inputs</td>
+</tr>
+<tr>
+<td>Material settings</td>
+<td><code>details-properties.png</code></td>
+<td>Crop showing Material Domain, Blend Mode, and Shading Model</td>
+</tr>
+<tr>
+<td>Apply/Save toolbar</td>
+<td><code>apply-compile.png</code></td>
+<td>Original UE toolbar image</td>
+</tr>
+<tr>
+<td>Generated HLSL</td>
+<td><code>mat-hlsl.png</code></td>
+<td>Crop of the HLSL source pane; this is generated source, not GPU machine code</td>
+</tr>
+<tr>
+<td>Material Instance</td>
+<td><code>override-params.png</code></td>
+<td>Separate instance UI example, explicitly identified as such</td>
+</tr>
+<tr>
+<td>Material assignment</td>
+<td><code>drag-drop.png</code></td>
+<td>Epic&#39;s walnut-floor assignment demonstration with its original arrow</td>
+</tr>
+<tr>
+<td>Displayed image</td>
+<td><code>simple-material.png</code></td>
+<td>Crop of the actual walnut-floor Material preview</td>
+</tr>
+</tbody></table></div>
+<p>The walnut-floor screenshots show related documentation examples at different settings, rather than an asserted single captured frame. The instance image demonstrates controls for another Material; it is not presented as the parent of the walnut-floor preview. Texture thumbnails are sample-node previews, not full-resolution source texture exports. The normal preview&#39;s blue color is reproduced as shown in the UE source. Its appearance alone should not be taught as a pass/fail test for a normal-map import.</p>
+<h2 id="teaching-notes">Teaching notes</h2>
+<p>The texture rows match the visible graph&#39;s Base Color, Roughness, Normal order. The external arrows identify data entering the Material graph as a group; the real UE connections inside the screenshot show the actual destinations.</p>
+<p>The top path distinguishes generated HLSL from compiled GPU programs. The optional instance branch demonstrates parameter inheritance and assignment, not a separate source of geometry. The displayed sphere is explicitly labeled as a Material preview. Scene geometry, lighting, and display processing contribute to final appearance.</p>
+<p>Use the numbered groups as progressive reveals if adapting this into slides. The full image works as a reference diagram; zoom into the graph when teaching individual node connections.</p>
+</main></body></html>

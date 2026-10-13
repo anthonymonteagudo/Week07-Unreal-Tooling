@@ -1,0 +1,292 @@
+[
+  {
+    "updated": "2026-09-08",
+    "title": "Technical Art course wiki",
+    "group": "Course",
+    "order": 1,
+    "status": "Working edition",
+    "summary": "Follow the course by week, revisit a mechanism, or find a practical check for an asset you are investigating.",
+    "file": "index.md",
+    "slug": "index"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Maintaining the course wiki",
+    "group": "Course",
+    "order": 3,
+    "status": "Author guide",
+    "summary": "Add a week without duplicating explanations, losing evidence, or mixing a proposal with a confirmed course requirement.",
+    "file": "maintaining.md",
+    "slug": "maintaining"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Week 1 · Technical Art foundations",
+    "group": "Weeks",
+    "order": 11,
+    "status": "Study guide",
+    "summary": "Turn a production problem into an investigation that another person can understand and continue.",
+    "file": "week01.md",
+    "slug": "week01"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Week 2 · Assets, pipelines, and validation",
+    "group": "Weeks",
+    "order": 12,
+    "status": "Study guide",
+    "summary": "Follow a surface from Maya to Unreal, identify the data behind its appearance, and investigate a museum example with evidence.",
+    "file": "week02.md",
+    "slug": "week02"
+  },
+  {
+    "updated": "2026-09-13",
+    "title": "Week 3 · Python, Maya automation, and artist-facing UI",
+    "group": "Weeks",
+    "order": 13,
+    "status": "Preview",
+    "summary": "Read a small Python operation, automate a scoped texel-density repair in Maya, and make its state, scope, and evidence understandable to an artist.",
+    "file": "week03.md",
+    "slug": "week03"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Week 4 · Editor tool development",
+    "group": "Weeks",
+    "order": 14,
+    "status": "Planned",
+    "summary": "Turn a useful check into an interface that an artist can operate and understand.",
+    "file": "week04.md",
+    "slug": "week04"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Week 5 · Applied math for Technical Artists",
+    "group": "Weeks",
+    "order": 15,
+    "status": "Planned",
+    "summary": "Use mathematical relationships to explain concrete changes in position, orientation, and surface behavior.",
+    "file": "week05.md",
+    "slug": "week05"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Week 6 · Introduction to Technical Animation",
+    "group": "Weeks",
+    "order": 16,
+    "status": "Planned",
+    "summary": "Connect motion and deformation to the asset relationships that make them work.",
+    "file": "week06.md",
+    "slug": "week06"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Week 7 · Midterm feedback and reflection",
+    "group": "Weeks",
+    "order": 17,
+    "status": "Planned",
+    "summary": "Use evidence from the current work to choose the next improvement and explain what you learned.",
+    "file": "week07.md",
+    "slug": "week07"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Week 8 · Real-time rendering pipeline",
+    "group": "Weeks",
+    "order": 18,
+    "status": "Planned",
+    "summary": "Open the rendering box that Week 2 deliberately kept simple.",
+    "file": "week08.md",
+    "slug": "week08"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Week 9 · Shaders and material systems",
+    "group": "Weeks",
+    "order": 19,
+    "status": "Planned",
+    "summary": "Develop surface behavior and useful artist controls with an understanding of the rendering work involved.",
+    "file": "week09.md",
+    "slug": "week09"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Week 10 · Profiling and optimization",
+    "group": "Weeks",
+    "order": 20,
+    "status": "Planned",
+    "summary": "Use measurements and controlled comparisons to evaluate quality and cost.",
+    "file": "week10.md",
+    "slug": "week10"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Week 11 · Procedural content and scalability",
+    "group": "Weeks",
+    "order": 21,
+    "status": "Planned",
+    "summary": "Evaluate repeatable generation as a system with inputs, constraints, and artistic control.",
+    "file": "week11.md",
+    "slug": "week11"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Week 12 · Production systems and maintainability",
+    "group": "Weeks",
+    "order": 22,
+    "status": "Planned",
+    "summary": "Prepare a tool or asset system for other people to use, revise, and continue.",
+    "file": "week12.md",
+    "slug": "week12"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Mesh anatomy",
+    "group": "Topics",
+    "order": 30,
+    "status": "Foundation",
+    "summary": "Geometry, topology, normals, UVs, and assignments describe different parts of the same asset.",
+    "file": "meshes.md",
+    "slug": "meshes"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Normals and normal maps",
+    "group": "Topics",
+    "order": 31,
+    "status": "Foundation",
+    "summary": "Distinguish face orientation, mesh shading directions, and sampled normal-map information before choosing a repair.",
+    "file": "normals.md",
+    "slug": "normals"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "UVs and texture lookup",
+    "group": "Topics",
+    "order": 32,
+    "status": "Foundation",
+    "summary": "The image stores values; coordinates determine where the surface reads them.",
+    "file": "uvs.md",
+    "slug": "uvs"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Texture data and interpretation",
+    "group": "Topics",
+    "order": 33,
+    "status": "Foundation",
+    "summary": "A texture stores channel values. Its intended role determines how those values should be interpreted and used.",
+    "file": "textures.md",
+    "slug": "textures"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Materials and shaders",
+    "group": "Topics",
+    "order": 34,
+    "status": "Foundation",
+    "summary": "A shader performs rendering calculations; a material defines surface logic and settings; textures can supply some of its inputs.",
+    "file": "materials.md",
+    "slug": "materials"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Maya-to-Unreal handoffs",
+    "group": "Topics",
+    "order": 35,
+    "status": "Foundation",
+    "summary": "Follow identity, data, and dependencies through export, import, assignment, revision, and reimport.",
+    "file": "handoff.md",
+    "slug": "handoff"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Skeletal assets",
+    "group": "Topics",
+    "order": 36,
+    "status": "Foundation",
+    "summary": "Separate the joint pose, the surface following that pose, and the animation being played.",
+    "file": "skeletal.md",
+    "slug": "skeletal"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Mips, mesh LOD, and streaming",
+    "group": "Topics",
+    "order": 37,
+    "status": "Foundation",
+    "summary": "Several systems change what data is used at a distance. Identify which representation changed before explaining the result.",
+    "file": "representations.md",
+    "slug": "representations"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Validation and evidence",
+    "group": "Topics",
+    "order": 38,
+    "status": "Foundation",
+    "summary": "A useful check compares observed data with an explicit requirement and explains the scope of its result.",
+    "file": "validation.md",
+    "slug": "validation"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Technical documentation",
+    "group": "Topics",
+    "order": 39,
+    "status": "Foundation",
+    "summary": "Help another person understand the intended result, reproduce the test, verify the outcome, and maintain the example.",
+    "file": "documentation.md",
+    "slug": "documentation"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Museum investigation lab",
+    "group": "Practice",
+    "order": 50,
+    "status": "Lab companion",
+    "summary": "Observe first, choose a test with a reason, and leave evidence that another person can understand.",
+    "file": "museum-lab.md",
+    "slug": "museum-lab"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Create your own museum exhibit",
+    "group": "Practice",
+    "order": 51,
+    "status": "Design companion",
+    "summary": "Make one technical idea observable through a clear comparison, a visitor question, and reproducible evidence.",
+    "file": "exhibit.md",
+    "slug": "exhibit"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Exhibit record template",
+    "group": "Practice",
+    "order": 52,
+    "status": "Reusable template",
+    "summary": "A compact starting point for a visitor explanation and a reproducible technical record.",
+    "file": "exhibit-record.md",
+    "slug": "exhibit-record"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Reading and visual library",
+    "group": "Resources",
+    "order": 70,
+    "status": "Curated starting points",
+    "summary": "Choose a source by the question it answers, with practical references first and deeper theory available when it becomes useful.",
+    "file": "resources.md",
+    "slug": "resources"
+  },
+  {
+    "updated": "2026-09-08",
+    "title": "Working glossary",
+    "group": "Resources",
+    "order": 71,
+    "status": "Growing reference",
+    "summary": "Short definitions tied to the inspection questions used in the course.",
+    "file": "glossary.md",
+    "slug": "glossary"
+  }
+]

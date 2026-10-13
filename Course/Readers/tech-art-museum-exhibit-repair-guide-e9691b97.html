@@ -1,0 +1,393 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tech Art Museum Exhibit Break/Fix Guide</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../TechArtMuseumIntegration/Docs/TECH_ART_MUSEUM_EXHIBIT_REPAIR_GUIDE.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: TechArtMuseumIntegration/Docs/TECH_ART_MUSEUM_EXHIBIT_REPAIR_GUIDE.md<br>Source modified: 2026-09-09T19:59:50.380Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#tech-art-museum-exhibit-break-fix-guide">Tech Art Museum Exhibit Break/Fix Guide</a></li><li><a href="#standard-for-every-exhibit">Standard for every exhibit</a></li><li><a href="#maps">Maps</a></li><li><a href="#readiness">Readiness</a></li><li><a href="#ex24-normal-maps-are-direction-data">EX24 — Normal Maps Are Direction Data</a></li><li><a href="#ex23-rgb-srgb-and-packed-data">EX23 — RGB, sRGB, and Packed Data</a></li><li><a href="#exalpha-alpha-blending-colleague-addition">EXALPHA — Alpha Blending (Colleague Addition)</a></li><li><a href="#exmat-maya-unreal-material-contract">EXMAT — Maya → Unreal Material Contract</a></li><li><a href="#exmat-a-slot-order">EXMAT-A — Slot order</a></li><li><a href="#exmat-b-blend-mode">EXMAT-B — Blend mode</a></li><li><a href="#exlod-lod-generation-and-distance-switching">EXLOD — LOD Generation and Distance Switching</a></li><li><a href="#ex29-uv-orientation-and-sampling-channel">EX29 — UV Orientation and Sampling Channel</a></li><li><a href="#ex20-geometry-integrity-mesh-autopsy">EX20 — Geometry Integrity / Mesh Autopsy</a></li><li><a href="#extexmip-mips-and-compression">EXTEXMIP — Mips and Compression</a></li><li><a href="#exa-skeletal-animation-faults">EXA — Skeletal Animation Faults</a></li><li><a href="#ex21-morph-targets">EX21 — Morph Targets</a></li><li><a href="#exinst-instancing-and-draw-calls">EXINST — Instancing and Draw Calls</a></li><li><a href="#exniagara-bounds-and-runtime-cost-optional">EXNIAGARA — Bounds and Runtime Cost (Optional)</a></li><li><a href="#exvat-vertex-animation-textures-supplemental">EXVAT — Vertex Animation Textures (Supplemental)</a></li><li><a href="#student-submission-template">Student submission template</a></li><li><a href="#popup-writing-template">Popup writing template</a></li><li><a href="#build-acceptance-checklist">Build acceptance checklist</a></li><li><a href="#interaction-limitation">Interaction limitation</a></li><li><a href="#packaging-space-note">Packaging-space note</a></li></ul></details><h1 id="tech-art-museum-exhibit-break-fix-guide">Tech Art Museum Exhibit Break/Fix Guide</h1>
+<p><strong>Project:</strong> <code>TechArtMuseumIntegration</code><br><strong>Audience:</strong> Instructor/build team<br><strong>Updated:</strong> 2026-09-09</p>
+<blockquote>
+<p><strong>Sandbox implementation:</strong> A separate 12-bay instructor review map now exists at <code>/Game/TechArtMuseum/SandboxGrid/L_ExhibitReviewGrid</code>. See <a href="readme-c4692628.html">review setup and evidence</a>, <a href="instructor-key-9025788f.html">exact instructor key</a>, and <a href="../../TechArtMuseumIntegration/Docs/SandboxGrid/READINESS.csv">readiness manifest</a>. The source-map readiness table below is the original integration queue; it does not mean the new pairs have been migrated into the gallery or student maps. Headless configuration, rendering, and gameplay evidence are reported separately.</p>
+</blockquote>
+<blockquote>
+<p><strong>Answer-key warning:</strong> This document names every fault and repair. Do not give the full guide to students before the end-of-Week-2 answer-key review.</p>
+</blockquote>
+<h2 id="standard-for-every-exhibit">Standard for every exhibit</h2>
+<p>Every station must answer the same five questions:</p>
+<ol>
+<li><strong>What is this?</strong> The pipeline concept being demonstrated.</li>
+<li><strong>What does Correct prove?</strong> The intended visual and technical contract.</li>
+<li><strong>What was broken in Incorrect?</strong> One deliberate fault only.</li>
+<li><strong>What is the intended fix?</strong> The smallest repair at the authoritative source.</li>
+<li><strong>How do we know it is fixed?</strong> One visible check and one technical check.</li>
+</ol>
+<p>Never edit Correct to make Incorrect. Duplicate it, append <code>_Incorrect</code>, introduce one fault, and keep transform, lighting, camera, animation rate, and unrelated settings matched.</p>
+<h2 id="maps">Maps</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Map</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/Game/TechArtMuseum/SandboxGrid/L_ExhibitReviewGrid</code></td>
+<td><strong>New isolated instructor review:</strong> 12 numbered bays, portable presentation Blueprints, controlled assessment assets, fixed cameras and local R answer reveals.</td>
+</tr>
+<tr>
+<td><code>/Game/TechArtMuseum/Maps/TechArtGallery_Interactive_AuthorMerge</code></td>
+<td><strong>Current integration target:</strong> latest interactive museum plus the colleague Alpha Blending station.</td>
+</tr>
+<tr>
+<td><code>/Game/TechArtMuseum/Maps/TechArtGallery_Interactive</code></td>
+<td>Unchanged rollback/reference source.</td>
+</tr>
+<tr>
+<td><code>/Game/TechArtMuseum/Labs/MuseumRepair/L_MuseumRepair_Master</code></td>
+<td>Instructor lab master; copy confirmed pairs here after review.</td>
+</tr>
+<tr>
+<td><code>/Game/TechArtMuseum/Labs/MuseumRepair/L_MuseumRepair_Student</code></td>
+<td>Student repair scene; omit answer-key text.</td>
+</tr>
+<tr>
+<td><code>/Game/TechArtMuseum/Labs/MuseumRepair/L_MuseumRepair_CleanReference</code></td>
+<td>Untouched visual comparison/reset source.</td>
+</tr>
+</tbody></table></div>
+<p>The merged fork retains <code>/Game/FirstPerson/Blueprints/BP_FirstPersonGameMode.BP_FirstPersonGameMode_C</code>. Do not replace the PlayerController, character, game mode, input, or interaction assets while migrating exhibits.</p>
+<h2 id="readiness">Readiness</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>ID</th>
+<th>Exhibit</th>
+<th>State</th>
+<th>Fastest next action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P0</td>
+<td>EX24</td>
+<td>Normal maps</td>
+<td>Correct/Incorrect materials ready</td>
+<td>Place matched inspectable pair; add moving light.</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>EX23</td>
+<td>RGB, sRGB, packed data</td>
+<td>Correct/Incorrect materials ready</td>
+<td>Place pair; expose texture settings in popup.</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>EXALPHA</td>
+<td>Alpha blending</td>
+<td><strong>Placed in merged fork</strong></td>
+<td>Add Correct/Incorrect labels and interaction wrappers.</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>EXMAT</td>
+<td>Maya → Unreal materials</td>
+<td>Sources ready</td>
+<td>Make separate slot-order and blend-mode pairs.</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>EXLOD</td>
+<td>LOD generation/switching</td>
+<td>Source ready</td>
+<td>Generate Correct LODs; leave Incorrect at LOD0.</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>EX29</td>
+<td>UV orientation/channel</td>
+<td>Correct/Incorrect materials ready</td>
+<td>Pair now; later add student-editable Maya UV source.</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>EX20</td>
+<td>Geometry integrity</td>
+<td>Incorrect examples present</td>
+<td>Add one matched Correct partner per chosen fault.</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>EXTEXMIP</td>
+<td>Mips/compression</td>
+<td>Source ready</td>
+<td>Duplicate one texture; disable mips on Incorrect.</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>EXA</td>
+<td>Skeletal animation</td>
+<td>Display assets present</td>
+<td>Curate no more than three synchronized pairs.</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>EX21</td>
+<td>Morph targets</td>
+<td>Skeletal pair present</td>
+<td>Add skeletal inspection/presentation actor.</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>EXINST</td>
+<td>Instancing/draw calls</td>
+<td>Source ready</td>
+<td>Build equal-looking ISM and individual-actor groups.</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>EXNIAGARA</td>
+<td>Niagara bounds/cost</td>
+<td>Not authored</td>
+<td>Build only after core stations are ready.</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>EXVAT</td>
+<td>Vertex animation textures</td>
+<td>Concept only</td>
+<td>Supplemental/final-project topic.</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="ex24-normal-maps-are-direction-data">EX24 — Normal Maps Are Direction Data</h2>
+<p><strong>What it is:</strong> Identical meshes and pixels demonstrate that texture metadata and sampler interpretation control the decoded surface directions.</p>
+<p><strong>Learning objectives:</strong> Recognize normal maps as vector data; connect compression, sRGB, sampler type, tangents, and green-channel convention; diagnose from moving-light evidence.</p>
+<p><strong>CORRECT:</strong> <code>/Game/TechArtMuseum/PrototypeLab/Materials/M_EX24_NormalMap_Correct</code>. Normal compression, <code>sRGB = false</code>, Normal sampler, project Y convention.</p>
+<p><strong>INCORRECT — break:</strong> Use <code>/Game/TechArtMuseum/PrototypeLab/Materials/M_EX24_NormalMap_Incorrect</code>. Interpret the normal map as color data. Do not also change UVs, tangents, mesh, or light.</p>
+<p><strong>Intended fix:</strong> Set Normal Map compression, disable sRGB, use a Normal sampler, and confirm the project green-channel convention.</p>
+<p><strong>Verify:</strong> Highlights and fine detail match Correct under several light directions; texture metadata matches while mesh/material inputs remain controlled.</p>
+<p><strong>Popup:</strong> Observe warped highlight → identify direction-data contract → inspect texture/sampler → repair classification → verify under moving light.</p>
+<p>Reference: <a href="https://dev.epicgames.com/documentation/unreal-engine/texture-compression-settings-in-unreal-engine">https://dev.epicgames.com/documentation/unreal-engine/texture-compression-settings-in-unreal-engine</a></p>
+<h2 id="ex23-rgb-srgb-and-packed-data">EX23 — RGB, sRGB, and Packed Data</h2>
+<p><strong>What it is:</strong> The same pixels are interpreted as display color and numeric mask data, demonstrating where gamma conversion belongs.</p>
+<p><strong>Learning objectives:</strong> Separate color from data; inspect individual RGB channels; trace import metadata through sampler and shader input.</p>
+<p><strong>CORRECT:</strong> <code>/Game/TechArtMuseum/PrototypeLab/Materials/M_EX23_ColorVsData_Correct</code>. Base Color remains sRGB; packed masks are linear and use documented channels.</p>
+<p><strong>INCORRECT — break:</strong> <code>/Game/TechArtMuseum/PrototypeLab/Materials/M_EX23_ColorVsData_Incorrect</code>. Enable sRGB on the packed mask only; do not also swap channels.</p>
+<p><strong>Intended fix:</strong> Disable sRGB for the numeric mask and confirm each channel feeds the documented scalar input.</p>
+<p><strong>Verify:</strong> Metallic/roughness response matches Correct under one light; packed texture is linear while Base Color stays sRGB.</p>
+<p><strong>Popup:</strong> Color or data? → inspect channels → find gamma conversion → repair metadata → verify PBR response.</p>
+<p>Reference: <a href="https://dev.epicgames.com/documentation/unreal-engine/physically-based-materials-in-unreal-engine">https://dev.epicgames.com/documentation/unreal-engine/physically-based-materials-in-unreal-engine</a></p>
+<h2 id="exalpha-alpha-blending-colleague-addition">EXALPHA — Alpha Blending (Colleague Addition)</h2>
+<p><strong>2026-09-09 audit correction:</strong> The two colleague master materials also have different default Base Color values; their presence/compilation alone did not prove a single controlled blend-mode fault. The sandbox EXMAT-B pair clones <code>MM_Alpha_01</code>, gives both the same opacity/color graph, and changes only Blend Mode. The original colleague Blueprints and gallery are preserved.</p>
+<p><strong>What it is:</strong> Two pairs of intersecting torus meshes compare a translucent material contract with an opaque one.</p>
+<p><strong>Current assets and placement</strong></p>
+<ul>
+<li>Map: <code>/Game/TechArtMuseum/Maps/TechArtGallery_Interactive_AuthorMerge</code></li>
+<li>CORRECT candidate: <code>/Game/Showcase/Blueprints/BP_Alpha_Example</code></li>
+<li>INCORRECT candidate: <code>/Game/Showcase/Blueprints/BP_Alpha_Example1</code></li>
+<li>Shared mesh: <code>/Game/Showcase/Meshes/torus</code></li>
+<li>Correct family: <code>MM_Alpha_01</code> / <code>MM_Alpha_01_Inst</code> — Translucent.</li>
+<li>Incorrect family: <code>MM_Alpha_02</code> / <code>MM_Alpha_02_Inst</code> — Opaque.</li>
+</ul>
+<p><strong>Learning objectives:</strong> Distinguish Opaque, Masked, and Translucent; explain visibility, sorting, and overdraw tradeoffs; locate a blend-mode fault in the material rather than the mesh.</p>
+<p><strong>CORRECT:</strong> Design requirement: both colored interlocking surfaces remain partially visible through one another. <code>BP_Alpha_Example</code> uses Translucent materials on both components.</p>
+<p><strong>INCORRECT — what is broken:</strong> <code>BP_Alpha_Example1</code> uses Opaque materials, so the front surface hides the rear. Do not change component transforms.</p>
+<p><strong>Intended fix:</strong> Duplicate the student material, restore Translucent blend mode and the Correct opacity input/parameter contract. Do not move the torus components to fake visibility.</p>
+<p><strong>Verify:</strong> Both forms remain readable through overlap from several angles; both Blueprints retain identical mesh/component transforms and differ only in material contract.</p>
+<p><strong>Popup:</strong> What should remain visible? → compare overlap → inspect Blend Mode/Opacity → repair → discuss sorting and overdraw.</p>
+<p>Reference: <a href="https://dev.epicgames.com/documentation/unreal-engine/material-blend-modes-in-unreal-engine">https://dev.epicgames.com/documentation/unreal-engine/material-blend-modes-in-unreal-engine</a></p>
+<h2 id="exmat-maya-unreal-material-contract">EXMAT — Maya → Unreal Material Contract</h2>
+<p><strong>What it is:</strong> Maya shading groups/material IDs become Unreal slots, while Unreal controls runtime blend behavior. Use two small pairs; do not combine faults.</p>
+<h3 id="exmat-a-slot-order">EXMAT-A — Slot order</h3>
+<ul>
+<li><strong>CORRECT:</strong> Two distinct surface regions import into named slots in documented order.</li>
+<li><strong>INCORRECT — break:</strong> In a Maya duplicate, swap face-to-material assignments or rebuild shading groups so slot order changes.</li>
+<li><strong>Intended fix:</strong> Restore deterministic shading groups and face assignments in Maya; re-export/reimport.</li>
+<li><strong>Verify:</strong> Each region has the intended material; names/order survive reimport at actor scale <code>(1,1,1)</code>.</li>
+</ul>
+<h3 id="exmat-b-blend-mode">EXMAT-B — Blend mode</h3>
+<ul>
+<li><strong>CORRECT:</strong> Use Opaque for solid surfaces, Masked for hard cutouts, or Translucent for partial coverage according to the stated requirement.</li>
+<li><strong>INCORRECT — break:</strong> Assign the wrong blend mode only. Candidate source: <code>TestOpaque</code> versus <code>TestBlend</code> under <code>/Game/TechArtMuseum/CandidateAssets/AlphaBlendModeTest/</code>.</li>
+<li><strong>Intended fix:</strong> Restore the intended blend mode and connect Opacity/Opacity Mask only where required.</li>
+<li><strong>Verify:</strong> Silhouette/overlap matches Correct and slots remain unchanged.</li>
+</ul>
+<p>Reference: <a href="https://dev.epicgames.com/documentation/unreal-engine/fbx-material-pipeline-in-unreal-engine">https://dev.epicgames.com/documentation/unreal-engine/fbx-material-pipeline-in-unreal-engine</a></p>
+<h2 id="exlod-lod-generation-and-distance-switching">EXLOD — LOD Generation and Distance Switching</h2>
+<p><strong>2026-09-09 measured implementation:</strong> The imported coil has Nanite enabled. Its original 7,106-triangle conventional fallback is not the 150,000-triangle source mesh. Both sandbox copies disable Nanite; Correct contains real 150,000 / 52,500 / 15,000 triangle LODs, and Incorrect contains only 150,000. Saved screen thresholds are 1.00 / 0.50 / 0.30. Reduction slightly expands the derived bounds, so explicit extensions match both final bounds. See the sandbox key for the exact repair and camera evidence; distance alone does not specify LOD without FOV/aspect.</p>
+<p><strong>What it is:</strong> A dense scan is shown twice so students can see lower-detail meshes replace LOD0 as projected screen size decreases.</p>
+<p><strong>Recommended source:</strong> <code>/Game/TechArtMuseum/CandidateAssets/PageInductionCoil/page-induction-coil-150k-4096/StaticMeshes/page-induction-coil-150k-4096</code></p>
+<p><strong>Learning objectives:</strong> Read LOD index/triangle count/screen size; judge silhouette preservation and popping; relate LODs to production automation such as Simplygon/HLOD.</p>
+<p><strong>CORRECT — author first:</strong> Duplicate to <code>SM_InductionCoil_LOD_Correct</code>; generate/import LOD0, LOD1, and LOD2 with deliberate screen-size thresholds. Preserve silhouette, materials, bounds, and collision.</p>
+<p><strong>INCORRECT — break:</strong> Duplicate Correct to <code>SM_InductionCoil_LOD_Incorrect</code>; remove LOD1/LOD2 so only dense LOD0 remains. Do not also change Nanite or scale.</p>
+<p><strong>Intended fix:</strong> Generate/import a silhouette-preserving chain and tune thresholds. Do not hide or scale the actor.</p>
+<p><strong>Verify:</strong> No objectionable pop at museum range; forced-LOD/stat view shows decreasing triangles while materials/bounds/collision stay stable.</p>
+<p><strong>Popup:</strong> Walk backward → watch LOD index/triangles → inspect thresholds → generate/tune → connect to automated pipelines.</p>
+<p>Reference: <a href="https://dev.epicgames.com/documentation/unreal-engine/static-mesh-automatic-lod-generation-in-unreal-engine">https://dev.epicgames.com/documentation/unreal-engine/static-mesh-automatic-lod-generation-in-unreal-engine</a></p>
+<h2 id="ex29-uv-orientation-and-sampling-channel">EX29 — UV Orientation and Sampling Channel</h2>
+<p><strong>What it is:</strong> Identical mesh and diagnostic texture expose whether UV shell orientation and selected channel obey the sampling contract.</p>
+<p><strong>CORRECT:</strong> <code>/Game/TechArtMuseum/PrototypeLab/Materials/M_EX29_UV_Correct</code>; labels, borders, orientation, and density read correctly.</p>
+<p><strong>INCORRECT — break:</strong> <code>/Game/TechArtMuseum/PrototypeLab/Materials/M_EX29_UV_Incorrect_Mirrored</code>; mirror the sampling coordinate only.</p>
+<p><strong>Intended fix:</strong> Quick Unreal version: restore coordinate selection/orientation. Assessed Maya version: repair the mirrored shell in the source UV set without changing geometry, pivot, or material IDs.</p>
+<p><strong>Verify:</strong> Labels/borders match Correct at equal density; documented UV channel, bounds, pivot, and slot remain fixed.</p>
+<p>Reference: <a href="https://dev.epicgames.com/documentation/unreal-engine/using-uv-channels-with-static-meshes-in-unreal-engine">https://dev.epicgames.com/documentation/unreal-engine/using-uv-channels-with-static-meshes-in-unreal-engine</a></p>
+<h2 id="ex20-geometry-integrity-mesh-autopsy">EX20 — Geometry Integrity / Mesh Autopsy</h2>
+<p><strong>What it is:</strong> Small mesh pairs isolate topology and face-orientation failures. The existing wall contains Incorrect examples; selected faults still need matched Correct partners. Use at most three as Lab 2 repair tasks.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Fault</th>
+<th>CORRECT</th>
+<th>INCORRECT — break</th>
+<th>Intended fix</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Reversed face</td>
+<td>Consistent intended winding/outward normals.</td>
+<td>Reverse one visible face. Existing source: <code>/Game/Showcase/MuseumExhibits/geometry/01_synthetic_flipped_normals</code>.</td>
+<td>Identify the face; reverse/conform only the faulty region; re-export.</td>
+<td>One-sided shading matches; UVs/IDs unchanged.</td>
+</tr>
+<tr>
+<td>Open boundary</td>
+<td>Closed solid where required.</td>
+<td>Delete one face.</td>
+<td>Bridge/fill intended boundary; repair affected normals/UVs.</td>
+<td>Border-edge test passes; silhouette matches.</td>
+</tr>
+<tr>
+<td>Non-manifold</td>
+<td>Valid manifold neighborhoods.</td>
+<td>Create one non-manifold edge via localized extrude/merge.</td>
+<td>Use Cleanup; separate/delete/rebuild owning faces.</td>
+<td>Non-manifold test returns zero.</td>
+</tr>
+<tr>
+<td>Lamina / Z-fighting</td>
+<td>One surface occupies the location.</td>
+<td>Duplicate one coplanar face.</td>
+<td>Delete duplicate; merge only genuinely shared vertices.</td>
+<td>Flicker disappears; face count matches.</td>
+</tr>
+<tr>
+<td>Degenerate face</td>
+<td>All faces have meaningful area.</td>
+<td>Collapse two vertices of one face.</td>
+<td>Rebuild/delete zero-area face; restore local flow.</td>
+<td>Degenerate test passes; silhouette unchanged.</td>
+</tr>
+</tbody></table></div>
+<p>Do not use “unlock normals and conform everything” as a universal fix; students must identify the owning topology or winding fault.</p>
+<p>Reference: <a href="https://help.autodesk.com/view/MAYAUL/2026/ENU/?guid=GUID-22A2B5DD-8720-4CE8-B54D-8FA3A8F8C2E3">https://help.autodesk.com/view/MAYAUL/2026/ENU/?guid=GUID-22A2B5DD-8720-4CE8-B54D-8FA3A8F8C2E3</a></p>
+<h2 id="extexmip-mips-and-compression">EXTEXMIP — Mips and Compression</h2>
+<p><strong>What it is:</strong> A high-frequency texture viewed near/far exposes aliasing, shimmer, and mip behavior.</p>
+<ul>
+<li><strong>CORRECT:</strong> Suitable compression preset with generated mips.</li>
+<li><strong>INCORRECT — break:</strong> Duplicate the texture; set Mip Gen Settings to <code>NoMipmaps</code>. Do not also change compression.</li>
+<li><strong>Intended fix:</strong> Restore mip generation appropriate to source and viewing range.</li>
+<li><strong>Verify:</strong> Far view stops shimmering; near view and channel meaning remain correct.</li>
+</ul>
+<p>Reference: <a href="https://dev.epicgames.com/documentation/unreal-engine/texture-format-support-and-settings-in-unreal-engine">https://dev.epicgames.com/documentation/unreal-engine/texture-format-support-and-settings-in-unreal-engine</a></p>
+<h2 id="exa-skeletal-animation-faults">EXA — Skeletal Animation Faults</h2>
+<p><strong>What it is:</strong> Synchronized characters isolate loop, timing, and deformation failures. The broad animation exhibit already exists; curate no more than these three repair pairs.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Pair</th>
+<th>CORRECT</th>
+<th>INCORRECT — broken state</th>
+<th>Intended fix</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Loop boundary</td>
+<td><code>characterMedium</code> + <code>runRoot_Run</code></td>
+<td><code>run_INCORRECT_animation_Anim</code>: discontinuous boundary/root policy.</td>
+<td>Align first/last pose and root-motion policy in source; re-export.</td>
+<td>Three loops without pop/teleport; rate/skeleton unchanged.</td>
+</tr>
+<tr>
+<td>Playback rate</td>
+<td>Same Correct clip/rate</td>
+<td><code>run_INCORRECT_playrate</code>: wrong timing.</td>
+<td>Restore documented component/sequence rate.</td>
+<td>Characters remain phase-aligned for two loops.</td>
+</tr>
+<tr>
+<td>Skin weights</td>
+<td>Correct mesh/clip</td>
+<td><code>run_INCORRECT_skinweights</code>: localized deformation fault.</td>
+<td>Repair affected influences in Maya; normalize/prune per contract.</td>
+<td>Region matches through full motion; skeleton unchanged.</td>
+</tr>
+</tbody></table></div>
+<p>Paths begin at <code>/Game/Showcase/MuseumExhibits/new/AnimationLoop/</code>.</p>
+<p>Reference: <a href="https://dev.epicgames.com/documentation/unreal-engine/fbx-skeletal-mesh-pipeline-in-unreal-engine">https://dev.epicgames.com/documentation/unreal-engine/fbx-skeletal-mesh-pipeline-in-unreal-engine</a></p>
+<h2 id="ex21-morph-targets">EX21 — Morph Targets</h2>
+<p><strong>What it is:</strong> Two Skeletal Meshes share playback, but only the correct handoff contains the required morph-target payload/curves.</p>
+<ul>
+<li><strong>CORRECT:</strong> <code>/Game/Showcase/MuseumExhibits/new/AnimatedMorphCube/Correct/SK_MorphCube_Correct</code> plus shared animation.</li>
+<li><strong>INCORRECT — broken:</strong> <code>/Game/Showcase/MuseumExhibits/new/AnimatedMorphCube/Incorrect/SK_MorphCube_Incorrect</code>; missing/broken morph handoff, not playback.</li>
+<li><strong>Intended fix:</strong> Verify blendShape targets and vertex correspondence in Maya; export with Blend Shapes and required animation/root; reimport.</li>
+<li><strong>Verify:</strong> Expected names/curves exist; deformation matches; skeleton/material/transform remain unchanged.</li>
+</ul>
+<p>This requires a Skeletal Mesh presentation actor. <code>BP_MuseumExhibitItem_Test</code> is a Static Mesh inspection child and is not a drop-in wrapper for animated skeletal assets.</p>
+<p>Reference: <a href="https://dev.epicgames.com/documentation/unreal-engine/fbx-morph-target-pipeline-in-unreal-engine">https://dev.epicgames.com/documentation/unreal-engine/fbx-morph-target-pipeline-in-unreal-engine</a></p>
+<h2 id="exinst-instancing-and-draw-calls">EXINST — Instancing and Draw Calls</h2>
+<p><strong>What it is:</strong> Visually identical repeated-object groups compare individual actors with an Instanced Static Mesh solution.</p>
+<ul>
+<li><strong>CORRECT:</strong> One ISM/HISM component with repeated instances. Source: <code>/Game/TechArtMuseum/CandidateAssets/SimpleInstancing/SimpleInstancing/StaticMeshes/SimpleInstancing</code>.</li>
+<li><strong>INCORRECT — break:</strong> Replace instances with the same number of individual Static Mesh Actors while keeping output identical.</li>
+<li><strong>Intended fix:</strong> Consolidate compatible repeats into ISM/HISM; preserve transforms and material compatibility.</li>
+<li><strong>Verify:</strong> Visual match is exact; actor/component and draw-call evidence improves.</li>
+</ul>
+<h2 id="exniagara-bounds-and-runtime-cost-optional">EXNIAGARA — Bounds and Runtime Cost (Optional)</h2>
+<p><strong>What it is:</strong> A small effect demonstrates that visibility bounds and spawn budget are part of the runtime contract.</p>
+<ul>
+<li><strong>CORRECT:</strong> Bounded effect with a stated spawn/count budget.</li>
+<li><strong>INCORRECT — break:</strong> Undersize fixed bounds so particles disappear at a marked viewpoint. Do not also increase spawn rate.</li>
+<li><strong>Intended fix:</strong> Calculate/set bounds enclosing the intended simulation; verify budget.</li>
+<li><strong>Verify:</strong> Effect remains visible from marked viewpoints and profiler counts stay within budget.</li>
+</ul>
+<p>Build only after P0 stations. Mention VATs as a related advanced technique, not a required Lab 2 repair.</p>
+<h2 id="exvat-vertex-animation-textures-supplemental">EXVAT — Vertex Animation Textures (Supplemental)</h2>
+<p><strong>What it is:</strong> A baked simulation reconstructed in a material from textures and export metadata. Keep supplemental until a verified Houdini → Unreal pair exists. A later single fault can use wrong bounds/frame-range decode, repaired by restoring export metadata/material parameters.</p>
+<h2 id="student-submission-template">Student submission template</h2>
+<p>Give students this structure without the answer-key content above:</p>
+<pre><code class="language-text">Exhibit ID:
+Visible symptom (no cause words):
+Evidence 1:
+Evidence 2:
+Owning asset / stage:
+What is wrong:
+Smallest authoritative fix:
+Primary verification:
+Unchanged property verified:
+Prevention rule:
+</code></pre>
+<p>If they cannot repair an asset, require diagnosis, evidence, owning stage, and proposed fix. For a completed repair, also require before/after evidence and a concise handoff note.</p>
+<h2 id="popup-writing-template">Popup writing template</h2>
+<pre><code class="language-text">TITLE: [Concept, not filename]
+OBSERVE: [One comparison instruction]
+CONTRACT: [What Correct proves]
+DIAGNOSE: [Where to inspect]
+FIX: [One sentence; omit during blind Lab 2]
+VERIFY: [Visible + technical test]
+LEARN MORE: [Official documentation URL]
+</code></pre>
+<h2 id="build-acceptance-checklist">Build acceptance checklist</h2>
+<ul>
+<li>Correct and Incorrect are side-by-side under matched conditions.</li>
+<li>Incorrect contains exactly one fault.</li>
+<li>Student assets are duplicates; shared source remains untouched.</li>
+<li>Both versions use the interaction framework, or are labeled observation-only.</li>
+<li>Popup names the concept/evidence, not only the asset.</li>
+<li>Student map omits the fix; instructor key includes it.</li>
+<li>Each station has a repeatable reset path.</li>
+<li>Existing First Person interaction path remains unchanged.</li>
+</ul>
+<h2 id="interaction-limitation">Interaction limitation</h2>
+<p><strong>2026-09-09 validation correction:</strong> Earlier <code>READY</code> and Blueprint compile/default checks are asset-configuration evidence, not gameplay or render acceptance. The sandbox independently verifies the saved faults. Its EX23 pair keeps compression identical while isolating sRGB interpretation; EX24 isolates only the green-channel convention (the imported Correct baseline is <code>Flip Green Channel = true</code>). The old prototype EX23 and EX24 materials change several settings and are not the narrower sandbox controls.</p>
+<p>The sandbox assessment meshes encode their display materials in default slots, and skeletal stations use dedicated skeletal presentation Blueprints. All assessment pairs are explicitly observation-only. The entry retains a separate working static E-inspection smoke test. Limited Play probes and physical E/R keyboard testing must be distinguished; refer to the current evidence report.</p>
+<p><code>BP_MuseumExhibitItem_Test</code> exposes its inherited Static Mesh through <code>Item.ItemMesh</code>. Material-only variants may need a mesh with encoded default materials or a small payload extension that copies component overrides. Skeletal Meshes, animations, morph targets, and Niagara systems need purpose-built presentation actors; do not force them through a Static Mesh field.</p>
+<h2 id="packaging-space-note">Packaging-space note</h2>
+<p>No unused assets were deleted. Zero hard references do not prove an asset is unused: soft references, Asset Manager rules, string loads, always-cook directories, and external data can keep it live. Build a dependency-closure report and quarantine/cook test before deletion.</p>
+</main></body></html>

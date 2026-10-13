@@ -1,0 +1,826 @@
+{
+  "documents": [
+    {
+      "source": "Course/CHANGELOG.md",
+      "reader": "changelog-1d9fc428.html",
+      "title": "Course materials changelog",
+      "sha256": "cb0d51722e4ac4dbabbace5502e57bd31a55869104844888c2caa236438c4ac6",
+      "modified": "2026-09-14T03:16:11.661Z"
+    },
+    {
+      "source": "Course/Slides/Week02/ReviewRefined20260909/README.md",
+      "reader": "readme-d0087a7d.html",
+      "title": "Refined Week 2 deck review · 9 September 2026",
+      "sha256": "145f70add8a305a00b3ffc3fc3eb26a50535b0acbff32922bc9fde983903f9d9",
+      "modified": "2026-09-09T19:28:16.038Z"
+    },
+    {
+      "source": "Course/Slides/Week02/Review/WEEK2_MEDIA_SHORTLIST.md",
+      "reader": "week2-media-shortlist-671ab59b.html",
+      "title": "Week 2: media shortlist and incorporation plan",
+      "sha256": "8b2ae1e84433e3e1a0f036643c6cf491389d97c1586857f079abc14a915975ab",
+      "modified": "2026-09-09T01:10:26.599Z"
+    },
+    {
+      "source": "Course/Slides/Week02/Review/WEEK2_SOURCE_CROSSCHECK.md",
+      "reader": "week2-source-crosscheck-2e95ed7d.html",
+      "title": "Week 2: source cross-check and research recommendations",
+      "sha256": "9be03e60033e68dd95f976fb843bde7c02c2415c06db3c177b1450bcac5ad1c2",
+      "modified": "2026-09-09T01:10:26.688Z"
+    },
+    {
+      "source": "Course/Slides/REVIEW_FORMAT_PREFERENCES.md",
+      "reader": "review-format-preferences-74ba076b.html",
+      "title": "Review format preferences",
+      "sha256": "1cf87fc068da5ed9fe1b0dc466360df8b0ba4a7b584ccd2749b5cff12a665b33",
+      "modified": "2026-10-13T23:22:46.277Z"
+    },
+    {
+      "source": "Course/README.md",
+      "reader": "readme-78dced28.html",
+      "title": "Technical Art course materials",
+      "sha256": "46961a3ae9d453e89400ebebb39f9a150339cac30964f26669c3ca0c19faa6cb",
+      "modified": "2026-09-09T19:28:16.039Z"
+    },
+    {
+      "source": "TechArtMuseumIntegration/Docs/MUSEUM_LAB02_EXHIBIT_MANIFEST.csv",
+      "reader": "museum-lab02-exhibit-manifest-9965fc3b.html",
+      "title": "MUSEUM LAB02 EXHIBIT MANIFEST",
+      "sha256": "8c11a85b261217117f452f6a1d73b2b33100ed137745ab3514c960884483eb56",
+      "modified": "2026-09-09T00:04:13.364Z"
+    },
+    {
+      "source": "TechArtMuseumIntegration/Docs/MUSEUM_LAB02_SETUP.md",
+      "reader": "museum-lab02-setup-44bc89b6.html",
+      "title": "Museum Repair Lab 2 — Instructor Setup and Break/Fix Guide",
+      "sha256": "482ae664003a8745c7da4eb3ce8127395773e22083e54cb9ab4d700d9b9a93ff",
+      "modified": "2026-09-08T14:11:25.436Z"
+    },
+    {
+      "source": "Course/Slides/Week02/Review/WEEK2_MATERIALS_FUNDAMENTALS_GUIDE.md",
+      "reader": "week2-materials-fundamentals-guide-4cdd3e91.html",
+      "title": "Materials, shaders, and textures: a Week 2 teaching guide",
+      "sha256": "1aa43b9195d39231e8ee7d835cc62abd0f22eb29d20d29ddd1600c990c4ec8bf",
+      "modified": "2026-09-09T01:37:13.118Z"
+    },
+    {
+      "source": "Course/Slides/Week02/Review/WEEK2_DOCUMENTATION_CONSOLIDATION.md",
+      "reader": "week2-documentation-consolidation-dbfd9b9b.html",
+      "title": "Week 2: a shorter technical-documentation section",
+      "sha256": "391d14eb5985635c79f5562fb76722a76d80377675b7ffa331a131d33d43b891",
+      "modified": "2026-09-09T01:10:26.597Z"
+    },
+    {
+      "source": "Course/Slides/Week02/Review/DocumentationExamples/README.md",
+      "reader": "readme-44021849.html",
+      "title": "Documentation example images",
+      "sha256": "8e865bbf2f660fe312b30d503c2d8eb1b2908848805cbf172da439b8ae774467",
+      "modified": "2026-09-09T01:10:26.689Z"
+    },
+    {
+      "source": "Course/Slides/Week02/ReviewRefined20260909/REVIEW_BRIEF.md",
+      "reader": "review-brief-83bd01ab.html",
+      "title": "Week 2 refined deck: critical review",
+      "sha256": "b9f6f42489698235b07f3d443bc17ecf47bc9dd61e5e104fc2a1b9cff978e036",
+      "modified": "2026-09-09T19:28:16.037Z"
+    },
+    {
+      "source": "Course/Slides/Week02/ReviewRefined20260909/DISCUSSION_PLAN.md",
+      "reader": "discussion-plan-f6b119dc.html",
+      "title": "DISCUSSION PLAN",
+      "sha256": "6b7c587a140b87cd08e007a2cc82ddd616fe6ce5c2342eb0a5220604b8d7c952",
+      "modified": "2026-09-09T19:50:18.495Z"
+    },
+    {
+      "source": "Course/Visuals/RULES.md",
+      "reader": "rules-71152f26.html",
+      "title": "A reusable visual system for Technical Art",
+      "sha256": "809317df025efbe5ac630d4fa03ac25c32af8544985414ef24a8faedb2a806a3",
+      "modified": "2026-09-09T19:44:37.056Z"
+    },
+    {
+      "source": "Course/Skills/course-visuals/SKILL.md",
+      "reader": "skill-98712820.html",
+      "title": "Technical Art course visuals",
+      "sha256": "3ad2cc0d686dd765254ce66c7c61a7d5f4941c93e4d3b099bb5bde344b49e495",
+      "modified": "2026-09-09T19:44:37.055Z"
+    },
+    {
+      "source": "TechArtMuseumIntegration/Docs/TECH_ART_MUSEUM_EXHIBIT_REPAIR_GUIDE.md",
+      "reader": "tech-art-museum-exhibit-repair-guide-e9691b97.html",
+      "title": "Tech Art Museum Exhibit Break/Fix Guide",
+      "sha256": "5e23d5bdace4032a4ad321923e36de1aab4e67e47e908cb71122cac03caa7d6a",
+      "modified": "2026-09-09T19:59:50.380Z"
+    },
+    {
+      "source": "TechArtMuseumIntegration/Docs/MUSEUM_EXHIBIT_INTERACTION_MIGRATION.md",
+      "reader": "museum-exhibit-interaction-migration-4aa2f202.html",
+      "title": "Tech Art Museum — Interactable Exhibit Migration",
+      "sha256": "f7dffa63c0f49904ddfe56f4e12b787bfec7301c2f41dace0156fe58b39187a8",
+      "modified": "2026-09-07T14:56:16.503Z"
+    },
+    {
+      "source": "SourceArtDepot/Exhibits/FINALIZED_PRIORITY_EXHIBITS.md",
+      "reader": "finalized-priority-exhibits-dda4bbb5.html",
+      "title": "Tech Art Museum — Finalized Priority Exhibits",
+      "sha256": "049dcc5245e88c05f0ee63f50f71c9f755e5d90532f47dc057f48e4da593a999",
+      "modified": "2026-09-07T05:42:17.367Z"
+    },
+    {
+      "source": "Course/Wiki/content/documentation.md",
+      "reader": "documentation-a9f1ab9e.html",
+      "title": "documentation",
+      "sha256": "c51b2f534d98a0c7135d6619bd1232dd72be3246523230413c13edeb9d2d9668",
+      "modified": "2026-09-09T01:39:22.772Z"
+    },
+    {
+      "source": "Course/Wiki/content/exhibit-record.md",
+      "reader": "exhibit-record-17f2bb1e.html",
+      "title": "exhibit-record",
+      "sha256": "051a7628af774a7578cf60c9d4b5bd315b89babbbb5ae98290e4716ef77f0927",
+      "modified": "2026-09-09T01:39:22.772Z"
+    },
+    {
+      "source": "Course/Wiki/content/exhibit.md",
+      "reader": "exhibit-90d1bdf8.html",
+      "title": "exhibit",
+      "sha256": "d1cc32f58fec3429ae131f2c14567a152037ece15427ce3a03c19977b2a27f6f",
+      "modified": "2026-09-09T01:39:22.773Z"
+    },
+    {
+      "source": "Course/Wiki/content/glossary.md",
+      "reader": "glossary-91efb2ae.html",
+      "title": "glossary",
+      "sha256": "f512c5c571b0291eb428f1054d943b5d7d9e19d864b6aed921465e66e31b071e",
+      "modified": "2026-09-09T01:39:22.773Z"
+    },
+    {
+      "source": "Course/Wiki/content/handoff.md",
+      "reader": "handoff-b38429a7.html",
+      "title": "handoff",
+      "sha256": "2ad246ebfff0cac8e65be862ac2e9b945575b1e135bab6c6d2d0e9be19745512",
+      "modified": "2026-09-09T01:39:22.773Z"
+    },
+    {
+      "source": "Course/Wiki/content/index.md",
+      "reader": "index-9fde88d9.html",
+      "title": "index",
+      "sha256": "29f4077eb22a1dfce97a11034674f37e0ec9503fcd5279a6e2c940625ba6132c",
+      "modified": "2026-09-09T01:39:22.773Z"
+    },
+    {
+      "source": "Course/Wiki/README.md",
+      "reader": "readme-c329949b.html",
+      "title": "Technical Art course wiki",
+      "sha256": "15dd75416c056da23643e67dcb96543b8c710421c811752289f0d970afd31684",
+      "modified": "2026-09-09T01:39:22.780Z"
+    },
+    {
+      "source": "Course/Wiki/content/maintaining.md",
+      "reader": "maintaining-bbc6fdbb.html",
+      "title": "maintaining",
+      "sha256": "eb858417055fce48aca91d9c9c3cd92224d4beba627e6c8b3ca2516de9c7ed27",
+      "modified": "2026-09-09T01:39:22.784Z"
+    },
+    {
+      "source": "Course/Wiki/content/materials.md",
+      "reader": "materials-2f6cad30.html",
+      "title": "materials",
+      "sha256": "f5745f55fbcd72c28f3ec77a50fe5c215d2e8782f67d0eec83cb2e6972eb4850",
+      "modified": "2026-09-09T01:39:22.774Z"
+    },
+    {
+      "source": "Course/Wiki/content/meshes.md",
+      "reader": "meshes-a7d578f1.html",
+      "title": "meshes",
+      "sha256": "3a5cc785fe1585048b321dd28776806266e3067ae2735523fd342c6f10d1595a",
+      "modified": "2026-09-09T01:39:22.774Z"
+    },
+    {
+      "source": "Course/Wiki/content/museum-lab.md",
+      "reader": "museum-lab-91ac1de3.html",
+      "title": "museum-lab",
+      "sha256": "5e03bd701f639c49e3e39f262542a1a01fdf88db1aa7a31bfd189594fd43f6b4",
+      "modified": "2026-09-09T01:39:22.774Z"
+    },
+    {
+      "source": "Course/Wiki/content/normals.md",
+      "reader": "normals-7f1adfca.html",
+      "title": "normals",
+      "sha256": "8b9bfd709ffc9999b69ff328e02e3f7d2d2ea90f928d711bd8873ea945bc8c4d",
+      "modified": "2026-09-09T01:39:22.775Z"
+    },
+    {
+      "source": "Course/Wiki/content/representations.md",
+      "reader": "representations-85477676.html",
+      "title": "representations",
+      "sha256": "dd6803b784238e479e357d2f3b4ab13be4ae8962052bc9df94e4711da3a6fd3a",
+      "modified": "2026-09-09T01:39:22.775Z"
+    },
+    {
+      "source": "Course/Wiki/content/resources.md",
+      "reader": "resources-a921e6bb.html",
+      "title": "resources",
+      "sha256": "d9c6e44d66cf20a26c792296296dc038e463609ddf308206430eceb8aceeb872",
+      "modified": "2026-09-09T01:39:22.775Z"
+    },
+    {
+      "source": "Course/Wiki/content/skeletal.md",
+      "reader": "skeletal-8f69385d.html",
+      "title": "skeletal",
+      "sha256": "a48006cb6c2a61f694030e0dbd5630119fff1a9cdd34b24f2acce7dd6bbbe33d",
+      "modified": "2026-09-09T01:39:22.775Z"
+    },
+    {
+      "source": "Course/Wiki/content/textures.md",
+      "reader": "textures-601934b0.html",
+      "title": "textures",
+      "sha256": "4ff7aba5fc6461cc75ac0d32fedaf14bd230d81e6f7407f497cd2b0f5ee65d7a",
+      "modified": "2026-09-09T01:39:22.776Z"
+    },
+    {
+      "source": "Course/Wiki/content/uvs.md",
+      "reader": "uvs-1d90be34.html",
+      "title": "uvs",
+      "sha256": "0374927871284e2ba089ff7f92248c89780e2f6be2c675ee3706aa36495ffdcb",
+      "modified": "2026-09-09T01:39:22.776Z"
+    },
+    {
+      "source": "Course/Wiki/content/validation.md",
+      "reader": "validation-373a89b3.html",
+      "title": "validation",
+      "sha256": "30d38de81d615abf619a98fba44f371bd6448494642077d4956091eaa2510d0c",
+      "modified": "2026-09-09T01:39:22.776Z"
+    },
+    {
+      "source": "Course/Wiki/content/week01.md",
+      "reader": "week01-2b816460.html",
+      "title": "week01",
+      "sha256": "cd1088adde401f3a7de3aa97dcb7059f4f164f2942cd674032d13ee01492b134",
+      "modified": "2026-09-09T01:39:22.776Z"
+    },
+    {
+      "source": "Course/Wiki/content/week02.md",
+      "reader": "week02-da498a6d.html",
+      "title": "week02",
+      "sha256": "2af96ee9c3af77200a37bf363b0215d5b9d03cd0140a792dc3fc25458f8ef395",
+      "modified": "2026-09-09T01:39:22.777Z"
+    },
+    {
+      "source": "Course/Wiki/content/week03.md",
+      "reader": "week03-96bb2417.html",
+      "title": "week03",
+      "sha256": "8fa0846919e0644dc103ced6dab558dad1e7ecbfa15261ae9bcbf449629095f7",
+      "modified": "2026-09-14T03:16:11.657Z"
+    },
+    {
+      "source": "Course/Wiki/content/week04.md",
+      "reader": "week04-9e80d8ef.html",
+      "title": "week04",
+      "sha256": "0bafdec27e11f372dde9e4f6c1148b0f69959aaf0f802d2b9edbc41d751c9eaa",
+      "modified": "2026-09-09T01:39:22.777Z"
+    },
+    {
+      "source": "Course/Wiki/content/week05.md",
+      "reader": "week05-81093cbf.html",
+      "title": "week05",
+      "sha256": "2a6466d7a5a2a4426a475cc504cf7f0562776b234406799673fbda4ee2716ebb",
+      "modified": "2026-09-09T01:39:22.777Z"
+    },
+    {
+      "source": "Course/Wiki/content/week06.md",
+      "reader": "week06-22f3131d.html",
+      "title": "week06",
+      "sha256": "571195d7ae45ba3ed4413330e8f4668ca03ffc4e4d9c7f2caf1ef82dddb163dd",
+      "modified": "2026-09-09T01:39:22.777Z"
+    },
+    {
+      "source": "Course/Wiki/content/week07.md",
+      "reader": "week07-4291d280.html",
+      "title": "week07",
+      "sha256": "668fbf60e2d85523fcb2bf6ad3d2bcff1f3952ccaab7653149a2a3dd7982f6b9",
+      "modified": "2026-09-09T01:39:22.778Z"
+    },
+    {
+      "source": "Course/Wiki/content/week08.md",
+      "reader": "week08-115c83aa.html",
+      "title": "week08",
+      "sha256": "1cd9adde269f5383172bcdcc94a9ba71bd85c397d467aa77e43eab8ec9b868f0",
+      "modified": "2026-09-09T01:39:22.778Z"
+    },
+    {
+      "source": "Course/Wiki/content/week09.md",
+      "reader": "week09-c935a577.html",
+      "title": "week09",
+      "sha256": "e028412602bc235d812a6d8e8d7df250df869f67e1434570f4a63abb5d26d685",
+      "modified": "2026-09-09T01:39:22.778Z"
+    },
+    {
+      "source": "Course/Wiki/content/week10.md",
+      "reader": "week10-44b183b2.html",
+      "title": "week10",
+      "sha256": "32d73287f845b6178a52ed39de2b05c017dcc716c0b6aca74b4f293e5a79ffe0",
+      "modified": "2026-09-09T01:39:22.778Z"
+    },
+    {
+      "source": "Course/Wiki/content/week11.md",
+      "reader": "week11-94d00f39.html",
+      "title": "week11",
+      "sha256": "aa13fc60ab9dd955efafd222f3da6218f0df17583c34ae287ffd495dfa9ad763",
+      "modified": "2026-09-09T01:39:22.779Z"
+    },
+    {
+      "source": "Course/Wiki/content/week12.md",
+      "reader": "week12-9ee6ee07.html",
+      "title": "week12",
+      "sha256": "0d01dedd1e1d47adce147054e5ca2d33aba3ba055efea1acd64bd51ead7cccbb",
+      "modified": "2026-09-09T01:39:22.779Z"
+    },
+    {
+      "source": "Course/Slides/Week02/ReviewRefined20260909/SLIDE_AUDIT.md",
+      "reader": "slide-audit-d304031e.html",
+      "title": "Refined deck: slide findings",
+      "sha256": "18572e692c7827302e405161029f4a82d227aac31770a8a05a25222d9cfd23bb",
+      "modified": "2026-09-09T19:50:18.498Z"
+    },
+    {
+      "source": "Course/Slides/Week02/Review/MaterialsGuide/materials-process-diagrams.md",
+      "reader": "materials-process-diagrams-46618c91.html",
+      "title": "Material process diagrams",
+      "sha256": "31ee4fa8592dde9cbae5d7233518632f34d77041d3443bdba11c7eec240c7aae",
+      "modified": "2026-09-09T01:10:26.706Z"
+    },
+    {
+      "source": "Course/Slides/Week02/Review/MaterialsGuide/UE_Images/README.md",
+      "reader": "readme-c43192e0.html",
+      "title": "UE imagery used in the illustrated material process diagram",
+      "sha256": "b0b4ff28937e9e71ccd099279379286de9799e4602dcc8d0420f3f9ec3ddc935",
+      "modified": "2026-09-09T01:10:26.711Z"
+    },
+    {
+      "source": "Course/Slides/Week02/Review/WEEK2_DECK_MEDIA_AND_MUSEUM_ALIGNMENT.md",
+      "reader": "week2-deck-media-and-museum-alignment-83bfe9c3.html",
+      "title": "Week 2 Deck — Museum Alignment and Media Pass",
+      "sha256": "b7b782863a4c13cc79c256475956758d2ffe57aad27ded9031b07a6d9e300899",
+      "modified": "2026-09-09T01:10:26.597Z"
+    },
+    {
+      "source": "Course/Visuals/diagram-profile.md",
+      "reader": "diagram-profile-4ce133bf.html",
+      "title": "Style Guide",
+      "sha256": "17d23d08b6b0f302d54aec2ee129b51aaf4221832c0b79d9b091cabca07a8cd3",
+      "modified": "2026-09-09T19:44:37.056Z"
+    },
+    {
+      "source": "Course/Visuals/BUILD.md",
+      "reader": "build-326ec379.html",
+      "title": "Build and maintain course visuals",
+      "sha256": "2012e1ac3aa3a7c06364564e5f7826256f7543e054edec3ba32e222d70aa52ec",
+      "modified": "2026-09-09T19:48:46.201Z"
+    },
+    {
+      "source": "Course/Wiki/templates/week.md",
+      "reader": "week-ed002bfe.html",
+      "title": "week",
+      "sha256": "4c1b9333caebac31e0b35a102fbe71a0f3b8447954e27958c6918b1e6bc3f3a2",
+      "modified": "2026-09-09T01:39:22.779Z"
+    },
+    {
+      "source": "Course/Wiki/templates/topic.md",
+      "reader": "topic-a4bc1536.html",
+      "title": "topic",
+      "sha256": "c27a3f88a8785dd5dff5a7e2b1ee030f8d7f1e696bde884a25c6ad6af6b3ccf5",
+      "modified": "2026-09-09T01:39:22.779Z"
+    },
+    {
+      "source": "Course/Wiki/assets/images/README.md",
+      "reader": "readme-011c4053.html",
+      "title": "Image provenance",
+      "sha256": "01b0227a054961bcc30bf39b56131e1ba0565622ed59360b55443a2fb877a117",
+      "modified": "2026-09-09T01:30:44.019Z"
+    },
+    {
+      "source": "TechArtMuseumIntegration/Docs/SandboxGrid/README.md",
+      "reader": "readme-c4692628.html",
+      "title": "Tech Art Museum — Exhibit Review Grid",
+      "sha256": "5106f76024335f4d4cafc97a4a20705a8d0791d888cdc78926249e044f551be4",
+      "modified": "2026-09-09T19:54:04.258Z"
+    },
+    {
+      "source": "TechArtMuseumIntegration/Docs/SandboxGrid/INSTRUCTOR_KEY.md",
+      "reader": "instructor-key-9025788f.html",
+      "title": "Sandbox Grid — Instructor Answer Key",
+      "sha256": "5e4b765c87c0774d21d36c2738e4c3b240cb9808db90b44f12a163ce37197d73",
+      "modified": "2026-09-09T19:53:08.522Z"
+    },
+    {
+      "source": "TechArtMuseumIntegration/Scripts/SandboxGrid/Sources/Geometry_README.md",
+      "reader": "geometry-readme-e557d2cf.html",
+      "title": "EX20 editable geometry sources",
+      "sha256": "f27c39095342852f2719e84310b3724add658d687bdb88e6c080054ce656be38",
+      "modified": "2026-09-09T19:39:37.067Z"
+    },
+    {
+      "source": "Course/Slides/Week03/Review/WEEK3_ORIGINAL_DECK_SLIDE_BY_SLIDE_ADVICE.md",
+      "reader": "week3-original-deck-slide-by-slide-advice-0be82a3e.html",
+      "title": "Week 3 original deck: current slide → editorial advice",
+      "sha256": "088c4a25b4b81155234e7017d36b71f5b3b233e68e877c04e02164001a4f6f61",
+      "modified": "2026-09-14T21:37:25.515Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Instructor/WEEK5_CONTEXT_AND_FINALIZATION.md",
+      "reader": "week5-context-and-finalization-d1e13180.html",
+      "title": "Week 5: Applied math for Technical Artists",
+      "sha256": "22bc7986745bf7fb9a344b6817a6effd5ee38b1abf6ca691c97429455d56467c",
+      "modified": "2026-09-27T03:08:08.482Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Review/WEEK5_SLIDE_REVIEW.md",
+      "reader": "week5-slide-review-2e0d9cac.html",
+      "title": "Week 5 expanded slide review",
+      "sha256": "e5c367bff45b458d16ee59127c4741e133eee69fba136bc0fceefcf3813f1b96",
+      "modified": "2026-09-27T15:43:38.272Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Review/SOURCE_CONTEXT.md",
+      "reader": "source-context-227ff122.html",
+      "title": "Week 5 source context and coverage decisions",
+      "sha256": "8455ec98d93a68846b10d5758d7d2ab947a8ad78655e7b38edc7fee03485d527",
+      "modified": "2026-09-27T15:43:38.265Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Review/BOOK_ALIGNMENT.md",
+      "reader": "book-alignment-57f4c4d9.html",
+      "title": "Jettelly book alignment for Week 5",
+      "sha256": "c346587163a4b0d4f9fb692502b8174b41ff3bf5f3fededd4e1074da13d7e2ab",
+      "modified": "2026-09-27T15:43:38.259Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Review/MAYA_ANIMATION_AND_MATERIALS.md",
+      "reader": "maya-animation-and-materials-93250fb3.html",
+      "title": "Maya visualization, technical animation, and material examples",
+      "sha256": "bc989e312386b0ec6610d5ccfb092a29160b0dfd6a56b240f1c88bcc33815d15",
+      "modified": "2026-09-27T15:43:38.263Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Review/ADDITIONAL_LINEAR_ALGEBRA_RESOURCES.md",
+      "reader": "additional-linear-algebra-resources-0c0a7f4c.html",
+      "title": "Additional linear algebra resources for Week 5",
+      "sha256": "f44903cfe516b23165139e4135b0507c0cc3d7b90d555ca70b80fc96598de4b0",
+      "modified": "2026-09-27T04:18:17.378Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Review/TOOL_DEMOS.md",
+      "reader": "tool-demos-c0f7821a.html",
+      "title": "Working Week 5 Maya demos",
+      "sha256": "e701b134a388844e82ee9a0c11e096d83ae5e3367222b636d07d6fac86240133",
+      "modified": "2026-09-27T15:42:04.792Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Instructor/WORKED_EXAMPLES_AND_CLASSROOM_PATH.md",
+      "reader": "worked-examples-and-classroom-path-b4b2f700.html",
+      "title": "Week 5 worked examples and classroom path",
+      "sha256": "6b163eec2d98bbd91762615bf2d52b95e17598c121497c5c99aa5313d0dbb0bf",
+      "modified": "2026-09-28T21:24:13.572Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Review/FinalizationReview20260928/SCOPE_WEEKS_5_6.md",
+      "reader": "scope-weeks-5-6-a07310eb.html",
+      "title": "Weeks 5 and 6: teaching boundary",
+      "sha256": "68a67b9bd008b017c6760a1f281e4ca58bbf2802696f993764fb0860a3ada28a",
+      "modified": "2026-09-29T03:19:23.940Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Review/resequence_20260930/revision-map.csv",
+      "reader": "revision-map-1d285b0c.html",
+      "title": "revision-map",
+      "sha256": "c425109ddaf8faa80a28d7cd04c6f3eaedb0927ce22e0f3284aa288041d44440",
+      "modified": "2026-09-30T21:43:15.579Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Review/preparation_20260930/slide-map.csv",
+      "reader": "slide-map-3d61a676.html",
+      "title": "slide-map",
+      "sha256": "dd6d44c339cef47ffc4a574bedb18f7dd84ab909cb37bf188b84e001b8054248",
+      "modified": "2026-09-30T22:05:35.348Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Review/wip_20260930/Week 5 - Visual Pack - Latest WIP/01-Placement-Map.csv",
+      "reader": "01-placement-map-ccc64291.html",
+      "title": "01-Placement-Map",
+      "sha256": "9dc584ae8518c68be688ba5204f922662e9c9c29625e46c24d9796d60e6fc19e",
+      "modified": "2026-10-01T01:06:16.148Z"
+    },
+    {
+      "source": "Course/Slides/Week05/Review/content_20260930/edit-map.csv",
+      "reader": "edit-map-00f4d47f.html",
+      "title": "edit-map",
+      "sha256": "bd5bb88ae0713c341b333a111c3d9b40b7c58a464e36c15e8dd6f23bf0a2c2ae",
+      "modified": "2026-10-01T01:59:04.077Z"
+    },
+    {
+      "source": "Course/References/InstructorOnly/Week03_Python_Maya_UX/02_DEEP_DIVE_WEEK03.md",
+      "reader": "02-deep-dive-week03-3acbf1c9.html",
+      "title": "Deep dive: material worth mining for Week 3",
+      "sha256": "1bdb669fd1cf6b710cb30571888b37f1dcb0181a65411b2455f2e6c3c4420b4d",
+      "modified": "2026-09-16T00:13:52.522Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/api-bookmarks.md",
+      "reader": "api-bookmarks-69ba8a20.html",
+      "title": "api-bookmarks",
+      "sha256": "5ca9a8d6879a49e09294225093de2d4f2c90247aad45b2c13772db1d1af3c6fd",
+      "modified": "2026-10-11T18:29:49.945Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/fiea-ux.md",
+      "reader": "fiea-ux-ef3a86ea.html",
+      "title": "UI/UX",
+      "sha256": "80256cae356d9c71d2fbdf8e11fa1b66d4c76bb1ebc68021c188f273e949c18e",
+      "modified": "2026-10-11T18:29:49.948Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/intro-00.md",
+      "reader": "intro-00-381cf19f.html",
+      "title": "intro-00",
+      "sha256": "62b4b28caa61b55cb38be2b8c299fa21acfb20f3021e68555b2d8530e5419a13",
+      "modified": "2026-10-11T18:29:49.874Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/intro-a1.md",
+      "reader": "intro-a1-5d3cbdd7.html",
+      "title": "intro-a1",
+      "sha256": "4d7259dab4a8e3ede89e7cb01a09c5e658e5f3a306e695d160afe8bafd81ac01",
+      "modified": "2026-10-11T18:29:49.886Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/intro-a2.md",
+      "reader": "intro-a2-1eadde5b.html",
+      "title": "intro-a2",
+      "sha256": "81576f91237486156250fab6a7edf61da8a25cadc97b66be04e314096f08105d",
+      "modified": "2026-10-11T18:29:49.887Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/intro-a3.md",
+      "reader": "intro-a3-5d3fa3c8.html",
+      "title": "intro-a3",
+      "sha256": "f412f5c546433a52947aa4f451c8c99c1285fa2bec4dd68657d3516a26b4996f",
+      "modified": "2026-10-11T18:29:49.898Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/intro-a4.md",
+      "reader": "intro-a4-326177a6.html",
+      "title": "intro-a4",
+      "sha256": "2d403751879369cdec9552d004490bbb69da1cdb6110cf83eec3458dda3ff7d3",
+      "modified": "2026-10-11T18:29:49.931Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/intro-a5.md",
+      "reader": "intro-a5-7b1578f3.html",
+      "title": "intro-a5",
+      "sha256": "63c2a32bd7ce2bd1a3408a5f2e56cf65308d0b002abcadbd3c2466a8e443dd55",
+      "modified": "2026-10-11T18:29:49.935Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/intro-b1.md",
+      "reader": "intro-b1-6c8c0d02.html",
+      "title": "intro-b1",
+      "sha256": "7e99bb5c0e870988df9ca52ad9c1340532e620775762f5d01930bfbe369e19ec",
+      "modified": "2026-10-11T18:29:49.942Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/oster-01.md",
+      "reader": "oster-01-5500846b.html",
+      "title": "oster-01",
+      "sha256": "2d915369b3a63b03a055cbfb3129dc26a05651f8f7ee51ed21f669e1eab74bec",
+      "modified": "2026-10-11T18:29:49.836Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/oster-02.md",
+      "reader": "oster-02-709a6b3b.html",
+      "title": "oster-02",
+      "sha256": "4f6848ec89e199550578602571fd4cb5a9ac2bea7ccb34eedef39f71057ff54c",
+      "modified": "2026-10-11T18:29:49.847Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/oster-03.md",
+      "reader": "oster-03-27d57c49.html",
+      "title": "oster-03",
+      "sha256": "3bc387180bc8eb52301bb695bb25d60b0c3301292cff5b21f9beb6df19bb3cd4",
+      "modified": "2026-10-11T18:29:49.849Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/oster-04.md",
+      "reader": "oster-04-0a5e4a8d.html",
+      "title": "oster-04",
+      "sha256": "f1c3605a844052cbac91ac7811e8a2dadc63b36651ad31f359f184f44db4c78a",
+      "modified": "2026-10-11T18:29:49.850Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/oster-05.md",
+      "reader": "oster-05-2b7024be.html",
+      "title": "oster-05",
+      "sha256": "8e1936c6924da488fa7bda33271b0ff3dd03b8518f2d374c5295eb62d1131603",
+      "modified": "2026-10-11T18:29:49.852Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/oster-06.md",
+      "reader": "oster-06-2ec65d8c.html",
+      "title": "oster-06",
+      "sha256": "dba1f25f09ba40e792a96617afd3a608e2bd096e41bcac584b1a1226b55ff4c9",
+      "modified": "2026-10-11T18:29:49.853Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/oster-07.md",
+      "reader": "oster-07-c35399a0.html",
+      "title": "oster-07",
+      "sha256": "72a1c0e19014502fe31834bcfcf7a2f1160b0e442637ffa14d3e4a10d17f2e75",
+      "modified": "2026-10-11T18:29:49.854Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/oster-08.md",
+      "reader": "oster-08-5defc6a1.html",
+      "title": "oster-08",
+      "sha256": "ff2f0a55eb52a9ad16e79c566e937a66f25c22990164100b81be52e21080af61",
+      "modified": "2026-10-11T18:29:49.856Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/oster-09.md",
+      "reader": "oster-09-c80a4888.html",
+      "title": "oster-09",
+      "sha256": "f8e63d66f0256d1096a1d76fad2d8af41ac29b144be8d97f4087dbab1d124f8a",
+      "modified": "2026-10-11T18:29:49.857Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/oster-full.md",
+      "reader": "oster-full-d6661492.html",
+      "title": "oster-full",
+      "sha256": "3f5d0b86a27c4523cb466377bc70c9866ee68a6374d93ea11e78545b7e537cd8",
+      "modified": "2026-10-11T18:29:49.832Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/prep-courses.md",
+      "reader": "prep-courses-8638394b.html",
+      "title": "prep-courses",
+      "sha256": "74fdc14acdd16778d8d9cd13725d8a238cd4a3f366a8ae591b2461ff06a49e3f",
+      "modified": "2026-10-11T18:29:49.995Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/tutorials.md",
+      "reader": "tutorials-37c16a10.html",
+      "title": "tutorials",
+      "sha256": "a587309f55e06faa5d432949dd9712c60c5cc15968b510bd95971240758a0ded",
+      "modified": "2026-10-11T18:29:49.943Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/udemy-pipelines.md",
+      "reader": "udemy-pipelines-99dc0b5c.html",
+      "title": "Lecture Notes: Introduction to Pipelines in Game Development",
+      "sha256": "b2513c969372843dec44bae9f83833aaeacf1f7b23fbb4ffd671908eaf23b6e8",
+      "modified": "2026-10-11T18:29:49.979Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/udemy-scripting.md",
+      "reader": "udemy-scripting-e60ff1d7.html",
+      "title": "Maya Embedded Language (MEL) — Lecture Summary",
+      "sha256": "865e41a31ba7a60f814d72301db1203843b5c63548182c7d4ef16099fbee6033",
+      "modified": "2026-10-11T18:29:49.963Z"
+    },
+    {
+      "source": "Course/Slides/Week07/PrepNotes/sources/ux-checklist.md",
+      "reader": "ux-checklist-d5aa4794.html",
+      "title": "Artist-Facing Tool UX Checklist",
+      "sha256": "68d1b83795d894733320651e35d7a9b1ecd31163168dc29acac0bf91f6edf2e6",
+      "modified": "2026-10-11T18:29:49.946Z"
+    },
+    {
+      "source": "Week07UnrealPython/README.md",
+      "reader": "readme-c55a0805.html",
+      "title": "Week 7 · Unreal Python Tooling",
+      "sha256": "e77a9976dc87b294b1bc11794dd1d6cfdb20f4f0317b67d4567919f5b4f3276e",
+      "modified": "2026-10-13T19:00:00.875Z"
+    },
+    {
+      "source": "Week07UnrealPython/Docs/UI/README.md",
+      "reader": "readme-d829682e.html",
+      "title": "Prop Inspector · UI and functionality status",
+      "sha256": "2876dbde0583afe408b6f49e3be06042676361b9780a360f9c93dae85aad919f",
+      "modified": "2026-10-13T04:15:59.032Z"
+    },
+    {
+      "source": "Week07UnrealPython/Docs/UI/UNREAL_NATIVE_UI.md",
+      "reader": "unreal-native-ui-2e7365ec.html",
+      "title": "Two interfaces, one Python tool",
+      "sha256": "1dfda0d8b027f18d5efac0c475ab11a444c5d69f2076b4f6a4e3158e788800cf",
+      "modified": "2026-10-13T07:38:52.069Z"
+    },
+    {
+      "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/README.md",
+      "reader": "readme-680db8cd.html",
+      "title": "Week 7 Python tooling — draft checkpoints",
+      "sha256": "313dfaf989ad6b9b563e5b2e5dfe3350f28f237e7ceafb0dd63b4e7bab00e70d",
+      "modified": "2026-10-13T04:15:59.031Z"
+    },
+    {
+      "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/SEQUENCING.md",
+      "reader": "sequencing-d0bca5bb.html",
+      "title": "Foundation sequence assessment — updated 13 October 2026",
+      "sha256": "2989bfd73407f2bfb06f169cc00b64a48119290c578b5fbdf3748f8825c723ab",
+      "modified": "2026-10-13T04:15:59.031Z"
+    },
+    {
+      "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_00_data_and_scope/README.md",
+      "reader": "readme-3a14ff9d.html",
+      "title": "Stage 00 · Data and scope",
+      "sha256": "59f2a2dbefff95e428ecb41b45c541169e594caf758faee017645a34d40ecc85",
+      "modified": "2026-10-12T02:44:24.533Z"
+    },
+    {
+      "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_01_rules_and_reports/README.md",
+      "reader": "readme-4443c274.html",
+      "title": "Stage 01 · Rules and reports",
+      "sha256": "c155afccf016e2cf2a0066888eea3784312ccfa6753ddaf19caf6cad96e9d9e4",
+      "modified": "2026-10-12T02:44:24.534Z"
+    },
+    {
+      "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_02_preview_and_apply/README.md",
+      "reader": "readme-1c2a126c.html",
+      "title": "Stage 02 · Preview and apply",
+      "sha256": "dd67e2a9375226489246ae4e65d5f4bbc21d3ad065f341dc27a5c5481917ed5a",
+      "modified": "2026-10-12T02:44:24.534Z"
+    },
+    {
+      "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_03_project_bridge/README.md",
+      "reader": "readme-b9f3ca7d.html",
+      "title": "Stage 03 · Connect the example to the project",
+      "sha256": "5ed1d968ffcf477cf57dd6507e479701a0d76637147e0ec08c9f253b987a1a49",
+      "modified": "2026-10-12T02:44:24.535Z"
+    },
+    {
+      "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_04_lab_starter/README.md",
+      "reader": "readme-c996af25.html",
+      "title": "Lab starter — scope pending",
+      "sha256": "244d0d4e8cc3e61dd80a2d5d00748bc814f31fe4a28c9d9246db3b86fbff5580",
+      "modified": "2026-10-12T02:44:24.537Z"
+    },
+    {
+      "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_05_ui_progression/README.md",
+      "reader": "readme-44ea130d.html",
+      "title": "Material & VFX Tools · functional → guided → refined",
+      "sha256": "e6ef59108076b4e410eccd0d3928097713d7c0e9fe75717688dd7a2ed4d1d04c",
+      "modified": "2026-10-13T04:15:59.019Z"
+    },
+    {
+      "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_03_project_bridge/step_08_editor_boundary.md",
+      "reader": "step-08-editor-boundary-74cfcd5f.html",
+      "title": "08 · Read the editor boundary — manual demo later",
+      "sha256": "de74513e77058951a6977a13ddb91ffd5e736a647fdce384e95c6af5db8f000f",
+      "modified": "2026-10-12T02:44:24.536Z"
+    },
+    {
+      "source": "Week07UnrealPython/Docs/Students/START_HERE.md",
+      "reader": "start-here-0c8c24d9.html",
+      "title": "Week 7 · Material & VFX Tools",
+      "sha256": "655adcd6bd3dcb30adbc3f66d7c85bc7498c6abc0cbef644723a59f569f53900",
+      "modified": "2026-10-13T04:15:59.032Z"
+    },
+    {
+      "source": "Week07UnrealPython/Docs/DEMO_SEQUENCE.md",
+      "reader": "demo-sequence-74c30b13.html",
+      "title": "Material & VFX Tools · canonical demo route",
+      "sha256": "4e9d199970ebec867fefae0bddd850170e2fe6fa618e2866f26f0dacc203b36e",
+      "modified": "2026-10-13T07:38:52.068Z"
+    },
+    {
+      "source": "Week07UnrealPython/Docs/UI/PRESENTATION_CHECKLIST.md",
+      "reader": "presentation-checklist-052347ac.html",
+      "title": "Instructor presentation pass · Material & VFX Tools",
+      "sha256": "03a5415d6b99da238e585c243b2d75760dc5a69d39d80b5de5bc5abf2b32b784",
+      "modified": "2026-10-13T07:38:52.068Z"
+    },
+    {
+      "source": "Week07UnrealPython/Docs/UI/MATERIAL_VFX_SCOPE.md",
+      "reader": "material-vfx-scope-0a9ec19c.html",
+      "title": "Selected demo tools · 12 October 2026",
+      "sha256": "4732b44ab01801b294fd347c13f8b599e96ba77fabba29c6b3aeb2a81f1e75c3",
+      "modified": "2026-10-13T03:48:03.923Z"
+    },
+    {
+      "source": "Course/Slides/Week07/KarolIntegrationReview20261013/INTEGRATION_NOTES.md",
+      "reader": "integration-notes-84dd72b6.html",
+      "title": "Karol integration — copyable teaching proposals",
+      "sha256": "f9f394c38d01f89339e853db6f5a5c74a5546db95a48498a1c9e8a2d132e25f4",
+      "modified": "2026-10-13T15:04:48.528Z"
+    },
+    {
+      "source": "Week07UnrealPython/Docs/Bridge/README.md",
+      "reader": "readme-78ab53f5.html",
+      "title": "Maya / Blender to Unreal: working comparison bridge",
+      "sha256": "a873b16681be8682f792e9b52c5fe9f05ac618c009bfd2cb0c50d0db551496ad",
+      "modified": "2026-10-13T19:05:39.771Z"
+    }
+  ],
+  "rewritten_html_files": [
+    "Course/Slides/Week07/BridgeRehearsal20261013/index.html"
+  ]
+}

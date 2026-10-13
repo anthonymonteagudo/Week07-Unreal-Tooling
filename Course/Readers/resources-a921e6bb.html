@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>resources</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Wiki/content/resources.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Wiki/content/resources.md<br>Source modified: 2026-09-09T01:39:22.775Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#start-here-for-week-2">Start here for Week 2</a></li><li><a href="#short-visual-examples">Short visual examples</a></li><li><a href="#go-deeper-by-mechanism">Go deeper by mechanism</a></li><li><a href="#read-a-source-actively">Read a source actively</a></li></ul></details><h2 id="start-here-for-week-2">Start here for Week 2</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Read for this question</th>
+<th>Suggested scope</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts?application_version=5.7">Epic: Essential Material Concepts</a></td>
+<td>What are the UE graph, inputs, and surface preview?</td>
+<td>Follow one graph/preview example.</td>
+</tr>
+<tr>
+<td><a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-texturing/introduction-to-texturing-basic-implementation.html">Scratchapixel: Basic Implementation</a></td>
+<td>How does a surface location lead to a texture lookup?</td>
+<td>Begin with the mapping explanation and Maya UV figure; return to code later.</td>
+</tr>
+<tr>
+<td><a href="https://www.adobe.com/learn/substance-3d-designer/web/the-pbr-guide-part-1">Adobe: PBR Guide, Part 1</a></td>
+<td>What physical surface ideas motivate material controls?</td>
+<td>Read to explain a visible surface response; defer complete model detail.</td>
+</tr>
+<tr>
+<td><a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-LightingShading/files/GUID-599CACDB-76C1-4FAC-AA94-0E77F0042C8D.htm">Maya: shading networks</a></td>
+<td>How do texture, material, and assignment roles connect in the DCC?</td>
+<td>Follow the node relationships.</td>
+</tr>
+<tr>
+<td><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-material-pipeline-in-unreal-engine?application_version=5.7">Epic: FBX Material Pipeline</a></td>
+<td>Which surface relationships can transfer?</td>
+<td>Study the Maya multiple-material example and supported-conversion limits.</td>
+</tr>
+</tbody></table></div>
+<h2 id="short-visual-examples">Short visual examples</h2>
+<ul>
+<li><a href="https://dev.epicgames.com/community/api/cms/videos/1_hr0fnlml/embed.html">Epic Material Instance chair clip</a>, approximately 37 seconds: predict which object changes when an exposed value changes.</li>
+<li><a href="https://dev.epicgames.com/community/api/cms/videos/1_4goroask/embed.html">Epic Mapping Roughness clip</a>, 34 seconds: watch the control and reflection together. The patterned graph is more complex than a first uniform-roughness example.</li>
+<li><a href="https://www.youtube.com/watch?v=gJSkEyXkyHE&amp;t=142s">Autodesk Maya 2027 Skin Tools</a>, suggested excerpt 2:22–3:04: compare a weight edit with the resulting bend.</li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/material-blend-modes-in-unreal-engine?application_version=5.7">Epic blend-mode comparisons</a>: compare stored alpha with coverage behavior.</li>
+<li><a href="https://learnopengl.com/Advanced-Lighting/Normal-Mapping">LearnOpenGL normal mapping</a>: use the direction diagram and brick comparison before exploring implementation.</li>
+</ul>
+<p>The three video selections were spot-checked during the earlier media review. Source playback is separate from classroom embedding or offline availability. For study, keep a still comparison and its explanation alongside the link.</p>
+<h2 id="go-deeper-by-mechanism">Go deeper by mechanism</h2>
+<p><strong>Shader programming:</strong> <a href="https://thebookofshaders.com/01/">The Book of Shaders</a> introduces the idea through approachable examples; its <a href="https://thebookofshaders.com/03/">uniforms chapter</a> has a live time-driven result. <a href="https://learnopengl.com/Getting-started/Shaders">LearnOpenGL: Shaders</a> connects the concept to an explicit graphics-programming workflow. Their GLSL examples are conceptual/programming resources, not UE editor instructions.</p>
+<p><strong>Texture sampling:</strong> <a href="https://www.pbr-book.org/4ed/Textures_and_Materials/Image_Texture">PBRT, fourth edition</a> develops image filtering in depth. Use it after a UV/mip example is familiar. <a href="https://publications.ri.cmu.edu/survey-of-texture-mapping">Heckbert&#39;s Survey of Texture Mapping</a> provides a historical research overview.</p>
+<p><strong>Surface models:</strong> <a href="https://media.disneyanimation.com/uploads/production/publication_asset/48/asset/s2012_pbs_disney_brdf_notes_v3.pdf">Burley&#39;s Disney 2012 notes</a> include parameter comparisons; start with one row rather than the whole model. <a href="https://blog.selfshadow.com/publications/s2013-shading-course/karis/s2013_pbs_epic_notes_v2.pdf">Karis&#39;s 2013 UE4 shading notes</a> are historical engine-model context, not a current UE5 settings reference.</p>
+<p><strong>Deformation:</strong> <a href="https://users.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.html">Kavan et al., Skinning with Dual Quaternions</a> illustrates why the deformation method can contribute to artifacts. Use the comparison first and the derivation later.</p>
+<h2 id="read-a-source-actively">Read a source actively</h2>
+<p>Write the question before opening the reference. Identify the source&#39;s software version or model assumptions, then turn one explanation into a test on your example. A cited technique does not by itself prove that your asset uses it or that your repair worked.</p>
+<p>For wider exploration, Bartosz Ciechanowski&#39;s <a href="https://ciechanow.ski/lights-and-shadows/">Lights and Shadows</a> offers interactive explanations in a first-principles style. Its full lighting scope belongs beyond the short Week 2 introduction.</p>
+</main></body></html>

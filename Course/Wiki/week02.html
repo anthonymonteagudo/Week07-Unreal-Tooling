@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 2 · Assets, pipelines, and validation · Technical Art</title><meta name="description" content="Follow a surface from Maya to Unreal, identify the data behind its appearance, and investigate a museum example with evidence."><link rel="stylesheet" href="assets/wiki.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Technical Art <span>Course wiki</span></a><span class="edition">GAMEDSGN 590 · Fall 2026 · Working edition</span><a href="../Slides/index.html">Instructor slide reviews ↗</a></header><div class="shell"><aside class="sidebar"><form class="search" role="search"><label for="search-input">Find a topic</label><input id="search-input" type="search" autocomplete="off" placeholder="UVs, materials, Python…"><button type="submit">Search</button></form><nav aria-label="Course pages"><section class="nav-group"><h2>Course</h2><a href="index.html" data-page="index">Technical Art course wiki</a><a href="maintaining.html" data-page="maintaining">Maintaining the course wiki</a></section><section class="nav-group"><h2>Weeks</h2><a href="week01.html" data-page="week01">Week 1 · Technical Art foundations</a><a href="week02.html" data-page="week02" aria-current="page">Week 2 · Assets, pipelines, and validation</a><a href="week03.html" data-page="week03">Week 3 · Python, Maya automation, and artist-facing UI</a><a href="week04.html" data-page="week04">Week 4 · Editor tool development<span class="nav-status">Planned</span></a><a href="week05.html" data-page="week05">Week 5 · Applied math for Technical Artists<span class="nav-status">Planned</span></a><a href="week06.html" data-page="week06">Week 6 · Introduction to Technical Animation<span class="nav-status">Planned</span></a><a href="week07.html" data-page="week07">Week 7 · Midterm feedback and reflection<span class="nav-status">Planned</span></a><a href="week08.html" data-page="week08">Week 8 · Real-time rendering pipeline<span class="nav-status">Planned</span></a><a href="week09.html" data-page="week09">Week 9 · Shaders and material systems<span class="nav-status">Planned</span></a><a href="week10.html" data-page="week10">Week 10 · Profiling and optimization<span class="nav-status">Planned</span></a><a href="week11.html" data-page="week11">Week 11 · Procedural content and scalability<span class="nav-status">Planned</span></a><a href="week12.html" data-page="week12">Week 12 · Production systems and maintainability<span class="nav-status">Planned</span></a></section><section class="nav-group"><h2>Topics</h2><a href="meshes.html" data-page="meshes">Mesh anatomy</a><a href="normals.html" data-page="normals">Normals and normal maps</a><a href="uvs.html" data-page="uvs">UVs and texture lookup</a><a href="textures.html" data-page="textures">Texture data and interpretation</a><a href="materials.html" data-page="materials">Materials and shaders</a><a href="handoff.html" data-page="handoff">Maya-to-Unreal handoffs</a><a href="skeletal.html" data-page="skeletal">Skeletal assets</a><a href="representations.html" data-page="representations">Mips, mesh LOD, and streaming</a><a href="validation.html" data-page="validation">Validation and evidence</a><a href="documentation.html" data-page="documentation">Technical documentation</a></section><section class="nav-group"><h2>Practice</h2><a href="museum-lab.html" data-page="museum-lab">Museum investigation lab</a><a href="exhibit.html" data-page="exhibit">Create your own museum exhibit</a><a href="exhibit-record.html" data-page="exhibit-record">Exhibit record template</a></section><section class="nav-group"><h2>Resources</h2><a href="resources.html" data-page="resources">Reading and visual library</a><a href="glossary.html" data-page="glossary">Working glossary</a></section></nav></aside><main id="main"><section id="search-results" hidden aria-label="Search results"><div class="search-heading"><h2>Search results</h2><button id="clear-search">Close search</button></div><p id="search-count" role="status"></p><ul id="result-list"></ul></section><article id="page-content"><div class="page-meta"><span>Weeks</span><span class="status ">Study guide</span><span>Updated 8 September 2026</span></div><h1>Week 2 · Assets, pipelines, and validation</h1><p class="lead">Follow a surface from Maya to Unreal, identify the data behind its appearance, and investigate a museum example with evidence.</p><nav class="toc" aria-label="On this page"><strong>On this page</strong><a href="#the-common-goal">The common goal</a><a href="#a-map-of-the-relationships">A map of the relationships</a><a href="#follow-one-handoff">Follow one handoff</a><a href="#before-the-museum-repair">Before the museum repair</a><a href="#during-the-investigation">During the investigation</a><a href="#after-the-lab">After the lab</a><a href="#review-questions">Review questions</a><a href="#explore-further">Explore further</a></nav><h2 id="the-common-goal">The common goal</h2><p>You should be able to locate relevant asset data, explain a useful test, and document what the result establishes. You are not expected to master every modeling, rendering, or rigging technique in one lecture.</p>
+<p>We begin with the parts of an asset, follow a DCC-to-engine handoff, and observe the museum. The focused anatomy examples then give you mechanisms to use in the repair investigation.</p>
+<h2 id="a-map-of-the-relationships">A map of the relationships</h2><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Its role</th>
+<th>First useful question</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="meshes.html">Mesh</a></td>
+<td>Positions and connections define the surface.</td>
+<td>Did the actual shape or structure change?</td>
+</tr>
+<tr>
+<td><a href="normals.html">Normals</a></td>
+<td>Directions influence the shading response.</td>
+<td>Which direction data is being used?</td>
+</tr>
+<tr>
+<td><a href="uvs.html">UVs</a></td>
+<td>Coordinates guide a texture lookup.</td>
+<td>Where are we reading the image?</td>
+</tr>
+<tr>
+<td><a href="textures.html">Texture</a></td>
+<td>Stored values provide sampled inputs.</td>
+<td>What do the channels mean?</td>
+</tr>
+<tr>
+<td><a href="materials.html">Material</a></td>
+<td>Logic and settings describe surface behavior.</td>
+<td>Which input or operation controls this difference?</td>
+</tr>
+<tr>
+<td>Assignment</td>
+<td>Associates a material with a mesh region or slot.</td>
+<td>Is the intended region using the intended material?</td>
+</tr>
+<tr>
+<td><a href="handoff.html">Import configuration</a></td>
+<td>Controls how a representation becomes a destination asset.</td>
+<td>What was preserved, converted, or generated?</td>
+</tr>
+</tbody></table>
+<p>The rendering system combines asset information with scene and viewing conditions to produce the displayed image. Keep that system as one box for now. The useful task is to identify which input or relationship could explain the difference.</p>
+<h2 id="follow-one-handoff">Follow one handoff</h2><p>In Maya, inspect a texture connection and the faces assigned to its receiving material. At export, identify the mesh and attributes that need to travel. In Unreal, inspect the resulting mesh, material slots, and material or instance assignments.</p>
+<p>Then revise the source and reimport. Verify both the intended change and the relationships that should remain stable. This second delivery tests whether the bridge is maintainable. The <a href="handoff.html">handoff guide</a> explains what to inspect without prescribing a universal preset.</p>
+<h2 id="before-the-museum-repair">Before the museum repair</h2><p>Use the first pass to gather observations. For each selected example, record the intended result, the difference, and a possible next test. An uncertain cause is a valid starting point.</p>
+<p>Before changing a setting, use these concept prompts:</p>
+<ul>
+<li><strong>Normal response:</strong> did the outline change, or only the response to lighting? <a href="normals.html">Normal guide</a>.</li>
+<li><strong>Color/data interpretation:</strong> what does the input represent, and does its interpretation match that role? <a href="textures.html">Texture guide</a>.</li>
+<li><strong>UV lookup:</strong> is the source image correct, and which coordinates sample it? <a href="uvs.html">UV guide</a>.</li>
+<li><strong>Assignment/alpha:</strong> which faces use the material, and how does the material use coverage data? <a href="materials.html">Material guide</a>.</li>
+<li><strong>Distance changes:</strong> which texture or mesh representation is active? <a href="representations.html">Representation guide</a>.</li>
+</ul>
+<p>These prompts suggest inspections. They do not identify the cause of every similar-looking failure.</p>
+<h2 id="during-the-investigation">During the investigation</h2><p>Use the instructor&#39;s prepared station list and group-owned editable assets. Keep the reference visible, change one relevant variable at a time, and repeat the original test. A copied map alone may still reference shared textures and materials.</p>
+<p>The <a href="museum-lab.html">museum lab guide</a> gives the observation and evidence structure. The <a href="documentation.html">documentation guide</a> shows how to leave a record that someone else can reproduce and reset.</p>
+<h2 id="after-the-lab">After the lab</h2><p>For your <a href="exhibit.html">own exhibit</a>, choose one mechanism that a visitor can observe. Build a controlled variation and a useful prediction question. More elaborate assets are valuable only when they make the explanation clearer.</p>
+<p>For <a href="week03.html">Week 3</a>, identify one explicit rule: what information is needed, what state is expected, and what should be reported when the role is unknown?</p>
+<h2 id="review-questions">Review questions</h2><ol>
+<li>Can a material work without an image texture? Explain an example.</li>
+<li>Why might a correct source image appear mirrored on a surface?</li>
+<li>What evidence would distinguish a normal-map effect from a geometry change?</li>
+<li>Why is a successful reimport a different test from the first import?</li>
+<li>What would another person need to repeat your verification?</li>
+</ol>
+<h2 id="explore-further">Explore further</h2><p>Use the <a href="resources.html">reading library</a> for specific chapters rather than reading entire rendering references at once. The core software examples are Maya and Unreal; the underlying questions about data, interpretation, and evidence transfer across tools.</p>
+</article><footer class="page-footer"><p>Course materials grow through examples, questions, and verified revisions. Use the current Canvas assignment page for deadlines, grading, and submission instructions.</p><a href="content/week02.md">Page source (Markdown)</a> · <a href="maintaining.html">Maintain this wiki</a></footer></main></div><script src="assets/search-index.js"></script><script src="assets/wiki.js"></script></body></html>

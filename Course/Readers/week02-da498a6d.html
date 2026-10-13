@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>week02</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Wiki/content/week02.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Wiki/content/week02.md<br>Source modified: 2026-09-09T01:39:22.777Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#the-common-goal">The common goal</a></li><li><a href="#a-map-of-the-relationships">A map of the relationships</a></li><li><a href="#follow-one-handoff">Follow one handoff</a></li><li><a href="#before-the-museum-repair">Before the museum repair</a></li><li><a href="#during-the-investigation">During the investigation</a></li><li><a href="#after-the-lab">After the lab</a></li><li><a href="#review-questions">Review questions</a></li><li><a href="#explore-further">Explore further</a></li></ul></details><h2 id="the-common-goal">The common goal</h2>
+<p>You should be able to locate relevant asset data, explain a useful test, and document what the result establishes. You are not expected to master every modeling, rendering, or rigging technique in one lecture.</p>
+<p>We begin with the parts of an asset, follow a DCC-to-engine handoff, and observe the museum. The focused anatomy examples then give you mechanisms to use in the repair investigation.</p>
+<h2 id="a-map-of-the-relationships">A map of the relationships</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Its role</th>
+<th>First useful question</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="../Wiki/meshes.html">Mesh</a></td>
+<td>Positions and connections define the surface.</td>
+<td>Did the actual shape or structure change?</td>
+</tr>
+<tr>
+<td><a href="../Wiki/normals.html">Normals</a></td>
+<td>Directions influence the shading response.</td>
+<td>Which direction data is being used?</td>
+</tr>
+<tr>
+<td><a href="../Wiki/uvs.html">UVs</a></td>
+<td>Coordinates guide a texture lookup.</td>
+<td>Where are we reading the image?</td>
+</tr>
+<tr>
+<td><a href="../Wiki/textures.html">Texture</a></td>
+<td>Stored values provide sampled inputs.</td>
+<td>What do the channels mean?</td>
+</tr>
+<tr>
+<td><a href="../Wiki/materials.html">Material</a></td>
+<td>Logic and settings describe surface behavior.</td>
+<td>Which input or operation controls this difference?</td>
+</tr>
+<tr>
+<td>Assignment</td>
+<td>Associates a material with a mesh region or slot.</td>
+<td>Is the intended region using the intended material?</td>
+</tr>
+<tr>
+<td><a href="../Wiki/handoff.html">Import configuration</a></td>
+<td>Controls how a representation becomes a destination asset.</td>
+<td>What was preserved, converted, or generated?</td>
+</tr>
+</tbody></table></div>
+<p>The rendering system combines asset information with scene and viewing conditions to produce the displayed image. Keep that system as one box for now. The useful task is to identify which input or relationship could explain the difference.</p>
+<h2 id="follow-one-handoff">Follow one handoff</h2>
+<p>In Maya, inspect a texture connection and the faces assigned to its receiving material. At export, identify the mesh and attributes that need to travel. In Unreal, inspect the resulting mesh, material slots, and material or instance assignments.</p>
+<p>Then revise the source and reimport. Verify both the intended change and the relationships that should remain stable. This second delivery tests whether the bridge is maintainable. The <a href="../Wiki/handoff.html">handoff guide</a> explains what to inspect without prescribing a universal preset.</p>
+<h2 id="before-the-museum-repair">Before the museum repair</h2>
+<p>Use the first pass to gather observations. For each selected example, record the intended result, the difference, and a possible next test. An uncertain cause is a valid starting point.</p>
+<p>Before changing a setting, use these concept prompts:</p>
+<ul>
+<li><strong>Normal response:</strong> did the outline change, or only the response to lighting? <a href="../Wiki/normals.html">Normal guide</a>.</li>
+<li><strong>Color/data interpretation:</strong> what does the input represent, and does its interpretation match that role? <a href="../Wiki/textures.html">Texture guide</a>.</li>
+<li><strong>UV lookup:</strong> is the source image correct, and which coordinates sample it? <a href="../Wiki/uvs.html">UV guide</a>.</li>
+<li><strong>Assignment/alpha:</strong> which faces use the material, and how does the material use coverage data? <a href="../Wiki/materials.html">Material guide</a>.</li>
+<li><strong>Distance changes:</strong> which texture or mesh representation is active? <a href="../Wiki/representations.html">Representation guide</a>.</li>
+</ul>
+<p>These prompts suggest inspections. They do not identify the cause of every similar-looking failure.</p>
+<h2 id="during-the-investigation">During the investigation</h2>
+<p>Use the instructor&#39;s prepared station list and group-owned editable assets. Keep the reference visible, change one relevant variable at a time, and repeat the original test. A copied map alone may still reference shared textures and materials.</p>
+<p>The <a href="../Wiki/museum-lab.html">museum lab guide</a> gives the observation and evidence structure. The <a href="../Wiki/documentation.html">documentation guide</a> shows how to leave a record that someone else can reproduce and reset.</p>
+<h2 id="after-the-lab">After the lab</h2>
+<p>For your <a href="../Wiki/exhibit.html">own exhibit</a>, choose one mechanism that a visitor can observe. Build a controlled variation and a useful prediction question. More elaborate assets are valuable only when they make the explanation clearer.</p>
+<p>For <a href="../Wiki/week03.html">Week 3</a>, identify one explicit rule: what information is needed, what state is expected, and what should be reported when the role is unknown?</p>
+<h2 id="review-questions">Review questions</h2>
+<ol>
+<li>Can a material work without an image texture? Explain an example.</li>
+<li>Why might a correct source image appear mirrored on a surface?</li>
+<li>What evidence would distinguish a normal-map effect from a geometry change?</li>
+<li>Why is a successful reimport a different test from the first import?</li>
+<li>What would another person need to repeat your verification?</li>
+</ol>
+<h2 id="explore-further">Explore further</h2>
+<p>Use the <a href="../Wiki/resources.html">reading library</a> for specific chapters rather than reading entire rendering references at once. The core software examples are Maya and Unreal; the underlying questions about data, interpretation, and evidence transfer across tools.</p>
+</main></body></html>

@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>maintaining</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Wiki/content/maintaining.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Wiki/content/maintaining.md<br>Source modified: 2026-09-09T01:39:22.784Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#add-a-week">Add a week</a></li><li><a href="#a-reusable-teaching-structure">A reusable teaching structure</a></li><li><a href="#evidence-and-sources">Evidence and sources</a></li><li><a href="#revision-habits">Revision habits</a></li><li><a href="#course-policy-and-readiness">Course policy and readiness</a></li><li><a href="#build-and-source-control">Build and source control</a></li></ul></details><h2 id="add-a-week">Add a week</h2>
+<ol>
+<li>Copy the week template from the <code>templates</code> folder into <code>content</code>.</li>
+<li>Set the title, group, order, status, summary, and updated date in the short metadata block.</li>
+<li>State the connection to earlier work and the action students should be able to perform.</li>
+<li>Link existing topic pages; add a new topic only when the mechanism needs its own explanation.</li>
+<li>Add an example, inspection question, relevant evidence, and a focused source.</li>
+<li>Build the wiki and check the new page&#39;s links.</li>
+</ol>
+<p>Keep published HTML beside the Markdown source so the wiki can be read directly from the workspace. There is no server requirement for reading or searching the built pages.</p>
+<h2 id="a-reusable-teaching-structure">A reusable teaching structure</h2>
+<p>Begin with a visible problem or intended result. Explain the minimum mechanism needed to reason about it. Show where that mechanism can be inspected in Maya or Unreal, then ask a prediction or diagnosis question.</p>
+<p>Use the lab to motivate the explanation. Leave a breadcrumb back to the relevant topic page, while keeping the full instructor repair key in the course&#39;s instructor materials.</p>
+<p>Put advanced mathematics and implementation under a focused further-reading question. A later week can deepen an existing topic page rather than replacing its beginner explanation.</p>
+<h2 id="evidence-and-sources">Evidence and sources</h2>
+<p>Distinguish a real course capture, a publisher&#39;s example, and a proposed recording. Preserve creator credit, the source page, and useful version context. A conceptual citation does not prove that a separate image depicts the same technique or that a local repair succeeded.</p>
+<p>Record enough context for a setting to remain meaningful after the software changes: what it controls, the importer or workflow, and the result being verified.</p>
+<h2 id="revision-habits">Revision habits</h2>
+<p>Use the changelog to record the substantive change and reason. Preserve stable page filenames and current slide-number anchors. When a title changes, update navigation and references while retaining a clear path from the previous review.</p>
+<p>Keep current content, proposed changes, visual design, teaching rationale, and read-aloud notes distinct in the <a href="../Slides/index.html">slide reviews</a>. The review is an iterative proposal until the deck is actually edited.</p>
+<h2 id="course-policy-and-readiness">Course policy and readiness</h2>
+<p>Label future weeks as planned until their teaching material is developed. Use the current Canvas brief for assignment scope, deadlines, grading, and submission. The instructor&#39;s current exhibit direction takes precedence over the older Week 2 assignment name in the syllabus snapshot.</p>
+<p>Museum station availability comes from a rehearsed teaching build and prepared station list. A source-ready or display-only label does not establish a supported student repair task.</p>
+<h2 id="build-and-source-control">Build and source control</h2>
+<p>The repository <a href="readme-c329949b.html">README</a> documents build commands, source locations, and the dependency version. Add the Markdown, generated HTML, and referenced local assets together in Perforce so a checked-out copy remains usable. Keep caches, <code>node_modules</code>, and editor lock files out of the changelist.</p>
+</main></body></html>

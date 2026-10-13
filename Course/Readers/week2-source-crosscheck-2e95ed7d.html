@@ -1,0 +1,217 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 2: source cross-check and research recommendations</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week02/Review/WEEK2_SOURCE_CROSSCHECK.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week02/Review/WEEK2_SOURCE_CROSSCHECK.md<br>Source modified: 2026-09-09T01:10:26.688Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><p><strong>Week 2: source cross-check and research recommendations</strong></p>
+<p>Reviewed 8 September 2026 against the current 141-slide <code>Week 2 - Game Assets Pipelines and Validation LAB-ALIGNED.pptx</code>, including its notes and hidden slides; the Week 1 student deck; and the Lab 02 setup and exhibit manifest. Slide numbers below are physical deck positions, including hidden slides. This is a review, not an edit to the PowerPoint. The companion <a href="week2-media-shortlist-671ab59b.html">media shortlist</a> gives exact assets, placement, teaching prompts, and verification status.</p>
+<p><strong>Judgment: keep the asset-anatomy structure, with one visible mechanism and one useful test per topic.</strong></p>
+<p>The current deck has a sound investigative spine: asset data → handoff → observation → diagnosis → documentation → a repeatable check. Slides 55, 59, 63, 93, 98, 103, 108, and 134 already support that spine well. The research does not justify expanding Week 2 into a rendering or rigging course. It does justify replacing some vocabulary lists with controlled comparisons that help students explain what they see.</p>
+<p>Use the overview as a map, return to it between the “Anatomy of…” sections, and highlight the relationship currently under inspection. Beginners need to identify the data and choose a test. Experienced students can consider assumptions, exceptions, and ways to automate that test. Neither group needs to implement a shader compiler this week.</p>
+<p><strong>Give each source a distinct job.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Best contribution</th>
+<th>Week 2 reading boundary and qualification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.adobe.com/learn/substance-3d-designer/web/the-pbr-guide-part-1">Adobe, PBR Guide Part 1</a></td>
+<td>Light interaction, surface roughness, and the physical motivation for material controls</td>
+<td>Select the diffuse/specular and microfacet explanations. Use one rough/smooth visual. Leave BRDF equations, Fresnel derivation, and extensive measured-value tables for exploration.</td>
+</tr>
+<tr>
+<td><a href="https://www.adobe.com/learn/substance-3d-designer/web/the-pbr-guide-part-2">Adobe, PBR Guide Part 2</a></td>
+<td>The stronger immediate lab bridge: what Base Color, Metallic, Roughness, and Normal maps represent</td>
+<td>Add this to the reading list. Select metal/roughness workflow, channel meanings, and color/data interpretation. Its historical Substance/UE4 examples are not a specification of every current renderer.</td>
+</tr>
+<tr>
+<td><a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-texturing/introduction-to-texturing-basic-implementation.html">Scratchapixel, Basic Implementation</a></td>
+<td>How a 2D lookup becomes a pattern on a 3D surface; an actual Maya UV example</td>
+<td>Assign “How does this work” and the opening Maya example. Stop before the implementation arrays for the common route. The linked color-space and normal-mapping chapters remain work-in-progress placeholders; the filtering chapter is incomplete. Do not assign the entire sequence as if those explanations were available.</td>
+</tr>
+<tr>
+<td><a href="https://thebookofshaders.com/">The Book of Shaders</a></td>
+<td>Intuition through small executable examples: values and coordinates can generate an image</td>
+<td>“What is a shader?”, <a href="https://thebookofshaders.com/03/">Uniforms</a>, and selected <a href="https://thebookofshaders.com/09/">Patterns</a> examples. This is a fragment-shader/GLSL resource, not a UE Material workflow guide; several later topics listed in the contents are not linked lessons.</td>
+</tr>
+<tr>
+<td><a href="https://learnopengl.com/Getting-started/Shaders">LearnOpenGL, Shaders</a></td>
+<td>Inputs, outputs, and application-supplied values</td>
+<td>Instructor background or optional programming route. Translate the ideas into UE nodes and parameters. OpenGL setup, GLSL syntax, and shader linking are unnecessary prerequisites for this lab. LearnOpenGL is an authored tutorial, not the OpenGL specification.</td>
+</tr>
+<tr>
+<td><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts?application_version=5.7">Epic, Essential Material Concepts</a> and <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/instanced-materials-in-unreal-engine?application_version=5.7">Material Instances</a></td>
+<td>What the actual UE assets are and how students work with them</td>
+<td>Primary operational references for the graph, exposed parameters, instances, and assignment. Use the course project’s material system and importer when demonstrating the UI.</td>
+</tr>
+<tr>
+<td><a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-LightingShading/files/GUID-599CACDB-76C1-4FAC-AA94-0E77F0042C8D.htm">Maya 2027, shading networks</a> and <a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-LightingShading/files/GUID-6BA1E3DF-F033-443C-989F-9A3295FFC152.htm">face assignment</a></td>
+<td>Where source connections and assignments originate</td>
+<td>Pair with <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-material-pipeline-in-unreal-engine?application_version=5.7">Epic’s FBX Material Pipeline</a>. The complete Maya shading network is not the transferred contract.</td>
+</tr>
+</tbody></table></div>
+<p>A useful additional resource in the spirit of Scratchapixel is <strong>Physically Based Rendering, fourth edition</strong>, particularly <a href="https://www.pbr-book.org/4ed/Textures_and_Materials/Texture_Sampling_and_Antialiasing">Texture Sampling and Antialiasing</a> and <a href="https://www.pbr-book.org/4ed/Textures_and_Materials/Image_Texture">Image Texture</a>. It connects the concept to a full implementation. Use it for instructor depth and advanced students; its code and sampling mathematics substantially exceed the common Week 2 target.</p>
+<p><strong>Cross-check against the actual slides.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Current location</th>
+<th>Assessment</th>
+<th>Recommended student-facing change</th>
+<th>Lab connection</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>17, Normals</td>
+<td>Necessary foundation; “theoretical line” is an imprecise definition</td>
+<td>Define a normal as a direction vector. Show the same shape with hard/smooth shading and arrows. Separate face orientation/winding from the normals used for shading.</td>
+<td>EX20 geometry and EX24 normal maps</td>
+</tr>
+<tr>
+<td>55, UV Layout; 57, density/packing</td>
+<td>Good production advice; the lookup mechanism needs an introductory visual</td>
+<td>Show a labeled image, the UV layout, and the resulting mesh together. Move one UV shell while keeping the image and material assignment fixed. Ask which relationship changed.</td>
+<td>EX29 UV sampling</td>
+</tr>
+<tr>
+<td>59, Baking</td>
+<td>Strong: triangulation and tangent assumptions are already identified</td>
+<td>Retain the small-test-bake message. Connect it to the later normal-map comparison, so “tangent assumptions” has an observable consequence.</td>
+<td>EX24; source-to-engine maintenance</td>
+</tr>
+<tr>
+<td>63 and 84, handoff</td>
+<td>The right priorities are present, but the material relationships remain abstract</td>
+<td>Walk one two-region mesh through Maya assignment, export, UE slots/material assignment, and a source revision followed by reimport. Label what is transferred and what is reconstructed.</td>
+<td>EXMAT</td>
+</tr>
+<tr>
+<td>89, Texture Asset; 92, Compression</td>
+<td>Relevant inventory; channel interpretation is mostly in notes</td>
+<td>Put a small table on the slide: Base Color = color; Roughness = numerical control; Normal = direction data; alpha = an additional channel whose use must be specified. Show where the role is declared and inspected.</td>
+<td>EX23 and EX24</td>
+</tr>
+<tr>
+<td>93–94, mips</td>
+<td>Technically useful and already framed around aliasing</td>
+<td>Add a near/far comparison. Distinguish texture mips from mesh LODs and from which mips are currently resident through streaming. Do not suggest that every blurry result is a mip-generation fault.</td>
+<td>EXTEXMIP; supports texture triage</td>
+</tr>
+<tr>
+<td>100, Anatomy of Material</td>
+<td><strong>Replace the linear chain</strong> <code>Shader → Parameters → Textures → UVs → Assignment</code></td>
+<td>Show coordinates feeding texture sampling; sampled data, constants, and exposed parameters feeding the Material graph; an optional Material Instance supplying overrides; assignment linking Material/Instance to mesh slots. Leave engine/GPU rendering as one box.</td>
+<td>The map for EX23, EX24, EX29, EXMAT</td>
+</tr>
+<tr>
+<td>101, Shader</td>
+<td>Good introductory definition and graph connection</td>
+<td>Keep the input → operation → output explanation. Add a tiny texture-free example, then show where a sampled texture could replace a constant. A material does not require an image texture for every input.</td>
+<td>Procedural painting exhibits; parameter reasoning</td>
+</tr>
+<tr>
+<td>102, Graph → Instances</td>
+<td>Strong and already illustrated with Epic imagery</td>
+<td>Keep the parent/instance distinction. Show one named override changing while the parent structure remains fixed. Preserve the notes’ qualification that static parameters can select compiled permutations.</td>
+<td>Shared painting materials and accidental overrides</td>
+</tr>
+<tr>
+<td>103, Parameters</td>
+<td>“Roughness changes highlight spread” is better than “roughness makes it dark”</td>
+<td>Add the same object under fixed light with three roughness settings. Keep Metallic separate; avoid using Specular as the generic “shininess” control.</td>
+<td>EX23; material triage</td>
+</tr>
+<tr>
+<td>108, Material Triage</td>
+<td>Useful retrieval aid; alpha prerequisites are not yet explicit</td>
+<td>Add a short comparison before triage: the same mask used with Opaque, Masked, and Translucent behavior. Alpha data, the material’s blend mode, and Two Sided are different things.</td>
+<td>EXMAT / Alpha Leaf</td>
+</tr>
+<tr>
+<td>110–111, skeletal assets</td>
+<td>A list of dependencies is not yet an explanation for an uninitiated student</td>
+<td>Show mesh → skeleton → a weight visualization → a changed pose. Then separate wrong bone motion, wrong surface following, wrong clip/playback, and morph correspondence. Use one bend before a full character animation.</td>
+<td>EXA and EX21 extensions</td>
+</tr>
+<tr>
+<td>134, Manual Check → Tool</td>
+<td>Strong progression; needs one actual record</td>
+<td>Show declared role, expected setting, observed setting, result, and reason. Use the same inspected asset students have just seen. Unknown intent should produce “review,” not an invented failure.</td>
+<td>Week 3 Python</td>
+</tr>
+<tr>
+<td>19, BANG paper, marked BONUS/ADVANCED but not hidden</td>
+<td>Interesting research discovery, weak prerequisite for the core repair tasks</td>
+<td>Keep it optional. Prioritize a texturing, sampling, or skinning paper beside the mechanism it illuminates.</td>
+<td>Exhibit inspiration, not a required concept</td>
+</tr>
+</tbody></table></div>
+<p>These changes are primarily visual explanations and substitutions within existing sections. They need not become a long extra chapter. The deck already embeds GIFs on slides 33 and 80, but no video files were found inside the package. Slide 101’s “watch” link leads to a documentation guide, and 110 links to an editor overview; neither currently identifies a precise teaching clip.</p>
+<p><strong>Translate carefully: even good sources contain shorthand.</strong></p>
+<p>The sources should inform the explanation rather than supply interchangeable terminology:</p>
+<ul>
+<li><strong>Maya “shader” versus GPU shader:</strong> Maya’s documentation uses “assign shaders” for a surface-material workflow. Explain the action as assigning a material to faces. A programmable GPU stage, a Maya material node, a UE Material asset, and a UE Material Instance are related concepts, not identical objects. <a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-LightingShading/files/GUID-6BA1E3DF-F033-443C-989F-9A3295FFC152.htm">Maya assignment</a></li>
+<li><strong>FBX transfer:</strong> supported basic material information and maps can help construct UE materials, but arbitrary Maya/Arnold networks and settings do not transfer intact. Keep source face membership, imported slot identity, and the final UE surface response separately inspectable. This is why a successful first import is insufficient evidence of a maintained handoff. <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-material-pipeline-in-unreal-engine?application_version=5.7">Epic FBX material pipeline</a></li>
+<li><strong>PBR is an approach with implementation choices.</strong> Adobe Part 2 explicitly distinguishes methodology from a single standard. Its authoring ranges should not become universal Python failure rules without a declared material workflow and art requirement. <a href="https://www.adobe.com/learn/substance-3d-designer/web/the-pbr-guide-part-2">Adobe Part 2</a></li>
+<li><strong>Normal mapping is not displacement.</strong> LearnOpenGL’s brick illustration is useful, but its broad “normal mapping or bump mapping” wording should not erase the difference between stored directions and a height-based bump calculation. Also separate flipping image coordinates from changing a normal map’s direction convention; students should not automatically flip green on every map. <a href="https://learnopengl.com/Advanced-Lighting/Normal-Mapping">LearnOpenGL Normal Mapping</a></li>
+<li><strong>UV overlap is conditional.</strong> Scratchapixel’s initial no-overlap advice is not a universal validation rule. Your reuse/trim-sheet material makes the exception particularly relevant. State which UV set and use require uniqueness. <a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-texturing/introduction-to-texturing-basic-implementation.html">Scratchapixel Basic Implementation</a></li>
+<li><strong>A procedural example is not a performance guarantee.</strong> The Book of Shaders’ Patterns chapter gives broad advice about built-in functions being faster. Keep its visual explanation of repetition, but retain slide 101’s stronger principle: cost depends on the compiled result and its use. Do not turn a short source-code expression into an unconditional optimization rule. <a href="https://thebookofshaders.com/09/">Patterns</a></li>
+<li><strong>Use Epic’s visual examples without importing every blanket statement.</strong> Its Material Inputs page describes Specular = 1 as “fully reflective,” an unsuitable physical definition for the conventional dielectric control. Keep the existing restrained sentence on slide 103; reserve the F0 mapping for optional notes. Similarly, the Blend Modes summary’s blanket statement about dynamic lighting is not a current universal rule: Epic separately documents lit translucency. <a href="https://dev.epicgames.com/documentation/unreal-engine/material-inputs-in-unreal-engine?application_version=5.7">Material Inputs</a>, <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/lit-translucency-in-unreal-engine?application_version=5.7">Lit Translucency</a></li>
+</ul>
+<p>For the common route, teach only the material model used by the actual exhibits. A comparison of legacy inputs, Substrate, OpenPBR, and every DCC renderer would add a second terminology problem before students have solved the first.</p>
+<p><strong>Research papers and technical notes worth including.</strong></p>
+<p>These are selected for their explanatory value, not their recency. The two SIGGRAPH shading resources are <strong>course notes</strong>, distinct from peer-reviewed research articles.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Exact useful portion</th>
+<th>Value for this course and appropriate depth</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Paul S. Heckbert, 1986 — <a href="https://publications.ri.cmu.edu/survey-of-texture-mapping">Survey of Texture Mapping</a></strong>, IEEE Computer Graphics and Applications 6(11), 56–67; <a href="https://publications.ri.cmu.edu/storage/publications/pub_files/pub1/heckbert_paul_1986_1/heckbert_paul_1986_1.pdf">institutional PDF</a></td>
+<td>Opening explanation of mapping surface attributes; the separation between mapping and filtering</td>
+<td><strong>Best foundational paper to add to the reading list.</strong> Supports the idea that a texture can drive more than color. Give advanced readers the mapping/filtering sections; use the conceptual distinction in class.</td>
+</tr>
+<tr>
+<td><strong>Lance Williams, 1983 — <a href="https://users.cs.northwestern.edu/~ago820/cs395/Papers/Williams_1983.pdf">Pyramidal Parametrics</a></strong>, SIGGRAPH, 1–11</td>
+<td>Section 3, “Mip Mapping”; Figures 5 and 6, PDF page 4</td>
+<td>The frog comparisons make minification artifacts concrete. Pair with a current UE distance test. The paper’s use of “compression” in those captions means reducing the image’s apparent size, not BC texture compression.</td>
+</tr>
+<tr>
+<td><strong>James F. Blinn, 1978 — <a href="https://www.microsoft.com/en-us/research/publication/simulation-of-wrinkled-surfaces/">Simulation of Wrinkled Surfaces</a></strong>, SIGGRAPH, 286–292; <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/1978/01/p286-blinn.pdf">PDF</a></td>
+<td>The central idea of changing the shading normal without modeling each wrinkle</td>
+<td>Best historical breadcrumb for EX24. This is foundational bump-mapping research, not a direct recipe for importing tangent-space normal textures into UE. Link the paper; use the simpler normal-direction visual in class.</td>
+</tr>
+<tr>
+<td><strong>Brent Burley, 2012 — <a href="https://disneyanimation.com/publications/physically-based-shading-at-disney/">Physically-Based Shading at Disney</a></strong>, SIGGRAPH course notes; <a href="https://media.disneyanimation.com/uploads/production/publication_asset/48/asset/s2012_pbs_disney_brdf_notes_v3.pdf">PDF</a></td>
+<td>Section 5.1, page 12; <strong>Figure 16, page 13</strong></td>
+<td><strong>Best immediate lecture visual.</strong> The parameter rows and discussion of artist-facing controls support slide 103 and Week 1’s artist/technical lenses. Start with roughness only; the full chart is exploration. The controls belong to this Disney model, not a universal UE UI.</td>
+</tr>
+<tr>
+<td><strong>Brian Karis, 2013 — <a href="https://blog.selfshadow.com/publications/s2013-shading-course/karis/s2013_pbs_epic_notes_v2.pdf">Real Shading in Unreal Engine 4</a></strong>, SIGGRAPH course notes</td>
+<td>Design goals, page 2; “Material Model,” page 9</td>
+<td>Excellent instructor background on balancing simple controls with production constraints. Explicitly label it historical UE4 design: page 9 discusses omitting Specular in that model, so it cannot define today’s input list. Keep equations and implementation choices supplemental.</td>
+</tr>
+<tr>
+<td><strong>Ladislav Kavan, Steven Collins, Jiří Žára, Carol O’Sullivan, 2007 — <a href="https://users.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.html">Skinning with Dual Quaternions</a></strong>, Symposium on Interactive 3D Graphics and Games</td>
+<td>The comparison and author-linked accompanying video</td>
+<td>A valuable advanced question: could the deformation algorithm contribute to the artifact, even when weights seem reasonable? It does not establish which algorithm the course’s UE asset uses. Teach weights first; do not imply that choosing dual quaternions universally fixes deformation.</td>
+</tr>
+</tbody></table></div>
+<p>If assigning just one optional paper, choose Heckbert. If incorporating just one paper figure, choose Burley’s Figure 16. If adding just one research breadcrumb to skeletal assets, choose Kavan’s comparison after the basic bend demonstration.</p>
+<p><strong>Keep the mathematics small and attached to something students can inspect.</strong></p>
+<p>Use these as optional reveals rather than three extra lectures:</p>
+<ol>
+<li><strong>Texture sampling:</strong> locate <code>(u, v) = (0.25, 0.75)</code> on a labeled image, then change U while leaving the image fixed. Students predict the lookup. Interpolation and derivatives can remain linked in Scratchapixel/PBRT.</li>
+<li><strong>Color interpretation:</strong> the same stored RGB number can be decoded differently according to its role. Use a numerical roughness example, with the exact engine setting visible, before introducing an sRGB equation. Do not generalize the RGB demonstration to every alpha-channel path.</li>
+<li><strong>Skinning:</strong> <code>p′ = 0.75 pA + 0.25 pB</code>, where <code>pA</code> and <code>pB</code> are two candidate positions for the <strong>same vertex</strong> after the appropriate joint/bind transformations, expressed in the same coordinate frame. They are not the positions of the bones. A moving dot between the candidates provides the first intuition; the full transform chain is later study. <a href="https://learnopengl.com/Guest-Articles/2020/Skeletal-Animation">Implementation background</a></li>
+</ol>
+<p><strong>Make every important visual leave behind a lab breadcrumb.</strong></p>
+<p>Use a recurring caption: <strong>What changed? Where is it stored? What stayed fixed? How would you verify it?</strong> This is a proposed teaching pattern, not a requirement from the cited sources. It makes a comparison reusable as an exhibit design and then as a Python-check specification.</p>
+<p>For Week 3, the EX23 sequence can become: declared role = numerical roughness RGB; expected interpretation = linear data; observed sRGB setting = enabled; result = fail for this declared contract; reason = the data would receive color decoding. Include a separate unknown-role case that requests review. The validation rule comes from the intended use, not the texture’s filename alone or the fact that it looks gray.</p>
+<p>For the exhibit assignment, ask students to borrow the <strong>experimental structure</strong> of a visual: one mechanism, a controlled comparison, a prediction, evidence, a repeatable reset, and a maintenance check. They need not invent a rendering algorithm or reproduce a research paper. A source reference can explain their mechanism; their own evidence must establish what their exhibit does.</p>
+<p><strong>Use motion for a reason.</strong></p>
+<p>Tversky, Morrison, and Bétrancourt’s <a href="https://doi.org/10.1006/ijhc.2002.1017">Animation: can it facilitate?</a>, International Journal of Human-Computer Studies 57(4), 247–262 (2002), is a useful pedagogy paper here. Its review cautions that animation is not automatically superior to a well-designed static comparison; fast or complex motion can be difficult to apprehend.</p>
+<p>My application to this deck: use motion for changing light response, mip shimmer, and deformation; use stills for channel meanings, slot identity, and settings comparisons. Pause before the change, ask for a prediction, run the short example, then leave the decisive before/after frames visible. Combine that with a worked repair and a brief retrieval question. This is consistent with the broader recommendations in the <a href="https://ies.ed.gov/ncee/wwc/PracticeGuide/1">IES practice guide on organizing instruction and study</a>, but it is a course-design recommendation, not evidence that this exact lecture has been experimentally validated.</p>
+<p>Keep the GPU box closed, VFX implementation supplemental, and most of the papers optional. Spend the recovered time on the Maya → UE → revision → reimport demonstration: it supports this lab, the exhibit assignment, and the reason to automate in Week 3.</p>
+</main></body></html>

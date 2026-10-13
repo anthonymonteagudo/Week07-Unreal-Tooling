@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>oster-07</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/PrepNotes/sources/oster-07.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/PrepNotes/sources/oster-07.md<br>Source modified: 2026-10-11T18:29:49.854Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><pre><code>def getStaticMeshInstanceCounts():
+
+  
+
+    levelActors = unreal.EditorActorSubsystem().get_all_level_actors()
+
+  
+
+    staticMeshActors = []
+
+    staticMeshActorCounts = []
+
+  
+
+    for levelActor in levelActors:
+
+        if (levelActor.get_class().get_name()) == &#39;StaticMeshActor&#39;:
+
+            staticMeshComponent = levelActor.static_mesh_component
+
+            staticMesh = staticMeshComponent.static_mesh
+
+            staticMeshActors.appen(staticMesh.get_name())
+
+  
+
+    processedActors = []
+
+    for staticMeshActor in staticMeshActors:
+
+        if staticMeshActor not in processedActors:
+
+            actorCounts = (staticMeshActor, staticMeshActors.count(staticMeshActor))
+
+            staticMeshActorCounts.append(actorCounts)
+
+            processedActors.append(staticMeshActor)
+
+  
+
+    staticMeshActorCounts.sort(key = lambda a: a[1], reverse = True)
+
+  
+
+    # for item in staticMeshActorCounts: print(item)
+
+  
+
+    LODData = getStaticMeshLODData()
+
+  
+
+    # for item in LODData: print (item)
+
+  
+
+    aggregateTriCounts - []
+
+  
+
+    for i in range(len(staticMeshActorCounts)):
+
+        for j in range(len(LODData)):
+
+            if staticMeshActorCounts[i][0] == LODData[j][0]:
+
+                aggregateTriCount = (staticMeshActorCounts[i][0], staticMeshActorCounts[i][1] * LODData[j][1])
+
+                aggregateTriCounts.append(aggregateTriCount)
+
+  
+
+    aggregateTriCounts.sort(key = lambda a: a[1], reverse = True)
+
+  
+
+    for item in aggregateTriCounts: print (item)
+</code></pre>
+</main></body></html>

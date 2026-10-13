@@ -1,0 +1,364 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 3 slide and demo production handoff</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week03/WEEK3_SESSION_HANDOFF.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week03/WEEK3_SESSION_HANDOFF.md<br>Source modified: 2026-09-14T03:17:11.559Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#week-3-slide-and-demo-production-handoff">Week 3 slide and demo production handoff</a></li><li><a href="#1-start-here">1. Start here</a></li><li><a href="#2-confirmed-instructor-decisions">2. Confirmed instructor decisions</a></li><li><a href="#3-sources-and-locations">3. Sources and locations</a></li><li><a href="#4-audience-calibration-already-completed">4. Audience calibration already completed</a></li><li><a href="#5-connection-to-previous-weeks">5. Connection to previous weeks</a></li><li><a href="#6-proposed-timing-baseline">6. Proposed timing baseline</a></li><li><a href="#7-actual-slide-structure-to-produce">7. Actual slide structure to produce</a></li><li><a href="#8-futurecoder-integration">8. Futurecoder integration</a></li><li><a href="#9-maya-and-texel-density-implementation-investigation">9. Maya and texel-density implementation investigation</a></li><li><a href="#10-demo-checkpoint-structure">10. Demo/checkpoint structure</a></li><li><a href="#11-poor-ui-and-paired-lab">11. Poor UI and paired lab</a></li><li><a href="#12-existing-code-assessment-and-limits">12. Existing code assessment and limits</a></li><li><a href="#13-production-phases-and-acceptance-criteria">13. Production phases and acceptance criteria</a></li><li><a href="#14-artifact-conventions-and-scope">14. Artifact conventions and scope</a></li><li><a href="#15-what-is-still-unknown">15. What is still unknown</a></li><li><a href="#16-student-base-project-and-navigation-latest-instructor-addition">16. Student base project and navigation (latest instructor addition)</a></li><li><a href="#17-required-standards-project-structure-files-and-library-guide">17. Required standards, project structure, files, and library guide</a></li></ul></details><h1 id="week-3-slide-and-demo-production-handoff">Week 3 slide and demo production handoff</h1>
+<p>Current execution checklist: <a href="week3-execution-plan-1c6fdbfc.html">WEEK3_EXECUTION_PLAN.md</a>.</p>
+<p>Prepared from the instructor&#39;s planning conversation on 13 September 2026. This document is the current brief for a new GPT-5 session. It supersedes the earlier Week 3 asset-intake teaching proposal. It is a production plan, not a claim that the revised deck or texel-density demo has been built.</p>
+<h2 id="1-start-here">1. Start here</h2>
+<p>Help Prof. Anthony Monteagudo begin producing the actual Week 3 slide structure and runnable teaching-demo structure. Work from the existing course materials and Maya VS Code project. Produce concrete, reviewable files; do not spend the next session repeating broad pedagogical brainstorming or repository recommendations.</p>
+<p>First deliverable: a complete 150-minute slide/demo map, an HTML instructor view, and a checkpoint/file manifest grounded in the actual existing code. Establish the smallest working texel-density operation before finalizing slides that promise a specific result. Continue into staged runnable demos and student starters as the implementation is verified.</p>
+<p>Do not ask the instructor to reconfirm settled choices. Ask only for missing facts that materially block the implementation, after looking in the project. Keep preparation burden small and reuse the museum.</p>
+<h2 id="2-confirmed-instructor-decisions">2. Confirmed instructor decisions</h2>
+<ul>
+<li>Class is 2.5 hours: 150 minutes, including a break.</li>
+<li>Open with a short museum revisit/discussion. Students have already encountered texel density; do not reteach the whole exhibit or repeat the manual repair lecture.</li>
+<li>Python emphasis: READING code, syntax, general logic, practical differences from languages students already know, and application to Technical Art.</li>
+<li>Futurecoder is the single student-facing general-Python learning resource. Begin with a guided walkthrough, then independent finishing/practice. Its interactivity matters: predictions, execution, feedback, hints, modification, explanation.</li>
+<li>Introduce Maya&#39;s Python interpreter and documentation/API at a basic level, then let students independently review a bounded reference/example. Use the term interpreter, not compiler.</li>
+<li>The real demo automates the Week 2 texel-density repair in Maya.</li>
+<li>Automation walkthrough ends with functioning code connected to a deliberately poor UI.</li>
+<li>Follow with a substantial PySide introduction and tool UI/UX review. These tools are intended for ARTISTS.</li>
+<li>Pair lab: tool modification and testing.</li>
+<li>No assignment this week. End with optional interactive practice, Python/Maya documentation, and thinking about midterm custom tools or tool extensions. Do not introduce deadlines, grading, mandatory submissions, or resurrect the draft&#39;s Midterm Part 1 assignment.</li>
+<li>Walkthroughs must have specific base/checkpoint files that can be handed to students. This work already exists in part in the supplied VS Code project; build on it.</li>
+<li>Instructor has limited time/energy. Do not propose another museum-sized environment or a new learning platform.</li>
+</ul>
+<p>Optional framing ideas previously suggested, NOT separately approved requirements: museum maintenance request, artist/developer role play, tool repair shop, predict affected objects, repeat Apply, and a short breaking-case list. Choose only what strengthens the existing activities without adding time or assets.</p>
+<h2 id="3-sources-and-locations">3. Sources and locations</h2>
+<p>Workspace root:
+<code>C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo</code></p>
+<p>Read the applicable instructions first:</p>
+<ul>
+<li><code>Course/AGENTS.md</code></li>
+<li><code>Course/Slides/REVIEW_FORMAT_PREFERENCES.md</code></li>
+</ul>
+<p>Course context:</p>
+<ul>
+<li><code>Course/Wiki/content/week01.md</code></li>
+<li><code>Course/Wiki/content/week02.md</code></li>
+<li><code>Course/Wiki/content/week03.md</code> (older validator preview; useful context, not the latest teaching scope)</li>
+<li><code>Course/Slides/Week02/DemoNotes/Exhibit I - Texel Density.md</code></li>
+<li><code>Course/Slides/Week02/DemoNotes/README.md</code></li>
+<li>Week 2 existing captures referenced by the texel-density note: resolve their actual locations before proposing new captures.</li>
+<li><code>Course/Slides/Week02/ReviewRefined20260909/</code> contains prior review organization examples.</li>
+</ul>
+<p>Slide source:
+<code>C:/Users/antho/Downloads/Week 3 - Python and Automation Fundamentals.pdf</code></p>
+<p>The PDF has 179 pages. Printed slide numbers diverge from PDF page numbers starting at PDF page 50 (printed 66). Preserve both where available; never silently substitute one numbering system for the other. A Week 3 editable PPTX has not been located. Search likely locations briefly; if only PDF exists, create a new editable deck when reaching deck production, retaining the source and documenting provenance.</p>
+<p>Earlier review:</p>
+<ul>
+<li><code>Course/Slides/Week03/Review/index.html</code></li>
+<li><code>Course/Slides/Week03/Review/slides/page-001.jpg</code> through <code>page-179.jpg</code></li>
+<li><code>Course/Slides/Week03/Review/provenance.json</code></li>
+</ul>
+<p>IMPORTANT: This earlier HTML preserves all original images/text, but its 180-minute schedule, 18 live anchors, asset-intake framing, and assignment advice are superseded. Reuse its original-slide evidence; do not treat its proposed live route as the current plan. Preserve it as history rather than overwriting without a revision record.</p>
+<p>Existing code project:
+<code>D:/Personal Projects/Maya/Tools</code></p>
+<p>Inspect these selectively:</p>
+<ul>
+<li><code>README.md</code></li>
+<li><code>DukeDemos.code-workspace</code></li>
+<li><code>config/maya_paths.json</code></li>
+<li><code>tools/input_validation.py</code></li>
+<li><code>tools/maya_actions.py</code></li>
+<li><code>tools/maya_session.py</code></li>
+<li><code>student_extensions/</code></li>
+<li><code>framework/feature_spec.py</code> and <code>features/catalog.py</code> only if needed</li>
+<li><code>lesson_materials/week_03_python_and_maya/snippets/</code> (00 through 14)</li>
+<li><code>lesson_materials/week_03_python_and_maya/documentation/</code></li>
+<li><code>lesson_materials/week_03_python_and_maya/demos/python_docs/</code></li>
+<li><code>lesson_materials/week_03_python_and_maya/demos/maya_docs/</code></li>
+<li><code>lesson_materials/week_03_python_and_maya/demos/pyside/</code></li>
+<li><code>lesson_materials/week_03_python_and_maya/demos/shared/</code></li>
+</ul>
+<p>The workspace currently selects <code>C:/Program Files/Autodesk/Maya2022/bin/mayapy.exe</code>, but the texel-density operation is now headlessly verified in both Maya 2022/Python 3.7/PySide2 and Maya 2027/Python 3.13/PySide6. Documentation distinguishes standard Python for external Tkinter UI from Maya Python. Existing top-level GUI uses Tkinter; the separate PySide demo is more relevant to this new lesson. Do not replace PySide with Tkinter merely because the latter already works.</p>
+<p>Pre-assessment source:
+<code>C:/Users/antho/Downloads/Technical Art Pre-Assessment (Responses) - Form Responses 1 (2).csv</code></p>
+<p>This is a CSV export, not a discovered live Excel workbook. It contains 25 responses and includes all 20 from the <code>(1)</code> export. The unnumbered export has one response and an older schema. Do not combine the exports and double-count students. Keep names, emails, and identifiable free text out of student artifacts.</p>
+<h2 id="4-audience-calibration-already-completed">4. Audience calibration already completed</h2>
+<p>Of 25 responses:</p>
+<ul>
+<li>17 select Programming / Engineering background.</li>
+<li>21 report C# or C++ use.</li>
+<li>15 report Python use.</li>
+<li>9 report Maya use.</li>
+<li>Python/scripting confidence: 7 No Experience, 5 Beginner, 10 Intermediate, 3 Expert.</li>
+<li>18 chose the correct output of the displayed validation loop.</li>
+</ul>
+<p>One response appears to precede the revised questions; blanks and mismatches cannot all be graded as wrong. These are diagnostic observations, not a formal score or roster-wide claim.</p>
+<p>Written extension answers expose useful teaching targets: substring versus prefix, OR versus AND, and slice direction. Some students can explain a rule but struggle to express it correctly. Student concerns include both insufficient foundations and insufficient challenge/hands-on work. Therefore:</p>
+<ul>
+<li>Avoid a long universal beginner lecture.</li>
+<li>Include a brief reading/prediction check and a supported practice path.</li>
+<li>Let confident students finish a meaningful variation or counterexample while peers complete the base task.</li>
+<li>Do not put novices permanently in observer roles. Switch keyboard/operator roles during paired work.</li>
+<li>Spend deliberate time on Maya execution, selection, command arguments, return values, and documentation.</li>
+</ul>
+<h2 id="5-connection-to-previous-weeks">5. Connection to previous weeks</h2>
+<p>Week 1: artistic intention, observation before explanation, production constraints, systems, repeated-work opportunities, and reliable workflow. The four lens meanings already exist; preserve them if reusing badges.</p>
+<p>Week 2: asset anatomy; Maya-to-Unreal handoff; inspect, change one relevant variable, verify; reimport and check preserved relationships; museum investigation and evidence.</p>
+<p>Week 3: use that understood repair as a repeatable operation, then expose it through an understandable artist-facing interface.</p>
+<p>Museum opener proposal: ask what work repeated, what required judgment, what inputs the computer would need, and how to verify success. Do not turn the opener into a second texel-density lecture. Reserve room for students&#39; own museum questions.</p>
+<h2 id="6-proposed-timing-baseline">6. Proposed timing baseline</h2>
+<p>UPDATE: Section 17 adds required standards/Ruff and project/file work and gives the revised 150-minute budget. Use that newer budget for production; retain the sequence below as planning history.</p>
+<p>The instructor approved the sequence; this exact allocation is a working baseline to keep within 150 minutes. Discussion and transitions must fit inside these blocks.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Section</th>
+<th>Delivery</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0–12</td>
+<td>Museum revisit</td>
+<td>Questions, repeated work, automation segue</td>
+</tr>
+<tr>
+<td>12–37</td>
+<td>Futurecoder/Python</td>
+<td>10 min guided; 15 min independent finish or extension</td>
+</tr>
+<tr>
+<td>37–57</td>
+<td>Maya introduction/references</td>
+<td>10 min guided; 10 min bounded independent reference task</td>
+</tr>
+<tr>
+<td>57–67</td>
+<td>Break</td>
+<td>10 min</td>
+</tr>
+<tr>
+<td>67–92</td>
+<td>Texel-density automation</td>
+<td>Read/predict/run/inspect; finish with poor UI</td>
+</tr>
+<tr>
+<td>92–117</td>
+<td>PySide and artist UX</td>
+<td>Critique controls; trace signal → handler → function → feedback</td>
+</tr>
+<tr>
+<td>117–142</td>
+<td>Pair lab</td>
+<td>Modify one behavior, test, switch roles</td>
+</tr>
+<tr>
+<td>142–150</td>
+<td>Further practice/midterm ideas</td>
+<td>Optional resources and exploratory tool ideas; no assignment</td>
+</tr>
+</tbody></table></div>
+<h2 id="7-actual-slide-structure-to-produce">7. Actual slide structure to produce</h2>
+<p>Aim for roughly 20–26 purposeful live slides/activity screens, adjusting to content rather than padding to a quota. Much of the class takes place in futurecoder and Maya; do not create a slide for every line of code.</p>
+<p>For EVERY live slide/activity record: proposed sequence ID; original PDF anchor(s) or NEW; title; exact proposed visible content; visual/source reference; read-aloud narration; separate facilitation notes and expected answers; time; associated checkpoint; student action; and transition. Include actual student question invitations as well as prediction questions.</p>
+<p>Suggested content beats:</p>
+<ol>
+<li>Museum questions and repeated work.</li>
+<li>From a known repair to a tool (week-to-week connection).</li>
+<li>Reading Python: predict a short example.</li>
+<li>Futurecoder guided task and visible success criterion.</li>
+<li>Independent task, hints, and a concrete extension.</li>
+<li>What is distinctive about Python, explained through encountered syntax.</li>
+<li>Editor/interpreter/Maya/PySide responsibilities.</li>
+<li>Anatomy of one <code>maya.cmds</code> call and returned data.</li>
+<li>Read a documentation entry; find an argument/flag and return value.</li>
+<li>Independent reference task with a provided starting link/file.</li>
+<li>Break/resume checkpoint.</li>
+<li>Known manual steps translated into a small operation (brief reminder only).</li>
+<li>Selection/reference/target inputs.</li>
+<li>Check → correction → verification, with prediction pauses.</li>
+<li>Working operation, poor interface reveal.</li>
+<li>Artist task and silent first-use critique.</li>
+<li>PySide widgets, signals, callbacks, and layout basics in this UI.</li>
+<li>Function reference versus immediate call, in the actual callback context.</li>
+<li>Improve labels, units, affected-object scope, and result feedback.</li>
+<li>Pair lab brief and test cases.</li>
+<li>Role switch and repeat test.</li>
+<li>Optional practice, documentation, and midterm tool questions.</li>
+</ol>
+<p>Python essentials: indentation, assignments and value types, strings, booleans, comparisons, conditions, direct iteration, small collections, functions/parameters/return, imports, and function values for callbacks. Teach only what is used. Briefly compare with C#/C++ where helpful. Do not imply dynamic typing means values have no types.</p>
+<p>Cut/defer: recursion, decorators, lambda/map/reduce/filter survey, operator catalogues, deep scope/object-model lessons, custom plugin frameworks, full file-intake/JSON/reporting curriculum, command-port networking, and full Qt architecture. Explain the minimum class structure needed to read the supplied UI; do not ban all mention of classes while showing a class-based window.</p>
+<h2 id="8-futurecoder-integration">8. Futurecoder integration</h2>
+<p>Sources: <a href="https://futurecoder.io/course/">https://futurecoder.io/course/</a> and <a href="https://github.com/alexmojaki/futurecoder">https://github.com/alexmojaki/futurecoder</a></p>
+<p>Verify the actual hosted course topics and navigation before choosing exact tasks or deep links. Do not invent exercise names or assume that a fresh student account/browser can jump to an arbitrary stage. The README documents developer-mode navigation, but student navigation still needs a rehearsal.</p>
+<p>Select a SMALL sequence that supports the immediately following demo. Guided: predict output, run it, interpret feedback. Independent: complete a closely related task, use hints as needed, then explain one change. Experienced learners get a counterexample or extension tied to the same concept.</p>
+<p>Do not rebuild/fork/self-host futurecoder. Keep other learning repositories as instructor references, not competing required introductions. Plan a local equivalent checkpoint for network/access problems. Futurecoder exercises are general Python; Maya commands run in Maya, not in the browser Python course.</p>
+<h2 id="9-maya-and-texel-density-implementation-investigation">9. Maya and texel-density implementation investigation</h2>
+<p>Introduce <code>maya.cmds</code> as the beginner command interface. Acknowledge the separate lower-level <code>maya.api.OpenMaya</code> API without requiring mastery. Use Autodesk documentation for the selected Maya version; verify calls locally. Avoid guessing an undocumented texel-density helper from its likely name.</p>
+<p>The current exhibit note contains TWO repairs:</p>
+<ul>
+<li>Material-instance texture tiling adjustment in Unreal.</li>
+<li>Upstream UV-shell density matching in Maya using UV Toolkit Get/Set with a reference object.</li>
+</ul>
+<p>The Week 3 proposal is the Maya source-UV workflow. Do not silently treat changing a material tiling parameter as the same operation. If demonstrating the end-to-end museum result, verify the source/mesh mapping and reimport path; unchanged material tiling must not compensate for or obscure the UV result. The mapping has NOT yet been verified.</p>
+<p>The notes use a small cube as reference, then a large cube and two teapots as targets, with Map Size 4096. They also record a displayed density value of 4096.0000. Texture resolution and density are different quantities even when the shown numbers match. Establish scene units, density units, texture dimensions, active UV set, world/object-space measurement, shell handling, and transform assumptions before hard-coding any value.</p>
+<p>Prefer reproducing the understood reference Get → target Set workflow with a verified helper. Supply complex measurement/math implementation as support code; students read and modify orchestration, decisions, and feedback. Document limits honestly. Do not remap UVs automatically, destroy seams, or run generic packing/decimation as a hidden repair.</p>
+<p>Investigate whether the existing source scene/objects are available. Reuse them. If absent, create only a minimal clearly labeled teaching fixture, not a new exhibit environment; ask for the exact source only if required to reproduce the actual museum asset.</p>
+<h2 id="10-demo-checkpoint-structure">10. Demo/checkpoint structure</h2>
+<p>Add a focused subfolder under the existing <code>lesson_materials/week_03_python_and_maya/</code> after inspecting conventions. Proposed name: <code>texel_density_workshop/</code>. This folder does NOT exist yet as an implemented deliverable.</p>
+<p>Maintain one authoritative correction implementation shared by UI versions. Avoid duplicating repair logic in each window.</p>
+<p>Proposed components:</p>
+<ul>
+<li><code>README.md</code>: launch table, paths, tested runtime, what each checkpoint does.</li>
+<li><code>support/</code>: measurement/Maya adapter, validation, scene fixture/reset helpers where necessary.</li>
+<li><code>checkpoints/01_read_predict.py</code>: plain-Python reading activity/fallback.</li>
+<li><code>checkpoints/02_maya_reference.py</code>: commands and bounded documentation exercise.</li>
+<li><code>checkpoints/03_check_density.py</code>: query/report only.</li>
+<li><code>checkpoints/04_apply_density.py</code>: functioning scoped correction and verification.</li>
+<li><code>checkpoints/05_poor_ui.py</code>: deliberate usability faults, reliable shared operation.</li>
+<li><code>student/</code>: lab starter with explicit edits/TODOs and recoverable checkpoints.</li>
+<li><code>instructor/</code>: completed UI/reference answers, separate from student handoff.</li>
+<li><code>tests/</code>: small logic tests and explicitly separate Maya integration checks.</li>
+</ul>
+<p>These are proposed responsibilities, not mandatory exact filenames. Prefer existing reusable components when appropriate. Every checkpoint must specify execution host (standard Python, mayapy, or Maya Script Editor), imports/launch instructions, expected result, and recovery route. Do not require students to reproduce the instructor&#39;s absolute paths. Keep the configured workspace and existing other-week demos intact.</p>
+<p>Rehearse PySide in the actual chosen Maya version. The workshop uses a guarded PySide6/PySide2 import and Maya main-window parenting; headless operation passes in Maya 2022 and 2027, but visible UI behavior is still a version-specific acceptance gate. Do not accidentally create a second QApplication inside Maya. Reopening the demo should not create confusing duplicate windows. Keep lifecycle boilerplate supplied and explained briefly.</p>
+<h2 id="11-poor-ui-and-paired-lab">11. Poor UI and paired lab</h2>
+<p>The poor UI should be poor in understandable usability ways, not corrupt data. Candidate faults: “Run” label, ambiguous numeric input, unclear affected-object scope, generic completion feedback. Keep operation scope controlled and retain recoverability underneath it.</p>
+<p>Ask students to predict what controls do before clicking. Then teach the relevant PySide concepts and improve the workflow: distinguish reference/targets, state map size and density units, Check versus Apply, useful per-object/skipped feedback, and validation. Do not preload so many intentional flaws that the lab cannot improve one in 25 minutes.</p>
+<p>Pair task proposal: use the small cube as reference; correct selected targets; leave another object untouched; explain how success is known. Operator tries without coaching, observer notes friction, pair makes one improvement, reruns the same task, then switches roles. No submission or grading requirement.</p>
+<p>Useful cases: no selection; no targets; reference accidentally included; missing/degenerate UVs; already-matching object; Apply twice; unselected object remains unchanged. Use only cases supported by the actual implementation. Advanced path can improve one validation/report behavior rather than forcing another Python tutorial.</p>
+<h2 id="12-existing-code-assessment-and-limits">12. Existing code assessment and limits</h2>
+<p>Prior review ran under standard Python 3.12:</p>
+<ul>
+<li>22 toolkit tests passed: <code>python -B -m unittest discover -s tests -v</code>.</li>
+<li>12 demo tests passed: <code>python -B -m unittest discover -s lesson_materials/week_03_python_and_maya/demos/tests -v</code>.</li>
+<li>Snippets 00–11 executed under a review run name; snippet 11&#39;s unittest main guard was not invoked.</li>
+<li>No live Maya/Qt/Tk or texel-density integration test was done.</li>
+</ul>
+<p>Known issues if reusing material:</p>
+<ul>
+<li>Snippet 09 accepts nan/inf as positive numbers; tools/input_validation.py correctly checks finiteness.</li>
+<li>Snippets change hero_/prop_/chr_ naming conventions without explaining the change.</li>
+<li>Snippet 10 writes in TemporaryDirectory; the report disappears at exit.</li>
+<li>shared/trace_core.py snapshots locals BEFORE the current line, but changes the final output snapshot; label timing correctly if reusing the stepper.</li>
+<li>maya_session.py reports command delivery, not verified remote operation completion. Do not interpret send success as a successful scene change.</li>
+<li>maya_actions.py contains generated script strings and integration complexity; do not make it the very first Python example.</li>
+</ul>
+<p>Do not fix unrelated project issues simply because they are listed here. Fix those actually reused in the new lesson.</p>
+<h2 id="13-production-phases-and-acceptance-criteria">13. Production phases and acceptance criteria</h2>
+<p>Phase A — Ground and map:</p>
+<ul>
+<li>Read the small source set and applicable instructions.</li>
+<li>Inventory existing reusable snippets, PySide demo, and source scene/captures.</li>
+<li>Build a 150-minute route and slide-to-checkpoint manifest.</li>
+<li>Select/verify futurecoder activities and the independent Maya task.</li>
+<li>Produce an HTML instructor view with actual proposed content, notes, timing, and current-slide anchors.</li>
+</ul>
+<p>Phase B — Prove the core demo:</p>
+<ul>
+<li>Verify runtime and a minimal query/correction on a controlled asset copy/fixture.</li>
+<li>Verify units, scope, selected UV set, reference/target semantics, and expected results.</li>
+<li>Establish reset/undo and repeated-run behavior.</li>
+<li>Save instructor reference checkpoint and evidence; mark any untested integration explicitly.</li>
+</ul>
+<p>Phase C — Build the teaching progression:</p>
+<ul>
+<li>Create runnable checkpoints and student starters.</li>
+<li>Add poor UI and improved instructor UI using shared core logic.</li>
+<li>Add focused tests for the actual cases the lab discusses.</li>
+<li>Prepare concise paired prompts and optional extension.</li>
+</ul>
+<p>Phase D — Produce slides and rehearse:</p>
+<ul>
+<li>Use verified code/output in slide proposals, then editable deck production with the presentation skill.</li>
+<li>Preserve source slide identifiers and mark new slides; move advanced material into named optional study or archive.</li>
+<li>Remove the old assignment/deadline/weight slides from the live route.</li>
+<li>Rehearse the 150-minute flow, independent-task access, code launch paths, window lifecycle, and fallback.</li>
+<li>Render and inspect the resulting deck/review. Ensure code is readable and student question prompts are visible.</li>
+</ul>
+<p>Definition of ready: a colleague can follow the run sheet, open each checkpoint, reproduce the verified demo, distribute a clean student starter without instructor answers, run the pair activity, and finish within 150 minutes. No live-demo readiness claims based only on mocked tests.</p>
+<h2 id="14-artifact-conventions-and-scope">14. Artifact conventions and scope</h2>
+<p>Teaching plans/slides/reviews live under <code>Course/Slides/Week03/</code>; demo implementation stays in the Maya code project. Use HTML for the main instructor review with Markdown source for easy copying. Follow Course/AGENTS.md and the established review preferences: actual old versus proposed content, field-level edits, read-aloud scripts separate from editing directions, stable source anchors, useful links, and provenance.</p>
+<p>After building HTML in Course, run <code>Course/Tools/build_readers.mjs</code> as instructed and check links. Use relevant PDF/presentation skills when actually processing/authoring those artifacts. Use course-visual instructions only when making/reusing branded assets; avoid unnecessary new imagery.</p>
+<p>Preserve previous work and other pending changes. Do not submit Perforce changes or modify unrelated projects. Do not start new tasks or subagents unless the instructor requests them. Keep inspection bounded and outputs concise to reduce context overhead.</p>
+<h2 id="15-what-is-still-unknown">15. What is still unknown</h2>
+<ul>
+<li>Actual source scene and exact museum source-object paths for Exhibit I.</li>
+<li>Maya version available to students versus the instructor&#39;s configured Maya 2022.</li>
+<li>Exact verified method/helper for texel-density measurement and setting.</li>
+<li>Existing material tiling compensation that could affect before/after comparisons in Unreal.</li>
+<li>Exact futurecoder task navigation for new student sessions.</li>
+<li>Whether an editable Week 3 PowerPoint source exists outside the locations already examined.</li>
+</ul>
+<p>Resolve these through local inspection and targeted official documentation. Do independent slide/demo structuring while investigating; ask a concise question only when a necessary fact remains unavailable.</p>
+<h2 id="16-student-base-project-and-navigation-latest-instructor-addition">16. Student base project and navigation (latest instructor addition)</h2>
+<p>The instructor wants one cohesive project students can pull/download, with obvious DOCUMENTATION, CODE HERE, and READ MORE navigation. Treat the student distribution as a designed learning interface. Assemble a focused student package from the existing VS Code project rather than distributing the entire instructor toolkit and unrelated weeks. This section refines the distribution structure proposed in section 10.</p>
+<p>Proposed student package:</p>
+<pre><code class="language-text">week03-tool-workshop/
+  README.md                    # Start here: one route through the session
+  START_HERE.html               # Readable local guide, no server/build required
+  Week03.code-workspace         # Relative folder paths; runtime guidance
+  lessons/
+    01_read_python/
+      README.md
+      example.py               # Working example, predict/read/run
+      practice.py              # Student edits with focused TODOs
+    02_maya_commands/
+      README.md
+      example.py
+      practice.py
+    03_texel_density/
+      README.md
+      check.py
+      apply.py
+    04_artist_interface/
+      README.md
+      poor_ui.py               # Deliberate UX critique checkpoint
+      tool_ui.py               # Student&#39;s editable lab file
+  support/                     # Supplied implementation, documented purpose
+  scenes/                      # Small verified fixture/reset instructions
+  docs/
+    setup.md
+    troubleshooting.md
+    glossary.md
+    references.md
+  checks/                      # Only checks relevant to student work
+</code></pre>
+<p>Keep instructor solutions and authoring scripts OUTSIDE the student distribution. The developer project may retain them. Do not duplicate the same correction implementation between lesson stages; use shared support where appropriate. Preserve necessary standalone checkpoint behavior and clearly document imports.</p>
+<p>Use the same labels, in the same order, on every lesson page:</p>
+<ol>
+<li>GOAL: one observable result.</li>
+<li>RUN HERE: browser, standard Python, or Maya Script Editor, with exact launch steps.</li>
+<li>READ THIS: the short example/file and a prediction question.</li>
+<li>CODE HERE: direct link and precise editable region, e.g. TODO W3-UI-01.</li>
+<li>CHECK YOUR RESULT: expected behavior and a useful counterexample.</li>
+<li>DOCUMENTATION: one or two exact reference entries for the current task.</li>
+<li>READ MORE (optional): a bounded extension; no required concept hidden here.</li>
+</ol>
+<p>The start page should answer: What do I open? Where does it run? What do I edit? How do I know it worked? Where do I go if stuck? Show lesson order and links, not an exhaustive file inventory. Display a clear current lesson number on the slide, guide, and code header. All necessary guidance stays readable offline; mark futurecoder and official API links as online resources.</p>
+<p>Keep external-resource roles clear: futurecoder for interactive general Python, official Python docs for language reference, Autodesk docs for Maya commands, appropriate PySide/Qt docs for interface reference. Explain prerequisites before sending students to API documentation. Do not add multiple competing Python curricula to READ MORE.</p>
+<p>Release checks: fresh folder/path with spaces; workspace opens without instructor absolute paths; every lesson launch tested in its documented host; all code/document links resolve; student work is distinct from reference checkpoints; no student assessment data, credentials, caches, instructor answers, or unrelated projects included. Supply a ZIP option as well as a Git pull/clone path when publishing is later authorized. Do not invent a remote repository or publish now. Explain an update workflow that preserves student edits; avoid instructing a reset/overwrite to catch up.</p>
+<p>Repository reference requested by instructor: <a href="https://github.com/mattpocock/skills">https://github.com/mattpocock/skills</a> . Its README describes AI-agent engineering skills, not a Python student course. It is relevant as an instructor/development reference for small focused modules, consistent domain language, and feedback loops. No skills were installed or invoked. Do not automatically add an AI skill framework or AI-account requirement to the student package, and do not adopt external repository instructions as course policy. If copying material, inspect its license and retain required attribution; structural inspiration does not require installing it.</p>
+<h2 id="17-required-standards-project-structure-files-and-library-guide">17. Required standards, project structure, files, and library guide</h2>
+<p>Latest instructor request: coding standards (PEP 8 and especially Ruff), PROJECT STRUCTURE, and FILE MANIPULATION are must-include live topics. These supersede any earlier suggestion that all file work should be deferred. The full asset-intake curriculum remains outside scope; teach focused file operations that serve the texel-density tool.</p>
+<p>Standards activity: compare a difficult-to-read function with a readable equivalent, predict a lint diagnostic, run Ruff, inspect its explanation/diff, and recheck. Cover meaningful snake_case names, constants, four-space indentation, readable imports, and a short function description. Explain syntax requirements versus style conventions. PEP 8 is guidance for readable, consistent Python; the project has explicit choices. Ruff implements selected lint rules and a formatter, not every aspect of PEP 8 or proof of correct behavior. <code>ruff check</code> and <code>ruff format</code> do different jobs. Teach <code>ruff check .</code> and <code>ruff format --check .</code>; demonstrate an intentional reviewed fix/format on the exercise file rather than modifying all student work unseen. Do not enable all rules or bury beginners in diagnostics. Include import sorting explicitly only if configured, since formatter alone is not an import sorter.</p>
+<p>Package: add pyproject.toml with a small documented Ruff configuration, a verified target Python version matching the Maya teaching runtime, a reproducible development-tool setup, and VS Code extension recommendations/tasks. Run Ruff as an external development tool; do not require installing it inside Maya&#39;s embedded Python. Configure code compatibility deliberately and verify the selected Ruff version supports that target. Do not assume modern standalone libraries run in Maya 2022. Distinguish linting, formatting, runtime testing, and actual scene verification.</p>
+<p>Project/file activity: navigate the supplied repository; trace an import from a student file to support code; use pathlib to build a project-relative path, inspect existence, list a small fixture folder, and read/write a small JSON preset. Reuse map resolution/target-density settings as the example. Show that current working directory and script directory can differ. Provide the project-root/bootstrap helper for Maya Script Editor contexts where <strong>file</strong> may not exist. Catch missing-file and invalid-JSON cases with useful messages; validate preset values before applying. Keep writes in a designated student output area, show the saved path, and make persistence visible. Use a sample directory for any copy/rename illustration; destructive asset batch operations are not needed. Target-density units and map resolution remain distinct.</p>
+<p>Refined 150-minute proposal (instructor sequence preserved; exact allocation is a proposal):</p>
+<ul>
+<li>0–10 museum discussion.</li>
+<li>10–30 futurecoder: guided 8, independent 12.</li>
+<li>30–42 PEP 8/Ruff interactive cleanup.</li>
+<li>42–57 project navigation and paths/preset read-write activity.</li>
+<li>57–75 Maya introduction/documentation: guided 9, independent 9.</li>
+<li>75–85 break.</li>
+<li>85–107 automation walkthrough ending at poor UI.</li>
+<li>107–127 PySide and artist UX.</li>
+<li>127–145 paired improvement/testing, including role switch.</li>
+<li>145–150 optional practice/docs/midterm ideas; no assignment.</li>
+</ul>
+<p>The added required topics reduce the pair block to 18 minutes. Keep the lab to one UI/callback change using a working starter. If more independent time is needed, integrate the file activity into the demo or shorten exposition; do not silently extend class time. Update slide maps, lesson IDs, and student navigation to include standards and file handling. These are required content, not READ MORE only.</p>
+<p>Instructor also supplied these libraries/tools. Include them in a concise optional capability guide with practical Technical Art use cases and explicit execution environments; do not install the entire list into the base project or infer that each requires a live tutorial. Optional placement is a scope proposal, not a separate instructor mandate:</p>
+<p>SUPERSEDED BY LATEST INSTRUCTOR CLARIFICATION: The following list came from a video, is not required, and may bloat the project. Do NOT automatically include all entries even as optional reading. See LIBRARY_ASSESSMENT.md for the practical Maya-focused assessment and decisions. Standards/Ruff, project structure, and file manipulation remain required. Default core: Maya commands + bundled PySide + Python standard library, with Ruff outside Maya. Consider other dependencies only for a demonstrated feature need. Local probes now confirm Maya 2022/Python 3.7/PySide2 and Maya 2027/Python 3.13/PySide6; students&#39; runtime and visible GUI behavior still need classroom confirmation.</p>
+<ul>
+<li>Polars: table/DataFrame processing; asset inventories and validation summaries. <a href="https://github.com/pola-rs/polars">https://github.com/pola-rs/polars</a></li>
+<li>Ruff: required development tooling; lint and format. <a href="https://docs.astral.sh/ruff/">https://docs.astral.sh/ruff/</a></li>
+<li>PyScript: Python applications in a browser; a possible standalone teaching/report interface. It does not provide Maya&#39;s Python environment. <a href="https://github.com/pyscript/pyscript">https://github.com/pyscript/pyscript</a></li>
+<li>JAX: NumPy-style array programming with differentiation, vectorization, and JIT/accelerator capabilities. Present as a specialized option for numerical/optimization work, not a universal drop-in replacement for NumPy. <a href="https://github.com/jax-ml/jax">https://github.com/jax-ml/jax</a></li>
+<li>Textual: Python application UI for terminal/web contexts; possible pipeline-console tools. The Week 3 Maya GUI remains PySide. <a href="https://github.com/Textualize/textual">https://github.com/Textualize/textual</a></li>
+<li>LlamaIndex: document processing/retrieval for AI applications; possible documentation-assistant exploration with separate data/dependency considerations. <a href="https://github.com/run-llama/llama_index">https://github.com/run-llama/llama_index</a></li>
+<li>Robyn: async Python web framework with Rust runtime; possible pipeline service/backend. Repository redirects to <a href="https://github.com/sparckles/Robyn">https://github.com/sparckles/Robyn</a></li>
+<li>DuckDB: in-process analytical SQL database; query tabular asset reports locally. <a href="https://github.com/duckdb/duckdb">https://github.com/duckdb/duckdb</a></li>
+</ul>
+<p>PEP 8 primary reference: <a href="https://peps.python.org/pep-0008/">https://peps.python.org/pep-0008/</a> . The above project homepages were checked during planning; verify specific APIs, runtime requirements, and licenses when actually reusing/installing packages. Core student setup should require only the verified tools needed for the live lesson. The capability guide should answer &quot;What problem would make me reach for this?&quot;, not become a second syllabus.</p>
+</main></body></html>

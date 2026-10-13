@@ -1,0 +1,226 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tech Art Museum — Interactable Exhibit Migration</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../TechArtMuseumIntegration/Docs/MUSEUM_EXHIBIT_INTERACTION_MIGRATION.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: TechArtMuseumIntegration/Docs/MUSEUM_EXHIBIT_INTERACTION_MIGRATION.md<br>Source modified: 2026-09-07T14:56:16.503Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#tech-art-museum-interactable-exhibit-migration">Tech Art Museum — Interactable Exhibit Migration</a></li><li><a href="#what-can-be-converted-now">What can be converted now</a></li><li><a href="#recommended-implementation-order">Recommended implementation order</a></li><li><a href="#paste-template-for-each-blueprint-instance">Paste template for each Blueprint instance</a></li><li><a href="#exhibit-manifest-and-educational-copy">Exhibit manifest and educational copy</a></li><li><a href="#ex01-alpha-leaf">EX01 — Alpha Leaf</a></li><li><a href="#ex02-cat">EX02 — Cat</a></li><li><a href="#ex03-piet">EX03 — Piet</a></li><li><a href="#ex04-gris">EX04 — Gris</a></li><li><a href="#ex05-grid">EX05 — Grid</a></li><li><a href="#ex06-glitch">EX06 — Glitch</a></li><li><a href="#ex10-grow">EX10 — Grow</a></li><li><a href="#ex11-bricks">EX11 — Bricks</a></li><li><a href="#ex15-line">EX15 — Line</a></li><li><a href="#ex-a-animation">EX-A — Animation</a></li><li><a href="#ex20-broken-geometry">EX20 — Broken Geometry</a></li><li><a href="#ex21-morph-targets">EX21 — Morph Targets</a></li><li><a href="#definition-of-done-for-every-replacement">Definition of done for every replacement</a></li></ul></details><h1 id="tech-art-museum-interactable-exhibit-migration">Tech Art Museum — Interactable Exhibit Migration</h1>
+<p>Audit source: <code>/Game/TechArtMuseum/Maps/TechArtGallery_Interactive</code> in <code>TechArtMuseumIntegration</code>.</p>
+<p>The level scan found 530 actors and 12 explicit technical-exhibit headings. This document covers those curriculum exhibits, not the surrounding portfolio paintings, Megascans, furnishings, or decorative props.</p>
+<h2 id="what-can-be-converted-now">What can be converted now</h2>
+<p><code>BP_MuseumExhibitItem_Test</code> inherits the working Coreblazer static-item interaction. It is suitable for one static mesh whose appearance is stored on the mesh asset itself.</p>
+<p>Do not mass-replace the displays until these capability gaps are handled:</p>
+<ol>
+<li><strong>Material overrides:</strong> the painting exhibits all reuse <code>/Game/Showcase/Meshes/SM_Painting_01a</code> with different material overrides. The current inspection item carries <code>ItemMesh</code>, but not the source component&#39;s override materials. Add an <code>Inspection Materials</code> array and apply it to <code>BP_InspectItem</code> after <code>Set Static Mesh</code>.</li>
+<li><strong>Stable Learn More identity:</strong> <code>MuseumExhibitWeb</code> currently finds the source item by comparing mesh assets. Shared painting meshes can therefore resolve to the wrong URL. Pass/store the interacted source actor (or a stable exhibit ID) when inspection begins and resolve the URL from that actor.</li>
+<li><strong>Skeletal inspection:</strong> Animation and Morph Targets require a skeletal-mesh inspection actor that copies skeletal mesh, animation/AnimBP, playback rate, looping, morph values, materials, and inspection transform. The present static <code>S_Item.ItemMesh</code> path cannot preserve these exhibits.</li>
+<li><strong>Composite inspection:</strong> Z-fighting requires both overlapping cubes, and some lessons are clearer as grouped comparisons. A composite inspector must copy multiple mesh components, transforms, and materials.</li>
+<li><strong>Interaction bounds:</strong> bounds should be configured independently from visual scale. Do not scale a sphere collision with the exhibit actor and accidentally multiply its effective range.</li>
+</ol>
+<h2 id="recommended-implementation-order">Recommended implementation order</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Work</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P0</td>
+<td>Add material overrides and direct source-actor/Exhibit ID handoff</td>
+<td>Makes all shared-painting panels safe and gives every item the correct Learn More URL</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>Convert the seven single-mesh Broken Geometry objects and four Bricks objects</td>
+<td>Exercises the existing static pipeline with the least architectural risk</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Convert Alpha Leaf, Cat, Piet, Gris, Grid, Glitch, Grow, and Line</td>
+<td>Requires the P0 material-copy work</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Add skeletal inspector; convert Animation and Morph Targets</td>
+<td>Preserves motion, skinning, animation settings, and morph deformation</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>Add composite inspector; convert Z-fighting and optional grouped comparisons</td>
+<td>Preserves demonstrations that depend on multiple objects</td>
+</tr>
+</tbody></table></div>
+<h2 id="paste-template-for-each-blueprint-instance">Paste template for each Blueprint instance</h2>
+<pre><code class="language-yaml">exhibit_id: EX##_SHORT_NAME
+blueprint_class: /Game/InteractionSystem/BP_MuseumExhibitItem
+item_name: &quot;Short title shown in inspection UI&quot;
+item_description: &quot;Two or three sentences: what to observe, why it happens, and the production consequence.&quot;
+display_asset: /Game/Path/Asset.Asset
+display_materials: []
+inspection_scale: &quot;Tune in test map&quot;
+interaction_radius_cm: 90
+learn_more_label: &quot;Learn More&quot;
+learn_more_url: &quot;&quot;
+verdict: CORRECT | INCORRECT | INVESTIGATE
+pair_id: &quot;&quot;
+</code></pre>
+<p>Leave <code>learn_more_url</code> empty until an approved destination is known. The button is intentionally hidden for blank or non-HTTP(S) values.</p>
+<h2 id="exhibit-manifest-and-educational-copy">Exhibit manifest and educational copy</h2>
+<h3 id="ex01-alpha-leaf">EX01 — Alpha Leaf</h3>
+<p><strong>Scene targets</strong></p>
+<ul>
+<li><code>SM_Painting_01a4</code> — material <code>/Game/Showcase/MuseumExhibits/01_leaf/01_leaf_02_Mat.01_leaf_02_Mat</code></li>
+<li><code>SM_Painting_01a6</code> — material <code>/Game/Showcase/MuseumExhibits/01_leaf/01_leaf_01_Mat.01_leaf_01_Mat</code></li>
+</ul>
+<p><strong>Learning objective:</strong> Explain how an opacity mask turns a rectangular polygon into a foliage silhouette, and why threshold choice, texture filtering, mipmaps, and blend mode affect edge quality and cost.</p>
+<p><strong>CORRECT version:</strong> Masked material with intentional clip threshold, useful mip behavior, two-sided/normals settings chosen deliberately, and minimal transparent overdraw.</p>
+<p><strong>INCORRECT version:</strong> Opaque card or poorly tuned translucent/masked edge that produces a visible rectangle, halos, crawling edges, or unnecessary overdraw.</p>
+<p><strong>Popup copy:</strong> “The leaf is still rendered on simple geometry; its silhouette comes from texture data. A production-ready masked material balances clean edges against shimmer and overdraw, especially as the card becomes small on screen.”</p>
+<h3 id="ex02-cat">EX02 — Cat</h3>
+<p><strong>Scene target:</strong> <code>SM_Painting_01a2</code> — material <code>/Game/Showcase/MuseumExhibits/02_cat/02_cat_01_Mat.02_cat_01_Mat</code></p>
+<p><strong>Learning objective:</strong> Read a stylized image material as layered UV-space shapes and masks, then understand how coordinate transforms and operation order control the final composition.</p>
+<p><strong>CORRECT version:</strong> Shapes remain aligned and stable because UV normalization, aspect correction, mask composition, and color layering occur in the intended order.</p>
+<p><strong>INCORRECT version to add:</strong> Break aspect correction or mask ordering so shapes stretch, drift, or overwrite one another.</p>
+<p><strong>Popup copy:</strong> “Complex-looking graphics can be assembled from simple masks. The important technical-art skill is controlling coordinate space and the order in which masks are combined.”</p>
+<h3 id="ex03-piet">EX03 — Piet</h3>
+<p><strong>Scene target:</strong> <code>SM_Painting_01a9</code> — material <code>/Game/Showcase/MuseumExhibits/03_mondriaan/03_PietMondriaan_01_Mat.03_PietMondriaan_01_Mat</code></p>
+<p><strong>Learning objective:</strong> Build crisp procedural color regions from UV coordinates and understand why normalized coordinates and aspect ratio matter.</p>
+<p><strong>CORRECT version:</strong> Stable, intentional divisions with aspect-correct line widths and predictable color masks.</p>
+<p><strong>INCORRECT version to add:</strong> Use uncorrected UVs or overlapping thresholds, producing stretched lines, gaps, or order-dependent color errors.</p>
+<p><strong>Popup copy:</strong> “This composition is a useful UV-space exercise: coordinates become masks, masks become regions, and regions select colors. Small math errors show up immediately as uneven lines or leaking blocks.”</p>
+<h3 id="ex04-gris">EX04 — Gris</h3>
+<p><strong>Scene target:</strong> <code>SM_Painting_01a11</code> — material <code>/Game/Showcase/MuseumExhibits/04_gris/04_gris_01_Mat.04_gris_01_Mat</code></p>
+<p><strong>Learning objective:</strong> Show how a material reduces or remaps color while preserving readable value structure.</p>
+<p><strong>CORRECT version:</strong> Uses a deliberate luminance/remap method and maintains useful contrast.</p>
+<p><strong>INCORRECT version to add:</strong> Naively averages channels or crushes the range, making equally bright colors separate incorrectly or losing detail.</p>
+<p><strong>Popup copy:</strong> “Grayscale is not simply ‘remove color.’ Channel weighting and range remapping determine whether the image keeps the same visual hierarchy after chroma is removed.”</p>
+<h3 id="ex05-grid">EX05 — Grid</h3>
+<p><strong>Scene target:</strong> <code>SM_Painting_01a10</code> — material <code>/Game/Showcase/MuseumExhibits/05_grid/05_grid_01_Mat.05_grid_01_Mat</code></p>
+<p><strong>Learning objective:</strong> Generate a procedural grid and make its line width stable under scaling and distance.</p>
+<p><strong>CORRECT version:</strong> Uses fractional coordinates plus derivative-aware filtering or smooth transitions to reduce shimmer.</p>
+<p><strong>INCORRECT version to add:</strong> Hard thresholds without filtering, causing aliasing, moiré, and unstable line thickness.</p>
+<p><strong>Popup copy:</strong> “A grid is simple mathematically but difficult visually. Screen-space derivatives let the shader soften lines only as much as needed, keeping the pattern readable without excessive shimmer.”</p>
+<h3 id="ex06-glitch">EX06 — Glitch</h3>
+<p><strong>Scene targets</strong></p>
+<ul>
+<li><code>SM_Painting_01a15</code> — material <code>/Game/Showcase/MuseumExhibits/07_glitch/07_glitch_01_Mat.07_glitch_01_Mat</code></li>
+<li><code>SM_Painting_01a13</code> — material <code>/Game/Showcase/MuseumExhibits/07_glitch/07_glitch_02_Mat.07_glitch_02_Mat</code></li>
+</ul>
+<p><strong>Learning objective:</strong> Decompose a glitch effect into time, band masks, quantized offsets, channel separation, and bounded noise.</p>
+<p><strong>CORRECT version:</strong> Controlled, art-directable distortion that remains inside known sampling and performance limits.</p>
+<p><strong>INCORRECT version to add:</strong> Unbounded or per-pixel-random offsets that flicker incoherently, sample outside valid regions, or cost far more than the visible result warrants.</p>
+<p><strong>Popup copy:</strong> “Convincing glitches are structured rather than purely random. Time is quantized, bands select affected regions, and offsets are bounded so the effect remains readable and controllable.”</p>
+<h3 id="ex10-grow">EX10 — Grow</h3>
+<p><strong>Scene target:</strong> <code>SM_Painting_01a16</code> — material <code>/Game/Showcase/MuseumExhibits/10_grow/10_grow_01_Mat.10_grow_01_Mat</code></p>
+<p><strong>Learning objective:</strong> Connect a growth mask to reveal, displacement, timing, normals, and mesh bounds.</p>
+<p><strong>CORRECT version:</strong> A coherent mask drives reveal/displacement with adequate tessellation or vertex density, corrected bounds, and believable surface response.</p>
+<p><strong>INCORRECT version to add:</strong> Displacement clips outside bounds, tears across sparse topology, or reveals color without matching geometry/normal changes.</p>
+<p><strong>Popup copy:</strong> “Growth effects usually coordinate several systems: a moving mask, vertex displacement, surface shading, and bounds. If those systems disagree, the effect clips, pops, or looks detached from the object.”</p>
+<h3 id="ex11-bricks">EX11 — Bricks</h3>
+<p><strong>Scene targets</strong></p>
+<ul>
+<li><code>Teapot002</code> — <code>/Game/Showcase/MuseumExhibits/11_bricks/Teapot002.Teapot002</code></li>
+<li><code>Teapot001</code> — <code>/Game/Showcase/MuseumExhibits/11_bricks/Teapot001.Teapot001</code></li>
+<li><code>Box002</code> — <code>/Game/Showcase/MuseumExhibits/11_bricks/Box002.Box002</code></li>
+<li><code>Box2</code> — <code>/Game/Showcase/MuseumExhibits/11_bricks/Box001.Box001</code></li>
+<li>Shared material — <code>/Game/Showcase/MuseumExhibits/11_bricks/11_bricks_01_Mat.11_bricks_01_Mat</code></li>
+</ul>
+<p><strong>Learning objective:</strong> Compare how a procedural/tiled brick material behaves across different topology, UV layouts, and object scales.</p>
+<p><strong>CORRECT version:</strong> Consistent texel density and orientation with predictable seams and an explicit coordinate-space choice.</p>
+<p><strong>INCORRECT version:</strong> Object scale or poor UVs change brick size, orientation, or continuity unpredictably.</p>
+<p><strong>Popup copy:</strong> “The same material can behave very differently across meshes. UV layout, object scale, and coordinate space decide whether brick size and direction remain consistent.”</p>
+<p>Create four separate interactables initially; add a grouped comparison only after composite inspection exists.</p>
+<h3 id="ex15-line">EX15 — Line</h3>
+<p><strong>Scene target:</strong> <code>SM_Canvas_Painting_03a2</code> — mesh <code>/Game/Showcase/Meshes/SM_Canvas_Painting_04a.SM_Canvas_Painting_04a</code>, material <code>/Game/Showcase/MuseumExhibits/15_line/15_line_01_Mat.15_line_01_Mat</code></p>
+<p><strong>Learning objective:</strong> Construct a line from distance/coordinate math and keep the edge stable at different resolutions.</p>
+<p><strong>CORRECT version:</strong> Smooth, width-controlled line with derivative-aware antialiasing.</p>
+<p><strong>INCORRECT version to add:</strong> Binary threshold producing stair steps, shimmer, or resolution-dependent width.</p>
+<p><strong>Popup copy:</strong> “A shader line is usually a distance test, not geometry. Softening the threshold according to pixel footprint keeps the edge stable as the camera and resolution change.”</p>
+<h3 id="ex-a-animation">EX-A — Animation</h3>
+<p>This exhibit already exists and should not be rebuilt as a new curriculum concept. It needs skeletal-interaction support.</p>
+<p><strong>Scene targets</strong></p>
+<ul>
+<li><code>characterMedium</code> — <strong>CORRECT</strong> — skeletal mesh <code>/Game/Showcase/MuseumExhibits/new/AnimationLoop/characterMedium.characterMedium</code>, animation <code>/Game/Showcase/MuseumExhibits/new/AnimationLoop/runRoot_Run.runRoot_Run</code></li>
+<li><code>run_INCORRECT_skinweights</code> — <strong>INCORRECT: skin weights</strong> — skeletal mesh <code>/Game/Showcase/MuseumExhibits/new/AnimationLoop/run_INCORRECT_skinweights.run_INCORRECT_skinweights</code>, animation <code>runRoot_Run</code></li>
+<li><code>characterMedium2</code> — <strong>INCORRECT: keyframe</strong> — current audit reports <code>run_INCORRECT_animation_Anim</code></li>
+<li><code>characterMedium3</code> — <strong>INCORRECT: animation mode</strong> — current audit also reports <code>run_INCORRECT_animation_Anim</code></li>
+</ul>
+<p>The last two actors currently resolve to the same animation asset in the map audit. Verify their intended distinction; <code>/Game/Showcase/MuseumExhibits/new/AnimationLoop/run_INCORRECT_playrate</code> exists but was not reported as assigned to either actor.</p>
+<p><strong>Learning objective:</strong> Diagnose animation failure by separating deformation data, animation data, playback configuration, and component animation mode.</p>
+<p><strong>CORRECT popup:</strong> “The reference run combines a compatible skeleton, intentional skin weights, valid animation keys, and the correct component playback mode. Each layer must agree for motion to read properly.”</p>
+<p><strong>Skin-weights popup:</strong> “The animation is valid, but vertices are influenced by the wrong joints or by poor weight gradients. The result collapses, pinches, or moves rigidly around joint transitions.”</p>
+<p><strong>Keyframe popup:</strong> “Bad or missing keys change the motion even when the mesh and skeleton are healthy. Inspect timing, interpolation, root motion, and the transforms actually keyed.”</p>
+<p><strong>Animation-mode popup:</strong> “A Skeletal Mesh Component can use an Animation Blueprint or play a specific asset. Choosing the wrong mode prevents the expected animation source from driving the pose.”</p>
+<h3 id="ex20-broken-geometry">EX20 — Broken Geometry</h3>
+<p>These are intentionally <strong>INCORRECT</strong> diagnostic examples. Each should be paired in the popup with a clean/repaired reference; do not label the broken object as a correct implementation.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Scene target</th>
+<th>Asset</th>
+<th>Popup text</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>01_synthetic_flipped_normals</code></td>
+<td><code>/Game/Showcase/MuseumExhibits/geometry/01_synthetic_flipped_normals.01_synthetic_flipped_normals</code></td>
+<td>“Inconsistent winding flips the surface orientation. Backface culling can hide polygons, while lighting and tangent-space effects respond as if the surface faces inward.”</td>
+</tr>
+<tr>
+<td><code>02_synthetic_non_manifold_edge</code></td>
+<td><code>/Game/Showcase/MuseumExhibits/geometry/02_synthetic_non_manifold_edge.02_synthetic_non_manifold_edge</code></td>
+<td>“A manifold surface gives an interior edge exactly two adjacent faces. Extra faces make inside/outside ambiguous and can break normals, baking, subdivision, collision, and watertight operations.”</td>
+</tr>
+<tr>
+<td><code>03_synthetic_duplicate_faces</code></td>
+<td><code>/Game/Showcase/MuseumExhibits/geometry/03_synthetic_duplicate_faces.03_synthetic_duplicate_faces</code></td>
+<td>“Duplicate faces occupy the same surface. They add overdraw and can compete in the depth buffer, causing flicker or inconsistent shading.”</td>
+</tr>
+<tr>
+<td><code>04_synthetic_open_boundary</code></td>
+<td><code>/Game/Showcase/MuseumExhibits/geometry/04_synthetic_open_boundary.04_synthetic_open_boundary</code></td>
+<td>“An unintended open boundary leaves a hole in a surface expected to be watertight. It can leak light, expose backfaces, and invalidate volume-based tools.”</td>
+</tr>
+<tr>
+<td><code>05_thingi10k_non_oriented_wing_adapter</code></td>
+<td><code>/Game/Showcase/MuseumExhibits/geometry/05_thingi10k_non_oriented_wing_adapter.05_thingi10k_non_oriented_wing_adapter</code></td>
+<td>“A non-oriented mesh has no consistent outward direction across connected faces. Recalculate winding and normals coherently instead of correcting isolated shading symptoms.”</td>
+</tr>
+<tr>
+<td><code>06_thingi10k_non_manifold_creeper</code></td>
+<td><code>/Game/Showcase/MuseumExhibits/geometry/06_thingi10k_non_manifold_creeper.06_thingi10k_non_manifold_creeper</code></td>
+<td>“Non-manifold connections create a surface that cannot describe one clean two-sided shell. Repair topology before relying on subdivision, collision, baking, or boolean operations.”</td>
+</tr>
+<tr>
+<td><code>07_thingi10k_degenerate_truncated_tetrahedron</code></td>
+<td><code>/Game/Showcase/MuseumExhibits/geometry/07_thingi10k_degenerate_truncated_tetrahedron.07_thingi10k_degenerate_truncated_tetrahedron</code></td>
+<td>“Degenerate triangles have zero or nearly zero area. Their unstable normals, tangents, and interpolation can produce spikes, NaNs, bad bakes, or wasted processing.”</td>
+</tr>
+<tr>
+<td><code>Cube</code> + <code>Cube2</code></td>
+<td><code>/Engine/BasicShapes/Cube.Cube</code> with <code>MI_BasicShapeMaterial_Inst1</code> and <code>MI_BasicShapeMaterial_Inst2</code></td>
+<td>“Two surfaces at nearly the same depth compete for the same pixels. Increase meaningful separation, remove duplicate surfaces, or redesign the layering instead of relying on depth precision.”</td>
+</tr>
+</tbody></table></div>
+<p><strong>Learning objective:</strong> Recognize each topology/depth failure by symptom, identify the structural cause, and choose a repair that fixes the source rather than hiding the artifact.</p>
+<p><strong>CORRECT versions to add:</strong> Clean manifold, consistently oriented, non-duplicated, non-degenerate counterparts; the Z-fighting comparison needs one intentionally separated or single-surface reference.</p>
+<h3 id="ex21-morph-targets">EX21 — Morph Targets</h3>
+<p><strong>Scene targets:</strong> <code>SK_MorphCube_Correct</code> and <code>SK_MorphCube_Incorrect</code>.</p>
+<p>The integrated project currently contains the actors and labels but the audit could not resolve their skeletal mesh assets. The corresponding assets exist in <code>TechArtMuseumAuthor</code> under:</p>
+<ul>
+<li><code>/Game/Showcase/MuseumExhibits/new/AnimatedMorphCube/Correct/SK_MorphCube_Correct.SK_MorphCube_Correct</code></li>
+<li><code>/Game/Showcase/MuseumExhibits/new/AnimatedMorphCube/Incorrect/SK_MorphCube_Incorrect.SK_MorphCube_Incorrect</code></li>
+<li><code>/Game/Showcase/MuseumExhibits/new/AnimatedMorphCube/Shared/SK_MorphCube_Correct_Anim.SK_MorphCube_Correct_Anim</code></li>
+</ul>
+<p>Port those dependency-closed assets before converting the exhibit.</p>
+<p><strong>Learning objective:</strong> Explain that morph targets require identical vertex identity/order between base and target shapes, plus valid animation curves or explicit morph weights.</p>
+<p><strong>CORRECT popup:</strong> “A morph target stores a position delta for each corresponding vertex. When base and target topology agree, the same weight produces a stable, intentional deformation.”</p>
+<p><strong>INCORRECT popup:</strong> “Changed topology, mismatched vertex order, or unintended deltas make vertices move toward the wrong destinations. Material or normal issues can further expose the failure.”</p>
+<h2 id="definition-of-done-for-every-replacement">Definition of done for every replacement</h2>
+<ul>
+<li>The original display transform and visible material(s) match before interaction.</li>
+<li>Entering and leaving the interaction zone shows/hides one prompt reliably.</li>
+<li>Inspection title and description match this manifest; no placeholder “Exhibit A” text remains.</li>
+<li>The inspected object is framed at a readable scale and rotates without clipping.</li>
+<li>CORRECT/INCORRECT status is explicit in both plaque and popup where applicable.</li>
+<li>Learn More appears only when that exact exhibit has an approved valid URL, and opens the expected destination.</li>
+<li>Static material overrides, skeletal animation/morph state, or composite components survive the transition into inspection.</li>
+<li>The original display is restored exactly once when inspection ends.</li>
+</ul>
+</main></body></html>

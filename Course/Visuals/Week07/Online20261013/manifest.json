@@ -1,0 +1,236 @@
+{
+  "date": "2026-10-13",
+  "assets": [
+    {
+      "id": "epic-actors-3",
+      "file": "shared-mesh-materials.png",
+      "source_url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/ca73186b-9c02-42a8-8207-c4d3e53b48ba/cubes.png",
+      "source_page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-actors-in-unreal-engine",
+      "credit": "Epic Games · Static Mesh Actors · three Actors using one mesh with different materials",
+      "rights": {
+        "url": "https://legal.epicgames.com/epicgames/tos?lang=en-US",
+        "label": "Epic-published documentation media; no standalone open redistribution license confirmed. Original files are staged for attributed instructional commentary and review, not relicensed as course artwork. Retain the publisher link; do not treat public access or the Fan Content Policy as blanket clearance for every publication."
+      },
+      "dimensions": [
+        1603,
+        793
+      ],
+      "frames": 1,
+      "sha256": "9b20e4e03cb9ff5c6d2ed0f2b95fe03078be43c9424ed8e1fb9d7e71c3087145",
+      "method": "Unmodified downloaded publisher image; full pixel contents preserved",
+      "crop": null,
+      "slides": [
+        10
+      ],
+      "transparent": false,
+      "downloaded": "2026-10-13"
+    },
+    {
+      "id": "epic-actors-4",
+      "file": "material-override.gif",
+      "source_url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/eabb79cb-ffd3-4bdc-b3dc-c39bd85bb006/assigning-material-to-static-mesh.gif",
+      "source_page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-actors-in-unreal-engine",
+      "credit": "Epic Games · Static Mesh Actors · changing one Actor material",
+      "rights": {
+        "url": "https://legal.epicgames.com/epicgames/tos?lang=en-US",
+        "label": "Epic-published documentation media; no standalone open redistribution license confirmed. Original files are staged for attributed instructional commentary and review, not relicensed as course artwork. Retain the publisher link; do not treat public access or the Fan Content Policy as blanket clearance for every publication."
+      },
+      "dimensions": [
+        800,
+        553
+      ],
+      "frames": 229,
+      "sha256": "3f495e1758fe0485bc5fd8ff39534de6207b43d4c1baa3a53f537d1027b036a5",
+      "method": "Unmodified downloaded publisher image; full pixel contents preserved",
+      "crop": null,
+      "slides": [
+        15
+      ],
+      "transparent": false,
+      "downloaded": "2026-10-13",
+      "duration_seconds": 9.16,
+      "poster": "material-override-poster.png",
+      "poster_method": "Decoded full first frame, no crop or annotations"
+    },
+    {
+      "id": "powerrename-1",
+      "file": "powerrename-preview.png",
+      "source_url": "https://learn.microsoft.com/en-us/windows/powertoys/images/powerrename/menu.png",
+      "source_page": "https://learn.microsoft.com/en-us/windows/powertoys/powerrename",
+      "credit": "Microsoft PowerToys PowerRename · Microsoft Learn · Used with permission from Microsoft.",
+      "rights": {
+        "url": "https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/permissions",
+        "label": "Microsoft screenshot guidance permits specified uses subject to its conditions. Keep the complete screenshot, resize only, and include “Used with permission from Microsoft.” No cropped or redrawn version is supplied here."
+      },
+      "dimensions": [
+        1290,
+        851
+      ],
+      "frames": 1,
+      "sha256": "1490a9c7adc076083893f68a652aee2b354498a7490c0d984663ddfc743ca629",
+      "method": "Unmodified downloaded publisher image; full pixel contents preserved",
+      "crop": null,
+      "slides": [
+        34,
+        52
+      ],
+      "transparent": false,
+      "downloaded": "2026-10-13"
+    },
+    {
+      "id": "errors-13",
+      "file": "vistaprint-warning.jpg",
+      "source_url": "https://media.nngroup.com/media/editor/2023/04/26/vistaprint.jpg",
+      "source_page": "https://www.nngroup.com/articles/error-message-guidelines/",
+      "credit": "Tim Neusesser and Evan Sunwall · Nielsen Norman Group · Error-Message Guidelines · Vistaprint example",
+      "rights": {
+        "url": "https://www.nngroup.com/contents/terms-and-conditions/",
+        "label": "NN/g Articles and Videos: educational illustration use with company, author and source link; preserve logos and watermarks. Current dated terms checked 2026-10-13. This is not an open-content license. An older reprint page is more restrictive; this review records the September 2026 terms explicitly."
+      },
+      "dimensions": [
+        1384,
+        861
+      ],
+      "frames": 1,
+      "sha256": "9d6c71f7688d948f4a4cc36005ccbff5c8719cd5acb3566e073dc29b48e5dad7",
+      "method": "Unmodified downloaded publisher image; full pixel contents preserved",
+      "crop": null,
+      "slides": [
+        28
+      ],
+      "transparent": false,
+      "downloaded": "2026-10-13"
+    },
+    {
+      "id": "errors-14",
+      "file": "zazzle-print-area.jpg",
+      "source_url": "https://media.nngroup.com/media/editor/2023/04/26/zazzle.jpg",
+      "source_page": "https://www.nngroup.com/articles/error-message-guidelines/",
+      "credit": "Tim Neusesser and Evan Sunwall · Nielsen Norman Group · Error-Message Guidelines · Zazzle example",
+      "rights": {
+        "url": "https://www.nngroup.com/contents/terms-and-conditions/",
+        "label": "NN/g Articles and Videos: educational illustration use with company, author and source link; preserve logos and watermarks. Current dated terms checked 2026-10-13. This is not an open-content license. An older reprint page is more restrictive; this review records the September 2026 terms explicitly."
+      },
+      "dimensions": [
+        1384,
+        861
+      ],
+      "frames": 1,
+      "sha256": "243109c30d779c7c918f077326d1ef6e3c6b4ca1d98b92aabc52026e40492d83",
+      "method": "Unmodified downloaded publisher image; full pixel contents preserved",
+      "crop": null,
+      "slides": [
+        28
+      ],
+      "transparent": false,
+      "downloaded": "2026-10-13"
+    },
+    {
+      "id": "errors-11",
+      "file": "attachment-warning.jpg",
+      "source_url": "https://media.nngroup.com/media/editor/2023/04/26/email.jpg",
+      "source_page": "https://www.nngroup.com/articles/error-message-guidelines/",
+      "credit": "Tim Neusesser and Evan Sunwall · Nielsen Norman Group · Error-Message Guidelines · attachment warning example",
+      "rights": {
+        "url": "https://www.nngroup.com/contents/terms-and-conditions/",
+        "label": "NN/g Articles and Videos: educational illustration use with company, author and source link; preserve logos and watermarks. Current dated terms checked 2026-10-13. This is not an open-content license. An older reprint page is more restrictive; this review records the September 2026 terms explicitly."
+      },
+      "dimensions": [
+        1384,
+        743
+      ],
+      "frames": 1,
+      "sha256": "87d4827a9e2513c0ff2ac2e042c36b183808d163eec181f9ee2f42816d3d8435",
+      "method": "Unmodified downloaded publisher image; full pixel contents preserved",
+      "crop": null,
+      "slides": [
+        38
+      ],
+      "transparent": false,
+      "downloaded": "2026-10-13"
+    },
+    {
+      "id": "paper-5",
+      "file": "paper-dropdown.jpg",
+      "source_url": "https://media.nngroup.com/media/editor/2021/12/08/img_2502-2-copy.jpg",
+      "source_page": "https://www.nngroup.com/articles/paper-prototyping-cutout-kit/",
+      "credit": "Kelley Gordon · Nielsen Norman Group · Paper Prototyping: A Cutout Kit · dropdown simulation",
+      "rights": {
+        "url": "https://www.nngroup.com/contents/terms-and-conditions/",
+        "label": "NN/g Articles and Videos: educational illustration use with company, author and source link; preserve logos and watermarks. Current dated terms checked 2026-10-13. This is not an open-content license. An older reprint page is more restrictive; this review records the September 2026 terms explicitly."
+      },
+      "dimensions": [
+        4032,
+        3024
+      ],
+      "frames": 1,
+      "sha256": "4d076cccec3bf244e5580760d73f1f4a61095481d1e27ef152e8ce51c7c8f66b",
+      "method": "Unmodified downloaded publisher image; full pixel contents preserved",
+      "crop": null,
+      "slides": [
+        31
+      ],
+      "transparent": false,
+      "downloaded": "2026-10-13"
+    },
+    {
+      "id": "w3c-focus-0",
+      "file": "visible-keyboard-focus.png",
+      "source_url": "https://www.w3.org/WAI/content-images/easy-checks/example-keyboard-focus.png",
+      "source_page": "https://www.w3.org/WAI/test-evaluate/easy-checks/keyboard-focus/",
+      "credit": "W3C WAI · Visible Keyboard Focus – Easy Checks (Draft) · Kevin White, editor · 19 March 2024 · Copyright W3C",
+      "rights": {
+        "url": "https://www.w3.org/WAI/about/using-wai-material/",
+        "label": "WAI allows attributed use under its stated conditions. Preserve the unmodified figure, title, source URL, copyright and Draft status. This is a web accessibility illustration, not proof of desktop-tool conformance."
+      },
+      "dimensions": [
+        500,
+        217
+      ],
+      "frames": 1,
+      "sha256": "24e6f5d141ce1cf85a2a7227c86892aa6b73533f68225bb28e747c906c98e567",
+      "method": "Unmodified downloaded publisher image; full pixel contents preserved",
+      "crop": null,
+      "slides": [
+        39
+      ],
+      "transparent": false,
+      "downloaded": "2026-10-13"
+    },
+    {
+      "id": "artist-inspecting-prop",
+      "file": "artist-inspecting-prop.png",
+      "source_page": null,
+      "source_url": null,
+      "credit": "Generated course illustration · ImageGen · 13 October 2026",
+      "rights": {
+        "url": null,
+        "label": "Generated illustration; not photographed evidence or a software capture. Reference badges retain their separate existing provenance."
+      },
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "frames": 1,
+      "sha256": "335c6e61ca9747d5f53f53f473f9bc5cac32de4676a920c6acbe44a880cc3a6a",
+      "method": "ImageGen, one call; output preserved without retouching",
+      "raster_only": true,
+      "editable_master": null,
+      "transparent": true,
+      "slides": [
+        30
+      ],
+      "generation": {
+        "date": "2026-10-13",
+        "tool": "image_gen.imagegen",
+        "prompt": "Use case: illustration-story. Asset type: one transparent teaching-slide illustration for Week 7 User stories. Primary request: show the human purpose of game-asset tooling: an environment artist judging a revised prop in its scene. Reference image is solely course style guidance: restrained flat colors, dark navy outlines, clear silhouette. Do not reproduce the four badges, any labels or the slide layout. Subject: an adult environment artist crouches beside a small tabletop-style game-environment diorama containing one simple stone doorway and a mounted lantern. The artist studies the lantern and its relationship to the doorway, holding a small sketch of that same lantern. Focus on thoughtful artistic inspection, not operating machinery. One coherent compact scene in three-quarter perspective, artist on left and diorama on right. The lantern is the focal point; only a few simple surrounding stones and one small crate. Style: polished flat editorial illustration, confident dark navy outlines #0A4054, restrained teal #029990, warm muted wood and skin tones, clean shapes, modest details. Genuine alpha transparent background with generous clear margins; no floor plane extending across canvas, no cast drop shadow. No text, no UI, no logos, no arrows, no glowing effects, no lenses or badges. This is conceptual art illustrating an artist's goal, not evidence of a software reimport or a before/after comparison. Wide 3:2 composition, readable at half-slide size.",
+        "reference": "Course/Visuals/Reference/week1-slide-82.jpg",
+        "original": "C:/Users/antho/.codex/generated_images/01a133fd-2261-7193-8c22-0032d9f5c61f/exec-cf76998b-769c-4e27-bf37-151efbf71550.png",
+        "transparent_background": true,
+        "calls": 1,
+        "edits": "None"
+      }
+    }
+  ],
+  "review": "../../../Slides/Week07/OnlineVisualReview20261013/index.html"
+}

@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>museum-lab</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Wiki/content/museum-lab.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Wiki/content/museum-lab.md<br>Source modified: 2026-09-09T01:39:22.774Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#pass-1-observe">Pass 1: observe</a></li><li><a href="#look-up-the-mechanism">Look up the mechanism</a></li><li><a href="#pass-2-investigate-and-verify">Pass 2: investigate and verify</a></li><li><a href="#if-the-repair-is-blocked">If the repair is blocked</a></li><li><a href="#carry-the-work-forward">Carry the work forward</a></li></ul></details><h2 id="pass-1-observe">Pass 1: observe</h2>
+<p>Use the available reference and the instructor&#39;s station list. Record the exhibit you are viewing and the exact visible difference. Include the camera, lighting, distance, pose, or interaction when it matters.</p>
+<p>Then propose a possible explanation and a useful inspection. You do not need to claim a cause that the available evidence cannot establish.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Instead of stopping at…</th>
+<th>Add a testable observation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“The material is broken.”</td>
+<td>Which region differs, and how does the difference respond to light or view?</td>
+</tr>
+<tr>
+<td>“The UVs are wrong.”</td>
+<td>Which part of the pattern is reversed, stretched, or displaced?</td>
+</tr>
+<tr>
+<td>“The model disappears.”</td>
+<td>At what distance or viewing condition, and which representation is active?</td>
+</tr>
+</tbody></table></div>
+<h2 id="look-up-the-mechanism">Look up the mechanism</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Museum topic</th>
+<th>Read this</th>
+<th>Inspection prompt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Normal response / EX24</td>
+<td><a href="../Wiki/normals.html">Normals</a></td>
+<td>Which directions reach the shading calculation, and how are they interpreted?</td>
+</tr>
+<tr>
+<td>RGB/sRGB / EX23</td>
+<td><a href="../Wiki/textures.html">Texture data</a></td>
+<td>What do the channels represent, and which interpretation matches that role?</td>
+</tr>
+<tr>
+<td>Coordinates / EX29</td>
+<td><a href="../Wiki/uvs.html">UV lookup</a></td>
+<td>Is the image correct, and which coordinates read it?</td>
+</tr>
+<tr>
+<td>Material assignment and alpha / EXMAT</td>
+<td><a href="../Wiki/materials.html">Materials</a>, <a href="../Wiki/handoff.html">handoff</a></td>
+<td>Are the intended faces using the correct surface definition and coverage behavior?</td>
+</tr>
+<tr>
+<td>Mesh detail / EXLOD</td>
+<td><a href="../Wiki/representations.html">Representations</a></td>
+<td>Which mesh representation is selected when the difference appears?</td>
+</tr>
+<tr>
+<td>Geometry extension / EX20</td>
+<td><a href="../Wiki/meshes.html">Mesh anatomy</a></td>
+<td>What structural evidence supports the diagnosis beyond the final shading?</td>
+</tr>
+<tr>
+<td>Skeletal displays / EXA, EX21</td>
+<td><a href="../Wiki/skeletal.html">Skeletal assets</a></td>
+<td>Is the pose wrong, the surface following wrong, or the wrong motion playing?</td>
+</tr>
+</tbody></table></div>
+<p>The instructor&#39;s prepared station list determines what you can edit. Some documented candidates are source-ready or display-only; their presence in the museum does not promise a supported repair exercise.</p>
+<h2 id="pass-2-investigate-and-verify">Pass 2: investigate and verify</h2>
+<p>Work with the prepared group-owned editable assets. A map copy can still reference shared meshes, textures, and materials, so identify the actual asset before editing it.</p>
+<ol>
+<li>Reproduce the original symptom and keep the reference available.</li>
+<li>Inspect the relevant data and state a hypothesis.</li>
+<li>Choose a change that tests the hypothesis.</li>
+<li>Refresh or reimport if the workflow requires it.</li>
+<li>Repeat the original check under comparable conditions.</li>
+<li>Record the result and what remains uncertain.</li>
+</ol>
+<p>A source-owned fault may need a Maya edit. An engine interpretation fault may belong in Unreal. Follow the responsibility revealed by the test.</p>
+<h2 id="if-the-repair-is-blocked">If the repair is blocked</h2>
+<p>Record the last fact you established, the missing evidence or access, and the next useful test. A precise blocked investigation remains useful. Avoid making several untracked changes simply to produce a visually improved screenshot.</p>
+<h2 id="carry-the-work-forward">Carry the work forward</h2>
+<p>Use the <a href="../Wiki/exhibit-record.html">exhibit record</a> to structure the evidence in the course&#39;s existing group-document workflow. Identify one condition that could become a <a href="../Wiki/week03.html">Python check</a> and one observation that still needs human judgment.</p>
+<p>For your own <a href="../Wiki/exhibit.html">museum exhibit</a>, reuse the same observation/test/verification relationship as the basis of a visitor experience.</p>
+</main></body></html>

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "shared-asset",
+    "title": "Two Actor components reference one asset",
+    "slide": "06A",
+    "svg": "shared-asset.svg",
+    "png": "shared-asset.png",
+    "method": "Original course schematic, editable SVG and alpha PNG",
+    "rights": "Original teaching diagram",
+    "font": "Arial course fallback",
+    "transparent": true,
+    "source": "Conceptual teaching model, not a software capture"
+  },
+  {
+    "id": "handoff",
+    "title": "Maya export and Unreal reimport loop",
+    "slide": "10",
+    "svg": "handoff.svg",
+    "png": "handoff.png",
+    "method": "Original course schematic, editable SVG and alpha PNG",
+    "rights": "Original teaching diagram",
+    "font": "Arial course fallback",
+    "transparent": true,
+    "source": "Conceptual teaching model, not a software capture"
+  },
+  {
+    "id": "reviewed-plan",
+    "title": "Tool state transitions",
+    "slide": "09C",
+    "svg": "reviewed-plan.svg",
+    "png": "reviewed-plan.png",
+    "method": "Original course schematic, editable SVG and alpha PNG",
+    "rights": "Original teaching diagram",
+    "font": "Arial course fallback",
+    "transparent": true,
+    "source": "Conceptual teaching model, not a software capture"
+  },
+  {
+    "id": "interface-backend",
+    "title": "Interfaces call a shared Python operation",
+    "slide": "08A",
+    "svg": "interface-backend.svg",
+    "png": "interface-backend.png",
+    "method": "Original course schematic, editable SVG and alpha PNG",
+    "rights": "Original teaching diagram",
+    "font": "Arial course fallback",
+    "transparent": true,
+    "source": "Conceptual teaching model, not a software capture"
+  },
+  {
+    "id": "tool-layouts",
+    "title": "Two sketches for one import task",
+    "slide": "14D",
+    "svg": "tool-layouts.svg",
+    "png": "tool-layouts.png",
+    "method": "Original course schematic, editable SVG and alpha PNG",
+    "rights": "Original teaching diagram",
+    "font": "Arial course fallback",
+    "transparent": true,
+    "source": "Conceptual teaching model, not a software capture"
+  },
+  {
+    "id": "test-loop",
+    "title": "Repeat a task after a targeted change",
+    "slide": "16E",
+    "svg": "test-loop.svg",
+    "png": "test-loop.png",
+    "method": "Original course schematic, editable SVG and alpha PNG",
+    "rights": "Original teaching diagram",
+    "font": "Arial course fallback",
+    "transparent": true,
+    "source": "Conceptual teaching model, not a software capture"
+  }
+]

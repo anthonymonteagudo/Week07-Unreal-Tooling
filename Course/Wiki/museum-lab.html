@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Museum investigation lab · Technical Art</title><meta name="description" content="Observe first, choose a test with a reason, and leave evidence that another person can understand."><link rel="stylesheet" href="assets/wiki.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Technical Art <span>Course wiki</span></a><span class="edition">GAMEDSGN 590 · Fall 2026 · Working edition</span><a href="../Slides/index.html">Instructor slide reviews ↗</a></header><div class="shell"><aside class="sidebar"><form class="search" role="search"><label for="search-input">Find a topic</label><input id="search-input" type="search" autocomplete="off" placeholder="UVs, materials, Python…"><button type="submit">Search</button></form><nav aria-label="Course pages"><section class="nav-group"><h2>Course</h2><a href="index.html" data-page="index">Technical Art course wiki</a><a href="maintaining.html" data-page="maintaining">Maintaining the course wiki</a></section><section class="nav-group"><h2>Weeks</h2><a href="week01.html" data-page="week01">Week 1 · Technical Art foundations</a><a href="week02.html" data-page="week02">Week 2 · Assets, pipelines, and validation</a><a href="week03.html" data-page="week03">Week 3 · Python, Maya automation, and artist-facing UI</a><a href="week04.html" data-page="week04">Week 4 · Editor tool development<span class="nav-status">Planned</span></a><a href="week05.html" data-page="week05">Week 5 · Applied math for Technical Artists<span class="nav-status">Planned</span></a><a href="week06.html" data-page="week06">Week 6 · Introduction to Technical Animation<span class="nav-status">Planned</span></a><a href="week07.html" data-page="week07">Week 7 · Midterm feedback and reflection<span class="nav-status">Planned</span></a><a href="week08.html" data-page="week08">Week 8 · Real-time rendering pipeline<span class="nav-status">Planned</span></a><a href="week09.html" data-page="week09">Week 9 · Shaders and material systems<span class="nav-status">Planned</span></a><a href="week10.html" data-page="week10">Week 10 · Profiling and optimization<span class="nav-status">Planned</span></a><a href="week11.html" data-page="week11">Week 11 · Procedural content and scalability<span class="nav-status">Planned</span></a><a href="week12.html" data-page="week12">Week 12 · Production systems and maintainability<span class="nav-status">Planned</span></a></section><section class="nav-group"><h2>Topics</h2><a href="meshes.html" data-page="meshes">Mesh anatomy</a><a href="normals.html" data-page="normals">Normals and normal maps</a><a href="uvs.html" data-page="uvs">UVs and texture lookup</a><a href="textures.html" data-page="textures">Texture data and interpretation</a><a href="materials.html" data-page="materials">Materials and shaders</a><a href="handoff.html" data-page="handoff">Maya-to-Unreal handoffs</a><a href="skeletal.html" data-page="skeletal">Skeletal assets</a><a href="representations.html" data-page="representations">Mips, mesh LOD, and streaming</a><a href="validation.html" data-page="validation">Validation and evidence</a><a href="documentation.html" data-page="documentation">Technical documentation</a></section><section class="nav-group"><h2>Practice</h2><a href="museum-lab.html" data-page="museum-lab" aria-current="page">Museum investigation lab</a><a href="exhibit.html" data-page="exhibit">Create your own museum exhibit</a><a href="exhibit-record.html" data-page="exhibit-record">Exhibit record template</a></section><section class="nav-group"><h2>Resources</h2><a href="resources.html" data-page="resources">Reading and visual library</a><a href="glossary.html" data-page="glossary">Working glossary</a></section></nav></aside><main id="main"><section id="search-results" hidden aria-label="Search results"><div class="search-heading"><h2>Search results</h2><button id="clear-search">Close search</button></div><p id="search-count" role="status"></p><ul id="result-list"></ul></section><article id="page-content"><div class="page-meta"><span>Practice</span><span class="status ">Lab companion</span><span>Updated 8 September 2026</span></div><h1>Museum investigation lab</h1><p class="lead">Observe first, choose a test with a reason, and leave evidence that another person can understand.</p><nav class="toc" aria-label="On this page"><strong>On this page</strong><a href="#pass-1-observe">Pass 1: observe</a><a href="#look-up-the-mechanism">Look up the mechanism</a><a href="#pass-2-investigate-and-verify">Pass 2: investigate and verify</a><a href="#if-the-repair-is-blocked">If the repair is blocked</a><a href="#carry-the-work-forward">Carry the work forward</a></nav><h2 id="pass-1-observe">Pass 1: observe</h2><p>Use the available reference and the instructor&#39;s station list. Record the exhibit you are viewing and the exact visible difference. Include the camera, lighting, distance, pose, or interaction when it matters.</p>
+<p>Then propose a possible explanation and a useful inspection. You do not need to claim a cause that the available evidence cannot establish.</p>
+<table>
+<thead>
+<tr>
+<th>Instead of stopping at…</th>
+<th>Add a testable observation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“The material is broken.”</td>
+<td>Which region differs, and how does the difference respond to light or view?</td>
+</tr>
+<tr>
+<td>“The UVs are wrong.”</td>
+<td>Which part of the pattern is reversed, stretched, or displaced?</td>
+</tr>
+<tr>
+<td>“The model disappears.”</td>
+<td>At what distance or viewing condition, and which representation is active?</td>
+</tr>
+</tbody></table>
+<h2 id="look-up-the-mechanism">Look up the mechanism</h2><table>
+<thead>
+<tr>
+<th>Museum topic</th>
+<th>Read this</th>
+<th>Inspection prompt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Normal response / EX24</td>
+<td><a href="normals.html">Normals</a></td>
+<td>Which directions reach the shading calculation, and how are they interpreted?</td>
+</tr>
+<tr>
+<td>RGB/sRGB / EX23</td>
+<td><a href="textures.html">Texture data</a></td>
+<td>What do the channels represent, and which interpretation matches that role?</td>
+</tr>
+<tr>
+<td>Coordinates / EX29</td>
+<td><a href="uvs.html">UV lookup</a></td>
+<td>Is the image correct, and which coordinates read it?</td>
+</tr>
+<tr>
+<td>Material assignment and alpha / EXMAT</td>
+<td><a href="materials.html">Materials</a>, <a href="handoff.html">handoff</a></td>
+<td>Are the intended faces using the correct surface definition and coverage behavior?</td>
+</tr>
+<tr>
+<td>Mesh detail / EXLOD</td>
+<td><a href="representations.html">Representations</a></td>
+<td>Which mesh representation is selected when the difference appears?</td>
+</tr>
+<tr>
+<td>Geometry extension / EX20</td>
+<td><a href="meshes.html">Mesh anatomy</a></td>
+<td>What structural evidence supports the diagnosis beyond the final shading?</td>
+</tr>
+<tr>
+<td>Skeletal displays / EXA, EX21</td>
+<td><a href="skeletal.html">Skeletal assets</a></td>
+<td>Is the pose wrong, the surface following wrong, or the wrong motion playing?</td>
+</tr>
+</tbody></table>
+<p>The instructor&#39;s prepared station list determines what you can edit. Some documented candidates are source-ready or display-only; their presence in the museum does not promise a supported repair exercise.</p>
+<h2 id="pass-2-investigate-and-verify">Pass 2: investigate and verify</h2><p>Work with the prepared group-owned editable assets. A map copy can still reference shared meshes, textures, and materials, so identify the actual asset before editing it.</p>
+<ol>
+<li>Reproduce the original symptom and keep the reference available.</li>
+<li>Inspect the relevant data and state a hypothesis.</li>
+<li>Choose a change that tests the hypothesis.</li>
+<li>Refresh or reimport if the workflow requires it.</li>
+<li>Repeat the original check under comparable conditions.</li>
+<li>Record the result and what remains uncertain.</li>
+</ol>
+<p>A source-owned fault may need a Maya edit. An engine interpretation fault may belong in Unreal. Follow the responsibility revealed by the test.</p>
+<h2 id="if-the-repair-is-blocked">If the repair is blocked</h2><p>Record the last fact you established, the missing evidence or access, and the next useful test. A precise blocked investigation remains useful. Avoid making several untracked changes simply to produce a visually improved screenshot.</p>
+<h2 id="carry-the-work-forward">Carry the work forward</h2><p>Use the <a href="exhibit-record.html">exhibit record</a> to structure the evidence in the course&#39;s existing group-document workflow. Identify one condition that could become a <a href="week03.html">Python check</a> and one observation that still needs human judgment.</p>
+<p>For your own <a href="exhibit.html">museum exhibit</a>, reuse the same observation/test/verification relationship as the basis of a visitor experience.</p>
+</article><footer class="page-footer"><p>Course materials grow through examples, questions, and verified revisions. Use the current Canvas assignment page for deadlines, grading, and submission instructions.</p><a href="content/museum-lab.md">Page source (Markdown)</a> · <a href="maintaining.html">Maintain this wiki</a></footer></main></div><script src="assets/search-index.js"></script><script src="assets/wiki.js"></script></body></html>

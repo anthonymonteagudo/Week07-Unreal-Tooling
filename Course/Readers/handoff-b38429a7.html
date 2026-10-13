@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>handoff</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Wiki/content/handoff.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Wiki/content/handoff.md<br>Source modified: 2026-09-09T01:39:22.773Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#begin-in-the-source-application">Begin in the source application</a></li><li><a href="#what-should-survive">What should survive?</a></li><li><a href="#read-settings-by-consequence">Read settings by consequence</a></li><li><a href="#test-the-second-delivery">Test the second delivery</a></li><li><a href="#maintenance-is-part-of-the-asset">Maintenance is part of the asset</a></li></ul></details><h2 id="begin-in-the-source-application">Begin in the source application</h2>
+<p>In Maya, a texture node can feed a material input. Material assignment associates that surface definition with an object or selected faces. UVs supply a separate relationship used for texture placement. Inspect each relationship before exporting.</p>
+<p>The <a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-LightingShading/files/GUID-599CACDB-76C1-4FAC-AA94-0E77F0042C8D.htm">Maya shading-network overview</a> and <a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-LightingShading/files/GUID-6BA1E3DF-F033-443C-989F-9A3295FFC152.htm">assignment documentation</a> explain these roles.</p>
+<h2 id="what-should-survive">What should survive?</h2>
+<p>For one asset with two material regions, write down the intended dimensions, regions, UVs, shading data, and texture dependencies. A handoff has succeeded only in relation to those requirements.</p>
+<p>Arbitrary Maya or Arnold shading networks should not be assumed to translate intact through FBX. Supported material conversion and texture handling have limits, and the selected importer matters. A deliberate Unreal material setup may be needed even when mesh regions and slot identities arrive correctly. See <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-material-pipeline-in-unreal-engine?application_version=5.7">Epic&#39;s FBX Material Pipeline</a>.</p>
+<h2 id="read-settings-by-consequence">Read settings by consequence</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>What to establish before choosing an option</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Selection and hierarchy</td>
+<td>Which objects and required relationships should travel?</td>
+</tr>
+<tr>
+<td>Scale, axes, transforms</td>
+<td>What dimensions and orientation should appear in the destination?</td>
+</tr>
+<tr>
+<td>Normals and tangents</td>
+<td>Is the pipeline preserving authored data or generating destination data?</td>
+</tr>
+<tr>
+<td>Materials and textures</td>
+<td>Which assignments or supported inputs can transfer, and which are rebuilt?</td>
+</tr>
+<tr>
+<td>Animation/deformation</td>
+<td>Which skeleton, skin, morph, and animation information does this asset require?</td>
+</tr>
+</tbody></table></div>
+<p>Use <a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-Interoperability/files/GUID-FE8DBEAA-C2DD-43B3-9933-4BA4CDDEAA89.htm">Maya&#39;s FBX Export options</a> and the reference for the importer you actually use: <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-import-options-reference-in-unreal-engine?application_version=5.7">FBX options</a> or <a href="https://dev.epicgames.com/documentation/unreal-engine/interchange-import-reference-in-unreal-engine?application_version=5.7">Interchange</a>. Record the chosen path and software versions with your example.</p>
+<h2 id="test-the-second-delivery">Test the second delivery</h2>
+<ol>
+<li>Inspect the source and record the intended state.</li>
+<li>Export and inspect the destination asset.</li>
+<li>Assign the appropriate Unreal Material or Instance to the intended regions.</li>
+<li>Revise one source relationship.</li>
+<li>Reimport and verify the revision.</li>
+<li>Check that unrelated assignments, scale, UVs, and behavior stayed correct.</li>
+</ol>
+<p>Import can generate data deliberately. Call that a failure when it violates the handoff requirement, not simply because a value was recomputed.</p>
+<h2 id="maintenance-is-part-of-the-asset">Maintenance is part of the asset</h2>
+<p>Record source ownership, dependencies, version assumptions, and verification. If the same problem returns after a source revision, a downstream patch may not have repaired the responsible layer.</p>
+<p>In the lab, a material-interpretation fault may belong in Unreal; a source-geometry error may belong in Maya. Follow the evidence instead of forcing every repair through the same application. Continue with the <a href="../Wiki/documentation.html">documentation example</a>.</p>
+</main></body></html>

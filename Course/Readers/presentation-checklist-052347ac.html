@@ -1,0 +1,169 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Instructor presentation pass · Material &amp; VFX Tools</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/Docs/UI/PRESENTATION_CHECKLIST.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/Docs/UI/PRESENTATION_CHECKLIST.md<br>Source modified: 2026-10-13T07:38:52.068Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#instructor-presentation-pass-material-amp-vfx-tools">Instructor presentation pass · Material &amp;amp; VFX Tools</a></li><li><a href="#current-readiness">Current readiness</a></li><li><a href="#before-students-use-the-workspace">Before students use the workspace</a></li><li><a href="#live-preset-preparation-still-pending">Live preset preparation — still pending</a></li><li><a href="#canonical-presentation-sequence">Canonical presentation sequence</a></li><li><a href="#screenshot-set-and-what-to-discuss">Screenshot set and what to discuss</a></li><li><a href="#consistency-contract-for-the-future-native-widget">Consistency contract for the future native widget</a></li></ul></details><h1 id="instructor-presentation-pass-material-amp-vfx-tools">Instructor presentation pass · Material &amp; VFX Tools</h1>
+<blockquote>
+<p>Current classroom route, 13 October 2026: Material/VFX workflows were rehearsed in Unreal 5.7.4 with both live PySide and the native C++ Slate tab in <code>Plugins/Week07Tools</code>. Prepared assets and <code>W07_MaterialVFXLab</code> now exist. Use the <a href="../Slides/Week07/FinalClass20261013/live-demo.html">live run sheet and actual capture fallback</a>. Pending statements below describe the earlier plan, not current Material/VFX readiness. The separate Maya bridge is outside this rehearsal.</p>
+</blockquote>
+<p>The student entry point is <a href="start-here-0c8c24d9.html">Docs/Students/START_HERE.md</a>.
+The product title is <strong>Material &amp; VFX Tools</strong>; its tabs are <strong>Material Setup</strong> and
+<strong>VFX Placement</strong>. Use these names in narration, screenshots and later native UI.</p>
+<h2 id="current-readiness">Current readiness</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Evidence / state</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PySide practice workflow</td>
+<td>Implemented; fictional sample data, resettable, no Unreal connection.</td>
+</tr>
+<tr>
+<td>Automated offline checks</td>
+<td>See the current <code>Scripts/dev.py test</code> output for the test total, including warning acknowledgement, stale previews and input invalidation.</td>
+</tr>
+<tr>
+<td>Syntax</td>
+<td>Run <code>Scripts/dev.py check</code> for the current syntax result.</td>
+</tr>
+<tr>
+<td>Visual review</td>
+<td>Actual Qt renders cover start, preview, completed, blocked and density-warning states; narrow 800×700 capture included.</td>
+</tr>
+<tr>
+<td>Native desktop usability</td>
+<td>Manual keyboard, screen-reader and display-scaling review still needed. Offscreen checks do not establish this.</td>
+</tr>
+<tr>
+<td>Live Unreal material/VFX adapters</td>
+<td>Source prepared; real assets, Undo/failure handling and host integration not yet rehearsed.</td>
+</tr>
+<tr>
+<td>Native Unreal tab</td>
+<td>Python bridge prepared; EUW asset, wiring and native captures still pending.</td>
+</tr>
+</tbody></table></div>
+<p>Do not present the live integration as verified based on practice-mode tests.
+The existing Northwood/Oster study provenance remains in the root README.</p>
+<h2 id="before-students-use-the-workspace">Before students use the workspace</h2>
+<ul>
+<li>Open the practice runner on the teaching machine when convenient and confirm the
+<strong>PRACTICE MODE</strong> header. Verify Qt setup using the existing UI dependency guide.</li>
+<li>Perform each student task exactly as written. Expect one material instance and
+three effects. Repeat the preview to demonstrate overwrite/duplicate rejection.</li>
+<li>Confirm Reset practice data resets both operations. Fields retain their values.</li>
+<li>Test keyboard-only operation: Tab/Shift+Tab, combo selection, spin controls,
+Preview and Apply shortcuts, warning acknowledgement. Verify focus is visible.</li>
+<li>Check the UI at classroom projection resolution and Windows scaling settings.
+At smaller widths, the table scrolls; action buttons must remain accessible.</li>
+<li>Use the student guide for instructions; keep implementation-status documents
+and preset configuration in the instructor preparation material.</li>
+</ul>
+<h2 id="live-preset-preparation-still-pending">Live preset preparation — still pending</h2>
+<p>Configure <code>Config/Week07ToolPresets.json</code>. The student UI uses named dropdowns:</p>
+<pre><code class="language-json">{
+  &quot;materials&quot;: {
+    &quot;prepared_surface&quot;: {
+      &quot;label&quot;: &quot;Prepared surface&quot;,
+      &quot;parent&quot;: &quot;/Game/Week07/Materials/M_PreparedSurface&quot;
+    }
+  },
+  &quot;vfx&quot;: {
+    &quot;steam_demo&quot;: {
+      &quot;label&quot;: &quot;Steam&quot;,
+      &quot;system&quot;: &quot;/Game/Week07/FX/NS_Steam&quot;,
+      &quot;reviewed_for_demo&quot;: false,
+      &quot;review_note&quot;: &quot;&quot;,
+      &quot;max_new&quot;: 4
+    }
+  }
+}
+</code></pre>
+<p>Paths above are illustrative, <strong>not assets created by this pass</strong>. Retain the
+catalogue&#39;s <code>schema_version</code> field. Set the real prepared parent path and verify its
+three texture parameters. Select a real Niagara System, complete the bounded-effect
+review in <a href="material-vfx-scope-0a9ec19c.html">the functionality guide</a>, then record the review
+and enable that preset. Missing parents and unreviewed effects are omitted from
+student choices. If no choices exist, Preview remains disabled with an instructor
+setup message. Reopen the panel after changing the catalogue; live snapshots still
+recheck the preset on Preview/Apply.</p>
+<p>Before a live class demo, check successful operations, stale/empty/mixed selections,
+existing destination handling, Undo, failure cleanup, duplicate placement, map/PIE
+guards, close/reopen and reload. Confirm results by inspecting the real editor,
+including component material slots, the generated instance and Niagara Actors.
+Do not use an effect-count threshold as a performance claim.</p>
+<h2 id="canonical-presentation-sequence">Canonical presentation sequence</h2>
+<p>Follow <a href="demo-sequence-74c30b13.html">demo beats D1–D6</a>, including the compatibility and reset
+boundaries. The principles below support that route; they are not a second sequence.</p>
+<ol>
+<li>Show the repetitive task: texture assignment, then placing an effect at markers.</li>
+<li>Ask students to predict what each operation will change and what stays shared.</li>
+<li>Run <strong>Choose → Preview → Apply → Check</strong>, pointing to the scope count and rows.</li>
+<li>Introduce one deliberate problem: duplicate output name or repeated markers.
+Ask students to read the message and recover before explaining the implementation.</li>
+<li>Compare UI quality using the task: can a new user identify the inputs, affected
+objects, next action and recovery? A consistent color scheme is only one part.</li>
+<li>Read the code in the student guide&#39;s order: inputs → rules → presentation → UI
+events → Unreal boundary. Revisit the preview after seeing the implementation.</li>
+</ol>
+<p>No timings, slide numbers or assessment requirements are assigned by this draft.
+The UI stages now use Material Setup and VFX Placement themselves. Use <a href="readme-44ea130d.html">the UI progression</a>
+to compare the same task across functional, guided and refined presentations.
+Use <code>Scripts/assistants.py --stage N</code> and its matching stage capture set.</p>
+<h2 id="screenshot-set-and-what-to-discuss">Screenshot set and what to discuss</h2>
+<p>All images are generated from actual PySide widgets with offscreen sample data.
+Keep the practice-mode banner visible when using them in slides.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Capture</th>
+<th>Teaching use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="../../Week07UnrealPython/Docs/UI/captures/material_start.png">Material start</a></td>
+<td>Empty state and disabled Apply.</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Docs/UI/captures/material_preview.png">Material preview</a></td>
+<td>Texture mapping, destination, component override and scope count.</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Docs/UI/captures/material_complete.png">Material complete</a></td>
+<td>Result feedback; the preview is consumed.</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Docs/UI/captures/material_blocked.png">Material blocked</a></td>
+<td>Recover from a duplicate asset name.</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Docs/UI/captures/vfx_preview.png">VFX preview</a></td>
+<td>One marker → one effect; before/after loaded count.</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Docs/UI/captures/vfx_complete.png">VFX complete</a></td>
+<td>Operation completed without claiming performance certification.</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Docs/UI/captures/vfx_blocked.png">VFX blocked</a></td>
+<td>Repeating a placement should not multiply effects.</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Docs/UI/captures/vfx_warning.png">VFX warning</a></td>
+<td>Distinguish a reviewable warning from a hard blocker.</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Docs/UI/captures/vfx_warning_narrow.png">VFX warning, narrow</a></td>
+<td>Table scrolling while controls remain reachable.</td>
+</tr>
+</tbody></table></div>
+<p>Regenerate with <code>Scripts/assistants.py --render Docs/UI/captures</code> using the project
+interpreter. This does not open desktop windows. Run <code>Scripts/ui_quality.py --stage 3</code>
+for the mandatory Qt gate; missing dependencies must fail rather than count as a pass.</p>
+<h2 id="consistency-contract-for-the-future-native-widget">Consistency contract for the future native widget</h2>
+<p>Reuse <code>workflow_presentation.describe_plan()</code> (also returned by the native bridge)
+for counts, rows and action labels. Keep the same terms and four-step workflow.
+On input changes clear the plan; on warnings require acknowledgement; on completion
+show a result; on failure give a recovery action. Preserve the distinction between
+practice data, actual Unreal operations and performance measurement. This keeps
+student tasks stable when the presentation changes from PySide to an Unreal tab.</p>
+</main></body></html>

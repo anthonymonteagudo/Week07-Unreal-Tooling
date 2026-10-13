@@ -1,0 +1,619 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tech Art Museum — Finalized Priority Exhibits</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../SourceArtDepot/Exhibits/FINALIZED_PRIORITY_EXHIBITS.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: SourceArtDepot/Exhibits/FINALIZED_PRIORITY_EXHIBITS.md<br>Source modified: 2026-09-07T05:42:17.367Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#tech-art-museum-finalized-priority-exhibits">Tech Art Museum — Finalized Priority Exhibits</a></li><li><a href="#final-decision">Final decision</a></li><li><a href="#shared-implementation-contract">Shared implementation contract</a></li><li><a href="#required-world-setup">Required world setup</a></li><li><a href="#required-interaction-popup">Required interaction popup</a></li><li><a href="#ex22-animation-loop-continuity">EX22 — Animation Loop Continuity</a></li><li><a href="#ex25-skin-weights-one-bad-influence">EX25 — Skin Weights: One Bad Influence</a></li><li><a href="#ex21-morph-targets-animation-without-deformation">EX21 — Morph Targets: Animation Without Deformation</a></li><li><a href="#ex23-color-texture-vs-data-texture">EX23 — Color Texture vs Data Texture</a></li><li><a href="#ex24-normal-maps-are-direction-data">EX24 — Normal Maps Are Direction Data</a></li><li><a href="#ex29-uv-coordinate-contract">EX29 — UV Coordinate Contract</a></li><li><a href="#ex30-geometry-autopsy">EX30 — Geometry Autopsy</a></li><li><a href="#ex31-modular-asset-contract">EX31 — Modular Asset Contract</a></li><li><a href="#delivery-sequence">Delivery sequence</a></li><li><a href="#pass-1-content-and-interaction-foundation">Pass 1 — content and interaction foundation</a></li><li><a href="#pass-2-asset-completion">Pass 2 — asset completion</a></li><li><a href="#pass-3-geometry-and-modeling-wing">Pass 3 — geometry and modeling wing</a></li><li><a href="#launch-acceptance-gate">Launch acceptance gate</a></li></ul></details><h1 id="tech-art-museum-finalized-priority-exhibits">Tech Art Museum — Finalized Priority Exhibits</h1>
+<p>Date: 2026-09-07</p>
+<h2 id="final-decision">Final decision</h2>
+<p>The 2026-09-07 placed-actor audit supersedes the original build order. Animation
+(EX22/EX25), morph targets (EX21), and the geometry-autopsy specimens (EX30)
+already exist in <code>/Game/TechArtGallery</code>; treat them as integration/QA work, not
+new exhibit candidates. The highest-priority unsupported candidates are now
+EX23, EX24, and EX29. Their controlled A/B implementations are staged in
+<code>/Game/TechArtMuseum/PrototypeLab/L_UnsupportedExhibits_Test</code> and ported into
+<code>/Game/TechArtMuseum/PrototypeLab/L_IntegratedUnsupportedExhibits_Test</code>, a test
+copy of the updated gallery that preserves its First Person game mode,
+controller, and pawn chain.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="right">Priority</th>
+<th>ID</th>
+<th>Exhibit</th>
+<th>Wing</th>
+<th>Role</th>
+<th>Current gate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">1</td>
+<td>EX23</td>
+<td>Color Texture vs Data Texture</td>
+<td>Materials</td>
+<td>New prototype built</td>
+<td>Review the Lantern-derived linear-data versus sRGB material pair in the test map.</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td>EX24</td>
+<td>Normal Maps Are Direction Data</td>
+<td>Materials / geometry</td>
+<td>New prototype built</td>
+<td>Review the Normalmap versus color-classified texture pair under shared lighting.</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td>EX29</td>
+<td>UV Coordinate Contract</td>
+<td>Geometry / UVs</td>
+<td>New prototype built</td>
+<td>Review the shared texture/mesh pair with one mirrored-U material transform.</td>
+</tr>
+<tr>
+<td align="right">QA</td>
+<td>EX22</td>
+<td>Animation Loop Continuity</td>
+<td>Animation</td>
+<td>Already placed</td>
+<td>Preserve the existing Correct and Incorrect animation display; verify interaction copy.</td>
+</tr>
+<tr>
+<td align="right">QA</td>
+<td>EX25</td>
+<td>Skin Weights: One Bad Influence</td>
+<td>Animation / deformation</td>
+<td>Already placed</td>
+<td>Preserve the existing skin-weight specimen; verify its fault is isolated.</td>
+</tr>
+<tr>
+<td align="right">QA</td>
+<td>EX21</td>
+<td>Morph Targets: Animation Without Deformation</td>
+<td>Animation</td>
+<td>Already placed</td>
+<td>Preserve the existing Correct and Incorrect morph display; verify interaction copy.</td>
+</tr>
+<tr>
+<td align="right">QA</td>
+<td>EX30</td>
+<td>Geometry Autopsy</td>
+<td>Geometry / advanced modeling</td>
+<td>Already placed</td>
+<td>Curate the seven existing geometry-failure actors rather than authoring a duplicate.</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td>EX31</td>
+<td>Modular Asset Contract</td>
+<td>Advanced modeling</td>
+<td>Assigned repair / capstone</td>
+<td>Select a Factory Kit module and author one pivot fault; reserve scale and dimensions for later variants.</td>
+</tr>
+</tbody></table></div>
+<p>Do not combine multiple root causes in one Incorrect asset. A station may offer
+multiple rounds later, but each round must keep one controlled variable.</p>
+<h2 id="shared-implementation-contract">Shared implementation contract</h2>
+<p>Every station uses one shared exhibit actor and a data record. Long educational
+copy must live in data, not in a placed Blueprint.</p>
+<h3 id="required-world-setup">Required world setup</h3>
+<ul>
+<li>Correct specimen on the left and Incorrect specimen on the right.</li>
+<li>Identical transforms, lighting, camera distance, playback state, and shared
+dependencies except for the named controlled variable.</li>
+<li>A/B toggle plus a synchronized playback or rotating-light control when useful.</li>
+<li>Reset restores the Incorrect specimen and the initial camera/test state.</li>
+<li>Labels say <code>CORRECT</code> and <code>INVESTIGATE</code>; avoid putting the answer in an asset or
+world label visible to students.</li>
+</ul>
+<h3 id="required-interaction-popup">Required interaction popup</h3>
+<p>The first view is spoiler-free and contains:</p>
+<ol>
+<li><strong>Observe</strong> — the visible symptom and comparison instruction.</li>
+<li><strong>Investigate</strong> — two or three places to inspect, without naming the answer.</li>
+<li><strong>Your task</strong> — the smallest repair and what must remain unchanged.</li>
+<li><strong>Success</strong> — explicit validation criteria and evidence.</li>
+<li><strong>Why it matters</strong> — one production consequence.</li>
+</ol>
+<p>The popup also exposes <code>OPEN FULL BRIEF</code>, <code>LEARN MORE</code>, and a visually separated
+<code>SHOW EXPLANATION</code> action. The explanation contains Cause, Correction,
+Prevention, and an intentional-use exception.</p>
+<h2 id="ex22-animation-loop-continuity">EX22 — Animation Loop Continuity</h2>
+<p><strong>Learning objectives</strong></p>
+<ul>
+<li>Distinguish a loop-boundary discontinuity from playback rate, frame rate, or
+skeleton incompatibility.</li>
+<li>Inspect first/last pose, clip range, root transform, and sequence settings.</li>
+<li>Repair the authoritative clip or export range and validate several loops.</li>
+</ul>
+<p><strong>Controlled comparison</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Correct</th>
+<th>Incorrect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Skeletal mesh, skeleton, material</td>
+<td>Shared</td>
+<td>Shared</td>
+</tr>
+<tr>
+<td>Playback rate and looping</td>
+<td>Shared</td>
+<td>Shared</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><code>SK_CharacterMedium_Correct.mb</code> / <code>run.fbx</code></td>
+<td><code>SK_CharacterMedium_Incorrect_Animation.mb</code> / <code>run_INCORRECT_animation.fbx</code></td>
+</tr>
+<tr>
+<td>Controlled variable</td>
+<td>First and last poses form a continuous cycle</td>
+<td>End-to-start pose or root discontinuity creates one visible pop</td>
+</tr>
+</tbody></table></div>
+<p><strong>Implementation plan</strong></p>
+<ol>
+<li>Import both sequences against the same existing skeleton.</li>
+<li>Place synchronized actors and add pause, 0.25x speed, and scrub-boundary
+controls.</li>
+<li>Confirm that playback rate and the skin mesh are identical.</li>
+<li>Verify three uninterrupted loops and record the exact faulty frames before
+publishing the explanation.</li>
+</ol>
+<p><strong>Popup outline</strong></p>
+<ul>
+<li>Observe: &quot;Both characters loop the same run. One has a visible pop at the
+boundary. Watch three cycles and identify exactly when continuity breaks.&quot;</li>
+<li>Investigate: &quot;Compare the first and last poses, exported frame range, root
+transform, and sequence settings. Which evidence rules out playback speed?&quot;</li>
+<li>Your task: &quot;Restore a continuous cycle without changing the mesh, skeleton,
+material, or playback rate.&quot;</li>
+<li>Success: &quot;No visible pose or root jump across three loops; duration and
+unaffected animation channels remain consistent.&quot;</li>
+<li>Why it matters: &quot;A one-frame source discontinuity becomes a repeated runtime
+defect in locomotion, crowds, and ambient animation.&quot;</li>
+<li>Explanation: The loop samples do not meet at the boundary. Correct the source
+keys or exported range, then reimport over a stable target. Prevent with a
+first/last-pose comparison or loop validator. A discontinuity is intentional
+only for a non-looping action or authored transition.</li>
+</ul>
+<h2 id="ex25-skin-weights-one-bad-influence">EX25 — Skin Weights: One Bad Influence</h2>
+<p><strong>Learning objectives</strong></p>
+<ul>
+<li>Separate deformation failure from animation-clip failure.</li>
+<li>Use weight visualization and influence inspection to locate a bad region.</li>
+<li>Make a localized weight correction while preserving hierarchy and motion.</li>
+</ul>
+<p><strong>Controlled comparison</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Correct</th>
+<th>Incorrect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Skeleton, clip, material, playback</td>
+<td>Shared</td>
+<td>Shared</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><code>SK_CharacterMedium_Correct.mb</code></td>
+<td><code>SK_CharacterMedium_Incorrect_Skinning.mb</code></td>
+</tr>
+<tr>
+<td>FBX</td>
+<td>Correct character/run baseline</td>
+<td><code>run_INCORRECT_skinweights.fbx</code></td>
+</tr>
+<tr>
+<td>Controlled variable</td>
+<td>Stable normalized weights</td>
+<td>One localized vertex region has an implausible influence or weight distribution</td>
+</tr>
+</tbody></table></div>
+<p><strong>Implementation plan</strong></p>
+<ol>
+<li>Choose one high-motion joint region where the fault reads clearly.</li>
+<li>Export the Correct and Incorrect mesh with the same skeleton and run clip.</li>
+<li>Add synchronized playback and slow-motion controls.</li>
+<li>Confirm the animation curves are identical; document affected vertices,
+joint, maximum influences, and normalization state in instructor notes.</li>
+</ol>
+<p><strong>Popup outline</strong></p>
+<ul>
+<li>Observe: &quot;The same run drives both characters, but one body region collapses,
+stretches, or follows the wrong joint. Identify the affected region.&quot;</li>
+<li>Investigate: &quot;Compare skeleton identity and animation first. Then inspect skin
+influences, normalization, and weights on the affected vertices.&quot;</li>
+<li>Your task: &quot;Repair only the faulty weights; do not alter the rig or animation.&quot;</li>
+<li>Success: &quot;The region follows the intended joints through the full run, with no
+new pops and the same skeleton and clip.&quot;</li>
+<li>Why it matters: &quot;Small weighting errors often survive a bind pose and appear
+only at animation extremes.&quot;</li>
+<li>Explanation: Geometry is valid and the clip is playing; incorrect vertex
+influences create the deformation. Reassign and normalize the localized
+weights. Prevent with influence-limit, normalization, and pose-sweep checks.
+Unusual weights are valid when deliberate deformation tests prove the result.</li>
+</ul>
+<h2 id="ex21-morph-targets-animation-without-deformation">EX21 — Morph Targets: Animation Without Deformation</h2>
+<p><strong>Learning objectives</strong></p>
+<ul>
+<li>Distinguish animation playback from morph-target deformation.</li>
+<li>Inspect a Skeletal Mesh for morph targets and an Animation Sequence for morph
+curves.</li>
+<li>Identify the FBX setting that preserves blend shapes and validate reimport.</li>
+</ul>
+<p><strong>Controlled comparison</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Correct</th>
+<th>Incorrect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Skeleton, animation, material, playback</td>
+<td>Shared</td>
+<td>Shared</td>
+</tr>
+<tr>
+<td>Controlled variable</td>
+<td>Morph targets present; Blend Shapes exported</td>
+<td>Morph targets absent; Blend Shapes omitted</td>
+</tr>
+<tr>
+<td>Visible result</td>
+<td>Cube changes shape</td>
+<td>Animation plays but cube remains visually static</td>
+</tr>
+</tbody></table></div>
+<p><strong>Implementation plan</strong></p>
+<ol>
+<li>Keep the existing display and shared assets.</li>
+<li>Save <code>MorphCube_Working.ma</code> with base, targets, blendShape node, skeleton, and
+animation.</li>
+<li>Export both variants from that scene and clean-machine test the round trip.</li>
+<li>Add a morph-target inventory readout or explanation image to the full brief.</li>
+</ol>
+<p><strong>Popup outline</strong></p>
+<ul>
+<li>Observe: &quot;Both actors report animation playback. Only one changes shape. What
+data difference could allow playback without visible deformation?&quot;</li>
+<li>Investigate: &quot;Compare skeleton, sequence, morph curves, and each mesh&#39;s morph
+target list. Keep material and playback as controls.&quot;</li>
+<li>Your task: &quot;Restore the missing deformation payload and reimport without
+replacing the shared animation.&quot;</li>
+<li>Success: &quot;Expected targets appear and the shared sequence drives the same
+deformation as Correct.&quot;</li>
+<li>Why it matters: &quot;A valid animation asset cannot drive deformation data that
+never reached the runtime mesh.&quot;</li>
+<li>Explanation: Blend-shape data was omitted from the Incorrect FBX. Enable Blend
+Shapes under Deformed Models and reimport. Prevent by validating animation
+morph-curve names against mesh target names. Omission is intentional when a
+mesh is not meant to support facial or shape deformation.</li>
+</ul>
+<h2 id="ex23-color-texture-vs-data-texture">EX23 — Color Texture vs Data Texture</h2>
+<p><strong>Learning objectives</strong></p>
+<ul>
+<li>Classify display-color textures separately from numeric material data.</li>
+<li>Inspect packed channels, sRGB, compression, sampler type, and material wiring.</li>
+<li>Explain how color-space conversion changes roughness/metallic response.</li>
+</ul>
+<p><strong>Controlled comparison</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Correct</th>
+<th>Incorrect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mesh, pixels, UVs, material logic, light</td>
+<td>Shared</td>
+<td>Shared</td>
+</tr>
+<tr>
+<td>Controlled variable</td>
+<td>Packed metallic/roughness data sampled as linear data</td>
+<td>Duplicate texture sampled with sRGB enabled</td>
+</tr>
+<tr>
+<td>Visible result</td>
+<td>Plausible metal and roughness</td>
+<td>Gloss, dullness, or metallic response is numerically distorted</td>
+</tr>
+</tbody></table></div>
+<p><strong>Implementation plan</strong></p>
+<ol>
+<li>Duplicate the imported Lantern packed-data texture; do not edit pixels.</li>
+<li>Configure one copy correctly and toggle only sRGB on the Incorrect copy.</li>
+<li>Use material instances with identical parameters and a shared rotating light.</li>
+<li>Capture channel views and sampled values for the collapsed explanation.</li>
+</ol>
+<p><strong>Popup outline</strong></p>
+<ul>
+<li>Observe: &quot;Both lanterns use identical texture pixels, yet their highlights and
+metal response differ. Compare them as the light moves.&quot;</li>
+<li>Investigate: &quot;Inspect individual channels, sRGB, compression, sampler type,
+and the material inputs that consume the texture.&quot;</li>
+<li>Your task: &quot;Make Unreal interpret the packed channels as numeric material data
+without changing the source image.&quot;</li>
+<li>Success: &quot;Lighting matches Correct under the same light and the map remains
+connected to the same material inputs.&quot;</li>
+<li>Why it matters: &quot;Import metadata can corrupt physically based response even
+when the source pixels and shader graph look correct.&quot;</li>
+<li>Explanation: sRGB decoding is appropriate for display color but changes the
+numeric values stored in a packed data map. Disable sRGB and use a compatible
+data sampler/compression path. Prevent with suffix-driven import rules. sRGB is
+intentional for base color and other authored display-color textures.</li>
+</ul>
+<h2 id="ex24-normal-maps-are-direction-data">EX24 — Normal Maps Are Direction Data</h2>
+<p><strong>Learning objectives</strong></p>
+<ul>
+<li>Recognize a tangent-space normal map as encoded direction data.</li>
+<li>Inspect compression, sRGB, sampler type, and channel convention.</li>
+<li>Validate normals under changing light rather than from a single still view.</li>
+</ul>
+<p><strong>Controlled comparison</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Correct</th>
+<th>Incorrect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mesh, pixels, UVs, material, tangent basis, light</td>
+<td>Shared</td>
+<td>Shared</td>
+</tr>
+<tr>
+<td>Controlled variable</td>
+<td>Normal Map compression with sRGB disabled</td>
+<td>Default Color compression with sRGB enabled</td>
+</tr>
+<tr>
+<td>Visible result</td>
+<td>Stable small-scale lighting detail</td>
+<td>Weak, distorted, or biased lighting detail</td>
+</tr>
+</tbody></table></div>
+<p><strong>Implementation plan</strong></p>
+<ol>
+<li>Duplicate the Lantern normal texture and change only its texture settings.</li>
+<li>Use matched material instances and one rotating point or directional light.</li>
+<li>Keep green-channel flipping out of version one.</li>
+<li>Verify texture sampler compatibility and capture one close-up comparison.</li>
+</ol>
+<p><strong>Popup outline</strong></p>
+<ul>
+<li>Observe: &quot;The silhouettes match, but surface detail reacts differently as the
+light moves. Describe the lighting error rather than the texture&#39;s color.&quot;</li>
+<li>Investigate: &quot;Inspect texture classification, sRGB, compression, sampler type,
+and whether both specimens share the same tangent basis.&quot;</li>
+<li>Your task: &quot;Restore correct direction-data interpretation without editing the
+pixels or mesh.&quot;</li>
+<li>Success: &quot;The moving highlight and recessed/raised detail match Correct from
+multiple light angles.&quot;</li>
+<li>Why it matters: &quot;Normal maps alter lighting vectors; treating them as pictures
+produces plausible-looking but incorrect shading.&quot;</li>
+<li>Explanation: The Incorrect asset uses color-texture processing. Select Normal
+Map compression, disable sRGB, and use the normal sampler. Prevent with naming
+and automated texture classification. Color processing is intentional only
+when the image is displayed as color, not used as a lighting normal.</li>
+</ul>
+<h2 id="ex29-uv-coordinate-contract">EX29 — UV Coordinate Contract</h2>
+<p><strong>Learning objectives</strong></p>
+<ul>
+<li>Distinguish texture pixels, UV coordinates, material assignment, and importer
+behavior.</li>
+<li>Locate one faulty UV shell and describe orientation and texel density evidence.</li>
+<li>Repair UV data while preserving geometry, transforms, and material identity.</li>
+</ul>
+<p><strong>Controlled comparison</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Correct</th>
+<th>Incorrect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Geometry, material, texture, transform, import settings</td>
+<td>Shared</td>
+<td>Shared</td>
+</tr>
+<tr>
+<td>Controlled variable</td>
+<td>Diagnostic UV shell matches reference</td>
+<td>One shell is mirrored or rotated; choose exactly one fault</td>
+</tr>
+<tr>
+<td>Visible result</td>
+<td>Labels and checker orientation read correctly</td>
+<td>One labeled region reads backward or rotated</td>
+</tr>
+</tbody></table></div>
+<p><strong>Implementation plan</strong></p>
+<ol>
+<li>Preserve the current Khronos import as the visual reference.</li>
+<li>Convert one clearly labeled panel into a Maya scene and export Correct FBX.</li>
+<li>Duplicate the scene, mirror one UV shell, and export Incorrect FBX.</li>
+<li>Import both with one shared Unreal material and validate orientation, borders,
+density, pivot, and actor scale.</li>
+</ol>
+<p><strong>Popup outline</strong></p>
+<ul>
+<li>Observe: &quot;One region reads backward even though both meshes use the same image
+and material. Identify the affected region and what remains identical.&quot;</li>
+<li>Investigate: &quot;Compare the source image, material coordinate input, UV channel,
+and shell orientation. Which stage owns the mismatch?&quot;</li>
+<li>Your task: &quot;Repair the affected UV shell only; preserve geometry, pivot,
+transforms, and material assignment.&quot;</li>
+<li>Success: &quot;Labels, borders, orientation, and checker density match Correct after
+reimport.&quot;</li>
+<li>Why it matters: &quot;A texture cannot define where it lands; UV coordinates and
+material sampling complete that contract.&quot;</li>
+<li>Explanation: The image and material are shared; one UV shell is mirrored.
+Restore shell orientation and reimport. Prevent with diagnostic textures,
+orientation marks, and UV validators. Mirroring is intentional when the art
+and tangent/material contract explicitly permit symmetrical reuse.</li>
+</ul>
+<h2 id="ex30-geometry-autopsy">EX30 — Geometry Autopsy</h2>
+<p><strong>Learning objectives</strong></p>
+<ul>
+<li>Differentiate reversed normals from non-manifold or duplicate geometry.</li>
+<li>Use Maya face-normal display and Cleanup evidence before editing.</li>
+<li>Repair a localized fault while preserving UVs, material IDs, scale, and shape.</li>
+</ul>
+<p><strong>Controlled comparison</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Correct</th>
+<th>Incorrect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Source prop</td>
+<td>One selected Factory Kit panel or box</td>
+<td>Duplicate of the same prop</td>
+</tr>
+<tr>
+<td>Controlled variable</td>
+<td>Outward, unlocked normals</td>
+<td>One reversed face; reserve non-manifold topology for a later round</td>
+</tr>
+<tr>
+<td>Visible result</td>
+<td>Stable one-sided shading</td>
+<td>One face disappears or shades inward from the test angle</td>
+</tr>
+</tbody></table></div>
+<p><strong>Implementation plan</strong></p>
+<ol>
+<li>Select a simple panel with an obvious front/back under one-sided rendering.</li>
+<li>Create Correct and Incorrect in one Maya scene; reverse one face only.</li>
+<li>Import with identical settings and a one-sided neutral material.</li>
+<li>Record face count, UV set, material slots, bounds, and cleanup result as
+invariants; build a separate non-manifold variant only after launch.</li>
+</ol>
+<p><strong>Popup outline</strong></p>
+<ul>
+<li>Observe: &quot;One small region disappears or shades inward while the silhouette
+and material remain the same. Describe where the failure occurs.&quot;</li>
+<li>Investigate: &quot;Check face orientation and normals before searching for missing
+materials. Use a targeted Cleanup test to rule out topology errors.&quot;</li>
+<li>Your task: &quot;Repair the defective face orientation and preserve all unaffected
+asset data.&quot;</li>
+<li>Success: &quot;Outward shading matches Correct; the targeted test passes; UVs,
+materials, bounds, and scale do not change.&quot;</li>
+<li>Why it matters: &quot;Geometry symptoms can look like material bugs, and broad
+cleanup operations can damage data that was already correct.&quot;</li>
+<li>Explanation: One face has reversed orientation. Reverse/conform the targeted
+face and validate in a one-sided material. Prevent with normal overlays,
+cleanup presets, and export validation. Inward faces are intentional for
+interior shells when their orientation is part of the asset contract.</li>
+</ul>
+<h2 id="ex31-modular-asset-contract">EX31 — Modular Asset Contract</h2>
+<p><strong>Learning objectives</strong></p>
+<ul>
+<li>Treat pivot, dimensions, transforms, grid interval, and material slots as a
+modular asset contract.</li>
+<li>Use bounds and snapping behavior as evidence, not visual approximation.</li>
+<li>Correct the authoritative Maya pivot while preserving mesh dimensions.</li>
+</ul>
+<p><strong>Controlled comparison</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Correct</th>
+<th>Incorrect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Source prop</td>
+<td>One straight Factory Kit conveyor or catwalk module</td>
+<td>Duplicate of the same module</td>
+</tr>
+<tr>
+<td>Controlled variable</td>
+<td>Pivot sits on the documented snap corner/plane</td>
+<td>Pivot is offset by a visible non-grid amount</td>
+</tr>
+<tr>
+<td>Visible result</td>
+<td>Rotation and placement snap into the kit</td>
+<td>Mesh gaps or orbits when rotated/snapped</td>
+</tr>
+</tbody></table></div>
+<p><strong>Implementation plan</strong></p>
+<ol>
+<li>Choose a straight module with obvious neighbor connections and document its
+dimensions, grid, forward/up axes, pivot rule, material slots, and scale.</li>
+<li>Create the Incorrect version by offsetting only the source pivot.</li>
+<li>Build a three-piece snap jig and a 90-degree rotation test in Unreal.</li>
+<li>Validate actor scale 1, unchanged bounds, material assignment, seam closure,
+and rotation behavior.</li>
+</ol>
+<p><strong>Popup outline</strong></p>
+<ul>
+<li>Observe: &quot;Both modules look identical alone. One creates a gap or orbits when
+snapped and rotated in the assembly jig.&quot;</li>
+<li>Investigate: &quot;Compare pivot position, bounds, actor scale, grid interval,
+forward/up axes, and mesh dimensions.&quot;</li>
+<li>Your task: &quot;Restore the documented source pivot without reshaping the mesh or
+compensating with an actor offset.&quot;</li>
+<li>Success: &quot;The module snaps flush in three placements, rotates predictably at
+90 degrees, and remains at actor scale 1.&quot;</li>
+<li>Why it matters: &quot;Modular modeling quality is measured by repeatable assembly,
+not by how convincing one isolated mesh looks.&quot;</li>
+<li>Explanation: The Incorrect mesh has an offset source pivot. Place the pivot on
+the contract plane/corner, freeze only the intended source state, export, and
+reimport. Prevent with pivot/bounds batch validation and a snap-jig test.
+Centered pivots are valid when the assembly contract calls for centered
+rotation rather than edge snapping.</li>
+</ul>
+<h2 id="delivery-sequence">Delivery sequence</h2>
+<h3 id="pass-1-content-and-interaction-foundation">Pass 1 — content and interaction foundation</h3>
+<ol>
+<li>Implement the shared data structure and popup sections.</li>
+<li>Enter EX21–EX25 content and connect reviewed HTTPS links.</li>
+<li>Add synchronized animation controls and shared-light controls.</li>
+<li>Ensure explanation content is hidden until explicitly revealed.</li>
+</ol>
+<h3 id="pass-2-asset-completion">Pass 2 — asset completion</h3>
+<ol>
+<li>Verify EX22 and EX25 against the existing Maya/FBX/Unreal variants.</li>
+<li>Build the EX23 and EX24 Lantern material/texture pairs.</li>
+<li>Author and import the EX29 UV pair.</li>
+<li>Save and clean-machine test the EX21 Maya repair scene.</li>
+</ol>
+<h3 id="pass-3-geometry-and-modeling-wing">Pass 3 — geometry and modeling wing</h3>
+<ol>
+<li>Author EX30 reversed-face pair and invariant checks.</li>
+<li>Author EX31 pivot pair, snap jig, and rotation test.</li>
+<li>Run a fresh-machine reset, link, and interaction test for all eight exhibits.</li>
+</ol>
+<h2 id="launch-acceptance-gate">Launch acceptance gate</h2>
+<p>An exhibit is launch-ready only when:</p>
+<ul>
+<li>the one controlled variable is documented and visually reproducible;</li>
+<li>Correct and Incorrect use the same test state and unaffected dependencies;</li>
+<li>the spoiler-free popup, full brief, explanation, and Learn More link exist;</li>
+<li>Reset works after interaction and after a student reimport;</li>
+<li>required evidence and success criteria are observable;</li>
+<li>instructor notes identify the source asset, repair owner, and known exception;</li>
+<li>a clean-machine Unreal test passes; and</li>
+<li>DCC repair exhibits also pass a clean-machine Maya-to-Unreal round trip.</li>
+</ul>
+</main></body></html>

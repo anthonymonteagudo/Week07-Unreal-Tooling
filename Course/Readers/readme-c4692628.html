@@ -1,0 +1,202 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tech Art Museum — Exhibit Review Grid</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../TechArtMuseumIntegration/Docs/SandboxGrid/README.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: TechArtMuseumIntegration/Docs/SandboxGrid/README.md<br>Source modified: 2026-09-09T19:54:04.258Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#tech-art-museum-exhibit-review-grid">Tech Art Museum — Exhibit Review Grid</a></li><li><a href="#open-and-review">Open and review</a></li><li><a href="#bay-directory">Bay directory</a></li><li><a href="#repeat-the-build">Repeat the build</a></li><li><a href="#evidence-and-limits">Evidence and limits</a></li><li><a href="#scope-and-handoff">Scope and handoff</a></li></ul></details><h1 id="tech-art-museum-exhibit-review-grid">Tech Art Museum — Exhibit Review Grid</h1>
+<p>Open <strong><code>/Game/TechArtMuseum/SandboxGrid/L_ExhibitReviewGrid</code></strong> in
+<code>TechArtMuseumIntegration.uproject</code> (Unreal Engine 5.7). The saved instructor
+sandbox contains <strong>12 bays</strong>, with Correct on the left and
+Incorrect on the right. All newly authored assessment assets are under
+<code>/Game/TechArtMuseum/SandboxGrid/</code>.</p>
+<p>The build has completed. Fresh-process asset validation, rendered review and
+the limited Play probe are pending; see the evidence section before treating
+an observed symptom or input path as tested. This is the instructor review
+map, not a student release or a replacement for an existing gallery/lab map.</p>
+<h2 id="open-and-review">Open and review</h2>
+<ol>
+<li>Save any work already open in your editor. Locate the map in Content Browser
+at <code>Content/TechArtMuseum/SandboxGrid</code> and open it.</li>
+<li>Press <strong>Play</strong>. Use the museum&#39;s existing <strong>WASD + mouse</strong> movement/look.
+The map keeps <code>BP_FirstPersonGameMode</code>, its pawn, controller and input setup.</li>
+<li>At the entry, use <strong>E</strong> on the <code>E_Inspection_SmokeTest</code> item to review the
+existing inspection flow. The assessment pairs themselves are observation
+displays: select their actors/assets in the editor for repairs. Skeletal
+examples use dedicated presentation Blueprints.</li>
+<li>Each gold review zone has an <strong>R</strong> trigger configured to toggle that bay&#39;s
+instructor answer. It references exactly one local answer actor; it does not
+use a world-wide exhibit tag. R/E physical input still needs human review.</li>
+<li>For repeatable editor views, find and pilot <code>CAM_00_Overview</code>, <code>CAM_00_Entry</code>
+or a bay&#39;s <code>CAM_&lt;ID&gt;_Near</code>. EXLOD and EXTEXMIP also have <code>_Mid</code> and <code>_Far</code>
+cameras and matching floor marks. Return to a common camera when comparing.</li>
+</ol>
+<p>The EX24 lighting controls are in
+<code>/Game/TechArtMuseum/SandboxGrid/Sequences/LS_EX24_LightSweep</code>: two matched
+lights have the same eight-second lateral sweep, configured to loop in Play.
+Open the sequence in the editor to pause or scrub both lights together.
+For EXA/EX21, restart Play after a repair to reset both clips to time zero.</p>
+<h2 id="bay-directory">Bay directory</h2>
+<p>Coordinates below are bay origins in Unreal centimeters. Except EXINST&#39;s
+custom arrays, Correct specimen centers are approximately at X = origin +340
+and Incorrect at X = origin -340: the review cameras face +Y, so world +X is
+screen-left. Both use Y = origin +600, with visual bottoms at Z = 105. Bay spacing is 2200 cm across
+and 2800 cm along the grid; walkways remain clear between bays.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Bay</th>
+<th>ID</th>
+<th>Topic</th>
+<th>Origin (X, Y)</th>
+<th>Review camera</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>01</td>
+<td>EXLOD</td>
+<td>LOD generation and switching</td>
+<td>0, 0</td>
+<td>CAM_EXLOD_Near / Mid / Far</td>
+</tr>
+<tr>
+<td>02</td>
+<td>EXMAT-A</td>
+<td>Face-to-material assignments</td>
+<td>2200, 0</td>
+<td>CAM_EXMAT-A_Near</td>
+</tr>
+<tr>
+<td>03</td>
+<td>EXMAT-B</td>
+<td>Partial coverage / blend mode</td>
+<td>4400, 0</td>
+<td>CAM_EXMAT-B_Near</td>
+</tr>
+<tr>
+<td>04</td>
+<td>EXTEXMIP</td>
+<td>Texture minification / mips</td>
+<td>0, 2800</td>
+<td>CAM_EXTEXMIP_Near / Mid / Far</td>
+</tr>
+<tr>
+<td>05</td>
+<td>EX20-A</td>
+<td>Reversed face</td>
+<td>2200, 2800</td>
+<td>CAM_EX20-A_Near</td>
+</tr>
+<tr>
+<td>06</td>
+<td>EX20-B</td>
+<td>Open boundary</td>
+<td>4400, 2800</td>
+<td>CAM_EX20-B_Near</td>
+</tr>
+<tr>
+<td>07</td>
+<td>EXINST</td>
+<td>Instancing and scene structure</td>
+<td>0, 5600</td>
+<td>CAM_EXINST_Near</td>
+</tr>
+<tr>
+<td>08</td>
+<td>EX23</td>
+<td>Color versus numeric data</td>
+<td>2200, 5600</td>
+<td>CAM_EX23_Near</td>
+</tr>
+<tr>
+<td>09</td>
+<td>EX24</td>
+<td>Normal-map green convention</td>
+<td>4400, 5600</td>
+<td>CAM_EX24_Near</td>
+</tr>
+<tr>
+<td>10</td>
+<td>EX29</td>
+<td>UV orientation / sampling</td>
+<td>0, 8400</td>
+<td>CAM_EX29_Near</td>
+</tr>
+<tr>
+<td>11</td>
+<td>EXA</td>
+<td>Animation playback rate</td>
+<td>2200, 8400</td>
+<td>CAM_EXA_Near</td>
+</tr>
+<tr>
+<td>12</td>
+<td>EX21</td>
+<td>Missing morph-target payload</td>
+<td>4400, 8400</td>
+<td>CAM_EX21_Near</td>
+</tr>
+</tbody></table></div>
+<h2 id="repeat-the-build">Repeat the build</h2>
+<p>From the workspace root in PowerShell:</p>
+<pre><code class="language-powershell">&amp; .\TechArtMuseumIntegration\Scripts\SandboxGrid\RunSandboxGrid.ps1 -Action Build
+&amp; .\TechArtMuseumIntegration\Scripts\SandboxGrid\RunSandboxGrid.ps1 -Action Validate
+</code></pre>
+<p>The runner uses <code>UnrealEditor-Cmd.exe</code>, <code>-run=pythonscript</code>, <code>-unattended</code>,
+<code>-nop4</code>, <code>-nullrhi</code> and the command-line Geometry Scripting plugin enablement.
+It does not require changing the project&#39;s permanent plugin configuration.
+The builder creates a fresh transient world and saves only the named sandbox
+map. Stable asset names and a fresh world prevent duplicate bays on reruns.
+Rebuilding reapplies configured faults and overwrites generated geometry;
+keep any instructor/student repairs in a separate copy first.
+Do not rebuild while this sandbox map is loaded or locked in another editor.</p>
+<p>Source modules are
+<a href="../../TechArtMuseumIntegration/Scripts/SandboxGrid/BuildExhibitReviewGrid.py">BuildExhibitReviewGrid.py</a>,
+<a href="../../TechArtMuseumIntegration/Scripts/SandboxGrid/lod_instancing.py">lod_instancing.py</a>,
+<a href="../../TechArtMuseumIntegration/Scripts/SandboxGrid/materials_textures.py">materials_textures.py</a> and
+<a href="../../TechArtMuseumIntegration/Scripts/SandboxGrid/geometry_animation.py">geometry_animation.py</a>.</p>
+<h2 id="evidence-and-limits">Evidence and limits</h2>
+<ul>
+<li><a href="../../TechArtMuseumIntegration/Saved/SandboxGrid/BuildReport.json">BuildReport.json</a> is the current
+build inventory: actual asset paths, bay transforms, cameras, configured
+faults and saved scene structure. A successful build is not a visual test.</li>
+<li><a href="../../TechArtMuseumIntegration/Saved/SandboxGrid/GeometryAnimationBuild.json">GeometryAnimationBuild.json</a>
+and <a href="../../TechArtMuseumIntegration/Saved/SandboxGrid/MaterialTextureAssets.json">MaterialTextureAssets.json</a>
+contain the source, topology, material graph and texture-control evidence.</li>
+<li>Fresh-process validation and the rendered/Play report will be recorded under
+<code>Saved/SandboxGrid/</code>. Rendering and physical input are separate gates.</li>
+<li>EXLOD has real 150,000 / 52,500 / 15,000-triangle render LODs in Correct and
+only 150,000-triangle LOD0 in Incorrect. Fresh-load checks confirm thresholds
+1.00 / 0.50 / 0.30; automatic rendered switching is a separate review gate.
+Both copies disable Nanite to expose conventional LOD behavior. Forced-LOD
+witnesses supplement the automatic main pair.</li>
+<li>EXINST proves one actor / one ISM / 64 instances versus 64 independent
+actors/components with equal transforms. This is structural evidence;
+engine auto-instancing can reduce individual draw submissions. No measured
+draw-call ratio or GPU speedup is claimed.</li>
+<li>EXTEXMIP uses one generated 1024² source PNG. The mip-generation setting is
+the controlled difference. Temporal antialiasing can suppress shimmer;
+metadata alone cannot establish the visible symptom.</li>
+</ul>
+<p>The editable EX20 OBJ files are extracted from the existing diagnostic meshes,
+not replacement geometry. Their original UVs are all zero, so these remain
+untextured topology exercises. See
+<a href="geometry-readme-e557d2cf.html">Geometry_README.md</a> for
+centimeter/Z-up import and <strong>Reimport With New File</strong> instructions. The
+EXMAT-A OBJ/MTL sources use Maya Y-up centimeters; follow each source&#39;s header.
+No Maya round trip has been tested. EX29 is a material-coordinate repair with
+verified existing assets, not a newly authored Maya UV-shell source.</p>
+<p>The existing <code>SourceArtDepot/Library/animation/khronos-animated-morph-cube/Working/MorphCube_Workfile.mb</code>
+is available for EX21, but its clean-machine open/export round trip remains
+unverified. The saved pair has identical base geometry, material and skeleton;
+Correct has <code>thin</code> and <code>angle</code>, Incorrect has neither, and the shared clip has
+varying curves with those names.</p>
+<h2 id="scope-and-handoff">Scope and handoff</h2>
+<p><a href="instructor-key-9025788f.html">INSTRUCTOR_KEY.md</a> contains the answers and exact repair
+contracts. Keep it and the answer actors out of a student handout/map until
+the intended reveal. Student-facing labels show objectives and observation
+cues separately from the instructor answers.</p>
+<p>Niagara and VAT are deferred. The existing animation wing, source galleries,
+lab forks, project startup maps and interaction implementation are retained.
+Additional loop/skin-weight animation defects and skeletal E inspection are
+outside this sandbox&#39;s implemented scope.</p>
+<p>No Perforce submit, sync, cleanup or broad reconcile is part of the build.
+Review only authored files in <code>Content/TechArtMuseum/SandboxGrid/</code>,
+<code>Scripts/SandboxGrid/</code> and <code>Docs/SandboxGrid/</code>, plus explicitly reported guide
+updates. <code>Saved/SandboxGrid/</code> contains validation evidence and previews; choose
+which evidence to retain rather than reconciling the entire Saved directory.</p>
+</main></body></html>

@@ -1,0 +1,308 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>oster-full</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/PrepNotes/sources/oster-full.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/PrepNotes/sources/oster-full.md<br>Source modified: 2026-10-11T18:29:49.832Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><pre><code>import unreal
+
+  
+
+def listAssetPaths():
+
+    EAL = unreal.EditorAssetLibrary
+
+  
+
+    assetPaths = EAL.list_assets(&#39;/Game&#39;, recursive=True, include_folder=False)
+
+  
+
+    unreal.log(f&quot;Found {len(assetPaths)} assets&quot;)
+
+  
+
+    for assetPath in assetPaths:
+
+        unreal.log(assetPath)
+
+  
+
+def getSelectionContentBrowser():
+
+    EUL = unreal.EditorUtilityLibrary
+
+    selectedAssets = EUL.get_selected_assets()
+
+  
+
+    for selectedAsset in selectedAssets: print(selectedAssets)
+
+  
+
+def getAllActors():
+
+    EAS = unreal.EditorActorSubsystem()
+
+  
+
+    actors = EAS.get_all_level_actors()
+
+  
+
+    for actor in actors: print(actor)
+
+  
+
+def getSelectedActors():
+
+    EAS = unreal.EditorActorSubsystem()
+
+  
+
+    selectedActors = EAS.get_selected_level_actors()
+
+  
+
+    for selectedActor in selectedActors: print(selectedActor)
+
+  
+
+def getAssetClass():
+
+    EAL = unreal.EditorAssetLibrary
+
+    assetPaths = EAL.list_assets(&#39;/Game&#39;)
+
+  
+
+    assets = []
+
+  
+
+    for assetPath in assetPaths:
+
+        assetData = EAL.find_asset_data(assetPath)
+
+        assetClass = assetData.asset_class
+
+        if assetClass == classType:
+
+            assets.append(assetData.get_asset())
+
+  
+
+    for asset in assets: print(asset)
+
+    return assets
+
+  
+
+def getStaticMeshData():
+
+    staticMeshes = getAssetClass(&#39;StaticMesh&#39;)
+
+    for staticMesh in staticMeshes:
+
+  
+
+        # assetImportData = staticMesh.get_editor_property(&#39;asset_import_data&#39;)
+
+        # fbxFilePath = assetImportData.extract_filenames()
+
+        # print(fbxFilePath)
+
+  
+
+        lodGroupInfo = staticMesh.get_editor_property(&#39;lod_group&#39;)
+
+        print(lodGroupInfo)
+
+  
+
+        if lodGroupInfo == None:
+
+            if staticMesh.get_num_lods() == 1:
+
+                staticMesh.set_editor_property(&#39;lod_group&#39;, &#39;LargeProp&#39;)
+
+  
+
+def getStaticMeshLODData():
+
+    PML = unreal.ProceduralMeshLibrary
+
+  
+
+    staticMeshes = getAssetClass(&#39;StaticMesh&#39;)
+
+  
+
+    staticMeshLODData = []
+
+  
+
+    for staticMesh in staticMeshes:
+
+        staticMeshTriCount = []
+
+        numLODs = staticMesh.get_num_lods()
+
+  
+
+        for i in range(numLODs):
+
+            numSections = staticMesh.get_num_sections(i)
+
+            LODTriCount = 0
+
+  
+
+            for j in range(numSections):
+
+                sectionData = PML.get_section_from_static_mesh(staticMesh, i, j)
+
+  
+
+                sectionTriCount = (len(sectionData[1])/3)
+
+                LODTriCount += sectionTriCount
+
+  
+
+            staticMeshTriCount.append(LODTriCount)
+
+  
+
+        staticMeshReductions = [100]
+
+  
+
+        for i in range(1, len(staticMeshTriCount)):
+
+            staticMeshReductions.append(int(staticMeshTriCount[i]/staticMeshTriCount[0]) * 100))
+
+  
+
+        print(staticMesh.get_name())
+
+        print(staticMeshTriCount)
+
+        print(&#39; ____ &#39;)
+
+  
+
+        try:
+
+            LODData = (staticMesh.get_name(), staticMeshTriCount[1])
+
+        except:
+
+            pass
+
+        staticMeshLODData.append(LODData)
+
+  
+
+    return staticMeshLODData
+
+  
+  
+
+def getStaticMeshInstanceCounts():
+
+  
+
+    levelActors = unreal.EditorActorSubsystem().get_all_level_actors()
+
+  
+
+    staticMeshActors = []
+
+    staticMeshActorCounts = []
+
+  
+
+    for levelActor in levelActors:
+
+        if (levelActor.get_class().get_name()) == &#39;StaticMeshActor&#39;:
+
+            staticMeshComponent = levelActor.static_mesh_component
+
+            staticMesh = staticMeshComponent.static_mesh
+
+            staticMeshActors.appen(staticMesh.get_name())
+
+  
+
+    processedActors = []
+
+    for staticMeshActor in staticMeshActors:
+
+        if staticMeshActor not in processedActors:
+
+            actorCounts = (staticMeshActor, staticMeshActors.count(staticMeshActor))
+
+            staticMeshActorCounts.append(actorCounts)
+
+            processedActors.append(staticMeshActor)
+
+  
+
+    staticMeshActorCounts.sort(key = lambda a: a[1], reverse = True)
+
+  
+
+    # for item in staticMeshActorCounts: print(item)
+
+  
+
+    LODData = getStaticMeshLODData()
+
+  
+
+    # for item in LODData: print (item)
+
+  
+
+    aggregateTriCounts - []
+
+  
+
+    for i in range(len(staticMeshActorCounts)):
+
+        for j in range(len(LODData)):
+
+            if staticMeshActorCounts[i][0] == LODData[j][0]:
+
+                aggregateTriCount = (staticMeshActorCounts[i][0], staticMeshActorCounts[i][1] * LODData[j][1])
+
+                aggregateTriCounts.append(aggregateTriCount)
+
+  
+
+    aggregateTriCounts.sort(key = lambda a: a[1], reverse = True)
+
+  
+
+    for item in aggregateTriCounts: print (item)
+
+  
+
+def returnMaterialInformationSMC():
+
+    levelActors = unreal.EditorActorSubsystem().get_all_level_actors()
+
+  
+
+    testMat = unreal.EditorAssetLibrary.find_asset_data(&#39;/Game/python/MI_test&#39;).get_asset()
+
+  
+
+    for levelActor in levelActors:
+
+        if (levelActor.get_class().get_name()) == &#39;StaticMeshActor&#39;:
+
+            staticMeshComponent = levelActor.static_mesh_component
+
+  
+
+            for i in range(staticMeshComponent.get_num_materials()):
+
+                staticMeshComponent.set_material(i, testMat)
+</code></pre>
+</main></body></html>

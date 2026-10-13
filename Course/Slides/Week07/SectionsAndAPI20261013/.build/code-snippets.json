@@ -1,0 +1,66 @@
+[
+  {
+    "id": "04",
+    "code": "import unreal\nunreal.log(\"Hello Unreal\")\n\nimport week07_tools\n# During development, reload changed module code:\nimport importlib\nimportlib.reload(week07_tools)"
+  },
+  {
+    "id": "04A",
+    "code": "import unreal\nhelp(unreal.EditorActorSubsystem)\n\neditor = unreal.get_editor_subsystem(\n    unreal.EditorActorSubsystem\n)\nhelp(editor.get_selected_level_actors)"
+  },
+  {
+    "id": "07",
+    "code": "import unreal\neditor = unreal.get_editor_subsystem(\n    unreal.EditorActorSubsystem\n)\nactors = editor.get_selected_level_actors()\nassets = unreal.EditorUtilityLibrary.get_selected_assets()\nprint(len(actors), len(assets))"
+  },
+  {
+    "id": "07C",
+    "code": "for actor in actors:\n    parts = actor.get_components_by_class(\n        unreal.StaticMeshComponent\n    )\n    for part in parts:\n        mesh = part.get_editor_property(\"static_mesh\")\n        print(actor.get_actor_label(), mesh)"
+  },
+  {
+    "id": "10A",
+    "code": "task = unreal.AssetImportTask()\ntask.set_editor_property(\"filename\", str(fbx))\ntask.set_editor_property(\"destination_path\", destination)\ntask.set_editor_property(\"destination_name\", asset_name)\ntask.set_editor_property(\"automated\", True)\ntask.set_editor_property(\"replace_existing\", True)\ntask.set_editor_property(\"save\", False)"
+  },
+  {
+    "id": "10C",
+    "code": "task.set_editor_property(\"options\", options)\n# Receiver selects the legacy FBX importer.\ntools = unreal.AssetToolsHelpers.get_asset_tools()\ntools.import_asset_tasks([task])\npaths = task.get_editor_property(\"imported_object_paths\")\nprint(paths)"
+  },
+  {
+    "id": "09G",
+    "code": "for asset in assets:\n    if not isinstance(asset, unreal.Texture2D):\n        continue\n    name = asset.get_name()\n    compression = asset.get_editor_property(\n        \"compression_settings\"\n    )\n    print(name, compression)"
+  },
+  {
+    "id": "09H",
+    "code": "expected = unreal.TextureCompressionSettings.TC_NORMALMAP\nfor texture in assets:\n    if not isinstance(texture, unreal.Texture2D):\n        continue\n    if texture.get_name().endswith(\"_N\"):\n        actual = texture.get_editor_property(\n            \"compression_settings\")\n        if actual != expected:\n            print(texture.get_path_name(), actual, expected)"
+  },
+  {
+    "id": "09I",
+    "code": "with unreal.ScopedEditorTransaction(\"Assign material\"):\n    component.modify()\n    component.set_material(slot, instance)\n    actual = component.get_material(slot)\n    if actual != instance:\n        raise RuntimeError(\"Assignment verification failed\")"
+  },
+  {
+    "id": "09F",
+    "code": "require(\n    self.backend.snapshot(kind, request) == snapshot,\n    \"Selection, scene, preset or destination changed. \"\n    \"Preview again.\"\n)"
+  },
+  {
+    "id": "09J",
+    "code": "actor = editor.spawn_actor_from_class(\n    unreal.NiagaraActor, location, rotation\n)\ncomponent = actor.get_component_by_class(\n    unreal.NiagaraComponent\n)\ncomponent.set_asset(system)"
+  },
+  {
+    "id": "15G",
+    "code": "pending = self.session.pending\nready = bool(pending) and (\n    not pending[3].get('warnings')\n    or self.ack.isChecked()\n)\nself.apply_button.setEnabled(ready)"
+  },
+  {
+    "id": "15B",
+    "code": "# Existing PySide view implementation\nself.preview.setAccessibleName(\n    \"Selected Actors change preview\"\n)"
+  },
+  {
+    "id": "15F",
+    "code": "source_field.setFocus()\nQWidget.setTabOrder(source_field, target_field)"
+  },
+  {
+    "id": "A2",
+    "code": "form = QFormLayout()\nform.addRow(\"Source file\", source_field)\nform.addRow(\"Destination\", target_field)\n\nsource_field.textChanged.connect(update_preview)\nimport_button.clicked.connect(run_import)"
+  },
+  {
+    "id": "09L",
+    "code": "library = unreal.MaterialEditingLibrary\nlibrary.set_material_instance_texture_parameter_value(\n    instance, parameter, texture\n)\nactual = library.get_material_instance_texture_parameter_value(\n    instance, parameter\n)\nassert actual == texture"
+  }
+]

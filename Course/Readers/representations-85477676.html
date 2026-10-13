@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>representations</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Wiki/content/representations.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Wiki/content/representations.md<br>Source modified: 2026-09-09T01:39:22.775Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#three-different-questions">Three different questions</a></li><li><a href="#why-a-smaller-texture-representation-can-help">Why a smaller texture representation can help</a></li><li><a href="#why-geometry-may-change">Why geometry may change</a></li><li><a href="#a-lab-comparison">A lab comparison</a></li></ul></details><h2 id="three-different-questions">Three different questions</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Main question</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Texture mip</td>
+<td>Which lower-resolution representation of the texture is sampled?</td>
+</tr>
+<tr>
+<td>Mesh LOD</td>
+<td>Which geometry representation is active?</td>
+</tr>
+<tr>
+<td>Streaming</td>
+<td>Which required data is currently available in memory?</td>
+</tr>
+</tbody></table></div>
+<p>Instancing is another idea: it reuses a mesh representation for multiple instances. It should not be taught as another name for selecting a lower-detail mesh.</p>
+<h2 id="why-a-smaller-texture-representation-can-help">Why a smaller texture representation can help</h2>
+<p>A detailed pattern can cover less than a screen pixel. Sampling needs to account for that footprint; simply using the highest-resolution source everywhere does not guarantee a stable or faithful distant image.</p>
+<p>Use a fixed camera path to observe shimmer, then pause on a comparable frame. The <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/texture-asset-editor-in-unreal-engine?application_version=5.7">Texture Asset Editor reference</a> grounds the settings. Williams&#39;s <a href="https://users.cs.northwestern.edu/~ago820/cs395/Papers/Williams_1983.pdf#page=4">Pyramidal Parametrics, page 4</a> gives historical visual context for minification.</p>
+<h2 id="why-geometry-may-change">Why geometry may change</h2>
+<p>A conventional static-mesh LOD setup can select a representation based on projected screen size. Inspect the active LOD and statistics while moving the camera, then check the silhouette and material behavior. <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-automatic-lod-generation-in-unreal-engine?application_version=5.7">Epic&#39;s automatic LOD guide</a> explains that workflow.</p>
+<p>The lower-detail result should preserve what matters under the intended viewing conditions. A numerical reduction alone does not establish an acceptable asset.</p>
+<h2 id="a-lab-comparison">A lab comparison</h2>
+<p>If an object suddenly looks different at a distance, record the camera condition, active mesh representation, texture representation, and relevant residency information. Change one system at a time in a prepared example.</p>
+<p>The same symptom can have several causes. Do not collapse a texture-mip demonstration, geometry-LOD demonstration, and streaming delay into one unexplained “quality” setting.</p>
+<p>For more depth, PBRT&#39;s <a href="https://www.pbr-book.org/4ed/Textures_and_Materials/Image_Texture">Image Texture chapter</a> discusses filtering footprints. Its implementation context is a further reading, not a set of UE editor instructions.</p>
+</main></body></html>

@@ -1,0 +1,118 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>intro-a1</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/PrepNotes/sources/intro-a1.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/PrepNotes/sources/intro-a1.md<br>Source modified: 2026-10-11T18:29:49.886Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><p><a href="https://www.youtube.com/watch?v=KLExEMFRk00&amp;list=PLKgYiIAqG99cwlb4Y2Pu-cSb_Vw14-t0c&amp;index=6">https://www.youtube.com/watch?v=KLExEMFRk00&amp;list=PLKgYiIAqG99cwlb4Y2Pu-cSb_Vw14-t0c&amp;index=6</a></p>
+<p>List Menus Tool:</p>
+<pre><code>import unreal
+
+def list_menu(num=1000):
+
+    menu_list = set()
+
+    for i in range(num):
+
+        obj = unreal.find_object(None, f&#39;/Engine/Transient.ToolMenus_0:RegisteredMenu_%s&#39; % i)
+
+        if not obj:
+
+            obj = unreal.find_object(None, f&#39;/Engine/Transient.ToolMenus_0:ToolMenu_{i}&#39;) # for backward compatibility
+
+            continue
+
+        menu_name = str(obj.menu_name)
+
+        if menu_name == &quot;None&quot;:
+
+            continue
+
+        menu_list.add(menu_name)
+
+    return list(menu_list)
+
+print(list_menu())
+</code></pre>
+<p>Output: LogPython: [&#39;ContentBrowser.ToolBar&#39;, &#39;ContentBrowser.AssetContextMenu.SkeletalMesh&#39;, &#39;ControlRigEditor.RigHierarchy.DragDropMenu.Align&#39;, &#39;HomeScreen.MainMenu&#39;, &#39;MainFrame.MainMenu&#39;, &#39;ContentBrowser.AssetContextMenu.MaterialFunctionMaterialLayerBlend&#39;, &#39;ContentBrowser.AssetContextMenu.MaterialFunction&#39;, &#39;ContentBrowser.AssetContextMenu.AssetActionsSubMenu&#39;, &#39;ContentBrowser.AssetContextMenu.NiagaraParameterCollection&#39;, &#39;StatusBar.ToolBar.SourceControl&#39;, &#39;HomeScreen.MainMenu.File&#39;, &#39;LevelEditor.MainMenu&#39;, &#39;ContentBrowser.AssetContextMenu.AnimMontage&#39;, &#39;LevelEditor.MainMenu.Build&#39;, &#39;ContentBrowse
+r.AssetContextMenu.WidgetBlueprintGeneratedClass&#39;, &#39;LevelEditor.SecondaryToolbar&#39;, &#39;AssetEditor.WidgetBlueprintEditor.ToolBar.DesignerName&#39;, &#39;LevelEditor.LevelEditorToolBar.OpenBlueprint&#39;, &#39;LevelEditor.MainMenu.Select.GeometryCollections&#39;, &#39;MainFrame.MainMenu.Tools&#39;, &#39;LevelEditor.MainMenu.Build.LightingQuality&#39;, &#39;LevelEditor.ActorContextMenu&#39;, &#39;MediaPlayer.AssetPickerAssetContextMenu&#39;, &#39;ContentBrowser.AssetContextMenu.Skeleton&#39;, &#39;LevelEditor.LevelEditorToolBar.Cinematics&#39;, &#39;ControlRigEditor.RigHierarchy.ContextMenu&#39;, &#39;ContentBrowser.AssetContextMenu.MaterialFunctionMaterialLayer&#39;, &#39;ContentBrow
+ser.AssetContextMenu.InterchangeSceneImportAsset&#39;, &#39;ContentBrowser.AssetContextMenu.BlueprintGeneratedClass&#39;, &#39;AssetEditor.SkeletalMeshEditor.ToolBar&#39;, &#39;LevelEditor.InViewportPanel&#39;, &#39;ContentBrowser.AssetContextMenu.TextureRenderTarget&#39;, &#39;Sequencer.MainToolBar.ViewOptions&#39;, &#39;LevelEditor.LevelEditorToolBar.SettingsToolbar&#39;, &#39;ContentBrowser.AssetContextMenu&#39;, &#39;ContentBrowser.AssetContextMenu.StaticMesh&#39;, &#39;LevelEditor.MainMenu.Build.LightingInfo.LightingDensity&#39;, &#39;ContentBrowser.AssetContextMenu.MaterialFunctionMaterialLayerBlendInstance&#39;, &#39;LevelEditor.PIEViewportToolbar&#39;, &#39;LevelEditor.MainMenu.E
+dit&#39;, &#39;Sequencer.TimelineMenu&#39;, &#39;RewindDebugger.TrackContextMenu&#39;, &#39;LevelEditor.MainMenu.Help&#39;, &#39;ContentBrowser.AssetContextMenu.LevelVariantSets&#39;, &#39;ContentBrowser.AssetContextMenu.NiagaraEmitter&#39;, &#39;ContentBrowser.AssetContextMenu.DataTable&#39;, &#39;LevelEditor.ViewportToolbar.Camera.CameraMovement.CameraSpeed&#39;, &#39;ContentBrowser.AssetContextMenu.MirrorDataTable&#39;, &#39;ContentBrowser.AssetContextMenu.SoundCue&#39;, &#39;ContentBrowser.AssetContextMenu.CurveBase&#39;, &#39;MainFrame.MainMenu.Edit&#39;, &#39;ContentBrowser.AssetContextMenu.WidgetBlueprint.AssetActionsSubMenu&#39;, &#39;RewindDebugger.ToolBar&#39;, &#39;ContentBrowser.AssetContext
+Menu.DataAsset&#39;, &#39;ContentBrowser.AssetContextMenu.GroomAsset&#39;, &#39;VrEditor.ToggleVrOptions&#39;, &#39;AssetEditor.WidgetBlueprintEditor.ToolBar.GraphName&#39;, &#39;ContentBrowser.AssetContextMenu.CurveTable&#39;, &#39;LevelEditor.MainMenu.Build.LightingInfo&#39;, &#39;MainFrame.MainMenu.Asset&#39;, &#39;Kismet.SubobjectEditorContextMenu&#39;, &#39;ContentBrowser.AssetContextMenu.MaterialFunctionMaterialLayerInstance&#39;, &#39;LevelEditor.ActorContextMenu.AssetToolsSubMenu&#39;, &#39;ContentBrowser.AssetContextMenu.SoundWave&#39;, &#39;ContentBrowser.AssetContextMenu.MetaSoundSource&#39;, &#39;LevelEditor.ViewportToolbar.ViewModes&#39;, &#39;ContentBrowser.AssetContextMenu.BlendSp
+ace&#39;, &#39;LevelEditor.MainMenu.Window&#39;, &#39;HomeScreenComboButtonMenu&#39;, &#39;ContentBrowser.AssetViewOptions.PathViewFilters&#39;, &#39;ContentBrowser.SourceBar&#39;, &#39;ContentBrowser.AssetContextMenu.NiagaraDataChannelAsset&#39;, &#39;ContentBrowser.AssetContextMenu.MaterialInterface&#39;, &#39;UnrealEd.ViewportToolbar.View&#39;, &#39;ContentBrowser.AssetContextMenu.NiagaraAssetTagDefinitions&#39;, &#39;LevelEditor.LevelViewportToolbar.View&#39;, &#39;MainFrame.MainMenu.File&#39;, &#39;ControlRigEditor.RigHierarchy.DragDropMenu.Align.Translation&#39;, &#39;LevelEditor.MainMenu.Tools&#39;, &#39;OutputLog.SettingsMenu&#39;, &#39;ContentBrowser.AssetContextMenu.MaterialFunctionInstance&#39;, 
+&#39;PropertyEditor.RowContextMenu&#39;, &#39;LevelEditor.StatusBar.ToolBar.CompileComboButton&#39;, &#39;AssetEditor.AnimationBlueprintEditor.MainMenu.Tools&#39;, &#39;ContentBrowser.AssetContextMenu.GeometryCollection&#39;, &#39;LevelEditor.LevelEditorToolBar.AssetsToolBar&#39;, &#39;MainFrame.NomadMainMenu&#39;, &#39;MainFrame.MainMenu.Window&#39;, &#39;ContentBrowser.AssetContextMenu.World&#39;, &#39;ContentBrowser.AssetContextMenu.DatasmithScene&#39;, &#39;HomeScreen.MainMenu.Edit&#39;, &#39;LevelEditor.MainMenu.File&#39;, &#39;ContentBrowser.AssetContextMenu.ControlRigPoseAsset&#39;, &#39;LevelEditor.ViewportToolbar&#39;, &#39;AssetEditor.SkeletonEditor.ToolBar&#39;, &#39;EditorSettingsViewer.LevelEdi
+torPlaySettings&#39;, &#39;LevelEditor.LevelEditorSceneOutliner.ContextMenu.EditSubMenu&#39;, &#39;ContentBrowser.AssetContextMenu.NiagaraSimCache&#39;, &#39;EditorViewportDepthBarMenu&#39;, &#39;ContentBrowser.AssetContextMenu.FontFace&#39;, &#39;ContentBrowser.AddNewContextMenu&#39;, &#39;ContentBrowser.FolderContextMenu&#39;, &#39;ContentBrowser.AssetContextMenu.GroomBindingAsset&#39;, &#39;AssetEditor.AnimationEditor.ToolBar&#39;, &#39;ContentBrowser.AssetContextMenu.WorldBookmark&#39;, &#39;ContentBrowser.AssetContextMenu.Skeleton.CreateSkeletalMeshSubmenu&#39;, &#39;LevelEditor.LevelEditorToolBar.AddQuickMenu&#39;, &#39;ContentBrowser.AssetContextMenu.MetaSoundPatch&#39;, &#39;GestureDirec
+tionSubmenu_Perspective&#39;, &#39;ContentBrowser.AssetContextMenu.Font&#39;, &#39;ContentBrowser.AssetContextMenu.SparseVolumeTexture&#39;, &#39;ControlRigEditor.ModularRigModel.ContextMenu&#39;, &#39;ControlRigEditor.RigHierarchy.ContextMenu.Naming&#39;, &#39;LevelEditor.ActorContextMenu.EditSubMenu&#39;, &#39;ContentBrowser.AssetContextMenu.SkeletalMesh.CreateSkeletalMeshSubmenu&#39;, &#39;ContentBrowser.AssetContextMenu.IKRigDefinition&#39;, &#39;LevelEditor.LevelEditorSceneOutliner.ContextMenu.LevelSubMenu&#39;, &#39;LevelEditor.LevelEditorSceneOutliner.ContextMenu&#39;, &#39;ContentBrowser.NavigationBar&#39;, &#39;LevelEditor.LevelEditorToolBar.PlayToolBar&#39;, &#39;LevelEditor.Le
+velEditorToolBar.User&#39;, &#39;LevelEditor.ViewportToolbar.Snapping&#39;, &#39;LevelEditor.ActorContextMenu.LevelSubMenu&#39;, &#39;ContentBrowser.AssetContextMenu.AnimSequence&#39;, &#39;LevelEditor.ViewportToolbar.Transform&#39;, &#39;ContentBrowser.AssetContextMenu.ForceFeedbackEffect&#39;, &#39;LevelEditor.StatusBar.ToolBar&#39;, &#39;LevelEditor.ViewportToolbar.Camera&#39;, &#39;ContentBrowser.DragDropContextMenu&#39;, &#39;LevelEditor.MainMenu.Build.LightingInfo.LightingResolution&#39;, &#39;ContentBrowser.AssetViewOptions&#39;, &#39;ContentBrowser.AssetContextMenu.WidgetBlueprint&#39;, &#39;ControlRigEditor.RigHierarchy.ContextMenu.NewElement&#39;, &#39;SourceControl.ChangelistContextMe
+nu&#39;, &#39;LevelEditor.LevelViewportToolbar.Show&#39;, &#39;GestureDirectionSubmenu_Orthographic&#39;, &#39;MainFrame.MainTabMenu.File&#39;, &#39;OutputLog.ConsoleInputBox.CmdExecMenu&#39;, &#39;ContentBrowser.AssetContextMenu.EditorUtilityBlueprint&#39;, &#39;ContentBrowser.AssetContextMenu.Blueprint&#39;, &#39;ContentBrowser.AssetContextMenu.Texture&#39;, &#39;ContentBrowser.AssetContextMenu.ImgMediaSource&#39;, &#39;ContentBrowser.AssetContextMenu.LevelSequence&#39;, &#39;MainFrame.MainMenu.Help&#39;, &#39;LevelEditor.LevelEditorToolBar.LevelToolbarQuickSettings&#39;, &#39;ContentBrowser.AssetContextMenu.Class&#39;, &#39;ContentBrowser.AssetContextMenu.NiagaraScript&#39;, &#39;ContentBrowser.Asset
+ContextMenu.AnimationAsset&#39;, &#39;ContentBrowser.AssetContextMenu.TextureCube&#39;, &#39;ContentBrowser.AssetContextMenu.Texture2D&#39;, &#39;ContentBrowser.AssetContextMenu.MediaSource&#39;, &#39;LevelEditor.LevelViewportToolBar.Camera&#39;, &#39;LevelEditor.LevelEditorToolBar.ModesToolBar&#39;, &#39;ContentBrowser.AssetContextMenu.AnimBlueprint&#39;, &#39;LevelEditor.ViewportToolbar.Show&#39;, &#39;ContentBrowser.AssetContextMenu.ObjectRedirector&#39;, &#39;ContentBrowser.AssetContextMenu.PoseAsset&#39;, &#39;ContentBrowser.AssetContextMenu.MaterialInstanceConstant&#39;, &#39;ContentBrowser.AssetContextMenu.EditorUtilityWidgetBlueprint&#39;, &#39;LevelEditor.MainMenu.Select&#39;, &#39;Cont
+rolRigEditor.RigHierarchy.DragDropMenu&#39;, &#39;RewindDebugger.MainMenu&#39;, &#39;HomeScreen.MainMenu.Help&#39;]</p>
+<p>Extend UE5 Editor Menus:</p>
+<pre><code>import unreal
+
+
+menus = unreal.ToolMenus.get()
+
+main_menu = menus.find_menu(&quot;LevelEditor.MainMenu&quot;)
+
+custom_menu = main_menu.add_sub_menu(&quot;Custom Menu&quot;, &quot;Python Automation&quot;, &quot;Menu Name&quot;, &quot;Menu Label&quot;)
+
+menus.refresh_all_widgets()
+
+  
+
+@unreal.uclass()
+
+class MyScriptObject(unreal.ToolMenuEntryScript):
+
+    @unreal.ufunction(override=True)
+
+    def execute(self, context):
+
+        print(&quot;SCRIPT EXECUTED&quot;)
+
+  
+
+edit_menu = menus.find_menu(&quot;LevelEditor.MainMenu.Edit&quot;)
+
+script_object = MyScriptObject()
+
+script_object.init_entry(
+
+    owner_name=edit_menu.menu_name,
+
+    menu=edit_menu.menu_name,
+
+    section=&quot;EditMain&quot;,
+
+    name=&quot;Unreal Engine 5 Python Automation Course&quot;,
+
+    label=&quot;Unreal Engine 5 Python Automation Course&quot;,
+
+    tool_tip=&quot;Custom Script Entry&quot;
+
+)
+
+script_object.register_menu_entry()
+
+  
+
+asset_context_menu = menus.find_menu(&quot;ContentBrowser.AssetContextMenu.StaticMesh&quot;)
+
+script_object2 = MyScriptObject()
+
+script_object2.init_entry(
+
+    owner_name=asset_context_menu.menu_name,
+
+    menu=asset_context_menu.menu_name,
+
+    section=&quot;EditMain&quot;,
+
+    name=&quot;Unreal Engine 5 Python Automation Course 2&quot;,
+
+    label=&quot;Unreal Engine 5 Python Automation Course 2&quot;,
+
+    tool_tip=&quot;Custom Script Entry 2&quot;
+
+)
+
+script_object2.register_menu_entry()
+
+# Initialize these custom menus in startup script
+</code></pre>
+</main></body></html>

@@ -1,0 +1,29 @@
+{
+  "deck": "..\\output\\Week_7_Expanded_Visual_Lecture_v3.pptx",
+  "slides": 65,
+  "live": 43,
+  "hidden_optional": 22,
+  "visual_slides": 30,
+  "all_rendered_slides_visually_reviewed": true,
+  "fixes": [
+    "Removed duplicate first-run code from the transition slide",
+    "Enlarged two GDC diagrams by cropping surrounding whitespace",
+    "Added readable source names and per-visual provenance",
+    "Made optional review anchors open the correct route",
+    "Verified local companion-video playback"
+  ],
+  "gif_parts": [
+    {
+      "part": "ppt/media/image.gif",
+      "frames": 3
+    }
+  ],
+  "final_hash_matches_receipt": true,
+  "source_urls": 129,
+  "retained_prior_urls": 119,
+  "limitations": [
+    "Native PowerPoint playback was not tested. The video is a browser companion, not embedded PowerPoint media.",
+    "Classroom timing and Maya-to-Unreal bridge still require rehearsal.",
+    "Historical GDC captures retain original resolution; they are production examples, not API instructions."
+  ]
+}

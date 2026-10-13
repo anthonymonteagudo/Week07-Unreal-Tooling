@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>oster-02</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/PrepNotes/sources/oster-02.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/PrepNotes/sources/oster-02.md<br>Source modified: 2026-10-11T18:29:49.847Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><p>Script:
+	
+	import unreal
+	
+	def listAssetPaths():
+	
+	    EAL = unreal.EditorAssetLibrary
+	
+	    assetPaths = EAL.list_assets(&#39;/Game&#39;, recursive=True, include_folder=False)</p>
+<pre><code>    unreal.log(f&quot;Found {len(assetPaths)} assets&quot;)
+
+    for assetPath in assetPaths:
+
+        unreal.log(assetPath)
+
+listAssetPaths()
+</code></pre>
+<p>Result in Output Log:</p>
+<pre><code>LogPython: import importlib
+import import_assets as TS
+TS = importlib.reload(TS)
+LogPython: Found 1038 assets
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Albedo_Specular_01a.MF_Albedo_Specular_01a
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Angle_Blend_01a.MF_Angle_Blend_01a
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_BarkUVMap.MF_BarkUVMap
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Camera_Depth_Landscape_01a.MF_Camera_Depth_Landscape_01a
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_CustomGrassWind.MF_CustomGrassWind
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Damaged_Wood.MF_Damaged_Wood
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Debris_01a.MF_Debris_01a
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Detail_Normal_01a.MF_Detail_Normal_01a
+LogPython: /Game/Northwood/DekogonContent/Materials/Functions/MF_Displacment_01a.MF_Displacment_01a
+</code></pre>
+</main></body></html>

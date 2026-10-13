@@ -1,0 +1,506 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 2 refined deck: critical review</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week02/ReviewRefined20260909/REVIEW_BRIEF.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week02/ReviewRefined20260909/REVIEW_BRIEF.md<br>Source modified: 2026-09-09T19:28:16.037Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#week-2-refined-deck-critical-review">Week 2 refined deck: critical review</a></li><li><a href="#the-verdict">The verdict</a></li><li><a href="#museum-the-document-to-open-first">Museum: the document to open first</a></li><li><a href="#correct-these-before-teaching">Correct these before teaching</a></li><li><a href="#pedagogy-and-pacing">Pedagogy and pacing</a></li><li><a href="#what-deeper-technical-content-should-do">What deeper technical content should do</a></li><li><a href="#slide-8-a-mesh-as-indexed-data">Slide 8: a mesh as indexed data</a></li><li><a href="#slide-91-one-stored-number-two-interpretations">Slide 91: one stored number, two interpretations</a></li><li><a href="#slide-112-weights-combine-transformed-positions">Slide 112: weights combine transformed positions</a></li><li><a href="#slides-119-136-a-manual-check-becomes-a-record-and-function">Slides 119 / 136: a manual check becomes a record and function</a></li><li><a href="#media-to-prioritize">Media to prioritize</a></li><li><a href="#research-build-a-ladder-not-a-bibliography-slide">Research: build a ladder, not a bibliography slide</a></li><li><a href="#useful-repositories-for-course-development">Useful repositories for course development</a></li><li><a href="#review-limits-and-next-use">Review limits and next use</a></li></ul></details><h1 id="week-2-refined-deck-critical-review">Week 2 refined deck: critical review</h1>
+<p>Review date: 9 September 2026. Source: <strong>Week 2 - Game Assets Pipelines and Validation REFINED (1).pptx</strong>. This review uses the new deck&#39;s <strong>142 slide positions</strong>, including 42 hidden slides. All 142 slides were exported through PowerPoint and inspected in contact sheets; selected problem slides were examined individually. Text, tables, notes, and media relationships were extracted from the file. The PowerPoint content has not been edited.</p>
+<h2 id="the-verdict">The verdict</h2>
+<p>The course direction is coherent: inspect asset data, trace a handoff, make a controlled repair, and leave reproducible evidence. The remaining problem is execution. Some revised slides still contain both the old and new explanations, several visuals demonstrate a different mechanism from their titles, and the scheduled activities have incompatible durations. Those issues matter more than adding another topic.</p>
+<p><strong>Keep the anatomy sections and the overview graph.</strong> The overview establishes relationships; the anatomy sections explain the parts students must inspect. Return to the overview during the worked repair so it becomes a diagnostic map. Keep GPU implementation as one box. A more advanced audience benefits from explicit data structures, numerical examples, and justified exceptions, without needing a GPU architecture lecture.</p>
+<p><strong>The strongest next revision replaces weak material with four worked technical moments:</strong> mesh indices on slide 8, a numeric interpretation example on 91, a concrete weighted position on 112, and a completed validation record on 119/136. The necessary ideas are already present. Make them visible and testable.</p>
+<p><strong>Participation update:</strong> the instructor requested more deliberate student questions and room discussion in both slides and notes. The <a href="discussion-plan-f6b119dc.html">discussion plan</a> reserves 19½ minutes across 15 pauses inside the schedule below. The corresponding slide entries now supply visible prompts, copyable read-aloud invitations, facilitation guidance, and closings. Use the Questions and discussion filter to review those additions together. These are planned edits, not changes to the PowerPoint.</p>
+<p><strong>Art-lens and visual-system update:</strong> use current slide 28 for a brief live introduction to what the viewer should be able to read, then connect that intention to the LOD, material, deformation, and documentation examples. Nine live positions now have named Explore further pointers. The six appendix routes in the HTML review retain useful depth while keeping the lab prerequisites live. The <a href="../Visuals/index.html">visual library</a> preserves the four Week 1 badges and adds 14 transparent companion icons plus three diagram starters. The <a href="rules-71152f26.html">course visual rules</a> and <a href="skill-98712820.html">course-visuals skill</a> specify reuse, finding, generation, provenance, and intended teaching use. Prepared local documents now receive clean reader views, with their editable source files offered separately.</p>
+<h2 id="museum-the-document-to-open-first">Museum: the document to open first</h2>
+<p>The most recent comprehensive instructor/build reference found is the <a href="tech-art-museum-exhibit-repair-guide-e9691b97.html">Tech Art Museum Exhibit Break/Fix Guide</a>, updated <strong>8 September, 8:03 p.m. local time</strong>. It supplies exhibit-specific assets, controlled faults, intended repairs, and verification. Its current integration target is <strong><code>/Game/TechArtMuseum/Maps/TechArtGallery_Interactive_AuthorMerge</code></strong>.</p>
+<p>Use the <a href="museum-lab02-exhibit-manifest-9965fc3b.html">Lab 2 Exhibit Manifest</a>, updated at 8:04 p.m., as the asset-path queue. The earlier <a href="museum-lab02-setup-44bc89b6.html">Lab Setup Guide</a> explains class maps, reset, and lab workflow. The <a href="museum-exhibit-interaction-migration-4aa2f202.html">Interaction Migration Plan</a> supplies the P0–P4 implementation sequence. The <a href="finalized-priority-exhibits-dda4bbb5.html">Finalized Priority Exhibits</a> document is older background and should not override the September 8 integration target or readiness details.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Build priority</th>
+<th>Integrate</th>
+<th>Exact next step from the newer guide</th>
+<th>Teaching prerequisite in this deck</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Core</td>
+<td>EX24 normal maps</td>
+<td>Place the prepared material pair on matched specimens; provide changing-light evidence.</td>
+<td>14, 104; do not confuse geometric orientation with normal-map decoding.</td>
+</tr>
+<tr>
+<td>Core</td>
+<td>EX23 numeric texture data</td>
+<td>Place the prepared pair; keep pixels, channel routing, light, and Base Color controlled.</td>
+<td>88, 91, 103; show a number changing under decoding.</td>
+</tr>
+<tr>
+<td>Core</td>
+<td>EXALPHA</td>
+<td>The torus comparison is recorded as placed in AuthorMerge; add labels and an interaction path preserving both components.</td>
+<td>105; state why partial transparency is the intended result.</td>
+</tr>
+<tr>
+<td>Core</td>
+<td>EXMAT-A</td>
+<td>Author a controlled Maya assignment/slot-identity pair and verify reimport. Avoid adding a second blend fault to it.</td>
+<td>62, 83, 102; distinguish face membership, slot names, assignments, and overrides.</td>
+</tr>
+<tr>
+<td>Core</td>
+<td>EXLOD</td>
+<td>Author the Correct conventional LOD chain, duplicate it, then remove lower LODs from Incorrect.</td>
+<td>51–52; expose active LOD and triangle count because both versions may look acceptable.</td>
+</tr>
+<tr>
+<td>Core</td>
+<td>EX29</td>
+<td>Use the existing material-coordinate mirror pair now. Author a distinct Maya UV-shell version later if assessing a Maya repair.</td>
+<td>54–55, 117; the same symptom can have different owners.</td>
+</tr>
+<tr>
+<td>Extension</td>
+<td>EX20 geometry</td>
+<td>Add matched Correct partners for selected existing Incorrect specimens.</td>
+<td>7–15; condition manifold/closed-surface rules on intended use.</td>
+</tr>
+<tr>
+<td>Extension</td>
+<td>EXA / EX21</td>
+<td>Preserve existing synchronized displays; add skeletal inspection only when it preserves motion and morph payload.</td>
+<td>110–112; isolate clip, weights, playback, and missing morph data.</td>
+</tr>
+<tr>
+<td>Later</td>
+<td>Mips, instancing, Niagara, VAT</td>
+<td>Finish core station validation before expanding. Niagara is not authored and VAT is conceptual in the recorded queue.</td>
+<td>Keep advanced examples available without implying those stations are ready.</td>
+</tr>
+</tbody></table></div>
+<p><strong>Three integration cautions emerge from comparing the documents.</strong> The CSV calls EX20 READY while the newer detailed guide says its Incorrect specimens still need selected Correct partners. EXALPHA contains multiple torus components, so a one-mesh inspector can destroy the comparison. EX29&#39;s current material-coordinate fault must not receive an answer key claiming a Maya UV shell was changed. Treat these as build checks, not as proof that current runtime assets are broken. This review did not run Unreal or update those documents while you work on the museum.</p>
+<p>The old setup guide&#39;s suggestion that an original exhibit is a midterm/final option also conflicts with your current direction and slide 134. <strong>The current Week 2 exhibit assignment takes precedence.</strong> Preserve established submission policies, and update the older setup wording when consolidating museum documentation.</p>
+<h2 id="correct-these-before-teaching">Correct these before teaching</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Slides</th>
+<th>Confirmed issue</th>
+<th>Minimum correction</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3, 71, 122</td>
+<td>Agenda allocates 15 minutes to Lab 1 and 20 to Lab 2; slides say 25 and 30; Lab 1 notes say 20. Final agenda rows overlap.</td>
+<td>Choose one schedule and update all four locations.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>An array-based mesh slide already exists, but its three tiny SDK diagrams repeat slide 7&#39;s generic labels.</td>
+<td>Keep the position, replace the visuals with one indexed mesh example. Correct the diagram attribution to Autodesk.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Heckbert text accompanies an exploded-asset image and a BANG arXiv link.</td>
+<td>Use a texture-lookup/filtering example for Heckbert. Put BANG under optional asset representation research.</td>
+</tr>
+<tr>
+<td>34</td>
+<td><code>&gt;20k triangle budget</code> describes a lower bound.</td>
+<td>If this is a ceiling, use <code>≤20,000 triangles</code> and label it an illustrative project constraint.</td>
+</tr>
+<tr>
+<td>37, 40</td>
+<td>Both handoff tables say <code>Image Files / N/A / Resolution</code>, including blockout-to-highpoly.</td>
+<td>Replace with the actual payload, changed representation, and invariant being checked.</td>
+</tr>
+<tr>
+<td>41, 52, 54–59, 62</td>
+<td>Multiple versions of the explanation appear on the same slide. Slide 59 has text against the title.</td>
+<td>Retain one concise bullet block and move elaboration to notes.</td>
+</tr>
+<tr>
+<td>48</td>
+<td>“More triangles help only while the silhouette improves” is too strong.</td>
+<td>Geometry can also support deformation, shading, or other required surface detail.</td>
+</tr>
+<tr>
+<td>65</td>
+<td>HTML iframe code is visible in the slide body.</td>
+<td>Replace it with a normal hyperlink on the retained model image.</td>
+</tr>
+<tr>
+<td>73</td>
+<td>The worksheet demands an earliest incorrect stage even when students cannot inspect it.</td>
+<td>Permit “unresolved” and add the next discriminating test.</td>
+</tr>
+<tr>
+<td>84, hidden</td>
+<td>OBJ contains <code>dasdasdas</code>.</td>
+<td>Complete it before distributing the reference deck or remove the unfinished reference slide.</td>
+</tr>
+<tr>
+<td>89</td>
+<td>The first two labels both say 256×256, but their multipliers differ.</td>
+<td>Use 128² = 16,384 = 1×; 256² = 65,536 = 4×; 512² = 262,144 = 16×.</td>
+</tr>
+<tr>
+<td>91</td>
+<td>The image compares uncompressed and DXT1 data; the title teaches color versus numeric interpretation.</td>
+<td>Replace the visual with an sRGB interpretation comparison. Keep compression as a separate example.</td>
+</tr>
+<tr>
+<td>103</td>
+<td>The sweep shows Specular, Roughness, Metallic; the title says Base Color, Roughness, Metallic.</td>
+<td>Supply a Base Color example or isolate the roughness row and name the visible controls accurately.</td>
+</tr>
+<tr>
+<td>112</td>
+<td>The figure compares log-matrix and spherical blending against dual quaternions; it does not visualize the displayed linear blend equation. Historical FPS labels add an unsupported modern performance implication.</td>
+<td>Show the actual weighted-position example. Move the research comparison to an explicitly historical extension.</td>
+</tr>
+<tr>
+<td>117, 119</td>
+<td>The example record shows a generic portrait; the validation table is mostly blank and places REVIEW under Observed Setting.</td>
+<td>Fill both with the actual example evidence and move REVIEW to Result.</td>
+</tr>
+</tbody></table></div>
+<p>These are not arguments to rebuild the deck. They are targeted corrections to protect the explanation you have already developed.</p>
+<h2 id="pedagogy-and-pacing">Pedagogy and pacing</h2>
+<p>There are <strong>100 visible slides</strong>, including <strong>45 before the first museum activity</strong>, <strong>30 in the surface/skeletal block</strong>, and <strong>nine consecutive documentation slides</strong>. Dividers are not the same as substantive slides, so slide count alone is not a duration model. Nevertheless, the agenda asks the surface block to carry 30 visible positions in 30 minutes, before allowing for questions, mathematical examples, or software transitions. That is a real compression problem.</p>
+<p>A workable <strong>150-minute draft</strong>, preserving both museum passes and treating timings as proposed rather than confirmed course policy:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Activity</th>
+<th align="right">Minutes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4:30–4:45</td>
+<td>Foundation: asset, components, indexed data, normals, expected result</td>
+<td align="right">15</td>
+</tr>
+<tr>
+<td>4:45–5:10</td>
+<td>One asset&#39;s pipeline, including a brief Maya-to-UE handoff</td>
+<td align="right">25</td>
+</tr>
+<tr>
+<td>5:10–5:25</td>
+<td>Museum observation and short debrief</td>
+<td align="right">15</td>
+</tr>
+<tr>
+<td>5:25–5:40</td>
+<td>Break</td>
+<td align="right">15</td>
+</tr>
+<tr>
+<td>5:40–6:15</td>
+<td>Textures, materials, skeletal relationships; short technical reveals included</td>
+<td align="right">35</td>
+</tr>
+<tr>
+<td>6:15–6:25</td>
+<td>One worked repair plus its completed documentation</td>
+<td align="right">10</td>
+</tr>
+<tr>
+<td>6:25–6:50</td>
+<td>Group repair</td>
+<td align="right">25</td>
+</tr>
+<tr>
+<td>6:50–6:55</td>
+<td>Two Week 1 answer-key connections</td>
+<td align="right">5</td>
+</tr>
+<tr>
+<td>6:55–7:00</td>
+<td>Exhibit assignment and Week 3 bridge</td>
+<td align="right">5</td>
+</tr>
+</tbody></table></div>
+<p>If either lab needs longer, take the time from pipeline examples and documentation exposition, not from verification. Do not promise students they will repair all core stations. One complete investigation is enough to practice the loop.</p>
+<p><strong>First cuts from the live route:</strong> 16–17, 33, the standalone baton transitions 37/40/46/57/61, 63, 65/67, 78–80, 86, and 118. Fold the useful handoff information into the adjacent asset screenshots. Preserve the opening pipeline overview and the explicit revision/reimport test. Hide 18 until its source/visual mismatch is corrected. Keep 9 as a 30-second optional reveal from 8, rather than adding a separate lecture on vertex buffers.</p>
+<p><strong>Consolidate documentation to four teaching moments:</strong> 113 establishes visitor versus maintainer; 120 shows an annotated art-direction standard; 116 shows a conformance example; 117 shows a completed museum record. Fold 121&#39;s maintenance questions and 119&#39;s reusable rule into that record. Keep 114–115 and 118 as linked study material. Show 129 only for the established submission instructions. Sue Nichols and Burley serve different purposes: artistic standards and reflectance controls respectively. Neither becomes obsolete merely because it is historical.</p>
+<p><strong>Preserve the Week 1 transfer.</strong> At slide 30, ask students to apply two of the existing lenses to one symptom: which constraint defines acceptable behavior, and which system of dependencies could explain it? At the end, distinguish the value of a single repair from the throughput benefit of a reusable check. Do not re-teach the entire four-lens framework.</p>
+<p><strong>Strengthen the lab handoff.</strong> Observation Lab 1 occurs before the texture/material anatomy. That can work as a question-generating activity, provided students are not expected to name an unintroduced setting or an uninspected root cause. Leave the relevant slide/wikipage link in each exhibit brief. Before Lab 2, demonstrate where to find the actual texture, assigned instance, material slot, and import settings on the same specimen. Definitions alone do not supply that navigation skill.</p>
+<p>The design basis here is consistent with <a href="https://www.cambridge.org/core/books/abs/cambridge-handbook-of-multimedia-learning/principles-for-managing-essential-processing-in-multimedia-learning-segmenting-pretraining-and-modality-principles/DD24C2F48B9B1277CE59F78276110258">Mayer and Pilegard&#39;s discussion of segmentation and pre-training</a>: establish component names and break complex explanations into manageable steps. This is my application to your course, not a claim that a particular slide count or clip duration is experimentally optimal.</p>
+<h2 id="what-deeper-technical-content-should-do">What deeper technical content should do</h2>
+<p>Each reveal should answer a question created by the visible asset. Use <strong>object → data → operation → observed consequence → possible check</strong>. Give newcomers the concrete example and advanced students the mechanism and source. A page of unexplained symbols is less technical in practice than a small model whose assumptions students can test.</p>
+<h3 id="slide-8-a-mesh-as-indexed-data">Slide 8: a mesh as indexed data</h3>
+<p><strong>Proposed title:</strong> A Mesh as Positions and Indices</p>
+<p>Show one square with four numbered corners, next to this small illustrative representation. Use a native table or editable text, large enough to read. These lists are a teaching representation, <strong>not Maya&#39;s exact storage layout and not a universal engine serialization</strong>.</p>
+<pre><code class="language-python">positions = [(0, 0, 0), (1, 0, 0), (1, 1, 0), (0, 1, 0)]
+edges = [(0, 1), (1, 2), (2, 3), (3, 0)]
+face = [0, 1, 2, 3]
+triangles = [(0, 1, 2), (0, 2, 3)]
+</code></pre>
+<p>Reveal one row at a time. Highlight vertex ID 2 in the picture and wherever it occurs in the lists. Change only <code>positions[2]</code>, then compare with reversing a triangle&#39;s index order. The first edit changes positions without changing connectivity. The second changes orientation without moving a position. Invalid IDs, degenerate triangles, and UV/normal discontinuities now become understandable validation targets.</p>
+<p><strong>Read aloud:</strong> “These numbers identify the same points you can select in Maya. A face refers to those points in an order. If I move point two, the connections still refer to point two. If I change the order, the points can stay where they are while the face&#39;s orientation changes. Next week, a script can read these relationships and ask whether they satisfy a rule. It will be inspecting the same asset you just inspected by hand.”</p>
+<p><strong>Optional depth:</strong> Maya also represents face corners and UV indexing. A UV seam or hard shading edge can require separate runtime attribute records at one position. A DCC point count therefore need not equal a rendering vertex count. The <a href="https://help.autodesk.com/cloudhelp/2023/CHS/Maya-SDK/files/Polygon-API/Maya_SDK_Polygon_API_How_polygons_are_handled_html.html">Autodesk internal polygon explanation</a> is the source behind the current small diagrams; link it for the exact distinctions.</p>
+<h3 id="slide-91-one-stored-number-two-interpretations">Slide 91: one stored number, two interpretations</h3>
+<p><strong>Proposed title:</strong> The Same Value Can Mean Different Things</p>
+<p>Use a controlled illustrative RGB-channel value of <strong>0.5</strong>. Read directly as numeric roughness, it remains 0.5. Interpreted through sRGB decoding, it is approximately <strong>0.214</strong> in linear space. The upper branch of the sRGB decoding function gives <code>((0.5 + 0.055) / 1.055) ** 2.4</code>. This is a calculated example, not a measured value from the museum texture; compression and quantization can change a real sample.</p>
+<p><strong>Read aloud:</strong> “The file has not changed. We changed how the stored number is interpreted. Half is still half when it is numerical roughness data. Through this color-decoding path, that same stored value becomes about point two one four. The material now receives a different control value. That is why looking at the thumbnail cannot prove that a texture is configured correctly.”</p>
+<p><strong>Boundary:</strong> This example concerns an RGB channel used as numerical material data. Do not automatically apply it to alpha, all texture formats, or every material workflow. The <a href="https://github.com/KhronosGroup/glTF/blob/main/specification/2.0/Specification.adoc">glTF specification</a> provides a clear role-based distinction; UE inspection still uses the actual texture and sampler setup.</p>
+<p><strong>Optional companion on 104:</strong> Ideal encoded tangent-space normal <code>(0.5, 0.5, 1)</code> maps through <code>2c − 1</code> to <code>(0, 0, 1)</code>, the local outward normal. This is an encoding illustration. Actual normal compression can reconstruct components; it is not a universal instruction to subtract 0.5 in a UE graph or flip green.</p>
+<h3 id="slide-112-weights-combine-transformed-positions">Slide 112: weights combine transformed positions</h3>
+<p><strong>Proposed title:</strong> One Vertex, Two Joint Influences</p>
+<p>Use candidate positions <strong>pA = (2, 0, 0)</strong> and <strong>pB = (0, 2, 0)</strong>, already transformed into the same frame. With weights 0.75 and 0.25, the result is <strong>(1.5, 0.5, 0)</strong>. Show those points before showing the equation. Keep the current statement that the candidates are not bone positions.</p>
+<p><strong>Read aloud:</strong> “Each joint produces a candidate position for this same vertex. These candidates already account for the relationship between the mesh and the joints in the bind pose. We combine them using the skin weights. Seventy-five percent of the first candidate and twenty-five percent of the second gives this result. Changing the weights can change the surface even when the joint animation stays exactly the same.”</p>
+<p><strong>Advanced notes, not required live:</strong> With column vectors and every bind point expressed in world space, one simplified linear blend formulation is <code>p_world(t) = Σ wi Gi_world(t) Bi_world⁻¹ p_bind_world</code>. <code>B</code> is the joint&#39;s bind-world transform and <code>G</code> its current-world transform. A parent hierarchy gives <code>G_child = G_parent L_child</code>. Returning the result to current mesh-local space requires the inverse current mesh-world transform. Real rigs include other deformation and transform conventions. Weight normalization alone does not prove good deformation. <a href="https://users.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.html">Kavan&#39;s author page</a> is a useful extension on algorithm-dependent artifacts, not evidence of the algorithm used by your Unreal asset.</p>
+<h3 id="slides-119-136-a-manual-check-becomes-a-record-and-function">Slides 119 / 136: a manual check becomes a record and function</h3>
+<p>Complete the record first: role = <code>roughness_rgb</code>; expected sRGB = false; observed sRGB = true; result = FAIL; reason = numeric data would receive color decoding. Then show a second record with an unknown role and result REVIEW. Keep the code in the <a href="../Wiki/week03.html">Week 3 wiki preview</a> or the accompanying <a href="../Slides/Week02/ReviewRefined20260909/Source/technical_examples.py">tested examples</a>.</p>
+<p><strong>Read aloud:</strong> “Our check needs a declared role, an observed setting, and a reason for its conclusion. If the role is unknown, we cannot apply the roughness rule confidently. The tool should report that missing information. A pass here means this particular interpretation check passed. It does not certify the whole material. Next week, Python will repeat the check and produce the record.”</p>
+<p><strong>Optional mip arithmetic:</strong> For a large square texture with a complete halving chain, the texel count approaches <code>N² × (1 + 1/4 + 1/16 + …) = 4N²/3</code>. This estimates about one-third extra texels over the top level, not exact allocated GPU memory. Keep it as a footnote on 92 if students ask why mips cost storage.</p>
+<h2 id="media-to-prioritize">Media to prioritize</h2>
+<p>The file contains <strong>no embedded video parts</strong>. It contains three animated GIF parts: slide 32 (hidden, 800×450), slide 79 (reaction meme, 783×500), and slide 111 (pose interpolation, 278×320). Links and playback instructions in notes are not embedded clips. GIF frames and durations were inspected from the files; slideshow playback and external players were not tested in this pass.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Priority / slide</th>
+<th>Candidate and usable source</th>
+<th>Teaching treatment</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Highest / 62, 83</td>
+<td><strong>Record your Maya → UE → reimport path.</strong> Fallback: <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-material-pipeline-in-unreal-engine?application_version=5.7">Epic FBX Material Pipeline, Multiple Materials</a>.</td>
+<td>Show two face regions in Maya, their shading assignments, export selection, destination slots, a deliberate source revision, and reimport. Use three short segments with a paused settings view.</td>
+<td>Proposed recording, not existing footage. The Epic page and Maya comparison images are verified references.</td>
+</tr>
+<tr>
+<td>Highest / 91, 103</td>
+<td><strong>Record EX23</strong>, keeping the specimen and lighting fixed. <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/texture-asset-editor-in-unreal-engine?application_version=5.7">Epic texture editor reference</a>.</td>
+<td>Show the sampled RGB role, the one interpretation change, and the response. Pair with the 0.5 example.</td>
+<td>Proposed project recording; no newly recorded media claimed.</td>
+</tr>
+<tr>
+<td>Highest / 104</td>
+<td><strong>Record EX24 under a moving light.</strong> <a href="https://learnopengl.com/Advanced-Lighting/Normal-Mapping">LearnOpenGL Normal Mapping</a> supplies the existing brick still.</td>
+<td>Toggle normal contribution, freeze, inspect the unchanged outline, then restore and move the light. Separate effect from bad import classification.</td>
+<td>Existing still in deck; UE motion capture proposed.</td>
+</tr>
+<tr>
+<td>Highest / 105</td>
+<td><strong>Record the actual Alpha Leaf or EXALPHA torus pair.</strong> <a href="https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/AlphaBlendModeTest">Khronos AlphaBlendModeTest</a>.</td>
+<td>Show the mask/alpha separately, predict the cutoff result, then show partial transparency. Keep Two Sided and geometry fixed.</td>
+<td>Existing comparison source verified. Project capture proposed.</td>
+</tr>
+<tr>
+<td>High / 102</td>
+<td><a href="https://dev.epicgames.com/community/api/cms/videos/1_hr0fnlml/embed.html">Epic chair Material Instance player</a>, linked from <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/instanced-materials-in-unreal-engine?application_version=5.7">Material Instances</a>.</td>
+<td>Ask which chair will change before the parameter edit. End on the object → instance → parent relationship.</td>
+<td>Candidate carried forward from the prior media audit; not replayed this pass.</td>
+</tr>
+<tr>
+<td>High / 103</td>
+<td><a href="https://dev.epicgames.com/community/api/cms/videos/1_4goroask/embed.html">Epic Mapping Roughness player</a>, associated with Physically Based Materials.</td>
+<td>Use the short interval that changes roughness while lighting stays fixed. Keep metallic fixed.</td>
+<td>Existing candidate from prior audit; confirm playback/cue before class. No new timecode asserted.</td>
+</tr>
+<tr>
+<td>High / 51–52</td>
+<td><strong>Record conventional LODs on the museum scan.</strong> <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-automatic-lod-generation-in-unreal-engine?application_version=5.7">Epic automatic LOD guide</a>.</td>
+<td>Show automatic near/mid/far selection with active LOD and triangle counts. Freeze the transition frame.</td>
+<td>Proposed recording. Confirm the asset&#39;s Nanite/conventional LOD path first.</td>
+</tr>
+<tr>
+<td>High / 110–112</td>
+<td><a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-CharacterAnimation/files/GUID-2ABD18C8-8CCF-44B9-99E0-EDEE4A56A3E6.htm">Maya 2027 Skin Tools quickstart</a>.</td>
+<td>Prefer a short course capture of one influence and one bend. Show unchanged joint motion while a local weighting change alters the mesh.</td>
+<td>Current workflow page verified. The existing “start at 2:22” note does not itself identify a verified video cue.</td>
+</tr>
+<tr>
+<td>Optional / 112</td>
+<td><a href="https://users.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.html">Kavan author-linked video page</a>.</td>
+<td>After the basic example: can the deformation method itself contribute to the artifact?</td>
+<td>Accompanying video existence verified; playback and excerpt not tested.</td>
+</tr>
+<tr>
+<td>Optional / 92–93</td>
+<td><strong>Record a high-frequency surface in motion with/without mips.</strong> <a href="https://users.cs.northwestern.edu/~ago820/cs395/Papers/Williams_1983.pdf">Williams, Pyramidal Parametrics</a>, Figures 5–6, is a historical still alternative.</td>
+<td>Compare temporal shimmer, then pause on texture settings. Distinguish mip generation, selected mip, and residency.</td>
+<td>Project loop proposed; paper verified.</td>
+</tr>
+<tr>
+<td>Optional / 137</td>
+<td><a href="https://research.nvidia.com/labs/rtr/neural_texture_compression/">NVIDIA neural texture compression project</a>.</td>
+<td>A modern research teaser: compare reconstruction at a stated storage cost. Do not advertise it as the course&#39;s UE texture setting.</td>
+<td>Author page includes video and comparison viewer; neither replayed here.</td>
+</tr>
+<tr>
+<td>Optional / 101</td>
+<td><a href="https://thebookofshaders.com/03/">Book of Shaders, Uniforms</a>.</td>
+<td>A changing value can generate changing pixels without an image texture. Translate the idea to a tiny UE graph for the main lecture.</td>
+<td>Interactive GLSL source, not Unreal footage.</td>
+</tr>
+</tbody></table></div>
+<p>Use roughly 15–40 seconds of motion per small concept as a preparation target, with discussion budgeted separately. Those are proposed lengths, not measured excerpt timestamps. For settings and assignments, use persistent before/after stills. For highlights, shimmer, and deformation, motion reveals evidence a still may hide. Show a question before the change and leave a decisive frame visible afterward. Preserve attribution, captions, and a still fallback with each selected clip.</p>
+<p>Do not use arbitrary stock photography where students need evidence: the repeated portrait on 6/16/17/117/118/123 and hidden guides does not show mesh structure, a UV repair, or dependency isolation. The baton motif can survive as a brief transition; the teaching work should happen in the actual asset and settings views.</p>
+<h2 id="research-build-a-ladder-not-a-bibliography-slide">Research: build a ladder, not a bibliography slide</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Source and type</th>
+<th>Best placement</th>
+<th>What to take from it</th>
+<th>Boundary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://publications.ri.cmu.edu/survey-of-texture-mapping">Heckbert, Survey of Texture Mapping (1986)</a>, journal survey</td>
+<td>18 after correction, preferably moved beside 54 or 92</td>
+<td>Mapping and filtering answer different questions.</td>
+<td>Use an actual texture example. BANG is unrelated to this claim.</td>
+</tr>
+<tr>
+<td><a href="https://users.cs.northwestern.edu/~ago820/cs395/Papers/Williams_1983.pdf">Williams, Pyramidal Parametrics (1983)</a>, SIGGRAPH paper</td>
+<td>92–94</td>
+<td>Prefiltering stabilizes minification; use the small-image comparison.</td>
+<td>Historical terminology about image compression can mean minification, not modern BC compression.</td>
+</tr>
+<tr>
+<td><a href="https://www.microsoft.com/en-us/research/publication/simulation-of-wrinkled-surfaces/">Blinn, Simulation of Wrinkled Surfaces (1978)</a>, SIGGRAPH paper</td>
+<td>104</td>
+<td>Perturb shading directions without modeling every wrinkle.</td>
+<td>Foundational bump mapping, not a UE tangent-space import recipe.</td>
+</tr>
+<tr>
+<td><a href="https://graphics.stanford.edu/courses/cs348a-08-winter/Papers/garland-heckbert.pdf">Garland &amp; Heckbert, Surface Simplification Using Quadric Error Metrics (1997)</a>, SIGGRAPH paper</td>
+<td>51–52 study link</td>
+<td>Simplification is an optimization problem with an error measure.</td>
+<td>Do not infer the exact current UE reduction implementation or performance from this paper.</td>
+</tr>
+<tr>
+<td><a href="https://disneyanimation.com/publications/physically-based-shading-at-disney/">Burley, Physically-Based Shading at Disney (2012)</a>, SIGGRAPH course notes</td>
+<td>106</td>
+<td>Artist-facing parameter design, reflectance, and controlled sweeps.</td>
+<td>Keep the roughness row visible first. Disney&#39;s parameter set is not UE&#39;s UI specification.</td>
+</tr>
+<tr>
+<td><a href="https://users.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.html">Kavan et al., Skinning with Dual Quaternions (2007)</a>, I3D paper and video</td>
+<td>112 extension</td>
+<td>A deformation algorithm can affect the result independently of weights.</td>
+<td>Identify the compared methods; remove historical FPS figures from a beginner teaching crop.</td>
+</tr>
+<tr>
+<td><a href="https://research.nvidia.com/labs/rtr/neural_texture_compression/">Vaidyanathan et al., Random-Access Neural Compression of Material Textures (2023)</a>, SIGGRAPH research</td>
+<td>137 optional</td>
+<td>Current research still trades representation, memory, reconstruction, and access cost.</td>
+<td>The authors&#39; reported results have specific test conditions; do not turn them into a universal savings promise.</td>
+</tr>
+<tr>
+<td><a href="https://arxiv.org/abs/2507.21493">BANG: Dividing 3D Assets via Generative Exploded Dynamics (2025)</a>, arXiv research preprint</td>
+<td>Optional source-representation topic</td>
+<td>Generated decomposition can suggest parts and motion.</td>
+<td>Does not establish sound topology, exportable rigs, or correct texture mapping. Verify any downstream claim separately.</td>
+</tr>
+<tr>
+<td><a href="https://www.pmp-book.org/">Polygon Mesh Processing</a>, book and teaching materials</td>
+<td>8–15, 49 study links</td>
+<td>A sustained route into mesh algorithms and representations.</td>
+<td>Instructor/advanced reading, not prerequisite for the Week 2 repair.</td>
+</tr>
+<tr>
+<td><a href="https://www.pbr-book.org/4ed/Textures_and_Materials/Texture_Sampling_and_Antialiasing">PBRT 4e, Texture Sampling and Antialiasing</a>, textbook</td>
+<td>92 study link</td>
+<td>A fuller account of footprints and filtering.</td>
+<td>Renderer implementation differs from Unreal.</td>
+</tr>
+</tbody></table></div>
+<p>The six sources you already favor have distinct jobs. <a href="https://www.adobe.com/learn/substance-3d-designer/web/the-pbr-guide-part-1">Adobe&#39;s PBR guide</a> supports material-response intuition; <a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-texturing/introduction-to-texturing.html">Scratchapixel</a> supports implementation-oriented exploration; <a href="https://thebookofshaders.com/">Book of Shaders</a> makes procedural calculations interactive; <a href="https://learnopengl.com/Getting-started/Shaders">LearnOpenGL</a> exposes a conventional programmable pipeline. Epic and Autodesk should anchor the controls students will actually operate. Label GLSL versus UE material-graph examples explicitly. Scratchapixel currently labels this introductory lesson work in progress, so it should not be the sole authority for an entire topic.</p>
+<h2 id="useful-repositories-for-course-development">Useful repositories for course development</h2>
+<p>These are <strong>researched candidates, not newly installed packages</strong>. Repository activity is only a maintenance signal; it does not validate a teaching method. Exact dependencies and licensing belong to each selected component. No repository-supplied commands were executed.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Recommendation</th>
+<th>Repository / component</th>
+<th>Specific use for this course</th>
+<th>Fit and limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Strong pedagogy reference</td>
+<td><a href="https://github.com/carpentries/lesson-development-training">The Carpentries lesson-development-training</a></td>
+<td>Align lesson objectives, exercises, and assessment; review whether a learner can perform the promised task.</td>
+<td>A curriculum repository, not an installable agent skill. Better foundation for a course-review checklist than a generic slide-beautification prompt.</td>
+</tr>
+<tr>
+<td>Promising explanation-design reference</td>
+<td><a href="https://github.com/albertobarnabo/professor">albertobarnabo/professor</a>, root <code>SKILL.md</code></td>
+<td>Build a small concrete example, vary one property, then introduce the terminology and symbol. Fits slide 8 and 112 particularly well.</td>
+<td>Adapt critically. Claims such as a universal three-element limit or that one sequence wins for every learner are too absolute. Its own evaluation uses one task per condition and AI judges, not a classroom trial. Root licensing was not confirmed.</td>
+</tr>
+<tr>
+<td>Best research-critique skill candidate</td>
+<td><a href="https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/scientific-critical-thinking">K-Dense scientific-critical-thinking</a></td>
+<td>Review whether evidence supports a claim; identify confounds, scope, and uncertainty in exhibit comparisons and papers.</td>
+<td>Reviewed skill declares MIT. Analytical guidance needs no network; optional image tooling uses a separate service. Adapt biomedical evidence frameworks to engineering rather than importing them mechanically.</td>
+</tr>
+<tr>
+<td>Research workflow reference</td>
+<td><a href="https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills/literature-review">K-Dense literature-review</a></td>
+<td>Keep a search log, inclusion criteria, evidence notes, and verified citations across weekly topics.</td>
+<td>Do not install the whole suite for this need. The reviewed file requires AI-generated figures and assumes extra search/figure tooling; those defaults are poorly matched to every course research pass.</td>
+</tr>
+<tr>
+<td>Useful deck-review ideas</td>
+<td><a href="https://github.com/scunning1975/MixtapeTools/blob/main/.claude/skills/beautiful_deck/SKILL.md">MixtapeTools / beautiful_deck</a></td>
+<td>Separate narrative critique, technical figures, and visual QA; keep student walkthrough scripts beside the deck.</td>
+<td>Beamer-first, strongly author-specific, with additional skill/subagent dependencies. Its requirement that every title be an assertion conflicts with your effective anatomy/topic titles. Use as a reference, not a drop-in replacement. Root licensing was not confirmed.</td>
+</tr>
+<tr>
+<td>Candidate for short mathematical animations</td>
+<td><a href="https://github.com/Yusuke710/manim-skill">Yusuke710/manim-skill</a>, <code>skills/manim-skill</code></td>
+<td>Storyboard a vertex/index change or two-influence blend, produce a short animation, and inspect frames.</td>
+<td>MIT at repository level. Requires a working Manim/render environment. A coding skill can improve production, but it does not supply the lesson&#39;s explanation. Not installed or render-tested here.</td>
+</tr>
+<tr>
+<td>Animation engine</td>
+<td><a href="https://github.com/ManimCommunity/manim">ManimCommunity/manim</a></td>
+<td>Precisely animate array selection, interpolation, coordinates, or a numerical curve.</td>
+<td>MIT, code library rather than a skill. Use for actual mathematical motion, with the diagram-design skill for static relationships.</td>
+</tr>
+<tr>
+<td>Optional animation QA reference</td>
+<td><a href="https://github.com/albertobarnabo/manim-craft">albertobarnabo/manim-craft</a></td>
+<td>Storyboard, render stills, inspect them, then review motion and readability.</td>
+<td>Its reported null result usefully separates animation polish from explanatory quality. Root licensing was not confirmed; not an immediate installation recommendation.</td>
+</tr>
+<tr>
+<td>Publishing option for later</td>
+<td><a href="https://github.com/quarto-dev/quarto-cli">quarto-dev/quarto-cli</a></td>
+<td>Maintain text, citations, executable Python examples, HTML lessons, and presentations from source.</td>
+<td>A publishing system, not a pedagogy skill. The CLI is GPL-licensed; bundled components have their own notices. Do not migrate the working wiki merely to gain another tool.</td>
+</tr>
+<tr>
+<td>Course-site reference</td>
+<td><a href="https://github.com/carpentries/sandpaper">carpentries/sandpaper</a></td>
+<td>Reusable lesson/episode structure, objectives, exercises, and instructor guidance.</td>
+<td>The Carpentries Workbench uses an R-based build workflow. Borrow organization now; adoption would be a deliberate publishing change.</td>
+</tr>
+<tr>
+<td>Finding existing imagery</td>
+<td><a href="https://github.com/WordPress/openverse">WordPress/openverse</a></td>
+<td>Search openly licensed reference photos and illustrations; capture creator, original source, and license in the media ledger.</td>
+<td>The search engine&#39;s code license does not license every returned image. Use the hosted search/API rather than deploying the whole application. No additional connector is required for this research shortlist.</td>
+</tr>
+<tr>
+<td>Consistent clip art</td>
+<td><a href="https://github.com/lucide-icons/lucide">lucide-icons/lucide</a></td>
+<td>Small consistent icons for source files, mesh, texture, data, warnings, and verification.</td>
+<td>Editable SVG; ISC terms with inherited Feather attribution. Icons should label roles, while screenshots demonstrate software behavior. Your existing ImageGen capability can handle original illustrative imagery when appropriate.</td>
+</tr>
+<tr>
+<td>Academic assessment reference</td>
+<td><a href="https://github.com/jkitchin/skillz/blob/main/skills/academic/phd-qualifier/SKILL.md">jkitchin/skillz / phd-qualifier</a></td>
+<td>Borrow separation of evidence, argument, and presentation assessment.</td>
+<td>Designed for a PhD qualifying presentation, so its standards are not a Week 2 novice rubric. Repository declares MIT.</td>
+</tr>
+</tbody></table></div>
+<p><strong>Suggested adoption order:</strong> keep diagram-design for relationships; consider one scoped critical-thinking skill; use a Manim skill only when producing a specific clip. For course planning, adapt The Carpentries&#39; curriculum methods into your existing review preferences. The biggest missing capability is not another diagram generator: it is a repeatable audit that maps <strong>each promised lab action to a taught example, a student task, and observable evidence</strong>.</p>
+<h2 id="review-limits-and-next-use">Review limits and next use</h2>
+<p>This pass inspected the new deck and source pages. It did not edit the PowerPoint, replay external clips, run the museum, or certify current UE assets. Slide images below are actual PowerPoint exports; proposed recordings are explicitly labeled. The review HTML receives structural/link checks, but browser layout preview is unavailable under the current browser policy. Preserve the source snapshot, stable slide numbers, and this dated review so later deck edits remain traceable.</p>
+</main></body></html>

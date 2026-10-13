@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>oster-04</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/PrepNotes/sources/oster-04.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/PrepNotes/sources/oster-04.md<br>Source modified: 2026-10-11T18:29:49.850Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><pre><code>def getAssetClass():
+
+    EAL = unreal.EditorAssetLibrary
+
+    assetPaths = EAL.list_assets(&#39;/Game&#39;)
+
+
+    assets = []
+
+
+    for assetPath in assetPaths:
+
+        assetData = EAL.find_asset_data(assetPath)
+
+        assetClass = assetData.asset_class
+
+        if assetClass == classType:
+
+            assets.append(assetData.get_asset())
+
+  
+    for asset in assets: print(asset)
+
+    return assets
+</code></pre>
+</main></body></html>

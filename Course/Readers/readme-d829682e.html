@@ -1,0 +1,169 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Prop Inspector · UI and functionality status</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/Docs/UI/README.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/Docs/UI/README.md<br>Source modified: 2026-10-13T04:15:59.032Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#prop-inspector-ui-and-functionality-status">Prop Inspector · UI and functionality status</a></li><li><a href="#try-the-ui-when-you-choose">Try the UI when you choose</a></li><li><a href="#the-three-ui-ux-stages">The three UI/UX stages</a></li><li><a href="#quality-gates-and-evidence">Quality gates and evidence</a></li><li><a href="#captures-for-slide-preparation">Captures for slide preparation</a></li><li><a href="#1-functional-expose-data-and-actions">1 · Functional: expose data and actions</a></li><li><a href="#2-guided-make-comparison-and-scope-readable">2 · Guided: make comparison and scope readable</a></li><li><a href="#3-refined-hierarchy-feedback-and-recovery">3 · Refined: hierarchy, feedback and recovery</a></li><li><a href="#verify-a-successful-repair-can-still-leave-another-issue">Verify: a successful repair can still leave another issue</a></li><li><a href="#dependencies-and-extension-points">Dependencies and extension points</a></li></ul></details><h1 id="prop-inspector-ui-and-functionality-status">Prop Inspector · UI and functionality status</h1>
+<p>The selected classroom workflows are now <a href="material-vfx-scope-0a9ec19c.html">Material Setup and VFX Placement</a>.
+This page retains the earlier Prop Inspector as a reference. The current class
+<a href="readme-44ea130d.html">UI progression uses Material/VFX themselves</a>.</p>
+<p><strong>Two-interface direction:</strong> this guide covers the actual <strong>PySide6 Qt Widgets</strong>
+tool, not a web UI. The required native Unreal tab is a separate interface; see
+<a href="unreal-native-ui-2e7365ec.html">the native UI investigation and assembly specification</a>.
+The existing parented Qt window is not the native-tab implementation.</p>
+<p>This is a working, fixture-specific Python tool with a new staged PySide6 interface.
+The existing backend inspects selection, validates the six props, previews Actor
+label/placement changes, applies a reviewed plan in one Undo transaction, resets
+the baseline, and exports selection reports. It is not a general asset pipeline.</p>
+<p><strong>Current readiness:</strong> the console backend has saved evidence of 12 passing Unreal
+integration checks on 5.7.4 (<code>Saved/Tooling/Checks/20261010_184405_265596/result.json</code>).
+The new UI has offline controller/widget tests and offscreen captures. Its live
+Unreal adapter and window/event-loop integration are implemented but <strong>not yet
+rehearsed inside Unreal</strong>. Do not describe the new UI as classroom-ready until the
+live acceptance gate below passes. No editor or desktop window was opened during
+this code preparation.</p>
+<h2 id="try-the-ui-when-you-choose">Try the UI when you choose</h2>
+<p>For this earlier reference only, run from the project root:</p>
+<pre><code class="language-powershell">./.venv/Scripts/python.exe Scripts/ui.py --stage 3
+</code></pre>
+<p>This opens a standalone <strong>OFFLINE REHEARSAL</strong> window using invented six-prop data.
+Select demo props → Preview changes → inspect before/after → Apply. The sample
+intentionally has one missing mesh, so successful label/placement repair still
+leaves one validation failure. Reset restores sample labels/positions. No remote
+connection to Unreal exists. Stages 1 and 2 use the same command with another number.</p>
+<p>For a later, instructor-controlled <strong>live</strong> rehearsal, on the saved demo map in
+Unreal&#39;s Python console:</p>
+<pre><code class="language-python">import week07_tools as w7
+# If w7 was already imported before the UI code was added:
+import importlib
+importlib.reload(w7)
+w7.reload_tools()
+w7.show_pyside_ui(stage=3)
+</code></pre>
+<p><code>w7.close_ui()</code> closes the panel. Repeated <code>show_ui()</code> reuses the current panel;
+changing stages replaces it. <code>reload_tools()</code> now closes the panel and removes its
+callbacks, then reloads UI code. Reopen explicitly and create a fresh preview.
+This is an external Qt window parented to Unreal, <strong>not a native dockable Slate or
+Editor Utility Widget tab</strong>. Qt events are pumped from Slate; no blocking Qt event
+loop is started inside Unreal.</p>
+<h2 id="the-three-ui-ux-stages">The three UI/UX stages</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Implementation to read</th>
+<th>What changes and why</th>
+<th>Promotion gate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 · Functional</td>
+<td><code>ui/views.py</code>: <code>FunctionalView</code>; <code>ui/controller.py</code></td>
+<td>Buttons replace console calls; read-only JSON exposes real data. Visible mode/scope/status and safe Apply already exist.</td>
+<td>Operations work, errors appear, preview never edits, stale/empty plans cannot apply.</td>
+</tr>
+<tr>
+<td>2 · Guided</td>
+<td><code>ui/views.py</code>: <code>GuidedView</code></td>
+<td>Compare current/proposed values in a table; separate selected-Actor preview from whole-fixture validation. Reduces JSON decoding and scope ambiguity.</td>
+<td>A user can identify what changes, which objects are affected, and what remains invalid.</td>
+</tr>
+<tr>
+<td>3 · Refined</td>
+<td><code>ui/views.py</code>: <code>RefinedView</code>; <code>ui/window.py</code></td>
+<td>Stronger hierarchy, restrained emphasis on Apply, explicit change count, filter, report copying, separate reset with Cancel default, focus indicators and text status.</td>
+<td>Filtering cannot silently narrow Apply; controls fit, recovery is understandable, keyboard flow and live lifecycle work.</td>
+</tr>
+</tbody></table></div>
+<p>Paths in this table are beneath <code>Content/Python/week07_tooling/</code>. These are real
+presentation implementations sharing one controller, not three independent copies
+of the mutation logic. Safety is not a late-stage enhancement. All stages are
+available for comparison; gates govern teaching/release readiness, not a runtime
+unlock mechanic. The lab and slide order remain provisional.</p>
+<h2 id="quality-gates-and-evidence">Quality gates and evidence</h2>
+<pre><code class="language-powershell">./.venv/Scripts/python.exe Scripts/ui_quality.py --tool props --stage 1
+./.venv/Scripts/python.exe Scripts/ui_quality.py --tool props --stage 2
+./.venv/Scripts/python.exe Scripts/ui_quality.py --tool props --stage 3
+</code></pre>
+<p>Each command runs cumulative automated checks, offscreen. Missing Qt fails the
+gate. Stage 3 covers the original 13 controller/widget checks plus the material/VFX
+policy tests and assistant UI workflow check. The full <code>dev.py test</code>
+suite also runs these tests, but skips widget tests on machines without Qt; use the
+explicit gate command when assessing UI readiness.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Evidence</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Existing console/backend UE integration</td>
+<td>Previously passed 12 checks; not rerun during code-only work.</td>
+</tr>
+<tr>
+<td>New controller and Qt widget behavior</td>
+<td>Automated offline checks available and run locally.</td>
+</tr>
+<tr>
+<td>Offscreen layout/captures</td>
+<td>Generated from actual Qt widgets; see gallery below.</td>
+</tr>
+<tr>
+<td>Native Windows keyboard/DPI/screen-reader review</td>
+<td>Pending manual review; no accessibility certification implied.</td>
+</tr>
+<tr>
+<td>Live Unreal parenting, focus, event loop, Undo, reload/close</td>
+<td>Pending instructor-controlled rehearsal.</td>
+</tr>
+<tr>
+<td>General-purpose tools / asset import / finalized student lab</td>
+<td>Not implemented by this UI work.</td>
+</tr>
+</tbody></table></div>
+<p>Before presenting the final stage as complete, manually verify: opening twice
+doesn&#39;t duplicate windows; selection changes disable Apply; wrong map/PIE show a
+recoverable error; preview does not edit; applying selected props is one Undo step;
+Undo re-invalidates the plan; validation describes remaining issues; closing and
+reloading remove old callbacks; Tab/Alt shortcuts work; 100%/150%/200% scaling and
+narrow widths remain readable. This checklist is documentation for later, not an
+instruction to interrupt the current editor session.</p>
+<h2 id="captures-for-slide-preparation">Captures for slide preparation</h2>
+<p>These are <strong>offline UI captures</strong>, not evidence of Unreal integration. The mode
+label is intentionally visible. They can be regenerated without a desktop window:</p>
+<pre><code class="language-powershell">./.venv/Scripts/python.exe Scripts/ui.py --stage 3 --render Docs/UI/captures
+</code></pre>
+<h3 id="1-functional-expose-data-and-actions">1 · Functional: expose data and actions</h3>
+<p><img src="../../Week07UnrealPython/Docs/UI/captures/stage_1_preview.png" alt="Functional stage"></p>
+<h3 id="2-guided-make-comparison-and-scope-readable">2 · Guided: make comparison and scope readable</h3>
+<p><img src="../../Week07UnrealPython/Docs/UI/captures/stage_2_preview.png" alt="Guided stage"></p>
+<h3 id="3-refined-hierarchy-feedback-and-recovery">3 · Refined: hierarchy, feedback and recovery</h3>
+<p><img src="../../Week07UnrealPython/Docs/UI/captures/stage_3_preview.png" alt="Refined stage"></p>
+<h3 id="verify-a-successful-repair-can-still-leave-another-issue">Verify: a successful repair can still leave another issue</h3>
+<p><img src="../../Week07UnrealPython/Docs/UI/captures/stage_3_verified.png" alt="Refined validation"></p>
+<h2 id="dependencies-and-extension-points">Dependencies and extension points</h2>
+<p>Qt Widgets is supplied by pinned <code>PySide6-Essentials==6.8.3</code> and <code>shiboken6==6.8.3</code>,
+installed locally in ignored <code>.deps/ui</code>. These modules support the project&#39;s Python
+3.11 environment. No packages were installed into the engine. On another machine:</p>
+<pre><code class="language-powershell">./.venv/Scripts/python.exe -m ensurepip
+./.venv/Scripts/python.exe -m pip install --target .deps/ui -r requirements-ui.txt
+</code></pre>
+<p>The core rules and console tool still need only Unreal/the standard library.
+<code>ui/dependencies.py</code> explicitly adds <code>.deps/ui</code> only when needed. The Unreal stub
+remains analysis-only. Never copy another Qt distribution into this folder or mix
+bindings in the same editor process. Preserve the packages&#39; bundled license files
+if distributing dependencies; they are not checked into the course project here.</p>
+<ul>
+<li><code>ui/controller.py</code>: workflow and invalidation, independent of widgets and Unreal.</li>
+<li><code>ui/offline_backend.py</code>: disposable data for rehearsal/tests; no fake engine APIs.</li>
+<li><code>editor/ui_backend.py</code>: connects the panel to the existing guarded tool functions.</li>
+<li><code>ui/views.py</code>: staged result presentation; <code>ui/window.py</code>: action wiring and styles.</li>
+<li><code>ui/host.py</code>: explicit live window lifecycle and Slate event pumping.</li>
+<li><code>Scripts/ui.py</code>: ordinary Python UI runner and headless captures.</li>
+</ul>
+<p>The UI exposes select, refresh, validate, preview, apply, copy-validation-report and
+reset. Actor/component inspection and file export remain available through the
+existing console API; the panel does not yet include a component inspector or file
+export dialog. No startup hook, watcher, remote-execution server or automatic asset
+saving was added.</p>
+<p>API references: <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/module/unreal?application_version=5.7">Epic&#39;s Unreal 5.7 Python module</a>
+documents external-window parenting and Slate callbacks; <a href="https://doc.qt.io/qtforpython-6.8/gettingstarted.html">Qt for Python setup</a>
+documents installation and its supported Python baseline. The pinned runtime was
+verified locally for offline widgets; that does not verify Unreal hosting.</p>
+</main></body></html>

@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>oster-05</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/PrepNotes/sources/oster-05.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/PrepNotes/sources/oster-05.md<br>Source modified: 2026-10-11T18:29:49.852Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><pre><code>def getStaticMeshData():
+
+    staticMeshes = getAssetClass(&#39;StaticMesh&#39;)
+
+    for staticMesh in staticMeshes:
+
+  
+        # assetImportData = staticMesh.get_editor_property(&#39;asset_import_data&#39;)
+
+        # fbxFilePath = assetImportData.extract_filenames()
+
+        # print(fbxFilePath)
+
+  
+        lodGroupInfo = staticMesh.get_editor_property(&#39;lod_group&#39;)
+
+        print(lodGroupInfo)
+
+  
+        if lodGroupInfo == None:
+
+            if staticMesh.get_num_lods() == 1:
+
+                staticMesh.set_editor_property(&#39;lod_group&#39;, &#39;LargeProp&#39;)
+
+  
+            # print (staticMesh.get_name())
+
+            # print (staticMesh.get_num_lods())
+</code></pre>
+</main></body></html>

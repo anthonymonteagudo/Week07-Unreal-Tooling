@@ -1,0 +1,552 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Materials, shaders, and textures: a Week 2 teaching guide</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week02/Review/WEEK2_MATERIALS_FUNDAMENTALS_GUIDE.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week02/Review/WEEK2_MATERIALS_FUNDAMENTALS_GUIDE.md<br>Source modified: 2026-09-09T01:37:13.118Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#materials-shaders-and-textures-a-week-2-teaching-guide">Materials, shaders, and textures: a Week 2 teaching guide</a></li><li><a href="#1-the-learning-target">1. The learning target</a></li><li><a href="#2-a-shader-is-a-program">2. A shader is a program</a></li><li><a href="#3-a-material-describes-the-surface-in-unreal">3. A Material describes the surface in Unreal</a></li><li><a href="#4-parameters-and-material-instances-make-variation-manageable">4. Parameters and Material Instances make variation manageable</a></li><li><a href="#5-a-texture-is-data-we-can-sample">5. A texture is data we can sample</a></li><li><a href="#6-uvs-provide-addresses-and-sampling-reads-the-data">6. UVs provide addresses, and sampling reads the data</a></li><li><a href="#7-the-surface-inputs-students-actually-need">7. The surface inputs students actually need</a></li><li><a href="#8-data-needs-the-correct-interpretation">8. Data needs the correct interpretation</a></li><li><a href="#color-versus-numeric-data">Color versus numeric data</a></li><li><a href="#channel-meaning">Channel meaning</a></li><li><a href="#normal-maps">Normal maps</a></li><li><a href="#9-the-material-has-to-reach-the-intended-surface">9. The material has to reach the intended surface</a></li><li><a href="#10-authoring-rendering-and-the-final-image">10. Authoring, rendering, and the final image</a></li><li><a href="#11-a-worked-demonstration-the-same-surface-different-roughness">11. A worked demonstration: the same surface, different roughness</a></li><li><a href="#12-a-diagnosis-method-students-can-reuse">12. A diagnosis method students can reuse</a></li><li><a href="#13-where-this-belongs-in-the-current-deck">13. Where this belongs in the current deck</a></li><li><a href="#14-what-to-assess-and-how-to-support-mixed-experience">14. What to assess, and how to support mixed experience</a></li><li><a href="#15-short-glossary">15. Short glossary</a></li><li><a href="#16-a-reading-path-for-the-instructor-and-students">16. A reading path for the instructor and students</a></li><li><a href="#17-local-evidence-and-scope">17. Local evidence and scope</a></li></ul></details><h1 id="materials-shaders-and-textures-a-week-2-teaching-guide">Materials, shaders, and textures: a Week 2 teaching guide</h1>
+<p>Prepared for Prof. Monteagudo, September 8, 2026. Fundamentals illustrated in Unreal Engine 5.7, as identified by this project&#39;s <code>.uproject</code> file.</p>
+<p>This is an instructor guide and an expanded lesson outline. The core explanations can become student reading or speaker notes. Sections marked <strong>Deeper connection</strong> provide optional depth. The demonstrations and assessment prompts are recommendations, not changes to the course requirements or museum assets.</p>
+<h2 id="1-the-learning-target">1. The learning target</h2>
+<p>By the end of this lesson, a beginner should be able to point to a mesh, its assigned Material or Material Instance, a texture, and the connection that gives that texture meaning. They should be able to predict one visible change and propose a test when the result differs from the intention.</p>
+<p>A more experienced student should be able to distinguish stored data from interpretation, trace an override back to its owner, and explain why a plausible-looking result does not prove a correct pipeline.</p>
+<p>The organizing question is:</p>
+<blockquote>
+<p>Where did this surface value come from, how was it interpreted, and what used it?</p>
+</blockquote>
+<p>Start with the shader, as a brief explanation of the underlying mechanism. Move immediately into the Material as the place students author and inspect that mechanism in UE. Introduce texture inputs once students understand what a surface input does.</p>
+<p>The core route is Sections 2–8, followed by one worked example from Section 11. Sections 9–10 explain the wider pipeline. The remaining sections support preparation, assessment, and deeper reading. This full guide is a reference, not a script to deliver in one sitting.</p>
+<h2 id="2-a-shader-is-a-program">2. A shader is a program</h2>
+<p><strong>Core explanation.</strong> A GPU is a processor designed to perform many operations in parallel. A shader is a program it executes. For this lesson, concentrate on programs involved in drawing objects and calculating surface appearance.</p>
+<p>Suppose we draw a simple ball. Knowing the ball&#39;s shape does not tell us whether it looks like chalk, polished plastic, or metal. The rendering system also needs instructions and surface data. Shader programs perform parts of that work.</p>
+<p>The ball&#39;s <strong>mesh</strong> is its geometric representation, commonly connected triangles with positions and other attributes. <strong>Rendering</strong> is the process of computing an image from a scene. These terms give us a way to distinguish the object&#39;s shape, its surface setup, and the resulting picture.</p>
+<p><strong>Say aloud:</strong> “The GPU does the work. Shader programs provide instructions for that work. In Unreal, we can author much of an object&#39;s surface behavior through a visual Material graph.”</p>
+<p><strong>UE bridge.</strong> Material nodes become shader code, which is compiled for the target platform. Students can author useful Materials without writing HLSL, Unreal&#39;s shader-language foundation. <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts">Epic: Essential Material Concepts</a></p>
+<p><strong>Correction to the sketch.</strong> Label the relationship <strong>GPU executes shader programs</strong>. The GPU does not define a Material&#39;s artistic controls. The engine&#39;s material system and the graph author define them.</p>
+<p><strong>Deeper connection.</strong> Shader and shading are related words, but they are not interchangeable. Shading concerns appearance calculations. Shader programs can also transform vertices, move a surface, or perform other GPU computation. One UE Material can require multiple compiled programs for different passes, mesh types, or feature choices. “One Material equals one pixel program that writes the final screen color” is too restrictive. <a href="https://dev.epicgames.com/documentation/unreal-engine/graphics-programming-overview-for-unreal-engine?lang=en-US">Epic: Graphics Programming Overview</a></p>
+<p><strong>Lab nugget.</strong> The Grow exhibit is a later example of why shaders can affect position as well as color. Mention this possibility in one sentence. Vertex displacement, its bounds, and its geometry requirements can wait.</p>
+<h2 id="3-a-material-describes-the-surface-in-unreal">3. A Material describes the surface in Unreal</h2>
+<p><strong>Core explanation.</strong> A UE Material is an asset containing a graph and settings that describe how a surface should be rendered. Its graph calculates values for inputs such as Base Color and Roughness.</p>
+<p>Use one sphere or one of the Bricks meshes with a deliberately small Material. Set a constant color, Metallic to 0, and Roughness to 0.6. Keep the light and camera fixed. The object already has a working Material without an image texture.</p>
+<p><strong>Say aloud:</strong> “This input needs a value. We can supply one number, a color, or the result of another operation. Textures are one way to supply those values.”</p>
+<p>Nodes are operations, and wires carry values. A Multiply node multiplies its inputs. A Texture Sample reads texture data. These connections describe data dependencies, rather than a Blueprint-style sequence of gameplay events. The graph&#39;s visible arrangement is an authoring aid, and the compiler can reorganize its work.</p>
+<p>Three settings establish the context: <strong>Material Domain</strong> identifies the intended use, <strong>Blend Mode</strong> determines coverage/blending behavior, and <strong>Shading Model</strong> determines the surface-response model. For the initial exercise, use an ordinary Surface, Opaque, Default Lit setup. Available inputs depend on that context. <a href="https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-material-properties?lang=en-US">Epic: Material Properties</a></p>
+<p><strong>Deeper connection.</strong> The graph generally supplies surface attributes to engine rendering code. Connecting a Base Color is not the same as writing the final displayed RGB value. Lighting, visibility, exposure, and display processing still affect the image.</p>
+<p><strong>Check understanding:</strong> “If I remove all image textures but keep a blue color and a roughness value, can this object still render?” Expected: yes. A texture is useful when we need particular data or spatial variation, rather than as a requirement for every surface.</p>
+<h2 id="4-parameters-and-material-instances-make-variation-manageable">4. Parameters and Material Instances make variation manageable</h2>
+<p><strong>Core explanation.</strong> A parameter is a named input that the Material author makes adjustable. A Material Instance inherits from a parent and can override exposed parameters. A constant roughness of 0.6 is fixed in the graph. A Scalar Parameter named <code>SurfaceRoughness</code> allows instances to supply different values.</p>
+<p>Create <code>M_SurfaceStudy</code> and two instances, <code>MI_SurfaceStudy_Smooth</code> and <code>MI_SurfaceStudy_Rough</code>. Assign them to identical meshes. Change only their roughness values. The surface logic is shared, while the settings differ. These are proposed teaching assets, not existing project assets.</p>
+<p>Use these terms carefully:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning in this lesson</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Material input</td>
+<td>A destination such as Roughness or Base Color</td>
+</tr>
+<tr>
+<td>Parameter</td>
+<td>A named adjustable value or resource reference</td>
+</tr>
+<tr>
+<td>Material Instance</td>
+<td>An asset inheriting a parent&#39;s setup and overriding selected parameters</td>
+</tr>
+<tr>
+<td>Texture parameter</td>
+<td>An exposed choice of texture resource</td>
+</tr>
+<tr>
+<td>Component material override</td>
+<td>A different Material or instance assigned to a slot on one placed component</td>
+</tr>
+</tbody></table></div>
+<p>An input does not automatically become an exposed parameter. Naming and exposing parameters is an authoring decision.</p>
+<p><strong>Deeper connection.</strong> Ordinary scalar, vector, and compatible texture changes can reuse compiled logic. Static switches select compiled alternatives and can require shader permutations. Material instancing also differs from mesh instancing: creating Material Instances does not itself guarantee fewer draw calls. <a href="https://dev.epicgames.com/documentation/unreal-engine/instanced-materials-in-unreal-engine?lang=en-US">Epic: Material Instances</a></p>
+<p><strong>Lab nugget.</strong> If the preview looks correct but one placed object differs, first trace the actual assignment and overrides. The museum&#39;s painting exhibits share a mesh but use different component Materials. Their identity and appearance cannot be reconstructed reliably from mesh identity alone. This is documented in <a href="museum-exhibit-interaction-migration-4aa2f202.html">the interaction migration plan</a>.</p>
+<h2 id="5-a-texture-is-data-we-can-sample">5. A texture is data we can sample</h2>
+<p><strong>Core explanation.</strong> For this lesson, an image texture is a grid of stored values. Each element is a <strong>texel</strong>. A screen image also has pixels, but a texel and a screen pixel are not the same thing. A texture may cover many pixels up close and contribute to only a few pixels at a distance.</p>
+<p>A Texture Asset, a Texture Sample node, and a Material input have different roles:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Role</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Texture Asset</td>
+<td>Stores source content and settings used to prepare/interpret it</td>
+<td>A grayscale image and its import settings</td>
+</tr>
+<tr>
+<td>Texture Sample</td>
+<td>Reads the texture at supplied coordinates using sampling rules</td>
+<td>Read the red channel at a surface location</td>
+</tr>
+<tr>
+<td>Material input</td>
+<td>Gives the resulting value its role in the surface model</td>
+<td>Use that number as Roughness</td>
+</tr>
+</tbody></table></div>
+<p><strong>The conceptual hinge:</strong> Replace a constant roughness with a simple two-region texture. Keep Base Color unchanged. Ask students to predict where the reflection will appear sharper.</p>
+<p>Say: “A constant gives the same roughness everywhere. A map lets roughness vary across the surface.” A black-to-white preview helps us inspect the numbers. It does not mean the object must become black and white.</p>
+<p>Textures can contain color, surface directions, masks, or other data. The graph and resource interpretation determine how the values are used. A filename such as <code>_Roughness</code> communicates intent to people and may guide an importer, but it does not establish a universal rule in every shader. <a href="https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#materials">Khronos: glTF material data</a></p>
+<p><strong>Deeper connection.</strong> Procedural functions can produce spatial variation without an image lookup. In some rendering literature, “texture” includes these functions and even constant-valued functions. In this UE lesson, say <strong>image texture</strong> when you specifically mean an imported image asset. This lets students read broader resources without treating their terminology as contradictory. <a href="https://www.pbr-book.org/4ed/Textures_and_Materials">PBRT: Textures and Materials</a></p>
+<p><strong>Lab nugget.</strong> Piet, Cat, Grid, and Line can introduce the idea of values calculated from coordinates. Their complete construction and derivative-based filtering are optional extensions.</p>
+<h2 id="6-uvs-provide-addresses-and-sampling-reads-the-data">6. UVs provide addresses, and sampling reads the data</h2>
+<p><strong>Core explanation.</strong> U and V are coordinates used to locate values in a 2D texture. Think of them as addresses. A mesh commonly stores UV coordinates alongside its vertex data. During rendering, coordinates are interpolated across triangles so different surface locations can read different parts of an image.</p>
+<p>The familiar 0–1 square covers one full image in each direction. UVs may extend outside it. Addressing rules such as wrap or clamp determine what a lookup does beyond the image boundary.</p>
+<p><strong>Show:</strong> A numbered checker on a flat panel and then on a Bricks mesh. Identify one number in the image and its location on the surface. Change the UV tiling multiplier while holding the mesh, image, and light constant. With wrapping, greater UV repetition makes the repeated pattern smaller on that fixed surface.</p>
+<p><strong>Say aloud:</strong> “The image stores the values. The coordinates tell us where to read. Sampling determines how nearby stored values contribute.”</p>
+<p>The first statement can use the address analogy. Then qualify it: a filtered lookup can combine several texels, and can use different mip levels. It is not always an exact read of one image pixel. <a href="https://www.gabrielgambetta.com/computer-graphics-from-scratch/14-textures.html">Gambetta: Textures</a></p>
+<p><strong>Trace two locations:</strong> At location A, the UVs lead to a roughness sample of 0.2. At location B, they lead to 0.8. Both locations use the same blue Base Color and the same Material logic. The differing roughness values change the local reflection behavior. This is an idealized example with no additional remapping.</p>
+<p><strong>Lab nugget.</strong> Bricks and EX29 ask students to distinguish a texture problem from a mapping problem. If labels are mirrored, increasing resolution cannot fix their orientation. If brick size differs, inspect coordinate choice, UV scale, and world scale before repainting the texture.</p>
+<p><strong>Deeper connection.</strong> UVs are one possible coordinate source. World position, object position, or generated coordinates can drive a material. Scaling an object can affect visible pattern size differently depending on that choice. “Every material needs unwrapped UVs” would conceal the reason these alternatives exist.</p>
+<h2 id="7-the-surface-inputs-students-actually-need">7. The surface inputs students actually need</h2>
+<p>The following explanations assume a conventional UE metal/roughness surface workflow. They deliberately avoid teaching every available input at once. Introduce Base Color and Roughness first, then Metallic and Normal, then coverage when showing Alpha Leaf.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Beginner explanation</th>
+<th>Useful precision</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Base Color</td>
+<td>The surface&#39;s underlying color input</td>
+<td>In the metal/roughness model, it describes diffuse color for nonmetals and reflection color for metals. It is not a photograph of the final lit object.</td>
+</tr>
+<tr>
+<td>Roughness</td>
+<td>How microscopically smooth or rough the surface behaves</td>
+<td>Low values give sharper reflections; higher values broaden them. It is not a height map.</td>
+</tr>
+<tr>
+<td>Metallic</td>
+<td>Whether the modeled surface behaves like metal or nonmetal</td>
+<td>Use 0 for a pure nonmetal region and 1 for exposed metal. Intermediate values can represent mixtures or filtered boundaries. It is not a general shininess slider.</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>Surface direction used for shading</td>
+<td>A normal map changes the shading direction, producing apparent detail without moving the mesh&#39;s vertices.</td>
+</tr>
+<tr>
+<td>Emissive Color</td>
+<td>The surface&#39;s emitted contribution</td>
+<td>A bright appearance or bloom does not by itself prove useful illumination of nearby objects. That depends on rendering features and settings.</td>
+</tr>
+<tr>
+<td>Opacity Mask</td>
+<td>Which samples survive a cutoff in a Masked material</td>
+<td>Useful for leaf cutouts. It does not remove the source mesh&#39;s triangles or rewrite its collision.</td>
+</tr>
+<tr>
+<td>Opacity</td>
+<td>The opacity input for supported translucent shading paths</td>
+<td>It requires an appropriate Material setup. An image having alpha does not activate translucency.</td>
+</tr>
+</tbody></table></div>
+<p>Sources for the input model: <a href="https://dev.epicgames.com/documentation/unreal-engine/physically-based-materials-in-unreal-engine?lang=en-US">Epic: Physically Based Materials</a>, <a href="https://dev.epicgames.com/documentation/unreal-engine/material-inputs-in-unreal-engine?application_version=5.7">Epic: Material Inputs, UE 5.7</a>.</p>
+<p><strong>Show:</strong> Two nonmetal surfaces with the same color and different roughness. Then keep roughness fixed and change Metallic. Ask students to name which change affects reflection spread and which changes the surface model.</p>
+<p><strong>Deeper connection.</strong> A normal is a direction. Roughness describes unresolved microstructure affecting how reflection spreads. A bump or normal map represents direction variation across the surface at a different scale. Adjusting one to compensate for an error in the other can match a single view while failing when the light moves.</p>
+<p>For ordinary nonmetals, leave the conventional UE Specular input at its default initially. Its reflectance role is more specific than the everyday word “shiny.” More advanced readers should explore Fresnel: reflectance also changes with viewing angle. <a href="https://www.adobe.com/learn/substance-3d-designer/web/the-pbr-guide-part-1">Adobe: PBR Guide Part 1</a></p>
+<h2 id="8-data-needs-the-correct-interpretation">8. Data needs the correct interpretation</h2>
+<p><strong>Core explanation.</strong> Two texture assets can begin with identical source pixels and still supply different values during rendering. Import settings, color decoding, compression, channel selection, and sampler behavior all matter.</p>
+<p>Teach three separate questions:</p>
+<ol>
+<li>What does this channel represent?</li>
+<li>What transformation happens when it is read?</li>
+<li>Which input receives the result?</li>
+</ol>
+<h3 id="color-versus-numeric-data">Color versus numeric data</h3>
+<p>Color images commonly store RGB in sRGB encoding. Shading calculations generally require linear values, so the rendering system decodes that color data. Roughness and metallic masks usually represent numbers directly and should follow their documented linear-data interpretation.</p>
+<p><strong>A useful numeric example for the instructor:</strong> An encoded sRGB RGB-channel value of 0.5 decodes to approximately 0.214 in linear space. A roughness value intended as 0.5 should remain 0.5. Applying color decoding to it changes the quantity. This example ignores quantization and compression so the mechanism is clear. It is not a rule to apply to every texture channel, and ordinary sRGB decoding does not apply to alpha. <a href="https://www.w3.org/TR/css-color-4/#color-conversion-code">W3C: sRGB conversion code</a></p>
+<p><strong>Say aloud:</strong> “The same stored number can mean a color code or a measurement-like value. We need to tell the system which interpretation is intended.”</p>
+<p><strong>Lab nugget, EX23:</strong> Compare the correct and incorrect data textures without changing the light or Base Color. Inspect the documented channel and decoding settings. Avoid restoring the appearance by changing a roughness multiplier before establishing whether the input was decoded correctly.</p>
+<h3 id="channel-meaning">Channel meaning</h3>
+<p>R, G, and B are channel names. They do not force the stored data to be visible color. Packed textures can place independent quantities in different channels. Packing conventions must be read from the asset&#39;s export contract. For example, core glTF metallic/roughness data uses G for roughness and B for metallic. That is a format-specific rule, not a universal Unreal rule. <a href="https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#metallic-roughness-material">Khronos: Metallic-Roughness Material</a></p>
+<h3 id="normal-maps">Normal maps</h3>
+<p>A tangent-space normal map describes directions relative to a basis attached to the surface. The familiar blue-purple image is a visualization of encoded components. It is not blue surface paint.</p>
+<p><strong>Lab nugget, EX24:</strong> Check normal-map compression, linear interpretation, the Material&#39;s sample type, and the expected normal convention. Keep the first demonstration to one controlled fault. A green-channel inversion is an alternative diagnosis to establish from evidence, not a universal fix for every shading artifact. Move the light to verify the result from multiple directions.</p>
+<p><strong>Deeper connection.</strong> Mesh normals, tangents, UV seams, and triangulation can affect the basis used to interpret a tangent-space normal map. A normal map should not be expected to repair a missing face or arbitrarily changed baked geometry. Compare the mesh with a plain diagnostic Material when geometry and shading-data hypotheses overlap. <a href="https://www.pbr-book.org/4ed/Textures_and_Materials/Material_Interface_and_Implementations">PBRT: Material Interface and Implementations</a></p>
+<p>UE exposes channel views, compression, dimensions, and mip information in the Texture Asset Editor. These are evidence about the imported asset, alongside the source image. <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/texture-asset-editor-in-unreal-engine?application_version=5.7">Epic: Texture Asset Editor, UE 5.7</a></p>
+<h2 id="9-the-material-has-to-reach-the-intended-surface">9. The material has to reach the intended surface</h2>
+<p><strong>Core explanation.</strong> A mesh can have multiple material slots, with different mesh sections using different slots. The mesh asset supplies default assignments. A placed mesh component can override an assignment for that particular object. The selected assignment may itself be a Material Instance with parameter overrides.</p>
+<p>Trace a suspicious surface in this order:</p>
+<ol>
+<li>Select the actual component rendering the surface.</li>
+<li>Identify its mesh section/material slot.</li>
+<li>Inspect any component override and the mesh&#39;s default assignment.</li>
+<li>Open the Material or instance that is actually assigned.</li>
+<li>For an instance, identify its parent and active overrides.</li>
+<li>Follow the relevant input to its texture, value, coordinates, and interpretation.</li>
+</ol>
+<p><strong>Lab nugget, EXMAT:</strong> The source mesh can export the wrong section assignment, or Unreal can assign the wrong Material. Find which handoff first disagrees with the intended contract. A source assignment error belongs in the source workflow. A component override error belongs on that component.</p>
+<p>Maya&#39;s full shading network should not be assumed to reproduce automatically in UE through FBX. FBX material import supports a subset of material information. Verify slot identity, texture references, and the engine Material setup after the handoff. <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-material-pipeline-in-unreal-engine?application_version=5.7">Epic: FBX Material Pipeline, UE 5.7</a></p>
+<p><strong>Deeper connection.</strong> A resource is often shared by many users. Editing a parent or a Texture Asset can affect multiple objects. Reassigning one component or changing one instance has a different scope. In the museum, use the provided editable duplicates and preserve Correct as the control.</p>
+<h2 id="10-authoring-rendering-and-the-final-image">10. Authoring, rendering, and the final image</h2>
+<p>Use the diagrams in <a href="materials-process-diagrams-46618c91.html">the companion diagram source</a>. Each arrow has a verb. The first diagram shows preparation and assignment. The second shows how data contributes during rendering. Neither implies that a texture is produced by a Material Instance or that the GPU invents shader instructions.</p>
+<p>An <a href="../Slides/Week02/Review/MaterialsGuide/03-material-process-illustrated-v2.png">illustrated overview with real UE screenshots</a> follows the revised visual layout. It shows actual texture-sample previews, a Material graph, settings, generated HLSL, instance controls, material assignment, and a rendered preview. <a href="readme-c43192e0.html">Image provenance and teaching qualifications</a> distinguish the walnut-floor examples from the separate instance UI example.</p>
+<p><strong>Authoring and preparation:</strong> Model geometry and author its attributes. Create or acquire texture content. Import with the intended settings. Author a Material graph. Expose the useful parameters. Create instances where variation helps. Assign the Material or instance to the mesh component. The engine builds shader programs and usable texture resources from these assets.</p>
+<p><strong>Rendering:</strong> The engine prepares the relevant mesh data, shader programs, parameters, texture resources, and scene information. The GPU executes rendering work. Coordinates locate texture data. Material calculations produce surface attributes or pass outputs. Lighting and visibility calculations contribute to the image. Exposure, tone mapping, and display conversion affect the displayed result.</p>
+<p>In a typical deferred opaque path, surface attributes can be written into intermediate buffers called the GBuffer, with lighting computed in later passes. The exact stages and order depend on the rendering path. The guide&#39;s diagram is a dependency overview, not a GPU command trace or a claim that all surfaces use the same path. <a href="https://dev.epicgames.com/documentation/unreal-engine/graphics-programming-overview-for-unreal-engine?lang=en-US">Epic: Graphics Programming Overview</a></p>
+<p><strong>Deeper connection: where the surface locations come from.</strong> In a conventional rasterized path, vertices are transformed toward camera/screen space, triangles are clipped and rasterized into covered samples, and interpolated attributes feed shading. Depth and coverage determine which contributions survive or combine. UE also has rendering paths that do not fit one simple triangle/pixel sequence, so this belongs in an optional explanation rather than the first definition. <a href="https://learnopengl.com/Getting-started/Shaders">LearnOpenGL: Shaders</a></p>
+<p><strong>Lab nugget:</strong> A surface that appears wrong in one environment may be affected by light direction, reflections, exposure, or viewing angle. Establish a comparable scene before changing asset data. A correct-looking screenshot proves less than a controlled test across relevant conditions.</p>
+<p><strong>Distance matters.</strong> Mips provide prefiltered representations for different sampling footprints. Filtering combines appropriate samples. Streaming controls which resources or mip levels are available. Compression changes storage representation and can introduce error. Mesh LOD changes geometry. These mechanisms cooperate, but they are separate causes to test.</p>
+<p>Use EXLOD as a bridge: if a Material changes only when a mesh switches LOD, inspect the section/material mapping and UVs for that LOD as well as the texture. For a texture that shimmers as it recedes, investigate sampling and high-frequency detail. A distance-dependent symptom is evidence, not a diagnosis. <a href="https://learnopengl.com/Getting-started/Textures">LearnOpenGL: Textures</a></p>
+<h2 id="11-a-worked-demonstration-the-same-surface-different-roughness">11. A worked demonstration: the same surface, different roughness</h2>
+<p>Use a separate teaching copy and a simple mesh before approaching the assessed museum specimen. Prepare the assets before class, with the graph arranged to show only the inputs under discussion. This avoids spending the explanation on file creation and menu searches.</p>
+<p><strong>Preparation:</strong> One mesh with readable UVs, fixed scale and camera, a broad light/reflection source that makes roughness visible, and a consistent exposure. Create the proposed <code>M_SurfaceStudy</code> and the two instances from Section 4. Prepare a simple linear grayscale texture with regions near 0.2 and 0.8. Put its intended channel and interpretation in the asset notes. Verify that the comparison is visible in the actual classroom rendering setup.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Instructor action</th>
+<th>Student prediction or explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Assign a constant blue, nonmetal Material with Roughness 0.6.</td>
+<td>Identify the mesh, Material, and visible surface. Can it work without an image texture?</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Change only roughness to 0.2, then 0.8.</td>
+<td>Predict which produces a sharper reflection. Explain what remained unchanged.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Show two instances of the same parent. Change one override.</td>
+<td>Predict whether both copies change. Point to the scope of this edit.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Replace constant roughness with the documented channel of the two-region image.</td>
+<td>Predict where reflections sharpen. Explain why the object remains blue.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Trace a surface location through its UVs to the sample and Roughness input.</td>
+<td>Identify the source value and its destination.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Change only the UV tiling parameter, with wrap addressing.</td>
+<td>Predict the pattern scale. Did the mesh acquire more polygons?</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Show a prepared duplicate with the wrong color/data interpretation.</td>
+<td>Describe the symptom before naming a cause. Suggest a confirming comparison.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Restore the correct interpretation. Compare under the same conditions, then move the light.</td>
+<td>Explain why the repair is stronger evidence than compensating with a new roughness multiplier.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Recheck Base Color, assignment, and the unedited control.</td>
+<td>Record the primary verification and one unaffected property.</td>
+</tr>
+</tbody></table></div>
+<p>The wrong-interpretation variant must remain a valid, compilable setup. If the chosen UE settings produce a sampler-type error, treat that as explicit evidence or prepare a compatible variant that isolates numeric decoding. Do not improvise several simultaneous setting changes in front of the class and call the result one controlled fault.</p>
+<p><strong>Instructor narration for the repair:</strong> “Our observation is that the reflection is sharper in this region. We know the source image and scene are the same. Now we compare how the texture is read. We found a disagreement with the data&#39;s intended meaning. After restoring that setting, the reflection matches the control from more than one light direction, while the blue color remains unchanged.”</p>
+<p><strong>Optional transfer, Alpha Leaf:</strong> Show alpha once as visible grayscale data, then as the input controlling a Masked surface. Keep the source geometry visible in wireframe. Ask what changed about coverage and what did not change about geometry or collision. This generalizes the lesson that a value&#39;s destination determines its role.</p>
+<p><strong>Optional transfer, procedural pattern:</strong> Supply a simple coordinate-derived mask in place of the image mask. The visible division can be similar while its data source differs. Ask which parts of the pipeline are shared. Avoid teaching the full Cat or Grid implementation here.</p>
+<h2 id="12-a-diagnosis-method-students-can-reuse">12. A diagnosis method students can reuse</h2>
+<p>Use a neutral description first: “The leaf shows a rectangle,” “the labels are mirrored,” or “the reflection broadens differently.” Then form at least two plausible explanations and choose a test that separates them.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Observation</th>
+<th>Plausible layers to distinguish</th>
+<th>Useful test</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Correct preview, wrong placed object</td>
+<td>Assignment, component override, instance values, scene context</td>
+<td>Open the actually assigned asset and compare under the same scene conditions.</td>
+</tr>
+<tr>
+<td>Pattern has wrong orientation</td>
+<td>UV shell, coordinate channel, graph coordinate transform</td>
+<td>Apply the known numbered checker and compare coordinates before editing image content.</td>
+</tr>
+<tr>
+<td>Reflection looks unusually sharp</td>
+<td>Roughness source, decoding, channel routing, override, lighting</td>
+<td>Compare input values and interpretation with the control while holding the scene fixed.</td>
+</tr>
+<tr>
+<td>Fine relief responds incorrectly to light</td>
+<td>Normal import/decoding, tangent convention, mesh basis</td>
+<td>Compare normal-map settings and move the light. Check a plain Material if geometry is also suspect.</td>
+</tr>
+<tr>
+<td>Leaf shows its rectangular card</td>
+<td>Assigned Material, alpha/mask connection, blend mode, cutoff</td>
+<td>Inspect mask data and the actual Material&#39;s coverage setup.</td>
+</tr>
+<tr>
+<td>Surface changes at distance</td>
+<td>Mesh LOD, material sections, mips, streaming, filtering</td>
+<td>Observe which state changes at the artifact&#39;s onset. Compare active LOD and available texture detail.</td>
+</tr>
+<tr>
+<td>An edit changes many objects</td>
+<td>Shared parent, shared texture, shared instance</td>
+<td>Trace the references and decide which asset owns the intended variation.</td>
+</tr>
+</tbody></table></div>
+<p>These are starting hypotheses, not a deterministic symptom-to-cause lookup. Change one controlled variable when possible. Validate the intended effect and a property that should stay stable. If the source must change, repeat the handoff to prove that the repair survives it.</p>
+<p><strong>A stronger advanced challenge:</strong> Give a learner a visually acceptable “repair” made by compensating for a wrongly decoded roughness map. Ask them to design a test that exposes the mismatch. For example, compare several known source values or vary the mask. Matching one sample or one view does not establish that the transfer function is correct.</p>
+<h2 id="13-where-this-belongs-in-the-current-deck">13. Where this belongs in the current deck</h2>
+<p>The existing 141-slide LAB-ALIGNED deck was inspected for text on September 8, 2026. Slides 88–98 introduce textures. Slides 99–108 introduce materials. Slide 100 currently shows Shader, Material Parameters, Textures, UVs/Coordinates, and Material Assignment as a vertical chain. Slide 101 introduces shaders. Slide 102 covers graph/instance relationships.</p>
+<p>Recommended adaptation:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Deck location</th>
+<th>Instructional purpose</th>
+<th>Recommended content</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Before the current texture section at slide 88</td>
+<td>Give textures a purpose before introducing their metadata</td>
+<td>A 60–90 second shader explanation, then a tiny Material with constant Base Color and Roughness.</td>
+</tr>
+<tr>
+<td>Current slides 89–98</td>
+<td>Explain the data students will inspect</td>
+<td>Reuse the two-region roughness example as the recurring referent for channels, color/data interpretation, mips, and UV scale.</td>
+</tr>
+<tr>
+<td>Current slide 100</td>
+<td>Establish relationships accurately</td>
+<td>Replace the vertical chain with the authoring diagram. Reveal branches progressively and retain labeled arrows.</td>
+</tr>
+<tr>
+<td>Current slides 101–103</td>
+<td>Connect the concept to UE authoring</td>
+<td>Reuse the shader definition briefly, then expose a roughness parameter and inspect two instances. Distinguish input, parameter, and assignment.</td>
+</tr>
+<tr>
+<td>Near Material Triage, current slide 108</td>
+<td>Make the explanation usable in the lab</td>
+<td>Trace a sampled value through the second diagram and perform one controlled comparison.</td>
+</tr>
+<tr>
+<td>Lab 2 introduction</td>
+<td>Check transfer before independent repair</td>
+<td>Give a fresh symptom and ask for a confirming test, then use the existing documentation format.</td>
+</tr>
+</tbody></table></div>
+<p>A reasonable planning allowance is 3 minutes for the initial shader/material introduction, 6–8 minutes for the core relationship and input explanation, and 8–10 minutes for the worked demonstration. Existing texture instruction supplies the detailed interpretation lessons. Adjust based on student responses and total class time. This is a proposed allocation, not a known course timetable.</p>
+<p>Use the complete diagrams as reference sheets. For the first lecture reveal, show only the Material graph, compiled programs, and GPU relationship. Add parameters and assignment next. Add mesh, texture, and scene inputs last. The reference can be comprehensive while each explanation stays small.</p>
+<p>Keep the shader&#39;s first appearance very brief. HLSL inspection, tangent-basis math, static-switch permutations, and derivative filtering are optional notes. LODs remain core elsewhere in the Week 2 deck, even though their implementation is outside this material introduction.</p>
+<h2 id="14-what-to-assess-and-how-to-support-mixed-experience">14. What to assess, and how to support mixed experience</h2>
+<p>Use one worked example, one partly completed example, and then one new problem. Ask students to explain decisions, not just identify a node. Pair the diagram with its corresponding live control or surface change. Return to the same relationships in a short recall task next week. These choices apply the IES recommendations on examples, graphics with explanations, abstract/concrete connections, explanatory questions, and retrieval. The exact lesson sequence here is an instructional proposal, not a research-tested materials curriculum. <a href="https://ies.ed.gov/ncee/wwc/PracticeGuide/1">IES: Organizing Instruction and Study</a></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Expected reasoning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Can a Material work without image textures?</td>
+<td>Yes. Constants and procedural calculations can supply inputs.</td>
+</tr>
+<tr>
+<td>Why can a gray image change reflections without making an object gray?</td>
+<td>Its values are supplying a property such as Roughness rather than Base Color.</td>
+</tr>
+<tr>
+<td>Why can identical pixels produce different results?</td>
+<td>Interpretation, routing, parameters, coordinates, assignments, or scene context can differ.</td>
+</tr>
+<tr>
+<td>Does a normal map repair missing polygons?</td>
+<td>No. It supplies shading directions; the missing geometry still needs its own repair.</td>
+</tr>
+<tr>
+<td>Does an alpha channel automatically create a leaf cutout?</td>
+<td>No. The assigned Material must read it and use appropriate coverage behavior.</td>
+</tr>
+<tr>
+<td>Does changing one instance necessarily change every object using the parent?</td>
+<td>No. Identify the scope and which objects use that particular instance.</td>
+</tr>
+<tr>
+<td>Why can a source image look fine while the UE asset is wrong?</td>
+<td>The imported asset has settings and processing beyond the source pixels.</td>
+</tr>
+<tr>
+<td>What makes a repair convincing?</td>
+<td>A diagnosed cause, a controlled change, repeatable verification, and a checked unaffected property.</td>
+</tr>
+</tbody></table></div>
+<p>For beginners, provide the diagram and ask them to follow one input. For more experienced students, remove the labels or introduce two plausible causes. Offer an advanced question about shared resources or compensating errors rather than forcing the entire class through extra implementation detail.</p>
+<p>An optional formative rubric can score each dimension 0–2: trace the relevant data, distinguish competing causes, and verify the result. A successful click sequence alone does not demonstrate all three. This rubric is a suggestion, not an alteration to the lab&#39;s grading requirements.</p>
+<h2 id="15-short-glossary">15. Short glossary</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Working definition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GPU</td>
+<td>Processor executing graphics and other parallel computation</td>
+</tr>
+<tr>
+<td>Mesh</td>
+<td>Connected geometric elements, commonly triangles, with positions and other attributes</td>
+</tr>
+<tr>
+<td>Rendering</td>
+<td>Computing an image from scene data</td>
+</tr>
+<tr>
+<td>Shader program</td>
+<td>Instructions executed on the GPU</td>
+</tr>
+<tr>
+<td>Shading model</td>
+<td>Rules approximating how a surface responds to light</td>
+</tr>
+<tr>
+<td>Material</td>
+<td>UE asset describing surface logic and rendering settings</td>
+</tr>
+<tr>
+<td>Material Instance</td>
+<td>A child setup inheriting from a parent and overriding exposed parameters</td>
+</tr>
+<tr>
+<td>Scalar</td>
+<td>One numerical value, such as a roughness value</td>
+</tr>
+<tr>
+<td>Vector</td>
+<td>A group of numerical components, such as a direction or RGB color</td>
+</tr>
+<tr>
+<td>Parameter</td>
+<td>A named adjustable input</td>
+</tr>
+<tr>
+<td>Texture Asset</td>
+<td>Texture content plus engine asset settings</td>
+</tr>
+<tr>
+<td>Texel</td>
+<td>An element in a texture</td>
+</tr>
+<tr>
+<td>Pixel</td>
+<td>An element in an image such as the rendered output</td>
+</tr>
+<tr>
+<td>UV</td>
+<td>Coordinates commonly used to address 2D texture data</td>
+</tr>
+<tr>
+<td>Texture sample</td>
+<td>A lookup that returns texture values using coordinates and sampling rules</td>
+</tr>
+<tr>
+<td>Mask</td>
+<td>Data used to select, weight, or exclude something</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>A direction describing surface orientation for geometric or shading purposes</td>
+</tr>
+<tr>
+<td>Tangent space</td>
+<td>A local coordinate basis attached to the surface</td>
+</tr>
+<tr>
+<td>Mip</td>
+<td>One level in a hierarchy of filtered texture representations</td>
+</tr>
+<tr>
+<td>Material slot</td>
+<td>A mesh assignment location used by one or more mesh sections</td>
+</tr>
+<tr>
+<td>Component override</td>
+<td>A replacement assignment or setting on a particular placed component</td>
+</tr>
+<tr>
+<td>Compile</td>
+<td>Translate authored instructions into executable form for a target</td>
+</tr>
+</tbody></table></div>
+<h2 id="16-a-reading-path-for-the-instructor-and-students">16. A reading path for the instructor and students</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Read for</th>
+<th>Week 2 use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://www.scratchapixel.com/index.html">Scratchapixel</a>, especially <a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-texturing/introduction-to-texturing.html">Introduction to Texturing</a></td>
+<td>Mechanisms explained from first principles</td>
+<td>Select a diagram or short passage, with a question tied to one lab action.</td>
+</tr>
+<tr>
+<td>Gabriel Gambetta, <a href="https://www.gabrielgambetta.com/computer-graphics-from-scratch/13-shading.html">Shading</a> and <a href="https://www.gabrielgambetta.com/computer-graphics-from-scratch/14-textures.html">Textures</a></td>
+<td>A progressive account of image formation, mapping, and sampling</td>
+<td>Closest companion to Scratchapixel. Use the visual explanations before the implementation.</td>
+</tr>
+<tr>
+<td>LearnOpenGL, <a href="https://learnopengl.com/Getting-started/Shaders">Shaders</a> and <a href="https://learnopengl.com/Getting-started/Textures">Textures</a></td>
+<td>How programs receive values and sample textures</td>
+<td>Instructor preparation. Students do not need to set up OpenGL to understand the examples.</td>
+</tr>
+<tr>
+<td>Adobe, <a href="https://www.adobe.com/learn/substance-3d-designer/web/the-pbr-guide-part-1">PBR Guide Part 1</a> and <a href="https://www.adobe.com/learn/substance-3d-designer/web/the-pbr-guide-part-2">Part 2</a></td>
+<td>Physical reasoning and artist-facing map authoring</td>
+<td>Selected roughness, metal/nonmetal, and texture-role explanations.</td>
+</tr>
+<tr>
+<td><a href="https://www.pbr-book.org/4ed/Textures_and_Materials">PBRT, Textures and Materials</a></td>
+<td>Separation of spatially varying parameters and scattering behavior</td>
+<td>Your deeper understanding. Start with the chapter introduction.</td>
+</tr>
+<tr>
+<td><a href="https://google.github.io/filament/main/filament.html">Physically Based Rendering in Filament</a></td>
+<td>How a production renderer connects physical reasoning to implementation</td>
+<td>Optional advanced reading. Its parameter/UI conventions belong to Filament.</td>
+</tr>
+<tr>
+<td>Epic, <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts">Essential Material Concepts</a> and <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/texture-asset-editor-in-unreal-engine?application_version=5.7">Texture Asset Editor</a></td>
+<td>The UE bridge and the controls students will inspect</td>
+<td>Operational references after the conceptual explanation.</td>
+</tr>
+</tbody></table></div>
+<p>An appropriate first student reading task is 10–15 minutes on a selected texture-mapping explanation, followed by: “Draw how one texture value reaches a surface input, and name one place where a mismatch could enter.” Select the excerpt and stop point explicitly. Avoid assigning whole technical sites as undirected homework.</p>
+<h2 id="17-local-evidence-and-scope">17. Local evidence and scope</h2>
+<p>This guide used the following project sources:</p>
+<ul>
+<li><a href="museum-lab02-setup-44bc89b6.html">Lab 2 setup and station recipes</a>: core station selection, class workflow, controlled comparisons, repair documentation, and reset policy.</li>
+<li><a href="museum-lab02-exhibit-manifest-9965fc3b.html">Lab exhibit manifest</a>: documented readiness and intended repair layers.</li>
+<li><a href="museum-exhibit-interaction-migration-4aa2f202.html">Interaction migration and exhibit objectives</a>: Alpha Leaf, Cat, Piet, Gris, Grid, Glitch, Grow, Bricks, Line, and the component-override issue.</li>
+<li><a href="week2-deck-media-and-museum-alignment-83bfe9c3.html">Week 2 deck alignment</a>: LAB, ADVANCED, and SUPPLEMENTAL distinctions.</li>
+<li><a href="../Slides/Week02/Deck/Week%202%20-%20Game%20Assets%20Pipelines%20and%20Validation%20LAB-ALIGNED.pptx">Current LAB-ALIGNED deck</a>: inspected text and slide order, including the existing relationship diagram on slide 100.</li>
+</ul>
+<p>The manifest lists EX23, EX24, and EX29 as READY, and EXMAT and EXLOD as SOURCE_READY. These are documentation statuses, not verification from a live UE session. The older repair guide also contains a Western-environment exercise, while the current setup makes that optional and directs the lab to the museum. This guide follows the current setup.</p>
+<p>No existing slide, museum asset, or course requirement was modified. Proposed demo assets must be created and checked in the classroom project before instruction. Select UE 5.7 documentation where available, since unversioned Epic pages can show newer releases. The core examples use the familiar Base Color/Roughness surface-input model; projects configured around other material systems may present these controls differently.</p>
+</main></body></html>

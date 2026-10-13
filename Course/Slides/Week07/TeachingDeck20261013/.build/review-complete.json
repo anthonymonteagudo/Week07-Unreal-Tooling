@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-13",
+  "presentation": "../output/Week_7_Teaching_Revision_v1.pptx",
+  "visualReview": "All 71 rendered slides inspected in six contact sheets; slides 16, 21, 37, 46 additionally inspected at full render size after final refinements.",
+  "refinements": [
+    "Enlarged Undo menu detail",
+    "Preserved button crop aspect ratio",
+    "Enlarged usability roles figure"
+  ],
+  "checks": [
+    "Package integrity pass",
+    "Geometry and Arial policy pass",
+    "First-party import pass",
+    "Browser local links and images pass",
+    "49 live / 22 optional filter counts",
+    "Video playback verified",
+    "Course HTML readers rebuilt"
+  ],
+  "limits": [
+    "Native Microsoft PowerPoint rendering was not tested",
+    "No new Unreal demo run performed",
+    "150-minute sequence is an expanded proposal, not confirmation of revised clock times"
+  ]
+}

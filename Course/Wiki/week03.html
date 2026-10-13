@@ -1,0 +1,100 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 3 · Python, Maya automation, and artist-facing UI · Technical Art</title><meta name="description" content="Read a small Python operation, automate a scoped texel-density repair in Maya, and make its state, scope, and evidence understandable to an artist."><link rel="stylesheet" href="assets/wiki.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="index.html">Technical Art <span>Course wiki</span></a><span class="edition">GAMEDSGN 590 · Fall 2026 · Working edition</span><a href="../Slides/index.html">Instructor slide reviews ↗</a></header><div class="shell"><aside class="sidebar"><form class="search" role="search"><label for="search-input">Find a topic</label><input id="search-input" type="search" autocomplete="off" placeholder="UVs, materials, Python…"><button type="submit">Search</button></form><nav aria-label="Course pages"><section class="nav-group"><h2>Course</h2><a href="index.html" data-page="index">Technical Art course wiki</a><a href="maintaining.html" data-page="maintaining">Maintaining the course wiki</a></section><section class="nav-group"><h2>Weeks</h2><a href="week01.html" data-page="week01">Week 1 · Technical Art foundations</a><a href="week02.html" data-page="week02">Week 2 · Assets, pipelines, and validation</a><a href="week03.html" data-page="week03" aria-current="page">Week 3 · Python, Maya automation, and artist-facing UI</a><a href="week04.html" data-page="week04">Week 4 · Editor tool development<span class="nav-status">Planned</span></a><a href="week05.html" data-page="week05">Week 5 · Applied math for Technical Artists<span class="nav-status">Planned</span></a><a href="week06.html" data-page="week06">Week 6 · Introduction to Technical Animation<span class="nav-status">Planned</span></a><a href="week07.html" data-page="week07">Week 7 · Midterm feedback and reflection<span class="nav-status">Planned</span></a><a href="week08.html" data-page="week08">Week 8 · Real-time rendering pipeline<span class="nav-status">Planned</span></a><a href="week09.html" data-page="week09">Week 9 · Shaders and material systems<span class="nav-status">Planned</span></a><a href="week10.html" data-page="week10">Week 10 · Profiling and optimization<span class="nav-status">Planned</span></a><a href="week11.html" data-page="week11">Week 11 · Procedural content and scalability<span class="nav-status">Planned</span></a><a href="week12.html" data-page="week12">Week 12 · Production systems and maintainability<span class="nav-status">Planned</span></a></section><section class="nav-group"><h2>Topics</h2><a href="meshes.html" data-page="meshes">Mesh anatomy</a><a href="normals.html" data-page="normals">Normals and normal maps</a><a href="uvs.html" data-page="uvs">UVs and texture lookup</a><a href="textures.html" data-page="textures">Texture data and interpretation</a><a href="materials.html" data-page="materials">Materials and shaders</a><a href="handoff.html" data-page="handoff">Maya-to-Unreal handoffs</a><a href="skeletal.html" data-page="skeletal">Skeletal assets</a><a href="representations.html" data-page="representations">Mips, mesh LOD, and streaming</a><a href="validation.html" data-page="validation">Validation and evidence</a><a href="documentation.html" data-page="documentation">Technical documentation</a></section><section class="nav-group"><h2>Practice</h2><a href="museum-lab.html" data-page="museum-lab">Museum investigation lab</a><a href="exhibit.html" data-page="exhibit">Create your own museum exhibit</a><a href="exhibit-record.html" data-page="exhibit-record">Exhibit record template</a></section><section class="nav-group"><h2>Resources</h2><a href="resources.html" data-page="resources">Reading and visual library</a><a href="glossary.html" data-page="glossary">Working glossary</a></section></nav></aside><main id="main"><section id="search-results" hidden aria-label="Search results"><div class="search-heading"><h2>Search results</h2><button id="clear-search">Close search</button></div><p id="search-count" role="status"></p><ul id="result-list"></ul></section><article id="page-content"><div class="page-meta"><span>Weeks</span><span class="status ">Preview</span><span>Updated 13 September 2026</span></div><h1>Week 3 · Python, Maya automation, and artist-facing UI</h1><p class="lead">Read a small Python operation, automate a scoped texel-density repair in Maya, and make its state, scope, and evidence understandable to an artist.</p><nav class="toc" aria-label="On this page"><strong>On this page</strong><a href="#the-through-line">The through-line</a><a href="#what-you-should-be-able-to-do">What you should be able to do</a><a href="#before-changing-a-scene">Before changing a scene</a><a href="#the-systems-thinking-layer">The systems-thinking layer</a><a href="#interactive-start">Interactive start</a><a href="#maya-checkpoint-sequence">Maya checkpoint sequence</a><a href="#ui-ux-is-part-of-correctness">UI/UX is part of correctness</a><a href="#pair-lab">Pair lab</a></nav><h2 id="the-through-line">The through-line</h2><p>Week 2 established a manual <strong>Get → Set → verify</strong> texel-density repair. This week
+turns that understood operation into a small tool:</p>
+<ol>
+<li>inspect a reference and selected targets;</li>
+<li>measure world-space and UV area;</li>
+<li>calculate the required UV scale;</li>
+<li>change only the intended UV shells;</li>
+<li>measure again and report the result.</li>
+</ol>
+<p>Python repeats controlled steps. It does not choose the artistic reference, decide
+whether the final texture treatment is convincing, or make missing evidence true.</p>
+<h2 id="what-you-should-be-able-to-do">What you should be able to do</h2><p>By the end of class, you should be able to:</p>
+<ul>
+<li>read a short loop, condition, function call, and returned value;</li>
+<li>explain the difference between VS Code, a Python interpreter, <code>maya.cmds</code>, and
+PySide;</li>
+<li>identify the reference, targets, units, and protected scope of an operation;</li>
+<li>distinguish <strong>Check</strong> from <strong>Apply</strong> and successful execution from verified output;</li>
+<li>trace a button click through a callback into shared Maya code;</li>
+<li>name one artist decision that should remain outside the automation.</li>
+</ul>
+<h2 id="before-changing-a-scene">Before changing a scene</h2><p>State the tool contract in plain language:</p>
+<ul>
+<li><strong>Input:</strong> one captured reference, one or more selected target meshes, map size,
+active UV set, and current Maya linear unit.</li>
+<li><strong>Action:</strong> uniformly scale each existing UV shell around its own center.</li>
+<li><strong>Protected scope:</strong> the reference and unselected meshes are not edited.</li>
+<li><strong>Evidence:</strong> report before and after density and verify the result within tolerance.</li>
+<li><strong>Recovery:</strong> one Apply to multiple targets is one Maya undo step.</li>
+</ul>
+<p>The classroom tool does not remap, pack, cut, sew, define a UDIM policy, or change
+material tiling.</p>
+<h2 id="the-systems-thinking-layer">The systems-thinking layer</h2><p>Treat the tool as a small system, not an isolated button:</p>
+<ul>
+<li><strong>Boundary:</strong> pure Python calculates; Maya supplies and changes scene data; PySide
+communicates with the artist; the filesystem supplies code and presets.</li>
+<li><strong>State and context:</strong> selection order, active UV set, scene unit, map size, project
+path, and Maya/Python/PySide version all affect behavior.</li>
+<li><strong>Feedback loop:</strong> inspect → decide → change → measure again. Running Apply twice
+tests whether the system stabilizes instead of drifting.</li>
+</ul>
+<p>The highest-leverage choices occur at boundaries: validate before mutation, expose
+context instead of assuming it, protect scope, make the action undoable, and verify
+the output. If the UI says “Done” while an invalid target was skipped, the software
+ran but the system failed to communicate truthfully.</p>
+<h2 id="interactive-start">Interactive start</h2><p>Use <a href="https://futurecoder.io/">futurecoder</a> for beginner Python practice and immediate
+feedback. In class, the route is deliberately short: predict, run, read the feedback,
+and explain one change. Students who need support can use hints or a Parsons-style
+reordering problem; students who finish early should construct a counterexample to a
+wrong condition.</p>
+<p>The local <a href="../Slides/Week03/Interactive/index.html">Week 3 interactive bridge</a> uses
+the actual workshop data and remains available when the hosted course is not. It
+connects code prediction to loop tracing, counterexamples, and UI critique.</p>
+<p>The first checkpoint asks you to predict this result before running it:</p>
+<pre><code class="language-python">def needs_attention(name, density, minimum=9.75, maximum=10.75):
+    density_is_wrong = not minimum &lt;= density &lt;= maximum
+    name_is_wrong = not name.startswith(&quot;TD_&quot;)
+    return density_is_wrong or name_is_wrong
+
+assets = [
+    (&quot;TD_reference_cube&quot;, 10.24),
+    (&quot;TD_target_large_cube&quot;, 4.10),
+    (&quot;prop_round_mesh&quot;, 6.80),
+]
+
+print([name for name, density in assets if needs_attention(name, density)])
+</code></pre>
+<p>Change only one part of the condition, then construct the smallest example that shows
+why the changed rule is wrong.</p>
+<h2 id="maya-checkpoint-sequence">Maya checkpoint sequence</h2><p>The workshop is staged rather than live-typed as one large script:</p>
+<ol>
+<li>Discover the project root and report the actual software environment.</li>
+<li>Read and predict an ordinary Python loop.</li>
+<li>Ask Maya for selection and polygon evidence.</li>
+<li>Measure density without changing the scene.</li>
+<li>Apply the reference density, verify, run twice, and undo.</li>
+<li>Operate a deliberately unclear but safe UI.</li>
+<li>Improve one artist-facing behavior and rerun the same test.</li>
+</ol>
+<p>The supplied adapter contains the mesh API details. Introductory work stays focused on
+the readable orchestration: inputs, condition, function call, result, and feedback.</p>
+<h2 id="ui-ux-is-part-of-correctness">UI/UX is part of correctness</h2><p>An artist should not have to guess:</p>
+<ul>
+<li>what “Value” means or what units it uses;</li>
+<li>which objects a button will affect;</li>
+<li>whether the action only checked or actually changed the scene;</li>
+<li>which objects changed, failed, or were skipped;</li>
+<li>whether the result was measured after the change;</li>
+<li>how to recover from an unwanted action.</li>
+</ul>
+<p>The completed interface therefore names the reference and target scope, distinguishes
+Check from Apply, prevents Apply until a reference is captured, reports each verified
+result or skip, and names Undo as the recovery route.</p>
+<h2 id="pair-lab">Pair lab</h2><p>One person operates while the other observes silently. Before editing code, write one
+expected behavior. Improve one label, validation response, callback, or report; then
+run the same fixture test, Apply twice, confirm the protected control is unchanged,
+and switch roles.</p>
+<p>There is no Week 3 submission. Further practice is optional and can become evidence
+for choosing a useful midterm tool idea.</p>
+</article><footer class="page-footer"><p>Course materials grow through examples, questions, and verified revisions. Use the current Canvas assignment page for deadlines, grading, and submission instructions.</p><a href="content/week03.md">Page source (Markdown)</a> · <a href="maintaining.html">Maintain this wiki</a></footer></main></div><script src="assets/search-index.js"></script><script src="assets/wiki.js"></script></body></html>

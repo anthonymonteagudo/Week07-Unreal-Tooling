@@ -1,0 +1,28 @@
+{
+  "pages": 93,
+  "local_links": 1199,
+  "reader_sources": 72,
+  "missing": [
+    {
+      "page": "Readers\\checkpoint-manifest-d23f38ba.html",
+      "target": "../Slides/Week03/Production20260913/CHECKPOINT_MANIFEST.md"
+    },
+    {
+      "page": "Readers\\slide-demo-map-ca02d8ff.html",
+      "target": "../Slides/Week03/Production20260913/SLIDE_DEMO_MAP.md"
+    },
+    {
+      "page": "Readers\\tech-art-museum-exhibit-repair-guide-e9691b97.html",
+      "target": "../../TechArtMuseumIntegration/Docs/SandboxGrid/READINESS.csv"
+    },
+    {
+      "page": "Readers\\week3-execution-plan-1c6fdbfc.html",
+      "target": "../Slides/Week03/WEEK3_EXECUTION_PLAN.md"
+    },
+    {
+      "page": "Readers\\week3-session-handoff-e76b73e9.html",
+      "target": "../Slides/Week03/WEEK3_SESSION_HANDOFF.md"
+    }
+  ],
+  "browser_visual_qa": "Not performed; SVG/PNG inspection is separate."
+}

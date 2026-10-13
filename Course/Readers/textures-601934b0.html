@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>textures</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Wiki/content/textures.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Wiki/content/textures.md<br>Source modified: 2026-09-09T01:39:22.776Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#an-image-is-not-always-color-information">An image is not always color information</a></li><li><a href="#color-and-numerical-control-data">Color and numerical control data</a></li><li><a href="#separate-the-decisions">Separate the decisions</a></li><li><a href="#a-controlled-comparison">A controlled comparison</a></li><li><a href="#explore-further">Explore further</a></li></ul></details><h2 id="an-image-is-not-always-color-information">An image is not always color information</h2>
+<p>A texture might supply surface color, roughness, normal directions, or a mask. The channels can hold different kinds of information even when the asset looks like an ordinary image in a viewer.</p>
+<p>Start by identifying the declared role and the material connection. A grayscale appearance or filename can be a clue, but neither establishes the rule by itself.</p>
+<h2 id="color-and-numerical-control-data">Color and numerical control data</h2>
+<p>Color encodings such as sRGB serve a different purpose from storing a numerical control signal for direct use. Applying a color-decoding transform to numerical RGB roughness data changes the numbers entering the material. A setting must agree with the intended role.</p>
+<p>This does not mean every grayscale texture has the same configuration, or that every channel in a packed texture shares every interpretation rule. Inspect the actual channels and usage. Alpha, in particular, should not be casually assumed to receive the same treatment as RGB.</p>
+<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/texture-asset-editor-in-unreal-engine?application_version=5.7">Epic&#39;s Texture Asset Editor documentation</a> explains the available settings. Use the project configuration and its documented data roles to interpret them.</p>
+<h2 id="separate-the-decisions">Separate the decisions</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Role</td>
+<td>What should these channels represent?</td>
+</tr>
+<tr>
+<td>Color interpretation</td>
+<td>Is a decoding transform appropriate for those values?</td>
+</tr>
+<tr>
+<td>Compression</td>
+<td>How is the data represented for the target use?</td>
+</tr>
+<tr>
+<td>Sampling</td>
+<td>How does the graph read the data?</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>Which material input receives the result?</td>
+</tr>
+<tr>
+<td>Display</td>
+<td>What viewing transform helps us see the preview?</td>
+</tr>
+</tbody></table></div>
+<p>Maya&#39;s display/color-management configuration and an Unreal texture&#39;s sRGB setting occupy different parts of this process. Do not treat similar-looking previews as proof that their settings are equivalent.</p>
+<h2 id="a-controlled-comparison">A controlled comparison</h2>
+<p>Keep geometry, camera, lighting, and Base Color fixed. Identify a known numerical roughness input. Compare one intended interpretation change and observe the surface response. If other settings also change, record them; you no longer have a one-variable test.</p>
+<p>For your record, capture the role, expected setting, observed setting, result, and remaining limits. This is the bridge to <a href="../Wiki/week03.html">Week 3&#39;s Python check</a>.</p>
+<h2 id="explore-further">Explore further</h2>
+<p><a href="https://www.adobe.com/learn/substance-3d-designer/web/the-pbr-guide-part-2">Adobe&#39;s PBR Guide, Part 2</a> connects authoring choices with surface models. <a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-texturing/introduction-to-texturing.html">Scratchapixel&#39;s texturing lessons</a> provide the deeper sampling and color-space context. For size and distance behavior, continue with <a href="../Wiki/representations.html">mips and LOD</a>.</p>
+</main></body></html>

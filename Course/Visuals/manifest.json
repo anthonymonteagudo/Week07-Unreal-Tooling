@@ -1,0 +1,529 @@
+{
+  "version": 1,
+  "style_source": "tokens.json",
+  "legacy": [
+    {
+      "id": "week1-constraints",
+      "path": "Icons/Legacy/week1-constraints.png",
+      "source_part": "ppt/media/image127.png",
+      "sha256": "309d9587acda3f5786473e1b2d98d38e129ff0becb616c18ec1d5c7806a3654e",
+      "color": "#FC4037",
+      "method": "Unmodified byte extraction from existing course deck",
+      "rights": "Existing course asset; original third-party or generation provenance not established by the deck."
+    },
+    {
+      "id": "week1-systems",
+      "path": "Icons/Legacy/week1-systems.png",
+      "source_part": "ppt/media/image128.png",
+      "sha256": "09b95b2e6eb60b9c34f5f2bd5fea52eaa62c6c9c971ae1f4d59270f7a8842239",
+      "color": "#029990",
+      "method": "Unmodified byte extraction from existing course deck",
+      "rights": "Existing course asset; original third-party or generation provenance not established by the deck."
+    },
+    {
+      "id": "week1-leverage",
+      "path": "Icons/Legacy/week1-leverage.png",
+      "source_part": "ppt/media/image129.png",
+      "sha256": "c7263e3cfdab9166870faec6b42fafd040ff136256ff5417bb5cb41bf55d7675",
+      "color": "#ED9C03",
+      "method": "Unmodified byte extraction from existing course deck",
+      "rights": "Existing course asset; original third-party or generation provenance not established by the deck."
+    },
+    {
+      "id": "week1-throughput",
+      "path": "Icons/Legacy/week1-throughput.png",
+      "source_part": "ppt/media/image130.png",
+      "sha256": "47d57a4f1687f5c261cab17c30fe562abf3fb5e95288191810b72fd621c8883e",
+      "color": "#0163D5",
+      "method": "Unmodified byte extraction from existing course deck",
+      "rights": "Existing course asset; original third-party or generation provenance not established by the deck."
+    }
+  ],
+  "icons": [
+    {
+      "id": "host-python",
+      "use": "Week 3 Python Hosts and pure-Python examples: ordinary Python (python.exe). Script-page symbol; pair with an editable Python label. Capability is not the selected interpreter: if class runs this example with mayapy, display the mayapy badge instead.",
+      "svg": "Icons/SVG/host-python.svg",
+      "png": [
+        "Icons/PNG/host-python-ink-256.png",
+        "Icons/PNG/host-python-ink-512.png",
+        "Icons/PNG/host-python-white-256.png",
+        "Icons/PNG/host-python-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "host-mayapy",
+      "use": "Week 3 Python Hosts, standalone PySide examples and Lab 1: Maya external Python (mayapy.exe), launched from VS Code/terminal. Terminal-and-cube symbol. This process does not control the already-open Maya scene. Pair with mayapy.exe text.",
+      "svg": "Icons/SVG/host-mayapy.svg",
+      "png": [
+        "Icons/PNG/host-mayapy-ink-256.png",
+        "Icons/PNG/host-mayapy-ink-512.png",
+        "Icons/PNG/host-mayapy-white-256.png",
+        "Icons/PNG/host-mayapy-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "host-maya",
+      "use": "Week 3 Python Hosts, Maya introduction walkthrough and Lab 2: Python inside Maya, run in the Python Script Editor against the current interactive scene. Scene-window-and-cube symbol. Pair with In Maya text. These original symbols are not Autodesk/Python product logos.",
+      "svg": "Icons/SVG/host-maya.svg",
+      "png": [
+        "Icons/PNG/host-maya-ink-256.png",
+        "Icons/PNG/host-maya-ink-512.png",
+        "Icons/PNG/host-maya-white-256.png",
+        "Icons/PNG/host-maya-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "mesh",
+      "use": "Slides 7–9: mesh data. Pair with an actual mesh or index example.",
+      "svg": "Icons/SVG/mesh.svg",
+      "png": [
+        "Icons/PNG/mesh-ink-256.png",
+        "Icons/PNG/mesh-ink-512.png",
+        "Icons/PNG/mesh-white-256.png",
+        "Icons/PNG/mesh-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "texture",
+      "use": "Slides 87–93: sampled data. Never imply that every texture is color.",
+      "svg": "Icons/SVG/texture.svg",
+      "png": [
+        "Icons/PNG/texture-ink-256.png",
+        "Icons/PNG/texture-ink-512.png",
+        "Icons/PNG/texture-white-256.png",
+        "Icons/PNG/texture-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "material",
+      "use": "Slides 99–105: material graph or property relationships; not the GPU itself.",
+      "svg": "Icons/SVG/material.svg",
+      "png": [
+        "Icons/PNG/material-ink-256.png",
+        "Icons/PNG/material-ink-512.png",
+        "Icons/PNG/material-white-256.png",
+        "Icons/PNG/material-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "skeleton",
+      "use": "Slides 110–112: joint hierarchy; a diagram of weights still needs explicit vertex evidence.",
+      "svg": "Icons/SVG/skeleton.svg",
+      "png": [
+        "Icons/PNG/skeleton-ink-256.png",
+        "Icons/PNG/skeleton-ink-512.png",
+        "Icons/PNG/skeleton-white-256.png",
+        "Icons/PNG/skeleton-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "intent",
+      "use": "Slides 28, 52, 103: intended appearance and artistic judgment. Not a fifth Week 1 lens.",
+      "svg": "Icons/SVG/intent.svg",
+      "png": [
+        "Icons/PNG/intent-ink-256.png",
+        "Icons/PNG/intent-ink-512.png",
+        "Icons/PNG/intent-white-256.png",
+        "Icons/PNG/intent-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "inspect",
+      "use": "Slides 30, 73, 125: gather evidence before a diagnosis.",
+      "svg": "Icons/SVG/inspect.svg",
+      "png": [
+        "Icons/PNG/inspect-ink-256.png",
+        "Icons/PNG/inspect-ink-512.png",
+        "Icons/PNG/inspect-white-256.png",
+        "Icons/PNG/inspect-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "code",
+      "use": "Slides 8, 119, 136: inspectable data or a repeatable check, not automatic proof of correctness.",
+      "svg": "Icons/SVG/code.svg",
+      "png": [
+        "Icons/PNG/code-ink-256.png",
+        "Icons/PNG/code-ink-512.png",
+        "Icons/PNG/code-white-256.png",
+        "Icons/PNG/code-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "record",
+      "use": "Slides 117, 129: reproducible evidence and maintainer documentation.",
+      "svg": "Icons/SVG/record.svg",
+      "png": [
+        "Icons/PNG/record-ink-256.png",
+        "Icons/PNG/record-ink-512.png",
+        "Icons/PNG/record-white-256.png",
+        "Icons/PNG/record-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "question",
+      "use": "The 15 discussion pauses: student questions and peer reasoning. Pair with the actual prompt.",
+      "svg": "Icons/SVG/question.svg",
+      "png": [
+        "Icons/PNG/question-ink-256.png",
+        "Icons/PNG/question-ink-512.png",
+        "Icons/PNG/question-white-256.png",
+        "Icons/PNG/question-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "appendix",
+      "use": "Explore further pointers: link to a named optional section and a return destination.",
+      "svg": "Icons/SVG/appendix.svg",
+      "png": [
+        "Icons/PNG/appendix-ink-256.png",
+        "Icons/PNG/appendix-ink-512.png",
+        "Icons/PNG/appendix-white-256.png",
+        "Icons/PNG/appendix-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "reset",
+      "use": "Museum setup and documentation: restore the declared starting state.",
+      "svg": "Icons/SVG/reset.svg",
+      "png": [
+        "Icons/PNG/reset-ink-256.png",
+        "Icons/PNG/reset-ink-512.png",
+        "Icons/PNG/reset-white-256.png",
+        "Icons/PNG/reset-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "pass",
+      "use": "One named check passed. Always display PASS and the scope; not a whole-asset certificate.",
+      "svg": "Icons/SVG/pass.svg",
+      "png": [
+        "Icons/PNG/pass-ink-256.png",
+        "Icons/PNG/pass-ink-512.png",
+        "Icons/PNG/pass-white-256.png",
+        "Icons/PNG/pass-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "fail",
+      "use": "An observed value violates the declared rule. Pair with FAIL and a reason.",
+      "svg": "Icons/SVG/fail.svg",
+      "png": [
+        "Icons/PNG/fail-ink-256.png",
+        "Icons/PNG/fail-ink-512.png",
+        "Icons/PNG/fail-white-256.png",
+        "Icons/PNG/fail-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    },
+    {
+      "id": "review",
+      "use": "Missing context or uncertainty. Pair with REVIEW and the needed evidence.",
+      "svg": "Icons/SVG/review.svg",
+      "png": [
+        "Icons/PNG/review-ink-256.png",
+        "Icons/PNG/review-ink-512.png",
+        "Icons/PNG/review-white-256.png",
+        "Icons/PNG/review-white-512.png"
+      ],
+      "method": "Original code-authored vector geometry; PNG rasterized from SVG",
+      "rights": "Original course artwork created in this task; no upstream icon artwork copied."
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "material-relationships",
+      "title": "Material → surface",
+      "slides": [
+        100,
+        102,
+        104
+      ],
+      "use": "Current slide 100: use this image-led relationship overview, reveal the main route first, then the optional instance branch. Current slide 102: revisit the parent and assignment distinction. On 104, return briefly to the normal-map input before the actual normals comparison.",
+      "method": "Original transparent SVG composition using eight unretouched crops of real source images. The UV layout and instance controls are separate examples. No generated UI or reconstructed rendering.",
+      "transparent": true,
+      "revision": "2026-09-09 · concise labels and real imagery",
+      "context": [
+        "The PNG contains short labels and relationships. Its surrounding canvas is genuinely transparent; opaque screenshot rectangles and the checker pattern inside the UV example are original image content.",
+        "This is a relationship overview, not a single captured asset build. The walnut material, node previews, assignment, and displayed floor come from Epic’s related documentation examples. The UV layout belongs to a headphone mesh in current slide 54. The instance crop shows a different material’s Roughness override. Asterisks identify these separate examples in the diagram.",
+        "UV coordinates belong to the mesh’s attribute data in this example; the material uses them to locate texture samples. They are not another bitmap texture, nor the only possible way to generate sampling coordinates. The screenshot itself retains the TexCoord-to-texture connections.",
+        "The solid route shows a Material assigned directly. Dashed arrows show the optional instance route: an instance inherits the parent graph, may override exposed parameters, and may be selected for assignment. A texture swap is only exposed when the parent supports it. The arrows describe relationships, not an exact GPU execution order.",
+        "The UE renderer remains a closed box here. Compilation, shader execution, geometry, lighting, camera, and display processing are discussed in narration rather than expanded into extra diagram nodes. Assigning a material does not bake a texture into the mesh.",
+        "The small crops support recognition at lecture scale. Use the individual originals below or the live editor to read pins and values. The texture images are small sample-node previews, not full-resolution texture assets. No artificial detail was added."
+      ],
+      "script": "Let’s follow the solid route first. These images contain stored texture data. The UV layout shows the kind of coordinates that tell the material where to sample. That UV example belongs to a different mesh; we are comparing the roles here. In the Unreal graph, those samples and other values contribute to surface properties. We can assign the Material to a mesh. Unreal then draws it using the mesh and the scene’s lighting and camera. We will keep that renderer box closed today.\n\nNow follow the dashed branch. An instance inherits its parent’s graph and gives us controls for the parameters the parent exposes. The control shown here is a separate example of that interface. We can assign an instance instead of the parent Material. In the museum, a useful first check is to identify exactly which Material or instance the object is using before changing a texture.\n\nIf the pattern is the right image but appears stretched, which relationship would you inspect first, and what evidence would distinguish that from the wrong texture being assigned?",
+      "rationale": "The real crops give unfamiliar terms a visible referent. The unbroken main route supports a first reading; the dashed branch adds one optional relationship afterwards. Minimal labels let the explanation live in speech and notes. The question asks for an inspection, not a guessed diagnosis.",
+      "sources": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts?application_version=5.7",
+        "https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-material-instance-editor-ui?application_version=5.7",
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/using-uv-channels-with-static-meshes-in-unreal-engine"
+      ],
+      "image_sources": [
+        {
+          "id": "base-color",
+          "title": "Base Color",
+          "file": "Diagrams/MaterialImages/base-color.png",
+          "source": "../Slides/Week02/Review/MaterialsGuide/UE_Images/walnut-floor-material.png",
+          "source_sha256": "34aee803dbe5093cea9a6b149558c29334f8eb82801c0fd8e118ec7f07c2a1a3",
+          "source_size": [
+            1011,
+            502
+          ],
+          "crop_xywh": [
+            543,
+            133,
+            66,
+            66
+          ],
+          "note": "Magnified Texture Sample preview; not a full-resolution texture export.",
+          "source_url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/7f211e40-763f-441a-8f30-2af28e84663e/walnut-floor-material.png",
+          "source_page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts?application_version=5.7",
+          "credit": "Epic Games, Unreal Engine documentation. Existing source images retrieved September 8, 2026; documentation references UE 5.7, screenshot build not established.",
+          "rights": "Retained source imagery with its attribution; no new open-content license claimed."
+        },
+        {
+          "id": "roughness",
+          "title": "Roughness",
+          "file": "Diagrams/MaterialImages/roughness.png",
+          "source": "../Slides/Week02/Review/MaterialsGuide/UE_Images/simple-material.png",
+          "source_sha256": "7677df50455ac52c3325edf6bbb547ff4a3364b5454adb4da8b87d9b124efcdf",
+          "source_size": [
+            727,
+            423
+          ],
+          "crop_xywh": [
+            322,
+            225,
+            47,
+            46
+          ],
+          "note": "Magnified Texture Sample preview from the simpler walnut graph.",
+          "source_url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/f6bcfb39-de78-4105-95cf-3691ce63fc9c/simple-material.png",
+          "source_page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts?application_version=5.7",
+          "credit": "Epic Games, Unreal Engine documentation. Existing source images retrieved September 8, 2026; documentation references UE 5.7, screenshot build not established.",
+          "rights": "Retained source imagery with its attribution; no new open-content license claimed."
+        },
+        {
+          "id": "normal",
+          "title": "Normal map",
+          "file": "Diagrams/MaterialImages/normal.png",
+          "source": "../Slides/Week02/Review/MaterialsGuide/UE_Images/walnut-floor-material.png",
+          "source_sha256": "34aee803dbe5093cea9a6b149558c29334f8eb82801c0fd8e118ec7f07c2a1a3",
+          "source_size": [
+            1011,
+            502
+          ],
+          "crop_xywh": [
+            543,
+            408,
+            66,
+            66
+          ],
+          "note": "Magnified normal Texture Sample preview. Its blue appearance is not an import-validity test.",
+          "source_url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/7f211e40-763f-441a-8f30-2af28e84663e/walnut-floor-material.png",
+          "source_page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts?application_version=5.7",
+          "credit": "Epic Games, Unreal Engine documentation. Existing source images retrieved September 8, 2026; documentation references UE 5.7, screenshot build not established.",
+          "rights": "Retained source imagery with its attribution; no new open-content license claimed."
+        },
+        {
+          "id": "uv-layout",
+          "title": "UV layout",
+          "file": "Diagrams/MaterialImages/uv-layout.png",
+          "source": "Reference/week2-uv-source.png",
+          "source_sha256": "7aa7f2789de93f58da3c2d7194def205a1f35e03dd1061baf7ca2f6777cada42",
+          "source_size": [
+            2386,
+            2068
+          ],
+          "crop_xywh": [
+            1135,
+            1067,
+            735,
+            735
+          ],
+          "note": "Separate headphone-mesh UV example, retained from current slide 54. Not the walnut floor UVs.",
+          "source_url": "https://www.artstation.com/ib_art",
+          "source_page": "../Slides/Week02/ReviewRefined20260909/index.html#slide-54",
+          "credit": "Existing course deck, slide 54; displayed source credit: artstation.com/ib_art. Original work URL, author identity beyond this handle, license, and software/version are unconfirmed.",
+          "rights": "Retained source imagery with its attribution; no new open-content license claimed."
+        },
+        {
+          "id": "material-graph",
+          "title": "Material graph",
+          "file": "Diagrams/MaterialImages/material-graph.png",
+          "source": "../Slides/Week02/Review/MaterialsGuide/UE_Images/walnut-floor-material.png",
+          "source_sha256": "34aee803dbe5093cea9a6b149558c29334f8eb82801c0fd8e118ec7f07c2a1a3",
+          "source_size": [
+            1011,
+            502
+          ],
+          "crop_xywh": [
+            322,
+            0,
+            689,
+            502
+          ],
+          "note": "The real M_WalnutFloor graph, including TexCoord, tiling, texture samples, and material inputs.",
+          "source_url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/7f211e40-763f-441a-8f30-2af28e84663e/walnut-floor-material.png",
+          "source_page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts?application_version=5.7",
+          "credit": "Epic Games, Unreal Engine documentation. Existing source images retrieved September 8, 2026; documentation references UE 5.7, screenshot build not established.",
+          "rights": "Retained source imagery with its attribution; no new open-content license claimed."
+        },
+        {
+          "id": "assignment",
+          "title": "Mesh assignment",
+          "file": "Diagrams/MaterialImages/assignment.png",
+          "source": "../Slides/Week02/Review/MaterialsGuide/UE_Images/drag-drop.png",
+          "source_sha256": "e0f0f88dad0ff4cde30810fb4337d99cce69787f44470a16616681417daf619e",
+          "source_size": [
+            706,
+            388
+          ],
+          "crop_xywh": [
+            0,
+            0,
+            706,
+            388
+          ],
+          "note": "Original Epic drag-and-drop illustration. Its existing yellow arrow remains intact.",
+          "source_url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/54f9644e-f3b9-40bf-a253-1ce3ef6a25a5/drag-drop.png",
+          "source_page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts?application_version=5.7",
+          "credit": "Epic Games, Unreal Engine documentation. Existing source images retrieved September 8, 2026; documentation references UE 5.7, screenshot build not established.",
+          "rights": "Retained source imagery with its attribution; no new open-content license claimed."
+        },
+        {
+          "id": "instance",
+          "title": "Instance controls",
+          "file": "Diagrams/MaterialImages/instance.png",
+          "source": "../Slides/Week02/Review/MaterialsGuide/UE_Images/override-params.png",
+          "source_sha256": "243edf1589c412b0edcaa22e07946a677cad9dfdfb74e7a8d1e9e3f53df34924",
+          "source_size": [
+            516,
+            267
+          ],
+          "crop_xywh": [
+            12,
+            198,
+            332,
+            67
+          ],
+          "note": "Separate Material Instance example, cropped to the Roughness override. Not an asserted instance of M_WalnutFloor.",
+          "source_url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/219987ae-1099-4783-b0fa-749cda6c7281/override-params.png",
+          "source_page": "https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-material-instance-editor-ui?application_version=5.7",
+          "credit": "Epic Games, Unreal Engine documentation. Existing source images retrieved September 8, 2026; documentation references UE 5.7, screenshot build not established.",
+          "rights": "Retained source imagery with its attribution; no new open-content license claimed."
+        },
+        {
+          "id": "surface",
+          "title": "Rendered surface",
+          "file": "Diagrams/MaterialImages/surface.png",
+          "source": "../Slides/Week02/Review/MaterialsGuide/UE_Images/drag-drop.png",
+          "source_sha256": "e0f0f88dad0ff4cde30810fb4337d99cce69787f44470a16616681417daf619e",
+          "source_size": [
+            706,
+            388
+          ],
+          "crop_xywh": [
+            512,
+            0,
+            194,
+            120
+          ],
+          "note": "Unretouched floor crop from the same assignment image. A displayed example, not a newly rendered frame.",
+          "source_url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/54f9644e-f3b9-40bf-a253-1ce3ef6a25a5/drag-drop.png",
+          "source_page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/essential-unreal-engine-material-concepts?application_version=5.7",
+          "credit": "Epic Games, Unreal Engine documentation. Existing source images retrieved September 8, 2026; documentation references UE 5.7, screenshot build not established.",
+          "rights": "Retained source imagery with its attribution; no new open-content license claimed."
+        }
+      ],
+      "previous_png": "Reference/material-relationships-before.png",
+      "svg": "Diagrams/material-relationships.svg",
+      "png": "Diagrams/material-relationships.png",
+      "html": "Diagrams/material-relationships.html"
+    },
+    {
+      "id": "visual-intent-to-check",
+      "title": "Protecting visual intent",
+      "slides": [
+        28,
+        52,
+        117
+      ],
+      "use": "A brief art-lens bridge: connect an artistic goal to a controlled technical inspection. The boxes are a teaching model, not captured software evidence.",
+      "sources": [
+        "../Wiki/week01.html"
+      ],
+      "svg": "Diagrams/visual-intent-to-check.svg",
+      "png": "Diagrams/visual-intent-to-check.png",
+      "html": "Diagrams/visual-intent-to-check.html",
+      "method": "Original illustrative vector diagram; not a UE capture",
+      "transparent": false
+    },
+    {
+      "id": "maya-unreal-handoff",
+      "title": "A handoff you can verify",
+      "slides": [
+        62,
+        83,
+        102
+      ],
+      "use": "Orient the Maya → exchange → Unreal demonstration. Pair each box with the actual settings or assignments shown in class. The return arrow represents a new source revision and repeated delivery.",
+      "sources": [
+        "https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-material-pipeline-in-unreal-engine?application_version=5.7"
+      ],
+      "svg": "Diagrams/maya-unreal-handoff.svg",
+      "png": "Diagrams/maya-unreal-handoff.png",
+      "html": "Diagrams/maya-unreal-handoff.html",
+      "method": "Original illustrative vector diagram; not a UE capture",
+      "transparent": false
+    }
+  ],
+  "collections": [
+    {
+      "id": "week07",
+      "title": "Week 7: Python tooling and UX",
+      "html": "Week07/index.html",
+      "manifest": "Week07/manifest.json",
+      "count": 6
+    },
+    {
+      "id": "week07-online-20261013",
+      "title": "Week 7: sourced imagery and artist-goal illustration",
+      "html": "Week07/Online20261013/index.html",
+      "manifest": "Week07/Online20261013/manifest.json",
+      "count": 9
+    }
+  ]
+}

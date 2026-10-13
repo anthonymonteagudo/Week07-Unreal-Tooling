@@ -1,0 +1,23 @@
+{
+  "ue-simple-material.png": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/f6bcfb39-de78-4105-95cf-3691ce63fc9c/simple-material.png",
+  "gltf_examples": [
+    {
+      "file": "OpaqueVsBlend.jpg",
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/AlphaBlendModeTest/screenshot/OpaqueVsBlend.jpg",
+      "source_page": "https://github.com/KhronosGroup/glTF-Sample-Assets/blob/main/Models/AlphaBlendModeTest/README.md",
+      "credit": "Ed Mackey / Analytical Graphics, Inc., 2018; Khronos glTF Sample Assets",
+      "license": "CC BY 4.0 as stated in source README",
+      "retrieved": "2026-09-08",
+      "modified": false
+    },
+    {
+      "file": "OpaqueFail.jpg",
+      "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/AlphaBlendModeTest/screenshot/OpaqueFail.jpg",
+      "source_page": "https://github.com/KhronosGroup/glTF-Sample-Assets/blob/main/Models/AlphaBlendModeTest/README.md",
+      "credit": "Ed Mackey / Analytical Graphics, Inc., 2018; Khronos glTF Sample Assets",
+      "license": "CC BY 4.0 as stated in source README",
+      "retrieved": "2026-09-08",
+      "modified": false
+    }
+  ]
+}

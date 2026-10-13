@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "legacy_badges": 4,
+  "companion_icons": 17,
+  "transparent_pngs": 68,
+  "diagrams": 3,
+  "transparent_diagrams": [
+    "material-relationships"
+  ],
+  "verified_real_crops": 8,
+  "scope": "Alpha, bounds, SVG syntax, dimensions, exact legacy hashes, source hashes and pixel-exact rectangular crops, concise labels. Visual composition checked separately."
+}

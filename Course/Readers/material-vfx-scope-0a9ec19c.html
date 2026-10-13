@@ -1,0 +1,162 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Selected demo tools · 12 October 2026</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/Docs/UI/MATERIAL_VFX_SCOPE.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/Docs/UI/MATERIAL_VFX_SCOPE.md<br>Source modified: 2026-10-13T03:48:03.923Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#selected-demo-tools-12-october-2026">Selected demo tools · 12 October 2026</a></li><li><a href="#what-is-implemented-in-code">What is implemented in code</a></li><li><a href="#material-setup-deliberately-narrow">Material Setup: deliberately narrow</a></li><li><a href="#vfx-placement-bounded-marker-placement">VFX Placement: bounded marker placement</a></li><li><a href="#minimal-preset-review-before-enabling-live-placement">Minimal preset review before enabling live placement</a></li><li><a href="#run-without-interacting-with-unreal">Run without interacting with Unreal</a></li><li><a href="#native-ui-reuse">Native UI reuse</a></li><li><a href="#sources-used-for-implementation-boundaries">Sources used for implementation boundaries</a></li></ul></details><h1 id="selected-demo-tools-12-october-2026">Selected demo tools · 12 October 2026</h1>
+<p>For students, use <a href="start-here-0c8c24d9.html">the guided tasks</a>.
+For delivery, use <a href="presentation-checklist-052347ac.html">the instructor presentation checklist</a>.
+This document describes implementation scope and limitations.</p>
+<p>The instructor selected <strong>Material Setup Assistant</strong> and <strong>VFX Placement Tool</strong>.
+No procedural scattering or material/Niagara graph manipulation is in scope.
+VFX validation is a small set of placement safeguards, not a scene-cost inspector.</p>
+<h2 id="what-is-implemented-in-code">What is implemented in code</h2>
+<ul>
+<li>Pure preview/validation rules and a session that consumes each reviewed plan once.</li>
+<li>Separate PySide tabs for both workflows, with input-change invalidation and an
+explicit acknowledgement for density warnings.</li>
+<li>An offline backend with fictional assets, for teaching and UI tests.</li>
+<li>Live Unreal adapters for instance creation/component assignment and Niagara
+placement. Source prepared; <strong>not yet run or verified inside Unreal</strong>.</li>
+<li>A Qt-free native-widget Python bridge for the same workflows. The native EUW
+asset and its Blueprint wiring remain pending.</li>
+</ul>
+<p>The earlier Prop Inspector remains a reference/fallback. The new selected tools
+are separate workflows; they do not repurpose its six-prop renaming command.</p>
+<h2 id="material-setup-deliberately-narrow">Material Setup: deliberately narrow</h2>
+<p>Select one complete texture set in the Content Browser, named with a shared prefix
+and suffixes <code>_BaseColor</code>, <code>_Normal</code>, <code>_ORM</code>. Select the destination mesh Actors in
+the level. The first version accepts exactly one Static Mesh Component per Actor
+and one explicit slot index, avoiding ambiguous component/slot assignment.</p>
+<p>Choose a named prepared parent from the dropdown, configured by the instructor with
+texture parameters <code>BaseColorTexture</code>, <code>NormalTexture</code>, <code>ORMTexture</code>.
+The tool creates one new material instance under
+<code>/Game/Week07/Generated/Materials</code>, sets those parameters and assigns component
+overrides. The live catalogue is unconfigured; no prepared material asset is implied.
+Prepare and register a matching parent during the later editor rehearsal. Students
+choose its readable label rather than entering an asset path.</p>
+<p>Missing/ambiguous sets, incompatible selections, missing parent parameters, wrong
+sRGB settings and a non-normal-compressed Normal map block Apply. Shared textures
+are not silently reconfigured. The prepared parent defines the ORM channel
+convention (R=occlusion, G=roughness, B=metallic); the tool does not infer or rewire it.</p>
+<p>No existing material instance is overwritten. No master graph, shared mesh asset,
+or texture is edited. Nothing is automatically saved. Component assignments use
+an Undo transaction; <strong>creating an asset is not promised to be reversed by the
+same Undo step</strong>. On failure, assignments are restored and any new draft asset is
+reported for inspection rather than automatically deleted.</p>
+<h2 id="vfx-placement-bounded-marker-placement">VFX Placement: bounded marker placement</h2>
+<p>Select Actors tagged <code>W07_VFXAnchor</code>. Each receives one prepared Niagara System at
+its position and rotation. Uniform scale is limited to 0.25–1.0. No intensity,
+spawn-rate, lifetime, emitter, graph or random-distribution controls are exposed.</p>
+<p>The live catalogue is <code>Config/Week07ToolPresets.json</code>. Named choices appear in the
+student dropdown only when configured (and reviewed, for effects). Its example <code>steam_demo</code> is
+intentionally <strong>unconfigured and unreviewed</strong>. Live placement fails until the
+instructor supplies a real asset and reviews the preset. The fictional offline
+example is enabled only in the offline backend.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Behavior</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Reviewed preset and nonempty review note</td>
+<td>Block unreviewed effects</td>
+<td>The tool cannot infer an effect&#39;s cost from its asset name.</td>
+</tr>
+<tr>
+<td>Real Niagara System with Effect Type assigned</td>
+<td>Block if absent</td>
+<td>Require a scalability configuration entry point; assignment alone is not proof of good settings.</td>
+</tr>
+<tr>
+<td>Per-batch limit</td>
+<td>At most 8; preset may be lower (starter: 4)</td>
+<td>Prevent accidental large placement batches.</td>
+</tr>
+<tr>
+<td>Per-system loaded count</td>
+<td>At most 16</td>
+<td>Include pre-existing copies, not just this tool&#39;s Actors.</td>
+</tr>
+<tr>
+<td>Total loaded Niagara component count</td>
+<td>At most 32</td>
+<td>Include other effects/components in the loaded world.</td>
+</tr>
+<tr>
+<td>Density review</td>
+<td>Warn when projected loaded count exceeds 8; acknowledgement required</td>
+<td>Encourage review before the scene becomes crowded.</td>
+</tr>
+<tr>
+<td>Minimum spacing</td>
+<td>100 cm from selected and existing effect positions</td>
+<td>Catch obviously piled-up placements; not a bounds/overdraw calculation.</td>
+</tr>
+<tr>
+<td>Existing source-anchor tag</td>
+<td>Block duplicate placement</td>
+<td>Repeating Apply must not multiply effects at the same markers.</td>
+</tr>
+<tr>
+<td>Fresh request/scene/preset snapshot</td>
+<td>Recheck immediately on Apply</td>
+<td>Changed selection, transforms, counts or preset metadata require a new preview.</td>
+</tr>
+</tbody></table></div>
+<p>These numbers are <strong>conservative classroom policy choices</strong>, not Epic limits,
+hardware-derived budgets or production certification. Policy constants are in
+<code>workflows.py</code>; students cannot raise them with UI sliders. Existing effects are
+not deleted to meet a limit. Effects in unloaded levels, runtime spawns, hidden
+simulation dependencies, emitter/particle counts, screen coverage and GPU timings
+are not measured. Asset graph changes require renewed review; snapshots do not
+fingerprint graph contents or every dependency.</p>
+<h3 id="minimal-preset-review-before-enabling-live-placement">Minimal preset review before enabling live placement</h3>
+<p>For the chosen system, check bounded spawn behavior and lifetime/steady-state
+particle count, renderers/materials (especially translucent overdraw), bounds,
+distance/visibility culling and instance scalability. Rehearse the expected worst
+case placement count from a representative camera on the target machine. Record
+the reviewed system, context and result in <code>review_note</code>, lower <code>max_new</code> if needed,
+then set <code>reviewed_for_demo</code> true. Re-review after effect/material changes.</p>
+<p>This is a short instructor preparation step for one prepared effect—not a new
+student optimization assignment. A suitable teaching message is: <strong>“Placement
+checks passed; performance still needs measurement.”</strong> Never label the result
+“production-safe” or “optimized” based only on these checks.</p>
+<p>New Actors carry <code>W07_PlacedVFX</code> and <code>W07_Source=&lt;anchor path&gt;</code> tags, and go into
+<code>Week07/VFXPlacements</code>. A placement failure attempts cleanup only of Actors created
+by that call and reports anything left. The batch uses one Undo transaction;
+actual Undo/cleanup behavior remains an in-engine acceptance test. No map save.</p>
+<h2 id="run-without-interacting-with-unreal">Run without interacting with Unreal</h2>
+<p>When you choose to open a window:</p>
+<pre><code class="language-powershell">./.venv/Scripts/python.exe Scripts/assistants.py
+</code></pre>
+<p>Code-only checks/captures, with no desktop window:</p>
+<pre><code class="language-powershell">./.venv/Scripts/python.exe Scripts/dev.py test
+./.venv/Scripts/python.exe Scripts/ui_quality.py --stage 3
+./.venv/Scripts/python.exe Scripts/assistants.py --render Docs/UI/captures
+</code></pre>
+<p>Live entry point <strong>for a later manual rehearsal</strong>: reload <code>week07_tools</code>, then
+<code>w7.show_assistants()</code>. The adapter currently guards the Week 7 demo map and refuses
+PIE. This is a teaching sandbox, not an unrestricted production scene tool.</p>
+<p><img src="../../Week07UnrealPython/Docs/UI/captures/material_preview.png" alt="Material preview, offline">
+<img src="../../Week07UnrealPython/Docs/UI/captures/vfx_preview.png" alt="VFX preview, offline"></p>
+<h2 id="native-ui-reuse">Native UI reuse</h2>
+<p>The future EUW can call <code>native_bridge.open_workflow_session()</code> and keep its String
+ID. Through Execute Python Script pins, call <code>dispatch_workflow(session_id, action, kind, request_json, warnings_reviewed)</code>. The result is a JSON String; unpack it in
+the Python node to typed outputs for the widget. No executable code comes from
+request data. Actions are <code>preview</code>, <code>apply</code>, <code>clear</code>; kinds are <code>material</code>, <code>vfx</code>.</p>
+<p>Material request: <code>{&quot;master&quot;:&quot;/Game/...&quot;, &quot;name&quot;:&quot;MI_Name&quot;, &quot;slot&quot;:0}</code>.
+VFX request: <code>{&quot;preset&quot;:&quot;steam_demo&quot;, &quot;scale&quot;:1.0}</code>.
+Preview returns <code>plan</code>, <code>can_apply</code>, and <code>warning_ack_required</code>. The additional
+<code>presentation</code> object supplies shared before/after rows, count summary and action
+text for a consistent native UI. Enable Apply only
+when the plan exists and any required warning acknowledgement is checked. Clear
+the session on input/tab changes. Apply rechecks independently. Node execution
+success is separate from returned <code>ok</code>. Close the session on widget destruction.
+Native widget creation, docking, typed-pin conversion and live behavior are not
+validated by the offline tests.</p>
+<h2 id="sources-used-for-implementation-boundaries">Sources used for implementation boundaries</h2>
+<ul>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/MaterialEditingLibrary?application_version=5.7">Epic MaterialEditingLibrary, UE 5.7</a>: prepared instance parameter operations.</li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/NiagaraComponent?application_version=5.7">Epic NiagaraComponent, UE 5.7</a>: system assignment.</li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/scalability-and-best-practices-for-niagara?application_version=5.7">Epic Niagara scalability, UE 5.7</a>: effect types and the limits of counting systems as a performance proxy.</li>
+</ul>
+</main></body></html>

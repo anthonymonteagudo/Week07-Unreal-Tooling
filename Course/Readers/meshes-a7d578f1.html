@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>meshes</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Wiki/content/meshes.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Wiki/content/meshes.md<br>Source modified: 2026-09-09T01:39:22.774Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#shape-and-structure">Shape and structure</a></li><li><a href="#a-mesh-carries-more-than-positions">A mesh carries more than positions</a></li><li><a href="#inspect-in-maya-verify-in-unreal">Inspect in Maya, verify in Unreal</a></li><li><a href="#avoid-automatic-conclusions">Avoid automatic conclusions</a></li></ul></details><h2 id="shape-and-structure">Shape and structure</h2>
+<p>A vertex has a position. Edges connect vertices. Faces use ordered boundaries to describe a surface. <strong>Geometry</strong> describes the shape; <strong>topology</strong> describes its connections. Moving a point changes the shape. Adding a face or splitting a connection changes the structure as well.</p>
+<p>That structure can support different jobs: a static silhouette, a subdivision surface, a bake target, or a mesh that needs to bend. A useful modeling rule must account for the operation and intended result.</p>
+<h2 id="a-mesh-carries-more-than-positions">A mesh carries more than positions</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Data</th>
+<th>What it helps determine</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Positions and connectivity</td>
+<td>Shape and structure</td>
+</tr>
+<tr>
+<td>Shading normals</td>
+<td>How directions vary across the shaded surface</td>
+</tr>
+<tr>
+<td>UV coordinates</td>
+<td>Where textures are sampled</td>
+</tr>
+<tr>
+<td>Material membership / slots</td>
+<td>Which surface definition applies to a region</td>
+</tr>
+<tr>
+<td>Transform and pivot</td>
+<td>How the object relates to its scene</td>
+</tr>
+</tbody></table></div>
+<p>Two faces can meet at one editable point but need distinct UV or normal values at the boundary. Different applications may count different representations of a vertex. Ask what is being counted before treating a numerical difference as a failure. Autodesk&#39;s <a href="https://help.autodesk.com/cloudhelp/2023/CHS/Maya-SDK/files/Polygon-API/Maya_SDK_Polygon_API_How_polygons_are_handled_html.html">polygon data-model explanation</a> is a useful deeper reference.</p>
+<h2 id="inspect-in-maya-verify-in-unreal">Inspect in Maya, verify in Unreal</h2>
+<p>Select the actual components around the problem. Compare the outline, wireframe, face orientation, and shading. An unusual surface appearance alone does not establish a topology problem.</p>
+<p>After a source edit and import, check the original symptom and the relationships that should survive: dimensions, UVs, material assignment, and required motion or interaction. See <a href="https://dev.epicgames.com/documentation/unreal-engine/fbx-static-mesh-pipeline-in-unreal-engine?application_version=5.7">Epic&#39;s static-mesh pipeline</a> for the transfer context.</p>
+<h2 id="avoid-automatic-conclusions">Avoid automatic conclusions</h2>
+<p>An open boundary can be intentional. Overlapping UVs may deliberately reuse a pattern. Generated normals can be a pipeline choice. Each becomes a problem when it conflicts with the asset&#39;s requirements or invalidates another dependency.</p>
+<p><strong>Try this:</strong> compare a beveled edge with a shading-only change. Which effect remains visible in silhouette? Continue with <a href="../Wiki/normals.html">normals</a>, then <a href="../Wiki/uvs.html">UV lookup</a>.</p>
+</main></body></html>

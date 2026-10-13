@@ -1,0 +1,164 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>intro-a4</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/PrepNotes/sources/intro-a4.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/PrepNotes/sources/intro-a4.md<br>Source modified: 2026-10-11T18:29:49.931Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><p><a href="https://www.youtube.com/watch?v=Ue5SyNc1nKg&amp;list=PLKgYiIAqG99cwlb4Y2Pu-cSb_Vw14-t0c&amp;index=9">https://www.youtube.com/watch?v=Ue5SyNc1nKg&amp;list=PLKgYiIAqG99cwlb4Y2Pu-cSb_Vw14-t0c&amp;index=9</a></p>
+<pre><code>from pathlib import Path
+
+from typing import List
+
+  
+
+import unreal
+
+  
+
+destination_path = &quot;/Game/Environment&quot;
+
+source_path = r&quot;D:\Personal Projects\Unreal\TechArtGym\Example_Meshes&quot;
+
+assets_to_import = list(Path(source_path).glob(&quot;*.fbx&quot;))
+
+  
+
+static_mesh_import_data = unreal.FbxStaticMeshImportData()
+
+static_mesh_import_data.combine_meshes = True
+
+static_mesh_import_data.remove_degenerates = True
+
+  
+
+options = unreal.FbxImportUI()
+
+options.import_mesh = True
+
+options.import_textures = True
+
+options.import_materials = True
+
+options.automated_import_should_detect_type = True
+
+options.static_mesh_import_data = static_mesh_import_data
+
+  
+
+tasks = unreal.Array(unreal.AssetImportTask)
+
+  
+
+for input_file_path in assets_to_import:
+
+    task = unreal.AssetImportTask()
+
+    task.automated = True
+
+    task.destination_path = destination_path
+
+    task.destination_name = input_file_path.stem
+
+    task.filename = str(input_file_path)
+
+    task.replace_existing = True
+
+    task.save = True
+
+    task.options = options
+
+  
+
+    tasks.append(task)
+
+  
+
+unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks(tasks)
+
+  
+
+for task in tasks:
+
+    for path in task.imported_objects_paths:
+
+        print(f&quot;Imported: {path}&quot;)
+</code></pre>
+<p>Alternative solution:</p>
+<pre><code>from pathlib import Path
+
+from typing import List
+
+  
+
+import unreal
+
+  
+
+destination_path = &quot;/Game/Environment&quot;
+
+source_path = r&quot;D:\Personal Projects\Unreal\TechArtGym\Example_Meshes&quot;
+
+assets_to_import = list(Path(source_path).glob(&quot;*.fbx&quot;))
+
+  
+
+static_mesh_import_data = unreal.FbxStaticMeshImportData()
+
+static_mesh_import_data.combine_meshes = True
+
+static_mesh_import_data.remove_degenerates = True
+
+  
+
+options = unreal.FbxImportUI()
+
+options.import_mesh = True
+
+options.import_textures = True
+
+options.import_materials = True
+
+options.automated_import_should_detect_type = True
+
+options.static_mesh_import_data = static_mesh_import_data
+
+  
+
+tasks: List[unreal.AssetImportTask] = []
+
+  
+
+for input_file_path in assets_to_import:
+
+    task = unreal.AssetImportTask()
+
+    task.automated = True
+
+    task.destination_path = destination_path
+
+    task.destination_name = input_file_path.stem
+
+    task.filename = str(input_file_path)
+
+    task.replace_existing = True
+
+    task.save = True
+
+    task.options = options
+
+  
+
+    tasks.append(task)
+
+  
+
+unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks(unreal.Array.cast(unreal.AssetImportTask, tasks))
+
+  
+
+for task in tasks:
+
+    for path in task.imported_objects_paths:
+
+        print(f&quot;Imported: {path}&quot;)
+</code></pre>
+<p>Best way to run: 
+exec(open(r&quot;D:\Personal Projects\Unreal\TechArtGym.vscode\batch_fbx_import.py&quot;).read())</p>
+<p>NOTE! Use rglob if nested folders/directories, r=recursive</p>
+<p>SUCCESS!
+![[Pasted image 20260623022543.png]]</p>
+</main></body></html>

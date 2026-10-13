@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>skeletal</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Wiki/content/skeletal.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Wiki/content/skeletal.md<br>Source modified: 2026-09-09T01:39:22.775Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#the-minimum-useful-model">The minimum useful model</a></li><li><a href="#three-inspection-questions">Three inspection questions</a></li><li><a href="#a-small-mathematical-picture">A small mathematical picture</a></li><li><a href="#morph-targets-and-the-lab">Morph targets and the lab</a></li></ul></details><h2 id="the-minimum-useful-model">The minimum useful model</h2>
+<p>Joints form a hierarchy of transforms. Skin weights describe how vertices follow those transforms, and a bind/reference relationship connects the original mesh and joints. Animation changes the pose over time.</p>
+<p>“Weight” means a contribution to deformation, not the physical mass of a bone. Watch the same joint motion with different weights: the skeleton can move identically while the surface bends differently.</p>
+<p>The Autodesk <a href="https://www.youtube.com/watch?v=gJSkEyXkyHE&amp;t=142s">Skin Tools demonstration, starting at 2:22</a>, shows weight editing and deformation testing in Maya 2027. Pair it with the <a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-CharacterAnimation/files/GUID-2ABD18C8-8CCF-44B9-99E0-EDEE4A56A3E6.htm">official quickstart</a>.</p>
+<h2 id="three-inspection-questions">Three inspection questions</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Observation</th>
+<th>Useful distinction</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>The joints move unexpectedly.</td>
+<td>Inspect the pose, hierarchy, and intended motion.</td>
+</tr>
+<tr>
+<td>The joints move correctly but the surface follows poorly.</td>
+<td>Inspect weights, bind relationships, mesh structure, and the deformation method.</td>
+</tr>
+<tr>
+<td>The wrong motion appears or does not play.</td>
+<td>Inspect the animation asset, compatibility, and playback configuration.</td>
+</tr>
+</tbody></table></div>
+<p>A rest pose does not verify a required bend or complete motion loop. The Unreal <a href="https://dev.epicgames.com/documentation/unreal-engine/skeletal-mesh-assets-in-unreal-engine?application_version=5.7">Skeletal Mesh asset guide</a> explains the destination asset context.</p>
+<h2 id="a-small-mathematical-picture">A small mathematical picture</h2>
+<p>For a simplified linear-blend example, let <code>pA</code> and <code>pB</code> be candidate positions for the <strong>same vertex</strong> after the appropriate joint/bind transformations, expressed in the same coordinate frame. With two weights:</p>
+<p><code>p′ = 0.75 pA + 0.25 pB</code></p>
+<p>These candidates are not the positions of the bones. The expression is a teaching model for combining contributions. Different deformation algorithms can produce different artifacts; <a href="https://users.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.html">Kavan et al.&#39;s skinning paper and comparisons</a> provide an advanced continuation.</p>
+<h2 id="morph-targets-and-the-lab">Morph targets and the lab</h2>
+<p>Morph targets provide another form of shape change using corresponding mesh information. Keep that concept distinct from changing the skeleton&#39;s pose.</p>
+<p>Use skeletal museum examples as directed by the instructor&#39;s prepared station list. The current project documentation treats these as display examples; do not assume an available display is also a supported repair task. Full rigging and mathematical derivations return later in the course.</p>
+</main></body></html>

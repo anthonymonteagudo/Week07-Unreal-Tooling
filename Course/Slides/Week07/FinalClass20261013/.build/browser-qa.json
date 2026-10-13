@@ -1,0 +1,88 @@
+[
+  {
+    "name": "index",
+    "overflow": false,
+    "brokenImages": [],
+    "broken": []
+  },
+  {
+    "name": "facilitator",
+    "overflow": false,
+    "brokenImages": [],
+    "broken": []
+  },
+  {
+    "name": "demo",
+    "overflow": false,
+    "brokenImages": [],
+    "broken": []
+  },
+  {
+    "name": "lab1",
+    "overflow": false,
+    "brokenImages": [],
+    "print": {
+      "height": 816,
+      "content": 816
+    },
+    "broken": []
+  },
+  {
+    "name": "reveal",
+    "overflow": false,
+    "brokenImages": [],
+    "broken": []
+  },
+  {
+    "name": "preparation",
+    "overflow": false,
+    "brokenImages": [],
+    "print": {
+      "height": 816,
+      "content": 816
+    },
+    "broken": []
+  },
+  {
+    "name": "peer-sheet",
+    "overflow": false,
+    "brokenImages": [],
+    "print": {
+      "height": 816,
+      "content": 816
+    },
+    "broken": []
+  },
+  {
+    "name": "reflection",
+    "overflow": false,
+    "brokenImages": [],
+    "print": {
+      "height": 816,
+      "content": 816
+    },
+    "broken": []
+  },
+  {
+    "name": "examples",
+    "overflow": false,
+    "brokenImages": [],
+    "broken": []
+  },
+  {
+    "name": "dashboard",
+    "overflow": false,
+    "brokenImages": [],
+    "timerStarted": true,
+    "roundReset": true,
+    "swapCue": true,
+    "endCue": true,
+    "broken": []
+  },
+  {
+    "name": "review",
+    "overflow": false,
+    "brokenImages": [],
+    "broken": []
+  }
+]

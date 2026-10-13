@@ -204,7 +204,15 @@ The student ZIP was also extracted into a separate project and opened in Unreal.
 Its own Python modules loaded, all four placed instances were present, both
 packaged revised FBXs reimported, and the mesh-level color materials survived.
 Native Blender UI registration and offscreen Maya PySide rendering were checked.
-Clicking every control in the interactive host windows remains a manual rehearsal.
+The Blender UI workflow was rehearsed on 13 October 2026: native Publish & Send,
+Edit Mode roof selection with X-ray, a +40 cm Z move, and another Publish & Send.
+Both existing Unreal instances updated from 180 to 220 cm. The original baseline
+scene is unchanged; `Samples/Bridge/BridgeCompare_UI_Rehearsal.blend` holds the
+saved UI edit. This does not establish a complete Maya UI rehearsal.
+See [actual captures, slide proposal and Karol download review](../../../Course/Slides/Week07/BridgeRehearsal20261013/index.html)
+and `UI-Rehearsal/verification.json`. The animated capture is a sequence of actual
+UI stills, not continuous video. The editor/map is left in the revised state;
+publish the baseline first when repeating the demonstration.
 
 Ordinary Python checks from the project root:
 

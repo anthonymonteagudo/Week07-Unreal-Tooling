@@ -1,0 +1,153 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 2: a shorter technical-documentation section</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week02/Review/WEEK2_DOCUMENTATION_CONSOLIDATION.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week02/Review/WEEK2_DOCUMENTATION_CONSOLIDATION.md<br>Source modified: 2026-09-09T01:10:26.597Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><p><strong>Week 2: a shorter technical-documentation section</strong></p>
+<p>Recommendation based on the current lab-aligned deck, slides 112–120 and 128–132, reviewed 8 September 2026. This document proposes replacement content. It does not modify the PowerPoint or establish new grading/submission requirements.</p>
+<p><strong>Replace nine lecture slides with four, taught in roughly six minutes. Keep one lab submission slide.</strong></p>
+<p>The existing section repeatedly states useful principles without showing a completed exhibit record. The repetition continues in the lab briefing. Students encounter reading sources, reading efficiently, testing claims, writing notes, document types, leverage, required fields, a suggested structure, and quality criteria as separate topics.</p>
+<p>Teach one recognizable job instead: <strong>another person can open, explain, verify, and reset your exhibit using the documentation.</strong> Let the examples demonstrate the writing principles. The familiar asset problem supplies the technical context, so the documentation section does not have to teach another material concept.</p>
+<p><strong>Proposed slide sequence</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Slide</th>
+<th>On-slide content</th>
+<th>Visual and delivery</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1. Documentation for your exhibit</strong></td>
+<td>“A visitor needs to know what to observe. A maintainer needs to know how the exhibit works and how to reproduce it.” Closing line: “A useful record lets someone continue without its author.”</td>
+<td>Show a brief visitor caption beside a small excerpt from its maintenance notes. Explain that these can be sections of the same document. Keep diagnosis/solution details out of the visitor prompt when discovery is part of the exhibit.</td>
+<td>45 sec</td>
+</tr>
+<tr>
+<td><strong>2. A documented test</strong></td>
+<td>Three callouts: “Expected result”; “Evidence of a failure”; “Limits of the test.”</td>
+<td>Show selected portions of the Khronos example below. Ask students to identify the detail that lets a reader judge the result. Reveal the relevant caption after their prediction.</td>
+<td>75 sec</td>
+</tr>
+<tr>
+<td><strong>3. An exhibit record</strong></td>
+<td>Use the compact teaching example below, with the identity/header and four short blocks.</td>
+<td>Contrast the one-line weak note with the stronger record. Enlarge the evidence and reset blocks during explanation. Link the full record rather than shrinking a whole document to unreadable text.</td>
+<td>2 min</td>
+</tr>
+<tr>
+<td><strong>4. The handoff check</strong></td>
+<td>“Can a teammate locate the assets, reproduce the comparison, judge the result, and restore the starting state?” Footer: “Record what you verified and what remains uncertain.”</td>
+<td>Give students 45 seconds to identify one missing detail in the weak note. Show how an explicit expected state becomes a candidate Week 3 check. The actual peer handoff can happen during lab work.</td>
+<td>90 sec</td>
+</tr>
+</tbody></table></div>
+<p>Allow approximately 30 seconds for transitions. These are proposed teaching timings. The first three slides establish purpose, show a real example, and model the assignment document. The fourth checks whether students can use the idea.</p>
+<p><strong>What to consolidate in the existing deck</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Existing slides</th>
+<th>Proposed treatment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>112, section divider</td>
+<td>Replace with the first content slide. A separate divider is unnecessary here.</td>
+</tr>
+<tr>
+<td>113–115, reading and testing documentation</td>
+<td>Demonstrate the source-reading habit while showing the real example. Keep “check version and scope, then test the relevant claim” in notes or a study reference.</td>
+</tr>
+<tr>
+<td>116–117, writing and document types</td>
+<td>Replace with the worked record. Keep bug report / troubleshooting guide / standard distinctions as optional reference. Students need to produce a useful exhibit handoff before they need a taxonomy.</td>
+</tr>
+<tr>
+<td>118, documentation leverage</td>
+<td>Fold into the existing Week 3 bridge at 134. Avoid teaching the same repair/standard/tool progression twice.</td>
+</tr>
+<tr>
+<td>119–120, Sue Nichols / art-style guidance</td>
+<td>Remove the separate biographical setup from the live documentation section. Retain the annotated image on 120 as an optional 20–30-second example of a visual standard, or use it earlier with artistic intent.</td>
+</tr>
+<tr>
+<td>128–132, output / ownership / requirements / structure / quality</td>
+<td>Consolidate into one submission slide, linked to the same starter structure used in the worked example. Move group ownership to the existing group briefing.</td>
+</tr>
+<tr>
+<td>126, blocked repair</td>
+<td>Preserve the principle. A clearly supported diagnosis and next test remain useful even when the repair is incomplete. Include this as a short line on the submission slide.</td>
+</tr>
+</tbody></table></div>
+<p>This reduces these two documentation blocks from 14 slides to five live slides. It does not require deleting the old material from the study resources.</p>
+<p><strong>Real examples to show</strong></p>
+<p><strong>Primary example: <a href="https://github.com/KhronosGroup/glTF-Sample-Assets/blob/main/Models/AlphaBlendModeTest/README.md">Khronos AlphaBlendModeTest</a>.</strong> The associated asset is already in the project’s candidate library. Use the successful Opaque/Blend illustration, one failure example, and the note identifying a mipmapping limitation. The page makes a test’s intended result and boundaries visible. It documents glTF behavior, so do not present its defaults or screenshots as UE-specific behavior.</p>
+<p>Expected state from the source:</p>
+<p><img src="../Slides/Week02/Review/DocumentationExamples/OpaqueVsBlend.jpg" alt="Expected Opaque and Blend results from Khronos AlphaBlendModeTest"></p>
+<p>Representative failure from the source:</p>
+<p><img src="../Slides/Week02/Review/DocumentationExamples/OpaqueFail.jpg" alt="Representative failure when the opaque specimen incorrectly uses alpha blending"></p>
+<p>Images: Ed Mackey / Analytical Graphics, Inc., 2018, Khronos glTF Sample Assets, CC BY 4.0. Original images, unmodified. These are expected/failure illustrations, not evidence of a repair performed in the course project. <a href="https://github.com/KhronosGroup/glTF-Sample-Assets/blob/main/Models/AlphaBlendModeTest/README.md">Source and attribution</a>.</p>
+<p>The teaching question is: “Which part of this document would help you decide whether your own result is correct?” This focuses attention on the document’s usefulness rather than its visual polish.</p>
+<p><strong>UE procedure example: <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/using-transparency-in-unreal-engine-materials?application_version=5.7">Epic, Using Transparency in Materials</a>.</strong> Show only the sequence around selecting the Blend Mode, connecting the relevant input, and checking the result. Point out that an actionable procedure names the application, setting, and action. Keep the long tutorial linked as a reference, not a size target for student submissions.</p>
+<p><strong>Existing art example: slide 120.</strong> The page already contains labeled shape tendencies, contrasting examples, and visible annotations. Ask students which marks tell an artist what to preserve. This retains the important point that documentation can protect visual intent. It need not look like an API manual. The historical attribution should remain with the existing source material when the slide is reused.</p>
+<p>An additional instructor reference is <a href="https://developers.google.com/style/procedures">Google’s guidance on procedures</a>: establish where an action happens, give steps in the order readers need, and pair actions with useful expected results. Model those habits in the example rather than adding another writing-rules slide.</p>
+<p><strong>Compact worked example for slide 3</strong></p>
+<p>The following is a <strong>constructed teaching case</strong>, inspired by the EX29 material-side UV mirror. Its asset names, settings, and outcomes are illustrative. It is not a claim about the current EX29 runtime graph or a completed project test. In class, replace it with the record from the demonstrated repair when that evidence is available.</p>
+<p>Weak note:</p>
+<blockquote>
+<p>The texture was backwards. I flipped it and it works now.</p>
+</blockquote>
+<p>Stronger record:</p>
+<blockquote>
+<p><strong>UV Mirror demonstration</strong><br>Teaching scene: <code>L_Doc_UV</code> · UE 5.7 · Owner: example student<br>Panel: <code>SM_DocPanel</code> · Materials: <code>M_Doc_Reference</code>, <code>M_Doc_Mirror</code></p>
+<p><strong>Purpose and observation</strong><br>Compare the labeled panels from the marked front view. Both use the same mesh and image. Only the demonstration panel reads backward.</p>
+<p><strong>Cause and change</strong><br>Its material changes U to <code>1 − U</code> before sampling. Bypassing that operation restores the label’s orientation. The image and Maya UVs remain unchanged.</p>
+<p><strong>Verification</strong><br>Repeat the front-view comparison. Confirm readable text and unchanged pattern size. The example’s successful result requires both the visual comparison and the material connection to agree.</p>
+<p><strong>Reset and limits</strong><br>Restore the U-inversion connection to reproduce the mirrored state. This demonstration covers material sampling, not missing source UVs. Test again after changing the parent material or mesh UV layout.</p>
+</blockquote>
+<p>For the actual submitted record, link the full project/asset paths and the relevant source revision. Attach a labeled comparison and the inspected setting or connection. Record the tested software/project version, date, and actual outcome. The short example demonstrates the writing, but its illustrative outcomes and missing project evidence must not be mistaken for a verified submission.</p>
+<p>Make the difference between the two notes explicit: the stronger one identifies the responsible relationship, a repeatable action, evidence criteria, and a reset. It explains why the change affects the result. The weak note leaves the next person to rediscover all of that.</p>
+<p><strong>A starter structure that supports both lab and assignment</strong></p>
+<p>Use one concise main record with linked evidence. Length should follow the complexity of the dependencies, not a word-count target.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Questions it answers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Identity and purpose</strong></td>
+<td>Which exhibit, map, assets, source files, and revision? Who maintains it? What should it teach, and why does that behavior matter?</td>
+</tr>
+<tr>
+<td><strong>Starting state and comparison</strong></td>
+<td>How does someone open and reproduce it? What should the visitor observe? What stays fixed, and what varies?</td>
+</tr>
+<tr>
+<td><strong>Explanation and evidence</strong></td>
+<td>Which data or setting causes the behavior? Where is it authored? What supports the explanation? Include the repair if this is a fault investigation.</td>
+</tr>
+<tr>
+<td><strong>Verification and maintenance</strong></td>
+<td>What did you actually test, with what result? How do you reset it? What requires rechecking after a source edit/reimport? What remains uncertain?</td>
+</tr>
+<tr>
+<td><strong>References</strong></td>
+<td>Where did the assets or technical explanation come from? Link the relevant source and attribution.</td>
+</tr>
+</tbody></table></div>
+<p>The lab fills this record through an investigation. The exhibit assignment uses it to explain and maintain a deliberately constructed demonstration. For a comparison of valid artistic choices, describe the behavior or tradeoff without labeling one choice a defect. Any formal assignment requirement for a controlled fault still belongs in the definitive assignment brief.</p>
+<p>Keep a short visitor-facing prompt at the beginning. Put the technical explanation and solution in the maintenance portion when the exhibit asks visitors to investigate first. This is an organization suggestion, not a request for additional separate deliverables.</p>
+<p><strong>Replacement lab submission slide</strong></p>
+<p>Title: <strong>Lab 2 investigation record</strong></p>
+<p>Body:</p>
+<ul>
+<li>One shared Google Doc per group, with an entry for each attempted exhibit.</li>
+<li>Identify the exhibit and reproduce the comparison.</li>
+<li>Explain the diagnosis and action with evidence.</li>
+<li>Record verification, remaining uncertainty, and the next useful step.</li>
+</ul>
+<p>Footer: “Use the worked-example structure. An incomplete repair can still leave a useful investigation.”</p>
+<p>This retains the current deck’s shared-document format and support for blocked investigations. Place the document/template link here once. Put the original-exhibit assignment’s actual submission instructions on its assignment slide or definitive brief.</p>
+<p><strong>Week 3 connection</strong></p>
+<p>Use one line at the end: “An expected state that we can inspect becomes a candidate for an automated check.” Then ask which part of the record requires artistic judgment and which part a script can query. A Python report can check a declared UV channel or texture interpretation. It cannot infer the intended appearance merely because an asset looks unusual.</p>
+<p>The success criterion for this section is observable: a student can identify what is missing from a vague note and improve it enough for another person to reproduce the exhibit. A list of writing virtues does not establish that skill.</p>
+</main></body></html>

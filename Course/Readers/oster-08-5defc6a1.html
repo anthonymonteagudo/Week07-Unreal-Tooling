@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>oster-08</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/PrepNotes/sources/oster-08.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/PrepNotes/sources/oster-08.md<br>Source modified: 2026-10-11T18:29:49.856Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><p>Part 1:</p>
+<pre><code>def returnMaterialInformationSMC():
+
+    levelActors = unreal.EditorActorSubsystem().get_all_level_actors()
+
+  
+
+    for levelActor in levelActors:
+
+        if (levelActor.get_class().get_name()) == &#39;StaticMeshActor&#39;:
+
+            staticMeshComponent = levelActor.static_mesh_component
+
+  
+
+            print (levelActor.get_name())
+
+            materials = staticMeshComponent.get_materials()
+
+            for material in materials:
+
+                print (material.get_name())
+
+                try:
+
+                    for item in material.texture_parameter_values: print (item)
+
+                except:
+
+                    pass
+
+                print (&#39;___&#39;)
+</code></pre>
+<p>Part 2:</p>
+<pre><code>def returnMaterialInformationSMC():
+
+    levelActors = unreal.EditorActorSubsystem().get_all_level_actors()
+
+  
+
+    testMat = unreal.EditorAssetLibrary.find_asset_data(&#39;/Game/python/MI_test&#39;).get_asset()
+
+  
+
+    for levelActor in levelActors:
+
+        if (levelActor.get_class().get_name()) == &#39;StaticMeshActor&#39;:
+
+            staticMeshComponent = levelActor.static_mesh_component
+
+  
+
+            for i in range(staticMeshComponent.get_num_materials()):
+
+                staticMeshComponent.set_material(i, testMat)
+</code></pre>
+</main></body></html>

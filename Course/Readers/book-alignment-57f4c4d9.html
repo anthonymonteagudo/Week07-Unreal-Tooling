@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jettelly book alignment for Week 5</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week05/Review/BOOK_ALIGNMENT.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week05/Review/BOOK_ALIGNMENT.md<br>Source modified: 2026-09-27T15:43:38.259Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#jettelly-book-alignment-for-week-5">Jettelly book alignment for Week 5</a></li><li><a href="#chapter-and-slide-map">Chapter and slide map</a></li><li><a href="#what-the-book-changes-in-the-review">What the book changes in the review</a></li><li><a href="#instructor-clarifications-before-adapting-examples">Instructor clarifications before adapting examples</a></li><li><a href="#suggested-reading-selections">Suggested reading selections</a></li><li><a href="#direct-source-page-links">Direct source-page links</a></li></ul></details><h1 id="jettelly-book-alignment-for-week-5">Jettelly book alignment for Week 5</h1>
+<p>Revision 3. Source: Fabrizio Espindola, Visualizing Equations: Essential Math for Game Devs, Vol. 1, v0.0.8. The supplied PDF contains 137 pages. Relevant printed page numbers match one-based PDF positions. The source remains in its original location; links below open that copy.</p>
+<h2 id="chapter-and-slide-map">Chapter and slide map</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Book pages</th>
+<th>Content inspected</th>
+<th>Week 5 destination</th>
+<th>Teaching use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>11–17; selected tool pages 24–40</td>
+<td>Dot definition, normalized directions from a shared point, interactive values and labels</td>
+<td>29–29D</td>
+<td>Make the origin explicit; distinguish scalar dot, angle interpretation, and vector projection.</td>
+</tr>
+<tr>
+<td>43–48; selected tool pages 50–66</td>
+<td>Cross geometry, matrix alternative, interactive handles, reset and undo</td>
+<td>30–30C; connection at 32A</td>
+<td>Observe input order, area, and near-parallel behavior.</td>
+</tr>
+<tr>
+<td>69–78; selected tool pages 79–94</td>
+<td>Scalar/vector quaternion form, axis-angle construction, conjugation, rotation of cube vertices</td>
+<td>33D–33E and 33H</td>
+<td>Connect an angle and axis to visible rotation; label component order and mark an asymmetric feature.</td>
+</tr>
+<tr>
+<td>97–106; selected tool pages 107–123</td>
+<td>2D matrix multiplication, 3D rotation matrices, Euler composition, gimbal rings and arrow</td>
+<td>32A/32E, 33A–33C and 33H</td>
+<td>Relate transformed points to matrices, then compare ordered rotations and singular configurations.</td>
+</tr>
+<tr>
+<td>52–56 and 60–64</td>
+<td>Reusable editor support, reset, interaction and undo</td>
+<td>27 and 34A</td>
+<td>Prepare the framework before class; students extend one calculation and display.</td>
+</tr>
+</tbody></table></div>
+<h2 id="what-the-book-changes-in-the-review">What the book changes in the review</h2>
+<p>The dot demo can now use a concrete book-inspired arrangement: two endpoints and a shared reference point C. Display A−C and B−C, then their normalized dot. This is a different experiment from the earlier A-to-B displacement tool. Move the reference point as well as the endpoints and ask students to explain the changed directions.</p>
+<p>The rotation comparison can use the same marked wireframe object for matrix and quaternion results. The book&#39;s cube is useful, but add a marked vertex or directional pointer so cube symmetry does not hide a change. The gimbal reference on p. 123 provides an actual example of rings, an orientation arrow, and angle controls. These are source references for preparing project captures, not claims that our project already implements them.</p>
+<p>Keep the full planned hierarchy, coordinate-space, and interpolation lesson. The supplied volume focuses on its four visualization tools. A text search for interpolation finds a passing mention on p. 74 and a glossary reference on p. 130; the inspected chapter sequence does not provide a worked lerp/slerp lesson. The live interpolation material remains supported by the instructor outline and separate references. The guided projection exercise is an original adaptation, not a copied book exercise.</p>
+<h2 id="instructor-clarifications-before-adapting-examples">Instructor clarifications before adapting examples</h2>
+<ol>
+<li><strong>Dot and facing (pp. 14–17):</strong> dot returns a scalar. With a unit projection axis it gives signed projection length; a projected vector needs a further multiplication by that axis. For normalized directions, ±1 means aligned/opposed, while positive/negative separates hemispheres relative to a chosen forward direction. Above/below is a different axis relationship.</li>
+<li><strong>Quaternion representation (pp. 75–77):</strong> the constructor uses vector components followed by the scalar, while the worked tuple labels the scalar first. Both orderings can be valid; label them and do not copy numeric positions between them blindly. A point encoded as a pure quaternion for rotation has scalar part zero; that is distinct from affine homogeneous coordinates where a point uses w=1.</li>
+<li><strong>Conjugate versus inverse (pp. 73–76, 90–93):</strong> conjugation equals inversion for a unit rotation quaternion. Validate or normalize the rotation quaternion as appropriate. A zero rotation axis needs a deliberate response.</li>
+<li><strong>Y-rotation discrepancy (pp. 104 and 109):</strong> the printed matrix uses +sin at row 1, column 3 and −sin at row 3, column 1. The later GetPitch listing reverses those signs. Under the same column-vector convention these perform opposite rotations. This was checked in rendered pages, not inferred from missing extracted symbols. At +90°, applying the printed matrix to +X gives −Z; the later listing gives +Z. Choose a convention and test it explicitly before adaptation.</li>
+<li><strong>Angle units (pp. 94, 98–99):</strong> the hand-built sine/cosine calculations here require radians. This is a property of the calculation/API, not a universal rule that every quaternion or matrix API accepts radians. Keep the degree/radian conversion visible at the input boundary.</li>
+<li><strong>Matrix types (p. 103):</strong> the use of a 4×4 container for a 2D example reflects a library/type choice. It does not mean C# cannot represent 2×2 matrices. Explain the mathematical shape independently of its storage type.</li>
+</ol>
+<p>These clarifications guide teaching and adaptation; this review does not certify the complete book code. The stated numerical cases in the expanded review remain the verification baseline.</p>
+<h2 id="suggested-reading-selections">Suggested reading selections</h2>
+<ul>
+<li>First review: pp. 13–17 for dot and pp. 43–45 for cross, accompanied by the clarifications above.</li>
+<li>Rotation review: pp. 74–78 for axis-angle/quaternion rotation and pp. 97–105 for matrices and Euler angles.</li>
+<li>Tool-building study: pp. 52–64 for reusable interaction support, pp. 78–94 for the quaternion visualizer, and pp. 106–123 for the Euler/gimbal visualizer.</li>
+<li>Interpolation: the instructor&#39;s 33F–33H examples and the separately linked lerp/slerp references.</li>
+</ul>
+<p>These are instructor review recommendations, not a change to the confirmed no-new-assignment policy.</p>
+<h2 id="direct-source-page-links">Direct source-page links</h2>
+<ul>
+<li><a href="../../../../../OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/Books/ENG_Visualizing_Equations_Essential_Math_For_Game_Devs_Vol1_v0.0.8_DIGITAL.pdf#page=6">Page 6: Contents</a></li>
+<li><a href="../../../../../OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/Books/ENG_Visualizing_Equations_Essential_Math_For_Game_Devs_Vol1_v0.0.8_DIGITAL.pdf#page=13">Page 13: Dot definition</a></li>
+<li><a href="../../../../../OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/Books/ENG_Visualizing_Equations_Essential_Math_For_Game_Devs_Vol1_v0.0.8_DIGITAL.pdf#page=16">Page 16: Shared-origin unit directions</a></li>
+<li><a href="../../../../../OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/Books/ENG_Visualizing_Equations_Essential_Math_For_Game_Devs_Vol1_v0.0.8_DIGITAL.pdf#page=43">Page 43: Cross definition</a></li>
+<li><a href="../../../../../OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/Books/ENG_Visualizing_Equations_Essential_Math_For_Game_Devs_Vol1_v0.0.8_DIGITAL.pdf#page=56">Page 56: Reset control</a></li>
+<li><a href="../../../../../OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/Books/ENG_Visualizing_Equations_Essential_Math_For_Game_Devs_Vol1_v0.0.8_DIGITAL.pdf#page=64">Page 64: Undo and event cleanup</a></li>
+<li><a href="../../../../../OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/Books/ENG_Visualizing_Equations_Essential_Math_For_Game_Devs_Vol1_v0.0.8_DIGITAL.pdf#page=75">Page 75: Axis-angle quaternion construction</a></li>
+<li><a href="../../../../../OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/Books/ENG_Visualizing_Equations_Essential_Math_For_Game_Devs_Vol1_v0.0.8_DIGITAL.pdf#page=77">Page 77: Scalar-first worked tuple</a></li>
+<li><a href="../../../../../OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/Books/ENG_Visualizing_Equations_Essential_Math_For_Game_Devs_Vol1_v0.0.8_DIGITAL.pdf#page=94">Page 94: Quaternion cube result</a></li>
+<li><a href="../../../../../OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/Books/ENG_Visualizing_Equations_Essential_Math_For_Game_Devs_Vol1_v0.0.8_DIGITAL.pdf#page=104">Page 104: Printed rotation matrices</a></li>
+<li><a href="../../../../../OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/Books/ENG_Visualizing_Equations_Essential_Math_For_Game_Devs_Vol1_v0.0.8_DIGITAL.pdf#page=109">Page 109: Y-rotation code</a></li>
+<li><a href="../../../../../OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/Books/ENG_Visualizing_Equations_Essential_Math_For_Game_Devs_Vol1_v0.0.8_DIGITAL.pdf#page=123">Page 123: Completed Euler/gimbal visualization</a></li>
+</ul>
+</main></body></html>

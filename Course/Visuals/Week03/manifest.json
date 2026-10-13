@@ -1,0 +1,235 @@
+[
+  {
+    "id": "list-positions",
+    "slide": 15,
+    "title": "A list keeps an order",
+    "caption": "Python starts list indexing at 0.",
+    "notes": "Read across the list in order. The number above each value is its position, not part of the stored name. Point to index zero and predict assets[0]. The loop on the next slide visits the values in this same order.",
+    "sources": [
+      "python-data"
+    ],
+    "method": "Original course schematic with editable SVG masters and transparent PNG exports",
+    "dimensions": [
+      2560,
+      1040
+    ],
+    "font": "Arial fallback",
+    "rights": "Original course diagrams. No third-party image artwork copied.",
+    "variants": [
+      "dark",
+      "light"
+    ]
+  },
+  {
+    "id": "function-return",
+    "slide": 22,
+    "title": "A function returns a result",
+    "caption": "Step 04 uses an absolute margin of 1.0 density unit.",
+    "notes": "The arguments enter this call. Inside, subtract the measured and approved values and take the absolute difference. Compare that difference with the margin. The function returns True to the caller. It does not print the result or repair a scene.",
+    "sources": [
+      "python-flow"
+    ],
+    "method": "Original course schematic with editable SVG masters and transparent PNG exports",
+    "dimensions": [
+      2560,
+      1040
+    ],
+    "font": "Arial fallback",
+    "rights": "Original course diagrams. No third-party image artwork copied.",
+    "variants": [
+      "dark",
+      "light"
+    ]
+  },
+  {
+    "id": "qt-click-route",
+    "slide": 32,
+    "title": "A click runs connected code",
+    "caption": "Signal \u00e2\u2020\u2019 connected callback \u00e2\u2020\u2019 visible feedback",
+    "notes": "Follow the event rather than reading the whole application at once. The button emits clicked. The connection passes that event to our Python function. The function changes the label. This is the small, same-thread course example. Signals can support more complex connections, which the Qt source covers separately.",
+    "sources": [
+      "qt-signals"
+    ],
+    "method": "Original course schematic with editable SVG masters and transparent PNG exports",
+    "dimensions": [
+      2560,
+      1040
+    ],
+    "font": "Arial fallback",
+    "rights": "Original course diagrams. No third-party image artwork copied.",
+    "variants": [
+      "dark",
+      "light"
+    ]
+  },
+  {
+    "id": "module-responsibilities",
+    "slide": 41,
+    "title": "Three files, three responsibilities",
+    "caption": "The operations return data. The UI chooses how to display it.",
+    "notes": "Open the three actual Step 08 filenames in the Explorer. The entry point creates the window. After a click, the UI calls assess_assets in the operations module. The returned list of result dictionaries goes back to the UI for display. The short labels here stand for the full filenames shown in the surrounding walkthrough.",
+    "sources": [
+      "qt-signals"
+    ],
+    "method": "Original course schematic with editable SVG masters and transparent PNG exports",
+    "dimensions": [
+      2560,
+      1040
+    ],
+    "font": "Arial fallback",
+    "rights": "Original course diagrams. No third-party image artwork copied.",
+    "variants": [
+      "dark",
+      "light"
+    ]
+  },
+  {
+    "id": "rule-roles",
+    "slide": 50,
+    "title": "The rules answer different questions",
+    "caption": "The five-file asset plan controls this exercise\u00e2\u20ac\u2122s moves.",
+    "notes": "Do not treat these three files as interchangeable. Structure names the required folders. Naming describes acceptable names and extensions. The asset plan provides the exact source and destination pairs for this supplied exercise. JSON itself does not rename anything. The course operation reads and interprets this data.",
+    "sources": [
+      "python-json"
+    ],
+    "method": "Original course schematic with editable SVG masters and transparent PNG exports",
+    "dimensions": [
+      2560,
+      1040
+    ],
+    "font": "Arial fallback",
+    "rights": "Original course diagrams. No third-party image artwork copied.",
+    "variants": [
+      "dark",
+      "light"
+    ]
+  },
+  {
+    "id": "file-move",
+    "slide": 56,
+    "title": "One planned asset move",
+    "caption": "One real entry from the supplied asset_plan.json",
+    "notes": "Point to the current relative path and its exact planned destination. Meshes is a folder, while SM_TexelDensity_Box_Large.fbx is the resulting filename. The line break in this diagram is only for display. The tool previews the move before confirmation. Its file operation does not repair geometry or UVs.",
+    "sources": [
+      "python-path"
+    ],
+    "method": "Original course schematic with editable SVG masters and transparent PNG exports",
+    "dimensions": [
+      2560,
+      1040
+    ],
+    "font": "Arial fallback",
+    "rights": "Original course diagrams. No third-party image artwork copied.",
+    "variants": [
+      "dark",
+      "light"
+    ]
+  },
+  {
+    "id": "maya-node-roles",
+    "slide": 70,
+    "title": "Transform, shape, and history",
+    "caption": "polyCube returns the transform and history node. Query the shape separately.",
+    "notes": "The downward relationship on the left is DAG parenthood. The transform is the parent of the mesh shape. The history node on the right contributes construction data to the shape through a dependency connection. These arrows mean different things. The two names returned by polyCube are the transform and construction-history node, so use listRelatives(shapes=True) to query the mesh shape.",
+    "sources": [
+      "maya-shape",
+      "maya-cube"
+    ],
+    "method": "Original course schematic with editable SVG masters and transparent PNG exports",
+    "dimensions": [
+      2560,
+      1040
+    ],
+    "font": "Arial fallback",
+    "rights": "Original course diagrams. No third-party image artwork copied.",
+    "variants": [
+      "dark",
+      "light"
+    ]
+  },
+  {
+    "id": "undo-chunk",
+    "slide": 74,
+    "title": "Several commands, one Undo",
+    "caption": "finally closes the chunk even when the operation raises an error.",
+    "notes": "The opening call begins a group of undoable scene commands. The closing call ends it. One later Undo reverses the group. The next slide shows finally so the close call still runs on an exception. Closing a chunk is cleanup, not automatic rollback. Run the actual Step 06 example and inspect all three changed attributes before Undo.",
+    "sources": [
+      "maya-undo",
+      "python-errors"
+    ],
+    "method": "Original course schematic with editable SVG masters and transparent PNG exports",
+    "dimensions": [
+      2560,
+      1040
+    ],
+    "font": "Arial fallback",
+    "rights": "Original course diagrams. No third-party image artwork copied.",
+    "variants": [
+      "dark",
+      "light"
+    ]
+  },
+  {
+    "id": "uv-scale",
+    "slide": 86,
+    "title": "UV scale changes sampled coverage",
+    "caption": "Illustrative UV square: 2\u00c3\u2014 side length gives 4\u00c3\u2014 UV area and 2\u00c3\u2014 density.",
+    "notes": "This square is a schematic, not the exhibit UV layout. Hold world area and texture resolution fixed. Doubling both UV dimensions quadruples UV area. The square root in the density formula turns that fourfold area ratio into twice the linear pixel density. The course scale is target density divided by current density. Autodesk documents the UV scale controls, while this relationship follows from the supplied density_math.py formula.",
+    "sources": [
+      "maya-uv"
+    ],
+    "method": "Original course schematic with editable SVG masters and transparent PNG exports",
+    "dimensions": [
+      2560,
+      1040
+    ],
+    "font": "Arial fallback",
+    "rights": "Original course diagrams. No third-party image artwork copied.",
+    "variants": [
+      "dark",
+      "light"
+    ]
+  },
+  {
+    "id": "loop-route",
+    "slide": 16,
+    "title": "A loop processes every item",
+    "caption": "The body runs for the final item too. Then the loop finishes.",
+    "notes": "This adapts the flowchart idea from original slide 159. Ask whether another item is available. If yes, bind it to asset_name and execute the body. Then ask again. Only when there is no next item does normal execution continue after the loop. Unlike the old last-item wording, this includes the final item. Read the exact for statement on the next slide.",
+    "sources": [
+      "python-flow"
+    ],
+    "method": "Original course schematic with editable SVG masters and transparent PNG exports",
+    "dimensions": [
+      2560,
+      1040
+    ],
+    "font": "Arial fallback",
+    "rights": "Original course diagrams. No third-party image artwork copied.",
+    "variants": [
+      "dark",
+      "light"
+    ]
+  },
+  {
+    "id": "condition-branch",
+    "slide": 20,
+    "title": "A condition selects one branch",
+    "caption": "Exactly one report runs for this if/else decision.",
+    "notes": "The original if/else picture on slide 151 provided a useful branching idea, but its braces are not Python syntax. This course diagram uses the actual Step 03 comparison. Follow True to FIX and False to PASS. The editable code remains beside the diagram in the slide. No repair occurs in this example.",
+    "sources": [
+      "python-flow"
+    ],
+    "method": "Original course schematic with editable SVG masters and transparent PNG exports",
+    "dimensions": [
+      1280,
+      1040
+    ],
+    "font": "Arial fallback",
+    "rights": "Original course diagrams. No third-party image artwork copied.",
+    "variants": [
+      "dark",
+      "light"
+    ]
+  }
+]

@@ -1,0 +1,548 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Maya Embedded Language (MEL) — Lecture Summary</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/PrepNotes/sources/udemy-scripting.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/PrepNotes/sources/udemy-scripting.md<br>Source modified: 2026-10-11T18:29:49.963Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#maya-embedded-language-mel-lecture-summary">Maya Embedded Language (MEL) — Lecture Summary</a></li><li><a href="#overview">Overview</a></li><li><a href="#what-is-mel">What Is MEL?</a></li><li><a href="#what-can-be-done-with-mel">What Can Be Done with MEL?</a></li><li><a href="#mel-vs-python">MEL vs. Python</a></li><li><a href="#code-example-discussed">Code Example Discussed</a></li><li><a href="#learning-resources">Learning Resources</a></li><li><a href="#key-takeaway">Key Takeaway</a></li><li><a href="#practical-advice-for-technical-artists">Practical Advice for Technical Artists</a></li><li><a href="#summary">Summary</a></li><li><a href="#practical-scripting-examples-for-technical-artists-lecture-summary">Practical Scripting Examples for Technical Artists — Lecture Summary</a></li><li><a href="#overview-2">Overview</a></li><li><a href="#main-lecture-goal">Main Lecture Goal</a></li><li><a href="#example-1-reading-performance-data-from-xml">Example 1 — Reading Performance Data from XML</a></li><li><a href="#purpose">Purpose</a></li><li><a href="#possible-real-world-uses">Possible Real-World Uses</a></li><li><a href="#technical-art-value">Technical Art Value</a></li><li><a href="#example-2-3ds-max-to-substance-painter-bridge">Example 2 — 3ds Max to Substance Painter Bridge</a></li><li><a href="#purpose-2">Purpose</a></li><li><a href="#possible-real-world-uses-2">Possible Real-World Uses</a></li><li><a href="#technical-art-value-2">Technical Art Value</a></li><li><a href="#example-3-batch-file-renaming-with-python">Example 3 — Batch File Renaming with Python</a></li><li><a href="#purpose-3">Purpose</a></li><li><a href="#possible-real-world-uses-3">Possible Real-World Uses</a></li><li><a href="#technical-art-value-3">Technical Art Value</a></li><li><a href="#example-4-substance-painter-texture-set-validator">Example 4 — Substance Painter Texture Set Validator</a></li><li><a href="#purpose-4">Purpose</a></li><li><a href="#expanded-example">Expanded Example</a></li><li><a href="#possible-real-world-uses-4">Possible Real-World Uses</a></li><li><a href="#technical-art-value-4">Technical Art Value</a></li><li><a href="#example-5-maya-skeleton-automation-with-mel">Example 5 — Maya Skeleton Automation with MEL</a></li><li><a href="#purpose-5">Purpose</a></li><li><a href="#possible-real-world-uses-5">Possible Real-World Uses</a></li><li><a href="#technical-art-value-5">Technical Art Value</a></li><li><a href="#recommended-python-libraries-for-technical-artists">Recommended Python Libraries for Technical Artists</a></li><li><a href="#pyside-pyqt">PySide / PyQt</a></li><li><a href="#uses">Uses</a></li><li><a href="#technical-art-value-6">Technical Art Value</a></li><li><a href="#numpy">NumPy</a></li><li><a href="#uses-2">Uses</a></li><li><a href="#technical-art-value-7">Technical Art Value</a></li><li><a href="#matplotlib">Matplotlib</a></li><li><a href="#uses-3">Uses</a></li><li><a href="#technical-art-value-8">Technical Art Value</a></li><li><a href="#opencv">OpenCV</a></li><li><a href="#uses-4">Uses</a></li><li><a href="#technical-art-value-9">Technical Art Value</a></li><li><a href="#dcc-specific-scripting-apis">DCC-Specific Scripting APIs</a></li><li><a href="#key-takeaways">Key Takeaways</a></li><li><a href="#practical-advice-for-technical-artists-2">Practical Advice for Technical Artists</a></li><li><a href="#summary-2">Summary</a></li></ul></details><p>Minimal Valuable Python Scripting Knowledge (for Tech Artist)
+	1. Data Types
+	2. Conditions and Loops
+	3. Functions
+	4. Imports
+	5. Files Scrapping</p>
+<p>Basic Data Types
+	Integers, Floats
+		my_int = 1
+		my_float = 2.5
+	Strings
+		my_string = &quot;Victory&quot;
+	Lists
+		my_list = [&quot;Slava&quot;, &quot;Olya&quot;, &quot;Andrii&quot;]
+	Dictionaries
+		my_dictionary = {&quot;player&quot;: &quot;vmakhynko&quot;, &quot;score&quot;: 15}</p>
+<p>Conditions and Loops
+	If-Elif-Else
+		temperature = 25
+		if temperature &gt; 30:
+			weather_condition = &quot;Hot day!&quot;
+		elif temperature &gt; 20:
+			weather_condition = &quot;Nice weather.&quot;
+		else:
+			weather_condition = &quot;Cool day.&quot;
+	For Loops
+		fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;]
+		for fruit in fruits:
+			print(&quot;I have a &quot;, fruit)
+	While Loops
+		counter = 1
+		while counter &lt;= 5:
+			print(&quot;counting&quot;, counter)
+			counter += 1</p>
+<p>Functions
+	Overview: The building blocks of structured code wherein you can reuse those blocks in various places and needs.
+	Parameters
+		Information the function accepts. They are like settings that help your function do the job the way you want.
+		def greet(name):
+			print(&quot;Hello, &quot; + name + &quot;!&quot;)
+	Arguments
+		When you use or call a function, you provide it with some information. The actual values or data that the function will work with based on the parameters you set.
+		greet(&quot;Alice&quot;)
+	Return
+		Functions also give back information after doing their job. It is like getting the results from the function to use it in your script further on.
+		def multiply(a, b)
+			result = a * b
+			return result
+	Scopes
+		Two types of scopes: global and local. To understand them, understand them you can think of your program like a big house... Global scope is like stuff everyone in the house can use; Local scope is like stuff that only belongs to a specific room and cannot be used by other rooms.
+		
+		global_variable = 10
+		def update_global():
+			global global_variable
+			global_variable += 5
+			local_variable = 15
+			print(&quot;Inside the function - Global variable:&quot;, global_variable)
+			print(&quot;Inside the function - Local variable:&quot;, local_variable)
+	
+	Calling the Function
+		update_global()</p>
+<p>Importing
+	Think of importing as adding special tools to your script, making it more powerful and versatile. 
+		You can import an entire module - like bringing a complete toolbox.
+		You can use importing with an alias - which is like giving a nickname to your toolbox for easier use
+		You can import just specific functions from the module - like grabbing just the tools you need for the particular job from the whole toolbox.
+		
+	// Importing the entire os module
+	import os
+	
+	// Using function from the os module
+	current_directory = os.getcwd()
+	print(&quot;Current Directory: &quot;, current_directory)
+	
+	// Importing the os module with an alias
+	import os as operating_system
+	
+	// Using the alias to call functions
+	home_directory = operating_system.path.expanduser(&quot;~&quot;)
+	print(&quot;Home Directory:&quot;, home_directory)
+	
+	// Importing specific functions from the os module
+	from os import listdir
+	
+	// Using the imported functions directly
+	files_in_directory = listdir(current_directory)
+	print(&quot;Files in Current Directory Directory:&quot;, files_in_directory)</p>
+<p>Working with Files
+	Synopsis: Core aspect of automation in this area
+	1. OS lib
+		Super useful pack of functions to work with files. 
+			For example, to check if a file exists before trying to access it, or to build a dynamic path which is required for handling diverse data sets or files located in different folders.
+	2. Read/Write file
+		Mastering file input and output operations allows you to handle tasks like configuration management, logging, and data manipulations.
+	3. .xml / .json parsing
+	
+	import os
+	import json
+	import xml.etree.ElementTree as ET
+	
+	// Working with the os module
+	file_path = &quot;example.txt&quot;
+	
+	// Check if a file exists
+	if os.path.exists(file_path):
+		print(f&quot;The file {file_path} exists.&quot;)
+	else:
+		print(f&quot;The file {file_path} does not exist.&quot;)
+		
+	// List all files in the directory
+	files_in_directory = os.listdir(os.getcwd())
+	print(&quot;Files in Current Directory:&quot;, files_in_directory)
+	
+	// Reading and writing to a file
+	// Writing to a file
+	with open(&quot;example.txt&quot;, &quot;r&quot;) as file:
+		content = file.read()
+		print(&quot;File Content:&quot;, content)
+		
+	// Reading from a file
+	with open(&quot;example.txt&quot;, &quot;r&quot;) as file:
+		content = file.read()
+		print(&quot;File Content:&quot;, content)
+	// Parsing JSON
+	json_data = &#39;{&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30, &quot;city&quot;: &quot;New York&quot;}&#39;
+	parsed_json = json.loads(json_data)
+	print(&quot;Parsed JSON:&quot;)
+	for key, value in parsed_json.items():
+		print(f&quot;{key}: {value}&quot;)
+	// Parsing XML
+	xml_data = &#39;&lt;person&gt;&lt;name&gt;Anna&lt;/name&gt;&lt;age&gt;25&lt;/age&gt;&lt;city&gt;San Francisco&lt;/city&gt;&lt;/person&gt;&#39;
+	root = ET.fromstring(xml_data)
+	print(&quot;Parsed XML:&quot;)
+	for child in root:
+		print(f&quot;{child.tag}: {child.text}&quot;)</p>
+<p>Tool Should Work
+	Do not optimize unless needed!
+		Tech Artists don&#39;t usually need to worry too much about how fast their code runs.
+		The main thing is making sure code works WELL and gives the right results every time. Since those scripts are like handy tools to do specific jobs, not game code. Just focus on making sure code works well!</p>
+<p>Things to Learn Further
+	Learn mentioned basics of Python
+		Don&#39;t necessarily need to dive too deeply. Could stop after classes. Most important: APPLY knowledge and PRACTICE.</p>
+<p>Understanding Max Script
+	Max Script: In-house 3DS Max Scripting solution. Empowers technical artists to automate repetitive tasks to create custom tools and extend overall functionality of 3DS Max.</p>
+<p>Capabilities of Max Script
+	Automate Tasks
+	Build Custom Tools
+	Modify Scenes
+		Manipulate objects, materials, lights, and more within the 3ds Max scene
+	Access and Manage Data
+	Interact with UI and many more</p>
+<p>Max Script vs Python
+	Use Python over MS whenever possible
+		Python is often considered more versatile, especially across software. So highly advised to focus on Python as opposed to Maxscript.</p>
+<p>Max Script code example</p>
+<pre><code>-- Create a loop to generate a grid of cubes
+for i = 1 to 5 do
+(
+	for j = 1 to 5 do
+	(
+		-- Create a cube
+		local cubeObj = box length:10 width:10 height:10 pos:[i*20, j*20, 0]
+
+		-- Generate a random color
+		local randomColor = [random 1.0, random 1.0, random 1.0]
+
+		-- Assign the random color to the cube
+		cubeObj.material = standard diffuse:randomColor
+	)
+)
+</code></pre>
+<p>How to Run:
+	Open 3ds Max
+	Go to the Scripting Menu
+	Select Max Script
+	Write the script into newly opened window
+	Click the Run button</p>
+<p>Max Script code example
+	Equivalent on Python:</p>
+<pre><code>	from pymax import runtime as rt
+	import random
+	
+	# Create a loop to generate a grid of cubes
+	for i in range(1, 6):
+		for j in rnage(1, 6):
+			# Create a cube
+			cubeObj = rt.box(length=10, width=10, height=10)
+			
+			# Set the position of the cube
+			cubeObj.position = [i *20, j * 20, 0]
+			
+			# Generate a random color
+			randomColor = [random.uniform(0, 1), random.uniform(0, 1), random.uniform(0, 1)]
+			
+			# Create a Standard material
+			material = rt.StandardMaterial()
+			material.diffuse = randomColor
+			
+			# Assign the material to the cube
+			cubeObj.material = material
+</code></pre>
+<p>List of Things to Learn Further
+	Official Autodesk Max Script documentation
+	Research more Tech Art solutions achieved with Max Script
+	How to convert Max Script to Python</p>
+<h1 id="maya-embedded-language-mel-lecture-summary">Maya Embedded Language (MEL) — Lecture Summary</h1>
+<h2 id="overview">Overview</h2>
+<p>This lecture introduces <strong>Maya Embedded Language</strong>, commonly known as <strong>MEL</strong>, which is Autodesk Maya’s native scripting language. The lecture follows a similar structure to the previous lecture on MaxScript, focusing on what MEL is, what it can be used for, how it compares to Python and C++, and why it is still useful for Technical Artists.</p>
+<h2 id="what-is-mel">What Is MEL?</h2>
+<p><strong>MEL</strong> stands for <strong>Maya Embedded Language</strong>.</p>
+<p>It is a scripting language designed specifically for <strong>Autodesk Maya</strong>. MEL allows users to automate Maya workflows, build custom tools, manipulate scene objects, customize the user interface, manage files, and export data.</p>
+<h2 id="what-can-be-done-with-mel">What Can Be Done with MEL?</h2>
+<p>MEL can be used for many common Technical Art and pipeline tasks, including:</p>
+<ul>
+<li><p>Automating repetitive Maya workflows</p>
+</li>
+<li><p>Creating custom tools</p>
+</li>
+<li><p>Manipulating objects in the viewport</p>
+</li>
+<li><p>Saving and naming files</p>
+</li>
+<li><p>Exporting data</p>
+</li>
+<li><p>Building artist-friendly interfaces</p>
+</li>
+<li><p>Customizing Maya’s UI</p>
+</li>
+<li><p>Maintaining older Maya tools and scripts</p>
+</li>
+</ul>
+<h2 id="mel-vs-python">MEL vs. Python</h2>
+<p>Python is generally more versatile and widely used across the industry, but MEL still has an important place in Maya.</p>
+<p>Knowing MEL is useful because:</p>
+<ul>
+<li><p>Many existing Maya tools and legacy scripts are written in MEL.</p>
+</li>
+<li><p>Understanding MEL makes it easier to modify, optimize, and maintain older Maya scripts.</p>
+</li>
+<li><p>Some Maya functionality is more directly accessible through MEL.</p>
+</li>
+<li><p>MEL is especially useful for UI customization inside Maya.</p>
+</li>
+<li><p>MEL can help Technical Artists better understand how Maya works internally.</p>
+</li>
+</ul>
+<p>For new Technical Artists, the lecture recommends prioritizing <strong>Python first</strong>, then learning MEL once they are more comfortable scripting.</p>
+<h2 id="code-example-discussed">Code Example Discussed</h2>
+<p>The lecture presents a simple MEL script that generates a grid of cubes and assigns random colors to each cube.</p>
+<p>![[Pasted image 20260620230730.png]]</p>
+<p>The example demonstrates:</p>
+<ul>
+<li><p>Creating objects in Maya</p>
+</li>
+<li><p>Running scripts from Maya’s Script Editor</p>
+</li>
+<li><p>Using comments to explain code behavior</p>
+</li>
+<li><p>Automating scene creation</p>
+</li>
+<li><p>Assigning randomized materials or colors</p>
+</li>
+</ul>
+<p>To run a MEL script in Maya:</p>
+<ol>
+<li><p>Open Maya.</p>
+</li>
+<li><p>Open the Script Editor.</p>
+</li>
+<li><p>Write or paste the MEL code.</p>
+</li>
+<li><p>Execute the script.</p>
+</li>
+<li><p>The generated objects should appear in the Maya scene.</p>
+</li>
+</ol>
+<p>A Python version of the same cube-grid script is also shown, demonstrating that many Maya scripting tasks can be done in either MEL or Python.</p>
+<h2 id="learning-resources">Learning Resources</h2>
+<p>For deeper study, the lecture recommends:</p>
+<ul>
+<li><p>Autodesk Maya scripting documentation</p>
+</li>
+<li><p>Official MEL documentation</p>
+</li>
+<li><p>Researching MEL optimization examples</p>
+</li>
+<li><p>Studying existing Maya tools written in MEL</p>
+</li>
+<li><p>Comparing MEL scripts with equivalent Python scripts</p>
+</li>
+</ul>
+<h2 id="key-takeaway">Key Takeaway</h2>
+<p>MEL and MaxScript are useful specialized scripting languages, but new Technical Artists should focus most of their early learning energy on <strong>Python</strong>.</p>
+<p>The lecture compares this to traveling in a country where English is commonly understood: Python is like English because it works broadly, while MEL is like Maya’s native language. You can communicate with Python, but knowing MEL can give you deeper access and better control inside Maya.</p>
+<h2 id="practical-advice-for-technical-artists">Practical Advice for Technical Artists</h2>
+<ul>
+<li><p>Learn Python first.</p>
+</li>
+<li><p>Learn MEL later as a Maya-specific enhancement.</p>
+</li>
+<li><p>Be comfortable reading and modifying existing MEL scripts.</p>
+</li>
+<li><p>Use MEL when it gives better access to Maya-specific features.</p>
+</li>
+<li><p>Use Python for broader pipeline, automation, and cross-application workflows.</p>
+</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>MEL is Maya’s native scripting language. It is useful for automation, UI customization, scene manipulation, and maintaining legacy tools. While Python is usually the better first scripting language for Technical Artists, MEL remains valuable for anyone working deeply in Maya pipelines.</p>
+<h1 id="practical-scripting-examples-for-technical-artists-lecture-summary">Practical Scripting Examples for Technical Artists — Lecture Summary</h1>
+<h2 id="overview-2">Overview</h2>
+<p>This lecture showcases five practical examples of how scripting can help Technical Artists streamline workflows, automate repetitive tasks, and improve production efficiency.</p>
+<p>The examples are simplified and abstract, but each one could be adapted into a real production tool.</p>
+<h2 id="main-lecture-goal">Main Lecture Goal</h2>
+<p>The purpose of the lecture is not only to understand what each script does line by line, but also to understand <strong>why the script exists</strong>.</p>
+<p>For Technical Artists, scripting is valuable because it solves workflow problems, reduces manual labor, improves consistency, and helps artists move assets through production more efficiently.</p>
+<h2 id="example-1-reading-performance-data-from-xml">Example 1 — Reading Performance Data from XML</h2>
+<p>The first example calculates the <strong>average frames per second</strong> from a performance log stored in an XML file.</p>
+<h3 id="purpose">Purpose</h3>
+<p>This type of script could be used to analyze performance data from a game or tool.</p>
+<h3 id="possible-real-world-uses">Possible Real-World Uses</h3>
+<ul>
+<li><p>Reading performance logs</p>
+</li>
+<li><p>Calculating average FPS</p>
+</li>
+<li><p>Finding performance spikes or drops</p>
+</li>
+<li><p>Comparing performance across builds</p>
+</li>
+<li><p>Generating automated reports for artists, engineers, or producers</p>
+</li>
+</ul>
+<h3 id="technical-art-value">Technical Art Value</h3>
+<p>This shows how scripting can be used not just for asset creation, but also for <strong>data analysis</strong> and <strong>performance monitoring</strong>.</p>
+<h2 id="example-2-3ds-max-to-substance-painter-bridge">Example 2 — 3ds Max to Substance Painter Bridge</h2>
+<p>The second example is written in <strong>MaxScript</strong> and creates an automated bridge between <strong>3ds Max</strong> and <strong>Substance Painter</strong>.</p>
+<h3 id="purpose-2">Purpose</h3>
+<p>The script allows artists to export a mesh from 3ds Max and load it directly into Substance Painter.</p>
+<h3 id="possible-real-world-uses-2">Possible Real-World Uses</h3>
+<ul>
+<li><p>Exporting models from a DCC</p>
+</li>
+<li><p>Launching another production tool</p>
+</li>
+<li><p>Reducing repetitive export/import steps</p>
+</li>
+<li><p>Standardizing the handoff between modeling and texturing</p>
+</li>
+<li><p>Preventing incorrect export settings</p>
+</li>
+</ul>
+<h3 id="technical-art-value-2">Technical Art Value</h3>
+<p>This is a classic pipeline automation task. It connects two pieces of production software and removes manual steps from the artist workflow.</p>
+<h2 id="example-3-batch-file-renaming-with-python">Example 3 — Batch File Renaming with Python</h2>
+<p>The third example uses <strong>Python</strong> to quickly rename files with a <code>.png</code> extension inside a directory.</p>
+<h3 id="purpose-3">Purpose</h3>
+<p>The script demonstrates how Python can process files in a folder and rename them according to a rule.</p>
+<h3 id="possible-real-world-uses-3">Possible Real-World Uses</h3>
+<ul>
+<li><p>Batch-renaming texture files</p>
+</li>
+<li><p>Adding suffixes like <code>_Normal</code>, <code>_Roughness</code>, <code>_Opacity</code>, or <code>_BaseColor</code></p>
+</li>
+<li><p>Standardizing naming conventions</p>
+</li>
+<li><p>Preparing textures for automatic shader assignment</p>
+</li>
+<li><p>Cleaning up inconsistent artist file names</p>
+</li>
+</ul>
+<h3 id="technical-art-value-3">Technical Art Value</h3>
+<p>Good naming conventions allow tools, shaders, and pipelines to understand what each file represents. A script like this can help enforce consistency across a project.</p>
+<h2 id="example-4-substance-painter-texture-set-validator">Example 4 — Substance Painter Texture Set Validator</h2>
+<p>The fourth example is a custom tool for <strong>Substance Painter</strong> that checks whether a texture set resolution meets project requirements.</p>
+<h3 id="purpose-4">Purpose</h3>
+<p>The script validates whether a texture set uses the correct resolution.</p>
+<h3 id="expanded-example">Expanded Example</h3>
+<p>A real project might have different texture budgets for different asset types:</p>
+<ul>
+<li><p>Melee weapons</p>
+</li>
+<li><p>Ranged weapons</p>
+</li>
+<li><p>Shields</p>
+</li>
+<li><p>Characters</p>
+</li>
+<li><p>Props</p>
+</li>
+<li><p>Environment assets</p>
+</li>
+</ul>
+<p>A more advanced validator could detect the asset type from the texture set name, then compare its current resolution against the approved budget for that asset category.</p>
+<h3 id="possible-real-world-uses-4">Possible Real-World Uses</h3>
+<ul>
+<li><p>Checking texture resolution budgets</p>
+</li>
+<li><p>Enforcing asset standards</p>
+</li>
+<li><p>Preventing oversized textures</p>
+</li>
+<li><p>Validating before export</p>
+</li>
+<li><p>Helping artists catch mistakes early</p>
+</li>
+</ul>
+<h3 id="technical-art-value-4">Technical Art Value</h3>
+<p>Validation tools are extremely useful in production because they prevent problems before assets reach the engine.</p>
+<h2 id="example-5-maya-skeleton-automation-with-mel">Example 5 — Maya Skeleton Automation with MEL</h2>
+<p>The fifth example uses <strong>MEL</strong>, Maya’s native scripting language.</p>
+<h3 id="purpose-5">Purpose</h3>
+<p>The script automates the process of assigning bones to a skeleton in a Maya scene.</p>
+<h3 id="possible-real-world-uses-5">Possible Real-World Uses</h3>
+<ul>
+<li><p>Skeleton setup automation</p>
+</li>
+<li><p>Rigging support tools</p>
+</li>
+<li><p>Bone assignment</p>
+</li>
+<li><p>Character preparation</p>
+</li>
+<li><p>Reducing repetitive rigging tasks</p>
+</li>
+</ul>
+<h3 id="technical-art-value-5">Technical Art Value</h3>
+<p>This example shows how DCC-native scripting languages like MEL can still be useful for specific workflows inside Maya, especially for rigging and scene automation.</p>
+<h2 id="recommended-python-libraries-for-technical-artists">Recommended Python Libraries for Technical Artists</h2>
+<p>The lecture also introduces several useful Python libraries and APIs for Technical Artists.</p>
+<h2 id="pyside-pyqt">PySide / PyQt</h2>
+<p><strong>PySide</strong> and <strong>PyQt</strong> provide Python bindings for the Qt framework.</p>
+<h3 id="uses">Uses</h3>
+<ul>
+<li><p>Creating graphical user interfaces</p>
+</li>
+<li><p>Building artist-facing tools</p>
+</li>
+<li><p>Creating custom panels inside DCC applications</p>
+</li>
+<li><p>Making tools for Maya, 3ds Max, Blender, and other software</p>
+</li>
+</ul>
+<h3 id="technical-art-value-6">Technical Art Value</h3>
+<p>These libraries are useful when building polished tools that artists can interact with visually.</p>
+<h2 id="numpy">NumPy</h2>
+<p><strong>NumPy</strong> is used for numerical computation.</p>
+<h3 id="uses-2">Uses</h3>
+<ul>
+<li><p>Working with large arrays</p>
+</li>
+<li><p>Matrix operations</p>
+</li>
+<li><p>Vector math</p>
+</li>
+<li><p>3D math</p>
+</li>
+<li><p>Data manipulation</p>
+</li>
+</ul>
+<h3 id="technical-art-value-7">Technical Art Value</h3>
+<p>NumPy is useful for scripts involving geometry, transforms, simulation data, or large sets of numerical information.</p>
+<h2 id="matplotlib">Matplotlib</h2>
+<p><strong>Matplotlib</strong> is used for creating 2D plots and charts.</p>
+<h3 id="uses-3">Uses</h3>
+<ul>
+<li><p>Visualizing data</p>
+</li>
+<li><p>Plotting performance metrics</p>
+</li>
+<li><p>Creating graphs from logs</p>
+</li>
+<li><p>Showing trends over time</p>
+</li>
+</ul>
+<h3 id="technical-art-value-8">Technical Art Value</h3>
+<p>Matplotlib is helpful when a Technical Artist needs to communicate data clearly, especially for optimization or performance analysis.</p>
+<h2 id="opencv">OpenCV</h2>
+<p><strong>OpenCV</strong> is a computer vision and image processing library.</p>
+<h3 id="uses-4">Uses</h3>
+<ul>
+<li><p>Texture manipulation</p>
+</li>
+<li><p>Image analysis</p>
+</li>
+<li><p>Mask generation</p>
+</li>
+<li><p>Video processing</p>
+</li>
+<li><p>Computer vision workflows</p>
+</li>
+</ul>
+<h3 id="technical-art-value-9">Technical Art Value</h3>
+<p>OpenCV can be useful for automating image-based tasks, analyzing textures, or creating tools that process visual data.</p>
+<h2 id="dcc-specific-scripting-apis">DCC-Specific Scripting APIs</h2>
+<p>The lecture also mentions several important scripting APIs and languages:</p>
+<ul>
+<li><p><strong>MEL</strong> — scripting in Autodesk Maya</p>
+</li>
+<li><p><strong>bpy</strong> — Blender’s Python API</p>
+</li>
+<li><p><strong>Substance Painter Python API</strong> — custom tools for Substance Painter</p>
+</li>
+<li><p><strong>pymxs</strong> — Python wrapper for the 3ds Max MaxScript engine</p>
+</li>
+</ul>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<ul>
+<li><p>Scripting allows Technical Artists to automate repetitive tasks.</p>
+</li>
+<li><p>Small scripts can quickly become useful production tools.</p>
+</li>
+<li><p>The purpose of a script matters as much as the implementation.</p>
+</li>
+<li><p>Scripts can connect software, validate assets, process files, analyze data, and improve artist workflows.</p>
+</li>
+<li><p>Python is especially valuable because it works across many tools and production contexts.</p>
+</li>
+<li><p>DCC-specific scripting languages and APIs are still useful for deeper software integration.</p>
+</li>
+</ul>
+<h2 id="practical-advice-for-technical-artists-2">Practical Advice for Technical Artists</h2>
+<p>When studying scripts, do not only ask:</p>
+<blockquote>
+<p>What does each line of code do?</p>
+</blockquote>
+<p>Also ask:</p>
+<blockquote>
+<p>Why was this script created?</p>
+</blockquote>
+<p>A useful Technical Art script usually solves a real workflow problem. The best scripts are often simple, targeted, and practical.</p>
+<h2 id="summary-2">Summary</h2>
+<p>This lecture concludes the scripting section by demonstrating how a Technical Artist can use scripting to solve practical production problems. The examples include performance log analysis, DCC-to-texturing workflow automation, batch file renaming, texture validation, and skeleton automation.</p>
+<p>Even a small script with only a dozen lines of code can become a valuable tool in a production pipeline.
+CODE EXAMPLES</p>
+<ol>
+<li>Parsing xml performance log file
+![[Pasted image 20260620230913.png]]</li>
+<li>Bridge between 3ds Max and Painter
+![[Pasted image 20260620231012.png]]</li>
+<li>Renaming Textures
+![[Pasted image 20260620231110.png]]</li>
+<li>Validating Texture Resolution in Substance Painter
+![[Pasted image 20260620231232.png]]</li>
+<li>Assigning Bones to a Skeleton in Maya
+![[Pasted image 20260620231359.png]]</li>
+</ol>
+</main></body></html>

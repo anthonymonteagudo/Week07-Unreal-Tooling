@@ -1,6 +1,6 @@
-.build/
 node_modules/
 __pycache__/
 *.pyc
 ~$*
 *.blend1
+# Keep editable authoring scripts and small JSON in .build; generated decks and renders are not copied.

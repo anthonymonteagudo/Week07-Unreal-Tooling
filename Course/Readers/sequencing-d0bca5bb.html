@@ -1,0 +1,90 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Foundation sequence assessment — updated 13 October 2026</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/lesson_materials/week_07_unreal_python/SEQUENCING.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/lesson_materials/week_07_unreal_python/SEQUENCING.md<br>Source modified: 2026-10-13T04:15:59.031Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#foundation-sequence-assessment-updated-13-october-2026">Foundation sequence assessment — updated 13 October 2026</a></li><li><a href="#why-this-order">Why this order</a></li><li><a href="#differences-worth-discussing">Differences worth discussing</a></li><li><a href="#decisions-waiting-on-the-slides">Decisions waiting on the slides</a></li><li><a href="#organization-references-and-provenance">Organization references and provenance</a></li></ul></details><h1 id="foundation-sequence-assessment-updated-13-october-2026">Foundation sequence assessment — updated 13 October 2026</h1>
+<p>Main demo: <strong>Material Setup → VFX Placement</strong>, using <a href="demo-sequence-74c30b13.html">the canonical route</a>.
+The numbered prop checkpoints below are optional foundations. Their stable IDs are
+retained; they do not number the main demo or the slides.</p>
+<h2 id="why-this-order">Why this order</h2>
+<p>Week 3 already introduced values, collections, loops, functions and an asset report
+before host-specific operations. Steps 01–04 reactivate those ideas with
+Actor-shaped dictionaries. They can be compressed into a recap if students retain
+the Week 3 material. Keep scope selection explicit: a mixed selection is a common
+reason a seemingly simple batch operation becomes dangerous or confusing.</p>
+<p>Steps 05–06 separate a report (what is wrong), a plan (what we propose to change),
+and application (what changes). Students can inspect each value and use VS Code
+breakpoints without needing an editor session. A missing mesh deliberately survives
+the rename operation: a successful fix is not proof that everything is valid.</p>
+<p>Step 07 replaces repeated teaching functions with the project&#39;s tested pure rules.
+It adds placement and fixture IDs, then makes the boundary with Unreal visible.
+Step 08 is where selection, Actor/Component/asset distinctions, transactions and
+manual reload belong when the slides and the live demo are ready.</p>
+<h2 id="differences-worth-discussing">Differences worth discussing</h2>
+<ul>
+<li>Step 02 filters mixed data and reports exclusions. The live adapter deliberately
+rejects mixed selections before applying changes. Filtering is an introductory
+exercise, not a promise of identical production behavior.</li>
+<li>Steps 03–06 derive names from trusted sample <code>kind</code> values. Production rules map
+known fixture IDs to kinds and validate IDs, paths and coordinates.</li>
+<li>Step 06 checks the proposed rename list against a fresh list. It is an in-memory
+exercise, not full scene concurrency protection. The editor adapter also checks
+world, selection, full states, collisions and editor mode.</li>
+<li>A deep copy is not an Unreal transaction. Editor Undo must be taught separately.</li>
+<li>Production plans include all selected records, even already-correct ones. The
+introductory rename plan lists only changes. Inspect this difference in Step 07.</li>
+</ul>
+<h2 id="decisions-waiting-on-the-slides">Decisions waiting on the slides</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Current placeholder</th>
+<th>Consequence for sequence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>How much Python recap?</td>
+<td>Four tiny checkpoints</td>
+<td>Compress 01–04 without deleting reference files.</td>
+</tr>
+<tr>
+<td>Main tool scope (decided)</td>
+<td>Material Setup and VFX Placement</td>
+<td>Prop cleanup is a supporting example; batch import is outside this demo.</td>
+</tr>
+<tr>
+<td>Where to introduce placement?</td>
+<td>Step 07 only</td>
+<td>Split it into another pure checkpoint if vectors need teaching time.</td>
+</tr>
+<tr>
+<td>Student lab deliverable?</td>
+<td>Reporting a missing mesh</td>
+<td>Finalize inputs and acceptance criteria before numbering the lab.</td>
+</tr>
+<tr>
+<td>Required UI progression</td>
+<td>Material/VFX implement functional / guided / refined stages</td>
+<td>Compare identical inputs and operations across text review, structured review and guided actions.</td>
+</tr>
+<tr>
+<td>Exact slide positions?</td>
+<td>Demo beats D1–D6 are defined in the canonical route</td>
+<td>Map these beats to slide numbers when the deck settles.</td>
+</tr>
+</tbody></table></div>
+<p>No lecture timings, slide numbers, lab grading rules, or capture claims are final.
+The new checkpoints have not been rehearsed inside Unreal; they are offline Python.</p>
+<p>The instructor subsequently confirmed that a clean UI is mandatory. See
+<a href="readme-44ea130d.html">the staged UI progression</a> and its separate
+automated, visual, and live-hosting gates. Console-only is no longer the intended
+finished tool experience.</p>
+<h2 id="organization-references-and-provenance">Organization references and provenance</h2>
+<ul>
+<li>Week 3: <code>D:/Personal Projects/Week3_StudentMaterial/week03_student_materials/week03_student_materials/lesson_materials/week_03_python_and_maya</code>.
+The staged Python → UI → host progression and expected-result instructions informed this draft.</li>
+<li>SimonDev: <code>C:/Users/antho/Downloads/project-source</code>, especially its numbered topic
+folders, Blank/example checkpoints, <code>START-HERE.txt</code> and workspace. Organization only.</li>
+<li>Original Northwood: instructor&#39;s work through Isaac Oster&#39;s public <strong>Utilizing
+Python for Editor Scripting in Unreal Engine</strong> course. Week07UnrealPython is the
+later classroom-preparation spinoff. The new sequence is a draft for this class,
+not a reconstruction or attribution of these steps to Oster or SimonDev.</li>
+</ul>
+</main></body></html>

@@ -1,0 +1,156 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Maya visualization, technical animation, and material examples</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week05/Review/MAYA_ANIMATION_AND_MATERIALS.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week05/Review/MAYA_ANIMATION_AND_MATERIALS.md<br>Source modified: 2026-09-27T15:43:38.263Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#maya-visualization-technical-animation-and-material-examples">Maya visualization, technical animation, and material examples</a></li><li><a href="#source-roles-and-credibility">Source roles and credibility</a></li><li><a href="#one-arm-many-mathematical-questions">One arm, many mathematical questions</a></li><li><a href="#reproducible-bent-arm-preset">Reproducible bent-arm preset</a></li><li><a href="#maya-matrix-convention-and-joint-specific-context">Maya matrix convention and joint-specific context</a></li><li><a href="#optional-dot-material-graph">Optional dot material graph</a></li><li><a href="#maya-hypershade-candidate">Maya Hypershade candidate</a></li><li><a href="#unreal-alternative">Unreal alternative</a></li><li><a href="#optional-cross-material-graph">Optional cross material graph</a></li><li><a href="#maya-hypershade-candidate-2">Maya Hypershade candidate</a></li><li><a href="#unreal-alternative-2">Unreal alternative</a></li><li><a href="#timing-and-decision-status">Timing and decision status</a></li><li><a href="#linked-resources">Linked resources</a></li></ul></details><h1 id="maya-visualization-technical-animation-and-material-examples">Maya visualization, technical animation, and material examples</h1>
+<p>Revision 4. Maya is the confirmed lecture environment. The simple arm, exact starter layout, and material-graph demonstrations are proposals. The scene/script path and Maya version are still needed before implementation and capture. The material editor preference remains open; both mappings below are provided without changing the Maya-centered lesson.</p>
+<h2 id="source-roles-and-credibility">Source roles and credibility</h2>
+<p>Use mathematical texts to check definitions, visual instruction to support intuition, and application documentation to check Maya behavior. Jettelly remains tool-design context rather than the sole mathematical authority.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Selected topic</th>
+<th>Intended use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MIT OpenCourseWare, Gilbert Strang, 18.06</td>
+<td>Lectures 3, 9, 15, 30</td>
+<td>Academic grounding for multiplication/inverse, bases, projection, and linear mappings. Instructor preparation and named further reading, not a requirement to watch full lectures in class.</td>
+</tr>
+<tr>
+<td>OpenStax Calculus Vol. 3</td>
+<td>§2.3 and §2.4</td>
+<td>Accessible textbook definitions and worked checks for dot, projection, cross, and area.</td>
+</tr>
+<tr>
+<td>3Blue1Brown, Grant Sanderson</td>
+<td>Linear transformations; matrix multiplication as composition</td>
+<td>Visual companion that connects an axis/grid motion to a matrix. Keep its column-vector notation distinct from Maya&#39;s row-vector presentation.</td>
+</tr>
+<tr>
+<td>Autodesk Maya documentation</td>
+<td>Transform and joint nodes; vectorProduct; poleVectorConstraint</td>
+<td>Authoritative application semantics. State the installed Maya version before writing API-specific classroom instructions.</td>
+</tr>
+<tr>
+<td>Jettelly v0.0.8</td>
+<td>Four visualizer chapters</td>
+<td>Concrete tool/feedback examples adapted into Maya. Its Unity implementation is not the student runtime.</td>
+</tr>
+<tr>
+<td>Essential Math, Freya Holmér, Scratchapixel</td>
+<td>Rotations, intuition, later rendering</td>
+<td>Retained specialist and complementary references.</td>
+</tr>
+</tbody></table></div>
+<h2 id="one-arm-many-mathematical-questions">One arm, many mathematical questions</h2>
+<p>Propose a minimal shoulder/elbow/wrist joint hierarchy with a visibly asymmetric hand proxy. Start with simple FK, visible local axes, world-position readouts, and a target locator. Prepare the rig and drawing system before class. Skinning, production controls, IK/FK switching, and full rig architecture are not prerequisite build tasks for this math session.</p>
+<p>Use the same geometry across topics:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Visible question in Maya</th>
+<th>Readout or check</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Displacement and magnitude</td>
+<td>Where is the elbow relative to the shoulder?</td>
+<td>E−S and segment length.</td>
+</tr>
+<tr>
+<td>Velocity</td>
+<td>How far did the wrist move between two times?</td>
+<td>Displacement/elapsed seconds; label it average velocity.</td>
+</tr>
+<tr>
+<td>Dot</td>
+<td>How aligned are consecutive segments?</td>
+<td>normalize(E−S)·normalize(W−E), with arrow directions visible.</td>
+</tr>
+<tr>
+<td>Cross</td>
+<td>What is perpendicular to the bend plane?</td>
+<td>(E−S)×(W−E), including raw magnitude.</td>
+</tr>
+<tr>
+<td>Coordinate spaces</td>
+<td>Why can a child keep its local offset while moving in world space?</td>
+<td>Parent/world position comparison.</td>
+</tr>
+<tr>
+<td>Matrices and hierarchy</td>
+<td>How does shoulder motion affect wrist placement?</td>
+<td>Child-local × parent-world and the resulting world axes.</td>
+</tr>
+<tr>
+<td>Euler/quaternion</td>
+<td>How do representations and operation order affect the marked hand?</td>
+<td>Same start/end orientation and explicit rotation order.</td>
+</tr>
+<tr>
+<td>Interpolation</td>
+<td>What path does the wrist/hand take between endpoints?</td>
+<td>Fixed endpoint and t-driven position/orientation comparisons.</td>
+</tr>
+<tr>
+<td>Projection lab</td>
+<td>Where does the elbow depart from the shoulder–wrist line?</td>
+<td>Projection H, residual b, validity feedback.</td>
+</tr>
+</tbody></table></div>
+<h3 id="reproducible-bent-arm-preset">Reproducible bent-arm preset</h3>
+<p>Use world positions in centimeters: S=(0,0,0), E=(3,4,0), W=(6,0,0). Each segment length is 5. Consecutive normalized segment dot is −0.28. Their angle is about 106.26°; the interior elbow angle uses E-to-S and E-to-W and is about 73.74°. Do not label those two quantities interchangeably.</p>
+<p>The raw cross is (0,0,−24), perpendicular to both segments. With a straight limb it becomes zero; normalization cannot recover a reliable bend-plane direction. This geometric degeneracy is different from Euler gimbal lock.</p>
+<p>For the guided projection helper, u=normalize(W−S), H=S+dot(E−S,u)u, b=E−H. The preset yields H=(3,0,0), b=(0,4,0). A display/control candidate E+2 normalize(b) lies at (3,6,0). This point lies toward the elbow bend. The plane normal is a different quantity and must not be used as if it were the pole-control position.</p>
+<p>If a prepared rotate-plane IK example is included, use Maya&#39;s pole-vector mechanism to show the bend-plane relationship. The helper calculation is a teaching diagnostic, not a complete no-flip solver. At a straight arm or coincident S/W, show a declared invalid state; a production rig needs a deliberate fallback/reference plane.</p>
+<h2 id="maya-matrix-convention-and-joint-specific-context">Maya matrix convention and joint-specific context</h2>
+<p>The live slides now use p_world=p_local M_world, matching Autodesk&#39;s documented point convention. Compose a clean child hierarchy as M_child_world=M_child_local M_parent_world. For the isolated order example, pSRT applies scale, rotation, then translation. A source written with columns uses transposed matrices and the opposite written order for the same mapping.</p>
+<p>Keep the first experiment clean: plain transforms for scale/pivot illustrations; unit joint scales; ordinary transform inheritance; identity offsetParentMatrix; no hidden constraints or offsets. A joint&#39;s local matrix contains orientation and compensation factors beyond animated rotate. Inspect local axes and jointOrient alongside rotate. Do not claim zero rotate values imply alignment with world axes, and do not imply generic SRT is the full joint formula.</p>
+<h2 id="optional-dot-material-graph">Optional dot material graph</h2>
+<p>Teaching purpose: turn the same directional comparison into a visible material mask. Use m=max(dot(N_unit,L_unit),0), with N and L in the same declared space. L is a chosen direction, not an automatically available scene-light vector. This is a diagnostic mask, not a full physically based lighting model.</p>
+<h3 id="maya-hypershade-candidate">Maya Hypershade candidate</h3>
+<ol>
+<li>Use samplerInfo.normalCamera as the normal input and a nonzero camera-space direction parameter for L.</li>
+<li>Normalize the two inputs explicitly using vectorProduct in No Operation mode with Normalize Output on. This makes normalization visible to students.</li>
+<li>Connect them to vectorProduct in Dot Product mode, with Normalize Output off. Use outputX as the scalar; Maya repeats the dot in its three output channels.</li>
+<li>Clamp to [0,1], replicate the scalar into color, and connect to a diagnostic surfaceShader.outColor preview where supported.</li>
+<li>Keep the raw dot readout separate. Aligned, perpendicular, and opposed tests should produce raw 1,0,−1 and clamped 1,0,0.</li>
+</ol>
+<p>The chosen camera-space direction is camera-relative. For a world-fixed mask, first put both inputs in world space with an appropriate normal transform; do not silently mix normalCamera with a world direction. Renderer and viewport support for the proposed utility network must be tested before classroom capture.</p>
+<h3 id="unreal-alternative">Unreal alternative</h3>
+<p>Use a world-space normal and a declared world-space vector parameter, Normalize each, then DotProduct and Saturate. Present through an Unlit Emissive output to isolate the mask. Preserve the same three numerical cases. This is a proposed cross-application comparison, not a reason to move the main lecture out of Maya.</p>
+<h2 id="optional-cross-material-graph">Optional cross material graph</h2>
+<p>Teaching purpose: reconstruct a perpendicular surface direction from two tangent directions. This is a closer geometric analogue to the arm bend-plane normal than a generic “cross makes colors” demonstration.</p>
+<h3 id="maya-hypershade-candidate-2">Maya Hypershade candidate</h3>
+<ol>
+<li>Use samplerInfo.tangentUCamera and tangentVCamera, both in camera space.</li>
+<li>Feed them to vectorProduct in Cross Product mode with Normalize Output off so raw magnitude remains inspectable.</li>
+<li>Detect a near-zero magnitude before normalizing. Show an invalid-state color for degenerate inputs rather than presenting an arbitrary normal.</li>
+<li>Normalize the valid result and display 0.5n+0.5 through a diagnostic color output.</li>
+<li>Swap input order. The perpendicular direction reverses; its display color changes accordingly.</li>
+</ol>
+<p>Use a simple nondegenerate parameterized surface first. Tangent parameterization and orientation determine the sign. This preview need not match a renderer&#39;s smoothed or perturbed shading normal in all cases. The encoded display color is not a tangent-space normal-map value ready for a Normal socket; it is a visualization of a camera-space vector.</p>
+<h3 id="unreal-alternative-2">Unreal alternative</h3>
+<p>Use two explicit nonparallel same-space tangent vector inputs in CrossProduct, then normalize a valid result, multiply by 0.5 and add 0.5, and preview in Unlit Emissive. If using actual mesh or derivative tangents later, label the source and space. A full tangent-frame reconstruction must account for handedness and mirrored UVs.</p>
+<h2 id="timing-and-decision-status">Timing and decision status</h2>
+<p>Cards 29E and 30D are optional, not extra scheduled lectures. If selected, use only prepared graphs and matched outputs. Within the existing 2.5-minute 29D slot: 45 seconds Maya manipulation, 45 seconds graph/result comparison, 45 seconds student questions, 15 seconds transition. Within the existing 2-minute 30C slot: 30 seconds Maya degeneracy check, 45 seconds graph/result comparison, 45 seconds questions. Do not build graphs live in these short windows. If rehearsal does not fit, keep the graph cards as named further exploration rather than cutting the required math, arm context, or lab.</p>
+<p>The 180-minute outline is unchanged. The lab now applies the existing projection concept to the arm. No Maya scene, rig, executable extension, or material graph was created or tested by this review update. Those implementation tasks require the actual project path.</p>
+<h2 id="linked-resources">Linked resources</h2>
+<ul>
+<li><a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-3-multiplication-and-inverse-matrices/">MIT OCW, Gilbert Strang: multiplication and inverse matrices</a> — University-level reference for composition and inverse; map notation to Maya explicitly.</li>
+<li><a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-9-independence-basis-and-dimension/">MIT OCW, Gilbert Strang: independence, basis, and dimension</a> — Academic grounding for coordinate bases and loss of independence.</li>
+<li><a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-15-projections-onto-subspaces/">MIT OCW, Gilbert Strang: projections onto subspaces</a> — Independent mathematical reference for projection.</li>
+<li><a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-30-linear-transformations-and-their-matrices/">MIT OCW, Gilbert Strang: linear transformations and their matrices</a> — Academic reference for the relationship between maps and matrices.</li>
+<li><a href="https://openstax.org/books/calculus-volume-3/pages/2-3-the-dot-product">OpenStax Calculus Vol. 3 §2.3: dot product</a> — Textbook definitions, angles, and scalar/vector projection.</li>
+<li><a href="https://openstax.org/books/calculus-volume-3/pages/2-4-the-cross-product">OpenStax Calculus Vol. 3 §2.4: cross product</a> — Textbook definition, orthogonality, magnitude, and order.</li>
+<li><a href="https://www.3blue1brown.com/lessons/linear-transformations/">3Blue1Brown: linear transformations and matrices</a> — Visual intuition companion by Grant Sanderson; supplements the university/textbook references.</li>
+<li><a href="https://www.3blue1brown.com/lessons/matrix-multiplication/">3Blue1Brown: matrix multiplication as composition</a> — Visual treatment of successive mappings; note its column-vector convention.</li>
+<li><a href="https://help.autodesk.com/cloudhelp/2026/ENU/Maya-Tech-Docs/Nodes/transform.html">Autodesk Maya: transform node</a> — Official source for Maya post-multiplication, matrices, pivots, and rotation order.</li>
+<li><a href="https://help.autodesk.com/cloudhelp/ENU/MayaCRE-Tech-Docs/Nodes/joint.html">Autodesk Maya: joint node</a> — Official jointOrient, rotateAxis, scale compensation, and joint-transform reference.</li>
+<li><a href="https://help.autodesk.com/cloudhelp/ENU/MayaCRE-Tech-Docs/Commands/poleVectorConstraint.html">Autodesk Maya: poleVectorConstraint</a> — Pole-vector constraint applies to a rotate-plane IK handle. The proposed geometric helper is not a complete IK solver.</li>
+<li><a href="https://help.autodesk.com/cloudhelp/2026/ENU/Maya-Tech-Docs/Nodes/vectorProduct.html">Autodesk Maya: vectorProduct node</a> — Official dot/cross utility-node operations; inspect output normalization deliberately.</li>
+<li><a href="https://help.autodesk.com/cloudhelp/2026/ENU/Maya-Tech-Docs/Nodes/samplerInfo.html">Autodesk Maya: samplerInfo node</a> — Camera-space normals and tangents for the proposed material examples.</li>
+<li><a href="https://help.autodesk.com/cloudhelp/2026/ENU/Maya-Tech-Docs/Nodes/surfaceShader.html">Autodesk Maya: surfaceShader node</a> — Diagnostic color-output option; validate compatibility with the selected preview renderer.</li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/vector-operation-material-expressions-in-unreal-engine">Epic Games: vector-operation material expressions</a> — Optional cross-application mapping for DotProduct, CrossProduct, Normalize, and Transform. Maya remains the lecture environment.</li>
+</ul>
+</main></body></html>

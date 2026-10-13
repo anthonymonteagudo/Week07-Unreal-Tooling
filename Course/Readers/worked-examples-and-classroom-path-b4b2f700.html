@@ -1,0 +1,169 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 5 worked examples and classroom path</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week05/Instructor/WORKED_EXAMPLES_AND_CLASSROOM_PATH.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week05/Instructor/WORKED_EXAMPLES_AND_CLASSROOM_PATH.md<br>Source modified: 2026-09-28T21:24:13.572Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#week-5-worked-examples-and-classroom-path">Week 5 worked examples and classroom path</a></li><li><a href="#present-in-this-order">Present in this order</a></li><li><a href="#existing-walkthroughs-worth-using">Existing walkthroughs worth using</a></li><li><a href="#1-from-two-positions-to-displacement">1. From two positions to displacement</a></li><li><a href="#2-separate-direction-from-distance">2. Separate direction from distance</a></li><li><a href="#3-dot-product-answers-an-alignment-question">3. Dot product answers an alignment question</a></li><li><a href="#4-projection-builds-a-vector-and-a-point-from-a-scalar">4. Projection builds a vector and a point from a scalar</a></li><li><a href="#5-cross-product-constructs-a-perpendicular-direction">5. Cross product constructs a perpendicular direction</a></li><li><a href="#6-matrices-carry-local-coordinates-into-the-world">6. Matrices carry local coordinates into the world</a></li><li><a href="#7-combine-the-concepts-in-an-arm">7. Combine the concepts in an arm</a></li><li><a href="#8-interpolation-as-an-optional-final-chapter">8. Interpolation as an optional final chapter</a></li><li><a href="#code-reading-route-and-boundaries">Code reading route and boundaries</a></li></ul></details><h1 id="week-5-worked-examples-and-classroom-path">Week 5 worked examples and classroom path</h1>
+<p>Prepared 28 September 2026. This is slide preparation and a teaching route, not an edited PowerPoint. The numerical exercises below are original classroom examples matched to the visualizer. Linked sources supply existing worked solutions, explanations, or documented applications; they are not all shipped-game case studies.</p>
+<h2 id="present-in-this-order">Present in this order</h2>
+<p>For each stop: pose a concrete question → work the numbers on a slide/board → ask for a prediction → read one small function → change one input in the visualizer. Introduce the symbols before opening a dense graph. Keep the same S=(0,0,0), E=(3,4,0), W=(6,0,0) through the vector sequence.</p>
+<p>The core route is displacement, length/unit direction, dot, projection, cross, and matrices. Follow with the arm as a combined application. Interpolation is an extension after students can distinguish positions, directions, and orientations. If time is short, finish the core route rather than compressing quaternion mathematics into unexplained notation.</p>
+<h2 id="existing-walkthroughs-worth-using">Existing walkthroughs worth using</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Exact starting point</th>
+<th>What to use in slides</th>
+<th>Teaching caution</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://gamemath.com/book/vectors.html">Dunn and Parberry, 3D Math Primer — Vectors</a></td>
+<td>Addition/subtraction, magnitude, normalization, and dot-product sections</td>
+<td>Component arithmetic followed by geometric interpretation; a useful consistent reference across the early lesson</td>
+<td>Distinguish points from vectors even when both use three numbers.</td>
+</tr>
+<tr>
+<td><a href="https://openstax.org/books/calculus-volume-3/pages/2-3-the-dot-product">OpenStax — The Dot Product</a></td>
+<td>Examples 2.24, 2.27 and 2.28</td>
+<td>Orthogonality; worked vector projection; splitting a vector into perpendicular parts and checking the answer</td>
+<td>Good numerical practice. Use the simpler classroom values below for the first exposure.</td>
+</tr>
+<tr>
+<td><a href="https://mathinsight.org/cross_product_examples">Math Insight — Cross product examples</a></td>
+<td>Examples 1–3</td>
+<td>Worked cross-product arithmetic, parallelogram area, and the parallel-vector case</td>
+<td>Teach the component formula before treating determinant notation as a shortcut.</td>
+</tr>
+<tr>
+<td><a href="https://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/transforming-points-and-vectors.html">Scratchapixel — Transforming Points and Vectors</a></td>
+<td>Point/vector multiplication and the transition to 4×4 matrices</td>
+<td>Trace one output coordinate; explain the extra homogeneous coordinate and translation</td>
+<td>State row-vector versus column-vector convention explicitly. Use this page&#39;s transform discussion; do not repeat its suggestion that matrices themselves cause gimbal lock.</td>
+</tr>
+<tr>
+<td><a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/transforming-objects-using-matrices/using-4x4-matrices-transform-objects-3D.html">Scratchapixel — Using 4×4 Matrices</a></td>
+<td>Object/world transforms and inverse transforms</td>
+<td>Connect matrix numbers to object placement and ray/object-space calculations</td>
+<td>The inverse-transform example goes beyond the current tool&#39;s dedicated controls.</td>
+</tr>
+<tr>
+<td><a href="https://gamemath.com/book/orient.html">3D Math Primer — Rotation in Three Dimensions</a></td>
+<td>§8.5.12, Quaternion Interpolation / Slerp</td>
+<td>A derivation/reference for the interpolation extension</td>
+<td>Quaternion notation and component order must be stated; our tool uses (x,y,z,w).</td>
+</tr>
+<tr>
+<td><a href="https://www.3blue1brown.com/lessons/quaternions-and-3d-rotation/">3Blue1Brown and Ben Eater — Quaternions and 3D rotation</a></td>
+<td>Interactive quaternion explanation</td>
+<td>Optional geometric intuition after a small numerical example</td>
+<td>Excellent visualization; not the primary pencil-and-paper calculation source.</td>
+</tr>
+</tbody></table></div>
+<p>Use links and attributed short excerpts; these links are not blanket permission to redistribute complete books or figures. No video timestamps have been verified for this research pass.</p>
+<h2 id="1-from-two-positions-to-displacement">1. From two positions to displacement</h2>
+<p><strong>Question:</strong> What movement takes us from S to E?</p>
+<pre><code>a = E − S = (3−0, 4−0, 0−0) = (3,4,0)
+b = W − E = (6−3, 0−4, 0−0) = (3,−4,0)
+a + b = (6,0,0) = W − S
+</code></pre>
+<p><strong>Read aloud:</strong> “Subtract the starting position from the destination. Each component tells us how far to move on one axis. E connects the two movements; it does not have to be the midpoint.”</p>
+<p><strong>Predict:</strong> Move only E. Does the total displacement S→W change? No, while S and W stay fixed.</p>
+<p><strong>Code:</strong> <code>math_core.sub</code>, then <code>add</code>. Explain <code>zip</code> once: it pairs matching components.</p>
+<p><strong>Visualizer:</strong> Vectors → Two connected vectors → Vectors. Move E, then Restore example.</p>
+<h2 id="2-separate-direction-from-distance">2. Separate direction from distance</h2>
+<p><strong>Question:</strong> How do we move toward E at a chosen speed?</p>
+<pre><code>|a| = √(3² + 4² + 0²) = √25 = 5
+u = a / |a| = (0.6,0.8,0)
+displacement = u × speed × Δt
+             = (0.6,0.8,0) × 2 × 0.5 = (0.6,0.8,0)
+</code></pre>
+<p>Choose consistent distance/time units. The visualizer&#39;s coordinates use the Maya scene unit; the speed example is an independent classroom calculation, not a built-in movement simulator.</p>
+<p><strong>Read aloud:</strong> “The unit vector tells us where to go. Speed and elapsed time tell us how far. If the two points coincide, there is no direction to normalize.”</p>
+<p><strong>Code:</strong> <code>length</code>, <code>unit</code>, <code>scale</code>. <code>length</code> calls <code>dot(v,v)</code>; initially read that as the sum of squared components, then revisit it in the next stop.</p>
+<p><strong>Visualizer:</strong> Normalize. Double E&#39;s distance from S; the blue unit arrow keeps its length. Test Zero vector last.</p>
+<p><strong>Documented application:</strong> <a href="https://catlikecoding.com/unity/tutorials/movement/sliding-a-sphere/">Catlike Coding — Sliding a Sphere</a> develops a controllable character with velocity, input magnitude, and time-based movement. This is a working Unity teaching implementation, not evidence about a named commercial game&#39;s controller.</p>
+<h2 id="3-dot-product-answers-an-alignment-question">3. Dot product answers an alignment question</h2>
+<p>First use an easy game-facing question: is a target in front?</p>
+<pre><code>forward = (1,0,0), target direction = (0.6,0.8,0)
+forward · direction = 1×0.6 + 0×0.8 + 0×0 = 0.6
+0.6 &gt; 0: target is in the forward half-space
+</code></pre>
+<p>Then return to the connected vectors:</p>
+<pre><code>a · b = 3×3 + 4×(−4) + 0×0 = −7
+cos θ = −7 / (5×5) = −0.28
+θ ≈ 106.26°
+</code></pre>
+<p>This is the angle between arrow directions. The arm&#39;s interior elbow angle is 180°−θ ≈ 73.74°. For a cone with half-angle α, compare unit-vector dot product against cos α. This only tests direction; visibility also needs an occlusion test, and gameplay may require distance and eligibility checks.</p>
+<p><strong>Code:</strong> <code>dot</code>; then the cosine/angle portion of <code>analyze</code>. <strong>Visualizer:</strong> Dot / projection; next load Right angle and predict zero before reading the result.</p>
+<p><strong>Actual game-code evidence:</strong> <a href="https://github.com/ValveSoftware/source-sdk-2013/blob/master/src/game/server/player.cpp">Valve&#39;s public Source SDK, player.cpp</a>. Search for <code>make sure it&#39;s in front of the player</code> in the auto-aim code. It subtracts positions, normalizes the target direction, computes a dot product with forward, and rejects negative results. Present this as verified public SDK code, not a claim that every released build uses identical code. The small half-space exercise above is our simplified example.</p>
+<p><strong>Material application:</strong> <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/using-fresnel-in-your-unreal-engine-materials">Epic — Using Fresnel</a> connects surface normal/view direction to edge-facing material effects. An upward-facing snow mask is another classroom extension: saturate(n·up), then use it as a blend weight. It is not automatically a physical snow simulation or lighting model.</p>
+<h2 id="4-projection-builds-a-vector-and-a-point-from-a-scalar">4. Projection builds a vector and a point from a scalar</h2>
+<p><strong>Question:</strong> Where is E&#39;s closest point on the infinite line through S and W?</p>
+<pre><code>g = W − S = (6,0,0)
+u = g / |g| = (1,0,0)
+d = a · u = 3
+projected displacement = d u = (3,0,0)
+H = S + d u = (3,0,0)
+residual = E − H = (0,4,0)
+residual · u = 0   [check perpendicularity]
+</code></pre>
+<p><strong>Read aloud:</strong> “Three is a signed distance. Multiplying by a direction makes a displacement. Adding S makes a point. H is the point, not the purple segment.”</p>
+<p><strong>Code:</strong> Read the named <code>distance_along_line</code>, <code>projected_offset</code>, and <code>h</code> steps in <code>analyze</code>. <strong>Visualizer:</strong> Dot / projection; move E and follow H. S=W is undefined. H may lie outside segment SW.</p>
+<p><strong>Documented gameplay implementation:</strong> <a href="https://catlikecoding.com/unity/tutorials/movement/physics/">Catlike Coding — Physics</a>, <code>ProjectOnContactPlane</code>, removes the normal component to align movement with a ground plane. This is a related plane projection, not the exact line projection shown by our tool:</p>
+<pre><code>v_plane = v − (v·n)n, for unit normal n
+v=(3,−2,0), n=(0,1,0) → v_plane=(3,0,0)
+</code></pre>
+<h2 id="5-cross-product-constructs-a-perpendicular-direction">5. Cross product constructs a perpendicular direction</h2>
+<pre><code>a×b = (4×0 − 0×(−4), 0×3 − 3×0, 3×(−4) − 4×3)
+    = (0,0,−24)
+|a×b| = 24 square units
+n = (a×b)/|a×b| = (0,0,−1)
+n·a = n·b = 0
+</code></pre>
+<p><strong>Predict:</strong> Reverse the operands: the result changes sign. Make them parallel: the cross product is zero and no unique unit normal exists.</p>
+<p><strong>Code:</strong> <code>cross</code>, then <code>unit</code>. <strong>Visualizer:</strong> Cross / plane. The normal arrow is enlarged 3× for legibility; its displayed numerical value is still a unit vector.</p>
+<p><strong>Application:</strong> A triangle&#39;s two edge vectors construct its surface normal; <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/vector-operation-material-expressions-in-unreal-engine">Epic&#39;s Vector Operation Material Expressions</a> documents CrossProduct in the material graph. This establishes an engine operation/application, not a specific shipped game&#39;s asset pipeline. In the arm, a bend-plane normal and the elbow pole position are different things.</p>
+<h2 id="6-matrices-carry-local-coordinates-into-the-world">6. Matrices carry local coordinates into the world</h2>
+<p>Use Maya&#39;s row-vector convention throughout this example. A point has w=1; a direction has w=0.</p>
+<pre><code>                ⎡ 1  0  0  0 ⎤
+M_translation = ⎢ 0  1  0  0 ⎥
+                ⎢ 0  0  1  0 ⎥
+                ⎣10 20 30  1 ⎦
+
+[3 4 0 1] M = [13 24 30 1]
+x_world = 3×1 + 4×0 + 0×0 + 1×10 = 13
+[3 4 0 0] M = [3 4 0 0]       [direction: no translation]
+</code></pre>
+<p>Work one output column before showing the entire multiplication loop. Next show why order matters: scaling x=1 by 2 then translating by 10 gives 12; translating then scaling gives 22.</p>
+<p><strong>Code:</strong> <code>transform_homogeneous</code>. <strong>Visualizer:</strong> Spaces &amp; rotations → Local point to world point; rotate the parent. The default live point is the box corner, not the (3,4,0) classroom input; use the runnable companion for the exact numbers above.</p>
+<p><strong>Documented engine application:</strong> <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/skeletal-mesh-sockets-in-unreal-engine">Epic — Skeletal Mesh Sockets</a> shows attachment transforms relative to bones. A weapon/prop grip is the concrete question. Maya parent constraints and Unreal sockets are related transform applications, not interchangeable APIs. Keep World/Local and row/column convention explicit; normals need additional care under nonuniform scaling.</p>
+<h2 id="7-combine-the-concepts-in-an-arm">7. Combine the concepts in an arm</h2>
+<p><strong>Code order:</strong> <code>rig.create_arm_chain</code> → <code>rig.create_arm_ik</code> → optionally <code>scene.Demo.set_ik</code>. The first two are short enough to present. The pose-matching function is an instructor extension.</p>
+<pre><code>L₁ = L₂ = 5
+|L₁−L₂| ≤ target distance ≤ L₁+L₂
+0 ≤ r ≤ 10
+</code></pre>
+<p><strong>Visualizer:</strong> Arm rig, IK: move wrist then pole; switch FK and rotate shoulder/elbow/wrist. Add the prop last, then compare Point, Orient, and Parent links.</p>
+<p><strong>Documented engine example:</strong> <a href="https://dev.epicgames.com/documentation/unreal-engine/two-bone-ik?application_version=4.27">Epic — Two Bone IK, UE4.27 Content Examples</a> demonstrates a character holding a weapon with IK and hand retargeting. This is an official sample, explicitly an older documentation version. The math explains the constraint; Maya&#39;s IK solver performs the actual solve. Do not imply our <code>dot</code> and <code>cross</code> functions implement the whole IK solver.</p>
+<h2 id="8-interpolation-as-an-optional-final-chapter">8. Interpolation as an optional final chapter</h2>
+<p>Start with a position before a quaternion:</p>
+<pre><code>p(t) = (1−t)p₀ + t p₁
+p₀=(0,0,0), p₁=(4,0,0), t=0.25 → p=(1,0,0)
+</code></pre>
+<p>Then Euler-component interpolation from (0,0,0) to (90,90,0), t=0.5 → (45,45,0) degrees. Finally show the tool&#39;s quaternion endpoints in (x,y,z,w) order:</p>
+<pre><code>q₀=(0,0,0,1), q₁=(0.5,0.5,−0.5,0.5)
+ω=arccos(q₀·q₁)=60°
+q(t)=[sin((1−t)ω)/sin ω]q₀ + [sin(tω)/sin ω]q₁
+q(0.5)≈(0.2887,0.2887,−0.2887,0.8660)
+</code></pre>
+<p>Here ω is a quaternion-space angle, half the physical endpoint rotation angle. General SLERP also needs shortest-path sign handling and a near-equal-endpoint case; Maya&#39;s API handles the live interpolation. Do not present this fixed-endpoint substitution as a complete general implementation.</p>
+<p><strong>Code:</strong> <code>scene.Demo.interpolate</code>, then optionally <code>animation.rotation_at</code> and <code>bake_comparison</code>. <strong>Visualizer:</strong> Spaces &amp; rotations → Orientation interpolation; t=0.5 first, then Play preview for both methods. Position LERP is currently a board/code exercise, not a dedicated viewport mode. Camera/character orientation blending is an application category; the cited quaternion references are explanations, not evidence for a named game&#39;s particular interpolation policy.</p>
+<h2 id="code-reading-route-and-boundaries">Code reading route and boundaries</h2>
+<p>The live package is <code>D:/Personal Projects/Maya/Tools/lesson_materials/week_05_applied_math/</code>.</p>
+<ol>
+<li>Run <code>classroom_path.py</code> for the numerical sequence without Maya.</li>
+<li>Open <code>math_core.py</code>: sub/add → length/unit/scale → dot → projection inside analyze → cross → transform_homogeneous.</li>
+<li>Open <code>rig.py</code>: joint chain → IK target and pole.</li>
+<li>Open <code>scene.py</code> only at <code>Demo.interpolate</code>; then optional <code>animation.py</code> for bake/playback.</li>
+<li>Keep UI hosting, callbacks, scene ownership, capture, HTML layout, and the whole scene builder out of the initial presentation. They solve tool engineering problems, not the first linear-algebra lesson.</li>
+</ol>
+<p><code>TEACHING_CODE.md</code> contains the live excerpts. Run the companion from the Tools folder with <code>python -m lesson_materials.week_05_applied_math.classroom_path</code>, or import it in Maya and call <code>main()</code>. It prints known answers and checks them; it does not open or modify a scene.</p>
+<p>Use function names as navigation anchors rather than slide-dependent line numbers. At each stop, show input → the relevant function → output; avoid scrolling through the entire package. The current visualizer is the experiment stage after the worked calculation, not the prerequisite for understanding the first equation.</p>
+</main></body></html>

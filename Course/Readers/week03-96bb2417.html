@@ -1,0 +1,108 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>week03</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Wiki/content/week03.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Wiki/content/week03.md<br>Source modified: 2026-09-14T03:16:11.657Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#the-through-line">The through-line</a></li><li><a href="#what-you-should-be-able-to-do">What you should be able to do</a></li><li><a href="#before-changing-a-scene">Before changing a scene</a></li><li><a href="#the-systems-thinking-layer">The systems-thinking layer</a></li><li><a href="#interactive-start">Interactive start</a></li><li><a href="#maya-checkpoint-sequence">Maya checkpoint sequence</a></li><li><a href="#ui-ux-is-part-of-correctness">UI/UX is part of correctness</a></li><li><a href="#pair-lab">Pair lab</a></li></ul></details><h2 id="the-through-line">The through-line</h2>
+<p>Week 2 established a manual <strong>Get → Set → verify</strong> texel-density repair. This week
+turns that understood operation into a small tool:</p>
+<ol>
+<li>inspect a reference and selected targets;</li>
+<li>measure world-space and UV area;</li>
+<li>calculate the required UV scale;</li>
+<li>change only the intended UV shells;</li>
+<li>measure again and report the result.</li>
+</ol>
+<p>Python repeats controlled steps. It does not choose the artistic reference, decide
+whether the final texture treatment is convincing, or make missing evidence true.</p>
+<h2 id="what-you-should-be-able-to-do">What you should be able to do</h2>
+<p>By the end of class, you should be able to:</p>
+<ul>
+<li>read a short loop, condition, function call, and returned value;</li>
+<li>explain the difference between VS Code, a Python interpreter, <code>maya.cmds</code>, and
+PySide;</li>
+<li>identify the reference, targets, units, and protected scope of an operation;</li>
+<li>distinguish <strong>Check</strong> from <strong>Apply</strong> and successful execution from verified output;</li>
+<li>trace a button click through a callback into shared Maya code;</li>
+<li>name one artist decision that should remain outside the automation.</li>
+</ul>
+<h2 id="before-changing-a-scene">Before changing a scene</h2>
+<p>State the tool contract in plain language:</p>
+<ul>
+<li><strong>Input:</strong> one captured reference, one or more selected target meshes, map size,
+active UV set, and current Maya linear unit.</li>
+<li><strong>Action:</strong> uniformly scale each existing UV shell around its own center.</li>
+<li><strong>Protected scope:</strong> the reference and unselected meshes are not edited.</li>
+<li><strong>Evidence:</strong> report before and after density and verify the result within tolerance.</li>
+<li><strong>Recovery:</strong> one Apply to multiple targets is one Maya undo step.</li>
+</ul>
+<p>The classroom tool does not remap, pack, cut, sew, define a UDIM policy, or change
+material tiling.</p>
+<h2 id="the-systems-thinking-layer">The systems-thinking layer</h2>
+<p>Treat the tool as a small system, not an isolated button:</p>
+<ul>
+<li><strong>Boundary:</strong> pure Python calculates; Maya supplies and changes scene data; PySide
+communicates with the artist; the filesystem supplies code and presets.</li>
+<li><strong>State and context:</strong> selection order, active UV set, scene unit, map size, project
+path, and Maya/Python/PySide version all affect behavior.</li>
+<li><strong>Feedback loop:</strong> inspect → decide → change → measure again. Running Apply twice
+tests whether the system stabilizes instead of drifting.</li>
+</ul>
+<p>The highest-leverage choices occur at boundaries: validate before mutation, expose
+context instead of assuming it, protect scope, make the action undoable, and verify
+the output. If the UI says “Done” while an invalid target was skipped, the software
+ran but the system failed to communicate truthfully.</p>
+<h2 id="interactive-start">Interactive start</h2>
+<p>Use <a href="https://futurecoder.io/">futurecoder</a> for beginner Python practice and immediate
+feedback. In class, the route is deliberately short: predict, run, read the feedback,
+and explain one change. Students who need support can use hints or a Parsons-style
+reordering problem; students who finish early should construct a counterexample to a
+wrong condition.</p>
+<p>The local <a href="../Slides/Week03/Interactive/index.html">Week 3 interactive bridge</a> uses
+the actual workshop data and remains available when the hosted course is not. It
+connects code prediction to loop tracing, counterexamples, and UI critique.</p>
+<p>The first checkpoint asks you to predict this result before running it:</p>
+<pre><code class="language-python">def needs_attention(name, density, minimum=9.75, maximum=10.75):
+    density_is_wrong = not minimum &lt;= density &lt;= maximum
+    name_is_wrong = not name.startswith(&quot;TD_&quot;)
+    return density_is_wrong or name_is_wrong
+
+assets = [
+    (&quot;TD_reference_cube&quot;, 10.24),
+    (&quot;TD_target_large_cube&quot;, 4.10),
+    (&quot;prop_round_mesh&quot;, 6.80),
+]
+
+print([name for name, density in assets if needs_attention(name, density)])
+</code></pre>
+<p>Change only one part of the condition, then construct the smallest example that shows
+why the changed rule is wrong.</p>
+<h2 id="maya-checkpoint-sequence">Maya checkpoint sequence</h2>
+<p>The workshop is staged rather than live-typed as one large script:</p>
+<ol>
+<li>Discover the project root and report the actual software environment.</li>
+<li>Read and predict an ordinary Python loop.</li>
+<li>Ask Maya for selection and polygon evidence.</li>
+<li>Measure density without changing the scene.</li>
+<li>Apply the reference density, verify, run twice, and undo.</li>
+<li>Operate a deliberately unclear but safe UI.</li>
+<li>Improve one artist-facing behavior and rerun the same test.</li>
+</ol>
+<p>The supplied adapter contains the mesh API details. Introductory work stays focused on
+the readable orchestration: inputs, condition, function call, result, and feedback.</p>
+<h2 id="ui-ux-is-part-of-correctness">UI/UX is part of correctness</h2>
+<p>An artist should not have to guess:</p>
+<ul>
+<li>what “Value” means or what units it uses;</li>
+<li>which objects a button will affect;</li>
+<li>whether the action only checked or actually changed the scene;</li>
+<li>which objects changed, failed, or were skipped;</li>
+<li>whether the result was measured after the change;</li>
+<li>how to recover from an unwanted action.</li>
+</ul>
+<p>The completed interface therefore names the reference and target scope, distinguishes
+Check from Apply, prevents Apply until a reference is captured, reports each verified
+result or skip, and names Undo as the recovery route.</p>
+<h2 id="pair-lab">Pair lab</h2>
+<p>One person operates while the other observes silently. Before editing code, write one
+expected behavior. Improve one label, validation response, callback, or report; then
+run the same fixture test, Apply twice, confirm the protected control is unchanged,
+and switch roles.</p>
+<p>There is no Week 3 submission. Further practice is optional and can become evidence
+for choosing a useful midterm tool idea.</p>
+</main></body></html>

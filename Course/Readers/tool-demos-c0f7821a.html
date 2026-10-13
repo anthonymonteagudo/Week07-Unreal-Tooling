@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Working Week 5 Maya demos</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week05/Review/TOOL_DEMOS.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week05/Review/TOOL_DEMOS.md<br>Source modified: 2026-09-27T15:42:04.792Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#working-week-5-maya-demos">Working Week 5 Maya demos</a></li><li><a href="#launch-in-maya">Launch in Maya</a></li><li><a href="#implemented-and-checked">Implemented and checked</a></li><li><a href="#captured-assets">Captured assets</a></li><li><a href="#remaining-boundaries">Remaining boundaries</a></li></ul></details><h1 id="working-week-5-maya-demos">Working Week 5 Maya demos</h1>
+<p>27 September 2026. The first implementation is now available alongside Week 3:</p>
+<ul>
+<li><a href="D%3A/Personal%20Projects/Maya/Tools/lesson_materials/week_05_applied_math/README.md">Student code and launch instructions</a></li>
+<li><a href="D%3A/Personal%20Projects/Maya/Tools/course_docs/week_05/IMPLEMENTATION.md">Instructor implementation and validation guide</a></li>
+<li><a href="../Slides/Week05/Review/media.html#maya-arm-capture">Actual Maya captures</a></li>
+</ul>
+<h2 id="launch-in-maya">Launch in Maya</h2>
+<p>Use a centimeter scene. Paste into the <strong>Python</strong> tab of Maya&#39;s Script Editor:</p>
+<pre><code class="language-python">import sys
+tools_root = r&quot;D:\Personal Projects\Maya\Tools&quot;
+if tools_root not in sys.path:
+    sys.path.insert(0, tools_root)
+from lesson_materials.week_05_applied_math import show
+show()
+</code></pre>
+<p>Build the locator sandbox or the FK/IK arm. Each build adds a unique fixture without
+replacing the scene. Select the points/controls with the buttons and manipulate them
+in Maya. Undo removes the latest build. Reopen the UI and build a fresh fixture if
+you need to recover its controls; saved scenes retain the native math graph.</p>
+<h2 id="implemented-and-checked">Implemented and checked</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Available behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Vectors / dot / cross</td>
+<td>Three movable points, raw vectors, unit arrow, lengths, dot/cosine/angle, cross normal, projection and residual</td>
+</tr>
+<tr>
+<td>Edge cases</td>
+<td>Straight, perpendicular, coincident endpoints and zero upper segment presets; explicit undefined readouts</td>
+</tr>
+<tr>
+<td>Arm</td>
+<td>Shoulder/elbow/wrist, simple rigid segment meshes, FK joints, rotate-plane IK target and pole control</td>
+</tr>
+<tr>
+<td>Spaces / matrices</td>
+<td>Fixture parent, separate hand parent, local/world matrix readouts and jointOrient inspection</td>
+</tr>
+<tr>
+<td>Rotation / interpolation</td>
+<td>Marked hand with fixed orientation endpoints; component Euler interpolation versus quaternion slerp; position lerp</td>
+</tr>
+<tr>
+<td>Guided lab</td>
+<td>Student projection function, reload button and learner H locator; the exercise is intentionally unfinished</td>
+</tr>
+<tr>
+<td>Captures</td>
+<td>Dedicated camera/panel; PNG with inputs and provenance; instructor rehearsal generates native scene exports and a frame sequence</td>
+</tr>
+</tbody></table></div>
+<p>Maya 2027 standalone: <strong>10 tests passed</strong>, covering numeric examples, actual graph
+evaluation, degeneracy, IK, lengths, selection/namespace safety, Undo, interpolation,
+matrix round trips and saved-scene evaluation. Interactive Maya rehearsal built both
+fixtures and produced actual viewport captures. New Python files pass scoped Ruff checks.</p>
+<h2 id="captured-assets">Captured assets</h2>
+<ul>
+<li><a href="../Slides/Week05/Review/captures/maya_vectors.png">Locator sandbox PNG</a> and <a href="../Slides/Week05/Review/captures/maya_vectors.json">capture data</a>.</li>
+<li><a href="../Slides/Week05/Review/captures/maya_arm.png">FK/IK teaching arm PNG</a> and <a href="../Slides/Week05/Review/captures/maya_arm.json">capture data</a>.</li>
+<li><a href="../Slides/Week05/Review/captures/maya_vectors.gif">24-frame vector GIF</a> and <a href="../Slides/Week05/Review/captures/maya_vectors_gif.json">frame provenance</a>.</li>
+<li><a href="D%3A/Personal%20Projects/Maya/InstructorBuilds/Week05/rehearsal_20260927_b">Generated native scenes and original frames</a>.</li>
+</ul>
+<p>The GIF uses actual Maya viewport frames at 8 fps. The elbow crosses the shoulder–wrist
+line; the normal disappears at the straight configuration and reverses across it.
+Frames were resized and palette-quantized, not retouched. Gray screenshot backgrounds
+are original viewport pixels. These are working-demo captures, not final slide layouts.</p>
+<h2 id="remaining-boundaries">Remaining boundaries</h2>
+<p>The prior arm generator was not found in the searched Python/MEL sources under
+<code>D:\Personal Projects</code>. This is a new implementation, ready to compare with it when located.
+The arm does not include skinning, production FK/IK pose matching or a no-flip solver.
+Full gimbal rings and material graphs remain future modules; existing sourced media
+still supports those slide sections. Maya 2022 compatibility is not certified.</p>
+<p>The lesson&#39;s full 180-minute coverage remains unchanged. Use these implemented demos
+for matching topics and keep the explicitly pending modules visible in preparation.</p>
+</main></body></html>

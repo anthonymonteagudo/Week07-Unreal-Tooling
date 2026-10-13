@@ -1,0 +1,157 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 7 Unreal Python tooling · Week 7</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/README.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/README.md<br>Source modified: 2026-10-10T07:37:51.469Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#northwood-tooling-week-7">Week 7 Unreal Python tooling · Week 7</a></li><li><a href="#the-edit-run-loop">The edit / run loop</a></li><li><a href="#start-with-these-files">Start with these files</a></li><li><a href="#the-five-lessons">The five lessons</a></li><li><a href="#vs-code-tasks-and-debugging">VS Code tasks and debugging</a></li><li><a href="#add-an-example">Add an example</a></li><li><a href="#setup-on-another-machine">Setup on another machine</a></li><li><a href="#provenance-and-teaching-context">Provenance and teaching context</a></li></ul></details><h1 id="northwood-tooling-week-7">Week 7 Unreal Python tooling · Week 7</h1>
+<p>Open <strong><a href="../../Week07UnrealPython/Week07PythonTools.code-workspace">Week07PythonTools.code-workspace</a></strong> in VS Code and <strong>Week07UnrealPython.uproject</strong> in Unreal 5.7. This workspace is ready for editing, examples, ordinary Python tests, and checks in a separate Unreal editor.</p>
+<p>On first opening, VS Code showed <strong>Restricted Mode</strong>. Use its <strong>Manage → Trust</strong> control yourself to enable Python extensions and workspace tasks. The setup and tests were verified through the command line; in-IDE completion and debugging still need that trust step.</p>
+<h2 id="the-edit-run-loop">The edit / run loop</h2>
+<ol>
+<li>In VS Code, edit a file under <code>Content/Python/week07_tooling</code> and save it.</li>
+<li>In Unreal, open <strong>Output Log</strong> and choose <strong>Python</strong> beside the command field.</li>
+<li>Run the following <strong>in Unreal</strong>, one line at a time:</li>
+</ol>
+<pre><code class="language-python">import week07_tools as w7
+w7.reload_tools()
+w7.list_examples()
+w7.run_example(&#39;01_hello_editor&#39;)
+</code></pre>
+<p><code>run_example()</code> reloads the implementation and loaded examples before running one lesson. Importing the package and reloading it never modifies the scene. If you edit <code>week07_tools.py</code> itself (including its example list), reload that entry module first:</p>
+<pre><code class="language-python">import importlib
+importlib.reload(w7)
+w7.reload_tools()
+</code></pre>
+<p><strong>The terminal&#39;s Python is for pure code and tests.</strong> Unreal supplies the real <code>unreal</code> module inside the editor. VS Code&#39;s green “Run Python File” button cannot run editor scripts against the open project. There is no remote-execution service or automatic code watcher in this setup.</p>
+<h2 id="start-with-these-files">Start with these files</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Content/Python/week07_tools.py</code></td>
+<td>Stable entry point, example list and dependency-aware reload. Existing slide/demo commands still work.</td>
+</tr>
+<tr>
+<td><code>Content/Python/week07_tooling/examples/</code></td>
+<td>Five short lessons with explicit <code>run()</code> functions.</td>
+</tr>
+<tr>
+<td><code>Content/Python/week07_tooling/editor/demo.py</code></td>
+<td>Unreal selection, scene reads, changes, transactions and reports.</td>
+</tr>
+<tr>
+<td><code>Content/Python/week07_tooling/rules.py</code></td>
+<td>Pure calculations and validation of ordinary Python data. No Unreal imports.</td>
+</tr>
+<tr>
+<td><code>Content/Python/week07_tooling/config.py</code></td>
+<td>Demo map, tags, fixture IDs and baseline values.</td>
+</tr>
+<tr>
+<td><code>Tests/test_rules.py</code></td>
+<td>Tests runnable directly in VS Code.</td>
+</tr>
+<tr>
+<td><code>Scripts/editor/smoke_test.py</code></td>
+<td>Integration checks in an isolated full editor process; no map saves.</td>
+</tr>
+<tr>
+<td><code>Scripts/dev.py</code></td>
+<td>Setup, syntax, tests, autocomplete and environment checks.</td>
+</tr>
+<tr>
+<td><code>Scripts/templates/editor_example.py</code></td>
+<td>A read-only starting point for another lesson.</td>
+</tr>
+<tr>
+<td><code>Scripts/build_week07.py</code></td>
+<td>One-time fixture builder; refuses to overwrite the existing map.</td>
+</tr>
+<tr>
+<td><code>Scripts/capture_week07.py</code></td>
+<td>Existing full-editor capture automation.</td>
+</tr>
+<tr>
+<td><code>Reference/LegacyPython/</code></td>
+<td>Original study scripts, retained with disabled extensions.</td>
+</tr>
+</tbody></table></div>
+<p>Keep application-independent calculations in <code>rules.py</code> (or another pure module as the tools grow). Let an editor adapter collect scene data and apply approved changes. Keep examples small and call the same implementation the demo uses.</p>
+<p>Unreal automatically discovers <code>Content/Python</code>. Do not put this code under a second source root or add machine-specific paths to classroom examples. There is deliberately no <code>init_unreal.py</code> that changes a scene at startup.</p>
+<h2 id="the-five-lessons">The five lessons</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Example</th>
+<th>What to show</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>01_hello_editor</code></td>
+<td>Unreal&#39;s engine and project context; a simple log message.</td>
+</tr>
+<tr>
+<td><code>02_inspect_selection</code></td>
+<td>Actor → Component → mesh asset; level vs Content Browser selection.</td>
+</tr>
+<tr>
+<td><code>03_preview_changes</code></td>
+<td>Return an inspectable change plan without editing.</td>
+</tr>
+<tr>
+<td><code>04_apply_reviewed_plan</code></td>
+<td>Require an explicit plan and group changes into one Undo action.</td>
+</tr>
+<tr>
+<td><code>05_validate_fixture</code></td>
+<td>Verify against fixture-specific rules and report failures.</td>
+</tr>
+</tbody></table></div>
+<p>On <code>/Game/Week07/Maps/W07_PythonLab</code>, use this rehearsal sequence:</p>
+<pre><code class="language-python">w7.select_demo()
+w7.run_example(&#39;02_inspect_selection&#39;)
+plan = w7.run_example(&#39;03_preview_changes&#39;)
+# Read the before/after output before continuing.
+w7.run_example(&#39;04_apply_reviewed_plan&#39;, plan=plan)
+w7.run_example(&#39;05_validate_fixture&#39;)
+</code></pre>
+<p>Use <strong>Edit → Undo Week 7: organize selected props</strong> to recover in one step. <code>w7.reset_demo()</code> restores the seed arrangement for another rehearsal. Neither Apply nor Reset saves the map. <code>w7.capture_view()</code> pilots the saved camera; <code>w7.capture_view(False)</code> returns to ordinary navigation. Do not fly the camera while piloting if you want repeatable framing.</p>
+<p>Old commands such as <code>w7.preview()</code>, <code>w7.apply(plan)</code> and <code>w7.check()</code> remain available. After changing rules or selection, make and review a fresh preview.</p>
+<h2 id="vs-code-tasks-and-debugging">VS Code tasks and debugging</h2>
+<p>Use <strong>Terminal → Run Task</strong>:</p>
+<ul>
+<li><strong>Week 7 Python: check Python syntax</strong> — also the default build task (<code>Ctrl+Shift+B</code>).</li>
+<li><strong>Week 7 Python: test pure Python rules</strong> — eight tests, no editor required.</li>
+<li><strong>Week 7 Python: check development setup</strong> — reports interpreter, engine and stub availability.</li>
+<li><strong>Week 7 Python: test in separate Unreal editor</strong> — twelve integration checks; leaves your open session alone.</li>
+<li><strong>Week 7 Python: refresh Unreal autocomplete</strong> — uses a separate full editor session to generate the stub.</li>
+</ul>
+<p>The <strong>Testing</strong> panel discovers <code>Tests/test_rules.py</code>. For breakpoints in pure code, choose <strong>Debug pure Python rule tests (outside Unreal)</strong> in Run and Debug. Attaching a debugger to the embedded Unreal interpreter is optional future work; this launch configuration does not imply such an attachment.</p>
+<p>The local <code>.venv</code> uses Unreal&#39;s Python <strong>3.11.8</strong>. No third-party dependencies are required and pip was not installed in this environment. Python, Pylance and Python Debugger were already installed in VS Code. If VS Code shows a different interpreter, run <strong>Python: Select Interpreter</strong> and select <code>.venv/Scripts/python.exe</code>.</p>
+<p>Autocomplete points to <code>Intermediate/PythonStub/unreal.py</code>, generated from this project&#39;s enabled plugins. Developer Mode is enabled for this tooling project. The stub is analysis-only: never add its directory to runtime <code>PYTHONPATH</code> or copy it into <code>Content/Python</code>. Regenerate it after engine/plugin changes. The Explorer hides generated directories and binary Unreal assets to keep code browsing clear; these files still exist and remain visible in Unreal.</p>
+<h2 id="add-an-example">Add an example</h2>
+<ol>
+<li>Copy <code>Scripts/templates/editor_example.py</code> to <code>Content/Python/week07_tooling/examples/e06_my_example.py</code>.</li>
+<li>Keep work in <code>run()</code>; importing a module should not perform the lesson&#39;s action.</li>
+<li>Add <code>&#39;06_my_example&#39;: &#39;A short scope/behavior description.&#39;</code> to <code>_EXAMPLES</code> in <code>week07_tools.py</code>.</li>
+<li>Reload the entry module as shown above, then run <code>w7.run_example(&#39;06_my_example&#39;)</code> in Unreal.</li>
+<li>Put reusable rules in a pure module and test them outside Unreal. Add editor regression coverage when the tool changes scene behavior.</li>
+</ol>
+<p>When adding a new shared module, add it to the dependency order in <code>reload_tools()</code> so it reloads before its consumers. Reloading does not refresh local variables imported with <code>from ... import ...</code> in your console; prefer <code>import week07_tools as w7</code> and call through <code>w7</code>.</p>
+<h2 id="setup-on-another-machine">Setup on another machine</h2>
+<p>From the project root with a compatible installed Python:</p>
+<pre><code class="language-powershell">python Scripts/dev.py setup --engine-root &#39;C:/Program Files/Epic Games/UE_5.7&#39;
+./.venv/Scripts/python.exe Scripts/dev.py stubs
+./.venv/Scripts/python.exe Scripts/dev.py doctor
+</code></pre>
+<p>The engine path is recorded only in ignored <code>.vscode/unreal.local.json</code>. The workspace and examples use relative paths. If you move the project or change Python installations, recreate the local <code>.venv</code> rather than copying it between machines.</p>
+<p>Keep <code>.venv</code>, <code>Intermediate</code>, <code>Saved</code>, caches, logs and bytecode out of Perforce. The project contains local ignore rules; the parent workspace also ignores Unreal generated folders. No changelist has been submitted.</p>
+<h2 id="provenance-and-teaching-context">Provenance and teaching context</h2>
+<p>Prof. Monteagudo confirmed on <strong>10 October 2026</strong> that the original <strong>Northwood</strong> project resulted from working through Isaac Oster&#39;s public online course, <strong>Utilizing Python for Editor Scripting in Unreal Engine</strong>. The compiled notes cover sources he had already reviewed. <strong>Week07UnrealPython</strong> is the subsequent classroom-preparation spinoff. Its fixture, controlled-edit tools, tests, VS Code workspace and captures were added during Week 7 preparation.</p>
+<ul>
+<li><a href="../Slides/Week07/PrepNotes/index.html">Compiled Week 7 prep notes</a></li>
+<li><a href="../Slides/Week07/UnrealPythonDemo/index.html">Demo run sheet and captures</a></li>
+<li><a href="../../Week07UnrealPython/START_HERE.txt">Project quick start</a></li>
+</ul>
+<p>Batch FBX import, the final student lab and in-editor debugger attachment are still future examples. The current validator checks this teaching fixture, not all assets in Northwood.</p>
+<p>API/setup references: <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/setting-up-autocomplete-for-editor-python-scripting-in-unreal-engine">Epic Python autocomplete</a>, <a href="https://code.visualstudio.com/docs/python/settings-reference">VS Code Python settings</a>, and <a href="https://code.visualstudio.com/docs/python/testing">VS Code Python testing</a>.</p>
+</main></body></html>

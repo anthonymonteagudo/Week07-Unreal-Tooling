@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stage 00 · Data and scope</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_00_data_and_scope/README.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_00_data_and_scope/README.md<br>Source modified: 2026-10-12T02:44:24.533Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><h1 id="stage-00-data-and-scope">Stage 00 · Data and scope</h1>
+<p>Run <code>Scripts/lessons.py run 01</code>, then <code>run 02</code> using the project interpreter.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Open</th>
+<th>Expect</th>
+<th>Try</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>01</td>
+<td><code>step_01_read_records.py</code></td>
+<td>Four records; first path <code>sample://crate-0</code>, label <code>crate_old</code>.</td>
+<td>Inspect <code>first</code> at a breakpoint. Which field remains useful after renaming?</td>
+</tr>
+<tr>
+<td>02</td>
+<td><code>step_02_choose_scope.py</code></td>
+<td>Three included labels; <code>KeyLight</code> excluded.</td>
+<td>Remove a tag from your local data copy and see which list changes.</td>
+</tr>
+</tbody></table></div>
+<p>These dictionaries stand in for data a future adapter can collect. They are not
+Actor objects. This checkpoint filters exclusions; the existing Unreal Apply path
+rejects mixed selections, a stricter policy discussed in Stage 03.</p>
+</main></body></html>

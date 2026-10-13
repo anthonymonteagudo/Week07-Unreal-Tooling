@@ -1,0 +1,154 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Museum Repair Lab 2 — Instructor Setup and Break/Fix Guide</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../TechArtMuseumIntegration/Docs/MUSEUM_LAB02_SETUP.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: TechArtMuseumIntegration/Docs/MUSEUM_LAB02_SETUP.md<br>Source modified: 2026-09-08T14:11:25.436Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#museum-repair-lab-2-instructor-setup-and-break-fix-guide">Museum Repair Lab 2 — Instructor Setup and Break/Fix Guide</a></li><li><a href="#outcome">Outcome</a></li><li><a href="#lecture-aligned-minimum-viable-scope">Lecture-aligned minimum viable scope</a></li><li><a href="#maps">Maps</a></li><li><a href="#build-and-reset">Build and reset</a></li><li><a href="#path-of-least-resistance-for-the-first-class-run">Path of least resistance for the first class run</a></li><li><a href="#class-workflow">Class workflow</a></li><li><a href="#lab-1-observe-only">Lab 1 — observe only</a></li><li><a href="#lab-2-group-repair">Lab 2 — group repair</a></li><li><a href="#station-contract">Station contract</a></li><li><a href="#required-station-recipes">Required station recipes</a></li><li><a href="#ex23-rgb-and-srgb">EX23 — RGB and sRGB</a></li><li><a href="#ex24-normal-maps">EX24 — normal maps</a></li><li><a href="#exmat-materials-in-maya-and-unreal">EXMAT — materials in Maya and Unreal</a></li><li><a href="#exlod-lods-and-visibility">EXLOD — LODs and visibility</a></li><li><a href="#ex20-geometry-integrity">EX20 — geometry integrity</a></li><li><a href="#exa-and-ex21-skeletal-animation-and-morph-targets">EXA and EX21 — skeletal animation and morph targets</a></li><li><a href="#exniagara-staged-extension">EXNIAGARA — staged extension</a></li><li><a href="#interaction-limitations-before-mass-conversion">Interaction limitations before mass conversion</a></li><li><a href="#student-created-exhibit-option">Student-created exhibit option</a></li></ul></details><h1 id="museum-repair-lab-2-instructor-setup-and-break-fix-guide">Museum Repair Lab 2 — Instructor Setup and Break/Fix Guide</h1>
+<h2 id="outcome">Outcome</h2>
+<p>Lab 2 now uses a fork of the integrated museum prototype. Students compare visible Correct and Incorrect evidence, identify the owning pipeline stage, repair what they can, and document the diagnosis. The separate Western environment remains optional and is not part of this lab path.</p>
+<h2 id="lecture-aligned-minimum-viable-scope">Lecture-aligned minimum viable scope</h2>
+<p>The current Week 2 deck establishes the teaching sequence: asset data, handoffs, observation before diagnosis, metadata, textures, materials, skeletal assets, and documentation. The fastest shippable lab is therefore five stations, in this order:</p>
+<ol>
+<li><strong>Normals and shading — EX24/EX20.</strong> Directly reinforces the <code>Normals</code>, <code>Observation before Diagnosis</code>, and <code>Museum Guide: Geometry and Shading</code> slides.</li>
+<li><strong>RGB, sRGB, and numeric texture data — EX23.</strong> Directly reinforces <code>Anatomy of a Texture Asset</code>, <code>Compression Changes Data</code>, and <code>Texture Triage</code>.</li>
+<li><strong>Materials across Maya and Unreal — EXMAT.</strong> Directly reinforces <code>Maya to Unreal: Minimum Viable Handoff</code>, <code>Anatomy of Material</code>, <code>Material Graph → Material Instances</code>, and <code>Material Triage</code>.</li>
+<li><strong>LODs — EXLOD.</strong> This is core lab content, not a bonus. It reinforces <code>LODs</code>, <code>LOD Selection and Generation</code>, and the final collision/LOD museum guide.</li>
+<li><strong>UV sampling and texel density — EX29.</strong> Reinforces the UV-layout, texel-density, mip, and texture-triage material.</li>
+</ol>
+<p>If class time remains, add geometry integrity, mips/compression, and the existing skeletal comparison as instructor-led extensions. Niagara and VAT remain <strong>Advanced</strong> media/reference paths until a project-authored pair is validated; do not let them block the five-station lab.</p>
+<p>The revised slide deck uses draft visual tags:</p>
+<ul>
+<li><strong>LAB</strong> — directly supports observation or repair in the museum;</li>
+<li><strong>ADVANCED</strong> — valuable extension, not required for the core repair;</li>
+<li><strong>SUPPLEMENTAL</strong> — optional exploration or external reference.</li>
+</ul>
+<p>These labels are intentionally easy to rename when the final category vocabulary is chosen.</p>
+<h2 id="maps">Maps</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Map</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authoring master</td>
+<td><code>/Game/TechArtMuseum/Labs/MuseumRepair/L_MuseumRepair_Master</code></td>
+<td>Instructor-only source for adding and revising exhibits.</td>
+</tr>
+<tr>
+<td>Student</td>
+<td><code>/Game/TechArtMuseum/Labs/MuseumRepair/L_MuseumRepair_Student</code></td>
+<td>Distribute or branch per group. Students repair Incorrect assets or document an exact repair.</td>
+</tr>
+<tr>
+<td>Clean reference</td>
+<td><code>/Game/TechArtMuseum/Labs/MuseumRepair/L_MuseumRepair_CleanReference</code></td>
+<td>Immutable reset/reference. Do not assign this map for editing.</td>
+</tr>
+<tr>
+<td>Source snapshot</td>
+<td><code>/Game/TechArtMuseum/PrototypeLab/L_IntegratedUnsupportedExhibits_Test</code></td>
+<td>Validated integration source. Do not build class changes directly in this snapshot.</td>
+</tr>
+</tbody></table></div>
+<p>All four maps retain the integrated First Person pawn interaction path and the standard PlayerController. Do not replace it with <code>BP_FirstPersonPlayerController</code>.</p>
+<p>Each fork also contains <code>BP_MuseumExhibitItem_Lab02FunctionalTest</code> near the integrated PlayerStart. It is the proven static-mesh interaction smoke test copied from the working child-class path. Keep it until every target workstation passes enter-zone, prompt, inspect, rotate, close, and prompt-reset testing.</p>
+<h2 id="build-and-reset">Build and reset</h2>
+<p>Create the fork once with:</p>
+<pre><code class="language-powershell">UnrealEditor-Cmd.exe TechArtMuseumIntegration.uproject -run=pythonscript -script=Scripts/PrepareMuseumRepairFork.py -unattended -nop4 -nullrhi -DDC-ForceMemoryCache
+</code></pre>
+<p>The script refuses to overwrite an existing map. It also adds/configures the proven interaction smoke test and reconnects copied TextureCoordinate, Morph Cube, and animation display actors to their local assets. To reset a class copy safely, duplicate <code>L_MuseumRepair_CleanReference</code> in the Unreal Content Browser and assign the duplicate to that group. Never reset from the student&#39;s modified map.</p>
+<p>Validate all maps and required sources with <code>Scripts/ValidateMuseumRepairReadiness.py</code>. Its machine-readable report is written to <code>Saved/MuseumRepairReadiness.json</code>.</p>
+<h3 id="path-of-least-resistance-for-the-first-class-run">Path of least resistance for the first class run</h3>
+<ol>
+<li>Duplicate <code>L_MuseumRepair_Student</code> once per group.</li>
+<li>Assign only EX24, EX23, EXMAT, EXLOD, and EX29.</li>
+<li>Keep the original museum displays visible; add interaction only when it preserves the evidence faithfully.</li>
+<li>Use the existing Correct specimen as the control and edit only the Incorrect duplicate.</li>
+<li>If a repair requires Maya or unsupported interaction, accept an exact diagnosis plus authoritative repair procedure.</li>
+<li>Run the functional interaction smoke test before distributing each group map.</li>
+</ol>
+<p>This avoids new player-controller work, a second environment, skeletal-inspector dependencies, and a Niagara/VAT pipeline on the critical path.</p>
+<h2 id="class-workflow">Class workflow</h2>
+<h3 id="lab-1-observe-only">Lab 1 — observe only</h3>
+<ol>
+<li>Give students 5–10 minutes to walk through independently.</li>
+<li>For each exhibit, record the neutral symptom, two pieces of evidence, likely owning stage, and a confirming test.</li>
+<li>Do not repair exhibits during Lab 1.</li>
+<li>Walk through the exhibits as a class.</li>
+<li>Show the Lab 1 answer key at the end of Week 2.</li>
+</ol>
+<h3 id="lab-2-group-repair">Lab 2 — group repair</h3>
+<ol>
+<li>Duplicate the Student map once per group or give each group an isolated branch/workspace.</li>
+<li>Let groups choose bugs and order freely.</li>
+<li>Correct references are visible but locked. Incorrect specimens are editable.</li>
+<li>A group may submit a precise diagnosis and repair plan for an asset it cannot technically repair.</li>
+<li>Require documentation using the template below.</li>
+</ol>
+<pre><code class="language-text">Exhibit:
+Visible symptom:
+Evidence 1:
+Evidence 2:
+Owning pipeline stage:
+Root cause:
+Smallest authoritative repair:
+Repair performed or exact procedure:
+Primary verification:
+Unaffected property checked:
+Prevention recommendation:
+</code></pre>
+<h2 id="station-contract">Station contract</h2>
+<p>Each finished station must provide:</p>
+<ul>
+<li>one visible Correct reference and one editable Incorrect specimen;</li>
+<li>the same camera, light, transform context, and relevant material inputs;</li>
+<li>a neutral plaque that does not disclose the root cause;</li>
+<li>an interaction popup with title, observation prompt, production consequence, and optional Learn More link;</li>
+<li>a stable exhibit ID and pair ID;</li>
+<li>an instructor key outside the student-facing map;</li>
+<li>a clean reset source;</li>
+<li>verification of at least one unrelated property.</li>
+</ul>
+<p>Use <code>MUSEUM_LAB02_EXHIBIT_MANIFEST.csv</code> as the integration queue. <code>READY</code> means both teaching states already exist. <code>SOURCE_READY</code> means the source is imported and only the controlled duplicate/fault must be authored. <code>READY_DISPLAY_ONLY</code> means the assets exist but require the planned skeletal inspector for full inspection mode. <code>STAGED_NOT_AUTHORED</code> and <code>CONCEPT_ONLY</code> must not be advertised as finished exhibits.</p>
+<h2 id="required-station-recipes">Required station recipes</h2>
+<h3 id="ex23-rgb-and-srgb">EX23 — RGB and sRGB</h3>
+<p><strong>Break:</strong> Duplicate the correct numeric-data texture/material. Enable sRGB or route a color-decoded channel into Roughness/Metallic. Keep the source pixels and light identical.</p>
+<p><strong>Fix:</strong> Treat numeric masks as linear data, restore the documented channel and sampler, and leave Base Color textures in sRGB.</p>
+<p><strong>Verify:</strong> Correct, repaired, and Incorrect must be compared under the same light. The repaired material matches Correct while Base Color remains unchanged.</p>
+<h3 id="ex24-normal-maps">EX24 — normal maps</h3>
+<p><strong>Break:</strong> Import the same normal pixels as ordinary color, use the wrong sampler type, or invert the project’s expected green channel. Introduce only one of these faults per assessed specimen.</p>
+<p><strong>Fix:</strong> Use Normal Map compression, linear sampling, the normal sampler, and the documented tangent-space convention.</p>
+<p><strong>Verify:</strong> Move the light around the asset. Highlights and small-scale detail match Correct from multiple directions.</p>
+<h3 id="exmat-materials-in-maya-and-unreal">EXMAT — materials in Maya and Unreal</h3>
+<p><strong>Break:</strong> Choose one controlled fault: reorder Maya material slots; omit a slot during export; assign the wrong Unreal material; or change Opaque/Masked/Translucent behavior.</p>
+<p><strong>Fix:</strong> Repair the authoritative Maya assignment or Unreal setting—not both—and reimport when the source contract changed.</p>
+<p><strong>Verify:</strong> Material slot order, silhouette, sorting/overdraw behavior, and one unaffected texture remain correct.</p>
+<h3 id="exlod-lods-and-visibility">EXLOD — LODs and visibility</h3>
+<p>Use the Smithsonian Page Induction Coil as the detailed source and SimpleInstancing as the assembly/optimization companion.</p>
+<p><strong>Correct:</strong> A silhouette-preserving LOD chain with documented triangle targets, sensible screen-size thresholds, stable material slots/collision, and intentional bounds/cull distance.</p>
+<p><strong>Break:</strong> Duplicate the mesh and use exactly one fault: remove lower LODs; make a reduction destructive; place thresholds too close/far apart; lose a material on a lower LOD; or inflate bounds so culling never occurs.</p>
+<p><strong>Fix:</strong> Generate or import LODs, preserve silhouette-critical regions, restore slot/collision contracts, and tune thresholds while watching mesh statistics.</p>
+<p><strong>Verify:</strong> Capture triangle count and active LOD at near/mid/far distances. Check for popping, material changes, shadow changes, and collision regressions. Explain that Simplygon-style grouped optimization is a later automation pipeline, not a manual one-off trick.</p>
+<h3 id="ex20-geometry-integrity">EX20 — geometry integrity</h3>
+<p><strong>Break:</strong> The seven existing museum assets already isolate flipped normals, non-manifold edges, duplicate faces, open boundaries, non-oriented surfaces, non-manifold shells, and degenerate triangles. Do not add several faults to one mesh.</p>
+<p><strong>Fix:</strong> Diagnose in Unreal, repair the owning component in Maya, run Cleanup/normal checks, export, and reimport without changing UVs, pivot, scale, or material IDs.</p>
+<p><strong>Verify:</strong> The targeted diagnostic passes and at least two controlled properties remain identical.</p>
+<h3 id="exa-and-ex21-skeletal-animation-and-morph-targets">EXA and EX21 — skeletal animation and morph targets</h3>
+<p>The Correct/Incorrect display assets are present. Full interaction requires a skeletal inspector carrying Skeletal Mesh, animation/AnimBP, playback rate, looping, materials, inspection transform, and morph state.</p>
+<p>The fork repair pass reconnects the copied Morph Cube and animation display actors to their local assets. <code>run_INCORRECT_truncated</code> is deliberately tagged <code>EXA_TRUNCATED_SOURCE_CLIP_REQUIRED</code>: its missing dedicated truncated clip was not replaced with a misleading substitute. Do not assign that particular station until a deliberately shortened source clip is authored and verified.</p>
+<p><strong>Break/fix:</strong> Keep skin weights, animation keys, component animation mode, playback rate, skeleton compatibility, and morph topology as separate faults. Students repair only the owning layer.</p>
+<p><strong>Verify:</strong> Compare at least two complete loops or the full morph range. Confirm skeleton identity, materials, transform, and unaffected animation data.</p>
+<h3 id="exniagara-staged-extension">EXNIAGARA — staged extension</h3>
+<p>No project-authored Niagara Correct/Incorrect pair currently exists. Author one small system before assigning this station.</p>
+<p>Recommended first pair: a bounded looping sprite or mesh effect. Duplicate Correct and break either fixed bounds, spawn rate, renderer material, or simulation space. Keep one fault per Incorrect version. Show particle count and visibility evidence. Mention VATs as an advanced Houdini-to-Niagara/Unreal playback route; do not require VAT repair until the class has received that pipeline lesson.</p>
+<h2 id="interaction-limitations-before-mass-conversion">Interaction limitations before mass conversion</h2>
+<ul>
+<li>The current item child supports one static mesh.</li>
+<li>Shared painting meshes need component material overrides copied into inspection.</li>
+<li>Learn More must resolve from a stable exhibit/source actor ID rather than mesh identity.</li>
+<li>Skeletal assets require a skeletal inspector.</li>
+<li>Z-fighting and grouped comparisons require a composite inspector.</li>
+<li>Interaction bounds must remain independent of display scale.</li>
+</ul>
+<p>Until those capabilities exist, leave the original Correct/Incorrect displays visible and use interaction only for stations whose payload can be preserved faithfully.</p>
+<h2 id="student-created-exhibit-option">Student-created exhibit option</h2>
+<p>Treat a complete original exhibit as a midterm/final option. Require provenance-cleared sources, one controlled fault, Correct/Incorrect states, neutral diagnostic writing, an interaction popup, repair instructions, verification evidence, and a reset path. For the immediate Lab 2 assignment, require one repair plus documentation rather than a complete exhibit build.</p>
+</main></body></html>

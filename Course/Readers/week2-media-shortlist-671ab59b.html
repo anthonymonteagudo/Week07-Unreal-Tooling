@@ -1,0 +1,195 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 2: media shortlist and incorporation plan</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week02/Review/WEEK2_MEDIA_SHORTLIST.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week02/Review/WEEK2_MEDIA_SHORTLIST.md<br>Source modified: 2026-09-09T01:10:26.599Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><p><strong>Week 2: media shortlist and incorporation plan</strong></p>
+<p>Prepared 8 September 2026. Anchors refer to the current 141-slide lab-aligned Week 2 deck, including hidden positions. This shortlist is a selection pool, not a recommendation to show everything. Existing third-party resources and proposed recordings of the teaching project are listed separately. No media has been inserted into the PowerPoint.</p>
+<p><strong>The smallest useful selection.</strong></p>
+<p>Use six visual teaching moments: a UV lookup, a normal-direction comparison, a roughness change, an alpha/blend comparison, a Maya-to-UE handoff, and one skeletal bend. Make color/data interpretation part of the roughness investigation. Mip shimmer deserves a short comparison if that extension will be demonstrated. Book of Shaders and the research comparisons can remain linked exploration.</p>
+<p>Select a still when students must compare identities or settings, a short loop when they must perceive change, and a paused demonstration when they must predict an outcome. Aim for roughly 15–45 seconds of motion per concept, with discussion separately budgeted. These are proposed teaching durations, not measured source-video lengths unless stated below.</p>
+<p><strong>Highest-value existing candidates.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID / priority</th>
+<th>Exact source and media</th>
+<th>Place it here</th>
+<th>How to teach with it</th>
+<th>Verification and limits</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>M01 / Core</strong></td>
+<td><strong>Epic: Mapping Roughness video</strong>, under “Mapping Roughness” on <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/physically-based-materials-in-unreal-engine?application_version=5.7">Physically Based Materials</a>. <a href="https://dev.epicgames.com/community/api/cms/videos/1_4goroask/embed.html">Direct embedded player</a>. <strong>34 seconds.</strong></td>
+<td>103, Parameters; recall during EX23</td>
+<td>Real UE graph and preview respond together. Ask students to watch the reflection, then identify the changed input. Explain that this example adjusts a roughness pattern through a bias; first establish the simpler uniform-roughness case with three stills.</td>
+<td>Playback and UE imagery spot-checked in browser. The graph contains more operations than beginners need to learn; direct attention to the control and result.</td>
+</tr>
+<tr>
+<td><strong>M02 / Core</strong></td>
+<td><strong>Autodesk Maya Learning Channel: <a href="https://www.youtube.com/watch?v=gJSkEyXkyHE&amp;t=142s">Faster, Simpler Weight Painting — Skin Tools in Maya 2027</a></strong>. Suggested excerpt <strong>2:22–3:04</strong>: painting, testing deformation, and smoothing. Full player duration <strong>3:41</strong>.</td>
+<td>110–111, Skeletal Assets/Handoffs</td>
+<td>Show a weight edit in the source application and immediately test the joint bend. Ask whether the bone motion or the surface following needs inspection.</td>
+<td>Video playback and chapter transitions spot-checked around 2:44–2:53; excerpt boundaries come from the publisher’s chapters. This is the Maya 2027 Skin Tools workflow, not necessarily the classic Paint Skin Weights UI. <a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-CharacterAnimation/files/GUID-2ABD18C8-8CCF-44B9-99E0-EDEE4A56A3E6.htm">Official quickstart</a>.</td>
+</tr>
+<tr>
+<td><strong>M03 / Core</strong></td>
+<td><strong>Scratchapixel: Maya UV screenshot</strong>, in <a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-texturing/introduction-to-texturing-basic-implementation.html">Basic Implementation</a>, immediately after “A Practical Implementation: Basics.”</td>
+<td>55, UV Layout; revisit at 89/96</td>
+<td>Use the sphere, texture, and UV correspondence to establish the lookup before discussing UV quality. Ask students to point to the image region sampled by one chosen surface region.</td>
+<td>Page and figure location verified. The page mentions a cube-unfolding animation, but that animation was not verified as an available working asset in this pass; the Maya figure is the stronger dependable candidate.</td>
+</tr>
+<tr>
+<td><strong>M04 / Core</strong></td>
+<td><strong>LearnOpenGL: normal direction diagram and brick comparison</strong>, near the opening of <a href="https://learnopengl.com/Advanced-Lighting/Normal-Mapping">Normal Mapping</a>. <a href="https://learnopengl.com/img/advanced-lighting/normal_mapping_surfaces.png">Direction diagram</a>; <a href="https://learnopengl.com/img/advanced-lighting/normal_mapping_compare.png">before/after brick image</a>.</td>
+<td>After 17; recall before 98/108 and EX24</td>
+<td>Present direction arrows first, then the surface comparison. Ask, “Would the outline or collision shape change?” Follow with the actual UE Normal connection.</td>
+<td>Exact image assets and their page context verified; these are still-image candidates, not a promised GIF. Renderer-independent illustration; do not present it as a UE screenshot.</td>
+</tr>
+<tr>
+<td><strong>M05 / Core</strong></td>
+<td><strong>Epic: Masked material example and Opacity Mask Clip Value comparison</strong>, in <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/material-blend-modes-in-unreal-engine?application_version=5.7">Material Blend Modes</a>, sections “Masked” and “Opacity Clip Mask.”</td>
+<td>Between 103 and 108; EXMAT / Alpha Leaf</td>
+<td>Show the mask separately from the result. Predict which areas survive a threshold change. Contrast this with partial transparency in Translucent mode; keep Two Sided as a separate switch.</td>
+<td>Source and interactive-image description verified; slider behavior was not playback-tested. A locally prepared three-state image of your own leaf is a stronger course-specific replacement.</td>
+</tr>
+<tr>
+<td><strong>M06 / Core</strong></td>
+<td><strong>Epic: Maya multi-material assignment and resulting mesh images</strong>, “Multiple Materials” in <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-material-pipeline-in-unreal-engine?application_version=5.7">FBX Material Pipeline</a>. Select the Maya view.</td>
+<td>63/84; material anatomy recap at 100</td>
+<td>Identify which faces belong to each region before asking what material each imported slot receives. Compare assignment identity separately from appearance.</td>
+<td>Page and Maya image references verified. These illustrate basic transfer, not intact translation of arbitrary Maya shading networks. Use as fallback for your own handoff recording.</td>
+</tr>
+<tr>
+<td><strong>M15 / Core</strong></td>
+<td><strong>Epic: chair Material Instance editing video</strong>, under “Material Inheritance” on <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/instanced-materials-in-unreal-engine?application_version=5.7">Material Instances</a>. <a href="https://dev.epicgames.com/community/api/cms/videos/1_hr0fnlml/embed.html">Direct player</a>, approximately <strong>37 seconds</strong>.</td>
+<td>102, Material Graph → Material Instances</td>
+<td>Connect parent, instance asset, editable values, and the selected chair. Predict which chair will change. This complements the static relationship diagram already on the slide.</td>
+<td>Playback and real UE footage spot-checked. Keep the ordinary-parameter versus static-parameter distinction in the study notes.</td>
+</tr>
+<tr>
+<td><strong>M07 / Strong alternate</strong></td>
+<td><strong>Disney/Burley: Figure 16, PDF page 13</strong>, <a href="https://media.disneyanimation.com/uploads/production/publication_asset/48/asset/s2012_pbs_disney_brdf_notes_v3.pdf#page=13">Physically-Based Shading at Disney</a>. Parameter sweeps on rendered spheres.</td>
+<td>103; full chart in supplemental material</td>
+<td>Focus on the roughness row first. Ask students what was held constant and what observation supports the parameter’s meaning. Use the rest to suggest the depth of surface modeling.</td>
+<td>Actual PDF page rendered and visually inspected. Showing every row simultaneously would create unnecessary vocabulary. Label this as Disney’s 2012 model.</td>
+</tr>
+<tr>
+<td><strong>M08 / Mips extension</strong></td>
+<td><strong>Williams: Figures 5 and 6, PDF page 4</strong>, <a href="https://users.cs.northwestern.edu/~ago820/cs395/Papers/Williams_1983.pdf#page=4">Pyramidal Parametrics</a>. Minified frog with point sampling versus pyramid filtering.</td>
+<td>93–94; EXTEXMIP</td>
+<td>Ask why retaining the highest-resolution input does not guarantee the most faithful small image. Separate this from the magnification examples in Figures 3 and 4 above it.</td>
+<td>Actual page visually inspected. The historical scan is less crisp than modern media; best as a brief research breadcrumb or supplement. “Compression” in the caption refers to minification, not modern block compression.</td>
+</tr>
+</tbody></table></div>
+<p><strong>Useful optional candidates.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Exact source / type</th>
+<th>Teaching use</th>
+<th>Verification and recommendation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>M09</strong></td>
+<td><strong>The Book of Shaders, <a href="https://thebookofshaders.com/03/">Uniforms</a></strong>, first live shader example</td>
+<td>A changing color generated from a time value demonstrates an image without a sampled image texture. Use at 101, or as exploration for the procedural painting exhibits.</td>
+<td>Live red-intensity change visually checked at two times. The GLSL editor is supplemental; a matching tiny UE graph would keep the main lecture in its working language.</td>
+</tr>
+<tr>
+<td><strong>M10</strong></td>
+<td><strong>LearnOpenGL <a href="https://learnopengl.com/Guest-Articles/2020/Skeletal-Animation">Skeletal Animation</a></strong>; <a href="https://learnopengl.com/img/guest/2020/skeletal_animation/interpolating.gif">interpolating.gif</a>, plus the skin/bones/combined stills at the chapter opening</td>
+<td>Show that poses are sampled over time before introducing weights. A separate weights example is still needed.</td>
+<td>GIF inspected in browser: <strong>278 × 320</strong>, suitable for a small panel, not a full-slide hero. This is an illustration of animation, not UE editor footage. The tutorial’s implementation limits are not universal UE limits.</td>
+</tr>
+<tr>
+<td><strong>M11</strong></td>
+<td><strong>Kavan et al.: accompanying video</strong> on the <a href="https://users.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.html">Skinning with Dual Quaternions author page</a>; <a href="https://www.youtube.com/watch?v=4e_ToPH-I5o">linked YouTube video</a></td>
+<td>After the basic bend, ask whether all deformation artifacts can be attributed to weights. Keep algorithm selection and quaternion derivations for later exploration.</td>
+<td>Author attribution, paper, and embedded video URL verified. Video playback and exact excerpt were not verified; no timecode is claimed.</td>
+</tr>
+<tr>
+<td><strong>M12</strong></td>
+<td><strong>Maya 2027: shading-network diagram</strong>, <a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-LightingShading/files/GUID-599CACDB-76C1-4FAC-AA94-0E77F0042C8D.htm">About shading networks</a></td>
+<td>At 100, compare the roles of texture node, material node, and shading group with the UE relationships. Highlight data flow and assignment.</td>
+<td>Page and figure context verified. The documentation uses a Phong example; use it for graph structure, not to suggest Phong and the course’s UE material model have identical controls.</td>
+</tr>
+<tr>
+<td><strong>M13</strong></td>
+<td><strong>Bartosz Ciechanowski: <a href="https://ciechanow.ski/lights-and-shadows/">Lights and Shadows</a></strong>, interactive demonstrations around surface angle and illumination</td>
+<td>Optional introduction to why the orientation of a surface matters. Good independent exploration in the visual, first-principles style you like.</td>
+<td>Article and described controls verified; interactive behavior not tested. Its full lighting scope is too broad for the live materials block.</td>
+</tr>
+<tr>
+<td><strong>M14</strong></td>
+<td><strong>PBRT fourth edition: <a href="https://www.pbr-book.org/4ed/Textures_and_Materials/Image_Texture">Image Texture</a></strong>, section 10.4.4; Figure 10.17 and the following trilinear-filtering explanation</td>
+<td>Advanced exploration: a texture lookup covers an area, and one filtering footprint need not fit every view. Useful beside mips/anisotropy, not as a first UV diagram.</td>
+<td>Figure references and discussion verified; no interactive playback claim. Ray-tracing implementation details are not UE instructions.</td>
+</tr>
+</tbody></table></div>
+<p>The existing slide 136 Niagara/VAT links can remain supplemental. A new VFX reel would compete with the asset relationships students must inspect in this lab. If you retain a short preview, point out familiar data—texture, material, transform, time—and avoid adding an unprepared repair station.</p>
+<p><strong>Record these in the teaching project when preparing the final deck.</strong></p>
+<p>These are proposed captures, not existing verified media. Their advantage is that the exact asset names, editors, settings, and symptoms match the lab. Prefer them over generic footage for the handoff and diagnostic examples.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Capture</th>
+<th>Concrete sequence</th>
+<th>Suggested motion length</th>
+<th>Breadcrumb / verification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>C01: Maya → UE → revision → reimport</strong></td>
+<td>Use one simple mesh with two material regions. Show Maya face membership and a file-texture connection; show corresponding UE slots and material/instance assignment; revise one source relationship, reimport, and inspect the result.</td>
+<td>Three separate 15–25-second segments, with pauses</td>
+<td>“Which relationship owns the failure?” Keep source identity and expected slot mapping visible. Confirm the demonstrated importer behavior in the actual project.</td>
+</tr>
+<tr>
+<td><strong>C02: EX23 color versus numerical data</strong></td>
+<td>Start with fixed mesh, camera, light, Base Color, and numerical RGB roughness map. Show the role and relevant UE texture/sampler settings; compare the one intended interpretation change.</td>
+<td>15–25 seconds</td>
+<td>“What does this number mean?” Finish with expected/observed/result fields, ready to become a Week 3 read-only check. If compression or sampler settings also change, document them rather than calling it a one-variable comparison.</td>
+</tr>
+<tr>
+<td><strong>C03: EX24 normal direction</strong></td>
+<td>Compare normal input absent/present, then demonstrate the exhibit’s specific import/convention fault separately. Move the light through two directions. Include a wireframe or outline check.</td>
+<td>20–30 seconds</td>
+<td>“Did geometry change, or did the lighting response change?” Do not combine a green-channel fault, wrong sampler, and incorrect compression into one unexplained repair.</td>
+</tr>
+<tr>
+<td><strong>C04: Alpha Leaf</strong></td>
+<td>Use the same texture and planar geometry in three prepared materials: Opaque, Masked, Translucent. Show alpha separately. For the threshold comparison, change only the mask cutoff.</td>
+<td>15–25 seconds, or three stills</td>
+<td>“Does storing alpha make an object transparent?” Avoid implying clipped pixels remove triangles or collision. Keep the Two Sided test separate.</td>
+</tr>
+<tr>
+<td><strong>C05: EX29 UV lookup</strong></td>
+<td>Show a directional checker/label in Maya and UE. Rotate or mirror one UV shell, then compare; separately demonstrate a wrong material UV-channel selection if needed.</td>
+<td>15–20 seconds</td>
+<td>“Wrong image, wrong assignment, or wrong coordinates?” Keep image content and intended density controlled.</td>
+</tr>
+<tr>
+<td><strong>C06: mip shimmer / LOD distinction</strong></td>
+<td>Record a fixed camera path over a detailed texture with two prepared mip configurations; then use a separate mesh example to show the active mesh LOD and statistics.</td>
+<td>15–20 seconds per comparison</td>
+<td>“Did the representation of the texture or the mesh change?” Keep streaming residency controlled enough to interpret the mip comparison.</td>
+</tr>
+<tr>
+<td><strong>C07: one skeletal bend</strong></td>
+<td>Start with one simple limb and two influences. Show joint motion, weight colors, the surface result, then the matching UE motion. Add one controlled defect only after the correct case is clear.</td>
+<td>20–30 seconds</td>
+<td>“Wrong pose, wrong following, or wrong playback?” The manifest’s skeletal exhibits are display-ready, so verify interactive controls before promising student repair.</td>
+</tr>
+</tbody></table></div>
+<p>If time only permits three new captures, prioritize <strong>C01, C02, and C03</strong>. Use the existing external sources for alpha and skeletal orientation. This puts the limited preparation time into your distinctive Maya/UE handoff and the two documented texture-interpretation stations.</p>
+<p><strong>Make media readable in the room and useful afterward.</strong></p>
+<ul>
+<li>State the question before playing. Label the changed variable beside its control and the effect beside the object.</li>
+<li>Keep camera, lighting, geometry, and unrelated inputs fixed whenever the comparison depends on them. Show any intentional exception explicitly.</li>
+<li>Freeze the decisive result. The student PDF needs the before/after state and a caption, not an empty video poster or a link with no explanatory context.</li>
+<li>Show only one moving illustration at a time. Pause it while explaining an unrelated relationship.</li>
+<li>Use labels in addition to color, especially for direction axes, alpha states, and correct/incorrect comparisons.</li>
+<li>Credit the creator, source page, figure or chapter, and software/version context. Keep the original resource linked in the study notes.</li>
+<li>Test the final embedded media in PowerPoint Slide Show and on the classroom display. The browser checks above verify selected source media, not PowerPoint embedding, offline availability, or classroom playback.</li>
+</ul>
+<p>Suggested recurring caption: <strong>Prediction → Change → Observation → Explanation → Lab check.</strong> For the assignment, students can use that same structure to design their museum exhibit. For Week 3, the last step becomes the explicit input, rule, and report that a Python script can implement.</p>
+</main></body></html>

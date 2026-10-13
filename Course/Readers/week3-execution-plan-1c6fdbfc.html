@@ -1,0 +1,259 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 3 execution plan</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week03/WEEK3_EXECUTION_PLAN.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week03/WEEK3_EXECUTION_PLAN.md<br>Source modified: 2026-09-14T03:16:11.657Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#week-3-execution-plan">Week 3 execution plan</a></li><li><a href="#outcome-for-the-week">Outcome for the week</a></li><li><a href="#current-starting-point">Current starting point</a></li><li><a href="#phase-1-lock-the-teaching-contract">Phase 1 — lock the teaching contract</a></li><li><a href="#phase-2-full-maya-gui-rehearsal-and-hardening">Phase 2 — full Maya GUI rehearsal and hardening</a></li><li><a href="#phase-3-make-the-student-package-disposable-and-recoverable">Phase 3 — make the student package disposable and recoverable</a></li><li><a href="#phase-4-build-the-live-deck-from-verified-checkpoints">Phase 4 — build the live deck from verified checkpoints</a></li><li><a href="#phase-5-rehearse-the-learning-sequence">Phase 5 — rehearse the learning sequence</a></li><li><a href="#futurecoder">Futurecoder</a></li><li><a href="#maya-and-pyside">Maya and PySide</a></li><li><a href="#recovery-kit">Recovery kit</a></li><li><a href="#in-class-run-150-minutes">In-class run — 150 minutes</a></li><li><a href="#instructor-decision-points-during-class">Instructor decision points during class</a></li><li><a href="#definition-of-ready">Definition of ready</a></li></ul></details><h1 id="week-3-execution-plan">Week 3 execution plan</h1>
+<p>Updated 13 September 2026 from the current instructor decisions, production handoff,
+150-minute slide/demo map, and verified Maya workshop. Local course materials are the
+content authority. Jiaqi Zou&#39;s public wiki may inform visual design or site engineering,
+but none of its course content, dates, assignments, software requirements, or wording
+should be imported as truth.</p>
+<h2 id="outcome-for-the-week">Outcome for the week</h2>
+<p>Students should leave able to read a small Python operation, explain how Maya data
+enters it, run a scoped texel-density check and correction, and connect that operation
+to an artist-facing PySide interface. They should distinguish successful execution
+from verified output and identify what still requires artistic judgment.</p>
+<p>Systems thinking is embedded rather than added as a separate lecture. Students name
+the system boundary (filesystem → Python → Maya → PySide → artist), inspect relevant
+state/context, and close the feedback loop by measuring after change and testing
+Apply-twice stability.</p>
+<p>There is no Week 3 assignment. Optional practice and possible midterm tool ideas close
+the session without a submission, deadline, or new platform.</p>
+<h2 id="current-starting-point">Current starting point</h2>
+<p>Already built and source-controlled in
+<code>D:/Personal Projects/Maya/Tools/lesson_materials/week_03_python_and_maya/texel_density_workshop</code>:</p>
+<ul>
+<li>private repository: <code>https://github.com/anthonymonteagudo/Maya-Tools</code>;</li>
+<li>pure density math and preset/file helpers;</li>
+<li>Maya adapter for measurement, shell scaling, undo, and verification;</li>
+<li>generated Maya ASCII teaching fixture;</li>
+<li>five staged checkpoints;</li>
+<li>deliberately poor UI, student starter, and completed instructor UI;</li>
+<li>seven pure-Python tests and one Maya 2022 integration test;</li>
+<li>Ruff configuration and pinned development-tool version;</li>
+<li>workshop launch/checkpoint README.</li>
+</ul>
+<p>Course production materials already exist at
+<code>Course/Slides/Week03/Production20260913/</code>, including the 21-screen, 150-minute map
+and checkpoint manifest.</p>
+<p>Pointed UI/code/interactivity research and the implementation split are recorded in
+<code>WEEK3_UI_CODE_INTERACTIVITY_RESEARCH.md</code>. The offline course-specific activity is at
+<code>Interactive/index.html</code>.</p>
+<h2 id="phase-1-lock-the-teaching-contract">Phase 1 — lock the teaching contract</h2>
+<p>Do this before polishing slides.</p>
+<ol>
+<li>Confirm the Maya version students will actually use. Headless operation now passes
+in Maya 2022/Python 3.7/PySide2 and Maya 2027/Python 3.13/PySide6. The full UI must
+still be exercised visibly in the classroom version.</li>
+<li>State the classroom density convention explicitly:<ul>
+<li>map size in pixels;</li>
+<li>density in pixels per current Maya linear unit;</li>
+<li>active UV set;</li>
+<li>world-space mesh area;</li>
+<li>uniform scaling of existing UV shells around their centers.</li>
+</ul>
+</li>
+<li>State the limits: no remap, pack, cut, sew, UDIM policy, or automatic material
+tiling change.</li>
+<li>Decide the asset boundary:<ul>
+<li>use the generated fixture as the reliable required demo;</li>
+<li>substitute the actual museum mesh only if its Maya source, UV state, and reset
+route can be verified quickly;</li>
+<li>do not make Unreal reimport a Week 3 dependency unless the source mapping is
+proven and rehearsal time remains.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Gate A:</strong> the class can proceed with the fixture even if the museum-source mapping
+remains unresolved.</p>
+<h2 id="phase-2-full-maya-gui-rehearsal-and-hardening">Phase 2 — full Maya GUI rehearsal and hardening</h2>
+<p>The headless math and integration path passes. The full Maya GUI remains the highest
+priority verification gap.</p>
+<p>Run this exact sequence in the classroom Maya version:</p>
+<ol>
+<li>Open <code>fixtures/texel_density_workshop.ma</code>.</li>
+<li>Inspect the reference, two targets, protected control, active UV set, scene units,
+and transforms.</li>
+<li>Run checkpoint 03 and record the read-only measurements.</li>
+<li>Predict the correction direction for each target.</li>
+<li>Run checkpoint 04; inspect UV Editor and checker appearance.</li>
+<li>Run Apply a second time and confirm the result remains within tolerance.</li>
+<li>Undo and confirm the scene returns to the previous UV state.</li>
+<li>Confirm the unselected control remains unchanged.</li>
+<li>Open, close, and reopen both PySide windows; confirm no duplicate windows or stale
+state.</li>
+<li>Run the completed UI path: capture reference → select targets → Check → Apply.</li>
+</ol>
+<p>Harden the code only where rehearsal demonstrates a need. Priorities:</p>
+<ul>
+<li>parent the windows reliably to Maya&#39;s main window;</li>
+<li>make a multi-target Apply one understandable undo step;</li>
+<li>preserve/reselect targets after UI actions when helpful;</li>
+<li>test no selection, no targets, reference accidentally selected, already-matching
+density, multiple UV shells, missing UVs, degenerate UVs, and non-uniform transforms;</li>
+<li>ensure skipped targets never appear as successful;</li>
+<li>show exact units, affected scope, before/after values, and a recovery message.</li>
+</ul>
+<p><strong>Gate B:</strong> Check is visibly read-only, Apply is undoable, verification is visible,
+Apply-twice is stable, and protected scope is demonstrated in the full GUI.</p>
+<h2 id="phase-3-make-the-student-package-disposable-and-recoverable">Phase 3 — make the student package disposable and recoverable</h2>
+<p>Create a clean student release separate from instructor answers.</p>
+<p>Required contents:</p>
+<ul>
+<li>relative setup checkpoint that discovers the repository from the opened fixture and
+reports the actual Maya/Python/PySide environment;</li>
+<li>generated fixture and reset/build helper;</li>
+<li>checkpoints 01–05;</li>
+<li>shared support package;</li>
+<li>default JSON preset and designated student-output folder;</li>
+<li>student modification starter and bounded TODO choices;</li>
+<li>concise launch table for ordinary Python versus Maya Script Editor;</li>
+<li>offline Futurecoder fallback;</li>
+<li>test-case card: no selection, two targets, Apply twice, protected control;</li>
+<li>troubleshooting for project root, imports, wrong interpreter, and Maya version.</li>
+</ul>
+<p>Exclude instructor-completed answers, assessment data, absolute instructor paths,
+caches, credentials, unrelated lesson projects, and claims not verified in the target
+Maya version.</p>
+<p>Verify from both a fresh clone and a ZIP extracted to a path containing spaces. The
+student should not need the instructor&#39;s Perforce workspace.</p>
+<p><strong>Gate C:</strong> a fresh student copy opens the fixture and reaches checkpoint 03 without
+editing paths inside source files.</p>
+<h2 id="phase-4-build-the-live-deck-from-verified-checkpoints">Phase 4 — build the live deck from verified checkpoints</h2>
+<p>Use <code>Production20260913/SLIDE_DEMO_MAP.md</code> as the route. Do not expand the 179-page PDF
+into a language survey.</p>
+<ol>
+<li>Locate an editable Week 3 deck; if none exists, create a new deck while retaining
+the PDF as provenance.</li>
+<li>Build only the 21 live slides/activity screens first.</li>
+<li>Put the exact checkpoint filename and execution host on each working slide.</li>
+<li>Use real captures from the verified fixture, Script Editor, UV Editor, poor UI,
+and completed UI.</li>
+<li>Keep current PDF page numbers as review anchors where content is reused.</li>
+<li>Keep read-aloud narration separate from facilitation, expected answers, setup, and
+editing directions.</li>
+<li>Put both prediction questions and invitations for students&#39; own questions visibly
+on the relevant slide.</li>
+<li>Move recursion, decorators, functional-programming surveys, broad library lists,
+and the older asset-intake assignment to archive/optional reference rather than the
+live route.</li>
+</ol>
+<p><strong>Gate D:</strong> every claimed Maya result has a matching runnable checkpoint and actual
+capture; no slide promises an untested operation.</p>
+<h2 id="phase-5-rehearse-the-learning-sequence">Phase 5 — rehearse the learning sequence</h2>
+<h3 id="futurecoder">Futurecoder</h3>
+<ul>
+<li>Rehearse the exact hosted navigation from a fresh browser state.</li>
+<li>Choose one small sequence supporting conditions, loops, functions, and prediction.</li>
+<li>Guided route: predict → run → interpret feedback.</li>
+<li>Supported route: finish the bounded task with hints.</li>
+<li>Extension route: construct a counterexample to a wrong condition.</li>
+<li>Keep checkpoint 01 ready if the site or network is unavailable.</li>
+</ul>
+<h3 id="maya-and-pyside">Maya and PySide</h3>
+<ul>
+<li>Rehearse with the same Maya version and screen layout used in class.</li>
+<li>Reset the fixture between major demonstrations.</li>
+<li>Keep commands in small pasted/runnable checkpoints rather than live-typing complex
+mesh API code.</li>
+<li>Practice the transitions from selection → measurement → correction → verification
+and from widget → signal → callback → shared function → artist feedback.</li>
+<li>Time the pair-role switch explicitly.</li>
+</ul>
+<h3 id="recovery-kit">Recovery kit</h3>
+<p>Prepare:</p>
+<ul>
+<li>clean fixture copy;</li>
+<li>known-good completed code;</li>
+<li>offline checkpoint 01;</li>
+<li>screenshots of expected Script Editor output and both UIs;</li>
+<li>one-page launch/troubleshooting guide;</li>
+<li>a short route that can omit optional discussion depth without cutting the pair lab.</li>
+</ul>
+<p><strong>Gate E:</strong> a timed rehearsal fits 150 minutes and preserves the break, Maya practice,
+pair modification, role switch, and final questions.</p>
+<h2 id="in-class-run-150-minutes">In-class run — 150 minutes</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th align="right">Time</th>
+<th>Activity</th>
+<th>Required evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">0–10</td>
+<td>Museum questions; identify repeated work and artistic judgment</td>
+<td>Students name one repeatable step and one human decision</td>
+</tr>
+<tr>
+<td align="right">10–30</td>
+<td>Futurecoder guided start and supported/extension routes</td>
+<td>Prediction, executed result, explained change</td>
+</tr>
+<tr>
+<td align="right">30–42</td>
+<td>PEP 8 and Ruff cleanup</td>
+<td>Students read one diagnostic and distinguish style from behavior</td>
+</tr>
+<tr>
+<td align="right">42–57</td>
+<td>Project structure, imports, paths, and JSON preset</td>
+<td>Students trace one import and save a validated preset copy</td>
+</tr>
+<tr>
+<td align="right">57–75</td>
+<td>Maya interpreter, <code>maya.cmds</code>, and bounded documentation task</td>
+<td>Selected mesh data and one documented flag/return value</td>
+</tr>
+<tr>
+<td align="right">75–85</td>
+<td>Break; fixture/reset check</td>
+<td>Everyone returns with the scene ready</td>
+</tr>
+<tr>
+<td align="right">85–107</td>
+<td>Texel-density check, correction, and verification</td>
+<td>Before/after density, Apply-twice stability, protected control</td>
+</tr>
+<tr>
+<td align="right">107–127</td>
+<td>Poor UI critique and PySide callback trace</td>
+<td>One concrete usability uncertainty and the actual callback path</td>
+</tr>
+<tr>
+<td align="right">127–145</td>
+<td>Pair modification/test with role switch</td>
+<td>One improvement, expected behavior, rerun evidence</td>
+</tr>
+<tr>
+<td align="right">145–150</td>
+<td>Optional resources, questions, and midterm-tool thinking</td>
+<td>Students state what was automated and what still needs judgment</td>
+</tr>
+</tbody></table></div>
+<h2 id="instructor-decision-points-during-class">Instructor decision points during class</h2>
+<ul>
+<li>If Futurecoder access costs more than two or three minutes, switch to checkpoint 01.</li>
+<li>If students understand Python syntax but not Maya selection/API context, cut syntax
+explanation before cutting Maya practice.</li>
+<li>If the live correction fails, stop at Check, use the recorded expected output, and
+reason about the failure. Do not improvise destructive UV operations.</li>
+<li>If time runs short, reduce PySide exposition to the actual signal/callback path and
+keep the pair test.</li>
+<li>If beginners need support, give them label/no-selection improvements; give confident
+students per-object reporting or a supported skip case.</li>
+</ul>
+<h2 id="definition-of-ready">Definition of ready</h2>
+<p>Week 3 is ready when:</p>
+<ul>
+<li>the classroom Maya version is named and tested;</li>
+<li>setup succeeds from an extracted path containing spaces without editing source;</li>
+<li>the fixture and reset route work from a clean student copy;</li>
+<li>Check, Apply, undo, Apply-twice, and protected scope pass in the full GUI;</li>
+<li>the poor and completed UIs reopen predictably;</li>
+<li>Futurecoder and offline fallback are rehearsed;</li>
+<li>the 21-screen deck uses real evidence and totals 150 minutes;</li>
+<li>student and instructor packages are separate;</li>
+<li>the local Week 3 wiki preview no longer teaches the superseded roughness-validator
+direction;</li>
+<li>no Week 3 assignment, deadline, grade, or mandatory submission appears anywhere in
+the live/public materials.</li>
+</ul>
+</main></body></html>

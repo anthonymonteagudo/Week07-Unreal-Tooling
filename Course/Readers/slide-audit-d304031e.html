@@ -1,0 +1,892 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Refined deck: slide findings</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week02/ReviewRefined20260909/SLIDE_AUDIT.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week02/ReviewRefined20260909/SLIDE_AUDIT.md<br>Source modified: 2026-09-09T19:50:18.498Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#refined-deck-slide-findings">Refined deck: slide findings</a></li><li><a href="#slide-1-game-assets-pipelines-validation">Slide 1:  Game Assets, Pipelines,  Validation</a></li><li><a href="#slide-2-week-2-learning-goals">Slide 2: Week 2 Learning Goals</a></li><li><a href="#slide-3-agenda">Slide 3: Agenda</a></li><li><a href="#slide-4-a-repair-and-repeatable-check">Slide 4: A Repair and  Repeatable Check</a></li><li><a href="#slide-5-what-is-a-game-asset">Slide 5: What Is a Game Asset?</a></li><li><a href="#slide-6-anatomy-of-a-mesh">Slide 6: Anatomy of a Mesh</a></li><li><a href="#slide-7-a-polygon-mesh-is-structured-data">Slide 7: A Polygon Mesh Is Structured Data</a></li><li><a href="#slide-8-a-polygon-mesh-is-structured-data">Slide 8: A Polygon Mesh Is Structured Data</a></li><li><a href="#slide-9-one-position-can-carry-several-values">Slide 9: One Position Can Carry Several Values</a></li><li><a href="#slide-10-geometry-and-topology">Slide 10: Geometry and Topology</a></li><li><a href="#slide-11-topology-depends-on-the-asset-39-s-job">Slide 11: Topology Depends on the Asset&amp;#39;s Job</a></li><li><a href="#slide-12-topology-for-subdivision">Slide 12: Topology for Subdivision</a></li><li><a href="#slide-13-bevels-shading-and-silhouette">Slide 13: Bevels, Shading, and Silhouette</a></li><li><a href="#slide-14-normals-directions-used-for-shading">Slide 14: Normals: Directions Used for Shading</a></li><li><a href="#slide-15-geometry-faults-and-their-symptoms">Slide 15: Geometry Faults and Their Symptoms</a></li><li><a href="#slide-16-surface-data">Slide 16: Surface Data</a></li><li><a href="#slide-17-scene-context">Slide 17: Scene Context</a></li><li><a href="#slide-18-research-behind-texture-mapping">Slide 18: Research Behind Texture Mapping</a></li><li><a href="#slide-19-art-fundamentals-as-diagnostic-questions">Slide 19: Art Fundamentals As Diagnostic Questions</a></li><li><a href="#slide-20-observation-before-interpretation">Slide 20: Observation Before Interpretation</a></li><li><a href="#slide-21-silhouette-defines-objects">Slide 21: Silhouette Defines Objects</a></li><li><a href="#slide-22-shape-amp-form-before-topology">Slide 22: Shape &amp;amp; Form  Before Topology</a></li><li><a href="#slide-23-composition-directs-attention">Slide 23: Composition Directs Attention</a></li><li><a href="#slide-24-anatomy-and-deformation">Slide 24: Anatomy and Deformation</a></li><li><a href="#slide-25-color-and-readability">Slide 25: Color and Readability</a></li><li><a href="#slide-26-environment-breakdown-hell-gates">Slide 26: Environment Breakdown: Hell Gates</a></li><li><a href="#slide-27-creative-process-generate-evaluate-iterate">Slide 27: Creative Process: Generate, Evaluate, Iterate</a></li><li><a href="#slide-28-the-expected-result">Slide 28: The Expected Result</a></li><li><a href="#slide-29-visual-intent-and-asset-data">Slide 29: Visual Intent and Asset Data</a></li><li><a href="#slide-30-observation-before-diagnosis">Slide 30: Observation before Diagnosis</a></li><li><a href="#slide-31-the-asset-pipeline">Slide 31: The Asset Pipeline</a></li><li><a href="#slide-32-moving-assets-through-a-pipeline">Slide 32: Moving Assets Through a Pipeline</a></li><li><a href="#slide-33-starting-the-pipeline-walkthrough">Slide 33: Starting the Pipeline Walkthrough</a></li><li><a href="#slide-34-pipeline-pt-0-requirements-and-constraints">Slide 34: Pipeline pt. 0:  Requirements and Constraints</a></li><li><a href="#slide-35-pipeline-pt-1-reference">Slide 35: Pipeline pt. 1: Reference</a></li><li><a href="#slide-36-alternate-source-pipelines">Slide 36: Alternate Source Pipelines</a></li><li><a href="#slide-37-handoff-1-reference-to-blockout">Slide 37: HANDOFF 1: Reference to Blockout</a></li><li><a href="#slide-38-pipeline-pt-2-blockout-scale-orientation-pivot">Slide 38: Pipeline Pt. 2: Blockout -  Scale, Orientation, Pivot</a></li><li><a href="#slide-39-import-reference-for-blockout">Slide 39: Import Reference for Blockout</a></li><li><a href="#slide-40-handoff-2-blockout-to-highpoly">Slide 40: HANDOFF 2: Blockout to Highpoly</a></li><li><a href="#slide-41-pipeline-pt-3-modeling-highpoly">Slide 41: Pipeline pt. 3: Modeling Highpoly</a></li><li><a href="#slide-42-modeling-workflows-depend-on-the-asset">Slide 42: Modeling Workflows Depend on the Asset</a></li><li><a href="#slide-43-curve-nurbs-and-cad-workflows">Slide 43: Curve, NURBS, and CAD Workflows</a></li><li><a href="#slide-44-modular-environment-kits">Slide 44: Modular Environment Kits</a></li><li><a href="#slide-45-source-choice-and-revision">Slide 45: Source Choice and Revision</a></li><li><a href="#slide-46-handoff-3-highpoly-to-lowpoly">Slide 46: HANDOFF 3: Highpoly to Lowpoly</a></li><li><a href="#slide-47-pipeline-pt-4-low-poly">Slide 47: Pipeline pt. 4: Low-poly</a></li><li><a href="#slide-48-geometry-budget">Slide 48: Geometry Budget</a></li><li><a href="#slide-49-game-ready-topology">Slide 49: Game-ready Topology</a></li><li><a href="#slide-50-topology-examples-for-further-study">Slide 50: Topology Examples for Further Study</a></li><li><a href="#slide-51-lods">Slide 51: LODs</a></li><li><a href="#slide-52-lod-selection-in-unreal">Slide 52: LOD Selection in Unreal</a></li><li><a href="#slide-53-culling-hlod-and-proxy-generation">Slide 53: Culling, HLOD, and Proxy Generation</a></li><li><a href="#slide-54-pipeline-pt-5-uv-layout">Slide 54: Pipeline pt. 5: UV Layout</a></li><li><a href="#slide-55-texel-density-and-uv-distortion">Slide 55: Texel Density and UV Distortion</a></li><li><a href="#slide-56-trim-sheets-tileables-and-reuse">Slide 56: Trim Sheets, Tileables, and Reuse</a></li><li><a href="#slide-57-handoff-4">Slide 57: HANDOFF 4</a></li><li><a href="#slide-58-pipeline-pt-7-baking">Slide 58: Pipeline pt. 7: Baking</a></li><li><a href="#slide-59-pipeline-pt-8-texturing-for-material-identity">Slide 59: Pipeline pt. 8: Texturing for Material Identity</a></li><li><a href="#slide-60-reading-material-identity">Slide 60: Reading Material Identity</a></li><li><a href="#slide-61-handoff-5">Slide 61: HANDOFF 5</a></li><li><a href="#slide-62-maya-to-unreal-what-leaves-the-scene">Slide 62: Maya to Unreal:  What Leaves the Scene?</a></li><li><a href="#slide-63-asset-maturity-is-proven-in-engine">Slide 63: Asset Maturity Is Proven in Engine</a></li><li><a href="#slide-64-headphones-presentation-and-breakdowns">Slide 64: Headphones: Presentation and Breakdowns</a></li><li><a href="#slide-65-inspect-more-models">Slide 65: Inspect More Models</a></li><li><a href="#slide-66-everything-together">Slide 66: Everything  Together</a></li><li><a href="#slide-67-no-editable-title">Slide 67: (no editable title)</a></li><li><a href="#slide-68-pipeline-review">Slide 68: Pipeline Review</a></li><li><a href="#slide-69-further-study-an-environment-breakdown">Slide 69: Further Study: An Environment Breakdown</a></li><li><a href="#slide-70-diagnosing-a-pipeline-failure">Slide 70: Diagnosing a pipeline failure</a></li><li><a href="#slide-71-lab-1-tech-art-museum-exploration">Slide 71: Lab 1: Tech Art Museum Exploration</a></li><li><a href="#slide-72-welcome-to-the-technical-art-museum-your-observation-record">Slide 72: Welcome to the Technical Art Museum!   Your Observation Record:</a></li><li><a href="#slide-73-student-museum-observation-sheet">Slide 73: Student Museum Observation Sheet</a></li><li><a href="#slide-74-trace-the-earliest-confirmed-difference">Slide 74: Trace the  Earliest Confirmed Difference</a></li><li><a href="#slide-75-museum-observations">Slide 75: Museum Observations</a></li><li><a href="#slide-76-break">Slide 76: Break</a></li><li><a href="#slide-77-lecture-2-surface-data">Slide 77: Lecture 2: Surface Data</a></li><li><a href="#slide-78-wait-a-minute">Slide 78: Wait a minute...</a></li><li><a href="#slide-79-what-have-we-been-quot-handing-off-quot">Slide 79: What have we been &amp;quot;handing off&amp;quot;?</a></li><li><a href="#slide-80-metadata">Slide 80:   metadata</a></li><li><a href="#slide-81-metadata-and-asset-data">Slide 81: Metadata and Asset Data</a></li><li><a href="#slide-82-where-asset-information-lives">Slide 82: Where Asset Information Lives</a></li><li><a href="#slide-83-what-changes-during-import">Slide 83: What Changes During Import?</a></li><li><a href="#slide-84-obj-fbx-and-usd-different-interchange-models">Slide 84: OBJ, FBX, and USD: Different Interchange Models</a></li><li><a href="#slide-85-correct-appearances-can-hide-bad-data">Slide 85: Correct Appearances Can Hide Bad Data</a></li><li><a href="#slide-86-metadata-can-inspect">Slide 86: Metadata can inspect...</a></li><li><a href="#slide-87-textures">Slide 87: textures</a></li><li><a href="#slide-88-anatomy-of-a-texture">Slide 88: Anatomy of a Texture</a></li><li><a href="#slide-89-texture-dimensions-and-texel-count">Slide 89: Texture Dimensions and Texel Count</a></li><li><a href="#slide-90-texture-dimensions-and-mip-support">Slide 90: Texture Dimensions and Mip Support</a></li><li><a href="#slide-91-color-data-and-numerical-data">Slide 91: Color Data and Numerical Data</a></li><li><a href="#slide-92-mipmaps-and-small-screen-detail">Slide 92: Mipmaps and Small Screen Detail</a></li><li><a href="#slide-93-inspecting-mips-in-unreal">Slide 93: Inspecting Mips in Unreal</a></li><li><a href="#slide-94-custom-mips-and-authored-filtering">Slide 94: Custom Mips and Authored Filtering</a></li><li><a href="#slide-95-texel-density-and-world-scale">Slide 95: Texel Density and World Scale</a></li><li><a href="#slide-96-texel-density-is-a-budget-decision">Slide 96: Texel Density Is a Budget Decision</a></li><li><a href="#slide-97-texture-triage">Slide 97: Texture Triage</a></li><li><a href="#slide-98-materials">Slide 98: materials</a></li><li><a href="#slide-99-anatomy-of-a-material">Slide 99: Anatomy of a Material</a></li><li><a href="#slide-100-no-editable-title">Slide 100: (no editable title)</a></li><li><a href="#slide-101-shaders-instructions-used-in-rendering">Slide 101: Shaders: Instructions Used in Rendering</a></li><li><a href="#slide-102-materials-and-material-instances">Slide 102: Materials and Material Instances</a></li><li><a href="#slide-103-base-color-roughness-and-metallic">Slide 103: Base Color, Roughness, and Metallic</a></li><li><a href="#slide-104-normal-maps-in-unreal">Slide 104: Normal Maps in Unreal</a></li><li><a href="#slide-105-alpha-and-blend-modes">Slide 105: Alpha and Blend Modes</a></li><li><a href="#slide-106-observing-a-material-response">Slide 106: Observing a Material Response</a></li><li><a href="#slide-107-the-graph-and-generated-shader-code">Slide 107: The Graph and Generated Shader Code</a></li><li><a href="#slide-108-material-triage">Slide 108: Material Triage</a></li><li><a href="#slide-109-skeletons">Slide 109: skeletons</a></li><li><a href="#slide-110-anatomy-of-a-skeletal-asset">Slide 110: Anatomy of a Skeletal Asset</a></li><li><a href="#slide-111-skeletal-handoffs-and-deformation-checks">Slide 111: Skeletal Handoffs and Deformation Checks</a></li><li><a href="#slide-112-a-small-mathematical-model-of-skinning">Slide 112: A Small Mathematical Model of Skinning</a></li><li><a href="#slide-113-documentation-for-your-exhibit">Slide 113: Documentation for Your Exhibit</a></li><li><a href="#slide-114-reading-to-answer-a-specific-question">Slide 114: Reading to Answer a Specific Question</a></li><li><a href="#slide-115-checking-a-documentation-claim">Slide 115: Checking a Documentation Claim</a></li><li><a href="#slide-116-a-documented-test-expected-result-and-failure">Slide 116: A Documented Test: Expected Result and Failure</a></li><li><a href="#slide-117-an-exhibit-record-uv-mirror-example">Slide 117: An Exhibit Record:  UV Mirror Example</a></li><li><a href="#slide-118-what-kind-of-record-is-needed">Slide 118: What Kind of Record Is Needed?</a></li><li><a href="#slide-119-reusable-verification-rules">Slide 119: Reusable Verification Rules</a></li><li><a href="#slide-120-visual-documentation-of-a-style-by-sue-nichols">Slide 120: Visual Documentation of a Style by Sue Nichols</a></li><li><a href="#slide-121-the-exhibit-handoff-check">Slide 121: The Exhibit Handoff Check</a></li><li><a href="#slide-122-lab-2-museum-repair">Slide 122: Lab 2: Museum Repair</a></li><li><a href="#slide-123-work-in-a-cloned-museum-scene">Slide 123: Work in a Cloned Museum Scene</a></li><li><a href="#slide-124-choose-and-own-an-investigation">Slide 124: Choose and Own an Investigation</a></li><li><a href="#slide-125-the-repair-and-verification-loop">Slide 125: The Repair and Verification Loop</a></li><li><a href="#slide-126-the-debugging-loop">Slide 126: The Debugging Loop</a></li><li><a href="#slide-127-a-useful-result-when-the-repair-is-blocked">Slide 127: A Useful Result When the Repair Is Blocked</a></li><li><a href="#slide-128-controlled-comparison">Slide 128: Controlled Comparison</a></li><li><a href="#slide-129-lab-2-turn-in-your-group-s-investigation-record-google-doc">Slide 129: Lab 2 Turn-In: Your Group’s Investigation Record (Google Doc)</a></li><li><a href="#slide-130-clear-ownership-during-group-work">Slide 130: Clear Ownership During Group Work</a></li><li><a href="#slide-131-investigation-record-fields">Slide 131: Investigation Record Fields</a></li><li><a href="#slide-132-a-compact-record-structure">Slide 132: A Compact Record Structure</a></li><li><a href="#slide-133-what-makes-strong-documentation">Slide 133: What Makes Strong Documentation?</a></li><li><a href="#slide-134-week-2-assignment-create-your-own-museum-exhibit">Slide 134: Week 2 Assignment:  Create Your Own Museum Exhibit</a></li><li><a href="#slide-135-week-1-lab-1-answer-review">Slide 135: Week 1 Lab 1 Answer Review</a></li><li><a href="#slide-136-week-3-preview-from-manual-check-to-tool">Slide 136: Week 3 Preview: From Manual Check to Tool</a></li><li><a href="#slide-137-further-exploration">Slide 137: Further Exploration</a></li><li><a href="#slide-138-museum-guide-transforms-and-space">Slide 138: Museum Guide: Transforms and Space</a></li><li><a href="#slide-139-museum-guide-geometry-and-shading">Slide 139: Museum Guide: Geometry and Shading</a></li><li><a href="#slide-140-museum-guide-uvs-and-textures">Slide 140: Museum Guide: UVs and Textures</a></li><li><a href="#slide-141-museum-guide-materials">Slide 141: Museum Guide: Materials</a></li><li><a href="#slide-142-museum-guide-collision-and-lods">Slide 142: Museum Guide: Collision and LODs</a></li></ul></details><h1 id="refined-deck-slide-findings">Refined deck: slide findings</h1>
+<p>Current numbers from the supplied 142-slide deck. Proposals only.</p>
+<h2 id="slide-1-game-assets-pipelines-validation">Slide 1:  Game Assets, Pipelines,  Validation</h2>
+<p><strong>KEEP · Keep · Live 1</strong></p>
+<p>The opening already identifies the investigation actions. Keep the title and visual identity; use the opening narration to connect this week to Week 1.</p>
+<h2 id="slide-2-week-2-learning-goals">Slide 2: Week 2 Learning Goals</h2>
+<p><strong>KEEP · Keep · Live 2</strong></p>
+<p>The goals fit the lab and mixed experience levels. Keep the four goals. Remove duplicate introductory notes and their spelling errors from the speaker script.</p>
+<h2 id="slide-3-agenda">Slide 3: Agenda</h2>
+<p><strong>P0 · Correct · Live 3</strong></p>
+<p>The agenda conflicts with both lab duration slides and overlaps its last two rows. Replace the schedule with one approved version; the review brief supplies a non-overlapping draft.</p>
+<p>Keep the title. Replace the entire agenda table. Use the proposed schedule in the review brief only after selecting those timings; update slides 71, 122, and the corresponding notes together.</p>
+<p>Visual: One readable timetable, with no overlapping intervals. Keep activity names consistent with the lab title slides.</p>
+<p>Teaching rationale: Conflicting timings undermine pacing decisions and can consume the actual student investigation time.</p>
+<h2 id="slide-4-a-repair-and-repeatable-check">Slide 4: A Repair and  Repeatable Check</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>This hidden statement is a useful summary of the repair-to-check bridge. Keep it as study material or use its question verbally at 30, without adding another live opening.</p>
+<h2 id="slide-5-what-is-a-game-asset">Slide 5: What Is a Game Asset?</h2>
+<p><strong>P1 · Clarify visual · Live 4</strong></p>
+<p>Keep the asset definition. Label the mask image&#39;s separate representations so newcomers know which strip is mesh, texture data, and rendered result.</p>
+<h2 id="slide-6-anatomy-of-a-mesh">Slide 6: Anatomy of a Mesh</h2>
+<p><strong>P1 · Merge · Study / merge</strong></p>
+<p>The portrait does not reveal a mesh&#39;s anatomy. Fold the useful attributes into slide 7&#39;s actual component example and retain this overview as a reference if desired.</p>
+<h2 id="slide-7-a-polygon-mesh-is-structured-data">Slide 7: A Polygon Mesh Is Structured Data</h2>
+<p><strong>KEEP · Keep · Live 5</strong></p>
+<p>The component pictures make selection vocabulary concrete. Keep vertex, edge, and face definitions; select these components briefly in Maya before continuing to 8.</p>
+<h2 id="slide-8-a-polygon-mesh-is-structured-data">Slide 8: A Polygon Mesh Is Structured Data</h2>
+<p><strong>P1 · Develop technical example · Live 6</strong></p>
+<p>The data-structure bridge already exists here, but tiny source diagrams make it inaccessible. Replace the three miniature diagrams with one numbered mesh and readable position/index lists; correct the attribution.</p>
+<p>Keep slide 7 for component vocabulary. Replace slide 8’s three miniature source diagrams and the repeated definitions. Use the worked four-corner example in the review brief.</p>
+<p>Proposed title: A Mesh as Positions and Indices</p>
+<ul>
+<li>Positions store coordinates indexed by vertex ID.</li>
+<li>Edges connect IDs; faces define ordered boundaries.</li>
+<li>Moving a position and changing connections are different edits.</li>
+<li>A script can inspect these same relationships.</li>
+</ul>
+<p>Visual: One large numbered square beside four rows: positions, edge pairs, face order, and a two-triangle index list. Reveal one row at a time and highlight ID 2 in both representations.</p>
+<p>Read aloud: These numbers identify the same points you can select in Maya. The connections refer to those IDs. If I move point two, the points change position, but those relationships still name point two. If I reverse the order around a triangle, the points can stay where they are while the orientation changes. Next week, our script can inspect these same relationships.</p>
+<p>Teaching rationale: One stable object connects a familiar selection action to an inspectable data model; advanced students can follow the face-corner extension.</p>
+<p>Add on slide (60 seconds reserved): If vertex 2 moves, which lists need to change?
+What would you like to clarify about the indices?</p>
+<p>Placement: On the indexed-mesh example, reveal this question after showing the lists and before animating the edit. Reuse its existing example space; do not add another slide.</p>
+<p>Add to read-aloud notes: Take a few seconds to trace point two in the picture and the lists. If we move it without reconnecting anything, which list needs to change? You can point to a row without knowing the technical term. What questions do you have about how these numbers refer to the mesh?</p>
+<p>Here we changed a position. The references still connect the same points. Those are two different things a script can inspect.</p>
+<p>Facilitation: Allow about 8 seconds of quiet thinking. Take one prediction and one student question. If nobody responds, trace one occurrence of index 2 together and invite a question about another occurrence.</p>
+<p>Listen for: The position changes while connectivity stays fixed in this example. Distinguish an index from a coordinate. Keep runtime vertex splits as an optional extension.</p>
+<p>Explore further pointer: A seam can split attribute records. Explore B · Beneath the mesh.</p>
+<p>Read aloud: We have enough of the data model to inspect a mesh today. If you want to see why one point can need several attribute records, follow Beneath the mesh in the appendix.</p>
+<p><a href="https://help.autodesk.com/cloudhelp/2023/CHS/Maya-SDK/files/Polygon-API/Maya_SDK_Polygon_API_How_polygons_are_handled_html.html">Autodesk: polygon data structures</a> · <a href="https://www.pmp-book.org/">Polygon Mesh Processing</a></p>
+<h2 id="slide-9-one-position-can-carry-several-values">Slide 9: One Position Can Carry Several Values</h2>
+<p><strong>P1 · Optional reveal · Study / merge</strong></p>
+<p>This is a valuable advanced connection but the generic cube picture does not show multiple corner attributes. Use one UV seam or hard edge with two records at one position. Keep it a short optional reveal from 8.</p>
+<p>Keep hidden by default. Replace the general cube graphic with a seam/hard-edge example and connect it directly to slide 8.</p>
+<p>Proposed title: One Position Can Have Multiple Corner Attributes</p>
+<ul>
+<li>Adjacent faces can share a position.</li>
+<li>A UV seam can give their corners different coordinates.</li>
+<li>A hard edge can give their corners different shading normals.</li>
+<li>Export may require separate runtime vertex records.</li>
+</ul>
+<p>Visual: Two adjacent triangles, one shared point circled, and two attribute rows with the same position but different UVs or normals.</p>
+<p>Read aloud: Both faces meet at the same position. Their corners can still need different information. Across a UV seam, they can look up different places in the image. Across a hard edge, they can use different shading directions. That difference can require separate records after export, even though the surface still meets at one point.</p>
+<p>Teaching rationale: This explains why DCC counts and runtime counts can differ, without introducing an entire buffer-management lesson.</p>
+<p><a href="https://help.autodesk.com/cloudhelp/2023/CHS/Maya-SDK/files/Polygon-API/Maya_SDK_Polygon_API_How_polygons_are_handled_html.html">Autodesk: polygon data structures</a></p>
+<h2 id="slide-10-geometry-and-topology">Slide 10: Geometry and Topology</h2>
+<p><strong>KEEP · Keep · Live 7</strong></p>
+<p>Geometry versus topology is a useful distinction. Retain the dolphin and definitions; ask whether moving one point changes any component relationships.</p>
+<h2 id="slide-11-topology-depends-on-the-asset-39-s-job">Slide 11: Topology Depends on the Asset&#39;s Job</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The context-dependent topology argument is sound. The subdivision figure introduces valence before students need it. Move detailed valence discussion to reference and retain one sentence about downstream use.</p>
+<h2 id="slide-12-topology-for-subdivision">Slide 12: Topology for Subdivision</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>Keep this hidden subdivision resource. Its VFX/subdivision scope label is useful. Verify the cited clip cues before showing them; do not treat its support-loop advice as a universal game-mesh rule.</p>
+<h2 id="slide-13-bevels-shading-and-silhouette">Slide 13: Bevels, Shading, and Silhouette</h2>
+<p><strong>P1 · Simplify · Study / merge</strong></p>
+<p>The visual is useful, but the slide teaches bevels, shading, and subdivision at once. Keep bevel versus shading-normal contrast live; move holding-edge/subdivision detail to 12.</p>
+<h2 id="slide-14-normals-directions-used-for-shading">Slide 14: Normals: Directions Used for Shading</h2>
+<p><strong>P1 · Clarify · Live 8</strong></p>
+<p>The main bullets distinguish orientation and shading correctly. Enlarge the two comparisons and explain face-corner normals. The notes contain truncated and run-together prose that is not classroom-ready.</p>
+<p>Keep the title and hard/soft-edge comparison. Replace the duplicated or truncated speaker notes. Avoid implying that editing custom shading normals alone necessarily reverses culling.</p>
+<ul>
+<li>Face order establishes geometric orientation.</li>
+<li>Shading normals affect the lighting transition.</li>
+<li>A shared point can have different normals on different face corners.</li>
+<li>A normal map adds a separate shading-direction input.</li>
+</ul>
+<p>Visual: Two copies of one mesh with identical wireframe and different hard/soft shading; a separate small ordered-triangle arrow establishes orientation.</p>
+<p>Read aloud: First look at the boundary and the wireframe. These meshes can keep the same shape while their shading changes. The order around a face establishes its orientation. The shading normals tell the lighting calculation how the surface should appear to turn. Later, a normal map will provide another direction input. In the museum, we need to find which of those relationships explains the symptom.</p>
+<p>Teaching rationale: This prevents a beginner from treating winding, smoothing, and a normal texture as one interchangeable setting.</p>
+<p><a href="https://help.autodesk.com/cloudhelp/2023/CHS/Maya-SDK/files/Polygon-API/Maya_SDK_Polygon_API_How_polygons_are_handled_html.html">Autodesk: polygon data structures</a> · <a href="https://learnopengl.com/Advanced-Lighting/Normal-Mapping">LearnOpenGL: Normal Mapping</a></p>
+<h2 id="slide-15-geometry-faults-and-their-symptoms">Slide 15: Geometry Faults and Their Symptoms</h2>
+<p><strong>P0 · Correct labels · Live 9</strong></p>
+<p>Several different defects share the same hole/watertight/collision caption. Name the pictured condition accurately and make its consequences conditional. Open surfaces can be intentional, and duplicate faces are not the only cause of Z-fighting.</p>
+<p>Keep the topic and specimen images. Replace every repeated caption with a caption specific to that image. Label internal faces as internal faces; label disconnected shells without declaring them inherently invalid.</p>
+<p>Visual: Prefer three enlarged cases live: reversed face, unintended open boundary, and duplicate coplanar faces. Keep the remaining cases in the study version.</p>
+<p>Read aloud: Describe what you can see before you name the cause. An opening can be a deliberate boundary or a missing face. Two nearby surfaces can compete for the same pixels. We need the asset’s intended use and a confirming inspection before deciding which structure to change.</p>
+<p>Teaching rationale: A symptom is not a unique diagnosis. Conditional captions encourage evidence-based repair rather than a universal cleanup operation.</p>
+<p>Add on slide (90 seconds reserved): When could an open surface be intentional?
+What questions do you have about diagnosing these examples?</p>
+<p>Placement: After correcting the defect labels, retain one open-surface example and its intended use beside the prompt.</p>
+<p>Add to read-aloud notes: Compare this surface with the result we actually need. When could this opening be intentional, and when would it cause a problem? Take a moment to compare ideas with someone nearby, then let’s hear two cases. What would you like to ask about deciding whether one of these examples is faulty?</p>
+<p>We need the intended use before we can call the opening a defect. That requirement belongs in the exhibit explanation.</p>
+<p>Facilitation: Use 10 seconds to think, 20 seconds to compare, then hear two contrasting cases and a question. If closed versus open is still confused, return to a leaf surface versus a required closed volume before proceeding.</p>
+<p>Listen for: Acceptable topology depends on intended use. A visible opening alone does not establish every downstream failure; state the actual requirement.</p>
+<p><a href="https://help.autodesk.com/cloudhelp/2023/CHS/Maya-SDK/files/Polygon-API/Maya_SDK_Polygon_API_How_polygons_are_handled_html.html">Autodesk: polygon data structures</a> · <a href="tech-art-museum-exhibit-repair-guide-e9691b97.html">Current Museum Break/Fix Guide</a></p>
+<h2 id="slide-16-surface-data">Slide 16: Surface Data</h2>
+<p><strong>P1 · Merge · Study / merge</strong></p>
+<p>This repeats three attributes without showing them on the portrait. Merge with the component example on 7 and omit from the live route.</p>
+<h2 id="slide-17-scene-context">Slide 17: Scene Context</h2>
+<p><strong>P1 · Merge · Study / merge</strong></p>
+<p>A repeated portrait does not expose transform, pivot, or naming. Teach those on the actual blockout at 38; omit this position from the live route.</p>
+<h2 id="slide-18-research-behind-texture-mapping">Slide 18: Research Behind Texture Mapping</h2>
+<p><strong>P0 · Replace visual/source · Study / merge</strong></p>
+<p>The title and bullets cite texture mapping, while the exploded-asset visual and arXiv link concern BANG. Separate them. Put a real lookup/filtering figure beside the Heckbert reading.</p>
+<p>Keep the Heckbert title only if the body and visual remain about texture mapping. Remove the BANG arXiv link and exploded-assets image from this slide. Move that research candidate to 137.</p>
+<p>Visual: A labeled texture and its mapped surface, followed by a small minification/filtering comparison. Use Heckbert or a clearly labeled original demonstration.</p>
+<p>Read aloud: Texture mapping asks where we read surface data. Filtering asks how we combine that data when many texels contribute to a small part of the image. Those questions remain useful even though this survey is historical. The modern engine gives us tools for managing the same underlying problem.</p>
+<p>Teaching rationale: The source, image, and claim must describe the same mechanism; recency does not compensate for a mismatch.</p>
+<p><a href="https://publications.ri.cmu.edu/survey-of-texture-mapping">Heckbert: Survey of Texture Mapping</a> · <a href="https://www.pbr-book.org/4ed/Textures_and_Materials/Texture_Sampling_and_Antialiasing">PBRT: Texture Sampling and Antialiasing</a> · <a href="https://arxiv.org/abs/2507.21493">BANG: Dividing 3D Assets via Generative Exploded Dynamics</a></p>
+<h2 id="slide-19-art-fundamentals-as-diagnostic-questions">Slide 19: Art Fundamentals As Diagnostic Questions</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The artist/technical framing remains a useful reference section. Keep it hidden so the lecture does not repeat a second fundamentals unit before the lab.</p>
+<p>Use this hidden divider as the start of a named study appendix. Move the corrected art reference slides together after the taught sequence when editing PowerPoint. Add internal links from the live concept and a return link to that concept; preserve current numbers as review identifiers only.</p>
+<p>Proposed title: Explore Further: Art, Form, and Readability</p>
+<p>Visual: Use the appendix icon, a short list of the optional topics, and the question: What should a technical change preserve?</p>
+<p>Teaching rationale: A named study destination makes the optional material findable and useful without expanding the live survey.</p>
+<h2 id="slide-20-observation-before-interpretation">Slide 20: Observation Before Interpretation</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>This has an observation-versus-interpretation lesson, but a VFX collage invites another topic. Keep it supplemental and link an exact source if distributed.</p>
+<h2 id="slide-21-silhouette-defines-objects">Slide 21: Silhouette Defines Objects</h2>
+<p><strong>P0 · Correct reference copy · Study / merge</strong></p>
+<p>The silhouette slide repeats the contour/volume explanation from 22. Replace its artist-lens text with recognition from an outer boundary; distinguish silhouette from interior form cues.</p>
+<p>Keep this hidden artist-lens reference. Replace the copied contour/volume wording, which belongs to 22.</p>
+<ul>
+<li>The outer boundary can support recognition at a glance.</li>
+<li>Pose, proportion, and major contours affect that boundary.</li>
+<li>Surface shading and texture detail supply additional cues.</li>
+</ul>
+<p>Visual: Retain the silhouette set and ask students to identify which outer contours distinguish the objects.</p>
+<p>Teaching rationale: Silhouette and interior form cues deserve separate names even in optional material.</p>
+<h2 id="slide-22-shape-amp-form-before-topology">Slide 22: Shape &amp; Form  Before Topology</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>Keep the shape/form reference and its contour example. Preserve the distinction between drawn form cues and actual surface geometry.</p>
+<h2 id="slide-23-composition-directs-attention">Slide 23: Composition Directs Attention</h2>
+<p><strong>P2 · Polish reference · Study / merge</strong></p>
+<p>The composition example belongs in the optional artist-lens section. Correct detemine and percieve; avoid making collision itself a universal composition control.</p>
+<h2 id="slide-24-anatomy-and-deformation">Slide 24: Anatomy and Deformation</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The anatomy-to-deformation connection is useful study material. Keep it hidden and use it as a later rigging link, rather than extending the skeletal introduction here.</p>
+<h2 id="slide-25-color-and-readability">Slide 25: Color and Readability</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>Retain the grayscale readability case as optional exploration. It is not a direct substitute for the numeric-versus-color texture lesson.</p>
+<h2 id="slide-26-environment-breakdown-hell-gates">Slide 26: Environment Breakdown: Hell Gates</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The environment breakdown is a good later source for modular construction. Keep it supplemental and ask students to trace one feature, not every pipeline used.</p>
+<h2 id="slide-27-creative-process-generate-evaluate-iterate">Slide 27: Creative Process: Generate, Evaluate, Iterate</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The iterative creative-process model is compatible with the course but redundant with the repair loop live. Keep hidden; do not add a separate AI discussion.</p>
+<h2 id="slide-28-the-expected-result">Slide 28: The Expected Result</h2>
+<p><strong>KEEP · Keep · Live 10</strong></p>
+<p>Establishing the intended result prevents students treating every difference as an error. Keep the comparison reference and ask which observable property matters.</p>
+<p>Keep this existing live position and its comparison reference. Add a brief art-lens bridge here instead of restoring the whole hidden survey. Use one actual asset comparison and the optional visual-intent diagram. Reserve about one minute from the existing intended-result explanation, not additional class time.</p>
+<p>Proposed title: What Should the Technical Work Preserve?</p>
+<ul>
+<li>Name the intended visual result.</li>
+<li>Identify the feature the viewer needs to read.</li>
+<li>Choose evidence that a technical change preserves it.</li>
+</ul>
+<p>Visual: One asset at the intended camera, with one important contour or surface cue marked. The visual-intent-to-check diagram is an optional orientation view, not a replacement for the actual asset comparison.</p>
+<p>Read aloud: Before we change the asset, name what the viewer needs to read. It might be a recognizable outline, a surface that reads as rough, or a bend that supports the pose. Now connect that intention to something we can inspect. We are using technical evidence to protect a visual result. Keep that question with you as we move through the pipeline.</p>
+<p>Teaching rationale: Artistic judgment supplies the requirement that gives the technical inspection meaning. This continues Week 1 without introducing a second taxonomy or a fifth analytical lens.</p>
+<p>Explore further pointer: Explore further: A · Art, form, and readability.</p>
+<p>Read aloud: This is where the artistic judgment enters the technical work. We choose what the viewer should be able to read, then inspect the relationships that preserve it. The appendix has more examples of silhouette, form, composition, and value if you would like to explore those on your own.</p>
+<p><a href="tech-art-museum-exhibit-repair-guide-e9691b97.html">Current Museum Break/Fix Guide</a></p>
+<h2 id="slide-29-visual-intent-and-asset-data">Slide 29: Visual Intent and Asset Data</h2>
+<p><strong>P1 · Clarify visual · Study / merge</strong></p>
+<p>Correct LOD hoice. The rig screenshot does not expose all three bullet relationships. Use the same asset with a silhouette, a shading view, and a material-response crop, or make this a spoken bridge.</p>
+<h2 id="slide-30-observation-before-diagnosis">Slide 30: Observation before Diagnosis</h2>
+<p><strong>KEEP · Keep · Live 11</strong></p>
+<p>This is a strong diagnostic sequence. Keep it, then require a proposed alternative and a test before offering the answer. Apply two Week 1 lenses briefly.</p>
+<h2 id="slide-31-the-asset-pipeline">Slide 31: The Asset Pipeline</h2>
+<p><strong>KEEP · Keep · Live 12</strong></p>
+<p>Keep the complete asset pipeline as an orientation map. Name the headphones as one representative route; high-to-low baking is not compulsory for every asset.</p>
+<h2 id="slide-32-moving-assets-through-a-pipeline">Slide 32: Moving Assets Through a Pipeline</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The hidden GIF provides real process motion but the source/export/engine roles deserve annotations. Retain it as optional viewing; a linked or hidden GIF is not part of the live demonstration.</p>
+<h2 id="slide-33-starting-the-pipeline-walkthrough">Slide 33: Starting the Pipeline Walkthrough</h2>
+<p><strong>P1 · Cut live · Study / merge</strong></p>
+<p>The running-track image delays the asset example without adding an inspectable fact. Omit it from the live route and begin requirements immediately after 31.</p>
+<h2 id="slide-34-pipeline-pt-0-requirements-and-constraints">Slide 34: Pipeline pt. 0:  Requirements and Constraints</h2>
+<p><strong>P0 · Correct constraint · Live 13</strong></p>
+<p>The greater-than symbol makes the triangle budget a minimum. If the intended meaning is a ceiling, use less-than-or-equal and label the budget as this example&#39;s requirement.</p>
+<p>If 20,000 is intended as the maximum, replace &gt;20k with ≤20,000 triangles. Label 4K and this triangle limit as illustrative project requirements, not universal targets.</p>
+<ul>
+<li>Define the intended camera and platform.</li>
+<li>Record scale and material requirements.</li>
+<li>Set an explicit triangle ceiling for this example.</li>
+<li>Verify quality and cost in the destination.</li>
+</ul>
+<p>Visual: Use the headphones plus two visible example constraints, rather than a generic meeting photograph.</p>
+<p>Read aloud: These are requirements for this example. They are not numbers every asset should meet. We need a target camera, a platform, and an intended result before a count becomes meaningful. If we call this a ceiling, the test is whether we stay at or below it while meeting the visual requirement.</p>
+<p>Teaching rationale: A budget should be an unambiguous, checkable contract.</p>
+<h2 id="slide-35-pipeline-pt-1-reference">Slide 35: Pipeline pt. 1: Reference</h2>
+<p><strong>KEEP · Keep · Live 14</strong></p>
+<p>The reference board supports specific shape/material questions. Keep it and point to one dimension or uncertain construction detail that the blockout must resolve.</p>
+<h2 id="slide-36-alternate-source-pipelines">Slide 36: Alternate Source Pipelines</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>Alternative acquisition routes are relevant, but their full survey is not necessary for the core lab. Keep the slide hidden and preserve the destination-validation principle.</p>
+<h2 id="slide-37-handoff-1-reference-to-blockout">Slide 37: HANDOFF 1: Reference to Blockout</h2>
+<p><strong>P0 · Correct then merge · Study / merge</strong></p>
+<p>The handoff table reduces reference interpretation to image resolution. Keep the visual motif only if brief; put dimensions, orientation, and assumptions into the blockout discussion.</p>
+<p>Replace the table row with: reference images + dimensions + assumptions | interpreted proportions and construction | compare blockout to measured dimensions and silhouettes. Merge this information into 38 for the live route.</p>
+<p>Visual: Keep one cropped reference beside the matching blockout, with the same dimension annotated.</p>
+<p>Teaching rationale: The handoff is a change in representation and interpretation, not merely a check on image resolution.</p>
+<h2 id="slide-38-pipeline-pt-2-blockout-scale-orientation-pivot">Slide 38: Pipeline Pt. 2: Blockout -  Scale, Orientation, Pivot</h2>
+<p><strong>KEEP · Keep · Live 15</strong></p>
+<p>Scale, orientation, and pivot are concrete Maya/UE handoff properties. Keep the blockout asset and demonstrate one known dimension plus one rotation around the intended pivot.</p>
+<h2 id="slide-39-import-reference-for-blockout">Slide 39: Import Reference for Blockout</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The import-reference screenshots are relevant to a modeling exercise but not essential to this lecture&#39;s handoff test. Keep hidden.</p>
+<h2 id="slide-40-handoff-2-blockout-to-highpoly">Slide 40: HANDOFF 2: Blockout to Highpoly</h2>
+<p><strong>P0 · Correct then merge · Study / merge</strong></p>
+<p>Blockout-to-highpoly still says Image Files / N/A / Resolution. Replace it with mesh/scene payload, added surface detail, and preserved dimensions/pivot; merge into 41 live.</p>
+<p>Replace the table row with: blockout mesh/scene + transforms | added surface detail/topology | preserve dimensions, silhouette landmarks, orientation, and pivot. Merge into 41 live.</p>
+<p>Visual: Use the same headphone component before and after detailing with a shared outline overlay.</p>
+<p>Teaching rationale: Students can now identify a payload and an invariant at this actual boundary.</p>
+<h2 id="slide-41-pipeline-pt-3-modeling-highpoly">Slide 41: Pipeline pt. 3: Modeling Highpoly</h2>
+<p><strong>P1 · Remove duplicate copy · Live 16</strong></p>
+<p>Both concise and expanded versions of the explanation appear. Retain one block tied to actual shape, baked shading detail, and the destination view. Distinguish normal-map baking from displacement.</p>
+<p>Keep the title and high-poly examples. Replace both bullet groups with these three bullets. Move naming and workflow variants to notes.</p>
+<ul>
+<li>Geometry establishes the actual surface and outline.</li>
+<li>A detailed source can provide information for baking.</li>
+<li>Choose detail according to the destination view.</li>
+</ul>
+<p>Visual: Keep the original high-poly images and point to one geometric contour versus one detail intended for a normal-map bake.</p>
+<p>Teaching rationale: Removing duplicate explanation creates room to distinguish geometric change from stored shading information.</p>
+<h2 id="slide-42-modeling-workflows-depend-on-the-asset">Slide 42: Modeling Workflows Depend on the Asset</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>Keep the three source representations as optional comparisons. This slide earns its place in the wiki more readily than in the limited live route.</p>
+<h2 id="slide-43-curve-nurbs-and-cad-workflows">Slide 43: Curve, NURBS, and CAD Workflows</h2>
+<p><strong>P1 · Clean reference · Study / merge</strong></p>
+<p>Two versions of the curve/CAD explanation are present. Keep one concise set, naming conversion/tessellation as the handoff question; retain the slide as reference.</p>
+<h2 id="slide-44-modular-environment-kits">Slide 44: Modular Environment Kits</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The modular-kit contract is useful for exhibit assignment ideas. Keep the production case and source credit, but do not imply that a modular station is already prepared.</p>
+<h2 id="slide-45-source-choice-and-revision">Slide 45: Source Choice and Revision</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>This representation comparison needs its original labels legible to teach revision tradeoffs. Keep hidden unless you can explain one concrete edit in each representation.</p>
+<h2 id="slide-46-handoff-3-highpoly-to-lowpoly">Slide 46: HANDOFF 3: Highpoly to Lowpoly</h2>
+<p><strong>P1 · Merge · Study / merge</strong></p>
+<p>The baton image alone adds little after the first handoff. Put the high/low relationship and preserved silhouette check directly on 47.</p>
+<h2 id="slide-47-pipeline-pt-4-low-poly">Slide 47: Pipeline pt. 4: Low-poly</h2>
+<p><strong>KEEP · Keep · Live 17</strong></p>
+<p>The visible low-poly example and camera-distance criterion are useful. Keep this position and identify one retained contour and one simplified internal region.</p>
+<h2 id="slide-48-geometry-budget">Slide 48: Geometry Budget</h2>
+<p><strong>P0 · Correct claim · Study / merge</strong></p>
+<p>More geometry can improve deformation and shading as well as silhouette. Replace the first bullet&#39;s absolute claim; retain the contextual budget argument.</p>
+<p>Keep the title and comparison image. Replace the first absolute claim and use one concise block.</p>
+<ul>
+<li>Geometry may support silhouette, shading, and deformation.</li>
+<li>Spend detail where it affects the required result.</li>
+<li>Judge the asset at its intended screen size.</li>
+<li>Measure cost in the production context.</li>
+</ul>
+<p>Visual: Use the existing contour comparison as a silhouette example; label it as one reason to add geometry, not the only reason.</p>
+<p>Teaching rationale: A useful simplification must remain correct for deforming and shaded assets.</p>
+<h2 id="slide-49-game-ready-topology">Slide 49: Game-ready Topology</h2>
+<p><strong>P1 · Clarify constraint · Live 18</strong></p>
+<p>Keep deliberate triangulation and downstream needs. Explain hard-edge/UV alignment as a bake and tangent-space consideration, not an unconditional requirement that every UV seam be a hard edge.</p>
+<p>Keep the title and first/third/fourth bullets. Change Align hard edges with UV decisions to Coordinate hard edges, UV seams, and the bake/tangent contract.</p>
+<p>Visual: Enlarge one seam on the actual low mesh with the relevant normal/bake result.</p>
+<p>Teaching rationale: The student should learn to maintain a specific bake contract, not equate UV seams with hard edges universally.</p>
+<p><a href="https://help.autodesk.com/cloudhelp/2023/CHS/Maya-SDK/files/Polygon-API/Maya_SDK_Polygon_API_How_polygons_are_handled_html.html">Autodesk: polygon data structures</a> · <a href="https://learnopengl.com/Advanced-Lighting/Normal-Mapping">LearnOpenGL: Normal Mapping</a></p>
+<h2 id="slide-50-topology-examples-for-further-study">Slide 50: Topology Examples for Further Study</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The production examples are useful optional study. Do not require students to infer workflow rules from miniature images without the original breakdown.</p>
+<h2 id="slide-51-lods">Slide 51: LODs</h2>
+<p><strong>P1 · Focus · Live 19</strong></p>
+<p>The title is LODs but the first bullet teaches instancing. Keep the LOD concept and comparison; move instancing to the hidden optimization reference.</p>
+<p>Keep the title and mesh sequence. Remove the instancing bullets from this slide and move them to 53’s reference discussion.</p>
+<ul>
+<li>A mesh can have representations with different detail.</li>
+<li>Conventional static-mesh LOD selection uses projected screen size.</li>
+<li>Inspect the active LOD and triangle count.</li>
+<li>Verify silhouette, materials, and required collision.</li>
+</ul>
+<p>Visual: A conventional LOD sequence with each representation labeled; pair with 52’s actual automatic-selection capture.</p>
+<p>Teaching rationale: Separate reuse of repeated objects from selection of a representation for one object.</p>
+<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-automatic-lod-generation-in-unreal-engine?application_version=5.7">Epic: Static Mesh Automatic LOD Generation, UE 5.7</a></p>
+<h2 id="slide-52-lod-selection-in-unreal">Slide 52: LOD Selection in Unreal</h2>
+<p><strong>P1 · Demonstrate · Live 20</strong></p>
+<p>The text repeats itself and the settings screenshot cannot prove automatic switching. Replace with a near/mid/far capture showing active LOD and triangle counts in the conventional LOD workflow.</p>
+<p>Keep the title. Replace the duplicated upper/lower explanations with this block.</p>
+<ul>
+<li>Inspect the available LODs.</li>
+<li>Return to automatic selection.</li>
+<li>Change screen coverage and watch the active LOD.</li>
+<li>Compare the original and reduced results.</li>
+</ul>
+<p>Visual: Proposed UE recording: three camera positions, active LOD and triangle counts readable, then one paused transition frame.</p>
+<p>Read aloud: First I will force an LOD so we can inspect what that representation contains. Then I will return to automatic selection. Watch the active LOD as the object occupies less of the screen. A smaller representation is useful only if it preserves what this camera needs. We also check the materials and the collision behavior the asset relies on.</p>
+<p>Teaching rationale: The control and its observed consequence become one continuous test.</p>
+<p>Add on slide (60 seconds reserved): Both versions look acceptable. What else would you inspect?</p>
+<p>Placement: Pause on the matched LOD views before revealing active LOD and triangle counts.</p>
+<p>Add to read-aloud notes: Suppose both versions look acceptable from this distance. What evidence would help us decide whether the LOD setup is doing its job? We can hear more than one useful inspection. If the transition or these controls are unclear, ask about that before we reveal the readout.</p>
+<p>The visible result is one part of the check. The active representation and its cost give us additional evidence.</p>
+<p>Facilitation: Allow 8 seconds of thinking, take two suggestions, then reveal the relevant readout. Keep this about the conventional LOD example shown.</p>
+<p>Listen for: Active LOD, screen size or viewing conditions, and triangle counts support the comparison. Appearance alone does not establish a performance result.</p>
+<p>Explore further pointer: What should this LOD preserve? More examples in A · Art, form, and readability.</p>
+<p>Read aloud: The triangle count has a purpose here: we are trying to preserve the features that matter from the intended view. The art and form appendix gives more examples of how to name those features.</p>
+<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-automatic-lod-generation-in-unreal-engine?application_version=5.7">Epic: Static Mesh Automatic LOD Generation, UE 5.7</a></p>
+<h2 id="slide-53-culling-hlod-and-proxy-generation">Slide 53: Culling, HLOD, and Proxy Generation</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>Keep culling, HLOD, and generation as distinct reference concepts. Do not equate all HLOD implementations with one proxy recipe or every instance with a guaranteed draw-call saving.</p>
+<h2 id="slide-54-pipeline-pt-5-uv-layout">Slide 54: Pipeline pt. 5: UV Layout</h2>
+<p><strong>P1 · Simplify and demonstrate · Live 21</strong></p>
+<p>The UV slide contains two bullet blocks. Keep the lookup relationship and demonstrate a coordinate change on the same image. Put packing workflow advice in notes.</p>
+<p>Keep the UV-layout title and actual mesh/UV imagery. Replace both bullet groups. Teach packing advice through the worked asset or notes.</p>
+<ul>
+<li>UVs supply coordinates for a texture lookup.</li>
+<li>One image can appear differently when the coordinates change.</li>
+<li>A diagnostic checker reveals orientation and distortion.</li>
+</ul>
+<p>Visual: Same labeled image, same mesh, one coordinate operation changed. Highlight the source UV set separately from the material-coordinate node.</p>
+<p>Read aloud: The image contains the values. The coordinates tell the material where to read them. If the label appears backward, we have several places to investigate: the image, the mesh UVs, and the material’s coordinate operations. We need to inspect which one actually differs.</p>
+<p>Teaching rationale: This directly supports EX29 while preserving the distinction between source UV data and graph manipulation.</p>
+<p><a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-texturing/introduction-to-texturing.html">Scratchapixel: Introduction to Texturing</a> · <a href="tech-art-museum-exhibit-repair-guide-e9691b97.html">Current Museum Break/Fix Guide</a></p>
+<h2 id="slide-55-texel-density-and-uv-distortion">Slide 55: Texel Density and UV Distortion</h2>
+<p><strong>P1 · Separate mechanisms · Live 22</strong></p>
+<p>Texel density and distortion are related but distinct. The duplicate bullet sets blur them. Compare uniform checker scaling separately from stretched checker shapes.</p>
+<p>Keep the topic. Replace the two overlapping explanation blocks with these distinctions.</p>
+<ul>
+<li>Density compares texture coverage with physical size.</li>
+<li>Distortion changes how the checker shapes stretch.</li>
+<li>Declare the intended density and justified exceptions.</li>
+</ul>
+<p>Visual: Two views: uniformly larger squares for reduced density; stretched rectangles for distortion. Keep the same checker image.</p>
+<p>Teaching rationale: Students can distinguish inadequate coverage from deformation of the lookup.</p>
+<p><a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-texturing/introduction-to-texturing.html">Scratchapixel: Introduction to Texturing</a></p>
+<h2 id="slide-56-trim-sheets-tileables-and-reuse">Slide 56: Trim Sheets, Tileables, and Reuse</h2>
+<p><strong>P1 · Trim · Study / merge</strong></p>
+<p>The seven bullets repeat tileable/trim definitions. Keep two definitions and one declared-use exception. Use a single highlighted UV strip to show the lookup.</p>
+<p>Keep the title and trim-sheet visual. Replace both bullet groups with this short block.</p>
+<ul>
+<li>Tileable textures repeat surface detail.</li>
+<li>Trim sheets provide reusable bands or regions.</li>
+<li>UV reuse is valid when it fits the declared purpose.</li>
+</ul>
+<p>Visual: Highlight one UV strip and the single trim band it samples.</p>
+<p>Teaching rationale: One visible lookup is more instructive than seven related definitions.</p>
+<h2 id="slide-57-handoff-4">Slide 57: HANDOFF 4</h2>
+<p><strong>P1 · Merge · Study / merge</strong></p>
+<p>The Maya-to-Painter baton does not identify exported mesh, UVs, or bake inputs. Add the actual payload to 58 and omit the standalone transition live.</p>
+<h2 id="slide-58-pipeline-pt-7-baking">Slide 58: Pipeline pt. 7: Baking</h2>
+<p><strong>P1 · Simplify · Live 23</strong></p>
+<p>Keep the bake definition and the normal/tangent/triangulation contract. Remove the duplicate workflow block from the slide; use notes for naming and test-bake procedure.</p>
+<p>Keep the title and high/low/bake images. Remove the repeated procedural block from the slide. Use notes for test bakes and naming.</p>
+<ul>
+<li>Baking transfers selected information to a target representation.</li>
+<li>A normal-map bake stores direction information for shading.</li>
+<li>Triangulation and tangent assumptions must agree at the destination.</li>
+</ul>
+<p>Visual: Label high source, low target, baked normal map, and runtime preview using the actual headphones component.</p>
+<p>Teaching rationale: Students see both the transformation and the assumptions that a later repair must preserve.</p>
+<p><a href="https://learnopengl.com/Advanced-Lighting/Normal-Mapping">LearnOpenGL: Normal Mapping</a></p>
+<h2 id="slide-59-pipeline-pt-8-texturing-for-material-identity">Slide 59: Pipeline pt. 8: Texturing for Material Identity</h2>
+<p><strong>P1 · Fix layout and duplication · Live 24</strong></p>
+<p>The shortened copy crowds the title while the old block remains. Keep one block and the headphones material view; do not read both explanations.</p>
+<p>Keep the headphones example. Delete the small bullet block crowded against the title and replace the remaining block with these three bullets.</p>
+<ul>
+<li>Establish material identity under known lighting.</li>
+<li>Use maps where a surface property varies.</li>
+<li>Check the result in Unreal during revision.</li>
+</ul>
+<p>Visual: A larger material preview beside the relevant channel, with one active parameter highlighted.</p>
+<p>Teaching rationale: The visible property and its data source stay connected.</p>
+<h2 id="slide-60-reading-material-identity">Slide 60: Reading Material Identity</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>Material identity before wear is useful optional advice. It can remain a student study slide without extending the main handoff walkthrough.</p>
+<h2 id="slide-61-handoff-5">Slide 61: HANDOFF 5</h2>
+<p><strong>P1 · Merge · Study / merge</strong></p>
+<p>The transition names software but not the mesh/maps/assignment contract. Incorporate those payload labels into 62; remove this separate live pause.</p>
+<h2 id="slide-62-maya-to-unreal-what-leaves-the-scene">Slide 62: Maya to Unreal:  What Leaves the Scene?</h2>
+<p><strong>P1 · Replace with actual handoff evidence · Live 25</strong></p>
+<p>This is the most valuable practical slide, but the visual is only the finished object and both bullet versions remain. Show Maya face assignment, export policy, UE slot identity, and reimport verification.</p>
+<p>Replace both bullet groups. Keep this position as the practical handoff demonstration. Move full settings-dialog reference pages into the study material.</p>
+<p>Proposed title: Maya to Unreal: Assignment, Import, Reimport</p>
+<ul>
+<li>Maya assigns materials to surface regions.</li>
+<li>Export carries a selected representation.</li>
+<li>Unreal slots and materials define the destination result.</li>
+<li>Reimport must preserve the intended relationships.</li>
+</ul>
+<p>Visual: Proposed capture: Maya faces and shading group; export selected payload; UE named slots and assigned instances; one source revision followed by reimport.</p>
+<p>Read aloud: These faces belong to this material assignment in Maya. The exported file carries a representation of that relationship. Unreal builds its own mesh slots and surface assets. It does not reproduce every arbitrary Maya shading network. Now we will change one source detail and reimport. We need to check that the intended regions, names, and assignments still match, as well as the visible result.</p>
+<p>Teaching rationale: Students learn the fragile relationship they must maintain, with a direct bridge to EXMAT and Python validation.</p>
+<p>Add on slide (120 seconds reserved): What questions do you have about assignment, export, or reimport?</p>
+<p>Placement: After the Maya-to-UE-to-reimport demonstration, freeze the paired source assignment and destination slot views. Replace the concluding bullet area with this invitation for the pause.</p>
+<p>Add to read-aloud notes: Let’s pause on this handoff. What questions do you have about assigning faces in Maya, what the export carries, or what Unreal keeps when we reimport? You can point to a step or setting. We can also discuss a different result you have seen in your own work.</p>
+<p>When this bridge fails, our next step is to identify which relationship changed. Keep that question with you in the museum.</p>
+<p>Facilitation: Wait roughly 10 seconds before speaking again. Keep both application views visible. If needed, offer: Which handoff would you like me to show again? Answer a prerequisite question now; record a deeper importer-specific question with the asset and route needed to investigate it. Do not assume silence proves understanding.</p>
+<p>Listen for: Separate source face membership, material identity, destination slots, and overrides. Use the importer and version actually demonstrated.</p>
+<p>Explore further pointer: Explore further: E · Other representations and production routes.</p>
+<p>Read aloud: This is one supported handoff, not every way an asset can travel. The appendix contains other acquisition, representation, and production routes. Apply the same input, output, and verification questions to one that interests you.</p>
+<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-material-pipeline-in-unreal-engine?application_version=5.7">Epic: FBX Material Pipeline, UE 5.7</a> · <a href="https://dev.epicgames.com/documentation/unreal-engine/interchange-import-reference-in-unreal-engine?application_version=5.7">Epic: Interchange Import Reference, UE 5.7</a></p>
+<h2 id="slide-63-asset-maturity-is-proven-in-engine">Slide 63: Asset Maturity Is Proven in Engine</h2>
+<p><strong>P1 · Reference · Study / merge</strong></p>
+<p>The production maturity categories are plausible but not a universal standard. Keep them as one example in reference; spend live time showing the specific engine acceptance test.</p>
+<h2 id="slide-64-headphones-presentation-and-breakdowns">Slide 64: Headphones: Presentation and Breakdowns</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>Keep the presentation/breakdown resource as optional portfolio guidance. It does not need a second live showcase after the pipeline example.</p>
+<h2 id="slide-65-inspect-more-models">Slide 65: Inspect More Models</h2>
+<p><strong>P0 · Remove pasted HTML · Study / merge</strong></p>
+<p>Raw iframe markup is visible under the car image. Replace it with an ordinary hyperlink. Preserve creator credit and keep the model inspector as optional exploration.</p>
+<p>Keep the model image and its creator credit. Delete the text box containing the iframe markup. Attach the normal model-page URL to the image or a short Open model inspector link.</p>
+<p>Visual: Use the retained car image as the clickable element. If retained live, show one actual inspector channel rather than the embed code.</p>
+<p>Teaching rationale: PowerPoint does not render pasted HTML as an embedded viewer.</p>
+<h2 id="slide-66-everything-together">Slide 66: Everything  Together</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The breakdown combines several useful representations, but small labels require zoomed study. Keep it hidden and link the source.</p>
+<h2 id="slide-67-no-editable-title">Slide 67: (no editable title)</h2>
+<p><strong>P1 · Cut live · Study / merge</strong></p>
+<p>The finish-line stock photograph has no editable teaching content. Omit it and go directly to the pipeline review.</p>
+<h2 id="slide-68-pipeline-review">Slide 68: Pipeline Review</h2>
+<p><strong>P1 · Retain with evidence labels · Live 26</strong></p>
+<p>Keep the review questions and revisit the headphones. The AI-generated illustration is not a technical breakdown of the actual asset; label it illustrative or replace with real mesh/UV/material evidence.</p>
+<h2 id="slide-69-further-study-an-environment-breakdown">Slide 69: Further Study: An Environment Breakdown</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The environment case is optional and appropriately framed. Keep hidden with a usable source link.</p>
+<h2 id="slide-70-diagnosing-a-pipeline-failure">Slide 70: Diagnosing a pipeline failure</h2>
+<p><strong>P1 · Improve diagram · Study / merge</strong></p>
+<p>The diagnostic bullets are good, but the generic production graphic mixes a specific character workflow with the source/export/import investigation. Use the actual handoff sequence and allow unresolved origins.</p>
+<h2 id="slide-71-lab-1-tech-art-museum-exploration">Slide 71: Lab 1: Tech Art Museum Exploration</h2>
+<p><strong>P0 · Reconcile timing · Live 27</strong></p>
+<p>Slide says 25 minutes, notes say 20, agenda says 15. Match the selected schedule and explicitly keep this pass observation-only.</p>
+<p>Keep the museum photograph and observation-only instructions. Replace the duration after selecting the schedule, and delete contradictory durations in notes.</p>
+<p>Read aloud: For this first pass, describe what differs and compare it with the intended result. You are not repairing yet. Record what you can actually inspect and name a useful next test when the cause is uncertain. We will use those questions in the next part of the lecture.</p>
+<p>Teaching rationale: An observation activity can motivate the later anatomy lessons without demanding untaught diagnostic knowledge.</p>
+<p>Add on slide (30 seconds reserved): What do you need clarified before observing?
+Record one question the exhibit raises.</p>
+<p>Placement: Keep this small prompt visible alongside the observation instructions. Add a Question raised field to the working observation sheet, rather than revealing a cause.</p>
+<p>Add to read-aloud notes: Before you begin, what needs clarifying about what to observe or record? At an exhibit, describe what you see and write one question it raises. You do not need to know the setting name or diagnose the cause yet.</p>
+<p>Bring back a visible difference and a question we can investigate.</p>
+<p>Facilitation: Resolve an access or task-scope question before starting. Collect the question in the group’s existing record; do not introduce a separate submission requirement.</p>
+<p>Listen for: Students know the intended comparison and can distinguish observation from a suspected cause.</p>
+<h2 id="slide-72-welcome-to-the-technical-art-museum-your-observation-record">Slide 72: Welcome to the Technical Art Museum!   Your Observation Record:</h2>
+<p><strong>KEEP · Keep · Live 28</strong></p>
+<p>The observation record permits uncertainty. Keep it and show where students can access the reference or inspector on an actual exhibit.</p>
+<h2 id="slide-73-student-museum-observation-sheet">Slide 73: Student Museum Observation Sheet</h2>
+<p><strong>P0 · Allow unresolved evidence · Live 29</strong></p>
+<p>The worksheet&#39;s final column forces an incorrect-stage answer. Add Next Test and permit unresolved. Do not grade a correct diagnosis from evidence students cannot access.</p>
+<p>Keep the worksheet format. Replace the final heading with Confirmed stage or unresolved, then add Next discriminating test. Use a linked full-size handout if six columns are too small on the slide.</p>
+<p>Visual: Show one illustrative completed row and one blank row. Example: reversed label | compare reference | source image matches | graph not inspected | unresolved | inspect U-coordinate operation.</p>
+<p>Teaching rationale: The record should reward the confidence supported by evidence, including honest uncertainty.</p>
+<p><a href="tech-art-museum-exhibit-repair-guide-e9691b97.html">Current Museum Break/Fix Guide</a></p>
+<h2 id="slide-74-trace-the-earliest-confirmed-difference">Slide 74: Trace the  Earliest Confirmed Difference</h2>
+<p><strong>KEEP · Keep · Study / merge</strong></p>
+<p>Treating uninspected stages as unresolved is strong. Keep the principle; annotate one real evidence transition rather than implying every stage has been inspected.</p>
+<h2 id="slide-75-museum-observations">Slide 75: Museum Observations</h2>
+<p><strong>KEEP · Keep · Live 30</strong></p>
+<p>The short debrief asks for observation, evidence, and a next test. Keep it; select one student example and preserve its question into the surface-data block.</p>
+<p>Add on slide (120 seconds reserved): What did you observe? What remains uncertain?
+Which question should we investigate together?</p>
+<p>Placement: Use the existing debrief slide after the observation pass. Display one student observation and its question as the discussion focus.</p>
+<p>Add to read-aloud notes: Let’s hear one visible difference without naming its cause yet. What did you compare? Now, what remains uncertain? I’d like another group to suggest a useful question or a different explanation. Which question about what you saw would help us enter the next part of the lecture?</p>
+<p>We have evidence and an open question. As we examine the asset’s parts, look for the information that could distinguish these explanations.</p>
+<p>Facilitation: Hear two brief contributions and one student question. Keep confirmed observations and hypotheses in separate columns. Carry an unresolved question into the relevant anatomy slide and explicitly return to it there. Do not reveal the station’s repair recipe.</p>
+<p>Listen for: An observation can support several hypotheses. A good next inspection distinguishes them; an unfamiliar setting is a useful question to preserve.</p>
+<h2 id="slide-76-break">Slide 76: Break</h2>
+<p><strong>KEEP · Keep · Live 31</strong></p>
+<p>Keep the break and match its length to the agenda. A pause is useful after the first museum pass.</p>
+<h2 id="slide-77-lecture-2-surface-data">Slide 77: Lecture 2: Surface Data</h2>
+<p><strong>P2 · Keep divider · Live 32</strong></p>
+<p>The surface-data transition is clear. Rename to Part 2: Surface Data if Lecture 2 could imply a second course meeting.</p>
+<h2 id="slide-78-wait-a-minute">Slide 78: Wait a minute...</h2>
+<p><strong>P1 · Merge · Study / merge</strong></p>
+<p>The extra reaction transition adds no new data relationship. Fold the question into 81 and remove this position from the live route.</p>
+<h2 id="slide-79-what-have-we-been-quot-handing-off-quot">Slide 79: What have we been &quot;handing off&quot;?</h2>
+<p><strong>P1 · Merge · Study / merge</strong></p>
+<p>The meme supplies motion but no asset evidence. Replace the rhetorical pause with a real source/import record on 81 or 83.</p>
+<h2 id="slide-80-metadata">Slide 80:   metadata</h2>
+<p><strong>P1 · Cut live · Study / merge</strong></p>
+<p>Calling the handed-off payload metadata before distinguishing content and configuration creates a misleading initial category. Go directly to 81.</p>
+<h2 id="slide-81-metadata-and-asset-data">Slide 81: Metadata and Asset Data</h2>
+<p><strong>P1 · Clean notes · Live 33</strong></p>
+<p>The slide distinguishes data, metadata, and configuration well, but its notes then list geometry and settings broadly as metadata. Retain the precise categories and remove the conflicting catalog.</p>
+<p>Keep the slide title and three role definitions. Remove the note that recategorizes positions, UVs, slots, and settings together as metadata.</p>
+<p>Visual: One mesh position list, one source identifier, and one import option with labels Data, Metadata, Configuration.</p>
+<p>Read aloud: Here are three different roles. Positions and pixels are asset content. A source identifier describes where that content came from. An import option controls how a tool handles it. Production systems may store these close together, but a useful check still needs to know which role it is reading.</p>
+<p>Teaching rationale: Stable vocabulary makes subsequent automated checks easier to specify.</p>
+<p><a href="https://dev.epicgames.com/documentation/unreal-engine/interchange-import-reference-in-unreal-engine?application_version=5.7">Epic: Interchange Import Reference, UE 5.7</a></p>
+<h2 id="slide-82-where-asset-information-lives">Slide 82: Where Asset Information Lives</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The distributed-information model is useful reference material. Keep it hidden and use one ownership example when needed.</p>
+<h2 id="slide-83-what-changes-during-import">Slide 83: What Changes During Import?</h2>
+<p><strong>P1 · Add concrete setting · Live 34</strong></p>
+<p>Keep the author/export/file/import/engine map. Enlarge one setting comparison, correct scale converion, and label the actual importer workflow used in class.</p>
+<p>Keep the five-stage map. Correct scale converion. Follow one normal-import policy through it and put unrelated field catalogs in notes.</p>
+<p>Visual: Highlight the actual normal/tangent controls from the lab importer, with an imported-versus-recomputed comparison on the same mesh.</p>
+<p>Teaching rationale: One traced property makes a broad pipeline diagram operational.</p>
+<p><a href="https://dev.epicgames.com/documentation/unreal-engine/interchange-import-reference-in-unreal-engine?application_version=5.7">Epic: Interchange Import Reference, UE 5.7</a> · <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-material-pipeline-in-unreal-engine?application_version=5.7">Epic: FBX Material Pipeline, UE 5.7</a></p>
+<h2 id="slide-84-obj-fbx-and-usd-different-interchange-models">Slide 84: OBJ, FBX, and USD: Different Interchange Models</h2>
+<p><strong>P0 · Complete or remove · Study / merge</strong></p>
+<p>The hidden OBJ section contains placeholder text and USD repeats two versions. Hidden slides still matter when students read the deck. Complete it or exclude it from the shared reference.</p>
+<p>Keep hidden. Remove dasdasdas and duplicate USD copy. Keep deeper scene-composition concepts in the wiki.</p>
+<ul>
+<li>OBJ commonly carries geometry and basic material references.</li>
+<li>FBX commonly carries delivered mesh and animation data.</li>
+<li>USD represents scenes, relationships, and composition.</li>
+<li>Exporter and importer support still determine the result.</li>
+</ul>
+<p>Visual: Three representative file/payload summaries with the supported course workflow stated explicitly.</p>
+<p>Teaching rationale: Reference slides should be finished and scoped even when not taught live.</p>
+<h2 id="slide-85-correct-appearances-can-hide-bad-data">Slide 85: Correct Appearances Can Hide Bad Data</h2>
+<p><strong>P1 · Improve legibility · Study / merge</strong></p>
+<p>The inference is sound, but white text crosses a bright gradient. Use a plain high-contrast background and demonstrate one actual override/recomputed-normal example.</p>
+<h2 id="slide-86-metadata-can-inspect">Slide 86: Metadata can inspect...</h2>
+<p><strong>P1 · Merge · Study / merge</strong></p>
+<p>Metadata cannot inspect anything by itself. Rename to What an Inspection Can Read if retained; merge its useful categories into 83 and 136 live.</p>
+<h2 id="slide-87-textures">Slide 87: textures</h2>
+<p><strong>KEEP · Keep divider · Live 35</strong></p>
+<p>The texture section divider is clear. Keep it as a brief transition, not a separate explanation.</p>
+<h2 id="slide-88-anatomy-of-a-texture">Slide 88: Anatomy of a Texture</h2>
+<p><strong>P1 · Match maps to workflow · Live 36</strong></p>
+<p>The strip includes specular and displacement while the lesson moves into a metallic/roughness workflow. Name it as an example texture set, or use the actual museum map set with channel roles.</p>
+<h2 id="slide-89-texture-dimensions-and-texel-count">Slide 89: Texture Dimensions and Texel Count</h2>
+<p><strong>P0 · Correct arithmetic labels · Live 37</strong></p>
+<p>Two 256×256 columns have different multipliers. Use a consistent 128², 256², 512² progression, actual counts, and a visible area comparison.</p>
+<p>Keep the title. Replace all size/count labels together so the baseline is unambiguous.</p>
+<ul>
+<li>128 × 128 = 16,384 texels = 1×</li>
+<li>256 × 256 = 65,536 texels = 4×</li>
+<li>512 × 512 = 262,144 texels = 16×</li>
+<li>Memory also depends on format, mips, and platform.</li>
+</ul>
+<p>Visual: Three scaled squares or native table cells with both dimensions shown. Do not use width alone as an area comparison.</p>
+<p>Read aloud: Doubling the width and the height multiplies the number of texels by four. The counts here start from a 128-by-128 baseline. These are counts of texture elements, not exact memory measurements. We still need to know how those elements are stored.</p>
+<p>Teaching rationale: This is a simple arithmetic error with large consequences for later memory reasoning.</p>
+<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/texture-asset-editor-in-unreal-engine?application_version=5.7">Epic: Texture Asset Editor, UE 5.7</a></p>
+<h2 id="slide-90-texture-dimensions-and-mip-support">Slide 90: Texture Dimensions and Mip Support</h2>
+<p><strong>P2 · Version-scope reference · Study / merge</strong></p>
+<p>Keep this hidden version-sensitive topic. The specific NPOT claims need validation for the texture type, format, and UE path before becoming an automatic failure rule.</p>
+<h2 id="slide-91-color-data-and-numerical-data">Slide 91: Color Data and Numerical Data</h2>
+<p><strong>P0 · Replace mismatched visual · Live 38</strong></p>
+<p>The DXT1 image proves lossy compression, not sRGB interpretation. Show the same RGB value under two interpretations and a controlled EX23 response instead.</p>
+<p>Remove the DXT1 comparison from this slide; retain it in a separate compression reference if desired. Use the numeric example from the review brief.</p>
+<p>Proposed title: The Same Value Can Mean Different Things</p>
+<ul>
+<li>Numeric RGB value: 0.5 stays 0.5.</li>
+<li>sRGB-decoded value: 0.5 becomes approximately 0.214.</li>
+<li>The texture role determines the intended interpretation.</li>
+<li>Verify the actual sampler and material connection.</li>
+</ul>
+<p>Visual: One stored-value swatch splits into two labeled interpretation paths, beside a proposed controlled EX23 result capture.</p>
+<p>Read aloud: The source value is the same in both cases. When we use it as numerical data, it remains half. Through this sRGB color-decoding path it becomes about point two one four. That changes the control value reaching the material. We need the declared role to decide which interpretation is correct.</p>
+<p>Teaching rationale: The mechanism becomes numerical and causal, instead of a memorized instruction to disable sRGB.</p>
+<p>Add on slide (90 seconds reserved): The file is unchanged. Why might the material receive a different value?
+What questions do you have about color versus numeric data?</p>
+<p>Placement: Show the same stored value and two interpretation paths. Ask before revealing the calculated outputs, then open questions on the completed comparison.</p>
+<p>Add to read-aloud notes: The source file has not changed. What could change the value that reaches the material? Think about which path this sample takes. After we reveal the values, what would you like to ask about when RGB data represents color and when it represents a numerical control?</p>
+<p>The thumbnail cannot establish the intended interpretation. We need the texture’s role and the path by which the material reads it.</p>
+<p>Facilitation: Use a short prediction, reveal, and question sequence within 90 seconds. If students conflate compression with color decoding, isolate the decoding operation again. Keep the numerical example illustrative.</p>
+<p>Listen for: Interpretation can change a sampled RGB value. Decide the intended interpretation from the declared role; do not generalize this example to alpha or every texture path.</p>
+<p>Explore further pointer: Explore further: C · Texture sampling and material research.</p>
+<p>Read aloud: For the lab, distinguish the role of the data from how we interpret it. If you want the deeper sampling and storage story, the texture research appendix gives you a route into that material.</p>
+<p><a href="https://github.com/KhronosGroup/glTF/blob/main/specification/2.0/Specification.adoc">Khronos glTF specification</a> · <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/texture-asset-editor-in-unreal-engine?application_version=5.7">Epic: Texture Asset Editor, UE 5.7</a></p>
+<h2 id="slide-92-mipmaps-and-small-screen-detail">Slide 92: Mipmaps and Small Screen Detail</h2>
+<p><strong>P1 · Demonstrate temporal artifact · Live 39</strong></p>
+<p>Keep mip/filtering definitions. Show a moving high-frequency pattern and distinguish texture mip level from mesh LOD and resident data. Remove the stray separate footprint bullet line.</p>
+<p>Keep the title and filtered-mip explanation. Join screen footprint into one bullet. Add the short temporal comparison and leave storage-series arithmetic as optional depth.</p>
+<p>Visual: Proposed course loop: same checker, camera, motion, and material with only mip generation changed. Pause on the distant view.</p>
+<p>Read aloud: The detailed image can contain more variation than this small patch of screen can represent. Filtering combines information over that footprint. Watch the motion: keeping all the original detail does not guarantee a stable result. Mips help the sampler use a suitable representation.</p>
+<p>Teaching rationale: Aliasing and shimmer are temporal evidence. A mip pyramid alone does not show why students should care.</p>
+<p><a href="https://www.pbr-book.org/4ed/Textures_and_Materials/Texture_Sampling_and_Antialiasing">PBRT: Texture Sampling and Antialiasing</a> · <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/texture-asset-editor-in-unreal-engine?application_version=5.7">Epic: Texture Asset Editor, UE 5.7</a></p>
+<h2 id="slide-93-inspecting-mips-in-unreal">Slide 93: Inspecting Mips in Unreal</h2>
+<p><strong>KEEP · Keep practical inspection · Live 40</strong></p>
+<p>The UE editor screenshot locates mip inspection. Keep it, enlarge the relevant fields, and explain that previewing a mip does not prove runtime residency.</p>
+<h2 id="slide-94-custom-mips-and-authored-filtering">Slide 94: Custom Mips and Authored Filtering</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The historical pyramid is useful but does not demonstrate a custom authored mip workflow. Keep as research reference and supply a real custom-mip example only if teaching that procedure.</p>
+<h2 id="slide-95-texel-density-and-world-scale">Slide 95: Texel Density and World Scale</h2>
+<p><strong>P2 · Use as numeric example · Study / merge</strong></p>
+<p>This hidden density arithmetic is clearer than some repeated prose. Briefly reveal it from 55 or 96 if students need units, without requiring another full slide live.</p>
+<h2 id="slide-96-texel-density-is-a-budget-decision">Slide 96: Texel Density Is a Budget Decision</h2>
+<p><strong>P1 · Trim topic drift · Study / merge</strong></p>
+<p>Keep the declared density target and exceptions. Move atlas/array vocabulary to optional reference so it does not interrupt the sampling explanation.</p>
+<h2 id="slide-97-texture-triage">Slide 97: Texture Triage</h2>
+<p><strong>KEEP · Keep as lookup · Live 41</strong></p>
+<p>The triage table is valuable after the concepts. Keep all candidate checks as hypotheses, not one-to-one diagnoses; ensure the reference table is readable in the shared deck.</p>
+<h2 id="slide-98-materials">Slide 98: materials</h2>
+<p><strong>KEEP · Keep divider · Live 42</strong></p>
+<p>Keep the material section transition and the clear inputs/logic/parameters/assignment framing.</p>
+<h2 id="slide-99-anatomy-of-a-material">Slide 99: Anatomy of a Material</h2>
+<p><strong>P1 · Orient with overview · Live 44</strong></p>
+<p>Keep material anatomy. It should orient students to the actual graph on 100 and the controls they will touch, rather than introduce another unrelated surface showcase.</p>
+<h2 id="slide-100-no-editable-title">Slide 100: (no editable title)</h2>
+<p><strong>P1 · Progressive overview · Live 45</strong></p>
+<p>The detailed material overview is useful study material but too dense to explain all at once on a projected slide. Reveal textures/graph/instance/assignment progressively and retain the GPU as one box.</p>
+<p>Keep the diagram as the full study overview. For live use, reveal a few regions at a time. Supply a simple read-aloud trace; do not describe a material as merely an instance of a shader.</p>
+<p>Visual: First texture/coordinates/graph; next optional instance and mesh assignment; last rendering box and image. Leave GPU implementation closed.</p>
+<p>Read aloud: Let’s trace one route. Coordinates locate a sample. Values enter the material graph. An instance can supply overrides, and an assignment connects the material or instance to a region of the mesh. The renderer combines that with the geometry and scene to produce the image. We can leave that final box closed today.</p>
+<p>Teaching rationale: An overview map and anatomy pages serve different teaching purposes when the map is revisited.</p>
+<p>Add on slide (60 seconds reserved): Which connection would you like to trace again?</p>
+<p>Placement: Place the question beside the overview map after the first complete trace. Keep GPU implementation represented by one closed box.</p>
+<p>Add to read-aloud notes: We have now named the parts and followed one path through them. Which connection would you like to trace again: the texture sample into the graph, the instance and its parent, or the assignment to the mesh? You can also point to a connection and ask your own question about it.</p>
+<p>Use this map to locate the relationship you are inspecting, then open the asset or setting that supplies its evidence.</p>
+<p>Facilitation: Leave 8–10 seconds for a response and trace one requested relationship on the map. If there is no question, invite someone to trace the material assigned to one mesh region and allow peers to ask about that trace.</p>
+<p>Listen for: Texture, material, instance, and assignment remain distinct. A constant can feed a material input without an image texture.</p>
+<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/instanced-materials-in-unreal-engine?application_version=5.7">Epic: Material Instances, UE 5.7</a> · <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fbx-material-pipeline-in-unreal-engine?application_version=5.7">Epic: FBX Material Pipeline, UE 5.7</a></p>
+<h2 id="slide-101-shaders-instructions-used-in-rendering">Slide 101: Shaders: Instructions Used in Rendering</h2>
+<p><strong>P1 · Ground in UE · Live 43</strong></p>
+<p>The shader definition is sound but the OpenGL triangle introduces a different context. Prefer a tiny UE graph with constant Base Color and Roughness; keep GLSL as optional exploration.</p>
+<p>Keep the shader definition and no-texture claim. Replace the OpenGL triangle with a two-input UE material example for the live slide. Link the triangle tutorial for optional study.</p>
+<p>Visual: A constant color and scalar Roughness feed the main Material node beside its preview. No image texture node is required.</p>
+<p>Read aloud: A shader is a program used by a rendering system. Unreal lets us describe many surface calculations through a graph. Here we use a constant color and a roughness value. There is no image texture in this example. The inputs describe properties for the surface calculation; they are not the final lit pixel.</p>
+<p>Teaching rationale: One software context reduces vocabulary switching while preserving the general concept.</p>
+<p><a href="https://thebookofshaders.com/">The Book of Shaders</a> · <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/instanced-materials-in-unreal-engine?application_version=5.7">Epic: Material Instances, UE 5.7</a></p>
+<h2 id="slide-102-materials-and-material-instances">Slide 102: Materials and Material Instances</h2>
+<p><strong>KEEP · Keep · Live 46</strong></p>
+<p>The parent/instance comparison is directly useful to the lab. Keep it and require a prediction about which placed objects will change before editing an instance.</p>
+<h2 id="slide-103-base-color-roughness-and-metallic">Slide 103: Base Color, Roughness, and Metallic</h2>
+<p><strong>P0 · Align parameter visual · Live 47</strong></p>
+<p>The image shows Specular, Roughness, Metallic, not the Base Color/Roughness/Metallic named by the title. Use matching controls or isolate the roughness row. Keep the constant-light comparison.</p>
+<p>Keep the subject. Replace the sweep image with matching Base Color, Roughness, Metallic examples, or present only the roughness row and reserve the remaining controls for the surrounding explanation.</p>
+<p>Visual: One material on the same mesh and lighting, three roughness values, clearly labeled. A separate swatch can show Base Color.</p>
+<p>Teaching rationale: Students should be able to point to the pictured evidence for each named control.</p>
+<p>Explore further pointer: Surface readability: compare under the intended view. Explore A for value and form.</p>
+<p>Read aloud: Describing the look clearly helps us choose a fair comparison. If reading form or value is new to you, the art appendix gives examples you can return to. Keep the lighting and view in mind when judging this material.</p>
+<p><a href="https://disneyanimation.com/publications/physically-based-shading-at-disney/">Burley: Physically-Based Shading at Disney</a> · <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/texture-asset-editor-in-unreal-engine?application_version=5.7">Epic: Texture Asset Editor, UE 5.7</a></p>
+<h2 id="slide-104-normal-maps-in-unreal">Slide 104: Normal Maps in Unreal</h2>
+<p><strong>P1 · Connect mechanism to settings · Live 48</strong></p>
+<p>The normal-map still is useful. Enlarge the direction diagram, label tangent space, and follow with the actual UE texture/sampler/Normal input. Do not automatically flip green.</p>
+<p>Keep the title and brick comparison. Enlarge the small direction schematic and add a UE Normal-input/texture-settings crop. Keep optional decoding math in notes.</p>
+<p>Visual: Top: unchanged wireframe and outline. Bottom: Normal input toggled with the same moving light. Mark the texture as tangent-space direction data.</p>
+<p>Read aloud: The surface reacts as though there is small-scale directional detail, but the outline and underlying triangles have not changed. Now inspect how the texture reaches the Normal input. Its role, compression, sampler, and coordinate convention need to agree. A strange highlight is evidence to investigate, not a command to flip a channel immediately.</p>
+<p>Teaching rationale: Separate what normal mapping does from whether this particular texture is decoded correctly.</p>
+<p><a href="https://learnopengl.com/Advanced-Lighting/Normal-Mapping">LearnOpenGL: Normal Mapping</a> · <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/texture-asset-editor-in-unreal-engine?application_version=5.7">Epic: Texture Asset Editor, UE 5.7</a></p>
+<h2 id="slide-105-alpha-and-blend-modes">Slide 105: Alpha and Blend Modes</h2>
+<p><strong>KEEP · Keep core concept · Live 49</strong></p>
+<p>The alpha-versus-blend-mode distinction is good. Add the actual lab specimen and show Two Sided separately; the external test remains an excellent comparison source.</p>
+<p>Add on slide (90 seconds reserved): What should partially transparent areas look like?
+What questions do you have about choosing the blend mode?</p>
+<p>Placement: Show the alpha values and intended reference first. Hold back the resulting comparison until students predict it.</p>
+<p>Add to read-aloud notes: First describe the intended result in these partially transparent areas. Compare with someone nearby: which treatment would preserve that intention, and what would a cutoff do? Now let’s reveal the comparison. What questions do you have about choosing the blend mode for this particular result?</p>
+<p>We choose the behavior by comparing it with the intended result. The alpha channel alone does not choose the material’s blend mode.</p>
+<p>Facilitation: Use brief thinking, a 20-second peer comparison, one reason, the reveal, and a student question. Keep geometry and Two Sided fixed. Do not frame all leaves as requiring the same mode.</p>
+<p>Listen for: Masked coverage uses a cutoff; partial blending serves a different intended appearance. The right choice depends on the requirement and rendering context.</p>
+<h2 id="slide-106-observing-a-material-response">Slide 106: Observing a Material Response</h2>
+<p><strong>P1 · Focus research figure · Study / merge</strong></p>
+<p>Keep Burley, but the full sweep introduces many untaught parameters. Enlarge the roughness row and label Disney 2012; move the full chart to the study version.</p>
+<p>Keep Burley’s paper and historical attribution. Show the roughness row large enough to inspect; move the full chart to reference.</p>
+<p>Visual: Crop or focus the roughness row from the existing chart, retaining its context and citation. Pair it with the current UE parameter demonstration.</p>
+<p>Read aloud: This is a historical Disney material model. Look first at the roughness row and describe how the reflection changes. The full chart shows how much depth exists behind a few artist-facing controls. We are borrowing the comparison method, not assuming that every control here maps directly to Unreal.</p>
+<p>Teaching rationale: The research figure should deepen the already taught control without opening nine new parameter topics.</p>
+<p><a href="https://disneyanimation.com/publications/physically-based-shading-at-disney/">Burley: Physically-Based Shading at Disney</a></p>
+<h2 id="slide-107-the-graph-and-generated-shader-code">Slide 107: The Graph and Generated Shader Code</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>Keep generated code hidden for interested students. This supports depth without opening the GPU box during the required lesson.</p>
+<h2 id="slide-108-material-triage">Slide 108: Material Triage</h2>
+<p><strong>KEEP · Keep as lookup · Live 50</strong></p>
+<p>The material triage table supports the lab. Keep it and follow the placed component to its assigned instance before assuming a shared mesh means a shared result.</p>
+<h2 id="slide-109-skeletons">Slide 109: skeletons</h2>
+<p><strong>KEEP · Keep divider · Live 51</strong></p>
+<p>The mesh/joints/weights/motion framing is concise. Keep it brief and move immediately to a visible bend.</p>
+<h2 id="slide-110-anatomy-of-a-skeletal-asset">Slide 110: Anatomy of a Skeletal Asset</h2>
+<p><strong>P1 · Show one influence · Live 52</strong></p>
+<p>The mesh/skeleton comparison establishes parts but not weighting. Add a single joint influence overlay and one bend. Replace the unverified 2:22 playback instruction with a precise source/cue once selected.</p>
+<p>Keep the four component relationships. Replace the vague playback cue with an exact selected source and verified cue, or a short project capture.</p>
+<p>Visual: One bent joint with a visible influence-weight overlay and corresponding mesh deformation. Retain the skeleton/mesh overview as the opening frame.</p>
+<p>Teaching rationale: A moving skeleton alone does not explain how weights distribute its effect.</p>
+<p><a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-CharacterAnimation/files/GUID-2ABD18C8-8CCF-44B9-99E0-EDEE4A56A3E6.htm">Autodesk: Skin Tools quickstart, Maya 2027</a> · <a href="tech-art-museum-exhibit-repair-guide-e9691b97.html">Current Museum Break/Fix Guide</a></p>
+<h2 id="slide-111-skeletal-handoffs-and-deformation-checks">Slide 111: Skeletal Handoffs and Deformation Checks</h2>
+<p><strong>P1 · Separate failure layers · Live 53</strong></p>
+<p>The low-resolution interpolation GIF demonstrates changing poses, not bad weights or missing morph payload. Keep it small; use the museum&#39;s synchronized comparisons for diagnosis and add one direct morph example.</p>
+<p>Keep the handoff idea. Use the interpolation GIF as a small pose example, then show separate actual comparisons for clip continuity, weights, and morph presence. Keep source/export failures separate.</p>
+<p>Visual: Proposed project clips: same clip with different weights; same mesh/reference with and without required morph payload. Identify which data remains fixed.</p>
+<p>Teaching rationale: The learner can isolate the failed relationship rather than treating all motion problems as rigging.</p>
+<p><a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-CharacterAnimation/files/GUID-2ABD18C8-8CCF-44B9-99E0-EDEE4A56A3E6.htm">Autodesk: Skin Tools quickstart, Maya 2027</a> · <a href="tech-art-museum-exhibit-repair-guide-e9691b97.html">Current Museum Break/Fix Guide</a></p>
+<h2 id="slide-112-a-small-mathematical-model-of-skinning">Slide 112: A Small Mathematical Model of Skinning</h2>
+<p><strong>P0 · Align math and figure · Live 54</strong></p>
+<p>The weighted-position equation is valid under its stated assumptions, but the figure compares other skinning methods. Replace with two candidate positions and a computed result; put algorithm research in an optional extension.</p>
+<p>Replace the research comparison with the worked candidate-position example. Keep dual-quaternion material as optional research; remove historical FPS from the live explanation.</p>
+<p>Proposed title: One Vertex, Two Joint Influences</p>
+<ul>
+<li>Each influence produces a candidate position for the same vertex.</li>
+<li>pA = (2, 0, 0); pB = (0, 2, 0)</li>
+<li>0.75 pA + 0.25 pB = (1.5, 0.5, 0)</li>
+<li>The candidates include the bind relationship and share one frame.</li>
+</ul>
+<p>Visual: A vertex result moves along the line between two candidate positions as the weight changes; label the two weights and their sum. A later optional view can show the joint/bind transform chain.</p>
+<p>Read aloud: Both candidates describe this same vertex after the appropriate joint and bind transformations. They are not the locations of the bones. If we combine seventy-five percent of the first candidate with twenty-five percent of the second, we get this position. Changing those contributions can alter the surface while the joint animation remains unchanged.</p>
+<p>Teaching rationale: The equation now describes the actual image, and students can predict its result.</p>
+<p>Add on slide (90 seconds reserved): As A’s weight grows, which way does the vertex move?
+What part of the joint-to-vertex relationship needs another look?</p>
+<p>Placement: Ask on the two-candidate diagram before moving the result. Keep the candidate positions labeled as the same vertex in the same frame.</p>
+<p>Add to read-aloud notes: These are two candidate positions for the same vertex. If we increase the first contribution and decrease the second by the same amount, which way will the result move? You can answer by pointing before we calculate anything. What questions do you have about the candidate positions, weights, or how the joints affect this vertex?</p>
+<p>The weights determine how much each candidate contributes. That lets us distinguish an animation change from a weighting change.</p>
+<p>Facilitation: Allow a directional prediction, show the numerical result, then open clarification. If candidates are mistaken for joint locations, correct that with the diagram before adding any optional matrix formula.</p>
+<p>Listen for: With normalized nonnegative weights in this two-influence example, the result moves toward A. Candidates already include the relevant transformations and are not bone positions.</p>
+<p>Explore further pointer: Explore further: D · Deformation beyond the first example.</p>
+<p>Read aloud: The two-candidate example is our shared starting point. The appendix goes further into the joint transforms and algorithm choices. You can follow that depth without needing it to understand today’s basic weighting example.</p>
+<p><a href="https://users.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.html">Kavan et al.: Skinning with Dual Quaternions</a> · <a href="https://help.autodesk.com/cloudhelp/2027/ENU/Maya-CharacterAnimation/files/GUID-2ABD18C8-8CCF-44B9-99E0-EDEE4A56A3E6.htm">Autodesk: Skin Tools quickstart, Maya 2027</a></p>
+<h2 id="slide-113-documentation-for-your-exhibit">Slide 113: Documentation for Your Exhibit</h2>
+<p><strong>KEEP · Keep framing · Live 55</strong></p>
+<p>Visitor explanation and maintainer reproduction are distinct audiences. Keep this as the documentation opening, then demonstrate the difference with one record.</p>
+<h2 id="slide-114-reading-to-answer-a-specific-question">Slide 114: Reading to Answer a Specific Question</h2>
+<p><strong>P1 · Merge · Study / merge</strong></p>
+<p>This source-reading advice is useful but repeats what the worked example can teach. Fold it into 116 and keep the standalone slide as study material.</p>
+<h2 id="slide-115-checking-a-documentation-claim">Slide 115: Checking a Documentation Claim</h2>
+<p><strong>P1 · Use current source · Study / merge</strong></p>
+<p>The version-checking advice is correct, but the image is an Unreal Engine 4 documentation landing page. Replace with the actual UE 5.7 property page and a highlighted claim, then merge into the example live.</p>
+<h2 id="slide-116-a-documented-test-expected-result-and-failure">Slide 116: A Documented Test: Expected Result and Failure</h2>
+<p><strong>P1 · Choose relevant example crop · Live 57</strong></p>
+<p>The current visual shows a MASK mipmapping edge case while the slide describes expected/failure evidence. Use the clear expected-versus-failure panels first; retain the subtle exception as advanced study.</p>
+<p>Keep the title and four evidence questions. Replace the subtle MASK mipmapping crop with the sample’s clear expected/failure comparison for the first view.</p>
+<p>Visual: Two enlarged test panels with one annotation naming the property under test; retain the subtle filtering exception only as study depth.</p>
+<p>Teaching rationale: A novice should learn what a documented test looks like before interpreting a legitimate exception to it.</p>
+<p><a href="https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/AlphaBlendModeTest">Khronos AlphaBlendModeTest</a></p>
+<h2 id="slide-117-an-exhibit-record-uv-mirror-example">Slide 117: An Exhibit Record:  UV Mirror Example</h2>
+<p><strong>P0 · Show actual record · Live 58</strong></p>
+<p>The portrait has no relationship to the UV mirror example. Replace with labeled U / 1−U evidence and a completed illustrative record. Do not claim a museum repair was performed.</p>
+<p>Keep the UV-record topic. Remove the portrait. Show a completed illustrative record and before/after evidence; clearly label it illustrative, not a performed repair.</p>
+<ul>
+<li>EXAMPLE: one label reads backward.</li>
+<li>Control: same mesh, image, and viewing conditions.</li>
+<li>Test: compare U with 1 − U in the material coordinates.</li>
+<li>Verification: orientation matches; scale and assignments remain fixed.</li>
+</ul>
+<p>Visual: Two labeled UV panels above a short record containing responsible asset, observed setting, changed property, outcome, unaffected property, and reset.</p>
+<p>Read aloud: This record tells another person what differed, what we held fixed, and what we tested. The important evidence is the actual coordinate relationship. A different exhibit might have the same reversed label because of its Maya UVs. Our record must name the relationship we inspected rather than borrowing a diagnosis from another example.</p>
+<p>Teaching rationale: The assignment needs an example of the requested artifact, not another description of that artifact.</p>
+<p>Add on slide (90 seconds reserved): Could another person repeat this check?
+What is missing or unclear in the record?</p>
+<p>Placement: Keep the completed illustrative record and evidence visible. Put this prompt below it instead of adding another documentation slide.</p>
+<p>Add to read-aloud notes: Imagine that you receive this record without being here for the demonstration. Could you repeat the check? Take a few seconds to find a missing detail or ask a question that the record should answer. We can discuss what would make the evidence convincing to someone else.</p>
+<p>A useful record anticipates the next person’s questions. It lets them repeat the test and see the limits of the conclusion.</p>
+<p>Facilitation: Invite one reproducibility question and one evidence question. Point to the actual field or image that answers it, or add the missing information. Accept a justified statement of what the example cannot prove.</p>
+<p>Listen for: Asset identity, observed and changed state, controlled conditions, verification, reset, and uncertainty. Do not demand a diagnosis unsupported by the recorded test.</p>
+<p>Explore further pointer: A visual standard can name what a repair must preserve. Explore A · Art, form, and readability.</p>
+<p>Read aloud: A useful record can preserve an artistic requirement as well as a numeric setting. Name the visible feature clearly enough that another person can compare it. The art appendix offers more practice in making that judgment explicit.</p>
+<p><a href="tech-art-museum-exhibit-repair-guide-e9691b97.html">Current Museum Break/Fix Guide</a> · <a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-texturing/introduction-to-texturing.html">Scratchapixel: Introduction to Texturing</a></p>
+<h2 id="slide-118-what-kind-of-record-is-needed">Slide 118: What Kind of Record Is Needed?</h2>
+<p><strong>P1 · Reference · Study / merge</strong></p>
+<p>The document taxonomy adds a ninth concept in an already long documentation run. Keep as reference and remove the repeated portrait.</p>
+<h2 id="slide-119-reusable-verification-rules">Slide 119: Reusable Verification Rules</h2>
+<p><strong>P0 · Complete the rule · Study / merge</strong></p>
+<p>The table is mostly blank and REVIEW is in Observed Setting. Fill a real illustrative role/expected/observed/result/reason row, then show an unknown-role example separately.</p>
+<p>Replace the incomplete table. First row set: role roughness_rgb; expected false; observed true; result FAIL; reason numeric data receives color decoding. Second case: role unknown; result REVIEW. Merge the explanation with 117 and revisit it on 136.</p>
+<p>Visual: Two compact completed records, with Result visually separate from Observed Setting.</p>
+<p>Read aloud: The role tells the check which rule applies. The observed setting tells us what this asset currently does. We can report a failure with a reason when the two disagree. If the role is missing, we should report review. A tool that guesses the role may make a very confident wrong decision.</p>
+<p>Teaching rationale: A concrete data record shows both what Python can check and when it lacks enough information.</p>
+<p><a href="../Wiki/week03.html">Course Week 3 preview and Python example</a> · <a href="https://github.com/KhronosGroup/glTF/blob/main/specification/2.0/Specification.adoc">Khronos glTF specification</a></p>
+<h2 id="slide-120-visual-documentation-of-a-style-by-sue-nichols">Slide 120: Visual Documentation of a Style by Sue Nichols</h2>
+<p><strong>P1 · Keep and enlarge · Live 56</strong></p>
+<p>Sue Nichols is a strong documentation example. Make one annotated source page readable. Remove notes referring to a nonexistent next-slide style-guide continuation and restore a usable provenance link.</p>
+<p>Keep Sue Nichols and the core explanation. Enlarge one annotated style-guide page. Remove next/previous-slide narration that no longer matches the deck and correct repeatableguidelines.</p>
+<p>Visual: One source page dominant; two callouts connect an annotated shape choice to a repeatable review question. Keep the second page in reference.</p>
+<p>Read aloud: Notice how this guide makes a visual preference concrete. It gives the reader examples and names the properties to look for. Another artist can use those observations to make or review new work. Our exhibit documentation needs the same usefulness: a specific comparison, understandable evidence, and a way for another person to repeat the check.</p>
+<p>Teaching rationale: This is a strong example of making artistic intent inspectable and discussable, directly useful to an exhibit author.</p>
+<h2 id="slide-121-the-exhibit-handoff-check">Slide 121: The Exhibit Handoff Check</h2>
+<p><strong>P1 · Merge checklist · Study / merge</strong></p>
+<p>The handoff questions are useful acceptance criteria. Put them beside the completed record on 117 and assignment on 134 rather than adding another exposition slide.</p>
+<h2 id="slide-122-lab-2-museum-repair">Slide 122: Lab 2: Museum Repair</h2>
+<p><strong>P0 · Reconcile timing · Live 59</strong></p>
+<p>This slide says 30 minutes while the agenda gives 20. Match the chosen schedule and distribute only stations whose repair/reset path has been checked.</p>
+<p>Keep the prepared repair activity. Replace 30 min with the selected schedule duration. Do not advertise SOURCE_READY or conceptual stations as assigned finished repairs.</p>
+<p>Teaching rationale: Pacing and available repair assets must agree with the actual class activity.</p>
+<p>Add on slide (60 seconds reserved): What needs clarifying before your first test?
+What evidence will your group capture?</p>
+<p>Placement: Include this prompt with the repair instructions. Keep it available while groups establish the prepared working references.</p>
+<p>Add to read-aloud notes: Before you change anything, what questions do you have about the task, the prepared assets, or what counts as evidence? In your group, name the first test and the result you expect to observe. We can clarify the process without giving away the exhibit’s cause.</p>
+<p>Start with a test you can explain and record. If the result surprises you, keep it as evidence and reconsider the explanation.</p>
+<p>Facilitation: Resolve access, shared-reference, or evidence questions first. Include this minute in the lab launch. Point back to the relevant slide for conceptual hints; keep station-specific diagnoses for the group’s investigation.</p>
+<p>Listen for: The group can identify its working references, a controlled test, and an observable outcome.</p>
+<p><a href="tech-art-museum-exhibit-repair-guide-e9691b97.html">Current Museum Break/Fix Guide</a></p>
+<h2 id="slide-123-work-in-a-cloned-museum-scene">Slide 123: Work in a Cloned Museum Scene</h2>
+<p><strong>P1 · Show shared dependencies · Live 60</strong></p>
+<p>The notes correctly warn that a copied map can still reference shared assets. Replace the portrait with two maps pointing to a shared material, then show the prepared isolated working references.</p>
+<p>Keep the topic and replace the portrait with actual dependency evidence. Avoid implying Duplicate Map creates independent material and texture assets.</p>
+<ul>
+<li>A copied map can still reference shared assets.</li>
+<li>Trace the component to its material, textures, and mesh.</li>
+<li>Use the prepared working references for your group.</li>
+<li>Keep the Correct control and reset source stable.</li>
+</ul>
+<p>Visual: Two map names point to the same material; then show the isolated working instance/reference actually prepared for the group.</p>
+<p>Read aloud: Copying the scene does not necessarily copy the assets it references. Both scenes may still use this same material. Before editing, we trace the placed component to the asset and confirm which references belong to our group. Otherwise, we could change the control while trying to repair the specimen.</p>
+<p>Teaching rationale: This is a production-relevant systems lesson and protects the controlled experiment.</p>
+<p><a href="tech-art-museum-exhibit-repair-guide-e9691b97.html">Current Museum Break/Fix Guide</a> · <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/instanced-materials-in-unreal-engine?application_version=5.7">Epic: Material Instances, UE 5.7</a></p>
+<h2 id="slide-124-choose-and-own-an-investigation">Slide 124: Choose and Own an Investigation</h2>
+<p><strong>KEEP · Keep logistics · Live 61</strong></p>
+<p>Keep the group size and roles already present in the deck. Show the actual prepared-station list at class time; do not list source-ready candidates as finished repairs.</p>
+<h2 id="slide-125-the-repair-and-verification-loop">Slide 125: The Repair and Verification Loop</h2>
+<p><strong>KEEP · Keep · Live 62</strong></p>
+<p>The repair loop is concise and lab-relevant. Add the unaffected property to the final verification prompt so a local fix does not silently damage another relationship.</p>
+<p>Explore further pointer: Lab reference: F · Inspections and evidence.</p>
+<p>Read aloud: The inspection guides are available while you work. Use one to find a useful check, then return to your specimen and collect the evidence. The guide gives you a direction to investigate, not proof of the cause.</p>
+<h2 id="slide-126-the-debugging-loop">Slide 126: The Debugging Loop</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The loop duplicates 125 and the portrait adds no evidence. Keep hidden or merge the diagram into 125 if it communicates the sequence better.</p>
+<h2 id="slide-127-a-useful-result-when-the-repair-is-blocked">Slide 127: A Useful Result When the Repair Is Blocked</h2>
+<p><strong>KEEP · Keep · Live 63</strong></p>
+<p>A blocked investigation can still show disciplined reasoning. Keep the distinction between evidence, hypothesis, blocker, and next action; do not invent a grade guarantee beyond established policy.</p>
+<p>Add on slide (120 seconds reserved): Which test changed your explanation?
+What remains unresolved, and what would help?</p>
+<p>Placement: Show the existing blocked-result guidance before work, then return to it for the final two minutes of the repair block. One discussion budget covers the return visit; no additional slide position is required.</p>
+<p>Add to read-aloud notes: Let’s pause before the final record. Who has a test that changed their explanation? What did the result let you rule out, and what remains uncertain? I’d also like to hear a question from a group that is blocked. Another group can suggest what evidence would help, even if they do not know the answer.</p>
+<p>Keep the conclusion at the level your evidence supports. Record the next useful action so the investigation can continue.</p>
+<p>Facilitation: Reserve the final two minutes inside the 25-minute repair block. Hear one changed explanation and one unresolved question. Ask contributors to separate an observation from a guess. Capture unresolved items and an owner or next inspection in the existing record; do not promise an answer you have not verified.</p>
+<p>Listen for: A repair is supported by retesting the original problem. An unresolved result can still yield useful evidence and a discriminating next test.</p>
+<h2 id="slide-128-controlled-comparison">Slide 128: Controlled Comparison</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The controlled-comparison criteria remain useful study material. Attach them to the actual example or lab brief instead of extending the live sequence.</p>
+<h2 id="slide-129-lab-2-turn-in-your-group-s-investigation-record-google-doc">Slide 129: Lab 2 Turn-In: Your Group’s Investigation Record (Google Doc)</h2>
+<p><strong>KEEP · Keep submission instructions · Live 64</strong></p>
+<p>The Google Doc requirement is already in the supplied deck. Keep it; provide the actual document/template link when distributing class materials. This review does not create or share a student document.</p>
+<h2 id="slide-130-clear-ownership-during-group-work">Slide 130: Clear Ownership During Group Work</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>Ownership repeats 124 and 123. Keep hidden and use the same prepared asset names if retaining it for students.</p>
+<h2 id="slide-131-investigation-record-fields">Slide 131: Investigation Record Fields</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>Keep these record fields in the linked template rather than reading them as another slide.</p>
+<h2 id="slide-132-a-compact-record-structure">Slide 132: A Compact Record Structure</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The compact structure can support the handout. Keep it hidden and avoid competing templates with different field names.</p>
+<h2 id="slide-133-what-makes-strong-documentation">Slide 133: What Makes Strong Documentation?</h2>
+<p><strong>P2 · Reference · Study / merge</strong></p>
+<p>The evidence comparison is stronger than generic document advice. Keep it as a rubric/reference and label what the comparison actually proves.</p>
+<h2 id="slide-134-week-2-assignment-create-your-own-museum-exhibit">Slide 134: Week 2 Assignment:  Create Your Own Museum Exhibit</h2>
+<p><strong>P1 · Make the assignment concrete · Live 66</strong></p>
+<p>The assignment direction is strong but abstract. Pair the bullets with a minimum viable example and a link to the authoritative brief; show one variable, a prediction, evidence, and reset. Do not invent due dates or grading rules.</p>
+<p>Keep the current assignment title and direction. Add a visible minimum viable example and a link to the authoritative assignment brief. Preserve existing policies; do not invent deliverable counts, deadlines, or grading weights.</p>
+<p>Visual: A small U versus 1−U exhibit, visitor prediction prompt, measured outcome, and reset action. Label it an example, not the only acceptable topic.</p>
+<p>Read aloud: Choose one technical idea that a visitor can observe. Give them a reason to make a prediction, show a controlled comparison, and leave evidence that explains the result. The depth can come from a careful mechanism or a justified exception. The central comparison should still be understandable to someone encountering the idea for the first time.</p>
+<p>Teaching rationale: A concrete scale reference helps beginners finish and lets advanced students extend one mechanism rather than build an unbounded system.</p>
+<p>Add on slide (60 seconds reserved): What would a visitor predict, test, and learn?
+What questions do you have about your exhibit idea?</p>
+<p>Placement: Keep the minimum viable exhibit example visible. Place the invitation next to its visitor prompt and verification evidence.</p>
+<p>Add to read-aloud notes: Think of one technical idea you might make observable. What could a visitor predict or test, and what evidence would help them learn from the result? What questions do you have about the scope of your idea or the documented assignment requirements? We can discuss one example together.</p>
+<p>Choose a comparison you can make clear, verify, and explain. The assignment brief remains the reference for the required submission.</p>
+<p>Facilitation: Take one scope or requirements question, using the authoritative assignment brief for policy. Preserve further questions in the established course channel or discussion record. Do not create new deliverable requirements here.</p>
+<p>Listen for: One observable mechanism, a fair comparison, useful documentation, and a reset path. More complexity does not automatically make the idea easier to learn from.</p>
+<p><a href="tech-art-museum-exhibit-repair-guide-e9691b97.html">Current Museum Break/Fix Guide</a></p>
+<h2 id="slide-135-week-1-lab-1-answer-review">Slide 135: Week 1 Lab 1 Answer Review</h2>
+<p><strong>KEEP · Keep short transfer · Live 65</strong></p>
+<p>Keep the two-case answer review and the existing answer-key link. Use it to connect problem/evidence/intervention/impact/tradeoff to today&#39;s museum work.</p>
+<h2 id="slide-136-week-3-preview-from-manual-check-to-tool">Slide 136: Week 3 Preview: From Manual Check to Tool</h2>
+<p><strong>P1 · Show record-to-check bridge · Live 67</strong></p>
+<p>The text promises Python but the conveyor icon shows no data. Replace or supplement it with one input record and PASS/FAIL/REVIEW output, with the full function linked for next week.</p>
+<p>Keep the pass/fail/review bullets. Replace the generic conveyor icon with a small actual input record and its result. Link the full function as next-week study material.</p>
+<p>Visual: One roughness_rgb record flows into a check and returns FAIL plus a reason; a second unknown-role record returns REVIEW.</p>
+<p>Read aloud: Next week we will repeat this inspection with Python in the editor. The code still needs an intended role, observed data, and a rule we can explain. It should report a result and a reason. Passing one check is useful evidence, but it does not prove every aspect of the asset is correct.</p>
+<p>Teaching rationale: The transition to Python becomes a small generalization of a familiar manual inspection.</p>
+<p>Add on slide (30 seconds reserved): Which manual check would you want Python to repeat?
+What would the code need to know?</p>
+<p>Placement: Use the existing input-record and result example. Ask as a short closing bridge; keep further questions for the Week 3 opening.</p>
+<p>Add to read-aloud notes: Which inspection from today would you want Python to repeat, and what information would it need? If there is a question you still have about that transition, name it so we can carry it into next week.</p>
+<p>We will start from an inspection we understand, then make it repeatable in code.</p>
+<p>Facilitation: Take one response and record an unresolved question. This is a connection to the next lecture, not a coding exercise or additional graded exit task.</p>
+<p>Listen for: A declared role or requirement, observed data, an explainable check, and a result with its limits.</p>
+<p><a href="../Wiki/week03.html">Course Week 3 preview and Python example</a></p>
+<h2 id="slide-137-further-exploration">Slide 137: Further Exploration</h2>
+<p><strong>P1 · Curate pathways · Live 68</strong></p>
+<p>The three tools are useful, but a flat list does not guide depth. Add paths for mesh data, rendering research, and deformation, each with a concrete question. Keep VFX/VAT optional.</p>
+<h2 id="slide-138-museum-guide-transforms-and-space">Slide 138: Museum Guide: Transforms and Space</h2>
+<p><strong>P1 · Improve study breadcrumb · Study / merge</strong></p>
+<p>The inspection bullets are useful but the portrait provides no transform evidence. Replace with dimensions, pivot, and inherited transform screenshots from the lab source.</p>
+<h2 id="slide-139-museum-guide-geometry-and-shading">Slide 139: Museum Guide: Geometry and Shading</h2>
+<p><strong>KEEP · Keep study breadcrumb · Study / merge</strong></p>
+<p>This is an appropriate geometry/shading reference. Add the current station ID or wiki link so students can retrieve it during the lab.</p>
+<h2 id="slide-140-museum-guide-uvs-and-textures">Slide 140: Museum Guide: UVs and Textures</h2>
+<p><strong>P1 · Improve study breadcrumb · Study / merge</strong></p>
+<p>Keep the UV/texture checks, replace the portrait with diagnostic checker/label evidence, and link EX29 plus the texture triage slide.</p>
+<h2 id="slide-141-museum-guide-materials">Slide 141: Museum Guide: Materials</h2>
+<p><strong>P1 · Improve study breadcrumb · Study / merge</strong></p>
+<p>Keep the instance/slot/override checks, replace the portrait with an actual UE component assignment and instance view, and link EXMAT/EXALPHA.</p>
+<h2 id="slide-142-museum-guide-collision-and-lods">Slide 142: Museum Guide: Collision and LODs</h2>
+<p><strong>P1 · Add checks · Study / merge</strong></p>
+<p>This guide lists symptoms rather than the confirming tests promised by the other guide slides. Add collision visualization and active-LOD/triangle evidence, while distinguishing conventional LOD and Nanite paths.</p>
+<p>Keep hidden as a lab guide. Replace the symptom-only list with these checks and replace the portrait with actual collision/LOD evidence.</p>
+<ul>
+<li>Show the collision representation used by the test.</li>
+<li>Check a known contact or passage in the intended view.</li>
+<li>Read active conventional LOD and triangle counts at several screen sizes.</li>
+<li>Verify unchanged materials, bounds, and required collision.</li>
+</ul>
+<p>Visual: A collision overlay beside near/mid/far views with active LOD labels.</p>
+<p>Teaching rationale: A breadcrumb should tell students how to gather evidence, not just name a class of failure.</p>
+<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-automatic-lod-generation-in-unreal-engine?application_version=5.7">Epic: Static Mesh Automatic LOD Generation, UE 5.7</a> · <a href="tech-art-museum-exhibit-repair-guide-e9691b97.html">Current Museum Break/Fix Guide</a></p>
+</main></body></html>

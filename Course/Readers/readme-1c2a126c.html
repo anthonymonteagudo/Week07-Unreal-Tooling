@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Stage 02 · Preview and apply</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_02_preview_and_apply/README.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_02_preview_and_apply/README.md<br>Source modified: 2026-10-12T02:44:24.534Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><h1 id="stage-02-preview-and-apply">Stage 02 · Preview and apply</h1>
+<p>Run <code>Scripts/lessons.py run 05</code>, then <code>run 06</code> using the project interpreter.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Open</th>
+<th>Expect</th>
+<th>Try</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>05</td>
+<td><code>step_05_change_plan.py</code></td>
+<td>Two before/after records; original labels still unchanged.</td>
+<td>Compare a finding to a proposed change. What extra information is needed?</td>
+</tr>
+<tr>
+<td>06</td>
+<td><code>step_06_apply_to_copy.py</code></td>
+<td>Corrected labels in a copy; original unchanged; no remaining renames; barrel still missing its mesh.</td>
+<td>At a breakpoint after preview, change <code>actors[0][&#39;label&#39;]</code>. Apply should reject the stale plan.</td>
+</tr>
+</tbody></table></div>
+<p>Repeated runs start from the same sample. Inside Step 06, a fresh plan made from the
+corrected copy is empty; the second pass needs no renames. Applying the old plan
+again is a stale-plan error. Neither behavior writes to disk or touches Unreal.</p>
+<p>The copy makes this experiment disposable. It does not teach or provide engine
+Undo, world identity checks, collision detection or protection against every kind
+of changed record. Those responsibilities belong to the existing adapter.</p>
+</main></body></html>

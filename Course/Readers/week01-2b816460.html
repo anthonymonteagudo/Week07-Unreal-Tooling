@@ -1,0 +1,52 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>week01</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Wiki/content/week01.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Wiki/content/week01.md<br>Source modified: 2026-09-09T01:39:22.776Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#what-carries-forward">What carries forward</a></li><li><a href="#the-four-lenses">The four lenses</a></li><li><a href="#observation-before-explanation">Observation before explanation</a></li><li><a href="#a-small-retrieval-exercise">A small retrieval exercise</a></li><li><a href="#connection-to-week-2">Connection to Week 2</a></li><li><a href="#course-grounding">Course grounding</a></li></ul></details><h2 id="what-carries-forward">What carries forward</h2>
+<p>Technical Art connects artistic intention with the tools, data, and production conditions needed to achieve it. Sometimes the useful intervention is code. It can also be a clearer standard, a better handoff, a reproducible test, or an explanation that prevents repeated confusion.</p>
+<p>Before choosing a solution, identify the intended experience. An attractive screenshot is only one condition: the asset may also need to survive animation, reimport, another camera, or another person&#39;s changes.</p>
+<h2 id="the-four-lenses">The four lenses</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Lens</th>
+<th>Question to ask</th>
+<th>Asset-pipeline example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Constraints</td>
+<td>What limits the acceptable solution?</td>
+<td>The asset needs to remain readable from the intended camera.</td>
+</tr>
+<tr>
+<td>Systems</td>
+<td>Which people, tools, assets, and dependencies connect?</td>
+<td>Maya assignments, exported identities, UE slots, and materials all participate.</td>
+</tr>
+<tr>
+<td>Leverage</td>
+<td>Could the intervention help repeated work?</td>
+<td>A known import check could become a reusable validator.</td>
+</tr>
+<tr>
+<td>Throughput</td>
+<td>Does the whole workflow produce reliable work more efficiently?</td>
+<td>A quicker export is unhelpful if every import needs manual repair.</td>
+</tr>
+</tbody></table></div>
+<p>Use the lenses to develop the question. Naming all four without applying them does not explain the production problem.</p>
+<h2 id="observation-before-explanation">Observation before explanation</h2>
+<p>“The label reads backward on this panel” is an observation. “The texture is broken” is a proposed explanation. A mirrored image, UV layout, or material-coordinate operation could produce similar visible results.</p>
+<ol>
+<li>State the intended result.</li>
+<li>Record the actual symptom and conditions.</li>
+<li>Propose an explanation and a plausible alternative.</li>
+<li>Choose evidence that would separate them.</li>
+<li>Describe what remains uncertain.</li>
+</ol>
+<p>This is useful work even when you cannot yet perform the repair.</p>
+<h2 id="a-small-retrieval-exercise">A small retrieval exercise</h2>
+<p>Choose one visible feature in a game or a provided production case. Describe it without guessing its implementation. Apply two lenses to explain why it matters, then identify the first source, measurement, or inspection you would seek.</p>
+<p>For a shading difference, would you inspect geometry first, the texture role, the material connection, or the point where the result first diverges between tools? Explain what your choice could establish.</p>
+<h2 id="connection-to-week-2">Connection to Week 2</h2>
+<p><a href="../Wiki/week02.html">Week 2</a> supplies specific data to inspect: geometry, normals, UVs, textures, assignments, and import settings. The investigation habit remains the same. <a href="../Wiki/week03.html">Week 3</a> will turn a well-understood repeated check into a small program.</p>
+<h2 id="course-grounding">Course grounding</h2>
+<p>This guide summarizes the existing Week 1 student deck: shared vocabulary at slides 78–79, the four lenses at 81–89, the normal-map pipeline case at 130, and observation guidance at 134. The original Canvas journal prompt remains the authority for that activity&#39;s formal requirements.</p>
+</main></body></html>

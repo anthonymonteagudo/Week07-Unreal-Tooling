@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Additional linear algebra resources for Week 5</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week05/Review/ADDITIONAL_LINEAR_ALGEBRA_RESOURCES.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week05/Review/ADDITIONAL_LINEAR_ALGEBRA_RESOURCES.md<br>Source modified: 2026-09-27T04:18:17.378Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#additional-linear-algebra-resources-for-week-5">Additional linear algebra resources for Week 5</a></li><li><a href="#priorities-and-access-status">Priorities and access status</a></li><li><a href="#concrete-improvements-to-the-existing-sequence">Concrete improvements to the existing sequence</a></li><li><a href="#selection-rule">Selection rule</a></li></ul></details><h1 id="additional-linear-algebra-resources-for-week-5">Additional linear algebra resources for Week 5</h1>
+<p>Reviewed 26–27 September 2026. These are instructor preparation and optional study resources, not new student assignments. The recommendations below are editorial judgments about fit for the Maya lecture. They do not add lecture topics or time.</p>
+<h2 id="priorities-and-access-status">Priorities and access status</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>What was inspected</th>
+<th>Recommended role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/fastai/numerical-linear-algebra">Fast.ai: Computational Linear Algebra for Coders</a></td>
+<td>Repository README, course outline, and teaching rationale. Notebook rendering failed; notebooks were not executed or audited.</td>
+<td>Instructor preparation: its application-first approach fits starting with a working arm and exposing the calculations. Numerical accuracy, conditioning, and stability are later debugging extensions. The machine-learning applications and decompositions should not become Week 5 prerequisites.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/kf-liu/The-Art-of-Linear-Algebra-zh-CN">The Art of Linear Algebra: supplied Chinese fork</a> and <a href="https://github.com/kenjihiranabe/The-Art-of-Linear-Algebra">Kenji Hiranabe’s original English repository</a></td>
+<td>Both repository descriptions and the original English LaTeX sections on matrix views and multiplication. Figure references were located; figure artwork has not been visually audited in this pass.</td>
+<td>Strong visual-design reference. It is Hiranabe’s illustrated companion to Strang’s work, not a Strang-authored textbook. Use the early matrix/vector views; factorization chapters are further depth.</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">3Blue1Brown: Essence of Linear Algebra</a></td>
+<td>Playlist identity; author-site linear-algebra index and previously inspected transformation/composition pages. Full videos were not watched in this pass.</td>
+<td>Visual reinforcement for basis, mappings, composition, dot, and cross. Select short topic-specific material after checking it; no unverified timestamps or full-playlist assignment.</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=JnTa9XtvmfI">Linear Algebra — Full College Course</a></td>
+<td>Video title only; the returned page did not expose a usable transcript or chapter list.</td>
+<td>Retain as an unreviewed candidate. Do not cite it as evidence for a specific explanation or assign a segment yet.</td>
+</tr>
+<tr>
+<td><a href="https://www.coursera.org/learn/linear-algebra-machine-learning">Imperial College London: Mathematics for Machine Learning — Linear Algebra</a></td>
+<td>Public syllabus, including modules 2–4; lessons and assessments were not accessed.</td>
+<td>Optional structured refresher. Module 2 covers vectors, inner products, projection, and basis; modules 3–4 cover transformations, composition, inverses, and changed bases. Relevant ideas, but no need to import its ML assignments.</td>
+</tr>
+<tr>
+<td><a href="https://www.udemy.com/course/linear-algebra-course/">Krista King: Become a Linear Algebra Master</a></td>
+<td>Public course description and topic list; paid lessons were not reviewed.</td>
+<td>Optional practice candidate for dot/cross, transformations, inverses, and basis. Listing coverage does not establish teaching quality or justify a purchase recommendation.</td>
+</tr>
+<tr>
+<td><a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/">MIT OCW 18.06SC, Fall 2011</a></td>
+<td>Course structure and topic pages for projection and change of basis.</td>
+<td>Primary academic preparation path, with self-study support. Complements the existing 2010 lecture citations rather than requiring both courses.</td>
+</tr>
+<tr>
+<td><a href="https://math.berkeley.edu/~giventh/papers/ode.pdf">Alexander Givental: Linear Algebra and Differential Equations</a></td>
+<td>Contents, foreword, and opening vector/inner-product text. Later sections were identified from contents, not fully reviewed.</td>
+<td>Instructor reference: §1.1 vectors, §1.3 transformations/composition/inverses, and §3.3 bases. The concise, proof-oriented presentation needs adaptation into concrete Maya examples. Differential equations remain outside this lecture’s scope.</td>
+</tr>
+</tbody></table></div>
+<h2 id="concrete-improvements-to-the-existing-sequence">Concrete improvements to the existing sequence</h2>
+<p><strong>32A–32B: a matrix as a combination of basis directions.</strong> Hiranabe’s <a href="https://raw.githubusercontent.com/kenjihiranabe/The-Art-of-Linear-Algebra/main/The-Art-of-Linear-Algebra.tex">English source</a> includes both matrix-times-column and row-times-matrix treatments. For Maya’s row convention, show the transformed displacement as x times basis row 1, plus y times basis row 2, plus z times basis row 3. Illuminate those three contributions on the same hand proxy before combining them. Keep translation separate until homogeneous coordinates. This connects components to visible axes without teaching all four multiplication viewpoints.</p>
+<p><strong>29C → 34B: projection before the arm helper.</strong> Use <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/projections-onto-subspaces/">MIT’s projection topic</a> for preparation. In Maya, first show the elbow’s projection onto the shoulder–wrist line, then the residual arrow. Ask why the residual is perpendicular to the guide. The existing known-answer preset and zero-length checks remain the classroom activity.</p>
+<p><strong>23/25 → 32I: coordinates depend on the basis.</strong> Use <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/change-of-basis-image-compression/">MIT’s change-of-basis topic</a> to prepare the explanation. Keep the physical arrow fixed while changing the axes used to describe it. Then distinguish that coordinate change from actively moving the hand. The image-compression application is not needed for this lesson.</p>
+<p><strong>Opening and lab: show a working result, then reveal its operations.</strong> Fast.ai’s application-first rationale supports this instructional choice. Start with the supplied Maya arm diagnostic; students later modify one bounded calculation. This is a teaching adaptation, not a claim that its notebooks contain a Maya rig.</p>
+<h2 id="selection-rule">Selection rule</h2>
+<p>Use Jettelly for interactive-tool inspiration, MIT/OpenStax for mathematical checks, Hiranabe/3Blue1Brown for visual explanation, and Autodesk for Maya behavior. Keep the arm as the common classroom example. Broader courses are optional preparation paths. No new screenshots, copied illustrations, purchased access, or executable project assets were created during this resource review.</p>
+</main></body></html>

@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "id": "epic-actors-3",
+      "hash_verified": true,
+      "dimensions": [
+        1603,
+        793
+      ]
+    },
+    {
+      "id": "epic-actors-4",
+      "hash_verified": true,
+      "dimensions": [
+        800,
+        553
+      ]
+    },
+    {
+      "id": "powerrename-1",
+      "hash_verified": true,
+      "dimensions": [
+        1290,
+        851
+      ]
+    },
+    {
+      "id": "errors-13",
+      "hash_verified": true,
+      "dimensions": [
+        1384,
+        861
+      ]
+    },
+    {
+      "id": "errors-14",
+      "hash_verified": true,
+      "dimensions": [
+        1384,
+        861
+      ]
+    },
+    {
+      "id": "errors-11",
+      "hash_verified": true,
+      "dimensions": [
+        1384,
+        743
+      ]
+    },
+    {
+      "id": "paper-5",
+      "hash_verified": true,
+      "dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "w3c-focus-0",
+      "hash_verified": true,
+      "dimensions": [
+        500,
+        217
+      ]
+    },
+    {
+      "id": "artist-inspecting-prop",
+      "hash_verified": true,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "fully_transparent_pixels": 697730,
+      "edge_clear": true
+    }
+  ],
+  "visual_inspection": "All selected originals inspected; GIF time samples inspected; generated PNG checked on white, lavender and navy. Browser rendering checked separately."
+}

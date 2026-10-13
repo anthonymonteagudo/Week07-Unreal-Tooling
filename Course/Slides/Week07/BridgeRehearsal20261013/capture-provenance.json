@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-13",
+  "capture_method": "Windows Computer Use window screenshots during native UI rehearsal",
+  "animation": "Timed slideshow of actual captured stills, not continuous screen recording",
+  "composite_crop": [
+    185,
+    137,
+    959,
+    686
+  ],
+  "raw": [
+    {
+      "file": "01-blender-baseline.png",
+      "sha256": "2d4529eca7d6176f5305a5e850f619eee3f38b76922b061e03df5bf52af95d74"
+    },
+    {
+      "file": "02-baseline-acknowledged.png",
+      "sha256": "70c5d76c68ccd4b271119a4347c454161cdce44f2ff14e32c69c54bc2f6a7dd9"
+    },
+    {
+      "file": "03-unreal-before.png",
+      "sha256": "01a811ae3a533295c0406bcd47bbc82a8dbf75b356183f4ac3c7b3a1a4914fbe"
+    },
+    {
+      "file": "04-roof-vertices-selected.png",
+      "sha256": "01730a587cd983e1ddbb7fc6b26efc18d593f0ab156ac6945a81f3ef004fc75a"
+    },
+    {
+      "file": "05-roof-plus-40cm.png",
+      "sha256": "83f507e77207b8211d7a70e8091a7724fc360c579800623c17f80ba501a05757"
+    },
+    {
+      "file": "06-revision-sent.png",
+      "sha256": "064fa1a4cb33b9e87c8f1bdbe3c0af2902f8beaaf4059abb0a3d4917df26a7a7"
+    },
+    {
+      "file": "07-unreal-both-updated.png",
+      "sha256": "cc2392805e93af01aa96832c6f05bbcfec3602d12f35b8e89ad4acc3429e3368"
+    },
+    {
+      "file": "08-revised-source-saved.png",
+      "sha256": "56275e0730835cce6af754b97b73adc3160b6dd81687e352c10456b8f14c84e3"
+    }
+  ]
+}

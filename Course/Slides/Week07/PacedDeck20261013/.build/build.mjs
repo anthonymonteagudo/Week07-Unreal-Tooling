@@ -1,0 +1,16 @@
+import fs from 'node:fs/promises';import path from 'node:path';import crypto from 'node:crypto';import {pathToFileURL} from 'node:url';
+import {PresentationFile,FileBlob} from '@oai/artifact-tool';import {S,slides,timing,hiddenChanges} from './content.mjs';import {slides as old} from '../../TeachingDeck20261013/.build/content.mjs';
+const work=path.resolve('..'),source=path.resolve('../../TeachingDeck20261013/output/Week_7_Teaching_Revision_v1.pptx'),skill='C:/Users/antho/.codex/plugins/cache/openai-primary-runtime/presentations/26.1011.11113/skills/presentations';
+const p=await PresentationFile.importPptx(await FileBlob.load(source));
+if(p.slides.items.length!==71)throw Error('Unexpected source count');
+for(const [i,d] of slides.entries()){const sl=p.slides.items[i+1];sl.hidden=!!d.hidden;if(d.question!==old[i].question){for(const shape of sl.shapes.items){if(shape.text)shape.text.replace(old[i].question,d.question);}}
+sl.speakerNotes.text=d.notes+'\n\nINSTRUCTOR PACING / FACILITATION (not narration):\n'+d.facilitation+'\n\nSOURCE INSIGHT (instructor):\n'+(d.insight||'')+'\n\nSources:\n'+(d.refs||[]).map(k=>S[k]).join('\n')+'\n'+(d.local||[]).join('\n')+'\nVisual: '+(d.credit||d.caption||d.image||'Existing editable slide content')+'\nStable review anchor: '+d.id;
+}
+p.slides.items[0].speakerNotes.text='We will connect Python automation with the experience of the artist who uses a tool.\n\nINSTRUCTOR PACING (not narration): Opening 30 seconds. The agenda gets another 30 seconds. The entire opening/Python/demo block ends at elapsed 32:00.';
+await (await PresentationFile.exportPptx(p)).save('candidate.pptx');
+for(let i=0;i<p.slides.items.length;i++){const b=await p.slides.items[i].export({format:'png',scale:1});await fs.writeFile(`../previews/slide-${String(i+1).padStart(2,'0')}.png`,new Uint8Array(await b.arrayBuffer()));}
+const {finalizePresentation}=await import(pathToFileURL(path.join(skill,'container_tools/artifact_tool_utils.mjs')).href);
+const tables=slides.flatMap((d,i)=>d.table?[i+2]:[]);
+await finalizePresentation({workspaceDir:work,candidatePath:path.join(work,'.build/candidate.pptx'),finalPath:path.join(work,'output/Week_7_Paced_150_Minutes_v1.pptx'),pythonExecutable:'C:/Users/antho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe',integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-heading-fit',...tables.flatMap(n=>['--require-native-table-slide',String(n)])],requiredNativeTableOwnerSlides:tables,fontPolicy:{basis:'reference',families:['Arial'],referencePath:source,referenceSha256:crypto.createHash('sha256').update(await fs.readFile(source)).digest('hex')},verifyArtifactToolImport:true,receiptPath:path.join(work,'.build/validation.json')});
+await fs.writeFile('../slide_sources.json',JSON.stringify({sourceDeck:source,sourceKeys:S,slides},null,2));await fs.writeFile('../timing.json',JSON.stringify(timing,null,2));console.log(JSON.stringify({total:71,live:1+slides.filter(s=>!s.hidden).length,hidden:slides.filter(s=>s.hidden).length,minutes:timing.at(-1).end}));
+

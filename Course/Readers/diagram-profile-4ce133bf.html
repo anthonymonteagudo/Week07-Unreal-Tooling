@@ -1,0 +1,135 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Style Guide</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Visuals/diagram-profile.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Visuals/diagram-profile.md<br>Source modified: 2026-09-09T19:44:37.056Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#style-guide">Style Guide</a></li><li><a href="#tokens">Tokens</a></li><li><a href="#semantic-roles">Semantic roles</a></li><li><a href="#typography">Typography</a></li><li><a href="#geometry-and-export">Geometry and export</a></li></ul></details><h1 id="style-guide">Style Guide</h1>
+<p>Course profile for slide diagrams, based on Week 1 slides 78 and 82. Preserve the established four lens badges and meanings. The Week 2 deck may retain its existing surrounding purple/serif theme while using these shared assets. Use the course&#39;s tokens.json and RULES.md for provenance and asset roles. Do not modify the diagram-design installation&#39;s global style guide.</p>
+<h2 id="tokens">Tokens</h2>
+<h3 id="semantic-roles">Semantic roles</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Purpose</th>
+<th>Light</th>
+<th>Dark</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>paper</code></td>
+<td>Preview background only; export canvas is transparent</td>
+<td><code>#FFFFFF</code></td>
+<td><code>#0A4054</code></td>
+</tr>
+<tr>
+<td><code>paper-2</code></td>
+<td>Secondary surface</td>
+<td><code>#F2F6F7</code></td>
+<td><code>#163F4D</code></td>
+</tr>
+<tr>
+<td><code>ink</code></td>
+<td>Text and primary strokes</td>
+<td><code>#0A4054</code></td>
+<td><code>#FFFFFF</code></td>
+</tr>
+<tr>
+<td><code>muted</code></td>
+<td>Connectors and supporting labels</td>
+<td><code>#4B6070</code></td>
+<td><code>#C8DEE5</code></td>
+</tr>
+<tr>
+<td><code>soft</code></td>
+<td>Secondary labels</td>
+<td><code>#586B78</code></td>
+<td><code>#B6D0DB</code></td>
+</tr>
+<tr>
+<td><code>rule</code></td>
+<td>Subtle separators</td>
+<td><code>rgba(10,64,84,0.16)</code></td>
+<td><code>rgba(255,255,255,0.20)</code></td>
+</tr>
+<tr>
+<td><code>rule-solid</code></td>
+<td>Strong separators</td>
+<td><code>#C9D7DD</code></td>
+<td><code>#607E8A</code></td>
+</tr>
+<tr>
+<td><code>accent</code></td>
+<td>One or two focal items</td>
+<td><code>#029990</code></td>
+<td><code>#9FD1D0</code></td>
+</tr>
+<tr>
+<td><code>accent-tint</code></td>
+<td>Focal fill</td>
+<td><code>#E4F2F1</code></td>
+<td><code>#204F57</code></td>
+</tr>
+<tr>
+<td><code>link</code></td>
+<td>Navigation or explicitly named external relationship</td>
+<td><code>#0163D5</code></td>
+<td><code>#9FD1D0</code></td>
+</tr>
+</tbody></table></div>
+<p>The four-lens colors are semantic reservations: Constraints <code>#FC4037</code>, Systems <code>#029990</code>, Leverage <code>#ED9C03</code>, Throughput <code>#0163D5</code>. When color denotes one of those lenses, display its name. Status results use explicit words and distinguishable shapes, rather than repurposing these colors silently.</p>
+<h2 id="typography">Typography</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Family</th>
+<th>Size at 1280×720</th>
+<th>Weight</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>title</code></td>
+<td>Arial, sans-serif (declared fallback for Posterama)</td>
+<td>44px</td>
+<td>700</td>
+<td>Diagram title</td>
+</tr>
+<tr>
+<td><code>node-name</code></td>
+<td>Arial, sans-serif (declared fallback for Avenir Next LT Pro)</td>
+<td>28px</td>
+<td>700</td>
+<td>Entity or concept</td>
+</tr>
+<tr>
+<td><code>sublabel</code></td>
+<td>Consolas, monospace for code; Arial for prose</td>
+<td>24px</td>
+<td>400</td>
+<td>Data or explanation</td>
+</tr>
+<tr>
+<td><code>eyebrow</code></td>
+<td>Arial, sans-serif</td>
+<td>20px</td>
+<td>700</td>
+<td>Small topic label</td>
+</tr>
+<tr>
+<td><code>arrow-label</code></td>
+<td>Arial, sans-serif</td>
+<td>20px</td>
+<td>400</td>
+<td>Relationship</td>
+</tr>
+<tr>
+<td><code>callout</code></td>
+<td>Arial, sans-serif</td>
+<td>32px</td>
+<td>400</td>
+<td>Teaching question</td>
+</tr>
+</tbody></table></div>
+<p>The native Week 1 fonts are Posterama and Avenir Next LT Pro Light. They are not redistributed here. The portable diagram starters deliberately use Arial and are labeled as fallback typography. Retain native fonts for editable labels within the instructor&#39;s deck when available. Never claim an exact font match from an unverified CSS declaration.</p>
+<h2 id="geometry-and-export">Geometry and export</h2>
+<p>Use the selected diagram type&#39;s connector grammar with a 4-unit layout grid, 8-unit rounded turns, generous image/label clearance, and bold 5–6-unit primary strokes. Use substantial arrowheads; optional paths may use 4-unit dashed strokes. Use 1280×720 logical coordinates, SVG masters, and 2560×1440 slide PNGs. Keep labels legible at the actual placement size. No shadows or decorative dot patterns. New and revised diagrams have a transparent canvas and genuine alpha PNG exports. Screenshot rectangles retain their native backgrounds; the surrounding canvas has no white matte or checkerboard. Preview background colors are not exported.</p>
+<p>Keep one teaching question and a small enough set of relationships to trace. Visible labels are short noun phrases, usually 1–4 words; arrow verbs are brief. Full sentences, context, teaching questions, caveats, and sources belong in HTML and notes. Avoid title furniture and word-filled boxes. In Week 2, GPU implementation remains one box. A dependency map is not a claim about exact chronological execution.</p>
+<p>Build concrete diagrams around real cropped textures, UV layouts, Maya/UE controls, mesh assignments, and observed results. Prefer one asset across views; visibly label separate examples and explain mixed sources in HTML. Preserve source pixels, aspect ratio, original files, source credit, crop bounds, and known software version. Provide original/enlarged crops for inspection. A generic icon or generated UI is not a substitute for available evidence. Inspect alpha and legibility on the actual slide background.</p>
+</main></body></html>

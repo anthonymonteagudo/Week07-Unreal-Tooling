@@ -1,0 +1,23 @@
+{
+  "slides": 71,
+  "live": 34,
+  "hidden": 37,
+  "changed": [
+    "slide-15.png",
+    "slide-21.png",
+    "slide-25.png",
+    "slide-26.png",
+    "slide-33.png",
+    "slide-36.png",
+    "slide-37.png",
+    "slide-44.png",
+    "slide-46.png",
+    "slide-47.png",
+    "slide-48.png",
+    "slide-49.png"
+  ],
+  "unchangedPixelIdentical": 59,
+  "practiceChecks": 17,
+  "nativePowerPointVerified": false,
+  "liveUnrealRehearsed": true
+}

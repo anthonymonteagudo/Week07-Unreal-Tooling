@@ -32,6 +32,7 @@ def style():
     light.light_component.set_mobility(unreal.ComponentMobility.MOVABLE)
     light.set_actor_rotation(unreal.Rotator(-40, 135, 0), False)
     light.light_component.set_intensity(6)
+    light.light_component.set_editor_property('forward_shading_priority', 1)
     if 'Bridge fill light' not in by_name:
         fill = actors.spawn_actor_from_class(unreal.DirectionalLight, unreal.Vector(0, 0, 500), unreal.Rotator(-50, -45, 0))
         fill.set_actor_label('Bridge fill light')
@@ -44,6 +45,21 @@ def style():
         sky = actors.spawn_actor_from_class(unreal.SkyAtmosphere, unreal.Vector(0, 0, 0))
         sky.set_actor_label('Bridge sky')
     light.light_component.set_editor_property('atmosphere_sun_light', True)
+    if 'Bridge ambient light' not in by_name:
+        ambient = actors.spawn_actor_from_class(unreal.SkyLight, unreal.Vector(0, 0, 400))
+        ambient.set_actor_label('Bridge ambient light')
+    else:
+        ambient = by_name['Bridge ambient light']
+    ambient.light_component.set_mobility(unreal.ComponentMobility.MOVABLE)
+    ambient.light_component.set_real_time_capture(True)
+    if 'Bridge camera fill' not in by_name:
+        camera_fill = actors.spawn_actor_from_class(unreal.PointLight, unreal.Vector(400, -500, 350))
+        camera_fill.set_actor_label('Bridge camera fill')
+    else:
+        camera_fill = by_name['Bridge camera fill']
+    camera_fill.light_component.set_mobility(unreal.ComponentMobility.MOVABLE)
+    camera_fill.light_component.set_intensity(100)
+    camera_fill.light_component.set_attenuation_radius(3000)
     camera = by_name['Bridge comparison camera']
     camera.set_actor_location(unreal.Vector(850, -900, 650), False, False)
     rotation = unreal.MathLibrary.find_look_at_rotation(camera.get_actor_location(), unreal.Vector(0, 0, 120))

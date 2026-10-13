@@ -8,14 +8,25 @@ packages use Git LFS. Run `git lfs install` before cloning/pulling.
 - Bridge: Week07UnrealPython/Docs/Bridge/README.md
 - Current deck: Course/Slides/Week07/FinalClass20261013/output/Week_7_Final_Class_v3.pptx
 - Small self-contained bridge: Week07UnrealPython/Deliverables/Week07_Bridge_Student_Pack.zip
+- Actual UI captures, slide draft and Karol review: Course/Slides/Week07/BridgeRehearsal20261013/index.html
 
 This is an instructor WIP archive. Northwood preserves its Isaac Oster course
 provenance and includes third-party assets; this private backup is not a public
 redistribution license. Karol download archives are reference material, not copied
 into this repository. Generated caches, installed dependencies, local editor
-state, lock/backup files and intermediate slide builds are omitted. The Android
+state, lock/backup files and generated intermediate slide renders/decks are omitted.
+Editable `.build` scripts and small supporting JSON are retained. Shared course
+readers, visuals, wiki sources and references are included to support teaching links.
+The Android
 file-server local security token is blanked in this backup.
 
 The active authoring workspace remains in Perforce. This repository is a separate
 Git snapshot at C:/Users/antho/git/Week07-Unreal-Tooling; subsequent Perforce edits
-must be synced and committed explicitly. No unrelated student folders are copied.
+must be synced and committed explicitly. Run `python sync_from_workspace.py <workspace>`
+to update this snapshot, review `git diff`, then commit/push. It never deletes or
+publishes files. `snapshot-inventory.json` records scope and exclusions.
+No unrelated student folders are copied.
+
+The full project includes native plugin source; build the Week07Tools plugin with
+the matching UE 5.7 development tools if the editor requests missing binaries.
+The small bridge student package has no custom C++ plugin dependency.

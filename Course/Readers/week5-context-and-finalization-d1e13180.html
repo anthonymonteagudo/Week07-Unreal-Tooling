@@ -1,0 +1,182 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 5: Applied math for Technical Artists</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week05/Instructor/WEEK5_CONTEXT_AND_FINALIZATION.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week05/Instructor/WEEK5_CONTEXT_AND_FINALIZATION.md<br>Source modified: 2026-09-27T03:08:08.482Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#week-5-applied-math-for-technical-artists">Week 5: Applied math for Technical Artists</a></li><li><a href="#teaching-focus">Teaching focus</a></li><li><a href="#corrections-before-reuse">Corrections before reuse</a></li><li><a href="#proposed-live-lesson-sequence">Proposed live lesson sequence</a></li><li><a href="#sample-read-aloud-narration">Sample read-aloud narration</a></li><li><a href="#instructor-facilitation">Instructor facilitation</a></li><li><a href="#explore-further-camera-and-projection-spaces">Explore further: Camera and projection spaces</a></li><li><a href="#student-project-finalization">Student project finalization</a></li><li><a href="#existing-museum-tooling-found-in-the-workspace">Existing museum tooling found in the workspace</a></li><li><a href="#source-and-status">Source and status</a></li></ul></details><h1 id="week-5-applied-math-for-technical-artists">Week 5: Applied math for Technical Artists</h1>
+<p><strong>Status update:</strong> The later instructor-confirmed 180-minute outline supersedes this initial scope proposal. Use the <a href="../Slides/Week05/Review/index.html">expanded slide review</a> and its <a href="source-context-227ff122.html">source-context guide</a>. Euler angles, quaternions, interpolation, and all named coordinate spaces remain live; the earlier reduction to 24 live slides is withdrawn. The corrections below remain useful historical reference.</p>
+<p>Instructor working brief, 26 September 2026. Based on the supplied January 2022 notes and the current Week 5 wiki outline. This is a proposed teaching route, not an edited PowerPoint or an approved assignment. The current Week 5 deck and intended student project still need identification.</p>
+<h2 id="teaching-focus">Teaching focus</h2>
+<p>Use one visible operation throughout the lecture: place an object relative to another object, compute the direction between them, and use that direction to control an observable result. Establish the coordinate frame and expected result before introducing the formula. Connect this to the normal-direction and UV-coordinate examples from Week 2.</p>
+<p>The source spans several older lectures. It is reference material, not evidence that every topic belongs in one Week 5 session. Keep vector operations, trigonometry, and the transformations needed by the actual demo in the live lesson. Treat a full camera/projection pipeline and hand-written matrix inversion as proposed optional depth unless the student project requires them.</p>
+<h2 id="corrections-before-reuse">Corrections before reuse</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Source wording or issue</th>
+<th>Replacement for teaching</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Slope formula uses ambiguous superscripts and parentheses</td>
+<td><code>m = (y₂ − y₁) / (x₂ − x₁)</code>. A vertical line has undefined slope. A horizontal line has slope zero.</td>
+</tr>
+<tr>
+<td>“Two equal sides at 45 degrees”</td>
+<td>An <strong>isosceles right triangle</strong> has two 45° angles. Isosceles triangles in general do not.</td>
+</tr>
+<tr>
+<td>“sin2 + cos2 = 1”</td>
+<td><code>sin²(θ) + cos²(θ) = 1</code>. Both terms use the same angle.</td>
+</tr>
+<tr>
+<td>Inverse trig is rarely used because it is complicated</td>
+<td>Inverse trig recovers angles from ratios. Introduce <code>atan2(y, x)</code> for a planar direction and <code>acos</code> for the angle between nonzero vectors. Use the actual project&#39;s coordinate and angle conventions.</td>
+</tr>
+<tr>
+<td>“Law of Sin: sin a + sin b = sin c”</td>
+<td><code>a / sin(A) = b / sin(B) = c / sin(C)</code>, with each side opposite its corresponding angle.</td>
+</tr>
+<tr>
+<td>Incomplete law of cosines</td>
+<td><code>a² = b² + c² − 2bc cos(A)</code>, where A is the included angle opposite side a.</td>
+</tr>
+<tr>
+<td>“All vectors originate from the origin”</td>
+<td>A displacement vector has magnitude and direction and can be drawn at any location. A position vector represents a point relative to a chosen origin.</td>
+</tr>
+<tr>
+<td>“All parallel vectors are vectors plus offset vectors”</td>
+<td>Nonzero parallel vectors are scalar multiples of one another. Moving an arrow&#39;s drawing does not change its displacement vector.</td>
+</tr>
+<tr>
+<td>Missing square root in vector length</td>
+<td><code>‖v‖ = √(vₓ² + vᵧ² + v_z²)</code>. For points A and B, distance is <code>‖B − A‖</code>.</td>
+</tr>
+<tr>
+<td>Ambiguous normalization notation</td>
+<td><code>v̂ = v / ‖v‖</code>, for nonzero v. The project must define what happens when the length is zero or too small.</td>
+</tr>
+<tr>
+<td>Dot product is “Always a floating point value!!”</td>
+<td>The dot product produces a scalar. Its programming type depends on the inputs and implementation.</td>
+</tr>
+<tr>
+<td>Dot product described as associative</td>
+<td>Dot products are not generally associative. Use scalar compatibility: <code>(k a) · b = k(a · b) = a · (k b)</code>.</td>
+</tr>
+<tr>
+<td>Angle between vectors</td>
+<td><code>cos(θ) = (a · b) / (‖a‖ ‖b‖)</code> for nonzero vectors. Clamp a computed cosine to [−1, 1] before <code>acos</code> to handle rounding.</td>
+</tr>
+<tr>
+<td>Zero vector described as perpendicular</td>
+<td>Its dot product with every vector is zero, but an angle involving the zero vector is undefined.</td>
+</tr>
+<tr>
+<td>Cross product notation uses ordinary multiplication</td>
+<td>Use <code>a × b</code>. The familiar 3D cross product is perpendicular to both inputs when nonzero. Parallel inputs produce zero. Order changes its sign.</td>
+</tr>
+<tr>
+<td>A matrix is an N-dimensional array</td>
+<td>A matrix is a rectangular array with rows and columns. Higher-dimensional arrays require a broader description.</td>
+</tr>
+<tr>
+<td><code>w = 0</code> means orientation</td>
+<td>In the affine point/direction use here, <code>w = 0</code> represents a direction and <code>w = 1</code> a point. An orientation is not fully described by a single direction.</td>
+</tr>
+<tr>
+<td>Pre/post multiplication universally determines local/global space</td>
+<td>Declare row or column vectors, which side the matrix acts on, and what the matrix maps between. Then derive composition order. Memory storage order is a separate choice.</td>
+</tr>
+<tr>
+<td>Object space is usually identity</td>
+<td>Local coordinates exist relative to an object&#39;s frame. Its local-to-world matrix can be nonidentity. Identity is a useful starting case, not a general transform rule.</td>
+</tr>
+<tr>
+<td>Projection simply flattens points</td>
+<td>Projection produces clip coordinates. Perspective division by w produces normalized device coordinates; the viewport mapping follows. Preserve depth for visibility.</td>
+</tr>
+</tbody></table></div>
+<p>Use one stated convention for worked examples. For column vectors, <code>p_world = T R S p_local</code> applies scale, then rotation, then translation. A pure direction with w = 0 receives no translation. Avoid transferring that expression verbatim into a different library convention.</p>
+<h2 id="proposed-live-lesson-sequence">Proposed live lesson sequence</h2>
+<p>These are topic anchors, not existing slide numbers. Preserve the actual deck&#39;s slide numbers when it becomes available.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Visible example or proposed layout</th>
+<th>On-slide prompt</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Position, direction, scalar</td>
+<td>The same asset with two labeled positions and a displacement arrow; state the coordinate frame</td>
+<td>Which values change if we move the origin?</td>
+</tr>
+<tr>
+<td>Displacement and distance</td>
+<td>A = (1, 2, 0), B = (4, 6, 0), B − A = (3, 4, 0), distance = 5</td>
+<td>What changes if we reverse A and B?</td>
+</tr>
+<tr>
+<td>Normalization and movement</td>
+<td>Separate the unit direction (0.6, 0.8, 0) from movement distance</td>
+<td>What should happen when the two points coincide? What needs clarification?</td>
+</tr>
+<tr>
+<td>Trigonometry and circular placement</td>
+<td>A proposed capture of the actual project with center, radius, and angle identified</td>
+<td>Predict the position at 0°, 90°, and 180°.</td>
+</tr>
+<tr>
+<td>Dot product and facing</td>
+<td>The same two nonzero directions in aligned, perpendicular, and opposed configurations</td>
+<td>What do positive, zero, and negative tell us?</td>
+</tr>
+<tr>
+<td>Cross product and surface direction</td>
+<td>Revisit the Week 2 normal example with a stated axis convention</td>
+<td>What happens when we swap the inputs?</td>
+</tr>
+<tr>
+<td>Points, directions, and transforms</td>
+<td>The same object before and after translation, with point and direction values beside it</td>
+<td>Which quantity should translation affect? What questions do you have about the coordinate frame?</td>
+</tr>
+<tr>
+<td>Transform order</td>
+<td>Compare scale-then-translate with translate-then-scale on the same point</td>
+<td>Why are the final positions different?</td>
+</tr>
+<tr>
+<td>Project investigation</td>
+<td>Use a known input and a visible output from the confirmed student project</td>
+<td>What did you observe, what is uncertain, and what test would distinguish your explanations?</td>
+</tr>
+</tbody></table></div>
+<p>All project captures above are proposed preparation work. No new screenshots or demo footage have been produced.</p>
+<h3 id="sample-read-aloud-narration">Sample read-aloud narration</h3>
+<p>“We have two positions in the same coordinate frame. Subtract the starting position from the destination. That gives us the displacement: how far to move along each axis. Here the displacement is three units in X and four in Y, so its length is five. If we normalize it, we keep the direction and make its length one. We can then choose a movement distance separately. What do you predict will happen if the two positions are identical? What part of that distinction would you like us to revisit?”</p>
+<h3 id="instructor-facilitation">Instructor facilitation</h3>
+<p>Reserve a short prediction pause before each visible result and a separate opportunity for student questions after normalization and transforms. Adjust the number of worked examples to the actual class duration; protect time for students to inspect and test the project. Keep expected answers and preparation directions out of the spoken notes.</p>
+<h3 id="explore-further-camera-and-projection-spaces">Explore further: Camera and projection spaces</h3>
+<p>Entry question: How does a world-space point reach a screen location? Trace local coordinates through world, view, clip, normalized device, and viewport coordinates. Introduce the inverse camera world transform after students understand changing coordinate frames. Return to the live lesson&#39;s point/direction distinction. This is proposed appendix content, not a current linked appendix in the deck.</p>
+<h2 id="student-project-finalization">Student project finalization</h2>
+<p>First identify the authoritative project and the student task. Use its actual operations to select the live math examples. Do not introduce new grading, submission requirements, or deadlines from the older notes.</p>
+<p>Before sharing, verify:</p>
+<ul>
+<li>A fresh copy opens with the intended software version and required dependencies.</li>
+<li>The intended starting scene and instructions are easy to find.</li>
+<li>Each taught control has a predictable visible effect and a simple known-answer case.</li>
+<li>Zero-length direction, parallel-vector, and angle-unit cases behave deliberately wherever those operations occur.</li>
+<li>Source assets and reimport paths remain usable outside the instructor&#39;s workspace where the exercise requires them.</li>
+<li>The student package contains the intended starter content, with instructor answers separated.</li>
+<li>The packaged copy, rather than only the authoring copy, completes the student workflow.</li>
+</ul>
+<h3 id="existing-museum-tooling-found-in-the-workspace">Existing museum tooling found in the workspace</h3>
+<p><code>TechArtMuseumIntegration/Scripts/ExportStudentProject.py</code> defines a museum export using the gallery and interaction assets as roots. Its destination is a sibling <code>class-resources/TechArtMuseumLab</code> directory, and its header states that rerunning replaces destination Content/Config/Scripts. This brief does not run that export or identify the museum as the intended Week 5 project.</p>
+<p>Other existing scripts include <code>CheckStudentReadiness.py</code>, <code>RepointStudentSourceArt.py</code>, and <code>ValidateMuseumRepairReadiness.py</code>. Their presence does not establish current readiness. Once the project is confirmed, inspect the applicable scripts and current results before choosing a validation or packaging path.</p>
+<h2 id="source-and-status">Source and status</h2>
+<ul>
+<li>Supplied attachment: “Technical Art 2 | Trigonometry &amp; Vectors | 10 January 2022,” followed by vector, matrix, and transformation notes dated through 26 January 2022.</li>
+<li>Current course outline: <code>Course/Wiki/content/week05.md</code>, marked Planned.</li>
+<li>Review conventions: <code>Course/Slides/REVIEW_FORMAT_PREFERENCES.md</code>.</li>
+<li>No existing Week 5 PowerPoint was found by the workspace filename search. No PowerPoint or Unreal project was modified by this preparation.</li>
+</ul>
+</main></body></html>
