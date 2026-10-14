@@ -131,6 +131,71 @@ class BridgeTests(unittest.TestCase):
         self.assertFalse(publisher.poll()['ok'])
         self.assertEqual(publisher.message, 'Unreal error: FBX import failed')
 
+    def test_both_hosts_share_publish_send_ack_and_revision_update(self):
+        for host in ('blender', 'maya'):
+            with self.subTest(host=host):
+                root = self.root / host
+                imported = []
+                def importer(path, exchange):
+                    data, _ = core.load_manifest(path, exchange)
+                    imported.append(data)
+                    return {'asset_path': core.validate_target(data['asset_name'], data['destination_path'])}
+                inbox = transport.Inbox(root, importer)
+                inbox.heartbeat()
+                publisher = Publisher(Adapter(host), root)
+                self.assertTrue(publisher.connected)
+                first = publisher.publish('SM_Comparison')
+                self.assertIsNone(inbox.poll())  # Publish alone never imports.
+                publisher.send()
+                with self.assertRaisesRegex(RuntimeError, 'pending'):
+                    publisher.send()
+                with self.assertRaisesRegex(RuntimeError, 'pending'):
+                    publisher.publish('SM_Comparison')
+                self.assertEqual(publisher.manifest, first)
+                self.assertTrue(inbox.poll()['ok'])
+                self.assertTrue(publisher.poll()['ok'])
+                publisher.publish('SM_Comparison', send=True)
+                self.assertTrue(inbox.poll()['ok'])
+                self.assertTrue(publisher.poll()['ok'])
+                self.assertEqual(len(imported), 2)
+                self.assertEqual(imported[0]['asset_name'], imported[1]['asset_name'])
+                self.assertNotEqual(imported[0]['revision'], imported[1]['revision'])
+
+    def test_failed_new_export_cannot_send_old_revision_in_either_host(self):
+        for host in ('blender', 'maya'):
+            with self.subTest(host=host):
+                adapter = Adapter(host)
+                publisher = Publisher(adapter, self.root / host)
+                original = publisher.publish('SM_Comparison')
+                adapter.fail = True
+                with self.assertRaisesRegex(RuntimeError, 'Exporter'):
+                    publisher.publish('SM_Comparison')
+                self.assertIsNone(publisher.manifest)
+                with self.assertRaisesRegex(ValueError, 'Publish a mesh first'):
+                    publisher.send()
+                self.assertTrue(original.exists())  # Immutable history remains available.
+
+    def test_exchange_change_resets_both_hosts_without_cancelling_sent_work(self):
+        for host in ('blender', 'maya'):
+            with self.subTest(host=host):
+                old, new = self.root / host / 'old', self.root / host / 'new'
+                inbox = transport.Inbox(old, lambda *_: {'asset_path': 'old asset'})
+                inbox.heartbeat()
+                publisher = Publisher(Adapter(host), old)
+                publisher.publish('SM_Comparison', send=True)
+                manifest, identity = publisher.manifest, publisher.request_id
+                publisher.set_exchange(old / '.')
+                self.assertEqual(publisher.manifest, manifest)
+                self.assertEqual(publisher.request_id, identity)
+                publisher.set_exchange(new)
+                self.assertFalse(publisher.connected)
+                self.assertIsNone(publisher.manifest)
+                self.assertIsNone(publisher.request_id)
+                with self.assertRaisesRegex(ValueError, 'Publish a mesh first'):
+                    publisher.send()
+                self.assertTrue(inbox.poll()['ok'])
+                self.assertTrue(transport.response(identity, old)['ok'])
+
 
 if __name__ == '__main__':
     unittest.main()

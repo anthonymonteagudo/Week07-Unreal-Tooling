@@ -4,6 +4,11 @@ Two source applications, one FBX + JSON contract, one Unreal receiver.
 Both publishers have **Publish files**, **Publish & Send**, and **Send published
 revision** actions. Unreal acknowledges the actual imported asset or an error.
 
+Start with the [side-by-side implementation walkthrough](parity.html) for the
+shared execution path, annotated host differences, recovery behavior and a
+matched classroom exercise. Both tools instantiate the same `Publisher` class;
+there are not two copies of the publishing pipeline.
+
 This is a real, same-machine connection through a shared folder. The Unreal
 editor polls explicit requests on its main thread. It is not automatic change
 detection, a live animation stream, or a network service. Publishing a revision
@@ -127,12 +132,34 @@ print(publisher.message)
 | Preparation | Bake world rotation/scale into temporary mesh vertices | Freeze transforms on a temporary duplicate |
 | Pivot | Source object origin becomes FBX origin | Source rotate pivot becomes FBX origin |
 | Units | Convert scene unit scale into centimeter geometry | Require centimeter working units |
+| Axes | Z-up, FBX forward -Y | Maya Y-up dimensions reordered to Z-up; FBX exporter writes Z-up |
 | FBX call | `bpy.ops.export_scene.fbx` | Maya FBX plugin through MEL |
+| UI and polling | Native sidebar/operators and `bpy.app.timers` | PySide6 dialog and `QTimer` |
 | Artist state | Restore selection, active object, unit settings; discard copy | Restore selection, FBX settings, undo recording, modified flag; discard copy |
 
 Neither adapter applies modifiers or deletes history on the original source.
 World placement is deliberately excluded: Unreal Actors own placement. The
 source object's orientation and scale are baked into the published geometry.
+The geometry contract is shared, not the FBX bytes. Host metadata, triangulation
+and smoothing may differ. This is a static-mesh publishing comparison, not a
+promise of identical shading or support for every scene arrangement.
+
+### Shared action and recovery behavior
+
+| Action or condition | Both publishers |
+| --- | --- |
+| Publish FBX + JSON | Inspect, validate, export a new immutable revision, write manifest. No import request. |
+| Publish & Send to Unreal | Publish, then queue that manifest for the active receiver session. |
+| Send Published Revision | Send the last successful local publish without exporting again. |
+| Acknowledgement pending | Block another publish/send until the response arrives; inspect Unreal if stalled. |
+| Failed new export | Clear the sendable selection so Send cannot accidentally submit an older mesh. Old files remain on disk. |
+| Receiver offline after export | Keep the successful revision; start the receiver, then Send Published Revision. |
+| Change exchange folder | Clear local revision/request tracking and require a new publish. This does not cancel a request already queued in the old folder. |
+
+Both UIs call `Publisher.set_exchange()`, `publish()`, `send()` and `poll()`.
+The shared `connected` property reads the same receiver heartbeat. UI-specific
+timers keep polling without blocking the host. Asset name and destination, not
+the source application or revision ID, determine which Unreal asset updates.
 
 ## The inspectable handoff
 
@@ -165,6 +192,10 @@ now use this one receiver, which has no Maya/Blender import branches.
    host calls and the ordinary Python data returned to the shared core.
 3. Change one roof in Blender. Predict what updates in Unreal and what stays put.
 4. Change one roof in Maya. Repeat the same observation using the same receiver.
+   In the supplied Blender scene move the upper four vertices +0.4 on Z
+   (meters); in the supplied Maya scene move them +40 on Y (centimeters).
+   Keep the asset name unchanged. Each pair should measure 220 cm tall at unit
+   Actor scale, with the same Actor transforms and existing material overrides.
 5. Try no selection. Then stop the Unreal receiver and try Publish & Send.
    Explain why a successful export is different from a successful import.
 6. Restart the receiver and choose **Send published revision**. No second export

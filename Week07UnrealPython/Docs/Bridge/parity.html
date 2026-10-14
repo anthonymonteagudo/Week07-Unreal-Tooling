@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maya and Blender: one Unreal publishing pipeline</title>
+<style>
+body{margin:0;background:#faf9fc;color:#201c2a;font:19px/1.6 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:40px 28px 80px}h1{font-size:42px;line-height:1.15}h2{margin-top:52px;color:#6550a2}a{color:#503588}table{border-collapse:collapse;width:100%;margin:24px 0}th,td{padding:16px 12px;border-bottom:1px solid #cec7dd;text-align:left;vertical-align:top}th{background:#eee9f5}pre{padding:22px;background:#211b30;color:#f5f0ff;overflow:auto;font-size:17px;line-height:1.5}code{font-size:.9em}p{max-width:960px}.columns{display:grid;grid-template-columns:1fr 1fr;gap:30px}.flow{padding-left:28px}.flow li{padding:10px}.note{border-left:5px solid #6550a2;padding-left:20px}img{max-width:100%}summary{cursor:pointer;font-weight:bold}@media(max-width:760px){.columns{grid-template-columns:1fr}h1{font-size:32px}table{font-size:15px}td,th{padding:10px 6px}}
+</style><main>
+<p>WEEK 7 · IMPLEMENTATION COMPARISON · 13 OCTOBER 2026</p>
+<h1>Maya and Blender use one Unreal publishing pipeline</h1>
+<p><strong>Change the host adapter, keep the pipeline.</strong> Each application has a small scene/export adapter and its own UI. Both call the same Python classes for publishing, sending and receiving results. Unreal runs one receiver with no host-specific import branch.</p>
+<p><a href="README.md">Setup and recovery guide</a> · <a href="../../Content/Python/week07_bridge/client.py">Shared Publisher</a> · <a href="../../Tests/test_fbx_bridge.py">Contract and recovery tests</a></p>
+
+<h2>Follow one click across the boundary</h2>
+<ol class="flow">
+<li><strong>Host UI:</strong> “Publish &amp; Send to Unreal” calls <code>Publisher.publish(name, send=True)</code>. Blender uses an operator; Maya uses a Qt button callback.</li>
+<li><strong>Shared core calls the adapter:</strong> <code>inspect_selection()</code> returns ordinary Python data. <code>export_fbx(path)</code> writes the mesh. These are the only two methods the publishing core needs from a host.</li>
+<li><strong>Shared core commits the handoff:</strong> validate the name and mesh, export a new FBX revision, hash it, then write <code>manifest.json</code>. A failed export never commits a manifest.</li>
+<li><strong>Shared transport sends:</strong> write a request naming the manifest and current receiver session into the exchange folder. The FBX contains geometry; the JSON contains identity, expected dimensions and integrity information.</li>
+<li><strong>Unreal receives:</strong> its main-thread tick reads the request, verifies the hash, imports at the stable asset path, preserves material assignments, checks dimensions and saves. Both hosts use this exact importer.</li>
+<li><strong>Result returns:</strong> Unreal writes a response. The host's timer calls <code>Publisher.poll()</code>, which displays the imported asset path or the error. “Sent” is not yet “Imported.”</li>
+</ol>
+<p class="note">This is a real same-machine file bridge. It sends explicit static-mesh revisions. It does not stream edits automatically, send executable code, or synchronize animation.</p>
+
+<h2>The same call, with one adapter substitution</h2>
+<div class="columns"><div><h3>Blender</h3><pre>from week07_bridge.client import Publisher
+from week07_bridge.blender_adapter import BlenderAdapter
+
+publisher = Publisher(BlenderAdapter())
+publisher.publish("SM_Comparison", send=True)</pre></div>
+<div><h3>Maya</h3><pre>from week07_bridge.client import Publisher
+from week07_bridge.maya_adapter import MayaAdapter
+
+publisher = Publisher(MayaAdapter())
+publisher.publish("SM_Comparison", send=True)</pre></div></div>
+<p>Poll later with <code>publisher.poll()</code>; the provided UIs do this once per second. In this code comparison, both hosts target the same asset name deliberately. The classroom scenes default to separate <code>SM_Compare_Blender</code> and <code>SM_Compare_Maya</code> assets so students can compare them simultaneously.</p>
+
+<h2>Host differences students should inspect</h2>
+<table><thead><tr><th>Responsibility</th><th>Blender adapter</th><th>Maya adapter</th></tr></thead><tbody>
+<tr><td>Selection</td><td><code>bpy.context.selected_objects</code><br>One mesh in Object Mode.</td><td><code>cmds.ls(selection=True)</code><br>One mesh transform, no components or child transforms.</td></tr>
+<tr><td>Evaluated geometry</td><td>Dependency graph and <code>new_from_object()</code> include modifiers in a temporary mesh.</td><td><code>cmds.duplicate()</code> then remove construction history on the duplicate.</td></tr>
+<tr><td>Transform preparation</td><td>Bake world rotation and scale into temporary vertex coordinates.</td><td>Move the duplicate by the negative source rotate pivot, then freeze its transforms.</td></tr>
+<tr><td>Pivot and placement</td><td>Object origin becomes export origin.</td><td>Rotate pivot becomes export origin.</td></tr>
+<tr><td>Units and axes</td><td>Scene scale × 100 gives centimeters. Z-up, FBX forward -Y.</td><td>Require centimeters. Reorder Y-up dimensions into Z-up order; export FBX Z-up.</td></tr>
+<tr><td>Exporter</td><td><code>bpy.ops.export_scene.fbx()</code></td><td><code>fbxmaya</code> plugin and MEL <code>FBXExport</code></td></tr>
+<tr><td>Artist state</td><td>Restore selection, active object and scene units; remove temporary object/mesh.</td><td>Restore selection, FBX settings, undo recording and modified flag; remove duplicate.</td></tr>
+<tr><td>UI integration</td><td>Native sidebar, operators, <code>bpy.app.timers</code>.</td><td>PySide6 dialog, callbacks, <code>QTimer</code>.</td></tr>
+</tbody></table>
+<p>World translation is excluded from both exports: Unreal Actors own placement. Both reject skin/armatures, blend shapes/shape keys and mirrored or zero-scale transforms. Maya's centimeter requirement is explicit; Blender normalizes scene units. These are intentional adapter differences, not duplicated publishing policy.</p>
+<p><a href="../../Content/Python/week07_bridge/blender_adapter.py">Read BlenderAdapter</a> beside <a href="../../Content/Python/week07_bridge/maya_adapter.py">MayaAdapter</a>. Compare the same method names first. FBX bytes, topology triangulation and smoothing can differ while the size, pivot and intended shape agree. The current screenshots show a smoothing difference; identical shading is not a parity claim.</p>
+
+<h2>Shared responsibilities have one implementation</h2>
+<table><tr><th>File</th><th>Responsibility</th></tr>
+<tr><td><a href="../../Content/Python/week07_bridge/client.py">client.py</a></td><td>Publish/send/poll, connection status, exchange changes, pending-request guard, stale-revision prevention.</td></tr>
+<tr><td><a href="../../Content/Python/week07_bridge/core.py">core.py</a></td><td>Selection report validation, name and destination policy, revision identity, export ordering, SHA-256 and JSON schema.</td></tr>
+<tr><td><a href="../../Content/Python/week07_bridge/transport.py">transport.py</a></td><td>Heartbeat, explicit session-bound request, response and no replay of processed requests.</td></tr>
+<tr><td><a href="../../Content/Python/week07_bridge/unreal_receiver.py">unreal_receiver.py</a></td><td>One set of import options, ownership checks, update/save and dimensions verification.</td></tr>
+</table>
+<p>The receiver's <code>source_host</code> field is provenance, not an importer selector. <code>destination_path + asset_name</code> identifies the Unreal asset. Every revision changes its revision ID and hash, while the destination remains stable. Both existing Actors update because they reference that asset; the bridge does not replace Actors.</p>
+
+<h2>Matched classroom exercise</h2>
+<table><tr><th>Step</th><th>Blender</th><th>Maya</th><th>Expected result</th></tr>
+<tr><td>Baseline</td><td>Open <code>BridgeCompare.blend</code>.</td><td>Open <code>BridgeCompare.ma</code>.</td><td>Publish each baseline: 120 × 60 × 180 cm.</td></tr>
+<tr><td>Edit the roof</td><td>Move the upper four vertices +0.4 on Z, in the supplied meter scene.</td><td>Move the upper four vertices +40 on Y, in the supplied centimeter scene.</td><td>Base/pivot unchanged; roof is 40 cm higher.</td></tr>
+<tr><td>Republish</td><td>Keep <code>SM_Compare_Blender</code>.</td><td>Keep <code>SM_Compare_Maya</code>.</td><td>Wait for Imported; both instances of that asset are 220 cm tall. Actor placement and scale remain unchanged.</td></tr>
+<tr><td>Recover offline</td><td colspan="2">Stop receiver, Publish &amp; Send, restart receiver, then Send Published Revision.</td><td>Successful FBX/JSON remains sendable. No second export needed.</td></tr>
+<tr><td>Change exchange</td><td colspan="2">Choose a different exchange folder in either UI.</td><td>Connection follows the new folder; publish again. Previously queued work in the old folder is not cancelled.</td></tr>
+</table>
+<p>While a request is pending, a second publish/send is blocked. Check Unreal and its response file before resending. If a new export fails, the last sendable selection is cleared so Send cannot silently submit an older mesh. Immutable revision files remain available for inspection.</p>
+
+<h2>What has been verified</h2>
+<p>Earlier real Blender 5.1.1 / Maya 2027 / Unreal 5.7.4 integration runs checked both baseline/revised exports, vertex positions, dimensions, floor pivot, two-instance updates and material override preservation. The Blender workflow also has actual UI captures. Maya has real background export/integration evidence and offscreen UI rendering, not a complete interactive UI rehearsal.</p>
+<p>This parity revision adds ordinary-Python regression tests for both host identities across publish-only, send, acknowledgement, revision updates, duplicate-send blocking, failed exports and exchange changes. These use test adapters; they do not replace real FBX integration tests. The current run passed 82 project tests and syntax checks for 110 Python files. The changed client/UI wiring has not been reloaded into the running DCC sessions; reopen the publisher in a fresh host session for the revised behavior.</p>
+<p><a href="verification.json">Earlier real integration evidence</a> · <a href="UI-Rehearsal/verification.json">Actual Blender UI result</a></p>
+</main></html>

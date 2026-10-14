@@ -1,0 +1,19 @@
+Both buttons call the same Publisher class. We do not maintain a Blender copy of the naming rules, JSON writer, transport or Unreal importer. We substitute BlenderAdapter for MayaAdapter. Each adapter has just two entry points: inspect_selection and export_fbx.
+
+Blender reads a selected object through bpy and evaluates its modifiers into a disposable mesh. Maya reads a mesh transform through cmds, duplicates it and freezes the duplicate. Neither path applies those changes to the original mesh. Blender converts its scene scale to centimeters and uses the object origin. Maya requires centimeter working units and uses the rotate pivot. The adapter handles axis conversion before the shared receiver sees the asset.
+
+Now follow the click. The shared core validates, exports the FBX, hashes it and commits the JSON manifest. Send queues a request for the running receiver session. Unreal checks that pair, imports into the stable asset path, verifies dimensions and saves. A response travels back to the publisher. Sent means queued. Imported means the receiver reported success.
+
+The two placed props share one Unreal asset. Keep the name and destination stable and a new revision updates both placements without replacing either Actor. Try the matching roof edit in Maya: forty centimeters on Y. In the supplied Blender scene it was point four meters on Z. Both revised assets should be 220 centimeters high.
+
+The status and recovery rules are shared as well. Publish alone never sends. A failed export cannot leave an older revision selected for sending. While an acknowledgement is pending, another send is blocked. Changing the exchange folder clears local tracking; it does not cancel work already queued in the old folder.
+
+One qualification: parity here means the same publishing contract and intended geometry. FBX triangulation and smoothing can differ. The screenshots show different smoothing, so compare shape, dimensions and pivot separately from shading.
+
+Which code stays unchanged when we switch applications? What would you like us to trace together before the live revision?
+
+Facilitation: latest reference is Week_7_Runnable_API_Checkpoints_v8. Use after slide 18 / stable anchor 10, or as a reference during slide 22 / anchor 10D. Keep the 150-minute schedule: allocate 60 seconds within the existing four-minute bridge demo, including 20 seconds for student questions, rather than extending the lesson. Expected answer: Publisher, core, transport and receiver. Trace a requested boundary, then return to the two-instance update. Open Week07UnrealPython/Docs/Bridge/parity.html for the exercise. Existing main lecture deck is unchanged.
+
+Evidence: project-owned week07_bridge/client.py, core.py, transport.py, blender_adapter.py, maya_adapter.py, blender_ui.py, maya_ui.py and unreal_receiver.py. Earlier verification.json records real import/reimport from both hosts and two-instance updates. Blender has actual UI rehearsal captures; Maya has background integration and offscreen UI evidence, not a full interactive UI rehearsal. Current client changes passed ordinary Python regression tests, not a new live engine rehearsal.
+
+Review anchor: BR-PARITY

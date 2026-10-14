@@ -1,4 +1,6 @@
-"""Only Maya-specific scene access and export. Same Publisher as Blender."""
+"""Maya selection and FBX export for the shared Publisher."""
+
+
 class MayaAdapter:
     def _source(self):
         import maya.cmds as cmds
@@ -44,11 +46,13 @@ class MayaAdapter:
             cmds.loadPlugin('fbxmaya', quiet=True)
         mel.eval('FBXPushSettings;')
         try:
+            # Export a copy so the source mesh and its history stay intact.
             cmds.undoInfo(stateWithoutFlush=False)
             temporary = cmds.duplicate(source, returnRootsOnly=True, name='__BridgeExport')[0]
             if cmds.listRelatives(temporary, parent=True):
                 temporary = cmds.parent(temporary, world=True)[0]
             cmds.delete(temporary, constructionHistory=True)
+            # Place the source pivot at the exported mesh origin.
             pivot = cmds.xform(temporary, query=True, worldSpace=True, rotatePivot=True)
             cmds.move(-pivot[0], -pivot[1], -pivot[2], temporary, relative=True, worldSpace=True)
             cmds.makeIdentity(temporary, apply=True, translate=True, rotate=True, scale=True)
@@ -63,6 +67,7 @@ class MayaAdapter:
             filename = str(path).replace('\\', '/').replace('"', '\\"')
             mel.eval('FBXExport -f "' + filename + '" -s;')
         finally:
+            # Remove the copy and restore the artist's session settings.
             if temporary and cmds.objExists(temporary):
                 cmds.delete(temporary)
             cmds.select(selection, replace=True)

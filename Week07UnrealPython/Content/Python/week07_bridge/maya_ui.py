@@ -37,9 +37,9 @@ def show():
             for label, callback in (
                 ('Publish FBX + JSON', lambda: self.publish(False)),
                 ('Publish & Send to Unreal', lambda: self.publish(True)),
-                ('Send published revision', lambda: self.publisher.send()),
-                ('Create comparison prop', lambda: create_maya(False)),
-                ('Create revised prop (+40 cm)', lambda: create_maya(True)),
+                ('Send Published Revision', lambda: self.publisher.send()),
+                ('Create Comparison Prop', lambda: create_maya(False)),
+                ('Create Revised Prop (+40 cm)', lambda: create_maya(True)),
             ):
                 button = QtWidgets.QPushButton(label)
                 button.clicked.connect(lambda checked=False, fn=callback: self.action(fn))
@@ -55,20 +55,20 @@ def show():
 
         def action(self, callback):
             try:
+                self.publisher.set_exchange(self.exchange.text())
                 callback()
             except Exception as error:
                 self.publisher.message = str(error)
             self.message.setText(self.publisher.message)
 
         def publish(self, send):
-            from pathlib import Path
-            self.publisher.exchange = Path(self.exchange.text()).resolve()
+            self.publisher.set_exchange(self.exchange.text())
             self.publisher.publish(self.name.text(), send=send)
 
         def poll(self):
-            from .transport import receiver_status
+            self.publisher.set_exchange(self.exchange.text())
             self.publisher.poll()
-            self.connection.setText('Unreal: ' + ('Connected' if receiver_status(self.publisher.exchange) else 'Offline'))
+            self.connection.setText('Unreal: ' + ('Connected' if self.publisher.connected else 'Offline'))
             self.message.setText(self.publisher.message)
 
         def closeEvent(self, event):

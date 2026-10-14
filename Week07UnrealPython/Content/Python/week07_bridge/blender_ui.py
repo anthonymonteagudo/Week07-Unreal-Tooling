@@ -10,8 +10,9 @@ _client = None
 def client(context):
     global _client
     exchange = bpy.path.abspath(context.scene.w7_bridge_exchange)
-    if _client is None or str(_client.exchange) != str(__import__('pathlib').Path(exchange).resolve()):
+    if _client is None:
         _client = Publisher(BlenderAdapter(), exchange)
+    _client.set_exchange(exchange)
     return _client
 
 
@@ -70,14 +71,13 @@ class W7_PT_bridge(bpy.types.Panel):
     bl_category = 'Week 7'
 
     def draw(self, context):
-        from .transport import receiver_status
         layout = self.layout
         publisher = client(context)
         layout.label(text='One static mesh | source origin | cm')
         layout.prop(context.scene, 'w7_bridge_exchange', text='Exchange')
         layout.prop(context.scene, 'w7_bridge_name', text='Asset name')
         layout.label(text='/Game/Week07/Bridge')
-        layout.label(text='Unreal: ' + ('Connected' if receiver_status(publisher.exchange) else 'Offline'))
+        layout.label(text='Unreal: ' + ('Connected' if publisher.connected else 'Offline'))
         layout.operator('w7bridge.publish')
         layout.operator('w7bridge.publish', text='Publish & Send to Unreal').send_to_unreal = True
         layout.operator('w7bridge.send')

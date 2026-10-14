@@ -1,7 +1,11 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Maya / Blender to Unreal: working comparison bridge</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/Docs/Bridge/README.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/Docs/Bridge/README.md<br>Source modified: 2026-10-13T23:51:28.546Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#maya-blender-to-unreal-working-comparison-bridge">Maya / Blender to Unreal: working comparison bridge</a></li><li><a href="#start-the-classroom-comparison">Start the classroom comparison</a></li><li><a href="#physical-examples">Physical examples</a></li><li><a href="#compare-these-files-in-this-order">Compare these files, in this order</a></li><li><a href="#what-actually-changes-between-hosts">What actually changes between hosts?</a></li><li><a href="#the-inspectable-handoff">The inspectable handoff</a></li><li><a href="#student-comparison-exercise">Student comparison exercise</a></li><li><a href="#boundaries-and-recovery">Boundaries and recovery</a></li><li><a href="#verification-and-development">Verification and development</a></li><li><a href="#inspiration-and-attribution">Inspiration and attribution</a></li></ul></details><h1 id="maya-blender-to-unreal-working-comparison-bridge">Maya / Blender to Unreal: working comparison bridge</h1>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Maya / Blender to Unreal: working comparison bridge</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/Docs/Bridge/README.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/Docs/Bridge/README.md<br>Source modified: 2026-10-14T00:06:26.162Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#maya-blender-to-unreal-working-comparison-bridge">Maya / Blender to Unreal: working comparison bridge</a></li><li><a href="#start-the-classroom-comparison">Start the classroom comparison</a></li><li><a href="#physical-examples">Physical examples</a></li><li><a href="#compare-these-files-in-this-order">Compare these files, in this order</a></li><li><a href="#what-actually-changes-between-hosts">What actually changes between hosts?</a></li><li><a href="#shared-action-and-recovery-behavior">Shared action and recovery behavior</a></li><li><a href="#the-inspectable-handoff">The inspectable handoff</a></li><li><a href="#student-comparison-exercise">Student comparison exercise</a></li><li><a href="#boundaries-and-recovery">Boundaries and recovery</a></li><li><a href="#verification-and-development">Verification and development</a></li><li><a href="#inspiration-and-attribution">Inspiration and attribution</a></li></ul></details><h1 id="maya-blender-to-unreal-working-comparison-bridge">Maya / Blender to Unreal: working comparison bridge</h1>
 <p>Two source applications, one FBX + JSON contract, one Unreal receiver.
 Both publishers have <strong>Publish files</strong>, <strong>Publish &amp; Send</strong>, and <strong>Send published
 revision</strong> actions. Unreal acknowledges the actual imported asset or an error.</p>
+<p>Start with the <a href="../../Week07UnrealPython/Docs/Bridge/parity.html">side-by-side implementation walkthrough</a> for the
+shared execution path, annotated host differences, recovery behavior and a
+matched classroom exercise. Both tools instantiate the same <code>Publisher</code> class;
+there are not two copies of the publishing pipeline.</p>
 <p>This is a real, same-machine connection through a shared folder. The Unreal
 editor polls explicit requests on its main thread. It is not automatic change
 detection, a live animation stream, or a network service. Publishing a revision
@@ -181,9 +185,19 @@ print(publisher.message)
 <td>Require centimeter working units</td>
 </tr>
 <tr>
+<td>Axes</td>
+<td>Z-up, FBX forward -Y</td>
+<td>Maya Y-up dimensions reordered to Z-up; FBX exporter writes Z-up</td>
+</tr>
+<tr>
 <td>FBX call</td>
 <td><code>bpy.ops.export_scene.fbx</code></td>
 <td>Maya FBX plugin through MEL</td>
+</tr>
+<tr>
+<td>UI and polling</td>
+<td>Native sidebar/operators and <code>bpy.app.timers</code></td>
+<td>PySide6 dialog and <code>QTimer</code></td>
 </tr>
 <tr>
 <td>Artist state</td>
@@ -193,7 +207,51 @@ print(publisher.message)
 </tbody></table></div>
 <p>Neither adapter applies modifiers or deletes history on the original source.
 World placement is deliberately excluded: Unreal Actors own placement. The
-source object&#39;s orientation and scale are baked into the published geometry.</p>
+source object&#39;s orientation and scale are baked into the published geometry.
+The geometry contract is shared, not the FBX bytes. Host metadata, triangulation
+and smoothing may differ. This is a static-mesh publishing comparison, not a
+promise of identical shading or support for every scene arrangement.</p>
+<h3 id="shared-action-and-recovery-behavior">Shared action and recovery behavior</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Action or condition</th>
+<th>Both publishers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Publish FBX + JSON</td>
+<td>Inspect, validate, export a new immutable revision, write manifest. No import request.</td>
+</tr>
+<tr>
+<td>Publish &amp; Send to Unreal</td>
+<td>Publish, then queue that manifest for the active receiver session.</td>
+</tr>
+<tr>
+<td>Send Published Revision</td>
+<td>Send the last successful local publish without exporting again.</td>
+</tr>
+<tr>
+<td>Acknowledgement pending</td>
+<td>Block another publish/send until the response arrives; inspect Unreal if stalled.</td>
+</tr>
+<tr>
+<td>Failed new export</td>
+<td>Clear the sendable selection so Send cannot accidentally submit an older mesh. Old files remain on disk.</td>
+</tr>
+<tr>
+<td>Receiver offline after export</td>
+<td>Keep the successful revision; start the receiver, then Send Published Revision.</td>
+</tr>
+<tr>
+<td>Change exchange folder</td>
+<td>Clear local revision/request tracking and require a new publish. This does not cancel a request already queued in the old folder.</td>
+</tr>
+</tbody></table></div>
+<p>Both UIs call <code>Publisher.set_exchange()</code>, <code>publish()</code>, <code>send()</code> and <code>poll()</code>.
+The shared <code>connected</code> property reads the same receiver heartbeat. UI-specific
+timers keep polling without blocking the host. Asset name and destination, not
+the source application or revision ID, determine which Unreal asset updates.</p>
 <h2 id="the-inspectable-handoff">The inspectable handoff</h2>
 <p>Each publish creates an immutable revision folder:</p>
 <pre><code class="language-text">Saved/BridgeExchange/
@@ -218,7 +276,11 @@ now use this one receiver, which has no Maya/Blender import branches.</p>
 <li>Read the two <code>inspect_selection()</code> functions beside one another. Identify the
 host calls and the ordinary Python data returned to the shared core.</li>
 <li>Change one roof in Blender. Predict what updates in Unreal and what stays put.</li>
-<li>Change one roof in Maya. Repeat the same observation using the same receiver.</li>
+<li>Change one roof in Maya. Repeat the same observation using the same receiver.
+In the supplied Blender scene move the upper four vertices +0.4 on Z
+(meters); in the supplied Maya scene move them +40 on Y (centimeters).
+Keep the asset name unchanged. Each pair should measure 220 cm tall at unit
+Actor scale, with the same Actor transforms and existing material overrides.</li>
 <li>Try no selection. Then stop the Unreal receiver and try Publish &amp; Send.
 Explain why a successful export is different from a successful import.</li>
 <li>Restart the receiver and choose <strong>Send published revision</strong>. No second export
