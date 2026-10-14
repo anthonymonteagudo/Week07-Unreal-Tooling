@@ -32,8 +32,8 @@
       "source": "Course/Slides/REVIEW_FORMAT_PREFERENCES.md",
       "reader": "review-format-preferences-74ba076b.html",
       "title": "Review format preferences",
-      "sha256": "1cf87fc068da5ed9fe1b0dc466360df8b0ba4a7b584ccd2749b5cff12a665b33",
-      "modified": "2026-10-13T23:22:46.277Z"
+      "sha256": "21f583cf94f846c859b047fe7be0345b417df98df909118bb0307d80a4e89272",
+      "modified": "2026-10-14T00:02:38.789Z"
     },
     {
       "source": "Course/README.md",
@@ -718,8 +718,8 @@
       "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/README.md",
       "reader": "readme-680db8cd.html",
       "title": "Week 7 Python tooling — draft checkpoints",
-      "sha256": "313dfaf989ad6b9b563e5b2e5dfe3350f28f237e7ceafb0dd63b4e7bab00e70d",
-      "modified": "2026-10-13T04:15:59.031Z"
+      "sha256": "3bf3221fe2db637660f8e58bfc4740a2be041db809495f8afa4d64fd43eeb627",
+      "modified": "2026-10-14T00:00:39.876Z"
     },
     {
       "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/SEQUENCING.md",
@@ -816,8 +816,15 @@
       "source": "Week07UnrealPython/Docs/Bridge/README.md",
       "reader": "readme-78ab53f5.html",
       "title": "Maya / Blender to Unreal: working comparison bridge",
-      "sha256": "7133fcd477707f346427c9a3250486a24ca23595a5f4291aceca6295d85f56f4",
-      "modified": "2026-10-13T23:51:28.546Z"
+      "sha256": "fa03c9fab04e1fa6714d297891479c5cdd0621c65d4b3e36d6b39c146b989e26",
+      "modified": "2026-10-14T00:06:26.162Z"
+    },
+    {
+      "source": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/README.md",
+      "reader": "readme-497dbdb5.html",
+      "title": "Week 7: runnable API checkpoints",
+      "sha256": "14bd19167089edce1ccff4ed8e18f51ec95534ca7b9a312e8010d4a555fceece",
+      "modified": "2026-10-14T00:00:39.875Z"
     }
   ],
   "rewritten_html_files": []

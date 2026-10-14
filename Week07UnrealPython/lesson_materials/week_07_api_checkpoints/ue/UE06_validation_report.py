@@ -1,14 +1,17 @@
-"""UE06: _N is an illustrative project convention, not proof of image content."""
+"""UE06: _Normal is an illustrative project convention, not proof of image content."""
+
 # %% setup
 import unreal
 assets = unreal.EditorUtilityLibrary.get_selected_assets()
-textures = [a for a in assets if isinstance(a, unreal.Texture2D)]
+textures = [asset for asset in assets
+            if isinstance(asset, unreal.Texture2D)]
 expected = unreal.TextureCompressionSettings.TC_NORMALMAP
-checked, mismatches = 0, 0
+checked = 0
+mismatches = 0
 
 # %% focus
 for texture in textures:
-    if not texture.get_name().endswith("_N"):
+    if not texture.get_name().endswith("_Normal"):
         continue
     checked += 1
     actual = texture.get_editor_property("compression_settings")
@@ -19,4 +22,4 @@ for texture in textures:
 # %% check
 print("Checked:", checked, "mismatches:", mismatches)
 if checked == 0:
-    print("No matching _N textures. This is not a passing validation.")
+    print("No matching _Normal textures. This is not a passing validation.")

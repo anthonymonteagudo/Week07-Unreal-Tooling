@@ -1,4 +1,5 @@
 """PY01: ordinary Python example. These dictionaries are teaching data."""
+
 # %% setup
 current = {"target": "Cube_A", "material": "MI_Blue"}
 reviewed = current.copy()

@@ -1,4 +1,5 @@
 """BL01: run in Blender's Text Editor. Read selection without changing it."""
+
 # %% setup
 import bpy
 

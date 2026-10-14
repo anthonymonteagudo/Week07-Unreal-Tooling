@@ -1,4 +1,5 @@
 """UE10: inspect already placed effects; this script creates no effects."""
+
 # %% setup
 import unreal
 editor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
@@ -7,8 +8,8 @@ print("Selected Actors:", len(actors))
 
 # %% focus
 for actor in actors:
-    parts = actor.get_components_by_class(unreal.NiagaraComponent)
-    print(actor.get_actor_label(), "Niagara components:", len(parts))
-    for part in parts:
-        system = part.get_editor_property("asset")
+    components = actor.get_components_by_class(unreal.NiagaraComponent)
+    print(actor.get_actor_label(), "Niagara components:", len(components))
+    for component in components:
+        system = component.get_editor_property("asset")
         print(system.get_path_name() if system else None)

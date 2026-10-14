@@ -1,0 +1,390 @@
+[
+  {
+    "number": 1,
+    "text": "WEEK 7 / 3:30\u20136:00 PM\nReview & specialization\nPython in Unreal\nArtist-facing tools and peer feedback\nWEEK 7\n01"
+  },
+  {
+    "number": 2,
+    "text": "Today\u2019s route\nToday\u2019s sequence\nWEEK 7  /  02\n2\nTime\nSection\n3:30\u20134:02\n01 Unreal checkpoints, 02 Blender, 03 Working tools\n4:02\u20134:37\n04 Contributor demos\n4:37\u20134:52\nBreak\n4:52\u20135:00\n05 Lab 1: tool assessment\n5:00\u20135:20\n06 UI/UX, 07 Task preparation\n5:20\u20136:00\n08 Peer testing, 09 Reflection"
+  },
+  {
+    "number": 3,
+    "text": "01  Python in Unreal\nPython in Unreal\nCheckpoint files: inspect the host, objects and properties\nPredict. Run one step. Inspect. Change one input.\nWEEK 7   /   3"
+  },
+  {
+    "number": 4,
+    "text": "01  Python in Unreal\nPython setup in Unreal\nWEEK 7  /  03\n4\nPython Script Plugin + Editor Scripting Utilities \u00c2\u00b7 Run in the editor. IDE stubs provide autocomplete only.\nHistorical course setup captures \u00b7 verify placement in the teaching engine\nIs the input field running Python or console commands?"
+  },
+  {
+    "number": 5,
+    "text": "01  Python in Unreal\nUE01: Unreal host and project\nWEEK 7  /  04\n5\nimport unreal\n\nunreal.log(\"Hello from Unreal\")\nprint(unreal.SystemLibrary.get_engine_version())\nprint(unreal.Paths.project_dir())\nOne host check before any scene operation.\nUNREAL / UE01 / setup + focus / whole checkpoint / open source guide\nWhich project did Unreal report?"
+  },
+  {
+    "number": 6,
+    "text": "01  Python in Unreal\nOne checkpoint, one run\nWEEK 7  /  04A\n6\nimport week07_lessons\n\n# Optional launcher: runs the readable UE02 file.\nweek07_lessons.run(\"UE02\")\n\n# Inspect the actual API code before running.\nprint(week07_lessons.source(\"UE02\"))\nOr execute the saved .py file. Each checkpoint repeats its setup. Copy buttons in the guide provide a complete runnable file.\nRun in Unreal. The launcher is convenience, not the lesson implementation.\nWhat would you inspect before executing a checkpoint?"
+  },
+  {
+    "number": 7,
+    "text": "01  Python in Unreal\nUE02: Level selection\nWEEK 7  /  07\n7\nimport unreal\neditor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)\n\nactors = editor.get_selected_level_actors()\nprint(\"Selected Actors:\", len(actors))\nfor actor in actors:\n    print(actor.get_actor_label(), actor.get_class().get_name())\nRun, then change the Outliner selection and rerun.\nUNREAL / UE02 / setup + focus / whole checkpoint / open source guide\nWhat should an empty selection print?"
+  },
+  {
+    "number": 8,
+    "text": "01  Python in Unreal\nUE03: Actor, component and mesh\nWEEK 7  /  07C\n8\nfor actor in actors:\n    parts = actor.get_components_by_class(unreal.StaticMeshComponent)\n    print(actor.get_actor_label(), \"mesh components:\", len(parts))\n    for part in parts:\n        mesh = part.get_editor_property(\"static_mesh\")\n        print(part.get_name(), mesh.get_path_name() if mesh else None)\nSetup reads the current Actor selection. This block inspects each component.\nUNREAL / UE03 / focus / after setup / open source guide\nCan one Actor have zero mesh components?"
+  },
+  {
+    "number": 9,
+    "text": "01  Python in Unreal\nShared asset, separate placements\nWEEK 7  /  06A\n9\nThe live material demo changes a component override on Actor A\nWhere would you make a change that affects only Actor A?"
+  },
+  {
+    "number": 10,
+    "text": "01  Python in Unreal\nUE04: Content Browser selection\nWEEK 7  /  UE04\n10\nimport unreal\n\nassets = unreal.EditorUtilityLibrary.get_selected_assets()\nprint(\"Selected assets:\", len(assets))\nfor asset in assets:\n    print(asset.get_name(), asset.get_class().get_name())\n    print(asset.get_path_name())\nThis selection supplies assets, independently of the Outliner.\nUNREAL / UE04 / setup + focus / whole checkpoint / open source guide\nWhich selection supplies textures to the material tool?"
+  },
+  {
+    "number": 11,
+    "text": "01  Python in Unreal\nUE05: Texture editor properties\nWEEK 7  /  09G\n11\nimport unreal\nassets = unreal.EditorUtilityLibrary.get_selected_assets()\ntextures = [a for a in assets if isinstance(a, unreal.Texture2D)]\nprint(\"Textures:\", len(textures), \"skipped:\", len(assets) - len(textures))\n\nfor texture in textures:\n    compression = texture.get_editor_property(\"compression_settings\")\n    srgb = texture.get_editor_property(\"srgb\")\n    print(texture.get_name(), compression, \"sRGB:\", srgb)\nRead compression and sRGB. Non-texture selections are counted and skipped.\nUNREAL / UE05 / setup + focus / whole checkpoint / open source guide\nWould changing a shared texture affect more than one material?"
+  },
+  {
+    "number": 12,
+    "text": "01  Python in Unreal\nUE06: Read-only validation\nWEEK 7  /  09H\n12\nfor texture in textures:\n    if not texture.get_name().endswith(\"_N\"):\n        continue\n    checked += 1\n    actual = texture.get_editor_property(\"compression_settings\")\n    if actual != expected:\n        mismatches += 1\n        print(\"MISMATCH\", texture.get_path_name(), actual, expected)\nSetup defines textures, expected compression and counters. Check prints the final totals.\nUNREAL / UE06 / focus / after setup / open source guide\nWhy does zero checked not establish a pass?"
+  },
+  {
+    "number": 13,
+    "text": "01  Python in Unreal\nUE07: Disk paths and asset paths\nWEEK 7  /  07A\n13\nimport unreal\nfrom pathlib import Path\n\ndisk_folder = Path(unreal.Paths.project_dir()) / \"Content\"\nobject_path = \"/Engine/BasicShapes/Cube.Cube\"\nmesh = unreal.load_asset(object_path)\nprint(\"Disk folder:\", disk_folder)\nprint(\"Loaded object:\", mesh.get_path_name() if mesh else None)\nprint(\"Content directory exists:\", disk_folder.is_dir())\nThe filesystem path and Unreal object path name different things.\nUNREAL / UE07 / setup + focus / whole checkpoint / open source guide\nDoes loading a mesh place it in the level?"
+  },
+  {
+    "number": 14,
+    "text": "02  Blender API comparison\nBlender API\ncomparison\nSame Python ideas, different host objects\nSelection, Object and shared mesh data\nWEEK 7   /   14"
+  },
+  {
+    "number": 15,
+    "text": "02  Blender API comparison\nBL01: Blender host and selection\nWEEK 7  /  BL01\n15\nimport bpy\n\nprint(\"Blender:\", bpy.app.version_string)\nprint(\"Mode:\", bpy.context.mode)\nobjects = list(bpy.context.selected_objects)\nprint(\"Selected objects:\", len(objects))\nfor obj in objects:\n    print(obj.name, obj.type)\nBlender supplies bpy.context. Run this file in its Text Editor.\nBLENDER / BL01 / setup + focus / whole checkpoint / open source guide\nWhich part of the selection loop stays familiar?"
+  },
+  {
+    "number": 16,
+    "text": "02  Blender API comparison\nBL02: Object and mesh data\nWEEK 7  /  BL02\n16\nimport bpy\nobjects = list(bpy.context.selected_objects)\nmeshes = [obj for obj in objects if obj.type == \"MESH\"]\nprint(\"Selected mesh objects:\", len(meshes))\n\nfor obj in meshes:\n    print(\"Object:\", obj.name, \"location:\", tuple(obj.location))\n    print(\"Mesh:\", obj.data.name, \"users:\", obj.data.users)\n    print(\"Source polygons:\", len(obj.data.polygons))\nAn Object has a transform. Its mesh datablock may have several users.\nBLENDER / BL02 / setup + focus / whole checkpoint / open source guide\nWhat would editing shared mesh data affect?"
+  },
+  {
+    "number": 17,
+    "text": "03  API calls in working tools\nAPI calls in\nworking tools\nPrepared import, material and VFX demonstrations\nPredict the scope. Watch the result. Check recovery.\nWEEK 7   /   17"
+  },
+  {
+    "number": 18,
+    "text": "03  API calls in working tools\nMaya and Blender publishing\nWEEK 7  /  10\n18\nTwo publishers, one receiver\nFBX geometry + JSON manifest\nRevision updates the same asset\nActual Unreal comparison map. Orange: Maya. Blue: Blender.\nWhich placements should change after one source revision?"
+  },
+  {
+    "number": 19,
+    "text": "03  API calls in working tools\nUE11: Prepare an import task\nWEEK 7  /  10C\n19\noptions = unreal.FbxImportUI()\noptions.set_editor_property(\"import_mesh\", True)\noptions.set_editor_property(\"import_as_skeletal\", False)\noptions.set_editor_property(\"import_materials\", False)\noptions.set_editor_property(\"import_textures\", False)\noptions.set_editor_property(\"automated_import_should_detect_type\", False)\nmesh_type = unreal.FBXImportType.FBXIT_STATIC_MESH\noptions.set_editor_property(\"mesh_type_to_import\", mesh_type)\nUE11 Setup defines paths. These FbxImportUI options describe a static-mesh import.\nUNREAL / UE11 / options / after setup / open source guide\nWhich setting prevents new materials from being imported?"
+  },
+  {
+    "number": 20,
+    "text": "03  API calls in working tools\nUE11: Prepare an import task\nWEEK 7  /  10A\n20\ntask = unreal.AssetImportTask()\ntask.set_editor_property(\"filename\", str(fbx))\ntask.set_editor_property(\"destination_path\", destination)\ntask.set_editor_property(\"destination_name\", asset_name)\ntask.set_editor_property(\"automated\", True)\ntask.set_editor_property(\"replace_existing\", False)\ntask.set_editor_property(\"save\", False)\ntask.set_editor_property(\"options\", options)\ntask.set_editor_property(\"factory\", unreal.FbxFactory())\nRun UE11 Setup and Options first. This block prepares a task without importing.\nUNREAL / UE11 / task / after setup + options / open source guide\nWhich line would permit an overwrite?"
+  },
+  {
+    "number": 21,
+    "text": "03  API calls in working tools\nUE12: Import and inspect\nWEEK 7  /  UE12\n21\nflag = \"Interchange.FeatureFlags.Import.FBX\"\nprevious = unreal.SystemLibrary.get_console_variable_int_value(flag)\ntry:\n    unreal.SystemLibrary.execute_console_command(None, flag + \" 0\")\n    tools = unreal.AssetToolsHelpers.get_asset_tools()\n    tools.import_asset_tasks([task])\nfinally:\n    restore = flag + \" \" + str(previous)\n    unreal.SystemLibrary.execute_console_command(None, restore)\nRun the full UE12 checkpoint. It repeats setup and refuses an existing destination.\nUNREAL / UE12 / focus / after setup + options + task + eligibility / open source guide\nWhy restore the previous importer setting even after failure?"
+  },
+  {
+    "number": 22,
+    "text": "03  API calls in working tools\nBridge demo: publish, revise, verify\nWEEK 7  /  10D\n22\nPublish one baseline mesh from Maya\nRaise the roof and send the same asset name\nInspect both instances, pivot and materials\nBlender uses the same receiver. Prepared revisions provide a fallback.\nWhich result proves reimport preserved asset identity?"
+  },
+  {
+    "number": 23,
+    "text": "03  API calls in working tools\nUE08: One material override\nWEEK 7  /  09I\n23\nif before == material:\n    print(\"Already assigned. No change and no new Undo entry.\")\nelse:\n    with unreal.ScopedEditorTransaction(\"API lesson: material override\"):\n        component.modify()\n        component.set_material(0, material)\nRun UE08 Setup and Eligibility first. The full file checks the resulting slot.\nUNREAL / UE08 / focus / after setup + eligibility / open source guide\nWhat happens if this material is already assigned?"
+  },
+  {
+    "number": 24,
+    "text": "03  API calls in working tools\nMaterial Setup: a reviewed change\nWEEK 7  /  09\n24\nMissing texture blocks Preview\nOne instance, one component assignment\nUndo restores assignment. Asset remains.\nActual Unreal 5.7.4 result from the current tool\nWhat changes? What must stay unchanged?"
+  },
+  {
+    "number": 25,
+    "text": "03  API calls in working tools\nPY01: A preview snapshot\nWEEK 7  /  09F\n25\ncurrent = {\"target\": \"Cube_A\", \"material\": \"MI_Blue\"}\nreviewed = current.copy()\nprint(\"Preview:\", reviewed)\n\ncurrent[\"target\"] = \"Cube_B\"\nif current != reviewed:\n    print(\"BLOCKED: inputs changed. Preview again.\")\nelse:\n    print(\"The inputs still match the preview.\")\nOrdinary Python teaching data. A changed target invalidates the reviewed copy.\nPYTHON / PY01 / setup + focus / whole checkpoint / open source guide\nWhich line makes the preview stale?"
+  },
+  {
+    "number": 26,
+    "text": "03  API calls in working tools\nTwo interfaces, one Python workflow\nWEEK 7  /  08A\n26\nLayer\nCurrent implementation\nArtist interface\nPySide window or native Slate editor panel\nShared Python\nWorkflowSession: Preview, rules, Apply\nEditor backend\nUnreal API calls and result checks\nWhich logic should survive a complete UI redesign?"
+  },
+  {
+    "number": 27,
+    "text": "03  API calls in working tools\nUE10: Niagara component inspection\nWEEK 7  /  09J\n27\nfor actor in actors:\n    parts = actor.get_components_by_class(unreal.NiagaraComponent)\n    print(actor.get_actor_label(), \"Niagara components:\", len(parts))\n    for part in parts:\n        system = part.get_editor_property(\"asset\")\n        print(system.get_path_name() if system else None)\nSetup reads selected Actors. Inspect the effects after the prepared VFX tool places them.\nUNREAL / UE10 / focus / after setup / open source guide\nDoes a system reference tell us its frame cost?"
+  },
+  {
+    "number": 28,
+    "text": "03  API calls in working tools\nVFX Placement: transfer the workflow\nWEEK 7  /  09D\n28\nThree markers, three effects\nRepeated placement is blocked\nUndo removes this batch\nActual Unreal result with the reviewed classroom fountain\nDo these checks establish frame cost? What questions remain?"
+  },
+  {
+    "number": 29,
+    "text": "03  API calls in working tools\nPython and demo questions\nWEEK 7  /  09K\n29\nWhere does the code run?\nWhich object owns the state we change?\nWhat proves success, and how do we recover?\nWhat would you like clarified before the contributor demos?"
+  },
+  {
+    "number": 30,
+    "text": "04  Contributor demos\nContributor demos\nCo-teacher: 15 minutes     TA: 20 minutes\nListen for the task, scope, result and recovery\nWEEK 7   /   30"
+  },
+  {
+    "number": 31,
+    "text": "Break\nBreak\n15 minutes\nReturn at 4:52 PM for Lab 1\nWEEK 7   /   31"
+  },
+  {
+    "number": 32,
+    "text": "05  Lab 1: tool assessment\nLab 1\nTool assessment\n8 minutes in groups\nFirst predict. Then compare the evidence.\nWEEK 7   /   32"
+  },
+  {
+    "number": 33,
+    "text": "05  Lab 1: tool assessment\nLab 1: predict the result\nWEEK 7  /  12\n33\nStarting name\nSelected?\nExpected name\ncrate_A\nYes\n?\ncrate_B\nYes\n?\nSM_crate_C\nYes\n?\nbarrel_D\nNo\n?\nRule: exactly one SM_ prefix on selected assets. Leave all others unchanged."
+  },
+  {
+    "number": 34,
+    "text": "05  Lab 1: tool assessment\nLab 1: evidence and a retest\nWEEK 7  /  12A\n34\nStarting name\nExpected\nReported result\ncrate_A\nSM_crate_A\nSM_crate_A\ncrate_B\nSM_crate_B\nSM_crate_B\nSM_crate_C\nSM_crate_C\nSM_SM_crate_C\nbarrel_D\nbarrel_D\nSM_barrel_D\nThe tool says \u201c4 assets updated.\u201d Did the task succeed?"
+  },
+  {
+    "number": 35,
+    "text": "06  UI/UX for artist tools\nUI/UX for\nartist tools\n16 minutes of concepts and discussion\nRevisit your Lab 1 judgment using the artist\u2019s task\nWEEK 7   /   35"
+  },
+  {
+    "number": 36,
+    "text": "06  UI/UX for artist tools\nInterface and experience\nWEEK 7  /  14\n36\nUI: the controls, labels, and layout\nUX: reaching the intended result in context\nA successful execution can still fail the task\nWhich part of your first assessment would you defend?"
+  },
+  {
+    "number": 37,
+    "text": "06  UI/UX for artist tools\nUser stories\nWEEK 7  /  14B\n37\nAs an environment artist\u2026\nI want to bring a revised prop into Unreal\u2026\nSo I can inspect it without rebuilding its setup.\nWhat would count as success for this artist?"
+  },
+  {
+    "number": 38,
+    "text": "06  UI/UX for artist tools\nTwo layouts for the same task\nWEEK 7  /  14D\n38\nIllustrative sketches \u00b7 neither layout is a tested recommendation\nWhich prediction could a paper test resolve?"
+  },
+  {
+    "number": 39,
+    "text": "06  UI/UX for artist tools\nLayout follows the task\nWEEK 7  /  15\n39\nDetail from the current Material Setup practice interface\nWhich row tells you what will change on the crate?"
+  },
+  {
+    "number": 40,
+    "text": "06  UI/UX for artist tools\nThe artist\u2019s model of the work\nWEEK 7  /  14F\n40\nJeff Stewart \u00b7 Vicarious Visions \u00b7 GDC 2018 \u00b7 PDF p.35\nWould an artist rather edit a duration or two unrelated events?"
+  },
+  {
+    "number": 41,
+    "text": "06  UI/UX for artist tools\nState and feedback\nWEEK 7  /  15A\n41\nDetail from the current Material Setup practice interface\nWhat would you inspect after the completion message?"
+  },
+  {
+    "number": 42,
+    "text": "06  UI/UX for artist tools\nA UI state becomes a Qt decision\nWEEK 7  /  15G\n42\npending = self.session.pending\nready = bool(pending) and (\n    not pending[3].get('warnings')\n    or self.ack.isChecked()\n)\nself.apply_button.setEnabled(ready)\nExisting UI excerpt, not a standalone API checkpoint\nWhy must Apply still recheck the operation?"
+  },
+  {
+    "number": 43,
+    "text": "06  UI/UX for artist tools\nAn error should support recovery\nWEEK 7  /  15D\n43\nActual course PySide tool \u00b7 offline blocked state\nWhat would you change in this message?"
+  },
+  {
+    "number": 44,
+    "text": "06  UI/UX for artist tools\nRecovery and accessibility\nWEEK 7  /  15B\n44\n# Existing PySide view implementation\nself.preview.setAccessibleName(\n    \"Selected Actors change preview\"\n)\nReview consequential changes before applying them\nTest the recovery path you actually offer\nKeep focus, labels, and status understandable\nExisting UI excerpt, not a standalone API checkpoint\nCould a classmate recover without help?"
+  },
+  {
+    "number": 45,
+    "text": "06  UI/UX for artist tools\nFeedback changes the interface\nWEEK 7  /  16C\n45\nEtienne Palmer-Campbell \u00b7 NetherRealm \u00b7 GDC 2025 \u00b7 PDF p.47\nWhich nearby action would make your workflow easier to complete?"
+  },
+  {
+    "number": 46,
+    "text": "06  UI/UX for artist tools\nA test produces the next question\nWEEK 7  /  16E\n46\nCourse testing loop \u00b7 a possible explanation is not yet a finding\nWhat questions remain before you write the peer-test task?"
+  },
+  {
+    "number": 47,
+    "text": "07  Peer-test preparation\nPeer-test\npreparation\n4 minutes to prepare one task\nGoal, inputs, visible success and reset\nWEEK 7   /   47"
+  },
+  {
+    "number": 48,
+    "text": "07  Peer-test preparation\nYour peer-test task\nWEEK 7  /  16A\n48\nA goal, starting inputs and visible success\nProtected scope and a reset method\nOne version, one task, three reviewers\nCould a partner attempt this goal without a click-by-click script?"
+  },
+  {
+    "number": 49,
+    "text": "08  Lab 2: peer testing\nLab 2\nPeer testing\n35 minutes including briefing and three rounds\nEach author receives evidence from three classmates\nWEEK 7   /   49"
+  },
+  {
+    "number": 50,
+    "text": "08  Lab 2: peer testing\nLab 2: three peer reviews\nWEEK 7  /  17\n50\nAuthor gives the goal, then observes\nReviewer attempts and records evidence\nGive the completed sheet to the author\nWhat questions do you have before the first attempt?"
+  },
+  {
+    "number": 51,
+    "text": "08  Lab 2: peer testing\nA ten-minute reciprocal round\nWEEK 7  /  18\n51\nTime\nAction\n0:00\u20130:30\nAuthor states goal, inputs, success, and safety\n0:30\u20132:30\nPartner attempts the task\n2:30\u20134:00\nRecord evidence and share\n4:00\u20138:00\nSwap roles and repeat\n8:00\u201310:00\nFinish both records and reset\nRecord the action, expected result, observed result and help needed."
+  },
+  {
+    "number": 52,
+    "text": "08  Lab 2: peer testing\nPartner rotations\nWEEK 7  /  19\n52\nRound / time\nPairs\nFirst authors\n1 / 5:23\u20135:33\nA\u2013B and C\u2013D\nA and C\n2 / 5:34\u20135:44\nA\u2013C and B\u2013D\nA and B\n3 / 5:45\u20135:55\nA\u2013D and B\u2013C\nA and B\nLater letter tests first. Swap roles at minute 4.\nSame task and start state. One sheet per reviewer, given to the author."
+  },
+  {
+    "number": 53,
+    "text": "09  Reflection\nReflection\nand next revision\n5 minutes to compare the evidence\nPreserve a strength. Choose a revision. Specify a retest.\nWEEK 7   /   53"
+  },
+  {
+    "number": 54,
+    "text": "09  Reflection\nOne revision supported by evidence\nWEEK 7  /  20\n54\nPreserve one observed strength\nChoose a consequential issue or uncertainty\nSpecify the input, action and expected result\nWhich evidence changed or strengthened your first judgment?"
+  },
+  {
+    "number": 55,
+    "text": "Explore further\nExplore further\nReference slides and deeper API examples\nThe live class ends before this section\nWEEK 7   /   55"
+  },
+  {
+    "number": 56,
+    "text": "Explore further\nWhat you should be able to explain\nWEEK 7  /  02A\n56\nScope: what will change?\nEvidence: did it work?\nUse: can a peer succeed?\nCourse Unreal fixture \u00b7 scope and verification are separate checks\nWhat would make you trust a tool with your project?"
+  },
+  {
+    "number": 57,
+    "text": "Explore further\nTools are part of game production\nWEEK 7  /  02B\n57\nGuerrilla \u00b7 Sumaili & van der Steen \u00b7 GDC 2017 \u00b7 PDF p.23\nWhich repeated task would you remove from this workflow?"
+  },
+  {
+    "number": 58,
+    "text": "Explore further\nPython across applications\nWEEK 7  /  05\n58\nKeep loops, functions, conditions, and data structures\nReplace Maya commands with Unreal editor APIs\nCarry over explicit inputs, scope, and useful reports\nWhich part of your Maya tool is independent of Maya?"
+  },
+  {
+    "number": 59,
+    "text": "Explore further\nUnreal\u2019s object model\nWEEK 7  /  06\n59\nEntity\nExample\nWhy scope matters\nAsset\nA Static Mesh in the Content Browser\nMay be referenced by many placements\nActor\nOne placed crate in the level\nHas its own label and transform\nComponent\nThe Actor\u2019s Static Mesh Component\nReferences the mesh and can hold overrides\nIf two Actors share a mesh, which edits could affect both?"
+  },
+  {
+    "number": 60,
+    "text": "Explore further\nBlueprints as an editor interface\nWEEK 7  /  08\n60\nLayer\nResponsibility\nEditor Utility Widget\nInputs, scope, actions, and result display\nExecute Python Script\nPass named inputs and outputs\nPython operation\nValidate, perform the operation, report results\nShould the button contain the whole tool\u2014or call one operation?"
+  },
+  {
+    "number": 61,
+    "text": "Explore further\nEarlier prop demo: starting state\nWEEK 7  /  09A\n61\nExisting course capture \u00b7 Unreal 5.7.4 \u00b7 six-prop fixture\nWhich values can this operation change safely?"
+  },
+  {
+    "number": 62,
+    "text": "Explore further\nEarlier prop demo: result inspection\nWEEK 7  /  09B\n62\nExisting course capture \u00b7 same fixture after the controlled operation\nWhat does this image prove\u2014and what still needs checking?"
+  },
+  {
+    "number": 63,
+    "text": "Explore further\nA workflow spans several tools\nWEEK 7  /  14E\n63\nJeff Stewart \u00b7 Vicarious Visions \u00b7 GDC 2018 \u00b7 PDF p.9\nWhat happens immediately before and after your tool?"
+  },
+  {
+    "number": 64,
+    "text": "Explore further\nSketching before implementation\nWEEK 7  /  14C\n64\nSketch two plausible approaches\nInclude a failure state\nTest one uncertainty\nCourse interaction sketches \u00b7 illustrative, not validated\nWhat can a sketch test? What requires a running tool?"
+  },
+  {
+    "number": 65,
+    "text": "Explore further\nMental models and visible scope\nWEEK 7  /  14A\n65\nGroup by the artist\u2019s task\nExpose relevant scope\nMake expected actions findable\nJeff Stewart \u00b7 Vicarious Visions \u00b7 GDC 2018 \u00b7 PDF p.24\nDoes filtering the report also change what Apply affects?"
+  },
+  {
+    "number": 66,
+    "text": "Explore further\nMission Kontrol: repeatable testing\nWEEK 7  /  16B\n66\nEtienne Palmer-Campbell \u00b7 NetherRealm \u00b7 GDC 2025 \u00b7 PDF p.46\nWhat knowledge should a tester need before starting?"
+  },
+  {
+    "number": 67,
+    "text": "Explore further\nEvidence before explanation\nWEEK 7  /  16\n67\nEvidence\nExample\nObservation\nThe tester chose the wrong destination\nPossible explanation\nThe destination label may be unclear\nProposed change\nShow the full target path\nRetest\nCan a new tester choose the intended target without help?\nWhat questions remain before we begin testing?"
+  },
+  {
+    "number": 68,
+    "text": "Explore further\nThe current project is part of the input\nWEEK 7  /  07B\n68\nExisting course Unreal capture \u00b7 project, level and Outliner context\nWhat context would you include in a useful run report?"
+  },
+  {
+    "number": 69,
+    "text": "Explore further\nReimport needs a prediction\nWEEK 7  /  10B\n69\nChange in Maya\nInspect in Unreal\nMove the pivot\nPlacement and transform behavior\nRevise the mesh\nSame intended asset updated\nChange material slots\nAssignments still match their purpose\nHow would you detect an unintended duplicate?"
+  },
+  {
+    "number": 70,
+    "text": "Explore further\nA preview is a temporary agreement\nWEEK 7  /  09C\n70\nCourse state model \u00b7 changed inputs require a new preview\nWhat else could make a preview stale?"
+  },
+  {
+    "number": 71,
+    "text": "Explore further\nEarlier prop demo: change and reset\nWEEK 7  /  09E\n71\nAnimated comparison of existing captures \u00b7 not continuous execution footage\nWhat can this animation show? What remains unverified?"
+  },
+  {
+    "number": 72,
+    "text": "Explore further\nA click connects to an operation\nWEEK 7  /  15C\n72\nExisting course Qt schematic \u00b7 signal, callback and visible result\nWhere would you stop an invalid operation?"
+  },
+  {
+    "number": 73,
+    "text": "Explore further\nWarning and blocked states\nWEEK 7  /  15E\n73\nActual course PySide tool \u00b7 offline warning state\nCan the artist proceed? What evidence supports that choice?"
+  },
+  {
+    "number": 74,
+    "text": "Explore further\nKeyboard and focus\nWEEK 7  /  15F\n74\nsource_field.setFocus()\nQWidget.setTabOrder(source_field, target_field)\nA logical Tab order follows the task\nVisible focus shows the active control\nShortcuts remain discoverable\nExisting UI excerpt, not a standalone API checkpoint\nWhere does keyboard focus go after an error?"
+  },
+  {
+    "number": 75,
+    "text": "Explore further\nTesting continues after release\nWEEK 7  /  16D\n75\nEtienne Palmer-Campbell \u00b7 NetherRealm \u00b7 GDC 2025 \u00b7 PDF p.55\nHow will users report a problem after your first release?"
+  },
+  {
+    "number": 76,
+    "text": "Explore further\nA useful observation record\nWEEK 7  /  16F\n76\nObserved\nStill uncertain\nPaused at the destination field\nWhether the label or the path caused hesitation\nNeeded one hint to continue\nWhether the task wording supplied enough context\nChanged an unselected item\nThe code cause and the affected scope\nWhich statement could another observer verify?"
+  },
+  {
+    "number": 77,
+    "text": "Explore further\nMaterial graphs: further study\nWEEK 7  /  A1\n77\nActual practice-mode interface \u00b7 sample data, no Unreal connection\nWhat should remain editable by the artist?"
+  },
+  {
+    "number": 78,
+    "text": "Explore further\nQt: small implementation examples\nWEEK 7  /  A2\n78\nform = QFormLayout()\nform.addRow(\"Source file\", source_field)\nform.addRow(\"Destination\", target_field)\n\nsource_field.textChanged.connect(update_preview)\nimport_button.clicked.connect(run_import)\nLayouts express relationships\nSignals connect actions and feedback\nExisting UI excerpt, not a standalone API checkpoint\nWhich UX decision does each line support?"
+  },
+  {
+    "number": 79,
+    "text": "Explore further\nOther production references\nWEEK 7  /  A3\n79\nUbisoft Connect: internal release-tool UX\nFortnite Tools: inspect and locate overlaps\nRyan DowlingSoka: batch renaming\nWhich workflow problem transfers to your own tool?"
+  },
+  {
+    "number": 80,
+    "text": "Explore further\nUnreal production architecture\nWEEK 7  /  A7\n80\nEtienne Palmer-Campbell \u00b7 NetherRealm \u00b7 GDC 2025 \u00b7 PDF p.26\nWhich boundary makes independent changes easier?"
+  },
+  {
+    "number": 81,
+    "text": "Explore further\nExisting Unreal widgets as references\nWEEK 7  /  A8\n81\nEtienne Palmer-Campbell \u00b7 NetherRealm \u00b7 GDC 2025 \u00b7 PDF p.34\nWhich familiar editor control could guide your design?"
+  },
+  {
+    "number": 82,
+    "text": "Explore further\nShareable reproduction steps\nWEEK 7  /  A9\n82\nEtienne Palmer-Campbell \u00b7 NetherRealm \u00b7 GDC 2025 \u00b7 PDF p.51\nWhat would you attach to a useful bug report?"
+  },
+  {
+    "number": 83,
+    "text": "Explore further\nProduction feedback is evidence with limits\nWEEK 7  /  A10\n83\nJeff Stewart \u00b7 Vicarious Visions \u00b7 GDC 2018 \u00b7 PDF p.13\nWhat would you need before interpreting this as a causal result?"
+  },
+  {
+    "number": 84,
+    "text": "Explore further\nA production prototype evolves\nWEEK 7  /  A11\n84\nGuerrilla \u00b7 Sumaili & van der Steen \u00b7 GDC 2017 \u00b7 PDF pp.31,33\nWhich uncertainty should your next prototype answer?"
+  },
+  {
+    "number": 85,
+    "text": "Explore further\nA different discipline, a different view\nWEEK 7  /  A12\n85\nGuerrilla \u00b7 Sumaili & van der Steen \u00b7 GDC 2017 \u00b7 PDF p.25\nWhich controls would your target artist never need?"
+  },
+  {
+    "number": 86,
+    "text": "Explore further\nReveal detail where the artist is looking\nWEEK 7  /  A13\n86\nGuerrilla \u00b7 GDC 2017 \u00b7 published world-map clip \u00b7 16 seconds\nPlay companion clip\nWhat detail should be persistent, selected, or shown on hover?"
+  },
+  {
+    "number": 87,
+    "text": "Explore further\nPython and Unreal: further study\nWEEK 7  /  A4\n87\nEpic Python documentation\nOster: Import / Export\nOster: Texture Utility\nOster: Asset Setup\nKarol: Python Automation"
+  },
+  {
+    "number": 88,
+    "text": "Explore further\nUI/UX: further study\nWEEK 7  /  A5\n88\nNN/g: usability testing\nNN/g: task scenarios\nApple: feedback\nGDC: Jodie Azhar\u2019s tool-design slides\nQt for Python tutorials"
+  },
+  {
+    "number": 89,
+    "text": "Explore further\nLater directions\nWEEK 7  /  A6\n89\nBlueprint generators and spline-based artist tools\nPCG, procedural modeling, and larger environments\nMaterial workflows, VFX, and validation pipelines\nWhich direction supports a task you actually need?"
+  },
+  {
+    "number": 90,
+    "text": "Explore further\nUE09: Material parameter readback\nWEEK 7  /  09L\n90\nnames = library.get_texture_parameter_names(instance)\nprint(\"Texture parameters:\", len(names))\nfor name in names:\n    texture = library.get_material_instance_texture_parameter_value(\n        instance, name)\n    print(name, texture.get_path_name() if texture else None)\nSetup validates one selected material instance. Read back its texture parameters.\nUNREAL / UE09 / focus / after setup / open source guide\nWhich returned path would you compare with the expected input?"
+  },
+  {
+    "number": 91,
+    "text": "Explore further\nKarol course connections\nWEEK 7  /  K1\n91\nCourse material\nWeek 7 use\nSelection and help()\nHost, subsystem and object inspection\nProperties and texture compression\nRead-only validation example\nFBX import and remote calls\nTask, options and acknowledgement\nUndo and tool interfaces\nRecovery boundaries and shared rules"
+  },
+  {
+    "number": 92,
+    "text": "Explore further\nBL03: Evaluated geometry\nWEEK 7  /  BL03\n92\ngraph = bpy.context.evaluated_depsgraph_get()\nevaluated = obj.evaluated_get(graph)\nmesh = evaluated.to_mesh()\ntry:\n    print(\"Source polygons:\", len(obj.data.polygons))\n    print(\"Evaluated polygons:\", len(mesh.polygons))\nfinally:\n    evaluated.to_mesh_clear()\nSetup requires one mesh in Object Mode. Always release the temporary evaluated mesh.\nBLENDER / BL03 / focus / after setup / open source guide\nWhy can source and evaluated polygon counts differ?"
+  },
+  {
+    "number": 93,
+    "text": "Explore further\nBL04: One FBX export\nWEEK 7  /  BL04\n93\nresult = bpy.ops.export_scene.fbx(\n    filepath=str(output), use_selection=True,\n    object_types={\"MESH\"}, use_mesh_modifiers=True,\n    bake_anim=False, add_leaf_bones=False,\n    axis_forward=\"-Y\", axis_up=\"Z\")\nSetup checks one mesh and creates a new temporary output folder. Check verifies the FBX exists.\nBLENDER / BL04 / focus / after setup / open source guide\nWhat does file existence leave unverified?"
+  },
+  {
+    "number": 94,
+    "text": "Explore further\nUE11: Prepare an import task\nWEEK 7  /  UE11S\n94\nimport unreal\nfrom pathlib import Path\nroot = Path(unreal.Paths.project_dir())\nfbx = root / \"Samples/Bridge/Handoffs/blender/baseline/SM_Compare_Blender.fbx\"\ndestination = \"/Game/Week07/APILessons\"\nasset_name = \"SM_API_Wedge\"\nif not fbx.is_file():\n    raise RuntimeError(\"Open Week07UnrealPython with Samples included.\")\nThis is the real source file and destination used by UE11 and UE12.\nUNREAL / UE11 / setup / start here / open source guide\nWhich path is on disk and which belongs to Unreal?"
+  },
+  {
+    "number": 95,
+    "text": "Explore further\nUE08: One material override\nWEEK 7  /  UE08S\n95\nimport unreal\neditor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)\nlevel = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)\nworld = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem)\nmap_path = world.get_editor_world().get_path_name().split(\".\")[0]\nteaching_map = \"/Game/Week07/Maps/W07_MaterialVFXLab\"\nif level.is_in_play_in_editor() or map_path != teaching_map:\n    raise RuntimeError(\"Stop PIE and open W07_MaterialVFXLab.\")\nactors = editor.get_selected_level_actors()\nassets = unreal.EditorUtilityLibrary.get_selected_assets()\nMap and PIE checks precede any material edit.\nUNREAL / UE08 / setup / start here / open source guide\nWhy identify the teaching map before changing a component?"
+  },
+  {
+    "number": 96,
+    "text": "Explore further\nUE08: One material override\nWEEK 7  /  UE08E\n96\nif len(actors) != 1 or \"W07_MaterialTarget\" not in map(str, actors[0].tags):\n    raise RuntimeError(\"Select only the tagged W07_Crate_Target Actor.\")\nif len(assets) != 1 or not isinstance(assets[0], unreal.MaterialInterface):\n    raise RuntimeError(\"Select one material in the Content Browser.\")\nparts = actors[0].get_components_by_class(unreal.StaticMeshComponent)\nif len(parts) != 1 or parts[0].get_num_materials() < 1:\n    raise RuntimeError(\"Need one mesh component with slot zero.\")\ncomponent, material = parts[0], assets[0]\nbefore = component.get_material(0)\nThe guarded target and existing material are the inputs to UE08.\nUNREAL / UE08 / eligibility / after setup / open source guide\nWhich check protects the other cube?"
+  },
+  {
+    "number": 97,
+    "text": "Explore further\nUE12: Import and inspect\nWEEK 7  /  UE12C\n97\npaths = list(task.get_editor_property(\"imported_object_paths\"))\nmesh = unreal.load_asset(package)\nexpected_path = package + \".\" + asset_name\nif expected_path not in paths or not isinstance(mesh, unreal.StaticMesh):\n    raise RuntimeError(\"Expected mesh missing. Inspect importer output.\")\nprint(\"Imported:\", paths)\nprint(\"Bounds:\", mesh.get_bounding_box())\nprint(\"Not saved. Inspect size, axes and pivot.\")\nprint(\"Import is not a general Undo transaction.\")\nUE12 verifies the returned asset identity, then prints bounds for inspection.\nUNREAL / UE12 / check / after setup + options + task + eligibility + focus / open source guide\nDoes an imported mesh necessarily have the intended size?"
+  }
+]

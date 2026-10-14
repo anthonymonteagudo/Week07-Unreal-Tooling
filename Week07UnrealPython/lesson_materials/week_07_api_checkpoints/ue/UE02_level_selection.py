@@ -1,4 +1,5 @@
 """UE02: read the level selection; selecting nothing is a valid empty result."""
+
 # %% setup
 import unreal
 editor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)

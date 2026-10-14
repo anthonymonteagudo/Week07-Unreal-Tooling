@@ -1,5 +1,7 @@
 # Week 7 Python tooling — draft checkpoints
 
+For direct Unreal and Blender API topics, use the new [runnable API checkpoints](../week_07_api_checkpoints/README.md). The sequence below remains the ordinary-Python foundations recap.
+
 For the main student-facing Material Setup and VFX Placement activities, use
 [the student quick-start](../../Docs/Students/START_HERE.md). The small prop-based
 checkpoints below are an optional code recap, with stable IDs retained for reference.

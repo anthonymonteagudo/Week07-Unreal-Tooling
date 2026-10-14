@@ -1,4 +1,5 @@
 """BL02: Object owns the transform; mesh data can be shared by several Objects."""
+
 # %% setup
 import bpy
 objects = list(bpy.context.selected_objects)

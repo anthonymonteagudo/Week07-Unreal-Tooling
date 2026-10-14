@@ -1,9 +1,5 @@
-"""BL04: basic FBX export from the prepared bridge scene.
+"""BL04: export one selected mesh to a new temporary folder."""
 
-Exports one selected static mesh to a new temporary folder. Does not modify the
-source geometry or promise the production adapter's transform/pivot guarantees.
-Every run creates a new folder, printed below. Remove only that folder when done.
-"""
 # %% setup
 import bpy
 from pathlib import Path

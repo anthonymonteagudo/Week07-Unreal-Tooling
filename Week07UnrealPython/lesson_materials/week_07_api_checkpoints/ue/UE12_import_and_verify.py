@@ -1,8 +1,5 @@
-"""UE12: independent full checkpoint; repeats UE11's task preparation.
+"""UE12: import one new, unsaved mesh and verify its identity."""
 
-Creates one unsaved StaticMesh in /Game/Week07/APILessons. Refuses an existing
-destination. Uses the prepared FBX and pins the legacy importer while it runs.
-"""
 # %% setup
 import unreal
 from pathlib import Path
@@ -11,7 +8,7 @@ fbx = root / "Samples/Bridge/Handoffs/blender/baseline/SM_Compare_Blender.fbx"
 destination = "/Game/Week07/APILessons"
 asset_name = "SM_API_Wedge"
 if not fbx.is_file():
-    raise RuntimeError("Open the Week07UnrealPython project with Samples included.")
+    raise RuntimeError("Open Week07UnrealPython with Samples included.")
 
 # %% options
 options = unreal.FbxImportUI()
@@ -20,7 +17,8 @@ options.set_editor_property("import_as_skeletal", False)
 options.set_editor_property("import_materials", False)
 options.set_editor_property("import_textures", False)
 options.set_editor_property("automated_import_should_detect_type", False)
-options.set_editor_property("mesh_type_to_import", unreal.FBXImportType.FBXIT_STATIC_MESH)
+mesh_type = unreal.FBXImportType.FBXIT_STATIC_MESH
+options.set_editor_property("mesh_type_to_import", mesh_type)
 
 # %% task
 task = unreal.AssetImportTask()
@@ -49,15 +47,16 @@ try:
     tools = unreal.AssetToolsHelpers.get_asset_tools()
     tools.import_asset_tasks([task])
 finally:
-    unreal.SystemLibrary.execute_console_command(None, flag + " " + str(previous))
+    restore = flag + " " + str(previous)
+    unreal.SystemLibrary.execute_console_command(None, restore)
 
 # %% check
 paths = list(task.get_editor_property("imported_object_paths"))
 mesh = unreal.load_asset(package)
-if package + "." + asset_name not in paths or not isinstance(mesh, unreal.StaticMesh):
-    raise RuntimeError("Expected mesh missing. Inspect importer output and Content Browser.")
+expected_path = package + "." + asset_name
+if expected_path not in paths or not isinstance(mesh, unreal.StaticMesh):
+    raise RuntimeError("Expected mesh missing. Inspect importer output.")
 print("Imported:", paths)
 print("Bounds:", mesh.get_bounding_box())
-print("Not saved. Inspect size, axes and pivot. Import is not a general Undo transaction.")
-
-
+print("Not saved. Inspect size, axes and pivot.")
+print("Import is not a general Undo transaction.")

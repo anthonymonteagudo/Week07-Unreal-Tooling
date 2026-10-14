@@ -1,4 +1,5 @@
 """UE09: inspect one selected material instance after the prepared tool demo."""
+
 # %% setup
 import unreal
 assets = unreal.EditorUtilityLibrary.get_selected_assets()

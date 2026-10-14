@@ -6,7 +6,9 @@ packages use Git LFS. Run `git lfs install` before cloning/pulling.
 
 - Start: Week07UnrealPython/README.md
 - Bridge: Week07UnrealPython/Docs/Bridge/README.md
-- Current deck: Course/Slides/Week07/FinalClass20261013/output/Week_7_Final_Class_v3.pptx
+- Current deck: Course/Slides/Week07/CheckpointDeck20261013/output/Week_7_Runnable_API_Checkpoints_v8.pptx
+- Maya/Blender implementation comparison: Week07UnrealPython/Docs/Bridge/parity.html
+- Companion comparison slide: Course/Slides/Week07/BridgeRehearsal20261013/output/Maya_Blender_Bridge_Parity_v2.pptx
 - Small self-contained bridge: Week07UnrealPython/Deliverables/Week07_Bridge_Student_Pack.zip
 - Actual UI captures, slide draft and Karol review: Course/Slides/Week07/BridgeRehearsal20261013/index.html
 

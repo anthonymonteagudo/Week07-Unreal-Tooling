@@ -102,8 +102,8 @@
       "title": "Read-only validation",
       "file": "ue/UE06_validation_report.py",
       "host": "unreal",
-      "prerequisites": "Select textures. The illustrative normal-map suffix is _N.",
-      "expected": "Every mismatching _N texture and final checked/mismatch counts. Zero checked is explicitly inconclusive.",
+      "prerequisites": "Select textures. The prepared material tool uses the suffix _Normal.",
+      "expected": "Every mismatching _Normal texture and final checked/mismatch counts. Zero checked is explicitly inconclusive.",
       "recovery": "Read only. No repair or saving.",
       "experiment": "Change only the suffix rule for your project. Predict which assets are eligible.",
       "blocks": [

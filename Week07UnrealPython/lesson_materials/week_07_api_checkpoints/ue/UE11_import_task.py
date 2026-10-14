@@ -1,4 +1,5 @@
 """UE11: prepare an import task. This checkpoint does NOT execute an import."""
+
 # %% setup
 import unreal
 from pathlib import Path
@@ -7,7 +8,7 @@ fbx = root / "Samples/Bridge/Handoffs/blender/baseline/SM_Compare_Blender.fbx"
 destination = "/Game/Week07/APILessons"
 asset_name = "SM_API_Wedge"
 if not fbx.is_file():
-    raise RuntimeError("Open the Week07UnrealPython project with Samples included.")
+    raise RuntimeError("Open Week07UnrealPython with Samples included.")
 
 # %% options
 options = unreal.FbxImportUI()
@@ -16,7 +17,8 @@ options.set_editor_property("import_as_skeletal", False)
 options.set_editor_property("import_materials", False)
 options.set_editor_property("import_textures", False)
 options.set_editor_property("automated_import_should_detect_type", False)
-options.set_editor_property("mesh_type_to_import", unreal.FBXImportType.FBXIT_STATIC_MESH)
+mesh_type = unreal.FBXImportType.FBXIT_STATIC_MESH
+options.set_editor_property("mesh_type_to_import", mesh_type)
 
 # %% task
 task = unreal.AssetImportTask()

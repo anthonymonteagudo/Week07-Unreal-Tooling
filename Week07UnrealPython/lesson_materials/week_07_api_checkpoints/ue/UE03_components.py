@@ -1,4 +1,5 @@
 """UE03: repeat the setup, then inspect components without changing the level."""
+
 # %% setup
 import unreal
 editor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
@@ -7,8 +8,8 @@ print("Selected Actors:", len(actors))
 
 # %% focus
 for actor in actors:
-    parts = actor.get_components_by_class(unreal.StaticMeshComponent)
-    print(actor.get_actor_label(), "mesh components:", len(parts))
-    for part in parts:
-        mesh = part.get_editor_property("static_mesh")
-        print(part.get_name(), mesh.get_path_name() if mesh else None)
+    components = actor.get_components_by_class(unreal.StaticMeshComponent)
+    print(actor.get_actor_label(), "mesh components:", len(components))
+    for component in components:
+        mesh = component.get_editor_property("static_mesh")
+        print(component.get_name(), mesh.get_path_name() if mesh else None)

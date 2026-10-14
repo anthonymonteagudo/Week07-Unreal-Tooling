@@ -1,4 +1,5 @@
 """BL03: read evaluated geometry and release the temporary mesh even on failure."""
+
 # %% setup
 import bpy
 objects = list(bpy.context.selected_objects)
