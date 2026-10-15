@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-15",
+  "engine": "5.7.4",
+  "platform": "Windows x64",
+  "slides_modified": false,
+  "downloads": [
+    {
+      "file": "Week07_Classroom.zip",
+      "bytes": 182294,
+      "sha256": "a8cf7158ba42b56403dd47de67708b1a023b07330f778cb2265cba19366d2381",
+      "files": 24
+    },
+    {
+      "file": "Week07_Demo_Windows_UE5.7.4.zip",
+      "bytes": 886071,
+      "sha256": "a32cb15e4bd75a28bd7d0e50988c1862fabbd5ec8bcf1c9532951457e367beba",
+      "files": 149
+    }
+  ]
+}

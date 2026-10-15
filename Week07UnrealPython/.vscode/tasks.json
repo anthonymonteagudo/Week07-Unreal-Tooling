@@ -15,35 +15,6 @@
       "detail": "Primary Material/VFX demo. Fictional practice data; no Unreal connection."
     },
     {
-      "label": "Week 7 Python: run draft checkpoint",
-      "type": "process",
-      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
-      "args": [
-        "Scripts/lessons.py",
-        "run",
-        "${input:checkpoint}"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "problemMatcher": [],
-      "detail": "Optional prop foundations with stable IDs. Main demo order: Docs/DEMO_SEQUENCE.md."
-    },
-    {
-      "label": "Week 7 Python: list draft checkpoints",
-      "type": "process",
-      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
-      "args": [
-        "Scripts/lessons.py",
-        "list"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "problemMatcher": [],
-      "detail": "Optional prop foundations with stable IDs. Main demo order: Docs/DEMO_SEQUENCE.md."
-    },
-    {
       "label": "Week 7 Python: check Python syntax",
       "type": "process",
       "command": "${workspaceFolder}/.venv/Scripts/python.exe",
@@ -81,32 +52,6 @@
       "args": [
         "Scripts/dev.py",
         "doctor"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "ENGINE : Week 7: test in separate Unreal editor",
-      "type": "process",
-      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
-      "args": [
-        "Scripts/dev.py",
-        "editor-test"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "ENGINE : Week 7: refresh Unreal autocomplete",
-      "type": "process",
-      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
-      "args": [
-        "Scripts/dev.py",
-        "stubs"
       ],
       "options": {
         "cwd": "${workspaceFolder}"
@@ -176,21 +121,6 @@
     }
   ],
   "inputs": [
-    {
-      "id": "checkpoint",
-      "type": "pickString",
-      "description": "Optional prop foundation (01–07; 08 is reading only)",
-      "options": [
-        "01",
-        "02",
-        "03",
-        "04",
-        "05",
-        "06",
-        "07"
-      ],
-      "default": "01"
-    },
     {
       "id": "uiStage",
       "type": "pickString",

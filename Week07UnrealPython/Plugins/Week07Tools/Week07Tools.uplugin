@@ -6,6 +6,7 @@
   "Description": "Native Slate presentation for the existing Python Material and VFX workflows.",
   "Category": "Editor",
   "CanContainContent": false,
+  "SupportedTargetPlatforms": ["Win64"],
   "Modules": [{"Name":"Week07Tools","Type":"Editor","LoadingPhase":"Default","PlatformAllowList":["Win64"]}],
   "Plugins": [{"Name":"PythonScriptPlugin","Enabled":true},{"Name":"Niagara","Enabled":true}]
 }

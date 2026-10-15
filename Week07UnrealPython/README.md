@@ -1,77 +1,57 @@
-# Week 7: Python tools in Unreal
+# Week 7 Material and VFX demo
 
-Open `Week07UnrealPython.uproject` in **Unreal 5.7.4**. The prepared Material and
-VFX map is `/Game/Week07/Maps/W07_MaterialVFXLab`.
+**Windows + Unreal 5.7.4.** The two classroom labs can be completed without installing this demo. Use this project when you want to run the tools shown in the slides.
 
-## Try the tools
+## First setup
+
+1. Install Unreal **5.7.4** through Epic Games Launcher. Extract the entire demo ZIP to a writable folder outside the ZIP viewer.
+2. Open PowerShell in this folder and run:
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File .\Setup.ps1
+   ```
+   If Unreal is installed elsewhere, add `-EngineRoot 'D:\Epic Games\UE_5.7'`.
+3. Open `Week07UnrealPython.uproject`. The prepared **W07_MaterialVFXLab** map opens automatically. If you opened another map, find `Content/Week07/Maps/W07_MaterialVFXLab` in the Content Browser and double-click it.
+
+Setup uses Unreal's bundled Python and the included native plugin. No separate Python or Visual Studio installation is needed. Success ends with **Setup complete**. If the module build does not match, use the exact engine version above; instructor rebuild instructions are in the repository's `Instructor` folder.
+
+## Try the two tools
 
 1. Open **Window > Output Log**, choose **Python**, and run:
    ```python
    from week07_tooling.editor import live_demo
    print(live_demo.preflight())
    ```
-   This checks the clean scene and selects the target crate and three textures.
-2. Open **Tools > Material & VFX Tools**. In **Material Setup**, enter an unused
-   `MI_` name and keep slot **0**. Click **Preview**.
-3. Compare **Before** with **After Apply**. Hover an asset name for its full path.
-   Click **Apply: create instance**. The column becomes **Result**.
-4. Check the target crate. The protected crate and shared Cube mesh stay unchanged.
-5. In Output Log > Python, run `live_demo.select_vfx()`. In the tool, choose
-   **VFX Placement**, leave scale at **1**, then **Preview** and **Apply: place 3 effects**.
-   Inspect the three fountains in the scene.
+   Expect **Material & VFX: ready**. The target crate and three textures are selected. Keep Play in Editor stopped.
+2. Open **Tools > Material & VFX Tools**. Choose **Material Setup**, enter a new name such as `MI_Student_01` and keep slot **0**. Click **Preview**.
+3. Inspect **Before** and **After Apply**, then click **Apply: create instance**. The target changes; the protected crate and shared Cube mesh stay unchanged.
+4. Run `live_demo.select_vfx()` in the Python log. In the panel, choose **VFX Placement**, keep scale **1**, then Preview and **Apply: place 3 effects**. Inspect the three fountains.
 
-Preview again to see duplicate protection. If inputs or selection change, make a
-fresh preview. A density warning needs review; it does not bypass a hard limit.
-Placement checks do not measure frame cost. The tools do not save automatically.
+Preview again to see duplicate protection. Changed inputs need a fresh preview. Placement checks do not measure frame cost. The tools do not save automatically.
 
-## Recover and repeat
+## Reset
 
-Check **Edit > Undo** before using it. The expected operation is
-**Week 7: assign prepared material instance** or **Week 7: place reviewed VFX**.
-Undoing the assignment leaves the new material asset; use another unused name.
-Undoing placement removes that batch. Camera piloting can add a separate Undo entry.
-To return to the saved fixture, close and reopen without saving rehearsal changes.
-Do not discard unrelated work.
+Check **Edit > Undo** before using it. The expected operation is **Week 7: assign prepared material instance** or **Week 7: place reviewed VFX**. Undoing assignment leaves the new material asset; use another unused name. Undoing placement removes that batch. Camera piloting may add a separate Undo entry.
 
-## Compare the PySide interface
+For a clean start, close and reopen this demo without saving rehearsal changes. Keep unrelated work in a separate project. If you saved a changed fixture, extract a fresh copy of the demo ZIP to a new folder.
 
-In Unreal's Python console:
+## Optional PySide comparison
+
+Run setup again with `-WithQt` to install the pinned Qt packages (internet required):
+```powershell
+powershell -ExecutionPolicy Bypass -File .\Setup.ps1 -WithQt
+.\.venv\Scripts\python.exe Scripts/assistants.py
+```
+This opens **PRACTICE MODE** with sample data and a reset button. Add `--stage 1` or `--stage 2` to compare the earlier UI stages. Close the practice window when finished.
+
+For the live external Qt window, run inside Unreal:
 ```python
 import week07_tools as w7
 w7.show_assistants()
 ```
-This external Qt window uses the same live workflow. **UNREAL EDITOR** in its
-header identifies live mode. Native Slate remains the menu-based interface above.
+Its header says **UNREAL EDITOR**. Native Slate remains the menu panel above.
 
-For sample data without Unreal, from the project folder:
-```powershell
-./.venv/Scripts/python.exe Scripts/assistants.py
-```
-The header says **PRACTICE MODE**. **Reset practice data** restores both sample
-workflows. Add `--stage 1` or `--stage 2` to compare the earlier UI stages.
+## Examples and optional bridge
 
-## Follow the lesson
+[Numbered examples](lesson_materials/week_07_api_checkpoints/README.md) keep the lesson IDs used by the slides. Run each in its named host. The [bridge quick start](BRIDGE.md) covers the optional Maya/Blender comparison. The earlier prop-based Python recap remains optional; it is not Lab 1.
 
-Use the numbered files in `lesson_materials/week_07_api_checkpoints` when directed
-by the slides. Each file identifies its host: Unreal, Blender or ordinary Python.
-The lab starter is in `lesson_materials/week_07_unreal_python/stage_04_lab_starter`.
-The optional Maya/Blender bridge has one quick start inside
-`Deliverables/Week07_Bridge_Student_Pack.zip`.
-
-## Environment setup
-
-The native menu requires the included **Week07Tools** plugin. If another machine
-asks to rebuild it, use a compatible Unreal C++ toolchain. PySide additionally needs
-Python 3.11 and the pinned packages in `requirements-ui.txt` installed in `.deps/ui`.
-With the prepared project interpreter:
-```powershell
-./.venv/Scripts/python.exe -m pip install --target .deps/ui -r requirements-ui.txt
-```
-Unreal discovers `Content/Python` automatically. `Intermediate/PythonStub/unreal.py`
-is for autocomplete only; never put the stub on the runtime Python path.
-
-## Attribution
-
-This classroom project grew from Prof. Monteagudo's Northwood work following
-Isaac Oster's public Unreal Python course. The current fixtures, tools and tests
-were developed for Week 7.
+This classroom project grew from Prof. Monteagudo's Northwood study following Isaac Oster's public Unreal Python course. The prepared Week 7 download does not include the older Northwood environment.

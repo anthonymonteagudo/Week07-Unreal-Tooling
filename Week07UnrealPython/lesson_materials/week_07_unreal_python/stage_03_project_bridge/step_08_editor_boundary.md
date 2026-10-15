@@ -14,9 +14,11 @@ Trace how a selected Actor becomes ordinary data and where the real engine calls
 begin. An Actor is a level instance; its components can reference shared mesh
 assets. Renaming or moving an Actor does not rename or rewrite the shared asset.
 
-For a future manual rehearsal, the existing root README documents `w7.preview()`,
-explicit `w7.apply(plan)`, validation and Undo. Do not execute these from the VS Code
-terminal. A stub provides autocomplete only; it is not a connection to Unreal.
+This source-reading exercise uses the older prop demo. Its W07_PythonLab map and
+Northwood assets belong to the full archive and are omitted from the small download.
+For a runnable editor exercise, follow the project README's Material/VFX demo.
+Do not execute Unreal calls from the VS Code terminal. A stub provides autocomplete
+only; it is not a connection to Unreal.
 
 Discussion prompts: What becomes stale when selection changes? Why recheck before
 Apply? Why can a rename succeed while validation still reports a missing mesh?

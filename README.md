@@ -1,52 +1,17 @@
-# Week 7 Unreal Tooling and class materials
+# Week 7 Python tools and labs
 
-**Current assessment snapshot: 15 October 2026.**
+## Students
 
-Start with [StudentMaterials](StudentMaterials/README.md): the class section guide, Lab 1 batch-renaming handout and Lab 2 peer-review packet are available as PDFs.
+Download **[Week07_Classroom.zip](Releases/Week07_Classroom.zip)**, extract it and open `START_HERE.md`. It contains the class guide, both lab PDFs and the numbered examples. The labs require no Unreal, Git or Python installation. Print the sheets or annotate them in a PDF reader.
 
-- [Current project quick start](Week07UnrealPython/README.md)
-- [Runnable Unreal and Blender examples](Week07UnrealPython/lesson_materials/week_07_api_checkpoints/README.md)
-- [Current slides: Ordered Lessons v9.1](Course/Slides/Week07/LiveCleanup20261015/output/Week%207%20-%20Ordered%20Lessons%20v9.1.pptx)
-- [Current instructor class pack](Course/Slides/Week07/LiveCleanup20261015/index.html) (open locally after cloning)
+To try the demonstrated tools, also download **[Week07_Demo_Windows_UE5.7.4.zip](Releases/Week07_Demo_Windows_UE5.7.4.zip)**. It uses Windows and Unreal 5.7.4. The native plugin is included; Visual Studio is not required for this prepared download. See its `README.md` for setup.
 
-Use Unreal 5.7.4. Run `git lfs install` before cloning and `git lfs pull` afterward. Local Python environments and PySide dependencies are excluded; follow the project quick start to install them. The missing-mesh starter remains an optional draft, not a finalized or graded assignment.
+On a GitHub ZIP page, use **Download raw file**. This repository is private: sign in with an account that has access. The classroom ZIP can also be supplied directly through the course LMS.
 
-The native and live PySide tools have recorded Unreal rehearsal evidence in the current class pack. The checkpoint guide distinguishes offline checks from real-host verification. This private assessment archive also contains instructor materials and older drafts; `StudentMaterials` is the current handout entry point.
+## Instructor
 
-Full Week07UnrealPython working project and Week 7 teaching WIP, including the
-Maya/Blender FBX + JSON bridge. Binary Unreal assets, source scenes, decks and
-packages use Git LFS. Run `git lfs install` before cloning/pulling.
+Use [Instructor/README.md](Instructor/README.md) to pull a small working checkout on another machine, enable the optional PySide UI or rebuild the native plugin. The student demo uses the same code, fixture assets, tool behavior and lesson IDs as the slides.
 
-- Start: Week07UnrealPython/README.md
-- Archived bridge notes: Course/InstructorArchive/Week07/20261015/Docs/Bridge/README.md
-- Previous checkpoint deck: Course/Slides/Week07/CheckpointDeck20261013/output/Week_7_Runnable_API_Checkpoints_v8.pptx
-- Archived Maya/Blender comparison: Course/InstructorArchive/Week07/20261015/Docs/Bridge/parity.html
-- Companion comparison slide: Course/Slides/Week07/BridgeRehearsal20261013/output/Maya_Blender_Bridge_Parity_v2.pptx
-- Small self-contained bridge: Week07UnrealPython/Deliverables/Week07_Bridge_Student_Pack.zip
-- Actual UI captures, slide draft and Karol review: Course/Slides/Week07/BridgeRehearsal20261013/index.html
+The `Course` folder holds instructor notes, slide sources and historical versions. The full Northwood study environment remains in the archive; it is excluded from both student downloads and the recommended instructor checkout. Slides are unchanged by this packaging update.
 
-This is an instructor WIP archive. Northwood preserves its Isaac Oster course
-provenance and includes third-party assets; this private backup is not a public
-redistribution license. Karol download archives are reference material, not copied
-into this repository. Generated caches, installed dependencies, local editor
-state, lock/backup files and generated intermediate slide renders/decks are omitted.
-Editable `.build` scripts and small supporting JSON are retained. Shared course
-readers, visuals, wiki sources and references are included to support teaching links.
-The Android
-file-server local security token is blanked in this backup.
-
-The active authoring workspace remains in Perforce. This repository is a separate
-Git snapshot at C:/Users/antho/git/Week07-Unreal-Tooling; subsequent Perforce edits
-must be synced and committed explicitly. Run `python sync_from_workspace.py <workspace>`
-to update this snapshot, review `git diff`, then commit/push. It never deletes or
-publishes files. `snapshot-inventory.json` records scope and exclusions.
-No unrelated student folders are copied.
-
-Superseded project guides are preserved under `Course/InstructorArchive/Week07`.
-Review source removals separately because the sync script does not delete them.
-Run `python build_student_materials.py` with ReportLab installed to refresh the
-student PDFs from the current reviewed handout exports and section guide source.
-
-The full project includes native plugin source; build the Week07Tools plugin with
-the matching UE 5.7 development tools if the editor requests missing binaries.
-The small bridge student package has no custom C++ plugin dependency.
+[Student handouts](StudentMaterials/README.md) | [Project quick start](Week07UnrealPython/README.md) | [Download sizes and checksums](Releases/manifest.json)

@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-15",
+  "platform": "Windows x64",
+  "engine": "5.7.4-51494982+++UE5+Release-5.7",
+  "setup": {
+    "fresh_extracted_directory": "PASS",
+    "venv_and_pip_created": "PASS",
+    "optional_pyside_install": "PASS",
+    "native_module_built_from_repository_source": "PASS",
+    "native_engine_build_and_checksums": "PASS"
+  },
+  "offline": {
+    "unit_tests_passed": 88,
+    "stage_3_ui_gates_passed": 18
+  },
+  "isolated_unreal": {
+    "status": "PASS",
+    "checks": {
+      "native_module": true,
+      "project_dependencies_resolve": true,
+      "unreal_checkpoints": true,
+      "material_apply_scope": true,
+      "material_undo": true,
+      "vfx_apply": true,
+      "duplicate_blocked": true,
+      "vfx_undo": true,
+      "clean_baseline": true,
+      "bridge_map_loads": true
+    },
+    "error": null,
+    "engine": "5.7.4-51494982+++UE5+Release-5.7"
+  },
+  "unreal_checkpoints_executed": [
+    "UE01",
+    "UE02",
+    "UE03",
+    "UE04",
+    "UE05",
+    "UE06",
+    "UE07",
+    "UE11",
+    "UE12"
+  ],
+  "pdf_review": {
+    "all_pages_rendered_and_visually_reviewed": true,
+    "lab_1_pages": 1,
+    "peer_review_pages": 3,
+    "guide_pages": 1
+  },
+  "packaging": {
+    "northwood_excluded": true,
+    "legacy_map_excluded": true,
+    "instructor_files_excluded": true,
+    "installed_dependencies_and_caches_excluded": true,
+    "zip_integrity_and_relative_readme_links": "PASS"
+  },
+  "slides_modified": false,
+  "scope": "Fresh extracted setup and a separate disposable editor process on the available PC, not a second physical computer. The optional Maya/Blender host publishing flows were not rerun in this packaging pass. The bridge map and its dependencies were loaded in Unreal. Historical prop-editor tests require the full archive."
+}
