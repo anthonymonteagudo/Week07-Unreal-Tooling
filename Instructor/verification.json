@@ -55,5 +55,23 @@
     "zip_integrity_and_relative_readme_links": "PASS"
   },
   "slides_modified": false,
-  "scope": "Fresh extracted setup and a separate disposable editor process on the available PC, not a second physical computer. The optional Maya/Blender host publishing flows were not rerun in this packaging pass. The bridge map and its dependencies were loaded in Unreal. Historical prop-editor tests require the full archive."
+  "scope": "Fresh extracted setup and a separate disposable editor process on the available PC, not a second physical computer. The optional Maya/Blender host publishing flows were not rerun in this packaging pass. The bridge map and its dependencies were loaded in Unreal. Historical prop-editor tests require the full archive.",
+  "fresh_github_clone": {
+    "source_commit": "0474b87",
+    "shallow_sparse_checkout": "PASS",
+    "selected_lfs_objects_fetched": "PASS",
+    "setup_with_qt": "PASS",
+    "doctor": "PASS",
+    "unit_tests_passed": 88,
+    "stage_3_ui_gates_passed": 18,
+    "northwood_and_course_absent": true,
+    "git_objects_mib": 353.42,
+    "lfs_objects_mib": 25.79,
+    "note": "Omit blob:none partial filtering: LFS otherwise makes many extra requests for archived pointers."
+  },
+  "github": {
+    "owner_read_write_access": "PASS",
+    "downloaded_zip_hashes_and_contents": "PASS",
+    "visibility": "private"
+  }
 }

@@ -9,7 +9,7 @@ Install Git with Git LFS and obtain access to this private repository. In PowerS
 ```powershell
 git lfs install
 $env:GIT_LFS_SKIP_SMUDGE = '1'
-git clone --filter=blob:none --no-checkout --depth 1 https://github.com/anthonymonteagudo/Week07-Unreal-Tooling.git
+git clone --no-checkout --depth 1 https://github.com/anthonymonteagudo/Week07-Unreal-Tooling.git
 cd Week07-Unreal-Tooling
 git sparse-checkout set --no-cone '/*' '!/Course/' '!/Releases/' '!/Week07UnrealPython/Content/Northwood/' '!/Week07UnrealPython/Content/Week07/Maps/W07_PythonLab.umap' '!/Week07UnrealPython/Reference/' '!/Week07UnrealPython/Deliverables/'
 git checkout main
@@ -22,9 +22,13 @@ powershell -ExecutionPolicy Bypass -File .\Setup.ps1 -WithQt
 
 For a nondefault Unreal installation, add `-EngineRoot 'D:\Epic Games\UE_5.7'`. Setup uses Unreal's Python 3.11, creates a local environment with pip, installs the matching native module and optionally downloads PySide. It does not open Unreal. No system Python changes are needed.
 
+If GitHub reports "Repository not found", sign in with the GitHub account that has access to this private repository. The URL above is correct. Avoid adding `--filter=blob:none`: with this archive, Git LFS can then make thousands of extra requests to inspect the omitted asset pointers.
+
 Open `Week07UnrealPython.uproject`, then follow [the demo quick start](../Week07UnrealPython/README.md). To update later, run `git pull --ff-only`, `git lfs pull`, then rerun `Setup.ps1 -WithQt`. Preserve or commit your local edits before pulling.
 
 The sparse checkout omits older course materials. For slides or the full archive, use a separate full clone; do not expand it during classroom setup. The working project opens the prepared Material/VFX map and does not require Northwood assets.
+
+For this snapshot, Git still downloads about 354 MiB of repository objects plus 26 MiB of selected LFS files. Use the demo ZIP (under 1 MB) when you only need to run the demonstration. Unreal and the optional PySide install are separate from these download sizes.
 
 ## Check the setup
 

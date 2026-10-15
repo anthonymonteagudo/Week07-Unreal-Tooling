@@ -73,7 +73,7 @@ def build():
         manifest['downloads'].append({'file':name,'bytes':p.stat().st_size,
             'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'files':len(entries)})
         print(name, p.stat().st_size, 'bytes',len(entries),'files')
-    (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf8')
+    (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf8',newline='\n')
 
 
 if __name__ == '__main__': build()
