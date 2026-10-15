@@ -4,6 +4,7 @@ No asset saves, graph edits, simulation-rate overrides or automatic scene cleari
 Rehearsed on the prepared UE 5.7.4 classroom fixture; other assets require their own checks.
 """
 import json
+import re
 from pathlib import Path
 import unreal
 from week07_tooling.editor import demo
@@ -16,6 +17,42 @@ def guard():
         raise RuntimeError('Open W07_MaterialVFXLab before using Material & VFX Tools.')
     if unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).is_in_play_in_editor():
         raise RuntimeError('Stop Play in Editor first.')
+
+
+def resolve_texture_assets(selected):
+    """Complete one same-folder texture set by exact sibling names; never guess across folders."""
+    assets = sorted(selected, key=lambda a: a.get_path_name())
+    if not assets:
+        return assets, [], ['Select a BaseColor, Normal or ORM texture in Content Browser.']
+    keys, roles = set(), set()
+    for asset in assets:
+        match = re.fullmatch(r'(.+)_(BaseColor|Normal|ORM)', asset.get_name())
+        if not isinstance(asset, unreal.Texture2D) or not match:
+            return assets, [], []  # Existing validation explains unsupported selections.
+        prefix, role = match.groups()
+        folder = asset.get_path_name().rsplit('/', 1)[0]
+        keys.add((folder, prefix))
+        if role in roles:
+            return assets, [], []  # Preserve duplicate-role validation.
+        roles.add(role)
+    if len(keys) != 1:
+        return assets, [], ['Selected textures must belong to one set in the same folder.']
+    folder, prefix = next(iter(keys))
+    resolved, errors = [], []
+    for role in ('BaseColor', 'Normal', 'ORM'):
+        if role in roles:
+            continue
+        path = f'{folder}/{prefix}_{role}'
+        if not unreal.EditorAssetLibrary.does_asset_exist(path):
+            errors.append(f'Missing {role} texture: {path}.')
+            continue
+        asset = unreal.load_asset(path)
+        if not isinstance(asset, unreal.Texture2D):
+            errors.append(f'{path} must be a Texture2D.')
+            continue
+        assets.append(asset)
+        resolved.append(asset.get_path_name())
+    return sorted(assets, key=lambda a: a.get_path_name()), resolved, errors
 
 
 class EditorWorkflowBackend:
@@ -42,19 +79,37 @@ class EditorWorkflowBackend:
             base.update(master_valid=valid,
                         parameters=sorted(str(p) for p in unreal.MaterialEditingLibrary.get_texture_parameter_names(master)) if valid else [],
                         target_exists=unreal.EditorAssetLibrary.does_asset_exist(f"{OUTPUT}/{request['name']}"),
-                        textures=[], targets=[])
-            for asset in sorted(unreal.EditorUtilityLibrary.get_selected_assets(), key=lambda a: a.get_path_name()):
+                        textures=[], targets=[], selection_rows=[], selection_errors=[])
+            selected_assets = unreal.EditorUtilityLibrary.get_selected_assets()
+            assets, resolved, errors = resolve_texture_assets(selected_assets)
+            base['selected_asset_paths'] = sorted(a.get_path_name() for a in selected_assets)
+            base['resolved_texture_paths'] = resolved
+            base['texture_errors'] = errors
+            for asset in assets:
                 texture = isinstance(asset, unreal.Texture2D)
                 base['textures'].append({'path': asset.get_path_name(), 'name': asset.get_name(),
                     'is_texture': texture, 'srgb': bool(asset.get_editor_property('srgb')) if texture else False,
                     'normal_compression': texture and asset.get_editor_property('compression_settings') == unreal.TextureCompressionSettings.TC_NORMALMAP})
             for actor in selected:
                 components = actor.get_components_by_class(unreal.StaticMeshComponent)
-                if len(components) != 1 or request['slot'] >= components[0].get_num_materials():
+                label = actor.get_actor_label()
+                if len(components) != 1:
+                    message = f'{label}: expected one Static Mesh Component; found {len(components)}.'
+                elif request['slot'] >= components[0].get_num_materials():
+                    count = components[0].get_num_materials()
+                    valid_slots = f'0–{count - 1}' if count > 1 else ('0' if count == 1 else 'none')
+                    message = f"{label}: slot {request['slot']} is unavailable. Available slots: {valid_slots}."
+                else:
+                    message = ''
+                if message:
                     base['mixed_selection'] = True
+                    base['selection_errors'].append(message)
+                    base['selection_rows'].append([label, 'Invalid target', message])
                     continue
                 component = components[0]
                 old = component.get_material(request['slot'])
+                base['selection_rows'].append([label, old.get_path_name() if old else 'No material',
+                                               f"Slot {request['slot']} · click Preview to review changes"])
                 base['targets'].append({'path': actor.get_path_name(), 'label': actor.get_actor_label(), 'component': component.get_name(),
                                         'slot': request['slot'], 'material': old.get_path_name() if old else None})
             return base

@@ -1,6 +1,6 @@
 """UE12: import one new, unsaved mesh and verify its identity."""
 
-# %% setup
+# Section: setup
 import unreal
 from pathlib import Path
 root = Path(unreal.Paths.project_dir())
@@ -10,7 +10,7 @@ asset_name = "SM_API_Wedge"
 if not fbx.is_file():
     raise RuntimeError("Open Week07UnrealPython with Samples included.")
 
-# %% options
+# Section: options
 options = unreal.FbxImportUI()
 options.set_editor_property("import_mesh", True)
 options.set_editor_property("import_as_skeletal", False)
@@ -20,7 +20,7 @@ options.set_editor_property("automated_import_should_detect_type", False)
 mesh_type = unreal.FBXImportType.FBXIT_STATIC_MESH
 options.set_editor_property("mesh_type_to_import", mesh_type)
 
-# %% task
+# Section: task
 task = unreal.AssetImportTask()
 task.set_editor_property("filename", str(fbx))
 task.set_editor_property("destination_path", destination)
@@ -31,7 +31,7 @@ task.set_editor_property("save", False)
 task.set_editor_property("options", options)
 task.set_editor_property("factory", unreal.FbxFactory())
 
-# %% eligibility
+# Section: eligibility
 package = destination + "/" + asset_name
 level = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
 if level.is_in_play_in_editor():
@@ -39,7 +39,7 @@ if level.is_in_play_in_editor():
 if unreal.EditorAssetLibrary.does_asset_exist(package):
     raise RuntimeError("Lesson destination already exists. Inspect it; do not overwrite.")
 
-# %% focus
+# Section: focus
 flag = "Interchange.FeatureFlags.Import.FBX"
 previous = unreal.SystemLibrary.get_console_variable_int_value(flag)
 try:
@@ -50,7 +50,7 @@ finally:
     restore = flag + " " + str(previous)
     unreal.SystemLibrary.execute_console_command(None, restore)
 
-# %% check
+# Section: check
 paths = list(task.get_editor_property("imported_object_paths"))
 mesh = unreal.load_asset(package)
 expected_path = package + "." + asset_name

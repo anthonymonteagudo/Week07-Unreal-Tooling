@@ -1,9 +1,9 @@
 """UE04: Content Browser selection is independent of the Outliner selection."""
 
-# %% setup
+# Section: setup
 import unreal
 
-# %% focus
+# Section: focus
 assets = unreal.EditorUtilityLibrary.get_selected_assets()
 print("Selected assets:", len(assets))
 for asset in assets:

@@ -53,13 +53,19 @@ public:
  TSharedPtr<FJsonObject> Send(const FString& Action){
   auto Req=MakeShared<FJsonObject>();Req->SetStringField("action",Action);Req->SetStringField("session",Session);Req->SetStringField("kind",Kind);Req->SetStringField("name",Name);Req->SetNumberField("slot",Slot);Req->SetNumberField("scale",Scale);Req->SetBoolField("ack",Ack);
   FString Json;FJsonSerializer::Serialize(Req,TJsonWriterFactory<>::Create(&Json));
-  FPythonCommandEx Cmd;Cmd.Command=FString::Printf(TEXT("import base64\nfrom week07_tooling.editor import native_panel\nprint('__W07_JSON__'+native_panel.dispatch(base64.b64decode('%s').decode('utf-8')))"),*FBase64::Encode(Json));
+  // Evaluate a base64 response instead of printing protocol traffic to Output Log.
+  FPythonCommandEx Cmd;Cmd.ExecutionMode=EPythonCommandExecutionMode::EvaluateStatement;
+  Cmd.Command=FString::Printf(TEXT("__import__('base64').b64encode(__import__('week07_tooling.editor.native_panel',fromlist=['dispatch']).dispatch(__import__('base64').b64decode('%s').decode('utf-8')).encode('utf-8')).decode('ascii')"),*FBase64::Encode(Json));
   auto Python=IPythonScriptPlugin::Get();
   if(!Python||!Python->ExecPythonCommandEx(Cmd)){CanApply=false;Status="Python unavailable or command failed. See Output Log; reconnect.";return nullptr;}
-  for(const auto& Entry:Cmd.LogOutput){FString Output=Entry.Output;int32 At=Output.Find("__W07_JSON__");if(At==INDEX_NONE)continue;Output=Output.Mid(At+12);TSharedPtr<FJsonObject> Result;if(FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Output),Result))return Result;}
+  // Unreal returns Python repr; base64 contains no quotes or escape characters.
+  FString Encoded=Cmd.CommandResult;
+  if(Encoded.Len()>=2 && (Encoded[0]=='\'' || Encoded[0]=='"'))Encoded=Encoded.Mid(1,Encoded.Len()-2);
+  FString Output;TSharedPtr<FJsonObject> Result;
+  if(FBase64::Decode(Encoded,Output)&&FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Output),Result))return Result;
   CanApply=false;Status="No response received. Reconnect and preview again.";return nullptr;
  }
- void Clear(){Applied=false;CanApply=false;NeedsAck=false;Ack=false;Rows.Empty();Summary="Input editing does not undo applied changes.";Status="Choose inputs, then Preview.";ApplyLabel="Apply";if(List)List->RequestListRefresh();if(!Session.IsEmpty())Send("clear");}
+ void Clear(){const bool HadPreview=CanApply;Applied=false;CanApply=false;NeedsAck=false;Ack=false;Rows.Empty();Summary="Input editing does not undo applied changes.";Status="Choose inputs, then Preview.";ApplyLabel="Apply";if(List)List->RequestListRefresh();if(HadPreview&&!Session.IsEmpty())Send("clear");}
  FReply Action(const FString& Action){
   if(Action=="connect"){if(!Session.IsEmpty())Send("close");Session.Empty();Clear();}
   auto Result=Send(Action);if(!Result)return FReply::Handled();
@@ -76,7 +82,7 @@ public:
    if(Ok){Status="Completed. Check the result in Unreal.";Summary=Kind=="material"?"Undo restores the assignment; the new asset remains.":"Undo removes this batch. Save changes yourself.";}
    else{Rows.Empty();Summary="Resolve the issue, then create a new preview.";}
   }
-  List->RequestListRefresh();return FReply::Handled();
+  List->RequestListRefresh();if(Action=="connect")return this->Action("selection");return FReply::Handled();
  }
  void Construct(const FArguments& Args){
   ChildSlot[SNew(SBorder).Padding(16)[SNew(SVerticalBox)
@@ -89,17 +95,18 @@ public:
    +SVerticalBox::Slot().AutoHeight().Padding(0,0,0,10)[SNew(STextBlock).Text_Lambda([this](){return FText::FromString(Kind=="material"?"Material Setup":"VFX Placement");})]
    +SVerticalBox::Slot().AutoHeight().Padding(0,0,0,10)[SNew(SHorizontalBox).Visibility_Lambda([this](){return Kind=="material"?EVisibility::Visible:EVisibility::Collapsed;})
     +SHorizontalBox::Slot().AutoWidth().VAlign(VAlign_Center).Padding(0,0,10,0)[Label("New instance name")]
-    +SHorizontalBox::Slot().FillWidth(1)[SNew(SEditableTextBox).Text(FText::FromString(Name)).OnTextChanged_Lambda([this](const FText& T){Name=T.ToString();Clear();})]
+    +SHorizontalBox::Slot().FillWidth(1)[SNew(SEditableTextBox).Text(FText::FromString(Name)).OnTextChanged_Lambda([this](const FText& T){if(Name!=T.ToString()){Name=T.ToString();Clear();}})]
     +SHorizontalBox::Slot().AutoWidth().VAlign(VAlign_Center).Padding(12,0,8,0)[Label("Slot")]
-    +SHorizontalBox::Slot().AutoWidth()[SNew(SSpinBox<int32>).MinValue(0).MaxValue(15).Value_Lambda([this](){return Slot;}).OnValueChanged_Lambda([this](int32 V){Slot=V;Clear();})]]
+    +SHorizontalBox::Slot().AutoWidth()[SNew(SSpinBox<int32>).MinValue(0).MaxValue(15).Value_Lambda([this](){return Slot;}).OnValueChanged_Lambda([this](int32 V){if(Slot!=V){Slot=V;Clear();}})]]
    +SVerticalBox::Slot().AutoHeight().Padding(0,0,0,10)[SNew(SHorizontalBox).Visibility_Lambda([this](){return Kind=="vfx"?EVisibility::Visible:EVisibility::Collapsed;})
     +SHorizontalBox::Slot().AutoWidth().VAlign(VAlign_Center).Padding(0,0,10,0)[Label("Effect scale")]
-    +SHorizontalBox::Slot().AutoWidth()[SNew(SSpinBox<float>).MinValue(.25f).MaxValue(1.f).Value_Lambda([this](){return Scale;}).OnValueChanged_Lambda([this](float V){Scale=V;Clear();})]]
+    +SHorizontalBox::Slot().AutoWidth()[SNew(SSpinBox<float>).MinValue(.25f).MaxValue(1.f).Value_Lambda([this](){return Scale;}).OnValueChanged_Lambda([this](float V){if(!FMath::IsNearlyEqual(Scale,V)){Scale=V;Clear();}})]]
    +SVerticalBox::Slot().AutoHeight().Padding(0,0,0,10)[SNew(STextBlock).Text_Lambda([this](){return FText::FromString(Status);}).AutoWrapText(true)]
    +SVerticalBox::Slot().AutoHeight().Padding(0,0,0,10)[SNew(STextBlock).Text_Lambda([this](){return FText::FromString(Summary);}).AutoWrapText(true)]
    +SVerticalBox::Slot().FillHeight(1)[SAssignNew(List,SListView<TSharedPtr<FReviewRow>>).ListItemsSource(&Rows).SelectionMode(ESelectionMode::None).OnGenerateRow_Lambda([](TSharedPtr<FReviewRow> Row,const TSharedRef<STableViewBase>& Owner){return SNew(SReviewRow,Owner).Row(Row);}).HeaderRow(SNew(SHeaderRow)+SHeaderRow::Column("Item").DefaultLabel(FText::FromString("Item")).FillWidth(.3f)+SHeaderRow::Column("Before").DefaultLabel(FText::FromString("Before")).FillWidth(.3f)+SHeaderRow::Column("After").DefaultLabel_Lambda([this](){return FText::FromString(Applied?"Result":"After Apply");}).FillWidth(.4f))]
    +SVerticalBox::Slot().AutoHeight().Padding(0,10)[SNew(SCheckBox).Visibility_Lambda([this](){return NeedsAck?EVisibility::Visible:EVisibility::Collapsed;}).IsChecked_Lambda([this](){return Ack?ECheckBoxState::Checked:ECheckBoxState::Unchecked;}).OnCheckStateChanged_Lambda([this](ECheckBoxState S){Ack=S==ECheckBoxState::Checked;})[Label("I reviewed the density warning")]]
    +SVerticalBox::Slot().AutoHeight()[SNew(SHorizontalBox)
+    +SHorizontalBox::Slot().AutoWidth().Padding(0,0,10,0)[SNew(SButton).Text(FText::FromString("Refresh selection")).OnClicked_Lambda([this](){return Action("selection");})]
     +SHorizontalBox::Slot().AutoWidth().Padding(0,0,10,0)[SNew(SButton).Text(FText::FromString("Preview")).OnClicked_Lambda([this](){return Action("preview");})]
     +SHorizontalBox::Slot().AutoWidth()[SNew(SButton).Text_Lambda([this](){return FText::FromString(ApplyLabel);}).IsEnabled_Lambda([this](){return CanApply&&(!NeedsAck||Ack);}).OnClicked_Lambda([this](){return Action("apply");})]]
    +SVerticalBox::Slot().AutoHeight().Padding(0,10,0,0)[Label("Choose inputs  >  Preview  >  Apply  >  Check")]

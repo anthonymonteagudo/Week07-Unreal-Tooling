@@ -1,10 +1,10 @@
 """UE07: distinguish a host disk path from an Unreal object path."""
 
-# %% setup
+# Section: setup
 import unreal
 from pathlib import Path
 
-# %% focus
+# Section: focus
 disk_folder = Path(unreal.Paths.project_dir()) / "Content"
 object_path = "/Engine/BasicShapes/Cube.Cube"
 mesh = unreal.load_asset(object_path)

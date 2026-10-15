@@ -21,8 +21,10 @@ def material_plan(request, snapshot):
     require(re.fullmatch(r'MI_[A-Za-z0-9_]+', request['name']) is not None,
             'Use an instance name beginning MI_, with letters, digits and underscores.')
     require(not snapshot['target_exists'], 'That material instance already exists. Choose a new name; overwrite is disabled.')
+    require(not snapshot.get('selection_errors'), ' '.join(snapshot.get('selection_errors', [])))
     require(snapshot['targets'] and not snapshot['mixed_selection'],
             'Select mesh Actors with exactly one Static Mesh Component and a valid target slot.')
+    require(not snapshot.get('texture_errors'), ' '.join(snapshot.get('texture_errors', [])))
     textures, prefixes = {}, set()
     for texture in snapshot['textures']:
         require(texture['is_texture'], 'Content Browser selection must contain only the three textures.')
@@ -32,8 +34,9 @@ def material_plan(request, snapshot):
         require(role not in textures, f'More than one {role} texture selected. Resolve the ambiguity.')
         prefixes.add(prefix)
         textures[role] = texture
-    require(set(textures) == set(TEXTURES) and len(prefixes) == 1,
-            'Select one complete texture set with a shared filename prefix.')
+    missing = sorted(set(TEXTURES) - set(textures))
+    require(not missing, 'Missing textures: ' + ', '.join(missing) + '. Select a matching texture set.')
+    require(len(prefixes) == 1, 'Selected textures must share one filename prefix.')
     require(all(parameter in snapshot['parameters'] for parameter in TEXTURES.values()),
             'The prepared parent is missing a required texture parameter.')
     for role, texture in textures.items():

@@ -73,5 +73,19 @@
     "owner_read_write_access": "PASS",
     "downloaded_zip_hashes_and_contents": "PASS",
     "visibility": "private"
+  },
+  "latest_tool_patch": {
+    "date": "2026-10-15",
+    "unit_tests_passed": 100,
+    "stage_3_ui_gates_passed": 18,
+    "native_compile": "PASS",
+    "lesson_section_extraction": "PASS",
+    "live_editor_retest": "NOT RUN for this patch; earlier isolated_unreal results above describe the prior release.",
+    "changes": [
+      "Preserve native previews on unchanged widget values; quiet response transport",
+      "Show invalid selections and slot diagnostics",
+      "Resolve exact same-folder texture siblings from one selection",
+      "Replace percent cell markers with plain Section comments; add UI-to-code walkthrough"
+    ]
   }
 }

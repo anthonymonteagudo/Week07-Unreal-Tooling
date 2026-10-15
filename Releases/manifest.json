@@ -6,15 +6,15 @@
   "downloads": [
     {
       "file": "Week07_Classroom.zip",
-      "bytes": 182294,
-      "sha256": "a8cf7158ba42b56403dd47de67708b1a023b07330f778cb2265cba19366d2381",
+      "bytes": 182205,
+      "sha256": "65b026bf8449cf3ab34914d2cd4d2a0dae0a8f150a2069fe2a3de8962c522889",
       "files": 24
     },
     {
       "file": "Week07_Demo_Windows_UE5.7.4.zip",
-      "bytes": 886071,
-      "sha256": "a32cb15e4bd75a28bd7d0e50988c1862fabbd5ec8bcf1c9532951457e367beba",
-      "files": 149
+      "bytes": 892794,
+      "sha256": "97f48f187ea3436399995328cebf9f8ec68cd83596541ab4857aa7ff14446a1c",
+      "files": 150
     }
   ]
 }

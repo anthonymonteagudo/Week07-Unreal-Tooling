@@ -30,10 +30,10 @@ def blocks(step_id):
     _, file = resolve(step_id)
     result, current, lines = {}, None, []
     for line in file.read_text(encoding="utf-8").splitlines():
-        if line.startswith("# %% "):
+        if line.startswith("# Section: "):
             if current is not None:
                 result[current] = "\n".join(lines).strip()
-            current, lines = line[5:].strip(), []
+            current, lines = line.removeprefix("# Section: ").strip(), []
             if current in result:
                 raise ValueError("Duplicate block: " + current)
         elif current is not None:

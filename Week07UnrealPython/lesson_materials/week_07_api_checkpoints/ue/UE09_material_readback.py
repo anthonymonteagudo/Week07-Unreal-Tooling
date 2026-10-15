@@ -1,6 +1,6 @@
 """UE09: inspect one selected material instance after the prepared tool demo."""
 
-# %% setup
+# Section: setup
 import unreal
 assets = unreal.EditorUtilityLibrary.get_selected_assets()
 if len(assets) != 1 or not isinstance(assets[0], unreal.MaterialInstanceConstant):
@@ -8,7 +8,7 @@ if len(assets) != 1 or not isinstance(assets[0], unreal.MaterialInstanceConstant
 instance = assets[0]
 library = unreal.MaterialEditingLibrary
 
-# %% focus
+# Section: focus
 names = library.get_texture_parameter_names(instance)
 print("Texture parameters:", len(names))
 for name in names:

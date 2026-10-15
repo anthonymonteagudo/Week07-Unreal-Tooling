@@ -1,9 +1,9 @@
 """BL01: run in Blender's Text Editor. Read selection without changing it."""
 
-# %% setup
+# Section: setup
 import bpy
 
-# %% focus
+# Section: focus
 print("Blender:", bpy.app.version_string)
 print("Mode:", bpy.context.mode)
 objects = list(bpy.context.selected_objects)

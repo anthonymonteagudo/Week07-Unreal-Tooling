@@ -54,6 +54,7 @@ def reload_tools():
                  'week07_tooling.workflows', 'week07_tooling.workflow_presentation', 'week07_tooling.workflow_sample',
                  'week07_tooling.editor.workflow_backend',
                  'week07_tooling.editor.ui_backend', 'week07_tooling.editor.native_bridge',
+                 'week07_tooling.editor.native_panel',
                  'week07_tooling.ui.views',
                  'week07_tooling.ui.window', 'week07_tooling.ui.assistants', 'week07_tooling.ui.host'):
         if name in sys.modules:

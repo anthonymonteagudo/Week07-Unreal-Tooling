@@ -92,3 +92,55 @@ class NativeBridgeTests(unittest.TestCase):
         bridge.close_all()
         self.assertFalse(bridge.dispatch(self.session, 'apply')['session_valid'])
         self.assertFalse(json.loads(bridge.dispatch_workflow(workflow, 'apply'))['ok'])
+
+
+class NativePanelWorkflowTests(unittest.TestCase):
+    def setUp(self):
+        from week07_tooling.workflow_sample import SampleBackend
+        self.backend = SampleBackend()
+        self.identity = bridge.open_workflow_session(self.backend)
+
+    def tearDown(self):
+        bridge.close_all()
+
+    def dispatch(self, action):
+        from week07_tooling.editor.native_panel import dispatch
+        return json.loads(dispatch(json.dumps({'action': action, 'session': self.identity,
+                          'kind': 'material', 'name': 'MI_Regression', 'slot': 0})))
+
+    def test_selection_is_visible_without_approving_mutations(self):
+        result = self.dispatch('selection')
+        self.assertTrue(result['presentation']['rows'])
+        self.assertFalse(result['can_apply'])
+        self.assertFalse(self.dispatch('apply')['ok'])
+        self.assertFalse(self.backend.created)
+
+    def test_invalid_slot_keeps_actor_and_reason_then_recovers(self):
+        self.backend.materials.update(targets=[], mixed_selection=True,
+            selection_errors=['Cube: slot 4 is unavailable. Available slots: 0.'],
+            selection_rows=[['Cube', 'Invalid target', 'Available slots: 0.']])
+        result = self.dispatch('preview')
+        self.assertFalse(result['can_apply'])
+        self.assertIn('slot 4', result['message'])
+        self.assertEqual(result['presentation']['rows'][0][0], 'Cube')
+        self.assertFalse(self.dispatch('apply')['ok'])
+        self.backend.reset_practice()
+        self.assertTrue(self.dispatch('preview')['can_apply'])
+        self.assertTrue(self.dispatch('apply')['ok'])
+        self.assertIn('MI_Regression', self.backend.created)
+
+    def test_failed_texture_validation_retains_selection_and_clears_plan(self):
+        self.assertTrue(self.dispatch('preview')['can_apply'])
+        self.backend.materials['textures'].pop()
+        result = self.dispatch('preview')
+        self.assertFalse(result['can_apply'])
+        self.assertTrue(result['presentation']['rows'])
+        self.assertFalse(self.dispatch('apply')['ok'])
+        self.assertFalse(self.backend.created)
+
+    def test_refresh_invalidates_previous_approval(self):
+        self.assertTrue(self.dispatch('preview')['can_apply'])
+        self.assertFalse(self.dispatch('selection')['can_apply'])
+        self.assertFalse(self.dispatch('apply')['ok'])
+        self.assertTrue(self.dispatch('preview')['can_apply'])
+        self.assertTrue(self.dispatch('apply')['ok'])

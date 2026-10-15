@@ -6,7 +6,7 @@ Use the IDs named in the slides. Start with UE01-UE07; use the other examples wh
 - Blender: open the saved file in its Text Editor and Run Script (Alt+P).
 - PY01: ordinary Python; no application modules required.
 
-Each complete file includes its imports. Within a file, run blocks in order. The `# %%` markers are labels, not native Unreal cells. Re-run setup after changing the selection.
+Each complete file includes its imports. Within a file, run blocks in order. The `# Section: ...` markers are labels, not native Unreal cells. Re-run setup after changing the selection.
 
 ## UE01 Unreal host and project
 

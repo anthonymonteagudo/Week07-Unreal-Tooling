@@ -1,6 +1,6 @@
 """UE06: _Normal is an illustrative project convention, not proof of image content."""
 
-# %% setup
+# Section: setup
 import unreal
 assets = unreal.EditorUtilityLibrary.get_selected_assets()
 textures = [asset for asset in assets
@@ -9,7 +9,7 @@ expected = unreal.TextureCompressionSettings.TC_NORMALMAP
 checked = 0
 mismatches = 0
 
-# %% focus
+# Section: focus
 for texture in textures:
     if not texture.get_name().endswith("_Normal"):
         continue
@@ -19,7 +19,7 @@ for texture in textures:
         mismatches += 1
         print("MISMATCH", texture.get_path_name(), actual, expected)
 
-# %% check
+# Section: check
 print("Checked:", checked, "mismatches:", mismatches)
 if checked == 0:
     print("No matching _Normal textures. This is not a passing validation.")

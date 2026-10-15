@@ -1,10 +1,10 @@
 """UE02: read the level selection; selecting nothing is a valid empty result."""
 
-# %% setup
+# Section: setup
 import unreal
 editor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
 
-# %% focus
+# Section: focus
 actors = editor.get_selected_level_actors()
 print("Selected Actors:", len(actors))
 for actor in actors:

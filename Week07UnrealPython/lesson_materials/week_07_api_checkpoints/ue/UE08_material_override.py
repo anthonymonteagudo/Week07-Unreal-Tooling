@@ -1,6 +1,6 @@
 """UE08: assign an existing material to the prepared target, then inspect Undo."""
 
-# %% setup
+# Section: setup
 import unreal
 editor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
 level = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
@@ -12,7 +12,7 @@ if level.is_in_play_in_editor() or map_path != teaching_map:
 actors = editor.get_selected_level_actors()
 assets = unreal.EditorUtilityLibrary.get_selected_assets()
 
-# %% eligibility
+# Section: eligibility
 if len(actors) != 1 or "W07_MaterialTarget" not in map(str, actors[0].tags):
     raise RuntimeError("Select only the tagged W07_Crate_Target Actor.")
 if len(assets) != 1 or not isinstance(assets[0], unreal.MaterialInterface):
@@ -24,7 +24,7 @@ component = components[0]
 material = assets[0]
 before = component.get_material(0)
 
-# %% focus
+# Section: focus
 if before == material:
     print("Already assigned. No change and no new Undo entry.")
 else:
@@ -32,7 +32,7 @@ else:
         component.modify()  # Record the previous state for Undo.
         component.set_material(0, material)
 
-# %% check
+# Section: check
 actual = component.get_material(0)
 print("Before:", before, "after:", actual)
 if actual != material:

@@ -30,7 +30,7 @@ for ident, stage, title, file, setup, expected, recovery, experiment, reference 
     host = "blender" if ident.startswith("BL") else "python" if ident.startswith("PY") else "unreal"
     url = B + reference if host == "blender" else U + reference + "?application_version=5.7" if reference else None
     source = (LESSONS / file).read_text(encoding="utf-8")
-    blocks = [line.removeprefix("# %% ").strip() for line in source.splitlines() if line.startswith("# %% ")]
+    blocks = [line.removeprefix("# Section: ").strip() for line in source.splitlines() if line.startswith("# Section: ")]
     steps.append(dict(id=ident, stage=stage, title=title, file=file, host=host, prerequisites=setup,
                       expected=expected, recovery=recovery, experiment=experiment, blocks=blocks,
                       namespace="Independent full file. Blocks share this file's namespace in displayed order.",

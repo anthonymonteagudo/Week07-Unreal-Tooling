@@ -1,13 +1,13 @@
 """UE05: read properties of selected textures; skip other asset classes."""
 
-# %% setup
+# Section: setup
 import unreal
 assets = unreal.EditorUtilityLibrary.get_selected_assets()
 textures = [asset for asset in assets
             if isinstance(asset, unreal.Texture2D)]
 print("Textures:", len(textures), "skipped:", len(assets) - len(textures))
 
-# %% focus
+# Section: focus
 for texture in textures:
     compression = texture.get_editor_property("compression_settings")
     srgb = texture.get_editor_property("srgb")
