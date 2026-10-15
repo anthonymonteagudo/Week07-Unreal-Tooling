@@ -6,7 +6,7 @@ import shutil
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[2]
-RAW = ROOT / 'Docs/Bridge/UI-Rehearsal'
+RAW = ROOT / 'Saved/Rehearsal/Bridge/UI-Rehearsal'
 OUT = ROOT.parent / 'Course/Slides/Week07/BridgeRehearsal20261013'
 ASSETS = OUT / 'assets'
 ASSETS.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,166 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Karol course completion and Week 7 handoff</title><link rel="stylesheet" href="review.css"></head><body><header><p class="meta">14 OCTOBER 2026 · COMPLETION REVIEW</p><h1>Karol course completion and Week 7 handoff</h1><p>Lessons 46–50 are refined. The current Week 7 deck already incorporates much of the earlier course review; use the new material to explain the existing bridge, improve preparation and add focused optional examples.</p><nav><a href="#notes">Refined notes</a><a href="#state">Current state</a><a href="#proposals">Slide proposals</a><a href="#features">Demo additions</a><a href="#handoff">Implementation handoff</a><a href="#errata">Corrections</a></nav></header><main>
+<section class="panel" id="notes"><h2>Completed notes</h2><p><strong>Five new REFINED notes · 70 screenshots preserved · 48 refined lessons in the collection.</strong> Lesson 46 now contains the completed export/import workflow; it replaces the earlier empty-source placeholder in the course sequence. Originals remain unchanged.</p><ul>
+<li><a href="notes/46.html">Karol 46</a> — Export FBX, expose one Unreal import task, call it from Blender and distinguish execution from verified import. <span class="meta">(7 images)</span></li>
+<li><a href="notes/47.html">Karol 47</a> — Discover the actual class default object path; fix the startup-import case; add a path regression check. <span class="meta">(17 images)</span></li>
+<li><a href="notes/48.html">Karol 48</a> — Choose the interpreter, install requirements into project/plugin folders, use package imports, trace nested failures and break circular dependencies. <span class="meta">(32 images)</span></li>
+<li><a href="notes/49.html">Karol 49</a> — Retrieve the editor-managed subsystem instead of constructing it directly. <span class="meta">(0 images)</span></li>
+<li><a href="notes/50.html">Karol 50</a> — Iterate Unreal arrays, cast typed arrays/maps, wire Blueprint outputs and construct MaterialParameterInfo. <span class="meta">(14 images)</span></li>
+</ul><p>Each reader contains the original and refined note. Code/settings needed to follow the screenshots are retained; reconstructed examples and additional checks are identified. <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Open the updated Obsidian course index</a> · <a href="history/refined-before-completion.zip">Pre-edit refined-note backup</a>.</p></section>
+<section class="panel" id="state"><h2>Current Week 7 baseline</h2><p><strong>Use v13, not the v3 baseline of the previous Karol review.</strong> The current full deck has 115 physical slides. Its review explicitly keeps Python in Unreal first, a brief Blender API/bridge demonstration before colleagues, and detailed material/Maya work as reference material. The 150-minute class structure remains unchanged.</p><p><a href="file:///C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Course/Slides/Week07/UnrealFirst20261013/output/Week_7_Python_in_Unreal_v13.pptx">Current v13 PowerPoint</a> · <a href="file:///C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Course/Slides/Week07/UnrealFirst20261013/index.html">Current deck review</a> · <a href="file:///C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Course/Slides/Week07/UnrealFirst20261013/teach.html">Current teaching route</a></p><div class="table-wrap"><table><tr><th>Earlier recommendation</th><th>Current evidence</th><th>Decision now</th></tr><tr><td>Clarify two selections, editor host and subsystem access</td><td>Slides 4–13 and 17–18 already teach these directly.</td><td>Keep; add only the short import/type explanations where useful.</td></tr><tr><td>Show texture validation and actual editor properties</td><td>Slides 20–23 contain a role table, read-only property code and validation.</td><td>Already integrated. Do not repeat the earlier request as missing content.</td></tr><tr><td>Build/rehearse a Blender bridge</td><td>Slide 29 uses the existing revision workflow; current code has shared Publisher, request/ack transport and an Unreal receiver. The saved UI rehearsal records 180→220 cm for both blue Blender placements.</td><td>Explain and showcase the existing implementation. No second bridge needed.</td></tr><tr><td>Replace obsolete prop code and generic native-interface labels</td><td>Slide 60 is a small preview-state example; slide 61 explicitly names PySide and native Slate.</td><td>The earlier mismatch is resolved. Keep code examples consistent with their stated teaching role.</td></tr><tr><td>Make material workflow central to instructor opening</td><td>v13 places detailed material/VFX work at slides 55–63, outside the current opening, while colleagues cover material/Maya work.</td><td>Honor the current route. Do not reinstate the older 7-minute material block.</td></tr></table></div><p class="note">The existing bridge uses local file-based IPC, not Karol’s HTTP Remote Control endpoint. It already has a heartbeat, session identity, request acknowledgement, no replay of completed requests, and checks on the imported asset. Lesson 47’s object-path fix is relevant to the Remote Control alternative, not a missing requirement in this bridge.</p>
+<p>Other 14 October proposals remain separate and unmerged: <a href="file:///C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Course/Slides/Week07/UIUXIntegrationReview20261014/index.html">UI/UX integration</a>, <a href="file:///C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Course/Slides/Week07/GoldenPathVisualReview20261014/index.html">Golden Path imagery</a>, and <a href="file:///C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Course/Slides/Week07/MotionVisualReview20261014/index.html">motion candidates</a>. Reuse their placement decisions and media rather than producing duplicate proposals. Physical slide numbers below come directly from the PPTX, including the cover.</p></section>
+<div class="controls"><label for="search">Find</label><input id="search" placeholder="bridge, imports, Blueprint…" type="search"><label for="filter">Show</label><select id="filter"><option value="all">All proposals</option><option value="live">Proposed live route</option><option value="optional">Optional study</option><option value="feature">Demo additions</option></select><button id="reset">Reset</button><span id="count" aria-live="polite"></span></div><section id="proposals"><h2>Where the new information belongs</h2><p>Keep existing slide numbers as review anchors. K2, K3 and K4 are proposed new appendix IDs, not current slide numbers. These suggestions preserve the current opening and the colleague, lab and peer-testing blocks.</p>
+<article class="item" data-kind="live" id="slide-10"><p class="meta"><span class="pill">LIVE</span> SLIDE 10 · CALL</p><h3>Keep the subsystem example and explain why it uses an accessor</h3><div class="grid"><div><h4>Current slide</h4><a href="../UnrealFirst20261013/previews/slide-10.png"><img loading="lazy" src="../UnrealFirst20261013/previews/slide-10.png" alt="Current v13 slide 10"></a><details><summary>Exact current text</summary><pre>01  Python in Unreal
+An Unreal function call, explained
+WEEK 7  /  CALL
+10
+
+Expression | Meaning
+unreal.get_editor_subsystem(...) | Ask the running editor for a subsystem.
+unreal.EditorActorSubsystem | Class argument: which subsystem we need.
+editor.get_selected_level_actors() | Call on that instance. No explicit arguments.
+actors = ... | Keep the returned Array[Actor] to inspect.
+A class names a type. The returned editor object performs the operation.</pre></details><details><summary>Current narration</summary><pre>Read this together with the selection example. Unreal is the module. EditorActorSubsystem names the type we request. get_editor_subsystem returns the existing editor-owned instance. We store that instance as editor and call its method. The empty parentheses mean no explicit arguments on this call. Its return is a collection, so len counts it and a for loop inspects each Actor. Karol highlights the distinction between static library calls and calls on subsystem instances.
+
+Source insight (instructor): 
+
+Facilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.
+
+Sources:
+https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7
+C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md
+Visual: Editable slide text/table
+
+Review anchor: CALL</pre></details></div><div><h4>Field-level proposal</h4><p>Keep the title, table, API expressions and visual. Add the deprecation explanation to speaker notes, not a new live slide. Add a short visible check question beneath the existing takeaway.</p><h4>Proposed visible addition</h4><pre>Which expression names the class, and which retrieves the editor-managed instance?</pre><h4>Visual placement</h4><p>Keep the current table and styling. Use the existing expression rows as the visual; no new screenshot is needed.</p></div></div><h4>Read-aloud narration</h4><blockquote>The class tells Unreal which subsystem we want. We ask the editor for its managed instance rather than constructing another one. Older course code may call EditorActorSubsystem directly; keep the access pattern shown here. The returned actor collection is an Unreal Array, and this loop can iterate it directly. What would you like clarified about the class, instance or returned collection?</blockquote><h4>Editorial rationale</h4><p>Lesson 49 is already represented correctly in v13. Lesson 50 explains the Array[Actor] wording without forcing a cast into code that already works.</p><p>Sources: <a href="notes/49.html">Karol 49</a> · <a href="notes/50.html">Karol 50</a></p></article>
+<article class="item" data-kind="live" id="slide-13"><p class="meta"><span class="pill">LIVE</span> SLIDE 13 · RUN</p><h3>Give imports a short recovery pointer</h3><div class="grid"><div><h4>Current slide</h4><a href="../UnrealFirst20261013/previews/slide-13.png"><img loading="lazy" src="../UnrealFirst20261013/previews/slide-13.png" alt="Current v13 slide 13"></a><details><summary>Exact current text</summary><pre>01  Python in Unreal
+A saved example, run inside Unreal
+WEEK 7  /  RUN
+13
+Save the complete UE02 example as Content/Python/selection_demo.py.
+In Unreal, choose Tools &gt; Execute Python Script and select that file.
+Read the Output Log. Change the Outliner selection and execute the file again.
+Each execution reads the selection that exists at that moment.</pre></details><details><summary>Current narration</summary><pre>Use the same small file shown in the deck. It contains its own import and subsystem lookup so no earlier script is needed. A normal VS Code Run Python File command does not run inside Unreal. Re-executing the saved script is also different from importing a cached module again. During tool development, reload a module explicitly when needed.
+
+Source insight (instructor): 
+
+Facilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.
+
+Sources:
+https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7
+C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md
+Visual: Editable slide text/table
+
+Review anchor: RUN</pre></details></div><div><h4>Field-level proposal</h4><p>Keep the saved-file procedure and title. Add a named Explore further link to the dependency/import troubleshooting handout. Put diagnostic detail in preparation notes; do not install packages during the opening.</p><h4>Proposed visible addition</h4><pre>Explore further: fixing imports and locating the active Python environment.</pre><h4>Visual placement</h4><p>Keep current execution instructions. Add only an appendix/handout pointer in the established reference style.</p></div></div><h4>Read-aloud narration</h4><blockquote>We execute this file in Unreal. If an import fails, first read the traceback: is our module missing, or did something it imports fail? The interpreter and package folder matter. The optional troubleshooting note walks through that distinction. What questions do you have about locating or running the script?</blockquote><h4>Editorial rationale</h4><p>Preserves the Unreal-first sequence and prevents a missing dependency from becoming an unplanned package-management lesson.</p><p>Sources: <a href="notes/48.html">Karol 48</a></p></article>
+<article class="item" data-kind="live" id="slide-29"><p class="meta"><span class="pill">LIVE</span> SLIDE 29 · 10D</p><h3>Explain what the bridge acknowledgement proves</h3><div class="grid"><div><h4>Current slide</h4><a href="../UnrealFirst20261013/previews/slide-29.png"><img loading="lazy" src="../UnrealFirst20261013/previews/slide-29.png" alt="Current v13 slide 29"></a><details><summary>Exact current text</summary><pre>02  Brief Blender bridge demo
+Blender bridge: one geometry revision
+WEEK 7  /  10D
+29
+
+Select one mesh. Publish &amp; Send to Unreal.
+Raise the roof 0.4 m. Send the same asset name.
+Verify both blue instances update; placement and materials stay.
+Recorded Blender UI reference. Geometry revision; materials stay in Unreal.
+Reset: publish the baseline mesh again using the same asset name.</pre></details><details><summary>Current narration</summary><pre>This is the short demonstration before the handoff. Start with the prepared Blender mesh, in Object Mode, and the Unreal bridge comparison map. Publish as SM_Compare_Blender and wait for Imported. Use the prepared revised source or raise only the roof vertices by 0.4 metres along Blender Z, return to Object Mode, and publish under the same name. The two blue Unreal instances should update from 180 to 220 centimetres high. Verify their placement and existing materials. Publish the baseline again to restore the shared asset. The Maya objects are comparison fixtures; do not run the Maya publisher in this portion.
+
+Source insight (instructor): 
+
+Facilitation (not narration): Use the unified testing walkthrough. Resolve the recent receiver.json access-denied issue before a live send. A fresh bridge success has not been established in this revision. If blocked, use the recorded UI rehearsal and label it as recorded. Do not add a debugging detour to the handoff.
+
+Sources:
+
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Week07UnrealPython\Docs\Bridge\UI-Rehearsal\verification.json
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Week07UnrealPython\Docs\Bridge\README.md
+Visual: Week07UnrealPython/Docs/Bridge/UI-Rehearsal/01-blender-baseline.png
+Recorded Blender UI reference. Geometry revision; materials stay in Unreal.
+Review anchor: 10D</pre></details></div><div><h4>Field-level proposal</h4><p>Keep the title, selected-mesh scope, 0.4 m revision, same-name instruction and reset method. Add the line below to the bridge narration. If replacing the image, use the existing Golden Path before/after proposal rather than collecting another unrelated example.</p><h4>Proposed visible addition</h4><pre>Exported → sent → acknowledged → inspect the same Unreal asset.
+What proves the revision reached both intended placements?</pre><h4>Visual placement</h4><p>Keep v13’s geometry-revision example. Use matched existing Blender/Unreal frames from the Golden Path review; label them recorded rehearsal. Do not add a separate Remote Control panel to this slide.</p></div></div><h4>Read-aloud narration</h4><blockquote>Publishing writes the mesh files; sending requests the import. We wait for Unreal’s acknowledgement, then inspect the actual asset and both blue placements. Karol combines the same export and import operations through HTTP Remote Control. Our prepared bridge uses file-based requests and acknowledgements. We can reuse the design idea without changing the connection mechanism. What questions do you have about what each stage confirms?</blockquote><h4>Editorial rationale</h4><p>The new course example reinforces an already implemented and recorded workflow. The course’s unconditional True return is weaker than the existing receiver’s asset-path/type checks.</p><p>Sources: <a href="notes/46.html">Karol 46</a></p></article>
+<article class="item" data-kind="optional" id="slide-61"><p class="meta"><span class="pill">OPTIONAL</span> SLIDE 61 · 08A</p><h3>Reuse the current shared-backend architecture</h3><div class="grid"><div><h4>Current slide</h4><a href="../UnrealFirst20261013/previews/slide-61.png"><img loading="lazy" src="../UnrealFirst20261013/previews/slide-61.png" alt="Current v13 slide 61"></a><details><summary>Exact current text</summary><pre>02  Unreal API calls in working tools
+Two interfaces, one Python workflow
+WEEK 7  /  08A
+61
+
+Layer | Current implementation
+Artist interface | PySide window or native Slate editor panel
+Shared Python | WorkflowSession: Preview, rules, Apply
+Editor backend | Unreal API calls and result checks
+Which logic should survive a complete UI redesign?</pre></details><details><summary>Current narration</summary><pre>The current native Unreal panel uses Slate. The other interface uses PySide. Both call the same Python workflow. An Editor Utility Blueprint is another possible entry point, but it is not the implementation of our current panel. Which rules should remain unchanged if we redesign the interface?
+
+Source insight (instructor): 
+
+Facilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.
+
+Sources:
+https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python
+https://dev.epicgames.com/documentation/en-us/unreal-engine/editor-utility-widgets-in-unreal-engine
+https://doc.qt.io/qtforpython-6/tutorials/
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Week07UnrealPython\Content\Python\week07_tooling\workflows.py
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Week07UnrealPython\Docs\UI\UNREAL_NATIVE_UI.md
+Visual: Editable slide text/table
+
+Review anchor: 08A</pre></details></div><div><h4>Field-level proposal</h4><p>Keep the title and current PySide/Slate table. Add an optional dependency-direction caption and the discussion question below. This slide is outside the instructor’s current opening; do not move the material demo back into it.</p><h4>Proposed visible addition</h4><pre>UI calls reusable workflow logic; host adapters call the editor API.
+Could the shared logic run without importing the UI?</pre><h4>Visual placement</h4><p>Keep the existing implementation table. Add a small direction caption; retain native Slate and PySide terminology.</p></div></div><h4>Read-aloud narration</h4><blockquote>A reusable operation should not need to import the window that calls it. That dependency direction also helps avoid circular imports. The current PySide and Slate views share the same workflow, while host-specific code handles Unreal objects. Which part would you reuse for another interface?</blockquote><h4>Editorial rationale</h4><p>Lesson 48’s circular-import example supports a design already visible in the project. The previous review’s Slate-label issue has been resolved in this deck.</p><p>Sources: <a href="notes/48.html">Karol 48</a></p></article>
+<article class="item" data-kind="optional" id="slide-75"><p class="meta"><span class="pill">OPTIONAL</span> SLIDE 75 · 08</p><h3>Add a small typed-output example after the Blueprint overview</h3><div class="grid"><div><h4>Current slide</h4><a href="../UnrealFirst20261013/previews/slide-75.png"><img loading="lazy" src="../UnrealFirst20261013/previews/slide-75.png" alt="Current v13 slide 75"></a><details><summary>Exact current text</summary><pre>Explore further
+Blueprints as an editor interface
+WEEK 7  /  08
+75
+
+Layer | Responsibility
+Editor Utility Widget | Inputs, scope, actions, and result display
+Execute Python Script | Pass named inputs and outputs
+Python operation | Validate, perform the operation, report results
+Should the button contain the whole tool—or call one operation?</pre></details><details><summary>Current narration</summary><pre>This is the Blueprint connection we need today. Epic supports Python execution nodes in editor-only Blueprints such as Editor Utility Widgets. The Execute Python Script node can expose custom inputs and outputs. It does not make Python a gameplay scripting language. Its execution-success output is not a substitute for checking whether the artist’s task succeeded.
+
+Source insight (instructor): 
+
+Facilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.
+
+Sources:
+https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python
+https://dev.epicgames.com/documentation/en-us/unreal-engine/editor-utility-widgets-in-unreal-engine
+https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-blueprints
+https://www.udemy.com/course/unreal-engine-blueprint-automation/
+
+Visual: Editable slide text/table
+
+Review anchor: 08</pre></details></div><div><h4>Field-level proposal</h4><p>Keep slide 75 unchanged. Propose a new optional anchor K2 immediately after it: “Python data to a Blueprint Map.” Keep it out of the live route. Show the matching variable/output type explicitly.</p><h4>Proposed visible addition</h4><pre>import unreal
+config = unreal.Map.cast(str, int, {&quot;a&quot;: 1, &quot;b&quot;: 2})
+
+Output name: config
+Blueprint variable: Map&lt;String, Integer&gt;
+Execution success is separate from the returned data.
+What must match on both sides?</pre><h4>Visual placement</h4><p>Use lesson 50 screenshots 10–11 beside the short code example. Preserve their course credit. Show the original unreal_map label in the capture and explain that the shortened example uses config; alternatively retain unreal_map consistently when authoring the slide.</p></div></div><h4>Read-aloud narration</h4><blockquote>This Python dictionary has string keys and integer values. We create a typed Unreal Map and give the output pin the same variable name. The Blueprint variable must use the matching key and value types. A successful execution flag is not the configuration itself. What would you inspect if the receiving pin had the wrong type?</blockquote><h4>Editorial rationale</h4><p>This is genuinely new optional depth. It connects lesson 40’s named pins with lesson 50’s type conversion without requiring Blueprint construction in the main lesson.</p><p>Sources: <a href="notes/50.html">Karol 50</a></p></article>
+<article class="item" data-kind="optional" id="slide-106"><p class="meta"><span class="pill">OPTIONAL</span> SLIDE 106 · K1</p><h3>Extend the course connection index rather than duplicate the lecture</h3><div class="grid"><div><h4>Current slide</h4><a href="../UnrealFirst20261013/previews/slide-106.png"><img loading="lazy" src="../UnrealFirst20261013/previews/slide-106.png" alt="Current v13 slide 106"></a><details><summary>Exact current text</summary><pre>Explore further
+Karol course connections
+WEEK 7  /  K1
+106
+
+Course material | Week 7 use
+Selection and help() | Host, subsystem and object inspection
+Properties and texture compression | Read-only validation example
+FBX import and remote calls | Task, options and acknowledgement
+Undo and tool interfaces | Recovery boundaries and shared rules</pre></details><details><summary>Current narration</summary><pre>These are the specific connections we used from Karol Kowalczyk’s course. The classroom bridge and tools are course-authored implementations. The original downloaded projects provide references for further study, rather than the classroom launch project.
+
+Source insight (instructor): 
+
+Facilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.
+
+Sources:
+
+C:/Users/antho/Downloads/Python.zip
+C:/Users/antho/Downloads/UE5_2_project.zip
+C:/Users/antho/Downloads/ExamplePlugin_FixTextureCompression.zip
+Visual: Editable slide text/table
+
+Review anchor: K1</pre></details></div><div><h4>Field-level proposal</h4><p>Keep the title and existing connection rows. Add the completion rows below to the reference handout; if the slide becomes dense, link the handout rather than shrinking its text. Reserve proposed K3 for import troubleshooting and K4 for Remote Control path discovery only if standalone appendix slides are useful.</p><h4>Proposed visible addition</h4><pre>46 Export + import bridge → existing Blender revision demo
+47 Runtime object path → optional Remote Control troubleshooting
+48 Dependencies/imports → instructor setup and shared-layer design
+49 Subsystem accessor → already used in CALL / UE02
+50 Typed arrays/maps/structs → optional Blueprint data example</pre><h4>Visual placement</h4><p>Keep the current reference-table style and link to the five refined lessons. Put long code examples in the readable handoff/notes rather than this overview.</p></div></div><h4>Read-aloud narration</h4><blockquote>The completed course gives us useful troubleshooting and extension examples. Most belong beside the prepared workflow or in reference material. The object-path test is specifically for the Remote Control version; our file-based bridge does not use that path. Which of these would help your own tool next?</blockquote><h4>Editorial rationale</h4><p>Keeps a coherent route through the new notes, avoids implying that every completed course topic must become live lecture content, and distinguishes the two transports.</p><p>Sources: <a href="notes/46.html">Karol 46</a> · <a href="notes/47.html">Karol 47</a> · <a href="notes/48.html">Karol 48</a> · <a href="notes/49.html">Karol 49</a> · <a href="notes/50.html">Karol 50</a></p></article>
+</section><section id="features"><h2>Functionality to consider</h2><article class="item" data-kind="feature"><span class="pill">BEST SMALL EXTENSION</span><h3>A readable environment and bridge diagnostic report</h3><p>The bridge already reports online/offline, pending acknowledgements and operation errors. Add a compact “Copy diagnostics” view that consolidates the facts an instructor or artist needs: host/Python version, loaded module path, exchange folder, receiver project/session, last request ID and current result. Collect these from existing state without importing a mesh or retrying a request.</p><p>Lesson 48 supports interpreter/module-location diagnostics; lesson 46 supports separating export, send and import outcomes. Keep Remote Control URL/object path out of this tool’s report because its transport does not use them.</p><p><strong>Acceptance:</strong> works while the receiver is offline; identifies differing exchange folders or receiver projects; distinguishes a published file from an acknowledged import; leaves pending requests untouched; copying diagnostics neither exports nor sends; shared data feeds both Maya and Blender views. Cover these with host-independent fixtures, then rehearse each actual UI separately.</p></article><article class="item" data-kind="feature"><span class="pill">SHOWCASE EXISTING BEHAVIOR</span><h3>Export succeeded but the receiver is offline</h3><p>The current transport and test suite already support publishing offline and sending the published revision later. This is a useful contrast with Karol’s minimal exception print. Use it as an optional failure/recovery demonstration after the successful geometry revision, or substitute it for repeated explanation if the live rehearsal allows.</p><p><strong>Expected result:</strong> the FBX/manifest remain available; no false import-success message appears; starting the intended receiver allows sending that revision; acknowledgement identifies the imported asset. Do not blindly resend an in-flight request. A fresh end-to-end UI rehearsal is needed before adding this beat to the classroom run sheet.</p></article><article class="item" data-kind="feature"><span class="pill">OPTIONAL ALTERNATIVE</span><h3>Remote Control health check and typed data example</h3><p>If a later tool actually chooses HTTP Remote Control, expose a small ping/version operation, discover the CDO path after registration, and test both the expected path and the HTTP call. Keep endpoint health separate from operation correctness. A typed Map example belongs in the optional Blueprint handout; it is not a reason to replace the working transport or its JSON manifest.</p><p><strong>Defer:</strong> global package installs during class, rewriting the bridge to Remote Control, long-lived remote progress dialogs, and a full Blender add-on lesson. They expand setup and failure modes without improving the current core demonstration.</p></article></section>
+<section class="panel" id="handoff"><h2>Handoff for the next deck or demo pass</h2><p><a href="readers/handoff-1e1ed2f8.html">Copyable implementation handoff</a></p><p>Recommended order: add the short live clarifications on slides 10, 13 and 29; link the optional notes; then consider K2 and the diagnostic-report feature. Keep the current colleague coverage and student activities. Detailed slide copy and narration are provided above.</p><p>Current implementation evidence:</p><ul>
+<li><a href="file:///C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Week07UnrealPython/Content/Python/week07_bridge/transport.py">File-based transport and acknowledgement handling</a></li>
+<li><a href="file:///C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Week07UnrealPython/Content/Python/week07_bridge/client.py">Shared Publisher state and user messages</a></li>
+<li><a href="file:///C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Week07UnrealPython/Content/Python/week07_bridge/unreal_receiver.py">Unreal receiver and import-result checks</a></li>
+<li><a href="file:///C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Week07UnrealPython/Tests/test_fbx_bridge.py">Existing bridge contract/failure tests</a></li>
+<li><a href="file:///C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Week07UnrealPython/Docs/Bridge/UI-Rehearsal/verification.json">Saved Blender UI rehearsal verification</a></li>
+<li><a href="file:///C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Course/Slides/Week07/LiveTesting20261013/index.html">Current written live test procedure</a></li>
+</ul><p class="meta">No editor was launched, no request sent, and no deck/demo code changed during this completion pass. The assessment uses current local source and recorded evidence.</p></section><section class="panel" id="errata"><h2>Corrections and continuity</h2><p>The earlier audit added two misleading supplemental paragraphs: lesson 23 is the square-texture rule, and lesson 24 checks both dimensions against an allowed power-of-two tuple. Those paragraphs are corrected in the current REFINED files. The original notes and all images are intact.</p><p>Lessons 44–45 now point to lesson 47 instead of leaving their old hard-coded Remote Control paths unqualified. Lesson 45 contained a user edit since the previous pass; it was retained.</p><p>The previous Karol review remains a historical v3 assessment. This review supersedes its integration recommendations where v13 has already implemented them. The setup note’s “latest v11” pointer is also older than the v13 deck; use the explicit v13 link above.</p><p>Source collection numbering still omits 04, 05 and 28. Completing this supplied collection does not invent missing lessons. Attribution remains Karol / Tech Art Corner for these notes and screenshots, with Isaac Oster / Northwood retained for the original project lineage.</p></section><footer>Completion review 1 · 14 October 2026 · originals preserved · proposals await deck/demo implementation</footer></main><script>const items=[...document.querySelectorAll(".item")],s=document.querySelector("#search"),f=document.querySelector("#filter");function draw(){let n=0;for(const i of items){i.hidden=(f.value!=="all"&&i.dataset.kind!==f.value)||!i.textContent.toLowerCase().includes(s.value.toLowerCase().trim());if(!i.hidden)n++;}document.querySelector("#count").textContent=n+" of "+items.length+" proposals";}s.oninput=draw;f.onchange=draw;document.querySelector("#reset").onclick=()=>{s.value="";f.value="all";draw();};draw();</script></body></html>

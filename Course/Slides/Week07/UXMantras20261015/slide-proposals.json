@@ -1,0 +1,1427 @@
+{
+  "status": "prepared_for_integration_source_deck_unchanged",
+  "baseline_deck": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\DesktopIntegrated20261014\\output\\Week_7_Python_in_Unreal_v15.pptx",
+  "baseline_sha256": "c2b745ba4fb6b18967adfb98a6b38d516bbf64f4eb8b03093feaf15a16134863",
+  "current_ui_slides": [
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60
+  ],
+  "outside_scope": "Preserve current 1–38 and 63–134. Preserve 61 as the unchanged four-minute task-preparation divider before 62.",
+  "proposed_order": [
+    "39",
+    "40",
+    "41",
+    "41A",
+    "41B",
+    "46",
+    "42",
+    "42A",
+    "44",
+    "45",
+    "45A",
+    "54",
+    "55",
+    "45B",
+    "45C",
+    "46B",
+    "47",
+    "48",
+    "48A",
+    "49",
+    "50",
+    "51",
+    "52",
+    "52A",
+    "53",
+    "53A",
+    "53B",
+    "53C",
+    "56",
+    "43",
+    "57",
+    "58",
+    "59",
+    "60",
+    "60A",
+    "61",
+    "62"
+  ],
+  "schedule": "Current 16-minute concepts + 4-minute preparation remains unchanged. Expanded prepared sequence is estimated at 28–35 minutes of concepts; choose delivery depth or explicitly rebudget before export.",
+  "slides": [
+    {
+      "id": "39",
+      "mantra": "M1",
+      "title": "Know the task",
+      "body": [
+        "UI/UX for artist tools",
+        "What is the artist trying to accomplish?"
+      ],
+      "notes": "Keep your first judgment from the batch-renamer exercise. We will revisit it through five practical reminders. First, know the task. A tool exists within a workflow: someone arrives with particular inputs, makes a decision, and needs a result they can trust. What did the renamer’s success message fail to tell us?",
+      "visual": "Reuse v15’s purple UX section divider. Use the mantra as the main title, UI/UX as the subtitle; no new decorative theme.",
+      "edit": "Replace the title and subtitle. Preserve the UX section color and the agenda’s block boundary. Move timing/editorial text to notes.",
+      "rationale": "Introduces the requested structure while recalling the investigation instead of restarting with definitions.",
+      "sources": [
+        "tasks"
+      ],
+      "old": 39,
+      "delivery": "section transition",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 1,
+      "current": {
+        "number": 39,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nUI/UX for\nartist tools\n16 minutes of concepts and discussion\nRevisit your Lab 1 judgment using the artist’s task\nWEEK 7   /   35\n39",
+        "notes": "We are beginning ui/ux for\nartist tools. 16 minutes of concepts and discussion. Revisit your Lab 1 judgment using the artist’s task\n\nFacilitation:  "
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-039.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "40",
+      "mantra": "M1",
+      "title": "Interface and experience",
+      "body": [
+        "UI: the labels, controls, layout and feedback an artist operates.",
+        "UX: finding the tool, preparing inputs, completing the task and checking the result.",
+        "A polished window can still hide the affected objects or make recovery difficult.",
+        "What must change, and what must remain unchanged?"
+      ],
+      "notes": "The interface is what the artist sees and operates: labels, controls, layout and feedback. The experience includes preparing data, finding the tool, completing the operation, inspecting the result and recovering when necessary. A polished window can still fail the task. Which part of your own tool’s workflow happens before its window opens?",
+      "visual": "Keep the existing simple text composition; pair one short phrase with a small current-tool crop if space permits.",
+      "edit": "Keep the title and distinction. Replace the bullet block with concise task language. Preserve the protected-scope question. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Preserves the current deck’s stronger workflow framing.",
+      "sources": [
+        "tasks"
+      ],
+      "old": 40,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 2,
+      "current": {
+        "number": 40,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nInterface and experience\nWEEK 7  /  14\n40\nUI: the controls, labels, and layout\nUX: reaching the intended result in context\nDefine success before judging the interface\nWhat must change, and what must stay unchanged?",
+        "notes": "Return to the renamer. A success count did not make the task successful. Some problems were functional errors; a clearer interface cannot repair the wrong mutation. UX also includes understanding scope, finding results, and recovering. Your initial instinct may be sound. We are adding a more precise way to explain and investigate it.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://www.nngroup.com/articles/ten-usability-heuristics/\n\nVisual: Editable slide text/table\n\nReview anchor: 14\n\nName the intended result and what must stay untouched. A completed operation can still leave the artist with the wrong result. Use those success criteria when judging labels, controls and layout.\n\nSources: https://www.nngroup.com/articles/ten-usability-heuristics/\nhttps://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=33"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-040.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "41",
+      "mantra": "M1",
+      "title": "A user story names an outcome",
+      "body": [
+        "As an environment artist…",
+        "I want to preview a material assignment on selected props…",
+        "So I can compare a look without changing other placements.",
+        "Which assumption would you check with the artist?"
+      ],
+      "notes": "This is a proposed classroom story, not a requirement we have validated with a production team. The role identifies whose work matters; the goal names an outcome; the benefit explains why it matters. Ask about the current workaround, frequency, inputs and consequence of failure. A request for a blue button chooses a solution before establishing the problem.",
+      "visual": "Three editable text lines with role, goal and benefit visually aligned; the same target crate appears in the next example.",
+      "edit": "Keep the original slide number and role/goal/benefit structure. Replace the importer example with the recurring material example; preserve the importer story in notes. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Connects the abstract story to a visible task students can test.",
+      "sources": [
+        "stories",
+        "mapping"
+      ],
+      "old": 41,
+      "visible_detail": {
+        "type": "table",
+        "label": "Outline before designing",
+        "columns": [
+          "Part",
+          "Worked material-tool example"
+        ],
+        "rows": [
+          [
+            "Role / context",
+            "Environment artist trying a texture set on a selected crate."
+          ],
+          [
+            "Outcome / benefit",
+            "Compare a look while leaving other placements unchanged."
+          ],
+          [
+            "Assumption to check",
+            "Which material slot and objects should the operation affect?"
+          ]
+        ]
+      },
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 3,
+      "current": {
+        "number": 41,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nUser stories\nWEEK 7  /  14B\n41\nAs an environment artist…\nI want to bring a revised prop into Unreal…\nSo I can inspect it without rebuilding its setup.\nWhat would the artist inspect to confirm success?",
+        "notes": "This is a classroom example of role, goal, and benefit. It starts a conversation rather than specifying a particular button. Add observable acceptance checks: the intended asset updates, the result is easy to locate, and unrelated work stays unchanged. Ask the artist about their current workflow before treating the story as a verified requirement. Include what the artist does before opening the tool and what they need to inspect afterwards. The tool window is one part of that workflow.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://www.nngroup.com/articles/user-story-mapping/\nhttps://www.gdcvault.com/play/1026441/Tools-Tutorial-Day-The-System\n\nVisual: Editable slide text/table\n\nReview anchor: 14B\n\nAdd context to the story: the selection, project and actions before and after the tool. A reference interface may solve a different problem. Borrow its pattern when you can explain why it fits this artist.\n\nSources: https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=26\nhttps://www.nngroup.com/articles/usability-testing-101/"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-041.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "41A",
+      "mantra": "M1",
+      "title": "Make success observable",
+      "body": [
+        "Preview names the target, slot and mapping",
+        "Apply changes only the reviewed components",
+        "Changed input requires a fresh preview",
+        "What evidence would disprove success?"
+      ],
+      "notes": "A story gives us direction; acceptance checks make the intended behavior inspectable. Given these textures and a target crate, creating a preview should show the mapping without changing the scene. If the selection changes afterward, the old plan must not apply. The protected crate gives us a visible check of scope. These are behavioral checks; they do not prescribe a particular widget.",
+      "visual": "Use the actual material preview capture alongside a short editable acceptance-check list. Point to target and slot, not internal class names.",
+      "edit": "Insert after 41. Keep the existing 41 note about acceptance checks, but teach the expanded example here. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Gives user stories enough substance to guide implementation and testing.",
+      "sources": [
+        "stories",
+        "tasks"
+      ],
+      "old": null,
+      "visible_detail": {
+        "type": "table",
+        "label": "Acceptance checks",
+        "columns": [
+          "Situation",
+          "Observable check"
+        ],
+        "rows": [
+          [
+            "Preview",
+            "Target, slot and texture mapping are visible; no scene edit yet."
+          ],
+          [
+            "Apply",
+            "Only reviewed components change; protected crate stays unchanged."
+          ],
+          [
+            "Input changes",
+            "Old plan is invalid; review a fresh preview before Apply."
+          ]
+        ]
+      },
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 4,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": [
+        "after/material_preview.png",
+        "Current PySide practice capture: material preview. No Unreal connection."
+      ],
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "41B",
+      "mantra": "M1",
+      "title": "Outline the whole task",
+      "body": [
+        "Outline the user, current workaround, starting inputs and desired result.",
+        "Map the complete task: choose → inspect scope → review → apply → check.",
+        "Include a blocked path and how the artist recovers.",
+        "Split large stories into a small useful result, not isolated backend functions."
+      ],
+      "notes": "Map the work from the artist’s perspective. A small useful slice takes someone all the way from prepared inputs to a checked result. Include the point where the tool can refuse an operation and what happens next. A story map helps us see missing steps; it is different from a list of backend functions. Where does your tool hand responsibility back to the artist?",
+      "visual": "One editable sequence of short text labels, or a paper story-map capture prepared from this exact example. No generic dashboard.",
+      "edit": "Insert after 41A. Keep the full story-writing guide in the companion notes. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Makes the user-story discussion actionable while preventing a detour into project-management ceremony.",
+      "sources": [
+        "mapping"
+      ],
+      "old": null,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 5,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "46",
+      "mantra": "M1",
+      "title": "Use the artist’s model",
+      "body": [
+        "Implementation: spawn and kill events",
+        "Artist’s decision: VFX duration",
+        "Which details support the next decision?"
+      ],
+      "notes": "The production example shows a mismatch between internal events and the way an artist reasons about an effect. An artist can think about its duration while the software handles separate events underneath. This is not a rule to hide all technical detail. Expose the detail when it helps the user decide. What implementation term in your own tool could be expressed more clearly?",
+      "visual": "Keep the existing Jeff Stewart / Vicarious Visions visual and attribution. Retain the original source-page link.",
+      "edit": "Move current 46 into the task subsection after 41B. Shorten the title; preserve the production example and its source. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Uses an already strong game-production example instead of duplicating it with web examples.",
+      "sources": [],
+      "old": 46,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 6,
+      "current": {
+        "number": 46,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nThe artist’s model of the work\nWEEK 7  /  14F\n46\nJeff Stewart · Vicarious Visions · GDC 2018 · PDF p.35\nWould an artist rather edit a duration or two unrelated events?\nImplementation:\nspawn and kill events\nArtist’s decision:\nVFX duration\nInterface:\na continuous cue",
+        "notes": "Stewart’s Cinematic Builder example contrasts an artist-facing VFX duration with underlying spawn and kill keyframes. The artist wants to reason about when an effect begins and how long it lasts. Exposing two unrelated implementation events made that task harder to understand. This does not mean hiding all technical detail: expose details when they support the user’s next decision. For our importer, a meaningful revised-prop result may be more useful than a list of internal package operations.\n\nSource insight (instructor): Vicarious Visions PDF p.35. Ask students for another representation mismatch: component override versus shared material asset is a useful course example.\n\nFacilitation (not narration):  \n\nSources:\nhttps://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/vv-content-model.png\nJeff Stewart · Vicarious Visions · GDC 2018 · PDF p.35\nReview anchor: 14F\n\nThe implementation is how the system works. The artist’s mental model is how they understand the task. The interface represents that work. Stewart explicitly draws on Nielsen’s heuristic, then applies it to a production content tool. This example shows that application; it does not establish a universal best layout.\n\nSources: https://www.nngroup.com/articles/ten-usability-heuristics/\nhttps://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=35"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-046.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "42",
+      "mantra": "M2",
+      "title": "Guide the eye",
+      "body": [
+        "Visual hierarchy supports the task",
+        "Where should the artist look first?"
+      ],
+      "notes": "Now consider how the interface makes that task visible. We can use the same principles that organize an artwork: balance, rhythm, emphasis and relationships between shapes. The difference is that the artist must also act. The most prominent area should support the current decision, not merely decorate the tool.",
+      "visual": "Reuse the existing layout/hierarchy divider. Keep the approved UX colors and type treatment.",
+      "edit": "Replace divider title and subtitle. Preserve its section-transition role.",
+      "rationale": "Creates a clear art-to-interface bridge.",
+      "sources": [
+        "principles"
+      ],
+      "old": 42,
+      "delivery": "section transition",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 7,
+      "current": {
+        "number": 42,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nLayout and\nvisual hierarchy\nWEEK 7  /  UXLAY\nThe target, the proposed change and the next action\n42",
+        "notes": "We have identified an artist and a successful outcome. Now look at how the interface makes the task visible. Compare grouping and representation before deciding which layout to test.\n\nSources:\nhttps://learn.microsoft.com/en-us/windows/win32/uxguide/vis-layout\nhttps://www.nngroup.com/articles/gestalt-proximity/"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-042.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "42A",
+      "mantra": "M2",
+      "title": "Art principles become interface decisions",
+      "body": [
+        "Balance: distribute visual weight",
+        "Rhythm and alignment: establish a pattern",
+        "Proximity: show what belongs together",
+        "What carries over from composing a game scene?"
+      ],
+      "notes": "In a composition, you arrange weight, repetition and emphasis so the viewer can read what matters. In a tool, repeated field spacing and aligned labels help establish a pattern, while larger gaps separate decisions. Balance does not require symmetry. The course lenses still apply: constraints shape the design, systems connect the parts, a repeated improvement offers leverage, and the workflow affects throughput.",
+      "visual": "Use a verified Week 1 lens reference and one current tool image. Keep art analogy labels editable; do not claim every term was on a specific Week 1 slide.",
+      "edit": "Insert after 42. Preserve Week 1 lens meanings and palette; no fifth lens. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Connects to earlier course learning without inventing a historical slide attribution.",
+      "sources": [
+        "art",
+        "principles"
+      ],
+      "old": null,
+      "visible_detail": {
+        "type": "table",
+        "label": "From game art to a tool",
+        "columns": [
+          "Art principle",
+          "Interface decision"
+        ],
+        "rows": [
+          [
+            "Balance",
+            "Distribute visual weight between inputs, preview and actions."
+          ],
+          [
+            "Rhythm / alignment",
+            "Repeat field order and shared edges."
+          ],
+          [
+            "Proximity",
+            "Keep each label, input and validation message together."
+          ]
+        ]
+      },
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 8,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "44",
+      "mantra": "M2",
+      "title": "Layout follows the task",
+      "body": [
+        "Inputs: identify the source textures, target and material slot.",
+        "Preview: compare the intended mapping with the current assignment.",
+        "Action: apply the reviewed scope, then inspect the target and protected object.",
+        "Which information must remain beside the action?"
+      ],
+      "notes": "Follow the task in this prepared capture. First identify the inputs, then the target and proposed changes, then the action. The preview supports a decision; it is not evidence that the scene has already changed. After an operation, we inspect both the intended target and an object that should remain untouched. Where would you look to confirm the material slot?",
+      "visual": "Replace the narrow old crop with a legible current capture, then use a second close crop only for the target/slot detail. Matched sample state required.",
+      "edit": "Keep title and task question. Replace stale screenshot after the UI alignment pass and retain practice-mode provenance in notes. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Keeps the lecture accountable to the actual demo.",
+      "sources": [],
+      "old": 44,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 9,
+      "current": {
+        "number": 44,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nLayout follows the task\nWEEK 7  /  15\n44\nDetail from the current Material Setup practice interface\nWhich information belongs together?",
+        "notes": "Return to the material task we tried earlier. Find the scope count, then the row naming the crate and slot. That row makes the proposed assignment inspectable. The parent and textures are part of the decision too. Which information would you need before allowing this operation on your own work?\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Students\\START_HERE.md\nVisual: Week07UnrealPython/Docs/UI/captures/material_preview.png\nDetail from the current Material Setup practice interface\nReview anchor: 15\n\nFind the target, proposed changes and next action. Their grouping should help the artist inspect consequences. A layout follows the task when it supports these decisions in context, including recovery.\n\nSources: https://learn.microsoft.com/en-us/windows/win32/uxguide/vis-layout\nhttps://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=43"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-044.png",
+      "prepared_media": [
+        "after/material_preview.png",
+        "Replacement evidence prepared from the current refined assistant."
+      ],
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "45",
+      "mantra": "M2",
+      "title": "Group related decisions",
+      "body": [
+        "Rhythm repeats field order and spacing so the next item is predictable.",
+        "Alignment gives labels and values a shared reading edge.",
+        "Proximity uses tighter gaps within a decision and larger gaps between decisions.",
+        "Keep a validation message close to the field it explains."
+      ],
+      "notes": "Rhythm comes from a pattern we can recognize. Proximity tells us which things are related. Neither requires a border around every group. Compare the gaps inside the input area with the gaps around the preview and actions. A consistent visual treatment should mean something consistent. What would you move closer, and what would you separate?",
+      "visual": "Keep the existing NN/g comparison as a brief reference; make the current tool the main application. Add the source lesson 18 alignment capture in the review, not a replacement theme.",
+      "edit": "Keep current 45 anchor. Expand the wording to include rhythm and alignment; retain the existing source attribution. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Consolidates related concepts rather than giving each a disconnected definition.",
+      "sources": [
+        "principles"
+      ],
+      "old": 45,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 10,
+      "current": {
+        "number": 45,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nSpacing and grouping\nWEEK 7  /  GROUP\nKeep related controls close\nSeparate unrelated decisions\nTest which groups users see\nAurora Harley, Nielsen Norman Group. Schematic comparison, not a measured result.\nWhere would you add space in the tool we just inspected?\n45",
+        "notes": "The same fields can suggest different groups. The spacing supplies a relationship before we read every label. Transfer that idea to the target, proposed changes and actions in our tool. Grouping is supported by NN/G and Microsoft desktop guidance, and Stewart discusses grouping for content tools. Those sources support the principle; we still need to test our arrangement.\n\nSources:\nhttps://www.nngroup.com/articles/gestalt-proximity/\nhttps://learn.microsoft.com/en-us/windows/win32/uxguide/vis-layout\nhttps://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=25"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-045.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "45A",
+      "mantra": "M2",
+      "title": "Value makes the light and dark structure visible",
+      "body": [
+        "Value: lightness and darkness in art",
+        "Contrast: a difference between elements",
+        "HSV Value is not perceived lightness",
+        "What survives when the hues disappear?"
+      ],
+      "notes": "In art, value is how light or dark something appears. Contrast describes a difference, and value is one way to create it. Hue, size and shape can also create contrast. A software HSV Value field is not a measurement of perceived lightness. Two vivid colors may still have similar lightness, which is why a colorful interface can become hard to read in grayscale.",
+      "visual": "Use the original and grayscale view of the SAME current-tool capture in the diagnostic review. For final slides, export a clearly labeled diagnostic copy through the approved visual workflow.",
+      "edit": "Insert after 45. Move the brief HSV definition from current 55 into the qualified discussion here; preserve 55’s rendering-context connection. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Corrects an ambiguity in v15 and adds the requested art concept.",
+      "sources": [
+        "art",
+        "contrast"
+      ],
+      "old": null,
+      "visible_detail": {
+        "type": "table",
+        "label": "Three distinct meanings",
+        "columns": [
+          "Term",
+          "What it describes"
+        ],
+        "rows": [
+          [
+            "Art value",
+            "How light or dark something appears."
+          ],
+          [
+            "HSV Value",
+            "A coordinate in a particular color model."
+          ],
+          [
+            "Relative luminance",
+            "The weighted quantity used in contrast calculations."
+          ]
+        ]
+      },
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 11,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "54",
+      "mantra": "M2",
+      "title": "Color reinforces meaning",
+      "body": [
+        "Keep color roles consistent",
+        "Pair status with labels or shape",
+        "Check the actual foreground and background",
+        "Could you still identify the warning without hue?"
+      ],
+      "notes": "Color can support identity and state, but it should not carry the entire message. A warning needs words that name the issue; focus and selection also need distinguishable cues. Palette tools such as Coolors can help explore combinations. Assign the roles first, then check the colors in context. A palette that looks good together can still produce unreadable text.",
+      "visual": "Keep the Adobe Spectrum comparison and attribution. Add Coolors as a small Explore further link, not a product-tour slide.",
+      "edit": "Move current 54 into M2. Preserve the source visual, revise the title, and add the tool pointer in notes. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Adds practical exploration without replacing accessibility checks with palette selection.",
+      "sources": [
+        "color",
+        "coolors",
+        "coolors-contrast"
+      ],
+      "old": 54,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 12,
+      "current": {
+        "number": 54,
+        "hidden": false,
+        "text": "06  UI/UX / color\nColor communicates with labels\nWEEK 7  /  COLOR1\nColor alone\nColor, icon and explanation\nKeep meaning consistent. Check the foreground/background contrast.\nAdobe Spectrum, Communicating with color. Original UI examples.\nIf the colors disappeared, would the status still make sense?\n54",
+        "notes": "A red border can attract attention, but a label tells us what is wrong and what to do next. Use consistent color roles and additional cues. Test readability against the real panel background in each supported theme. W3C guidance supports redundant meaning and contrast; its web criteria do not certify this desktop tool. Adobe Spectrum applies those principles in a product design system.\n\nSources:\nhttps://spectrum.adobe.com/page/color-fundamentals/\nhttps://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html\nhttps://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-054.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "55",
+      "mantra": "M2",
+      "title": "Color changes with context",
+      "body": [
+        "UI: inspect text, state and surface contrast",
+        "Game art: inspect lighting, exposure and background",
+        "Would identical RGB values look identical?"
+      ],
+      "notes": "The same numeric color can appear different depending on its surroundings and rendering pipeline. For interface work, inspect the actual foreground and surface. For materials and VFX, also consider color space, lighting and exposure. Today we are using this as a connection to the next block, not treating a color-picker setting as proof that the result will be readable.",
+      "visual": "Keep the historical Epic color-picker control, source label and game-art connection. The value distinction is now explicit on 45A.",
+      "edit": "Keep title purpose and visual. Replace the bullet defining Value as if it were the art concept. Preserve the later-rendering bridge. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Retains existing useful coverage while resolving terminology.",
+      "sources": [],
+      "old": 55,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 13,
+      "current": {
+        "number": 55,
+        "hidden": false,
+        "text": "06  UI/UX / color\nColor choices and rendering context\nWEEK 7  /  COLOR2\nHue: color family\nSaturation: intensity\nValue: the HSV brightness coordinate\nShaders/VFX: inspect color space,\nlighting and exposure\nEpic Games, Color Picker documentation, UE 4.27. Historical control reference.\nWould identical RGB numbers guarantee an identical visible result?\n55",
+        "notes": "Hue, saturation and value are useful control coordinates, but HSV value is not a complete measure of perceived brightness. Choose a dominant palette and a purposeful accent, then inspect them against the actual background. The picker also distinguishes linear and sRGB representations. Later shader and VFX work adds scene lighting and exposure. Compare like-for-like conditions before attributing a difference to the chosen color. This screenshot is a labeled historical control reference, not a new engine capture.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/color-picker?application_version=4.27\nhttps://spectrum.adobe.com/page/color-fundamentals/\nhttps://helpx.adobe.com/photoshop/desktop/adjust-color/choose-colors/choose-colors-with-the-adobe-color-picker.html"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-055.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "45B",
+      "mantra": "M2",
+      "title": "Block out, grayscale, squint",
+      "body": [
+        "Shapes reveal layout",
+        "Grayscale reveals value relationships",
+        "Squinting reveals dominant masses",
+        "Restore detail and test the real interface"
+      ],
+      "notes": "Try three quick diagnostic views of the same tool. Reduce it to shapes to inspect grouping. Remove hue to inspect its light and dark structure. Briefly squint or step back to see which masses dominate. A blurred preview approximates that last exercise. None of these proves accessibility or correct behavior. Restore the original, read the labels, measure contrast, and try the task.",
+      "visual": "Use the prepared diagnostic views of the same material screenshot. The blockout is a labeled schematic of that layout. Keep the original source image available and explain that these are hierarchy checks, not functional tests.",
+      "edit": "Insert after 55. Keep all three checks together and label their limits on the slide itself. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Adds the requested practical art method without overstating what it establishes.",
+      "sources": [
+        "contrast"
+      ],
+      "old": null,
+      "visible_detail": {
+        "type": "table",
+        "label": "Choose the check for the question",
+        "columns": [
+          "Check",
+          "Inspect"
+        ],
+        "rows": [
+          [
+            "Blockout",
+            "Group size, alignment, gaps and reading route."
+          ],
+          [
+            "Grayscale",
+            "Light/dark hierarchy without hue."
+          ],
+          [
+            "Squint / step back",
+            "The large masses that dominate attention."
+          ]
+        ]
+      },
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 14,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": [
+        "after/material_preview.png",
+        "Same screenshot is used for grayscale and squint approximation in the interactive companion."
+      ],
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "45C",
+      "mantra": "M2",
+      "title": "Show the data needed for a decision",
+      "body": [
+        "Name the affected item",
+        "Compare before and proposed result",
+        "Distinguish skipped, blocked and untested",
+        "What can this summary prove?"
+      ],
+      "notes": "The preview table is a decision aid. It needs enough identity and context to let the artist recognize the affected objects. A summary count can help, but it must not hide which items were skipped or blocked. Zero changes, a failed operation and an untested state are different. Remove decoration when it competes with the data, but keep the labels and units needed to interpret it.",
+      "visual": "Use the tool’s before/after table. Optional production comparison: attached talk pp.35–37 asset overview. Show a table for exact lookup; do not manufacture measured charts.",
+      "edit": "Insert after the diagnostic checks. Tie the new data lessons directly to the renamer and material preview. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Distills lessons 43–46 into a game-tool decision rather than a chart-design survey.",
+      "sources": [],
+      "old": null,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 15,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": [
+        "after/material_preview.png",
+        "Material preview: exact identity and before/after values support a decision."
+      ],
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "46B",
+      "mantra": "M3",
+      "title": "Make actions clear",
+      "body": [
+        "Information, controls and state need distinct cues",
+        "Can you predict what happens before clicking?"
+      ],
+      "notes": "A clean interface is still confusing if a heading looks like a button or if a status color looks like a command. Our next question is what the user thinks they can do. Watch how the available action changes with the tool state, and check whether the interface tells the same story as the operation underneath.",
+      "visual": "Use the existing transition layout. Keep this a short divider, not a checklist.",
+      "edit": "Insert before current 47; current 47’s feedback content remains a separate slide.",
+      "rationale": "Establishes a distinct subsection for interaction rather than mixing it into visual polish.",
+      "sources": [],
+      "old": null,
+      "delivery": "section transition",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 16,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "47",
+      "mantra": "M3",
+      "title": "State determines the next action",
+      "body": [
+        "The interface should identify the current state and the next useful action.",
+        "Visual emphasis follows readiness; it does not replace validation.",
+        "After Apply, inspect the result instead of treating a completion message as proof."
+      ],
+      "notes": "Read these states in sequence. Before a plan exists, Preview is the useful next action. A valid reviewed plan makes Apply available. A warning that needs acknowledgment interrupts that progression. After applying, the artist checks the intended result and protected scope. These prepared states let us discuss the behavior without depending on a successful live run. What should happen when an input changes after preview?",
+      "visual": "Use matched before/after state captures from the updated PySide tool. Include the action row and the status, not just a decorative button close-up.",
+      "edit": "Keep the state/feedback topic and anchor. Replace stale captures and narration with the current action-emphasis behavior. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Makes the demo embody the lecture’s central hierarchy claim.",
+      "sources": [],
+      "old": 47,
+      "visible_detail": {
+        "type": "table",
+        "label": "Read the interface as a sequence",
+        "columns": [
+          "State",
+          "Intended response"
+        ],
+        "rows": [
+          [
+            "Choose inputs",
+            "Preview is emphasized; Apply is unavailable."
+          ],
+          [
+            "Reviewed plan",
+            "Apply becomes the forward action."
+          ],
+          [
+            "Warning",
+            "Review and acknowledge before Apply."
+          ],
+          [
+            "Completed",
+            "Inspect the result; repeated Apply is unavailable."
+          ]
+        ]
+      },
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 17,
+      "current": {
+        "number": 47,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nState and feedback\nWEEK 7  /  15A\n47\nDetail from the current Material Setup practice interface\nWhat result would you inspect before moving on?",
+        "notes": "Completed tells us that this operation returned successfully. The table changes to applied rows, and Apply becomes unavailable because the plan has been consumed. We still inspect the affected target and protected scope. A completion message alone does not establish that the user achieved the intended task.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Students\\START_HERE.md\nVisual: Week07UnrealPython/Docs/UI/captures/material_complete.png\nDetail from the current Material Setup practice interface\nReview anchor: 15A\n\nRead the completion message, then inspect the affected targets. Check the operation that actually ran. One successful operation does not establish that every other tool or bridge is ready.\n\nSources: https://www.nngroup.com/articles/ten-usability-heuristics/"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-047.png",
+      "prepared_media": [
+        "after/material_complete.png",
+        "Completed practice operation. The result remains inspectable; neither forward action is emphasized."
+      ],
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "48",
+      "mantra": "M3",
+      "title": "A UI decision becomes code",
+      "body": [
+        "Input-change signals invalidate an old plan.",
+        "The interface enables Apply only when a reviewed plan is ready.",
+        "Execution still rechecks scope and limits in the session.",
+        "What if the selection changes outside this window?"
+      ],
+      "notes": "This is an excerpt from the existing assistant, not a complete standalone script. The pending plan is the preview being reviewed. Apply is enabled when a plan exists and any warning has been acknowledged. That communicates readiness; the session still validates when the operation runs. The same rule can be explained from the code and state captures before we choose to demonstrate it live.",
+      "visual": "Use the extracted readiness excerpt and the prepared state table. Show readable code in a wide code region, with a small matching preview crop. Keep the full method and runnable project linked in the companion.",
+      "edit": "Keep this slide and its technical purpose. Refresh the code excerpt from the changed source; do not paste an outdated version from v15. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Grounds the principles with a bounded implementation example.",
+      "sources": [
+        "qt"
+      ],
+      "old": 48,
+      "visible_detail": {
+        "type": "code",
+        "label": "Inside AssistantWindow.update_apply",
+        "text": "pending = self.session.pending\nready = bool(pending) and (not pending[3].get('warnings') or self.ack.isChecked())\nself.apply_button.setEnabled(ready)",
+        "context": "Excerpt: the existing window, widgets and session are already constructed. Acknowledgment affects readiness; execution validates again.",
+        "source": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Content\\Python\\week07_tooling\\ui\\assistants.py",
+        "line": 223,
+        "source_sha256": "3dd2fec0ad37e6b955269b0e3a8fcc62b99cface9a172cfc425728c8b16125a6"
+      },
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 18,
+      "current": {
+        "number": 48,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nA UI state becomes a Qt decision\nWEEK 7  /  15G\n48\npending = self.session.pending\nready = bool(pending) and (\n    not pending[3].get('warnings')\n    or self.ack.isChecked()\n)\nself.apply_button.setEnabled(ready)\nRequires the surrounding widget class.\nWhy must Apply still recheck the operation?",
+        "notes": "This is the current assistant interface. A pending preview must exist. If it contains warnings, the user must acknowledge them before Apply becomes available. The session still rechecks the operation when Apply runs. Enabling a button does not replace backend validation, and acknowledging a warning cannot bypass a hard limit. This UI fragment requires the surrounding widget instance. Use the checkpoint guide for independently runnable Unreal and Blender examples.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Content\\Python\\week07_tooling\\ui\\assistants.py\nVisual: Editable slide text/table\nRequires the surrounding widget class.\nReview anchor: 15G"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-048.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "48A",
+      "mantra": "M3",
+      "title": "The same task across toolkits",
+      "body": [
+        "PySide: Python widgets and layouts",
+        "Editor Utility Widget: UMG and Blueprint",
+        "Current native panel: C++ Slate",
+        "Which behavior should stay consistent?"
+      ],
+      "notes": "These are different ways to present an editor workflow. The existing native panel uses Slate; it is not the PySide window docked inside Unreal. An Editor Utility Widget is another option using UMG and Blueprint. The important shared contract is the task: inputs, preview, guarded apply and inspectable results. Each host still needs its own keyboard, sizing and recovery checks.",
+      "visual": "Use actual PySide and native captures from the same task where available. Keep the EUW example labeled as an implementation option, not an already-built course asset.",
+      "edit": "Insert after 48. Keep detailed implementation as linked study, not a second toolkit workshop. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Answers the request for in-engine grounding accurately.",
+      "sources": [
+        "euw",
+        "qt"
+      ],
+      "old": null,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 19,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": [
+        "after/material_preview.png",
+        "Actual current sample state; Apply is the next available forward action."
+      ],
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "49",
+      "mantra": "M3",
+      "title": "An error should support recovery",
+      "body": [
+        "Name the affected input and explain the problem in the artist’s terms.",
+        "Give a specific next action; retain detailed diagnostics separately.",
+        "State whether anything changed only when the operation can establish that.",
+        "A recovery message is useful when someone can continue without reading the code."
+      ],
+      "notes": "Read this message as someone who did not build the tool. What went wrong, what does it affect, and what can you do next? The programmer may need a detailed diagnostic record, but the artist needs a route forward. A stopped operation is not automatically proof that nothing changed; the message must match the actual behavior.",
+      "visual": "Use an actual blocked-state capture; keep the bridge’s Copy diagnostics as a separate concrete example when discussed.",
+      "edit": "Keep the topic and question. Replace the stale blocked crop only after reproducing the corresponding state. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Retains the existing strength in error and recovery teaching.",
+      "sources": [],
+      "old": 49,
+      "visible_detail": {
+        "type": "example",
+        "label": "Illustrative recovery message",
+        "text": "An asset named MI_Crate_Demo already exists in the destination. Choose a new instance name, then create a fresh preview.",
+        "context": "Teaching rewrite; not a claim about the exact current error wording."
+      },
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 20,
+      "current": {
+        "number": 49,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nAn error should support recovery\nWEEK 7  /  15D\n49\nActual course PySide tool · offline blocked state\nCould a classmate continue without reading the code?\nBridge example: Copy diagnostics preserves the request and its evidence.",
+        "notes": "Read the message as an artist who has not seen the code. Can you identify the problem, the affected input, and the next action? A raw exception may help the developer, but the artist also needs a way to resume the task.\n\nThe bridge now offers Copy diagnostics. It copies the active environment, exchange folder, receiver identity and request result. It leaves the current operation in place. We can attach that report to reproduction steps before deciding whether to retry.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://www.nngroup.com/articles/ten-usability-heuristics/\n\nVisual: Week07UnrealPython/Docs/UI/captures/material_blocked.png\nActual course PySide tool · offline blocked state\nReview anchor: 15D\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 37, 46, 48; week07_bridge/client.py.\n\nName the problem, identify the input and offer a workable next action. Preserve diagnostic details for investigation. Copy diagnostics remains available without rerunning the bridge operation.\n\nSources: https://learn.microsoft.com/en-us/windows/win32/uxguide/mess-error\nhttps://www.nngroup.com/articles/ten-usability-heuristics/\nhttps://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf#page=46"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-049.png",
+      "prepared_media": [
+        "after/material_blocked.png",
+        "Blocked repeat operation in the current offline sample."
+      ],
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "50",
+      "mantra": "M3",
+      "title": "An actionable error message",
+      "body": [
+        "Problem",
+        "Relevant cause",
+        "Next action",
+        "What would you change in your own message?"
+      ],
+      "notes": "This older Windows example is useful because it separates the problem, the reason and the next action. We do not need to copy its visual style into our tool. Apply the communication structure to an asset name collision or a missing texture. Which part of the message would let an artist recover independently?",
+      "visual": "Keep the existing Microsoft historical screenshot and attribution.",
+      "edit": "Keep title, screenshot and source. Use as a quick comparison after 49; preserve it as prepared material rather than silently removing it for time. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Uses a familiar non-game example for a directly transferable behavior.",
+      "sources": [],
+      "old": 50,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 21,
+      "current": {
+        "number": 50,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nAn actionable error message\nWEEK 7  /  ERROR\nProblem: rename failed\nCause: name already exists\nNext action: choose a name\nMicrosoft, Windows 7 error-message guidance. Historical UI example.\nWhich part would help an artist recover?\n50",
+        "notes": "This message identifies the failed operation, its cause and a next action. Compare that structure with our blocked-state message. Keep technical diagnostics available, but give the artist a route back to the task. The old Windows styling is not a template for our Unreal panel.\n\nSources:\nhttps://learn.microsoft.com/en-us/windows/win32/uxguide/mess-error\nhttps://www.nngroup.com/articles/ten-usability-heuristics/"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-050.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "51",
+      "mantra": "M3",
+      "title": "Recovery and accessibility",
+      "body": [
+        "Visible focus and readable labels",
+        "Meaning beyond color",
+        "A tested recovery path",
+        "Can a classmate finish without a mouse?"
+      ],
+      "notes": "Try the task with the keyboard and keep track of focus. Read every label at the supported size and check that state does not depend on hue alone. Then test the recovery we actually offer. Undo for a property edit is different from restoring a generated file or reimporting an asset. One accessible name or one contrast calculation is only a starting point.",
+      "visual": "Replace the single accessible-name code block with a current focus-state crop. Keep the code fragment in notes as one implementation example.",
+      "edit": "Keep current title and recovery distinction. Strengthen the visible test rather than implying one Qt property proves accessibility. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Maintains behavior-based evaluation alongside visual checks.",
+      "sources": [
+        "contrast",
+        "color"
+      ],
+      "old": 51,
+      "visible_detail": {
+        "type": "table",
+        "label": "Test an actual attempt",
+        "columns": [
+          "Check",
+          "What to observe"
+        ],
+        "rows": [
+          [
+            "Keyboard",
+            "Focus stays visible and reaches every necessary action."
+          ],
+          [
+            "Readability",
+            "Labels remain readable at the real display size."
+          ],
+          [
+            "State",
+            "Warning, selection and completion remain distinguishable without hue."
+          ],
+          [
+            "Recovery",
+            "The artist can correct the problem and attempt the task again."
+          ]
+        ]
+      },
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 22,
+      "current": {
+        "number": 51,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nRecovery and accessibility\nWEEK 7  /  15B\n51\n# Existing PySide view implementation\nself.preview.setAccessibleName(\n    \"Selected Actors change preview\"\n)\nReview consequential changes before applying them\nTest the recovery path you actually offer\nKeep focus, labels, and status understandable\nRequires the surrounding widget class.\nCould a classmate recover without help?",
+        "notes": "Recovery can mean Undo for an editor transaction, or a separate restore and reimport procedure. Do not promise that all operations can be undone. The code excerpt names the preview for accessibility; it is one implementation detail, not a complete accessibility guarantee. Check keyboard operation, visible focus, readable text, and status cues that do not rely on color alone. This UI fragment requires the surrounding widget instance. Use the checkpoint guide for independently runnable Unreal and Blender examples.\n\nCancellation stops future work at the next check. It does not undo changes already made. A transaction groups supported editor edits, while file export and import need their own recovery procedure. Explore further in Progress, cancellation and Undo, K5.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://ryandowlingsoka.com/unreal/batch-rename-tool/\nhttps://developer.microsoft.com/en-us/games/events/gdc/2023/accessible-and-inclusive-developer-tools/\nhttps://doc.qt.io/qtforpython-6/tutorials/\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Content\\Python\\week07_tooling\\ui\\views.py\nVisual: Editable slide text/table\nRequires the surrounding widget class.\nReview anchor: 15B\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 33–34.\n\nVisible controls support learning. Keyboard access supports users who cannot or prefer not to use a mouse. Check focus, readable labels and status cues beyond color. Mobile thumb-reach rules do not describe a desktop Unreal panel.\n\nSources: https://learn.microsoft.com/en-us/windows/apps/develop/input/keyboard-accelerators\nhttps://www.nngroup.com/articles/ten-usability-heuristics/"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-051.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "52",
+      "mantra": "M3",
+      "title": "Visible commands and shortcuts",
+      "body": [
+        "Visible commands help people learn",
+        "Shortcuts support repeated work",
+        "Host shortcuts and focus still matter",
+        "What should this key affect?"
+      ],
+      "notes": "Your command should be discoverable before someone memorizes its shortcut. Shortcuts also share space with the host editor. In the GOLF+ notes, modifier handling interfered with viewport and selection commands. That feedback concerns the whole workflow, even when the tool window looks fine. Test shortcuts with the correct focus and selection context.",
+      "visual": "Keep the Microsoft reference, then link the GOLF+ feedback/capture as an instructor example. Do not show personal conversation metadata.",
+      "edit": "Keep title and existing source. Add the concrete GOLF+ host-interaction case to narration. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Brings a real game-tool failure mode into the general principle.",
+      "sources": [],
+      "old": 52,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 23,
+      "current": {
+        "number": 52,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nVisible commands and shortcuts\nWEEK 7  /  KEYS\nA visible command supports learning\nA shortcut supports repeated work\nFocus determines what receives the key\nMicrosoft, Keyboard accelerators. Platform example; keys are not course-tool bindings.\nWhich repeated action deserves a shortcut, and what should it affect?\n52",
+        "notes": "Support an artist learning the tool and an artist repeating a task. Place shortcut information beside the command where possible. Make focus and scope predictable. A key should not unexpectedly act on a different panel or selection. These example keys demonstrate the pattern; they are not bindings we added to the classroom tool.\n\nSources:\nhttps://learn.microsoft.com/en-us/windows/apps/develop/input/keyboard-accelerators\nhttps://www.nngroup.com/articles/ten-usability-heuristics/"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-052.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "52A",
+      "mantra": "M3",
+      "title": "GOLF+ Course Generator: make the workflow visible",
+      "body": [
+        "Input → Parameters → Generate → optional Edit → Finalize → Integrate.",
+        "Numbered stages give the process a stable order.",
+        "Generate has the strongest emphasis in this captured state.",
+        "Collapsible groups and a labeled optional stage keep supporting detail organized."
+      ],
+      "notes": "This is the Course Generator for Paynes Valley. Read the numbered sequence from inputs through integration into the scene. The gold Generate step gives this state a strong focal point. Edit is explicitly marked optional, and the parameters can be collapsed. Now look at the warning beside Input. The icon tells us there is something to investigate, but this image does not explain its cause or whether generation should proceed. That is a useful test question, not something we can answer from appearance alone. What would you want clarified before clicking Generate?",
+      "visual": "Use assets/golf-course-generator-user-20261015.png as the main image, preserving aspect ratio. Pair the full process with four brief numbered observations. Put the warning question in its own discussion caption. Keep the August overlay as a separate historical example; these are different tools.",
+      "edit": "Replace the earlier proposed overlay case at 52A with the supplied Course Generator screenshot. Use its six visible stage names, not the older playbook’s shorter terminology. Retain shortcut/host context on current 52. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Uses the instructor-supplied interface to explain sequence, hierarchy and optional detail without relying on a live generation run.",
+      "sources": [],
+      "old": null,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 24,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": [
+        "assets/golf-course-generator-user-20261015.png",
+        "Instructor-supplied Course Generator capture, received 15 October. Visual state only; no new Unity run."
+      ],
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "53",
+      "mantra": "M4",
+      "title": "Keep a shared visual language",
+      "body": [
+        "Record the rules so the next tool stays coherent",
+        "Who decides when a pattern should change?"
+      ],
+      "notes": "A consistent tool suite needs more than someone remembering the right shade of blue. Record the visual and interaction decisions, reuse them, and decide how they change. This matters when several developers or AI agents work on different parts of the same system.",
+      "visual": "Reuse the current color-section divider layout with the new mantra title. Color content remains live under M2.",
+      "edit": "Replace divider title and subtitle; move the existing color teaching slides into M2 rather than deleting them.",
+      "rationale": "Creates space for the requested style-sheet and AI-workflow material.",
+      "sources": [],
+      "old": 53,
+      "delivery": "section transition",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 25,
+      "current": {
+        "number": 53,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nColor and\nreadability\nWEEK 7  /  COLOR0\nMeaning in the interface. Context in shaders and VFX.\n53",
+        "notes": "We will use color to direct attention and communicate state, then connect those choices to later material and VFX work. Begin with meaning and readability in the interface.\n\nSources:\nhttps://spectrum.adobe.com/page/color-fundamentals/\nhttps://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-053.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "53A",
+      "mantra": "M4",
+      "title": "A style sheet records decisions",
+      "body": [
+        "A style sheet records reusable visual and interaction decisions.",
+        "Specify type, spacing, semantic color, control states, wording and exceptions.",
+        "Tokens and components implement recurring rules; CSS/QSS implements only part of the specification.",
+        "A named owner and current examples help contributors interpret the rules consistently."
+      ],
+      "notes": "A style sheet is the team’s maintained reference for how the interface communicates. It should say what a color means, how controls behave, and why a pattern exists. Tokens give recurring decisions names; components apply those decisions repeatedly. Larger teams commonly use shared systems to coordinate work, though no universal rule says every organization does it well or uses the same format.",
+      "visual": "Show the included Week 7 style-sheet excerpt beside its actual action states. Keep specification and QSS clearly distinguished.",
+      "edit": "Insert after 53. Use a concrete rule instead of a wall of brand tokens. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Explains what the document does and why it matters at scale.",
+      "sources": [
+        "system"
+      ],
+      "old": null,
+      "visible_detail": {
+        "type": "example",
+        "label": "One reusable rule",
+        "text": "Forward action: emphasize Preview until a valid plan is reviewed; then emphasize Apply. Keep Reset separate. Use the same rule in each assistant.",
+        "context": "Week 7 style-sheet example; GOLF+ has its own palette and host patterns."
+      },
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 26,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": [
+        "after/material_preview.png",
+        "The Week 7 action-state rule in the current offline sample; GOLF+ retains its own style rules."
+      ],
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "53B",
+      "mantra": "M4",
+      "title": "Use the style sheet with AI",
+      "body": [
+        "Give the agent the current style sheet, token source and representative states.",
+        "Require existing components and deliberate, documented exceptions.",
+        "Compare the same states before and after; inspect behavior as well as appearance.",
+        "Update the shared rules when an intentional design decision changes."
+      ],
+      "notes": "In my workflow, I keep the agreed design decisions in a style-sheet skill and require the agents working on the interface to refer to it. That makes the reference reusable; it does not make the output automatically correct. I still compare screenshots, test behavior and record deliberate exceptions. If I decide to change the design, I update the shared rules so the next pass does not restore an old decision.",
+      "visual": "Show a short student-readable instruction from the local style skill beside its corresponding action-state rule. Keep machine-specific paths out of the projected slide. Use the prepared before/after images; no live agent run is needed.",
+      "edit": "Insert after 53A. Keep tool/platform specifics in notes; focus the slide on the process. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Uses the requested personal AI example while retaining a real verification step.",
+      "sources": [],
+      "old": null,
+      "visible_detail": {
+        "type": "example",
+        "label": "A reusable instruction for the agent",
+        "text": "Read the current style sheet before changing the UI. Reuse its tokens and components. Compare matching start, warning and completion states. Report deliberate exceptions.",
+        "context": "The instruction supports consistency; the resulting UI still needs review."
+      },
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 27,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "53C",
+      "mantra": "M4",
+      "title": "GOLF+ style rules: meaning must stay consistent",
+      "body": [
+        "Repeated type, icons and stage markers create a recognizable tool family.",
+        "Gold emphasizes Generate; muted later controls establish a different visual priority.",
+        "Color roles must distinguish emphasis, selection, completion and availability.",
+        "Do the warning and control treatments explain what the artist can do next?"
+      ],
+      "notes": "The screenshot shows how shared typography, icon treatment and colors create continuity. Full-width controls fit this narrow sequential workflow; that is why we do not turn one course example into a ban on full-width buttons. But consistency also needs meaning. Muted controls could communicate several things unless the interface explains their state. The October playbook describes an earlier shorter workflow; this screenshot shows six stages with different labels. We should reconcile that difference in the style sheet rather than assume the document and implementation already match. What question would you ask about the warning beside Input?",
+      "visual": "Reuse the supplied Course Generator image with a focused legend for type, stage markers and action emphasis. Keep the playbook comparison as a small editable table. Do not call muted controls programmatically disabled or filled steps completed without behavioral evidence.",
+      "edit": "Replace the historical GUI image as the main visual. Preserve older feedback as process history, and explicitly reconcile the shorter playbook workflow with the six visible stages. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Teaches the style sheet as a maintained specification, including a concrete document-versus-interface discrepancy to investigate.",
+      "sources": [],
+      "old": null,
+      "visible_detail": {
+        "type": "table",
+        "label": "Keep the specification current",
+        "columns": [
+          "Document / capture",
+          "Workflow labels"
+        ],
+        "rows": [
+          [
+            "Earlier playbook",
+            "Detect → Generate → Finalize → Adopt"
+          ],
+          [
+            "Supplied screenshot",
+            "Input → Parameters → Generate → Edit → Finalize → Integrate"
+          ],
+          [
+            "Maintenance question",
+            "Which labels are authoritative, and which rule changed?"
+          ]
+        ]
+      },
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 28,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": [
+        "assets/golf-course-generator-user-20261015.png",
+        "The supplied six-stage UI supports a concrete comparison with the earlier playbook."
+      ],
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "56",
+      "mantra": "M5",
+      "title": "Test the whole workflow",
+      "body": [
+        "Choose a question the prototype can answer",
+        "Observe the attempt and inspect the result",
+        "What remains untested?"
+      ],
+      "notes": "Our last reminder is to test the whole workflow. A sketch can answer whether people understand the sequence. A running tool can answer whether the intended asset changed. A production workflow also includes setup, finding the tool, recovery and maintenance. Choose the evidence that fits the question.",
+      "visual": "Keep the existing testing divider composition.",
+      "edit": "Replace title/subtitle while preserving the section boundary.",
+      "rationale": "Connects the design principles to the existing peer-test method.",
+      "sources": [
+        "tasks",
+        "figma"
+      ],
+      "old": 56,
+      "delivery": "section transition",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 29,
+      "current": {
+        "number": 56,
+        "hidden": false,
+        "text": "06  UI/UX / testing\nTesting and\nworkflow evidence\nWEEK 7  /  TEST0\nObserve an attempt, inspect the result, choose a revision\n56",
+        "notes": "Now connect the interface choices to evidence. We will look at a production iteration, distinguish observation from explanation, then consider what usage events can add before the peer test.\n\nSources:\nhttps://www.nngroup.com/articles/usability-testing-101/\nhttps://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-056.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "43",
+      "mantra": "M5",
+      "title": "Prototype the question",
+      "body": [
+        "Paper or Figma: ask someone to explain the flow and predict each action.",
+        "Prepared state images: compare starting, reviewed, blocked and completed feedback.",
+        "Running tool: verify actual scope, changes, recovery and host behavior.",
+        "Use the least expensive prototype that answers the current question."
+      ],
+      "notes": "These two sketches describe the same task. Before building the operation, ask a peer to explain what they would do and what they expect to happen. Paper or connected Figma frames can test that interpretation. They cannot verify actual imports, stale selection, undo or latency. When those are the uncertainty, use the running tool. What would you test before spending time polishing the final screen?",
+      "visual": "Keep both existing sketches and their illustrative label. Add a four-state storyboard reference in the companion; a linked Figma prototype is not claimed to exist.",
+      "edit": "Move current 43 into M5. Keep the visual comparison; expand the caption and narration to identify Figma and fidelity limits. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Makes prototyping explicit without requiring students to learn another application.",
+      "sources": [
+        "figma",
+        "tasks"
+      ],
+      "old": 43,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 30,
+      "current": {
+        "number": 43,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nTwo layouts for the same task\nWEEK 7  /  14D\n43\nIllustrative sketches · neither layout is a tested recommendation\nWhich layout makes the target and next action easier to identify?",
+        "notes": "These sketches support the same import task. One keeps everything visible; the other separates decisions into steps. Predict where a novice might hesitate and where an experienced artist might want to move faster. Test that prediction before choosing a layout. Sketch a starting state, a result and a failure. Paper or linked Figma frames can test interpretation and flow. A running Unreal tool is still needed to test the actual operation.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://www.nngroup.com/articles/paper-prototyping/\nhttps://hci.stanford.edu/publications/2010/parallel-prototyping/ParallelPrototyping2010-submitted.pdf\nhttps://help.figma.com/hc/en-us/articles/360039823894-Create-and-manage-prototype-flows\n\nVisual: Course/Visuals/Week07/tool-layouts.png\nIllustrative sketches · neither layout is a tested recommendation\nReview anchor: 14D\n\nBoth sketches perform the same task. Predict where a new user might hesitate and where an experienced user might want faster repetition. Observe the attempt before choosing a layout.\n\nSources: https://learn.microsoft.com/en-us/windows/win32/uxguide/vis-layout\nhttps://www.nngroup.com/articles/gestalt-proximity/"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-043.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "57",
+      "mantra": "M5",
+      "title": "Feedback changes the interface",
+      "body": [
+        "Observe a real task",
+        "Separate a finding from an explanation",
+        "What did the original feature list miss?"
+      ],
+      "notes": "This production example reminds us that a feature list does not predict every usability problem. Record what the person actually did and the help they needed. Then propose an explanation. Keep the observation separate from your guess about its cause, and choose a change that can be retested.",
+      "visual": "Keep the existing NetherRealm / Mission Kontrol source image and attribution.",
+      "edit": "Keep title, visual and source; connect the narration to the GOLF+ feedback process and the next lab. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Preserves an existing game-production connection.",
+      "sources": [],
+      "old": 57,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 31,
+      "current": {
+        "number": 57,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nFeedback changes the interface\nWEEK 7  /  16C\n57\nEtienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.47\nWhat did the team learn that the original feature list missed?",
+        "notes": "QA feedback led Mission Kontrol to add controls for both players and frame stepping. Previously, debug actions could depend on gamepad combinations, but someone working in the tool might not be holding a gamepad. The lesson is specific: look at adjacent actions required to finish the task. A technically functional panel can still force awkward handoffs. Ask your tester what they need immediately before and after the operation, then observe whether the interface supports those steps. Mission Kontrol is NetherRealm’s Unreal-based developer tool for repeatable character actions. It uses Slate and game automation rather than our Python editor recipe.\n\nSource insight (instructor): Mission Kontrol PDF p.47. This is a documented iteration after QA feedback, not evidence that a particular layout is universally best.\n\nFacilitation (not narration):  \n\nSources:\nhttps://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/mk-feedback.png\nEtienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.47\nReview anchor: 16C\n\nObserve the surrounding workflow. Mission Kontrol’s QA feedback led to both-player actions and frame stepping where people were already working. This is a documented production iteration, not a controlled comparison or a Python tool.\n\nSources: https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf#page=47\nhttps://www.nngroup.com/articles/usability-testing-101/"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-057.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "58",
+      "mantra": "M5",
+      "title": "A test produces the next question",
+      "body": [
+        "Record starting inputs, expected behavior, observed behavior and any help needed.",
+        "Separate the observation from your explanation of its cause.",
+        "Change one relevant feature and repeat a comparable task.",
+        "What remains uncertain, and what would you test next?"
+      ],
+      "notes": "A useful finding describes the starting situation, the action and what you observed. “Confusing” is a reaction; “I expected this row to change, but an unselected object changed too” is evidence you can investigate. Choose one revision and repeat a comparable task. What would you need to see before calling the revision successful?",
+      "visual": "Keep the existing testing-loop visual and its distinction between observation and explanation.",
+      "edit": "Keep the current title, diagram and audience question. Avoid adding a second generic design-process diagram. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Links the new visual principles back to the established evidence standard.",
+      "sources": [
+        "tasks"
+      ],
+      "old": 58,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 32,
+      "current": {
+        "number": 58,
+        "hidden": false,
+        "text": "06  UI/UX for artist tools\nA test produces the next question\nWEEK 7  /  16E\n58\nCourse testing loop · a possible explanation is not yet a finding\nWhich single change would you test next? What questions remain?",
+        "notes": "An observation gives you evidence. Your explanation is still a hypothesis. Make one change that addresses it and repeat the task. If the difficulty remains, revise the explanation rather than merely adding more instructions. For example, the tester chose the wrong destination. That is the observation. An unclear label is a possible explanation. Showing the full path is a proposed change, and a new tester’s attempt is the retest. What questions do you have before writing your own task?\n\nFor automated checks, also prove that a deliberately failing expectation is detected. A discovered file that never calls its checks gives no evidence about those checks. Explore further in Tests that detect failure, K6.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://www.nngroup.com/articles/usability-testing-101/\nhttps://www.nngroup.com/articles/task-scenarios-usability-testing/\n\nVisual: Course/Visuals/Week07/test-loop.png\nCourse testing loop · a possible explanation is not yet a finding\nReview anchor: 16E\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 35–38.\n\nIf a tester misses a destination, record that observation. An unclear label or grouping is a possible explanation. Change one thing and repeat the task with a fresh tester. Usage data can help choose where to investigate, but observation helps explain the difficulty.\n\nSources: https://www.nngroup.com/articles/usability-testing-101/\nhttps://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-058.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "59",
+      "mantra": "M5",
+      "title": "Telemetry and observation",
+      "body": [
+        "Events show recorded outcomes",
+        "Observation shows hesitation and workarounds",
+        "Low usage has more than one explanation",
+        "What would you investigate next?"
+      ],
+      "notes": "An event log can show that an operation finished or was blocked. Observation can reveal hesitation, misunderstanding or a workaround. Neither alone tells the entire story. Low Apply use might mean confusion, a deliberate cancellation or little need for the task. Inspect the actual result and ask about context before redesigning the interface.",
+      "visual": "Keep current concise text or one existing event example; do not invent a chart of collected behavior.",
+      "edit": "Keep the telemetry topic and uncertainty. Preserve its current status as an illustrative plan. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Prevents stronger visual-design language from weakening the measurement caveats.",
+      "sources": [],
+      "old": 59,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 33,
+      "current": {
+        "number": 59,
+        "hidden": false,
+        "text": "06  UI/UX / testing\nTelemetry and observation\nWEEK 7  /  TELEM1\nTelemetry records events and operation outcomes\nObservation reveals hesitation and workarounds\nA completed operation still needs result inspection\nLow Apply use could mean confusion, cancellation or little need.\nWhat would you investigate before changing the interface?\n59",
+        "notes": "Start with a workflow question. Usage data can describe events, errors and operation duration. It cannot by itself explain why an artist hesitated or prove the final asset is correct. Watch a representative task before choosing a fix. Analytics and usability testing are complementary. Nothing in this lesson enables collection in the demo tools.\n\nSources:\nhttps://www.nngroup.com/articles/quantitative-user-research-methods/\nhttps://www.nngroup.com/articles/usability-testing-101/"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-059.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "60",
+      "mantra": "M5",
+      "title": "A small event plan",
+      "body": [
+        "Preview finished: target count and elapsed time",
+        "Apply blocked: reason",
+        "Apply finished: reported outcome and changes",
+        "Recovery used: which route"
+      ],
+      "notes": "These are proposed events, not measurements collected from our class. Choose fields that answer a concrete question about the workflow. Keep actual task success separate from the event name. An apply-finished event may tell us the operation returned, but we still need to inspect what it changed.",
+      "visual": "Keep the existing editable event table and its explicit illustrative label.",
+      "edit": "Keep current table/source and example status. Retain in the comprehensive sequence; do not add telemetry implementation to this preparation task. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Preserves useful existing content and limits the scope of demo changes.",
+      "sources": [],
+      "old": 60,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 34,
+      "current": {
+        "number": 60,
+        "hidden": false,
+        "text": "06  UI/UX / testing\nA small event plan\nWEEK 7  /  TELEM2\nEvent\nUseful fields\nQuestion\npreview_finished\nrun_id, target_count, elapsed_ms\nDid the preview finish?\napply_blocked\nrun_id, reason_code\nWhich condition blocked it?\napply_finished\nrun_id, outcome, changed_count\nWhat did the operation report?\nrecovery_used\nrun_id, recovery_kind\nWhich recovery path was used?\nIllustrative event design. No collected measurements or implemented telemetry.\nWhich event helps answer your peer-test question?\n60",
+        "notes": "Begin with a few meaningful events. Count distinct runs, not repeated clicks, and report cancellations separately. Code duration differs from the whole time a person spends completing a task. Use explicit local test logging if we implement this later, with anonymous run IDs and task-relevant fields. Avoid personal names and asset paths unless a justified investigation needs them. A few classroom attempts give useful observations, not reliable population percentages. Inspect the result to establish task success.\n\nSources:\nhttps://www.nngroup.com/articles/quantitative-user-research-methods/\nhttps://www.nngroup.com/articles/usability-testing-101/"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-060.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "60A",
+      "mantra": "M5",
+      "title": "Production case: less manual handling",
+      "body": [
+        "A small team needs repeatable asset ingestion",
+        "The interface exposes a bounded batch",
+        "Review remains part of the workflow",
+        "What would you verify after import?"
+      ],
+      "notes": "Marcus White’s Unit 2 Games talk presents a small-team ingestion workflow and a compact batch-import interface. The useful connection is how automation removes repeated setup while leaving a recognizable artist task. Treat the talk’s no-error language as an aspiration, not a guarantee. Its Python setup is from an older Unreal ecosystem; this is workflow evidence, not current setup code.",
+      "visual": "Use attached PDF p.26 for the interface, p.33 for the workflow, or pp.35–37 for the asset overview. Prefer one clear page per teaching use.",
+      "edit": "Insert before peer preparation as a prepared production example, or cross-reference it from 45C. Retain clear source-page attribution. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Uses the attached material to connect the section to game production without importing obsolete APIs.",
+      "sources": [],
+      "old": null,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 35,
+      "current": null,
+      "current_preview": null,
+      "prepared_media": [
+        "assets/talk-33.png",
+        "Marcus White, Using Python to Streamline Asset Workflows for a Small Team, PDF p.33. Original source page."
+      ],
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    },
+    {
+      "id": "62",
+      "mantra": "M5",
+      "title": "Prepare a task a peer can attempt",
+      "body": [
+        "Give a goal and prepared inputs, not a sequence of clicks.",
+        "Define visible success and the object or data that must remain unchanged.",
+        "Prepare a reset; if using a storyboard, state which behavior it cannot verify.",
+        "Can a peer attempt the task without your narration?"
+      ],
+      "notes": "Use your story to prepare the task, but give the reviewer a goal rather than a sequence of button presses. State the starting inputs, what should change and what must remain unchanged. Decide how you will reset the task between reviewers. If execution is unavailable, label the review as recorded or conceptual so the evidence is interpreted accurately.",
+      "visual": "Keep the current preparation sheet and the existing four-minute block. Add the material story as a worked example in the companion only.",
+      "edit": "Keep current slide and task-preparation timing. Strengthen the connection to story/criteria; add no new grading or submission requirements. Keep the definition, worked example or comparison visible in the slide; use notes for elaboration. Preserve legible type and split an overloaded composition instead of shrinking it.",
+      "rationale": "Makes the richer lecture directly useful to the existing lab.",
+      "sources": [
+        "tasks"
+      ],
+      "old": 62,
+      "delivery": "prepared explanation and visual; no live execution required to teach the point",
+      "live_demo": "optional reinforcement after manual validation; preserve scheduled colleague demonstrations",
+      "proposed_position_in_review": 36,
+      "current": {
+        "number": 62,
+        "hidden": false,
+        "text": "07  Peer-test preparation\nYour peer-test task\nWEEK 7  /  16A\n62\nA goal, starting inputs and visible success\nProtected scope and a reset method\nOne version, one task, three reviewers\nCould a partner attempt this goal without a click-by-click script?",
+        "notes": "Use the preparation sheet to write one task that fits a two-minute attempt. For example, give these three selected props exactly one prefix while leaving the unselected light unchanged. Define success and how you will restore the same input. Declare hands-on, recorded or concept review. Keep the same task and version across rounds so we can compare observations. If you have no runnable tool, sketch the input, action and intended output. Which part of your task needs clarification?\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\preparation.html\nVisual: Editable slide text/table\n\nReview anchor: 16A"
+      },
+      "current_preview": "../DesktopIntegrated20261014/previews/slide-062.png",
+      "prepared_media": null,
+      "readiness": "content ready; visual placement and final PPT render QA pending"
+    }
+  ],
+  "sources": {
+    "stories": [
+      "Atlassian: user stories",
+      "https://www.atlassian.com/agile/project-management/user-stories",
+      "Role, desired outcome and benefit; a story supports conversation rather than replacing acceptance checks."
+    ],
+    "mapping": [
+      "NN/g: story mapping",
+      "https://www.nngroup.com/articles/user-story-mapping/",
+      "Activities, steps and details; use a small vertical slice of the artist workflow."
+    ],
+    "tasks": [
+      "NN/g: test scenarios",
+      "https://www.nngroup.com/articles/task-scenarios-usability-testing/",
+      "Give a goal and context without teaching the interface’s click sequence."
+    ],
+    "art": [
+      "Getty: elements of art",
+      "https://www.getty.edu/education/teachers/building_lessons/formal_analysis.html",
+      "Value as lightness/darkness; distinguish it from a software HSV coordinate."
+    ],
+    "principles": [
+      "Getty: principles of design",
+      "https://www.getty.edu/education/teachers/building_lessons/formal_analysis2.html",
+      "Balance, emphasis, movement, rhythm and unity provide an art vocabulary for UI critique."
+    ],
+    "contrast": [
+      "W3C: text contrast",
+      "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "Use measured contrast as a practical desktop UI benchmark; this is not a claim of full WCAG conformance."
+    ],
+    "color": [
+      "W3C: use of color",
+      "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html",
+      "Meaning must not depend on color alone."
+    ],
+    "figma": [
+      "Figma: prototyping",
+      "https://help.figma.com/hc/en-us/articles/360040314193-Guide-to-prototyping-in-Figma",
+      "Connected frames and interactions for flow testing; not evidence that engine operations work."
+    ],
+    "system": [
+      "Figma: design systems",
+      "https://www.figma.com/design-systems/",
+      "Shared styles, variables and component libraries support consistency across teams."
+    ],
+    "qt": [
+      "Qt: layout management",
+      "https://doc.qt.io/qtforpython-6.8/overviews/qtwidgets-layout.html",
+      "Layout managers express relationships and respond to sizing changes; check installed-version behavior."
+    ],
+    "euw": [
+      "Epic: Editor Utility Widgets",
+      "https://dev.epicgames.com/documentation/en-us/unreal-engine/editor-utility-widgets-in-unreal-engine",
+      "UMG-based editor tools; distinct from the project’s existing C++ Slate panel and an external PySide window."
+    ],
+    "coolors": [
+      "Coolors palette generator",
+      "https://coolors.co/generate",
+      "User-requested exploration link. Automated fetch returned 403; current UI/features were not inspected."
+    ],
+    "coolors-contrast": [
+      "Coolors contrast checker",
+      "https://coolors.co/contrast-checker",
+      "User-requested tool pointer; validate actual foreground/background pairs. Automated fetch returned 403."
+    ]
+  },
+  "revision": "15 October follow-up: supplied GOLF+ screenshot and fuller visible teaching content",
+  "delivery_direction": "Slides and prepared examples carry the explanation; live execution reinforces it after manual validation. Preserve colleague demo allocations and the existing schedule.",
+  "supplied_golf_evidence": {
+    "source": "C:\\Users\\antho\\AppData\\Local\\Temp\\codex-clipboard-79049e2b-5df4-4505-9b10-b342564afd76.png",
+    "asset": "assets/golf-course-generator-user-20261015.png",
+    "sha256": "f9cff5033768f3edf264d54c5a1c25e84ab75595a623fb337db15807fddda5d6",
+    "dimensions": [
+      1147,
+      1039
+    ],
+    "received": "2026-10-15",
+    "capture_date": "not independently established",
+    "application_build": "not established",
+    "subject": "GOLF+ Course Generator — PAYNESVALLEY",
+    "treatment": "original pixels and aspect ratio preserved",
+    "credit": "Instructor-provided GOLF+ tool screenshot",
+    "intended_slides": [
+      "52A",
+      "53C"
+    ],
+    "observed_steps": [
+      "Input",
+      "Parameters",
+      "Generate",
+      "Edit (optional)",
+      "Finalize",
+      "Integrate"
+    ],
+    "claim_limit": "Visual appearance in the supplied state; no new Unity execution or functional test."
+  }
+}

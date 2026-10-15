@@ -1,0 +1,107 @@
+[
+  {
+    "media": "image47.png",
+    "source": "native-material-preview.png",
+    "sha256": "5ecce658c206f8a011331011fffcab66e964bd9f2aef0281f75bc93a133f93ac",
+    "capture_method": "Unreal Slate TakeScreenshot",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "image48.png",
+    "source": "material-result.png",
+    "sha256": "e846f00a26b03bea9d10e1f619da7c3a3ad5293750d0a74859d68b32c1cd0754",
+    "capture_method": "Unreal AutomationLibrary viewport screenshot",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "image49.png",
+    "source": "native-vfx-preview.png",
+    "sha256": "516edb9ca5346d3cbe579b2233e1b45ce06a54924b8b05676c759451602ba9ca",
+    "capture_method": "Unreal Slate TakeScreenshot",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "image50.png",
+    "source": "vfx-result.png",
+    "sha256": "42b266e7d9d84c4f433c0458a5792daea2132369319171b0a2ea917f2546533f",
+    "capture_method": "Unreal AutomationLibrary viewport screenshot",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "image66.png",
+    "source": "material-baseline.png",
+    "sha256": "1a807d009eeeeca7c24a692075183890f55e70f7a5451cdbb7b081655f69d07b",
+    "capture_method": "Unreal AutomationLibrary viewport screenshot",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "image67.png",
+    "source": "material-undo.png",
+    "sha256": "28d34062f87d07d1f01f5157f27f78847f69e88c083c4271d1f47f081f0b3d91",
+    "capture_method": "Unreal AutomationLibrary viewport screenshot",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "fresh-62-material_preview.png",
+    "source": "practice/material_preview.png",
+    "sha256": "01444b6757b03783a72f9e0e62819c1ab26000f1b494e52e17b421db54d004d2",
+    "capture_method": "Qt QWidget.grab",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "image58.png",
+    "source": "practice/material_preview.png",
+    "sha256": "01444b6757b03783a72f9e0e62819c1ab26000f1b494e52e17b421db54d004d2",
+    "capture_method": "Qt QWidget.grab",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "fresh-65-material_complete.png",
+    "source": "practice/material_complete.png",
+    "sha256": "d46e9801d0b374d76633de8453035f640b06e02889076bd88272fe88b97263b4",
+    "capture_method": "Qt QWidget.grab",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "refinement-20-image2.png",
+    "source": "practice/material_preview.png",
+    "sha256": "01444b6757b03783a72f9e0e62819c1ab26000f1b494e52e17b421db54d004d2",
+    "capture_method": "Qt QWidget.grab",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "fresh-71-vfx_warning.png",
+    "source": "practice/vfx_warning.png",
+    "sha256": "759f42224fff7e46b537d01e756c9d618dae765eebbc9ee65a9bb771ad8ad43d",
+    "capture_method": "Qt QWidget.grab",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "fresh-71-vfx_blocked.png",
+    "source": "practice/vfx_blocked.png",
+    "sha256": "886f095c59a772d5f83dee6b8cefd7b55889a92564562713bde69a7c940c761c",
+    "capture_method": "Qt QWidget.grab",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "image35.png",
+    "source": "editor-textures.png",
+    "sha256": "77efe83711cdd63ba8077966bd7acef456ed21e39f1daccf747663fd5438aad4",
+    "capture_method": "Unreal Slate TakeScreenshot",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "image44.png",
+    "source": "material-baseline.png",
+    "sha256": "1a807d009eeeeca7c24a692075183890f55e70f7a5451cdbb7b081655f69d07b",
+    "capture_method": "Unreal AutomationLibrary viewport screenshot",
+    "ai_cursor_overlay": false
+  },
+  {
+    "media": "image25.png",
+    "source": "editor-textures.png",
+    "sha256": "77efe83711cdd63ba8077966bd7acef456ed21e39f1daccf747663fd5438aad4",
+    "capture_method": "Unreal Slate TakeScreenshot",
+    "ai_cursor_overlay": false
+  }
+]

@@ -23,6 +23,6 @@ assert all(abs(r['dimensions_cm'][2] - 220) < .1 for r in blender)
 responses = [json.loads(p.read_text()) for p in (root/'Saved/BridgeExchange/responses').glob('*.json')]
 result = dict(method='Actual Blender UI vertex edit and Publish & Send buttons; read-only Unreal evidence',
               expected_height_change_cm=[180,220], actors=records, responses=responses)
-path = root/'Docs/Bridge/UI-Rehearsal/verification.json'
+path = root/'Saved/Rehearsal/Bridge/UI-Rehearsal/verification.json'
 path.write_text(json.dumps(result,indent=2),encoding='utf8')
 unreal.log('UI rehearsal verified: two existing Blender actors reference the same 220 cm mesh.')

@@ -1,0 +1,28 @@
+{
+  "revision": 3,
+  "checked": "2026-10-14",
+  "sources": {
+    "python": "https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python?application_version=5.7",
+    "plugins": "https://dev.epicgames.com/documentation/en-us/unreal-engine/plugins-in-unreal-engine?application_version=5.7",
+    "selection": "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorActorSubsystem?application_version=5.7#unreal.EditorActorSubsystem.get_selected_level_actors",
+    "analytics": "https://www.nngroup.com/articles/quantitative-user-research-methods/",
+    "testing": "https://www.nngroup.com/articles/usability-testing-101/",
+    "spectrum": "https://spectrum.adobe.com/page/color-fundamentals/",
+    "color": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html",
+    "contrast": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+    "picker": "https://dev.epicgames.com/documentation/en-us/unreal-engine/color-picker?application_version=4.27",
+    "hsb": "https://helpx.adobe.com/photoshop/desktop/adjust-color/choose-colors/choose-colors-with-the-adobe-color-picker.html"
+  },
+  "user_image": {
+    "file": "assets/plugin-template-user.png",
+    "sha256": "a67b15cfdc35aa08a177a636a8f3840a59aabc3554b1668da1c4cf69312f4921",
+    "credit": "User-supplied course screenshot; visible TechArtCorner labels; engine build unverified"
+  },
+  "api_capture": {
+    "detail": "assets/epic-selection-doc-detail.png",
+    "context": "assets/epic-selection-doc-page.png",
+    "source": "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorActorSubsystem?application_version=5.7#unreal.EditorActorSubsystem.get_selected_level_actors",
+    "method": "Actual browser screenshots, UE Python 5.7 documentation, 2026-10-14; no text altered",
+    "rights": "Epic Games documentation screenshot for attributed instructional commentary; no new license asserted"
+  }
+}

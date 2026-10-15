@@ -3,6 +3,10 @@ from pathlib import Path
 
 
 class BlenderAdapter:
+    def environment(self):
+        import bpy
+        return {'name': 'Blender', 'version': bpy.app.version_string}
+
     def _source(self):
         import bpy
         if bpy.context.mode != 'OBJECT':

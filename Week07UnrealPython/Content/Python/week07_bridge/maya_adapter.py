@@ -2,37 +2,49 @@
 
 
 class MayaAdapter:
+    def environment(self):
+        import maya.cmds as cmds
+        return {'name': 'Maya', 'version': cmds.about(version=True)}
+
     def _source(self):
         import maya.cmds as cmds
         selected = cmds.ls(selection=True, long=True) or []
         if len(selected) != 1 or cmds.nodeType(selected[0]) != 'transform':
             raise ValueError('Select exactly one polygon mesh transform (no components).')
-        obj = selected[0]
-        shapes = cmds.listRelatives(obj, shapes=True, noIntermediate=True, fullPath=True) or []
+        mesh_transform = selected[0]
+        shapes = cmds.listRelatives(
+            mesh_transform, shapes=True, noIntermediate=True, fullPath=True
+        ) or []
         if len(shapes) != 1 or cmds.nodeType(shapes[0]) != 'mesh':
             raise ValueError('Select a transform containing exactly one polygon mesh.')
-        if cmds.listRelatives(obj, children=True, type='transform'):
+        if cmds.listRelatives(mesh_transform, children=True, type='transform'):
             raise ValueError('Select a single mesh without child transforms.')
-        history = cmds.listHistory(obj) or []
-        if any(cmds.nodeType(n) in ('skinCluster', 'blendShape') for n in history):
+        history = cmds.listHistory(mesh_transform) or []
+        if any(cmds.nodeType(node) in ('skinCluster', 'blendShape') for node in history):
             raise ValueError('This static-mesh lesson excludes skin and blend shapes.')
         if cmds.currentUnit(query=True, linear=True) != 'cm':
             raise ValueError('Set Maya working units to centimeters for this demo.')
         import maya.api.OpenMaya as om
-        if om.MMatrix(cmds.xform(obj, query=True, worldSpace=True, matrix=True)).det4x4() <= 0:
+        matrix = cmds.xform(mesh_transform, query=True, worldSpace=True, matrix=True)
+        if om.MMatrix(matrix).det4x4() <= 0:
             raise ValueError('Resolve mirrored/zero scale before publishing this teaching asset.')
-        return obj
+        return mesh_transform
 
     def inspect_selection(self):
         import maya.cmds as cmds
-        obj = self._source()
-        box = cmds.exactWorldBoundingBox(obj)
-        dims = [box[i + 3] - box[i] for i in range(3)]
+        mesh_transform = self._source()
+        bounds = cmds.exactWorldBoundingBox(mesh_transform)
+        dimensions = [bounds[i + 3] - bounds[i] for i in range(3)]
         if cmds.upAxis(query=True, axis=True) == 'y':
-            dims = [dims[0], dims[2], dims[1]]
-        return dict(host='maya', source_file=cmds.file(query=True, sceneName=True),
-                    object_name=obj, mesh_count=1, face_count=cmds.polyEvaluate(obj, face=True),
-                    dimensions_cm=dims)
+            dimensions = [dimensions[0], dimensions[2], dimensions[1]]
+        return {
+            'host': 'maya',
+            'source_file': cmds.file(query=True, sceneName=True),
+            'object_name': mesh_transform,
+            'mesh_count': 1,
+            'face_count': cmds.polyEvaluate(mesh_transform, face=True),
+            'dimensions_cm': dimensions,
+        }
 
     def export_fbx(self, path):
         import maya.cmds as cmds
@@ -74,3 +86,4 @@ class MayaAdapter:
             mel.eval('FBXPopSettings;')
             cmds.undoInfo(stateWithoutFlush=undo_enabled)
             cmds.file(modified=modified)
+

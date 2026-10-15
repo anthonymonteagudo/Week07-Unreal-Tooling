@@ -1,0 +1,27 @@
+[
+  {
+    "lesson": 1,
+    "file": "snippets\\01-01.py",
+    "validation": "Python syntax checked; Unreal execution not performed"
+  },
+  {
+    "lesson": 2,
+    "file": "snippets\\02-01.py",
+    "validation": "Python syntax checked; Unreal execution not performed"
+  },
+  {
+    "lesson": 2,
+    "file": "snippets\\02-02.py",
+    "validation": "Python syntax checked; Unreal execution not performed"
+  },
+  {
+    "lesson": 3,
+    "file": "snippets\\03-01.py",
+    "validation": "Python syntax checked; Unreal execution not performed"
+  },
+  {
+    "lesson": 3,
+    "file": "snippets\\03-02.py",
+    "validation": "Python syntax checked; Unreal execution not performed"
+  }
+]

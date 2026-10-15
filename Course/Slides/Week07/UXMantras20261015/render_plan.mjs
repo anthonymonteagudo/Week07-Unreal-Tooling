@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+const dir=path.dirname(fileURLToPath(import.meta.url));
+const deps='C:/Users/antho/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
+const {marked}=await import(pathToFileURL(path.join(deps,'marked/lib/marked.esm.js')));
+const shell=fs.readFileSync(path.join(dir,'sources.html'),'utf8');
+const nav=shell.match(/<nav>[\s\S]*?<\/nav>/)[0];
+const body=marked.parse(fs.readFileSync(path.join(dir,'integration-plan.md'),'utf8'));
+fs.writeFileSync(path.join(dir,'plan.html'),'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 7 · comprehensive integration plan</title><link rel="stylesheet" href="review.css"></head><body><main>'+nav+body+'</main></body></html>');
+console.log('Rendered the integration plan.');

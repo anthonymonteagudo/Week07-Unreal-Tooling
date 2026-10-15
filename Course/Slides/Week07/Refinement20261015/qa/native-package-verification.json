@@ -1,0 +1,57 @@
+{
+  "media": [
+    {
+      "mediaType": 3,
+      "name": "Embedded_taichi-fluid",
+      "slide": 10
+    },
+    {
+      "mediaType": 3,
+      "name": "Embedded_tap-inspector",
+      "slide": 20
+    },
+    {
+      "mediaType": 3,
+      "name": "Embedded_epic-material",
+      "slide": 22
+    },
+    {
+      "mediaType": 3,
+      "name": "Embedded_course-bridge",
+      "slide": 51
+    },
+    {
+      "mediaType": 3,
+      "name": "region-silent",
+      "slide": 59
+    },
+    {
+      "mediaType": 3,
+      "name": "Embedded_powerrename-demo",
+      "slide": 86
+    },
+    {
+      "mediaType": 3,
+      "name": "Embedded_mph.function_list",
+      "slide": 87
+    },
+    {
+      "mediaType": 3,
+      "name": "Embedded_tap-callback",
+      "slide": 88
+    },
+    {
+      "mediaType": 3,
+      "name": "Embedded_guerrilla",
+      "slide": 91
+    }
+  ],
+  "claimBoundary": "PowerPoint recognizes media and the custom show; this is not a playback or live delivery rehearsal.",
+  "slideCount": 106,
+  "customShows": [
+    {
+      "count": 70,
+      "name": "Week 7 timed class route"
+    }
+  ]
+}

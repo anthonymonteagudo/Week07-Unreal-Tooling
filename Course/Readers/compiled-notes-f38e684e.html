@@ -1,0 +1,589 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UI/UX principles for game tools</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/UXMantras20261015/compiled-notes.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/UXMantras20261015/compiled-notes.md<br>Source modified: 2026-10-15T07:10:36.258Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#ui-ux-principles-for-game-tools">UI/UX principles for game tools</a></li><li><a href="#01-design-is-design-is-design">01 · Design is Design is Design</a></li><li><a href="#study-detail-and-teaching-translation">Study detail and teaching translation</a></li><li><a href="#02-stop-solving-other-people-39-s-problems">02 · Stop Solving Other People&amp;#39;s Problems</a></li><li><a href="#study-detail-and-teaching-translation-2">Study detail and teaching translation</a></li><li><a href="#03-form-doesn-39-t-and-shouldn-39-t-follow-function">03 · Form Doesn&amp;#39;t and Shouldn&amp;#39;t Follow Function</a></li><li><a href="#study-detail-and-teaching-translation-3">Study detail and teaching translation</a></li><li><a href="#04-balancing-form-and-function-prescription-vs-description">04 · Balancing Form and Function - Prescription vs Description</a></li><li><a href="#study-detail-and-teaching-translation-4">Study detail and teaching translation</a></li><li><a href="#05-why-form-follows-function-is-not-a-ui-design-prescription">05 · Why Form Follows Function is NOT a UI Design Prescription</a></li><li><a href="#study-detail-and-teaching-translation-5">Study detail and teaching translation</a></li><li><a href="#06-every-force-evolves-form-so-don-39-t-follow-the-prescription">06 · Every Force Evolves Form (So Don&amp;#39;t Follow the Prescription)</a></li><li><a href="#study-detail-and-teaching-translation-6">Study detail and teaching translation</a></li><li><a href="#07-less-is-more-small-screens-big-challenges">07 · Less is More - Small Screens, Big Challenges</a></li><li><a href="#study-detail-and-teaching-translation-7">Study detail and teaching translation</a></li><li><a href="#08-five-rules-for-effective-ui-design-on-small-screens">08 · Five Rules for Effective UI Design on Small Screens</a></li><li><a href="#study-detail-and-teaching-translation-8">Study detail and teaching translation</a></li><li><a href="#09-balance-creates-visual-order">09 · Balance Creates Visual Order</a></li><li><a href="#study-detail-and-teaching-translation-9">Study detail and teaching translation</a></li><li><a href="#10-case-studies-improving-balance-in-the-user-interface">10 · Case Studies - Improving Balance in the User Interface</a></li><li><a href="#study-detail-and-teaching-translation-10">Study detail and teaching translation</a></li><li><a href="#11-rhythm-establishing-and-reinforcing-comprehension">11 · Rhythm - Establishing and Reinforcing Comprehension</a></li><li><a href="#study-detail-and-teaching-translation-11">Study detail and teaching translation</a></li><li><a href="#12-harmony-shaping-the-parts-into-a-whole">12 · Harmony - Shaping the Parts into a Whole</a></li><li><a href="#study-detail-and-teaching-translation-12">Study detail and teaching translation</a></li><li><a href="#13-using-harmony-to-create-directional-flow">13 · Using Harmony to Create Directional Flow</a></li><li><a href="#study-detail-and-teaching-translation-13">Study detail and teaching translation</a></li><li><a href="#14-case-study-using-harmony-for-better-form-design">14 · Case Study - Using Harmony for Better Form Design</a></li><li><a href="#study-detail-and-teaching-translation-14">Study detail and teaching translation</a></li><li><a href="#15-dominance-directing-and-maintaining-user-focus">15 · Dominance - Directing (and Maintaining) User Focus</a></li><li><a href="#study-detail-and-teaching-translation-15">Study detail and teaching translation</a></li><li><a href="#16-using-dominance-to-increase-focus-and-decrease-cognitive-effort">16 · - Using Dominance to Increase Focus - and Decrease Cognitive Effort</a></li><li><a href="#study-detail-and-teaching-translation-16">Study detail and teaching translation</a></li><li><a href="#17-creating-dominance-with-size-negative-space-and-contrast">17 · Creating Dominance with Size, Negative Space and Contrast</a></li><li><a href="#study-detail-and-teaching-translation-17">Study detail and teaching translation</a></li><li><a href="#18-alignment-leading-the-eye-across-the-screen">18 · Alignment - Leading the Eye Across the Screen</a></li><li><a href="#study-detail-and-teaching-translation-18">Study detail and teaching translation</a></li><li><a href="#20-proximity-showing-and-communicating-visual-relationships">20 · Proximity - Showing and Communicating Visual Relationships</a></li><li><a href="#study-detail-and-teaching-translation-19">Study detail and teaching translation</a></li><li><a href="#21-using-proximity-to-make-cognition-faster">21 · - Using Proximity to Make Cognition Faster</a></li><li><a href="#study-detail-and-teaching-translation-20">Study detail and teaching translation</a></li><li><a href="#23-color-getting-attention-and-communicating-emotion">23 · Color - Getting Attention and Communicating Emotion</a></li><li><a href="#study-detail-and-teaching-translation-21">Study detail and teaching translation</a></li><li><a href="#24-how-color-influences-interaction">24 · How Color Influences Interaction</a></li><li><a href="#study-detail-and-teaching-translation-22">Study detail and teaching translation</a></li><li><a href="#25-a-word-on-color-theory-and-using-color-correctly">25 · A Word on Color Theory - and Using Color Correctly</a></li><li><a href="#study-detail-and-teaching-translation-23">Study detail and teaching translation</a></li><li><a href="#30-the-power-of-contrast">30 · The Power of Contrast</a></li><li><a href="#study-detail-and-teaching-translation-24">Study detail and teaching translation</a></li><li><a href="#31-using-contrast-to-improve-readability-attention-and-focus">31 · Using Contrast to Improve Readability, Attention and Focus</a></li><li><a href="#study-detail-and-teaching-translation-25">Study detail and teaching translation</a></li><li><a href="#32-three-essential-functions-of-contrast-in-ui-design">32 · Three Essential Functions of Contrast in UI Design</a></li><li><a href="#study-detail-and-teaching-translation-26">Study detail and teaching translation</a></li><li><a href="#33-how-to-determine-appropriate-color-and-contrast">33 · How to Determine Appropriate Color and Contrast</a></li><li><a href="#study-detail-and-teaching-translation-27">Study detail and teaching translation</a></li><li><a href="#43-dealing-with-data">43 · Dealing with Data</a></li><li><a href="#study-detail-and-teaching-translation-28">Study detail and teaching translation</a></li><li><a href="#44-five-rules-for-great-data-design">44 · Five Rules for Great Data Design</a></li><li><a href="#study-detail-and-teaching-translation-29">Study detail and teaching translation</a></li><li><a href="#45-simplifying-visual-information-part-01">45 · Simplifying Visual Information Part 01</a></li><li><a href="#study-detail-and-teaching-translation-30">Study detail and teaching translation</a></li><li><a href="#46-simplifying-visual-information-part-02">46 · Simplifying Visual Information Part 02</a></li><li><a href="#study-detail-and-teaching-translation-31">Study detail and teaching translation</a></li><li><a href="#47-separating-content-from-controls-part-01">47 · Separating Content from Controls Part 01</a></li><li><a href="#study-detail-and-teaching-translation-32">Study detail and teaching translation</a></li><li><a href="#48-separating-content-from-controls-part-02">48 · Separating Content from Controls Part 02</a></li><li><a href="#study-detail-and-teaching-translation-33">Study detail and teaching translation</a></li><li><a href="#49-recap-ui-design-mantras">49 · Recap - UI Design Mantras</a></li><li><a href="#study-detail-and-teaching-translation-34">Study detail and teaching translation</a></li></ul></details><h1 id="ui-ux-principles-for-game-tools">UI/UX principles for game tools</h1>
+<p>34 supplied lesson files, with one duplicate (04/06). This is the selected-course compilation, not a claim that all 49 lessons were studied. The earlier ten-note compilation is superseded.</p>
+<h2 id="01-design-is-design-is-design">01 · Design is Design is Design</h2>
+<p>Visual design communicates purpose, relationships and available actions. Appearance participates in solving a problem.</p>
+<p><strong>Tool application:</strong> Name the artist, task, intended result and protected scope before styling a tool.</p>
+<p><strong>Qualification:</strong> The lecturer’s career anecdotes illustrate his perspective; they are not comparative usability studies.</p>
+<p><strong>Review prompt:</strong> Which decision does each visible element help the artist make?</p>
+<h2 id="study-detail-and-teaching-translation">Study detail and teaching translation</h2>
+<ul>
+<li><p>Begin with the problem being solved, not a collection of attractive components. Labels, grouping, hierarchy and available actions all communicate an interpretation of that problem.</p>
+</li>
+<li><p>Distinguish visual polish from usefulness. A visually coherent interface can still make the wrong decision prominent or omit information needed to finish the task.</p>
+</li>
+<li><p>Teaching adaptation: identify the intended artist, inputs, result and consequences before critiquing the material tool. Keep aesthetic decisions connected to those answers.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/01.html">Refined note and captures</a></p>
+<h2 id="02-stop-solving-other-people-39-s-problems">02 · Stop Solving Other People&#39;s Problems</h2>
+<p>Evaluate references against the audience and situation they serve. A polished layout is not evidence that it fits a different workflow.</p>
+<p><strong>Tool application:</strong> Compare a marketing landing page with a repeated-use asset tool. Borrow a useful pattern, then test it in the artist’s context.</p>
+<p><strong>Qualification:</strong> Adapt the warning against copying inspiration into critical reference use; do not teach a ban on references or claims about innate design ability.</p>
+<p><strong>Review prompt:</strong> What assumptions would change if a beginner used the same tool?</p>
+<h2 id="study-detail-and-teaching-translation-2">Study detail and teaching translation</h2>
+<ul>
+<li><p>A reference carries assumptions about its audience, business purpose, frequency of use and environment. Copying its appearance also imports some of those assumptions.</p>
+</li>
+<li><p>Extract the principle behind a reference—clear grouping, recognizable navigation or a distinct next action—then test that principle in the new context.</p>
+</li>
+<li><p>Teaching adaptation: a store page, game HUD and asset-processing panel can share visual principles while requiring different density, interaction speed and levels of explanation.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/02.html">Refined note and captures</a></p>
+<h2 id="03-form-doesn-39-t-and-shouldn-39-t-follow-function">03 · Form Doesn&#39;t and Shouldn&#39;t Follow Function</h2>
+<p>Appearance and behavior shape each other. A technical requirements list does not uniquely determine an understandable interface.</p>
+<p><strong>Tool application:</strong> One operation can be exposed as raw parameters, a task-oriented form, or a preview-and-apply workflow.</p>
+<p><strong>Qualification:</strong> The architecture and Bauhaus history is background framing, not needed to establish the Week 7 principle.</p>
+<p><strong>Review prompt:</strong> What can your interface explain that a function signature cannot?</p>
+<h2 id="study-detail-and-teaching-translation-3">Study detail and teaching translation</h2>
+<ul>
+<li><p>Functional requirements leave many presentation choices open. The same operation can be difficult or straightforward depending on terminology, grouping and the order of decisions.</p>
+</li>
+<li><p>Consider appearance and behavior together. A control’s shape and placement imply what it does; implementation must honor that implication.</p>
+</li>
+<li><p>Teaching adaptation: expose the material operation as a reviewable artist workflow rather than a direct list of API arguments. Preserve technical detail where it supports inspection.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/03.html">Refined note and captures</a></p>
+<h2 id="04-balancing-form-and-function-prescription-vs-description">04 · Balancing Form and Function - Prescription vs Description</h2>
+<p>Treat design principles as questions to investigate rather than recipes that decide a layout automatically.</p>
+<p><strong>Tool application:</strong> Compare two arrangements using the same artist task and acceptance checks.</p>
+<p><strong>Qualification:</strong> Nature analogies and generalizations about engineers are rhetoric, not universal laws.</p>
+<p><strong>Review prompt:</strong> What observation would make you revise the first layout?</p>
+<h2 id="study-detail-and-teaching-translation-4">Study detail and teaching translation</h2>
+<ul>
+<li><p>The source warns against treating a slogan or principle as an automatic recipe. Context, constraints and the relationships between parts affect the result.</p>
+</li>
+<li><p>Use a principle to generate a testable design question. For example, does aligning these fields make their relationship clearer, or imply a relationship that is not real?</p>
+</li>
+<li><p>Teaching adaptation: compare alternatives with the same task, prepared inputs and success checks. An explanation of intent is not a substitute for observing an attempt.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/04.html">Refined note and captures</a></p>
+<h2 id="05-why-form-follows-function-is-not-a-ui-design-prescription">05 · Why Form Follows Function is NOT a UI Design Prescription</h2>
+<p>Distinguish the implementation model, the user’s mental model, and the representation offered by the interface.</p>
+<p><strong>Tool application:</strong> An artist may reason about VFX duration while the implementation manages separate spawn and kill events.</p>
+<p><strong>Qualification:</strong> The notes attribute this model to Alan Cooper. Expert users can still need implementation detail; reveal it when it serves a decision.</p>
+<p><strong>Review prompt:</strong> Does the label describe an artist intention or an internal object?</p>
+<h2 id="study-detail-and-teaching-translation-5">Study detail and teaching translation</h2>
+<ul>
+<li><p>Implementation model: how the system actually works. Mental model: how the user believes the task or system works. Represented model: what the interface presents.</p>
+</li>
+<li><p>Choose representations that help the user reason about the operation. A technically precise internal term can still be a poor everyday label.</p>
+</li>
+<li><p>Teaching adaptation: duration is often a useful artist-facing concept even if the underlying effect has separate creation and termination events. Keep detailed controls available when the artist actually needs them.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/05.html">Refined note and captures</a></p>
+<h2 id="06-every-force-evolves-form-so-don-39-t-follow-the-prescription">06 · Every Force Evolves Form (So Don&#39;t Follow the Prescription)</h2>
+<p>The supplied source duplicates lesson 04. It does not provide a distinct explanation of this lesson.</p>
+<p><strong>Tool application:</strong> Use lesson 04’s qualified principle and the recap only as a recap.</p>
+<p><strong>Qualification:</strong> Do not reconstruct a missing transcript from its title. The duplicate is recorded by content hash.</p>
+<p><strong>Review prompt:</strong> No separate learning claim is assigned to this source.</p>
+<h2 id="study-detail-and-teaching-translation-6">Study detail and teaching translation</h2>
+<ul>
+<li><p>This file repeats lesson 04 rather than providing new lesson content. Preserve it as source history and cross-reference 04.</p>
+</li>
+<li><p>The recap describes the influence of multiple forces and constraints on the final design, but that summary cannot reconstruct the missing distinct lesson.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/06.html">Refined note and captures</a></p>
+<h2 id="07-less-is-more-small-screens-big-challenges">07 · Less is More - Small Screens, Big Challenges</h2>
+<p>Reduce unnecessary information while preserving the cues that make an action discoverable.</p>
+<p><strong>Tool application:</strong> A compact tool still needs a visible target, action, status and route to useful detail.</p>
+<p><strong>Qualification:</strong> Historical mobile commentary and an uncited first-impression timing claim are not current evidence of a universal effect.</p>
+<p><strong>Review prompt:</strong> What disappears when you make the panel smaller, and is it essential?</p>
+<h2 id="study-detail-and-teaching-translation-7">Study detail and teaching translation</h2>
+<ul>
+<li><p>A smaller surface is not a large interface shrunk proportionally. Reassess what must remain visible and what can be deferred.</p>
+</li>
+<li><p>Reduction should preserve the clues needed to recognize purpose, current state and the next action. Removing those clues creates uncertainty instead of simplicity.</p>
+</li>
+<li><p>Teaching adaptation: test a narrow editor panel. Keep the target and consequence visible while moving optional detail into a disclosed area; avoid making essential scope discoverable only on hover.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/07.html">Refined note and captures</a></p>
+<h2 id="08-five-rules-for-effective-ui-design-on-small-screens">08 · Five Rules for Effective UI Design on Small Screens</h2>
+<p>Design for the input device, context, available space and cost of repeated entry.</p>
+<p><strong>Tool application:</strong> Desktop tools need keyboard focus, precise selection and resizing; a VR interface additionally needs distance, angular size and controller testing.</p>
+<p><strong>Qualification:</strong> Do not convert mobile millimeter examples into universal pixel sizes or apply thumb-reach rules to desktop editors.</p>
+<p><strong>Review prompt:</strong> Could selection or a preset replace repeated manual path entry?</p>
+<h2 id="study-detail-and-teaching-translation-8">Study detail and teaching translation</h2>
+<ul>
+<li><p>Screen dimensions, input method and circumstances of use change interaction requirements. Touch, mouse, keyboard and controller input are not interchangeable.</p>
+</li>
+<li><p>Repeated text entry can be a source of friction. Selection, presets and sensible defaults may help when the artist can still inspect and correct them.</p>
+</li>
+<li><p>Teaching adaptation: verify keyboard traversal and resizing in the desktop tool. Treat in-game or VR UI as a different test environment rather than converting desktop pixel dimensions into a universal rule.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/08.html">Refined note and captures</a></p>
+<h2 id="09-balance-creates-visual-order">09 · Balance Creates Visual Order</h2>
+<p>Balance distributes visual weight. Negative space and alignment can make relationships clear without symmetrical composition.</p>
+<p><strong>Tool application:</strong> Separate task inputs, review information and actions while retaining a clear reading route.</p>
+<p><strong>Qualification:</strong> A balanced appearance alone does not prove efficient operation.</p>
+<p><strong>Review prompt:</strong> Which group looks important, and is that the intended group?</p>
+<h2 id="study-detail-and-teaching-translation-9">Study detail and teaching translation</h2>
+<ul>
+<li><p>Visual weight comes from more than physical size: density, contrast, isolation and surrounding space affect the composition.</p>
+</li>
+<li><p>Balance can be symmetrical or asymmetrical. The objective is a readable relationship between regions, not equal quantities on both sides.</p>
+</li>
+<li><p>Teaching adaptation: compare the weight of inputs, review information and actions. A large empty table may be acceptable as a stable work area, but it should not obscure the next available action.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/09.html">Refined note and captures</a></p>
+<h2 id="10-case-studies-improving-balance-in-the-user-interface">10 · Case Studies - Improving Balance in the User Interface</h2>
+<p>Targeted changes to column widths, gutters and padding can clarify an existing interface.</p>
+<p><strong>Tool application:</strong> Improve one crowded tool group before proposing a complete visual redesign.</p>
+<p><strong>Qualification:</strong> The captured before/after is a design demonstration, not a measured user-study result.</p>
+<p><strong>Review prompt:</strong> Can a new user correctly group the same controls after the change?</p>
+<h2 id="study-detail-and-teaching-translation-10">Study detail and teaching translation</h2>
+<ul>
+<li><p>Inspect the existing structure before redesigning it: unequal gutters, cramped margins and weak separation can make otherwise sensible groups difficult to read.</p>
+</li>
+<li><p>Change a small set of relationships, then compare the result using the same content. This makes the reason for the improvement easier to explain.</p>
+</li>
+<li><p>Teaching adaptation: use matched material-preview captures. Distinguish a design demonstration from a measured claim about faster task completion.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/10.html">Refined note and captures</a></p>
+<h2 id="11-rhythm-establishing-and-reinforcing-comprehension">11 · Rhythm - Establishing and Reinforcing Comprehension</h2>
+<p>Rhythm is the predictable recurrence of related elements and the intervals between them.</p>
+<p><strong>Tool application:</strong> Repeat asset-row order, label spacing and state treatment so a user can scan successive items.</p>
+<p><strong>Qualification:</strong> A repeated pattern can also repeat a poor choice; consistency must serve the task.</p>
+<p><strong>Review prompt:</strong> Which detail should remain stable from one row to the next?</p>
+<h2 id="study-detail-and-teaching-translation-11">Study detail and teaching translation</h2>
+<ul>
+<li><p>Repetition creates an expectation: users learn where a label, value, status or action will appear in the next instance.</p>
+</li>
+<li><p>Intervals participate in the pattern. Consistent spacing within a group and between repeated groups can make the sequence easier to scan.</p>
+</li>
+<li><p>Teaching adaptation: keep asset identity, before, after and status in a predictable order. Reserve a deliberate pattern break for an exception that deserves attention.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/11.html">Refined note and captures</a></p>
+<h2 id="12-harmony-shaping-the-parts-into-a-whole">12 · Harmony - Shaping the Parts into a Whole</h2>
+<p>Harmony comes from related visual treatments that make separate elements read as a coherent whole.</p>
+<p><strong>Tool application:</strong> Use shared spacing, type roles, icon treatment and semantic state colors across related tools.</p>
+<p><strong>Qualification:</strong> A visual echo communicates similarity only when the underlying meaning is also consistent.</p>
+<p><strong>Review prompt:</strong> Do two similar-looking controls behave similarly?</p>
+<h2 id="study-detail-and-teaching-translation-12">Study detail and teaching translation</h2>
+<ul>
+<li><p>Harmony means the parts support a coherent whole. Related shapes, typography, spacing and color roles can make separate regions feel connected.</p>
+</li>
+<li><p>Similarity should correspond to meaning. Reusing one treatment for unrelated states creates visual consistency but semantic confusion.</p>
+</li>
+<li><p>Teaching adaptation: use shared form patterns and state labels across Material Setup and VFX Placement. Preserve host-specific differences that serve a real interaction need.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/12.html">Refined note and captures</a></p>
+<h2 id="13-using-harmony-to-create-directional-flow">13 · Using Harmony to Create Directional Flow</h2>
+<p>Alignment, spacing and emphasis can suggest a reading and action sequence.</p>
+<p><strong>Tool application:</strong> Arrange source, destination, preview and commit in a route that matches the workflow.</p>
+<p><strong>Qualification:</strong> Left-to-right examples reflect a reading context; localization and task structure can require a different route.</p>
+<p><strong>Review prompt:</strong> Where does the eye go after the most prominent element?</p>
+<h2 id="study-detail-and-teaching-translation-13">Study detail and teaching translation</h2>
+<ul>
+<li><p>Directional flow emerges from alignment, grouping, repetition and changes in emphasis; it is not limited to adding arrows.</p>
+</li>
+<li><p>A strong starting point should lead toward the next relevant information. Multiple unrelated focal points can interrupt the intended sequence.</p>
+</li>
+<li><p>Teaching adaptation: organize source inputs, scope, reviewed consequence and Apply in the order the artist needs them. Test the reading route rather than assuming a universal scanning pattern.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/13.html">Refined note and captures</a></p>
+<h2 id="14-case-study-using-harmony-for-better-form-design">14 · Case Study - Using Harmony for Better Form Design</h2>
+<p>Repeated field dimensions and spacing establish a pattern; a deliberate difference can distinguish the action.</p>
+<p><strong>Tool application:</strong> Use form layouts and recognizable buttons rather than hand-positioned labels and decorative action text.</p>
+<p><strong>Qualification:</strong> A shorter button is not inherently more usable. Full-width buttons can be appropriate in narrow tools and are explicitly used in the GOLF+ playbook.</p>
+<p><strong>Review prompt:</strong> Is the action distinct while remaining consistent with the host application?</p>
+<h2 id="study-detail-and-teaching-translation-14">Study detail and teaching translation</h2>
+<ul>
+<li><p>Repeated field treatment helps the user recognize a form as a sequence of related decisions. Consistent labels, widths and gaps reduce unnecessary variation.</p>
+</li>
+<li><p>The action should be recognizable as a control and distinct from descriptive headings. A purposeful change in treatment can mark the transition from entering information to acting.</p>
+</li>
+<li><p>Teaching adaptation: use Qt form layouts and explicit button labels. The course example’s narrower button is one solution; a full-width primary action can also be appropriate in a narrow game-tool panel.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/14.html">Refined note and captures</a></p>
+<h2 id="15-dominance-directing-and-maintaining-user-focus">15 · Dominance - Directing (and Maintaining) User Focus</h2>
+<p>Dominance gives the viewer an entry point and suggests relative importance through size, contrast, position and surrounding space.</p>
+<p><strong>Tool application:</strong> Emphasize the current decision. Before a valid preview, the next action is Preview rather than an unavailable Apply.</p>
+<p><strong>Qualification:</strong> No single visual feature determines attention in every situation; task and familiarity also matter.</p>
+<p><strong>Review prompt:</strong> Does the strongest emphasis correspond to the current state?</p>
+<h2 id="study-detail-and-teaching-translation-15">Study detail and teaching translation</h2>
+<ul>
+<li><p>Dominance establishes a focal point and an order of importance. Consider what wins attention before reading every label.</p>
+</li>
+<li><p>Size, contrast, position and empty space work together; the strongest feature should correspond to a meaningful priority.</p>
+</li>
+<li><p>Teaching adaptation: the priority changes with state. Preview leads before a plan exists; Apply leads after review and required acknowledgment; the result deserves attention after completion.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/15.html">Refined note and captures</a></p>
+<h2 id="16-using-dominance-to-increase-focus-and-decrease-cognitive-effort">16 · - Using Dominance to Increase Focus - and Decrease Cognitive Effort</h2>
+<p>Competing emphasis can obscure priorities. Reduce unnecessary competition while preserving readable secondary information.</p>
+<p><strong>Tool application:</strong> Distinguish primary operations, supporting controls and reset/recovery without making any essential label illegible.</p>
+<p><strong>Qualification:</strong> Claims that red/black/white is an unbeatable combination, or that a layout inevitably causes abandonment, are too absolute.</p>
+<p><strong>Review prompt:</strong> What can become quieter without becoming inaccessible?</p>
+<h2 id="study-detail-and-teaching-translation-16">Study detail and teaching translation</h2>
+<ul>
+<li><p>When many headings, accents, containers and actions compete at similar strength, the user must work harder to infer priority.</p>
+</li>
+<li><p>Reduce unnecessary competition by adjusting the hierarchy as a whole. Do not make secondary but essential information unreadable.</p>
+</li>
+<li><p>Teaching adaptation: distinguish the forward workflow from practice Reset. Keep both recognizable, and do not use bright emphasis to encourage an unavailable or unsafe action.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/16.html">Refined note and captures</a></p>
+<h2 id="17-creating-dominance-with-size-negative-space-and-contrast">17 · Creating Dominance with Size, Negative Space and Contrast</h2>
+<p>Size, negative space and contrast interact to establish emphasis. A small isolated element can be more noticeable than a large busy one.</p>
+<p><strong>Tool application:</strong> Use one intentional accent for an available task action; let decorative headings remain secondary.</p>
+<p><strong>Qualification:</strong> Replace “contrast trumps size every time” with a contextual design hypothesis.</p>
+<p><strong>Review prompt:</strong> Would the action still be apparent without its color?</p>
+<h2 id="study-detail-and-teaching-translation-17">Study detail and teaching translation</h2>
+<ul>
+<li><p>Compare an element with its surroundings. Isolation and local contrast can give a small item considerable emphasis; large size alone does not establish priority.</p>
+</li>
+<li><p>Negative space is active structure: it separates unrelated items and gives important regions room to be perceived.</p>
+</li>
+<li><p>Teaching adaptation: use the same screenshot in original, grayscale and coarse squint views. Inspect whether the intended task action remains prominent without relying entirely on hue.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/17.html">Refined note and captures</a></p>
+<h2 id="18-alignment-leading-the-eye-across-the-screen">18 · Alignment - Leading the Eye Across the Screen</h2>
+<p>Consistent alignment reduces unnecessary visual paths and helps associate labels with fields.</p>
+<p><strong>Tool application:</strong> Use shared label edges, logical field order and host layout managers; test the smallest supported window.</p>
+<p><strong>Qualification:</strong> Do not repeat unquantified dramatic performance gains. Borders can be necessary to identify controls; removing every boundary is not the goal.</p>
+<p><strong>Review prompt:</strong> Which edge can align without implying an incorrect relationship?</p>
+<h2 id="study-detail-and-teaching-translation-18">Study detail and teaching translation</h2>
+<ul>
+<li><p>Alignment creates shared reference lines. Consistent edges help associate labels, fields, rows and groups without adding a rule around every region.</p>
+</li>
+<li><p>Simplify a screen into shapes to inspect alignment independently of its detailed content. Restore text afterward to check actual readability and meaning.</p>
+</li>
+<li><p>Teaching adaptation: let layout managers express relationships, then test window resizing. Keep borders where they communicate a necessary control boundary or state.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/18.html">Refined note and captures</a></p>
+<h2 id="20-proximity-showing-and-communicating-visual-relationships">20 · Proximity - Showing and Communicating Visual Relationships</h2>
+<p>Closer items tend to be perceived as related. Larger gaps can separate different tasks or information groups.</p>
+<p><strong>Tool application:</strong> Keep a label, its input and its validation message together; separate global actions from per-item controls.</p>
+<p><strong>Qualification:</strong> Proximity is a strong cue, not a universal winner over every other cue.</p>
+<p><strong>Review prompt:</strong> Does the nearest action affect that group or something elsewhere?</p>
+<h2 id="study-detail-and-teaching-translation-19">Study detail and teaching translation</h2>
+<ul>
+<li><p>Distance suggests association: nearby items tend to read as a group, and larger gaps can signal a transition to another group.</p>
+</li>
+<li><p>Apply proximity to the relationship being communicated. A validation message should be clearly associated with the affected field; a global action should not appear to affect only its nearest row.</p>
+</li>
+<li><p>Teaching adaptation: compare within-group gaps with between-group gaps. Use alignment and labels to reinforce relationships where proximity alone is ambiguous.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/20.html">Refined note and captures</a></p>
+<h2 id="21-using-proximity-to-make-cognition-faster">21 · - Using Proximity to Make Cognition Faster</h2>
+<p>Use spacing at several scales: tight relationships inside a group and larger separation between groups.</p>
+<p><strong>Tool application:</strong> Keep an asset’s name, before/after values and result associated, while separating each asset row predictably.</p>
+<p><strong>Qualification:</strong> The source predicts easier scanning; it does not provide a measured time saving for our tool.</p>
+<p><strong>Review prompt:</strong> What grouping does a new tester perceive before you explain it?</p>
+<h2 id="study-detail-and-teaching-translation-20">Study detail and teaching translation</h2>
+<ul>
+<li><p>Use more than one spacing scale. A label and value can be close, fields within a section moderately separated, and sections further apart.</p>
+</li>
+<li><p>Predictable grouping supports scanning because the viewer can identify meaningful chunks before reading every item.</p>
+</li>
+<li><p>Teaching adaptation: keep each asset’s identity and change together, then separate asset rows consistently. Verify the grouping with an unfamiliar reader rather than claiming a specific speed improvement.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/21.html">Refined note and captures</a></p>
+<h2 id="23-color-getting-attention-and-communicating-emotion">23 · Color - Getting Attention and Communicating Emotion</h2>
+<p>Color can direct attention, carry learned meaning and support identity when used consistently.</p>
+<p><strong>Tool application:</strong> Reserve semantic colors for meaningful states and pair them with text or recognizable symbols.</p>
+<p><strong>Qualification:</strong> Omit the unsupported dopamine explanation and universal emotional claims. Color associations depend on context and experience.</p>
+<p><strong>Review prompt:</strong> Could the same hue be mistaken for a different state elsewhere?</p>
+<h2 id="study-detail-and-teaching-translation-21">Study detail and teaching translation</h2>
+<ul>
+<li><p>Color can attract attention and suggest learned associations, but those associations depend on context and experience.</p>
+</li>
+<li><p>Choose color for a communication role—state, emphasis, identity or grouping—rather than adding an accent to every element.</p>
+</li>
+<li><p>Teaching adaptation: label warnings and completion explicitly. Keep focus, selection and availability distinct; a single bright hue should not silently stand for all three.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/23.html">Refined note and captures</a></p>
+<h2 id="24-how-color-influences-interaction">24 · How Color Influences Interaction</h2>
+<p>Consistent color roles support continuity. Meaning must remain understandable without color alone.</p>
+<p><strong>Tool application:</strong> Use labels for warning, blocked, complete and selected states; retain focus and shape cues in both light and dark hosts.</p>
+<p><strong>Qualification:</strong> Do not mandate light backgrounds for all long sessions or repeat the transcript’s physiology explanation. Grayscale is not a simulation of all color-vision differences.</p>
+<p><strong>Review prompt:</strong> Can you understand the status when the hue cue is unavailable?</p>
+<h2 id="study-detail-and-teaching-translation-22">Study detail and teaching translation</h2>
+<ul>
+<li><p>Once an interface establishes a color cue, consistent reuse helps users predict its meaning. Breaking the cue can create false expectations.</p>
+</li>
+<li><p>Evaluate color on the actual background and within the host application. Saturation and competing accents can change the apparent hierarchy.</p>
+</li>
+<li><p>Teaching adaptation: a dark editor tool can be appropriate, but its labels and states still need inspection. Test meaning without hue and use color-vision/accessibility checks separately.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/24.html">Refined note and captures</a></p>
+<h2 id="25-a-word-on-color-theory-and-using-color-correctly">25 · A Word on Color Theory - and Using Color Correctly</h2>
+<p>Evaluate color by its function: hierarchy, consistency, context and accessible communication.</p>
+<p><strong>Tool application:</strong> Use palette tools for exploration, then assign roles and validate actual foreground/background pairs.</p>
+<p><strong>Qualification:</strong> The lecturer’s dismissal of color theory is opinion. Art fundamentals are useful here and are explicitly retained in this adaptation.</p>
+<p><strong>Review prompt:</strong> What is the purpose of each accent, and does that purpose stay consistent?</p>
+<h2 id="study-detail-and-teaching-translation-23">Study detail and teaching translation</h2>
+<ul>
+<li><p>The source favors practical communication over elaborate color-theory exercises. Retain that practical focus without dismissing the value of art fundamentals.</p>
+</li>
+<li><p>A palette does not specify which color belongs to which role. Establish surfaces, text, emphasis and semantic states, then test their actual combinations.</p>
+</li>
+<li><p>Teaching adaptation: explore options with Coolors, document the chosen roles in the style sheet, and check real text/background pairs rather than judging isolated swatches.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/25.html">Refined note and captures</a></p>
+<h2 id="30-the-power-of-contrast">30 · The Power of Contrast</h2>
+<p>Contrast means perceivable difference and helps distinguish boundaries and information.</p>
+<p><strong>Tool application:</strong> Separate light/dark value, hue, scale, shape and spacing as different sources of visual distinction.</p>
+<p><strong>Qualification:</strong> Omit the boxing anecdote and the source’s inaccurate attribution. Do not translate a metaphor into a guarantee about attention.</p>
+<p><strong>Review prompt:</strong> Which difference is doing the useful work in this interface?</p>
+<h2 id="study-detail-and-teaching-translation-24">Study detail and teaching translation</h2>
+<ul>
+<li><p>Contrast is a relationship between elements or between an element and its surroundings. It can distinguish information, controls and boundaries.</p>
+</li>
+<li><p>Light/dark difference, hue, size, shape and spacing contribute different cues. Avoid reducing every contrast problem to selecting a brighter color.</p>
+</li>
+<li><p>Teaching adaptation: connect the idea to art value and composition. Keep the specific concepts of HSV Value and relative luminance distinct from perceived lightness.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/30.html">Refined note and captures</a></p>
+<h2 id="31-using-contrast-to-improve-readability-attention-and-focus">31 · Using Contrast to Improve Readability, Attention and Focus</h2>
+<p>Readable foreground/background differences and deliberate hierarchy help information stand out.</p>
+<p><strong>Tool application:</strong> Keep all essential labels readable; use size, spacing and emphasis to distinguish importance rather than simply fading secondary text.</p>
+<p><strong>Qualification:</strong> Dark versus light theme readability depends on user, environment and typography. Complementary hues do not guarantee sufficient luminance contrast.</p>
+<p><strong>Review prompt:</strong> Can the user read the secondary information they need to act safely?</p>
+<h2 id="study-detail-and-teaching-translation-25">Study detail and teaching translation</h2>
+<ul>
+<li><p>Readability depends on the foreground/background pair and the treatment of the text. An attractive palette can still produce difficult labels.</p>
+</li>
+<li><p>Emphasis should create a useful hierarchy while leaving supporting information readable. Fading all secondary labels is not a sound default.</p>
+</li>
+<li><p>Teaching adaptation: inspect labels, data rows, placeholders, disabled states and focus separately. Use measured contrast as one benchmark; do not infer readability from complementary hue choices.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/31.html">Refined note and captures</a></p>
+<h2 id="32-three-essential-functions-of-contrast-in-ui-design">32 · Three Essential Functions of Contrast in UI Design</h2>
+<p>Contrast can direct attention, differentiate related elements and communicate hierarchy.</p>
+<p><strong>Tool application:</strong> Use these as three critique questions for the same tool, rather than three disconnected decoration rules.</p>
+<p><strong>Qualification:</strong> “Contrast always wins” is a memorable course mantra, not an empirical universal law.</p>
+<p><strong>Review prompt:</strong> Where should the strongest emphasis move when the tool changes state?</p>
+<h2 id="study-detail-and-teaching-translation-26">Study detail and teaching translation</h2>
+<ul>
+<li><p>Use contrast to direct attention toward the next decision, distinguish elements with different roles, and communicate an order of importance.</p>
+</li>
+<li><p>These functions can conflict. For example, a strongly tinted status panel may compete with the action it is intended to explain.</p>
+</li>
+<li><p>Teaching adaptation: ask what should dominate in the starting, warning, ready and completed states. One fixed prominent button is not necessarily the right hierarchy for every state.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/32.html">Refined note and captures</a></p>
+<h2 id="33-how-to-determine-appropriate-color-and-contrast">33 · How to Determine Appropriate Color and Contrast</h2>
+<p>A grayscale check helps reveal whether hierarchy depends excessively on hue.</p>
+<p><strong>Tool application:</strong> Compare the original and grayscale tool, then inspect actual contrast pairs and test focus and status cues.</p>
+<p><strong>Qualification:</strong> Grayscale does not prove accessibility, simulate every color-vision deficiency, or measure WCAG ratios. Squinting is a separate coarse hierarchy check.</p>
+<p><strong>Review prompt:</strong> Do the target, warning and next action remain distinguishable?</p>
+<h2 id="study-detail-and-teaching-translation-27">Study detail and teaching translation</h2>
+<ul>
+<li><p>Temporarily remove hue to inspect light/dark relationships. Look for regions or states that become hard to distinguish.</p>
+</li>
+<li><p>Restore color and inspect actual text/background combinations. A successful grayscale view does not establish adequate text contrast or cover all color-vision differences.</p>
+</li>
+<li><p>Teaching adaptation: pair this check with the art squint test and a layout blockout. Each answers a different question; none replaces a person attempting the task.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/33.html">Refined note and captures</a></p>
+<h2 id="43-dealing-with-data">43 · Dealing with Data</h2>
+<p>Choose data presentation according to the question the viewer must answer. Tables support exact lookup; charts support appropriate patterns and comparisons.</p>
+<p><strong>Tool application:</strong> Show affected asset, before/after, unit, status and useful next action. Let the artist inspect details behind a summary.</p>
+<p><strong>Qualification:</strong> Informative graphics still encode selection and framing choices. Avoid declaring a chart bias-free or dismissing all dense views as useless.</p>
+<p><strong>Review prompt:</strong> Does the view answer what changed and what remains uncertain?</p>
+<h2 id="study-detail-and-teaching-translation-28">Study detail and teaching translation</h2>
+<ul>
+<li><p>Start with the question the audience needs to answer. Exact lookup, comparison, change over time and distribution are different information needs.</p>
+</li>
+<li><p>Tables can preserve precise values; a suitable chart can reveal a pattern. The choice should reflect the task rather than a preference for a visually impressive graphic.</p>
+</li>
+<li><p>Teaching adaptation: an asset preview needs identity, proposed change and exceptions. A production overview may benefit from thumbnails and status summaries, with exact records still available.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/43.html">Refined note and captures</a></p>
+<h2 id="44-five-rules-for-great-data-design">44 · Five Rules for Great Data Design</h2>
+<p>Design data for the user’s context and decisions. Reduce irrelevant decoding work while keeping needed evidence available.</p>
+<p><strong>Tool application:</strong> Summarize affected, skipped and blocked items, with exact records and units available for inspection.</p>
+<p><strong>Qualification:</strong> “Usefulness always decreases with volume” is not universal; experts may need large structured tables. Missing, zero, untested and failed are different states.</p>
+<p><strong>Review prompt:</strong> Which data points let this artist choose the next action?</p>
+<h2 id="study-detail-and-teaching-translation-29">Study detail and teaching translation</h2>
+<ul>
+<li><p>The source’s recurring criteria center on useful information, the user’s context, meaningful presentation and avoiding unnecessary decoding. Apply them together rather than optimizing appearance alone.</p>
+</li>
+<li><p>Distinguish the essential summary from detail that should remain inspectable. The right amount of information depends on the user and decision.</p>
+</li>
+<li><p>Teaching adaptation: show affected, skipped and blocked counts with a route to each record. Keep units and definitions explicit; zero, missing, untested and failed are different meanings.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/44.html">Refined note and captures</a></p>
+<h2 id="45-simplifying-visual-information-part-01">45 · Simplifying Visual Information Part 01</h2>
+<p>Remove redundant decoration and duplicate labels when they do not support interpretation.</p>
+<p><strong>Tool application:</strong> Simplify preview tables and charts while keeping identity, units, scales, exceptions and relevant controls.</p>
+<p><strong>Qualification:</strong> Do not mechanically remove every axis, border or label. Retain them when needed for comparison or correct interpretation.</p>
+<p><strong>Review prompt:</strong> What meaning would be lost by removing this element?</p>
+<h2 id="study-detail-and-teaching-translation-30">Study detail and teaching translation</h2>
+<ul>
+<li><p>The chart demonstration removes a decorative background, redundant labeling, unnecessary containers, excessive category colors and misleading three-dimensional effects.</p>
+</li>
+<li><p>It then reduces the prominence of guides and labels relative to data, and uses direct values where they make the comparison understandable.</p>
+</li>
+<li><p>Teaching adaptation: simplify the preview table by removing visual repetition, not required evidence. Preserve asset names, before/after meaning, units, exceptions and any scale needed for honest comparison.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/45.html">Refined note and captures</a></p>
+<h2 id="46-simplifying-visual-information-part-02">46 · Simplifying Visual Information Part 02</h2>
+<p>Simplify crowded interfaces by clarifying groups, label roles and action hierarchy.</p>
+<p><strong>Tool application:</strong> Use predictable spacing and readable data; distinguish reset, preview and apply by role and current state.</p>
+<p><strong>Qualification:</strong> All-caps labels, low-contrast text, text-only secondary actions and removing every container are examples, not universal prescriptions.</p>
+<p><strong>Review prompt:</strong> Does a quieter control remain visibly actionable and keyboard accessible?</p>
+<h2 id="study-detail-and-teaching-translation-31">Study detail and teaching translation</h2>
+<ul>
+<li><p>The interface demonstration first regularizes spacing: outer margins, paragraph separation and padding inside controls and containers.</p>
+</li>
+<li><p>It removes redundant rules where spacing or an existing surface already establishes a group. Necessary boundaries remain, and labels are distinguished from values without losing readability.</p>
+</li>
+<li><p>It differentiates primary, secondary and less frequent actions, and separates unrelated operations. The particular yellow buttons, all-caps labels and text-link choices are examples rather than universal rules.</p>
+</li>
+<li><p>Teaching adaptation: preserve recognizable supporting buttons, keep Reset away from the forward action, and let current readiness determine which action receives emphasis.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/46.html">Refined note and captures</a></p>
+<h2 id="47-separating-content-from-controls-part-01">47 · Separating Content from Controls Part 01</h2>
+<p>Content and controls need distinct, consistent signals so users can predict what is interactive.</p>
+<p><strong>Tool application:</strong> A read-only preview row should not look like an editable field. Buttons need visible labels and state cues.</p>
+<p><strong>Qualification:</strong> Content may legitimately be interactive, such as asset rows that open details. The requirement is clear affordance and consistent behavior, not physical separation of all content.</p>
+<p><strong>Review prompt:</strong> Which elements do users expect to click, and what actually happens?</p>
+<h2 id="study-detail-and-teaching-translation-32">Study detail and teaching translation</h2>
+<ul>
+<li><p>Audit the cues that imply interactivity: button shapes, link styling, icons, consistent state changes and learned conventions. A user should be able to make a reasonable prediction before clicking.</p>
+</li>
+<li><p>Do not style a static heading like a button or reuse the same strong cue inconsistently for clickable and non-clickable content.</p>
+</li>
+<li><p>Teaching adaptation: a preview can be read-only while an asset row opens details. Make that distinction discoverable. When users call a view “busy,” investigate competing priorities rather than assuming a specific cause.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/47.html">Refined note and captures</a></p>
+<h2 id="48-separating-content-from-controls-part-02">48 · Separating Content from Controls Part 02</h2>
+<p>Differentiate primary, secondary and consequential actions without losing discoverability or familiar conventions.</p>
+<p><strong>Tool application:</strong> Keep Reset away from the forward workflow; emphasize Preview until a reviewed plan allows Apply. Preserve recognizable secondary buttons.</p>
+<p><strong>Qualification:</strong> Do not teach that Cancel must always be a text link, or that full-width buttons are always wrong. The final source mantra number conflicts with recap 49; use topic names.</p>
+<p><strong>Review prompt:</strong> Can an unfamiliar artist predict the consequence of each action?</p>
+<h2 id="study-detail-and-teaching-translation-33">Study detail and teaching translation</h2>
+<ul>
+<li><p>Actions differ in priority and consequence. A forward action, draft/save operation and cancellation need a clear hierarchy, but all must remain recognizable and operable.</p>
+</li>
+<li><p>The source demonstrates stronger primary emphasis, quieter supporting actions, conventional navigation, clearer field boundaries and removing button-like framing from headings.</p>
+</li>
+<li><p>Teaching adaptation: use host conventions and explicit verbs. Keep disabled, secondary and destructive actions conceptually distinct; a neutral appearance does not mean a control is disabled.</p>
+</li>
+<li><p>The final mantra number in this lesson conflicts with the recap. Use “separate content from controls” as the topic label rather than repeating the inconsistent number.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/48.html">Refined note and captures</a></p>
+<h2 id="49-recap-ui-design-mantras">49 · Recap - UI Design Mantras</h2>
+<p>The recap collects recurring principles about purpose, context, hierarchy, color, data and interaction cues.</p>
+<p><strong>Tool application:</strong> Use the five Week 7 teaching mantras as a smaller, task-oriented structure; retain this recap as the source crosswalk.</p>
+<p><strong>Qualification:</strong> The transcript has substantial speech-recognition errors. Its references to typography/icons do not establish completion or detailed notes for those omitted lessons.</p>
+<p><strong>Review prompt:</strong> Which principle explains a specific observation from the peer test?</p>
+<h2 id="study-detail-and-teaching-translation-34">Study detail and teaching translation</h2>
+<ul>
+<li><p>The following 19 items are repaired paraphrases of the supplied recap, not verbatim quotations. Missing detailed lessons remain missing; their recap mentions are not expanded into fabricated transcripts.</p>
+</li>
+<li><ol>
+<li>Design solves and communicates a problem; it is more than decoration. → Know the task.</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>Solve the problem of this audience and context rather than copying a different product’s solution. → Know the task.</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>Function alone does not determine an understandable form. → Know the task / Make actions clear.</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>Multiple forces and constraints shape the final design. → Know the task.</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>Small surfaces require reconsidering what belongs there. → Guide the eye.</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>Balance organizes visual weight and relationships. → Guide the eye.</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>Rhythm establishes recognizable repetition. → Guide the eye.</li>
+</ol>
+</li>
+<li><ol start="8">
+<li>Harmony makes the parts work together. → Keep a shared visual language.</li>
+</ol>
+</li>
+<li><ol start="9">
+<li>Dominance establishes a focal point. → Guide the eye.</li>
+</ol>
+</li>
+<li><ol start="10">
+<li>Alignment creates an organized set of relationships. → Guide the eye.</li>
+</ol>
+</li>
+<li><ol start="11">
+<li>Proximity groups related content. → Guide the eye.</li>
+</ol>
+</li>
+<li><ol start="12">
+<li>Color should communicate and support interaction. → Keep a shared visual language.</li>
+</ol>
+</li>
+<li><ol start="13">
+<li>Context, associations and branding inform color selection. → Keep a shared visual language.</li>
+</ol>
+</li>
+<li><ol start="14">
+<li>Contrast is powerful for differentiation and emphasis; the source’s absolute “always” is qualified. → Guide the eye.</li>
+</ol>
+</li>
+<li><ol start="15">
+<li>Typography should be intentional and readable; the detailed typography lessons were not supplied. → Keep a shared visual language.</li>
+</ol>
+</li>
+<li><ol start="16">
+<li>Icons should support recognition; the detailed icon lessons were not supplied. → Make actions clear.</li>
+</ol>
+</li>
+<li><ol start="17">
+<li>The user’s data question should determine its visual form. → Know the task / Guide the eye.</li>
+</ol>
+</li>
+<li><ol start="18">
+<li>Remove unnecessary complexity while preserving useful information and cues. → Guide the eye / Make actions clear.</li>
+</ol>
+</li>
+<li><ol start="19">
+<li>Clearly distinguish what can be read from what can be acted upon. → Make actions clear.</li>
+</ol>
+</li>
+<li><p>Test the whole workflow is the integrating Week 7 mantra drawn from the existing lecture and testing method. It is not claimed as a twentieth Joe Natoli mantra.</p>
+</li>
+</ul>
+<p><a href="../Slides/Week07/UXMantras20261015/notes/49.html">Refined note and captures</a></p>
+</main></body></html>

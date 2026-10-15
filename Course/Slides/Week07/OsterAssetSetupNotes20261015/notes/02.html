@@ -1,0 +1,150 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oster Asset Setup 02</title><link rel="stylesheet" href="../notes.css"></head><body><main><nav><a href="../index.html">Overview</a><a href="../compiled-notes.html">Full compilation</a><a href="../assessment.html">Assessment & course use</a><a href="../original-script.html">Original source script</a></nav><details class="toc"><summary>On this page</summary><ul><li><a href="#read-the-static-mesh-s-material-slots">Read the static mesh’s material slots</a></li><li><a href="#iterate-with-an-explicit-index">Iterate with an explicit index</a></li><li><a href="#materialinterface-explains-the-accepted-types">MaterialInterface explains the accepted types</a></li><li><a href="#understand-the-deletion-step-before-adopting-it">Understand the deletion step before adopting it</a></li><li><a href="#create-the-material-instance-asset">Create the material-instance asset</a></li><li><a href="#naming-and-repeated-runs">Naming and repeated runs</a></li><li><a href="#references">References</a></li><li><a href="#additional-original-captures">Additional original captures</a></li><li><a href="#source-note">Source note</a></li></ul></details><article class="reading"><h1>Asset Setup 02 — inspect material slots and create instances</h1>
+<p>The second lesson moves from identifying imported assets to creating a material instance for each intended mesh slot. Its strongest teaching contribution is the relationship between <strong>slot metadata, material objects, asset classes and factories</strong>.</p>
+<p>The demonstration removes an imported default material so its name can be reused. Preserve that as a description of the tutorial’s approach, while separating it from a general recommendation for a reusable tool.</p>
+<h2 id="read-the-static-mesh-s-material-slots">Read the static mesh’s material slots</h2>
+<p><code>StaticMesh.static_materials</code> is an array of <code>StaticMaterial</code> structures. A structure exposes named properties; it is <strong>not a Python dictionary</strong>, even if its printed representation resembles one.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Array index</td>
+<td>The numeric slot used by <code>StaticMesh.set_material</code></td>
+</tr>
+<tr>
+<td><code>material_slot_name</code></td>
+<td>The slot’s semantic name</td>
+</tr>
+<tr>
+<td><code>material_interface</code></td>
+<td>The material object currently assigned to that slot</td>
+</tr>
+<tr>
+<td><code>imported_material_slot_name</code></td>
+<td>Imported slot metadata; retain it when discussing import/reimport behavior</td>
+</tr>
+<tr>
+<td><code>uv_channel_data</code></td>
+<td>Texture-streaming-related UV data, outside this lesson’s editing task</td>
+</tr>
+</tbody></table>
+<p>The slot name and the assigned asset’s name are related in the example, but they are not interchangeable identifiers. Multiple slots or meshes may refer to the same material asset. A slot may also lack a usable material reference.</p>
+<p>An FBX import can derive slot/material information from the DCC scene. The exact generated assets and names depend on the importer and its options; do not promise that every DCC material creates a new Unreal material on every import.</p>
+<h2 id="iterate-with-an-explicit-index">Iterate with an explicit index</h2>
+<p>Use <code>enumerate</code> to keep the slot index attached to each record. The original code calls <code>.index(staticMaterial)</code> during iteration, which repeatedly searches the array and can select the first equal record when duplicate values occur.</p>
+<p>This is a read-only inspection function for Unreal. It does not reassign or delete a material.</p>
+<pre><code class="language-python">import unreal
+
+def describe_material_slots(mesh):
+    if not isinstance(mesh, unreal.StaticMesh):
+        raise TypeError(&quot;Expected a StaticMesh asset&quot;)
+
+    slots = mesh.get_editor_property(&quot;static_materials&quot;)
+    for index, slot in enumerate(slots):
+        material = slot.get_editor_property(&quot;material_interface&quot;)
+        name = str(slot.get_editor_property(&quot;material_slot_name&quot;))
+        path = material.get_path_name() if material else &quot;&lt;unassigned&gt;&quot;
+        print(index, name, path)
+</code></pre>
+<p>Use this information to prepare a change plan: mesh identity, slot index/name, current material, proposed instance and reason for the replacement.</p>
+<h2 id="materialinterface-explains-the-accepted-types">MaterialInterface explains the accepted types</h2>
+<p><code>MaterialInterface</code> is a common base used by materials and material instances. A slot can therefore refer to a base material or an instance through the same interface. This is why the assignment API accepts a <code>MaterialInterface</code>, rather than only a concrete <code>Material</code> asset.</p>
+<p>For the persistent editor asset created in this lesson, use <code>MaterialInstanceConstant</code>. A dynamic material instance serves a different use case; it is not a drop-in substitute for creating the same saved Content Browser asset with this factory.</p>
+<h2 id="understand-the-deletion-step-before-adopting-it">Understand the deletion step before adopting it</h2>
+<p>The tutorial retrieves the assigned material’s path and passes it to <code>EditorAssetLibrary.delete_asset</code>, then creates a replacement using the slot name. This illustrates asset deletion, but the returned reference does not prove that the material is disposable or exclusive to this import.</p>
+<p><a href="../assets/02-07.png"><img loading="lazy" src="../assets/02-07.png" alt="Original lesson 2 capture 7"></a></p>
+<p>The current API describes this as force deletion: references elsewhere are not checked, and undo history may be affected. A Boolean result must be inspected. The lesson’s failed deletion and later clean retry do not establish a general explanation such as permissions or package corruption. <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorAssetLibrary?application_version=5.7#unreal.EditorAssetLibrary.delete_asset">Epic deletion reference</a></p>
+<p><strong>Recommended teaching adaptation:</strong> create a distinct material instance, validate it, and reassign only the reviewed slots. Make removal of old assets a separate decision based on ownership and remaining references. If import settings can avoid generating unwanted materials in the first place, evaluate that for the chosen importer rather than deleting every discovered material afterward.</p>
+<p>This also changes failure behavior: deleting first can remove a useful assignment before instance creation or texture setup succeeds. A sequence of successful calls is not an automatic transaction or rollback mechanism.</p>
+<h2 id="create-the-material-instance-asset">Create the material-instance asset</h2>
+<p>Get the Asset Tools service through <code>unreal.AssetToolsHelpers.get_asset_tools()</code>. Its <code>create_asset</code> method needs the new name, destination folder, class and a factory object.</p>
+<p><a href="../assets/02-15.png"><img loading="lazy" src="../assets/02-15.png" alt="Original lesson 2 capture 15"></a></p>
+<p>The class and factory have different roles:</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Example</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>asset_name</code></td>
+<td><code>MI_AirConditioning_01_Body</code></td>
+<td>Name of the new asset</td>
+</tr>
+<tr>
+<td><code>package_path</code></td>
+<td><code>/Game/Meshes/ImportTest</code></td>
+<td>Destination content folder</td>
+</tr>
+<tr>
+<td><code>asset_class</code></td>
+<td><code>unreal.MaterialInstanceConstant</code></td>
+<td>Type to create; pass the class</td>
+</tr>
+<tr>
+<td><code>factory</code></td>
+<td><code>unreal.MaterialInstanceConstantFactoryNew()</code></td>
+<td>Creator object; construct an instance</td>
+</tr>
+</tbody></table>
+<p>The lesson deliberately encounters both mistakes: passing the factory class without constructing it, and choosing a class the factory does not support. Refine those trial-and-error moments into a clear rule: <strong>match the asset class to the factory, and pass an instantiated factory</strong>.</p>
+<p>This Unreal-editor example creates an unsaved instance when called. It does not set a parent, assign textures, modify a mesh or delete an existing asset.</p>
+<pre><code class="language-python">import unreal
+
+def create_empty_instance(asset_name, destination):
+    target = f&quot;{destination.rstrip(&#39;/&#39;)}/{asset_name}&quot;
+    if unreal.EditorAssetLibrary.does_asset_exist(target):
+        raise ValueError(f&quot;Destination already exists: {target}&quot;)
+
+    instance = unreal.AssetToolsHelpers.get_asset_tools().create_asset(
+        asset_name,
+        destination,
+        unreal.MaterialInstanceConstant,
+        unreal.MaterialInstanceConstantFactoryNew(),
+    )
+    if not isinstance(instance, unreal.MaterialInstanceConstant):
+        raise RuntimeError(f&quot;Material-instance creation failed: {target}&quot;)
+    return instance
+</code></pre>
+<p>The destination and asset name still require project-specific validation. The existence check is a clear conflict policy for a teaching example, not a guarantee against concurrent changes.</p>
+<h2 id="naming-and-repeated-runs">Naming and repeated runs</h2>
+<p>The source reuses <code>material_slot_name</code> as the new asset name. In a controlled example that is convenient; across a collection, names such as <code>Body</code> can recur in several meshes and collide in one destination folder. Convert Unreal <code>Name</code> values to a string when constructing a Python naming rule, and include enough identity to express the intended ownership.</p>
+<p>Decide whether a repeated run should reuse a compatible instance, update a known generated instance, choose a new name or stop with a conflict. A unique name prevents overwriting, but can create duplicates every run; it does not make the operation idempotent.</p>
+<p><strong>Course application:</strong> show the slot record beside the asset-creation call. Students can trace where the name, target slot and type come from without relying on a live destructive demonstration.</p>
+<p><strong>Review question:</strong> two imported meshes reference the same default material. What could happen if the first loop iteration deletes it before the second mesh is processed?</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://dev.epicgames.com/community/learning/tutorials/xrnE/unreal-engine-asset-setup-with-the-unreal-python-api">Oster: Asset Setup with the Unreal Python API</a></li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/StaticMaterial?application_version=5.7">Epic StaticMaterial reference, UE 5.7</a></li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetTools?application_version=5.7">Epic AssetTools reference, UE 5.7</a></li>
+<li>Class/factory signatures were also checked against the local project-generated stub. No asset creation or deletion was executed for these notes.</li>
+</ul>
+<h2 id="additional-original-captures">Additional original captures</h2>
+<p><a href="../assets/02-01.png"><img loading="lazy" src="../assets/02-01.png" alt="Original lesson 2 capture 1"></a></p>
+<p><a href="../assets/02-02.png"><img loading="lazy" src="../assets/02-02.png" alt="Original lesson 2 capture 2"></a></p>
+<p><a href="../assets/02-03.png"><img loading="lazy" src="../assets/02-03.png" alt="Original lesson 2 capture 3"></a></p>
+<p><a href="../assets/02-04.png"><img loading="lazy" src="../assets/02-04.png" alt="Original lesson 2 capture 4"></a></p>
+<p><a href="../assets/02-05.png"><img loading="lazy" src="../assets/02-05.png" alt="Original lesson 2 capture 5"></a></p>
+<p><a href="../assets/02-06.png"><img loading="lazy" src="../assets/02-06.png" alt="Original lesson 2 capture 6"></a></p>
+<p><a href="../assets/02-08.png"><img loading="lazy" src="../assets/02-08.png" alt="Original lesson 2 capture 8"></a></p>
+<p><a href="../assets/02-09.png"><img loading="lazy" src="../assets/02-09.png" alt="Original lesson 2 capture 9"></a></p>
+<p><a href="../assets/02-10.png"><img loading="lazy" src="../assets/02-10.png" alt="Original lesson 2 capture 10"></a></p>
+<p><a href="../assets/02-11.png"><img loading="lazy" src="../assets/02-11.png" alt="Original lesson 2 capture 11"></a></p>
+<p><a href="../assets/02-12.png"><img loading="lazy" src="../assets/02-12.png" alt="Original lesson 2 capture 12"></a></p>
+<p><a href="../assets/02-13.png"><img loading="lazy" src="../assets/02-13.png" alt="Original lesson 2 capture 13"></a></p>
+<p><a href="../assets/02-14.png"><img loading="lazy" src="../assets/02-14.png" alt="Original lesson 2 capture 14"></a></p>
+<p><a href="../assets/02-16.png"><img loading="lazy" src="../assets/02-16.png" alt="Original lesson 2 capture 16"></a></p>
+<p><a href="../assets/02-17.png"><img loading="lazy" src="../assets/02-17.png" alt="Original lesson 2 capture 17"></a></p>
+<p><a href="../assets/02-18.png"><img loading="lazy" src="../assets/02-18.png" alt="Original lesson 2 capture 18"></a></p>
+<p><a href="../assets/02-19.png"><img loading="lazy" src="../assets/02-19.png" alt="Original lesson 2 capture 19"></a></p>
+<p><a href="../assets/02-20.png"><img loading="lazy" src="../assets/02-20.png" alt="Original lesson 2 capture 20"></a></p>
+<p><a href="../assets/02-21.png"><img loading="lazy" src="../assets/02-21.png" alt="Original lesson 2 capture 21"></a></p>
+<p><a href="../assets/02-22.png"><img loading="lazy" src="../assets/02-22.png" alt="Original lesson 2 capture 22"></a></p>
+<h2 id="source-note">Source note</h2>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/18%20Oster%20Asset%20Setup%20UE%20Python%20API/Asset%20Setup%2002.md">Original Asset Setup 02.md</a></p>
+</article><p class="foot">Refined 15 October 2026 · Isaac Oster source notes · original captures preserved · supplied lesson content and teaching adaptations are distinguished.</p></main></body></html>

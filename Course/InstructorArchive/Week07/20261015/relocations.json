@@ -1,0 +1,9 @@
+{
+  "moved_from_student_project": [
+    "Docs",
+    "START_HERE.txt",
+    "lesson_materials/week_07_unreal_python/SEQUENCING.md",
+    "lesson_materials/week_07_unreal_python/stage_05_ui_progression/README.md"
+  ],
+  "reason": "Remove redundant supplementary student documentation; retained for instructor provenance."
+}

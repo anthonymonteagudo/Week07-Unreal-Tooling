@@ -1,0 +1,28 @@
+{
+  "source": "C:\\Users\\antho\\AppData\\Local\\Temp\\codex-clipboard-79049e2b-5df4-4505-9b10-b342564afd76.png",
+  "asset": "assets/golf-course-generator-user-20261015.png",
+  "sha256": "f9cff5033768f3edf264d54c5a1c25e84ab75595a623fb337db15807fddda5d6",
+  "dimensions": [
+    1147,
+    1039
+  ],
+  "received": "2026-10-15",
+  "capture_date": "not independently established",
+  "application_build": "not established",
+  "subject": "GOLF+ Course Generator \u2014 PAYNESVALLEY",
+  "treatment": "original pixels and aspect ratio preserved",
+  "credit": "Instructor-provided GOLF+ tool screenshot",
+  "intended_slides": [
+    "52A",
+    "53C"
+  ],
+  "observed_steps": [
+    "Input",
+    "Parameters",
+    "Generate",
+    "Edit (optional)",
+    "Finalize",
+    "Integrate"
+  ],
+  "claim_limit": "Visual appearance in the supplied state; no new Unity execution or functional test."
+}

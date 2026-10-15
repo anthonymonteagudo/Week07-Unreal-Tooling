@@ -1,0 +1,850 @@
+[
+  {
+    "number": 1,
+    "key": 1,
+    "part": "ppt/slides/slide1.xml",
+    "timed": true,
+    "source_slide": 1,
+    "title": ""
+  },
+  {
+    "number": 2,
+    "key": 2,
+    "part": "ppt/slides/slide2.xml",
+    "timed": true,
+    "source_slide": 2,
+    "title": ""
+  },
+  {
+    "number": 3,
+    "key": 3,
+    "part": "ppt/slides/slide3.xml",
+    "timed": true,
+    "source_slide": 3,
+    "title": ""
+  },
+  {
+    "number": 4,
+    "key": 4,
+    "part": "ppt/slides/slide4.xml",
+    "timed": true,
+    "source_slide": 4,
+    "title": ""
+  },
+  {
+    "number": 5,
+    "key": 5,
+    "part": "ppt/slides/slide5.xml",
+    "timed": false,
+    "source_slide": 5,
+    "title": ""
+  },
+  {
+    "number": 6,
+    "key": 6,
+    "part": "ppt/slides/slide6.xml",
+    "timed": true,
+    "source_slide": 6,
+    "title": ""
+  },
+  {
+    "number": 7,
+    "key": 7,
+    "part": "ppt/slides/slide7.xml",
+    "timed": true,
+    "source_slide": 7,
+    "title": ""
+  },
+  {
+    "number": 8,
+    "key": 8,
+    "part": "ppt/slides/slide8.xml",
+    "timed": true,
+    "source_slide": 8,
+    "title": ""
+  },
+  {
+    "number": 9,
+    "key": 9,
+    "part": "ppt/slides/slide9.xml",
+    "timed": true,
+    "source_slide": 9,
+    "title": ""
+  },
+  {
+    "number": 10,
+    "key": 10,
+    "part": "ppt/slides/slide10.xml",
+    "timed": false,
+    "source_slide": 10,
+    "title": ""
+  },
+  {
+    "number": 11,
+    "key": 11,
+    "part": "ppt/slides/slide11.xml",
+    "timed": true,
+    "source_slide": 11,
+    "title": ""
+  },
+  {
+    "number": 12,
+    "key": 12,
+    "part": "ppt/slides/slide12.xml",
+    "timed": true,
+    "source_slide": 12,
+    "title": ""
+  },
+  {
+    "number": 13,
+    "key": 13,
+    "part": "ppt/slides/slide13.xml",
+    "timed": true,
+    "source_slide": 13,
+    "title": ""
+  },
+  {
+    "number": 14,
+    "key": 14,
+    "part": "ppt/slides/slide14.xml",
+    "timed": false,
+    "source_slide": 14,
+    "title": ""
+  },
+  {
+    "number": 15,
+    "key": 15,
+    "part": "ppt/slides/slide15.xml",
+    "timed": true,
+    "source_slide": 15,
+    "title": ""
+  },
+  {
+    "number": 16,
+    "key": 16,
+    "part": "ppt/slides/slide16.xml",
+    "timed": true,
+    "source_slide": 16,
+    "title": ""
+  },
+  {
+    "number": 17,
+    "key": 17,
+    "part": "ppt/slides/slide22.xml",
+    "timed": true,
+    "source_slide": 17,
+    "title": ""
+  },
+  {
+    "number": 18,
+    "key": 18,
+    "part": "ppt/slides/slide17.xml",
+    "timed": true,
+    "source_slide": 18,
+    "title": ""
+  },
+  {
+    "number": 19,
+    "key": 19,
+    "part": "ppt/slides/slide20.xml",
+    "timed": true,
+    "source_slide": 19,
+    "title": ""
+  },
+  {
+    "number": 20,
+    "key": 20,
+    "part": "ppt/slides/slide21.xml",
+    "timed": false,
+    "source_slide": 20,
+    "title": ""
+  },
+  {
+    "number": 21,
+    "key": 21,
+    "part": "ppt/slides/slide23.xml",
+    "timed": true,
+    "source_slide": 21,
+    "title": ""
+  },
+  {
+    "number": 22,
+    "key": 22,
+    "part": "ppt/slides/slide24.xml",
+    "timed": true,
+    "source_slide": 22,
+    "title": ""
+  },
+  {
+    "number": 23,
+    "key": 23,
+    "part": "ppt/slides/slide25.xml",
+    "timed": false,
+    "source_slide": 23,
+    "title": ""
+  },
+  {
+    "number": 24,
+    "key": 24,
+    "part": "ppt/slides/slide26.xml",
+    "timed": true,
+    "source_slide": 24,
+    "title": ""
+  },
+  {
+    "number": 25,
+    "key": 25,
+    "part": "ppt/slides/slide27.xml",
+    "timed": true,
+    "source_slide": 25,
+    "title": ""
+  },
+  {
+    "number": 26,
+    "key": 26,
+    "part": "ppt/slides/slide28.xml",
+    "timed": true,
+    "source_slide": 26,
+    "title": ""
+  },
+  {
+    "number": 27,
+    "key": 27,
+    "part": "ppt/slides/slide29.xml",
+    "timed": true,
+    "source_slide": 27,
+    "title": ""
+  },
+  {
+    "number": 28,
+    "key": 28,
+    "part": "ppt/slides/slide30.xml",
+    "timed": false,
+    "source_slide": 28,
+    "title": ""
+  },
+  {
+    "number": 29,
+    "key": 29,
+    "part": "ppt/slides/slide31.xml",
+    "timed": true,
+    "source_slide": 29,
+    "title": ""
+  },
+  {
+    "number": 30,
+    "key": 30,
+    "part": "ppt/slides/slide32.xml",
+    "timed": true,
+    "source_slide": 30,
+    "title": ""
+  },
+  {
+    "number": 31,
+    "key": 31,
+    "part": "ppt/slides/slide33.xml",
+    "timed": false,
+    "source_slide": 31,
+    "title": ""
+  },
+  {
+    "number": 32,
+    "key": 32,
+    "part": "ppt/slides/slide34.xml",
+    "timed": true,
+    "source_slide": 32,
+    "title": ""
+  },
+  {
+    "number": 33,
+    "key": 33,
+    "part": "ppt/slides/slide35.xml",
+    "timed": true,
+    "source_slide": 33,
+    "title": ""
+  },
+  {
+    "number": 34,
+    "key": 34,
+    "part": "ppt/slides/slide36.xml",
+    "timed": true,
+    "source_slide": 34,
+    "title": ""
+  },
+  {
+    "number": 35,
+    "key": 35,
+    "part": "ppt/slides/slide38.xml",
+    "timed": true,
+    "source_slide": 35,
+    "title": ""
+  },
+  {
+    "number": 36,
+    "key": "O1",
+    "part": "ppt/slides/refinementSlide1.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Import is the start of setup"
+  },
+  {
+    "number": 37,
+    "key": "O2",
+    "part": "ppt/slides/refinementSlide2.xml",
+    "timed": false,
+    "source_slide": null,
+    "title": "A naming rule must preserve identity"
+  },
+  {
+    "number": 38,
+    "key": "O3",
+    "part": "ppt/slides/refinementSlide3.xml",
+    "timed": false,
+    "source_slide": null,
+    "title": "A slot record is not the material"
+  },
+  {
+    "number": 39,
+    "key": "O4",
+    "part": "ppt/slides/refinementSlide4.xml",
+    "timed": false,
+    "source_slide": null,
+    "title": "Verify the relationship after the call"
+  },
+  {
+    "number": 40,
+    "key": 36,
+    "part": "ppt/slides/slide39.xml",
+    "timed": true,
+    "source_slide": 36,
+    "title": ""
+  },
+  {
+    "number": 41,
+    "key": 37,
+    "part": "ppt/slides/slide18.xml",
+    "timed": false,
+    "source_slide": 37,
+    "title": ""
+  },
+  {
+    "number": 42,
+    "key": 38,
+    "part": "ppt/slides/slide19.xml",
+    "timed": true,
+    "source_slide": 38,
+    "title": ""
+  },
+  {
+    "number": 43,
+    "key": 39,
+    "part": "ppt/slides/slide40.xml",
+    "timed": true,
+    "source_slide": 39,
+    "title": ""
+  },
+  {
+    "number": 44,
+    "key": 40,
+    "part": "ppt/slides/slide41.xml",
+    "timed": true,
+    "source_slide": 40,
+    "title": ""
+  },
+  {
+    "number": 45,
+    "key": 41,
+    "part": "ppt/slides/slide37.xml",
+    "timed": false,
+    "source_slide": 41,
+    "title": ""
+  },
+  {
+    "number": 46,
+    "key": 42,
+    "part": "ppt/slides/slide42.xml",
+    "timed": true,
+    "source_slide": 42,
+    "title": ""
+  },
+  {
+    "number": 47,
+    "key": 43,
+    "part": "ppt/slides/slide44.xml",
+    "timed": true,
+    "source_slide": 43,
+    "title": ""
+  },
+  {
+    "number": 48,
+    "key": 44,
+    "part": "ppt/slides/slide45.xml",
+    "timed": true,
+    "source_slide": 44,
+    "title": ""
+  },
+  {
+    "number": 49,
+    "key": 45,
+    "part": "ppt/slides/slide46.xml",
+    "timed": false,
+    "source_slide": 45,
+    "title": ""
+  },
+  {
+    "number": 50,
+    "key": 46,
+    "part": "ppt/slides/slide47.xml",
+    "timed": false,
+    "source_slide": 46,
+    "title": ""
+  },
+  {
+    "number": 51,
+    "key": 47,
+    "part": "ppt/slides/slide48.xml",
+    "timed": true,
+    "source_slide": 47,
+    "title": ""
+  },
+  {
+    "number": 52,
+    "key": 48,
+    "part": "ppt/slides/slide49.xml",
+    "timed": true,
+    "source_slide": 48,
+    "title": ""
+  },
+  {
+    "number": 53,
+    "key": 49,
+    "part": "ppt/slides/slide43.xml",
+    "timed": true,
+    "source_slide": 49,
+    "title": ""
+  },
+  {
+    "number": 54,
+    "key": 50,
+    "part": "ppt/slides/slide50.xml",
+    "timed": true,
+    "source_slide": 50,
+    "title": ""
+  },
+  {
+    "number": 55,
+    "key": 51,
+    "part": "ppt/slides/slide51.xml",
+    "timed": true,
+    "source_slide": 51,
+    "title": ""
+  },
+  {
+    "number": 56,
+    "key": 52,
+    "part": "ppt/slides/slide52.xml",
+    "timed": true,
+    "source_slide": 52,
+    "title": ""
+  },
+  {
+    "number": 57,
+    "key": 53,
+    "part": "ppt/slides/slide53.xml",
+    "timed": true,
+    "source_slide": 53,
+    "title": ""
+  },
+  {
+    "number": 58,
+    "key": 54,
+    "part": "ppt/slides/slide54.xml",
+    "timed": true,
+    "source_slide": 54,
+    "title": ""
+  },
+  {
+    "number": 59,
+    "key": 55,
+    "part": "ppt/slides/slide55.xml",
+    "timed": false,
+    "source_slide": 55,
+    "title": ""
+  },
+  {
+    "number": 60,
+    "key": 56,
+    "part": "ppt/slides/slide56.xml",
+    "timed": true,
+    "source_slide": 56,
+    "title": ""
+  },
+  {
+    "number": 61,
+    "key": 57,
+    "part": "ppt/slides/slide57.xml",
+    "timed": true,
+    "source_slide": 57,
+    "title": ""
+  },
+  {
+    "number": 62,
+    "key": 58,
+    "part": "ppt/slides/slide58.xml",
+    "timed": true,
+    "source_slide": 58,
+    "title": ""
+  },
+  {
+    "number": 63,
+    "key": 59,
+    "part": "ppt/slides/slide59.xml",
+    "timed": true,
+    "source_slide": 59,
+    "title": ""
+  },
+  {
+    "number": 64,
+    "key": "L1P",
+    "part": "ppt/slides/refinementSlide5.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Lab 1: predict before the reveal"
+  },
+  {
+    "number": 65,
+    "key": "L1R",
+    "part": "ppt/slides/refinementSlide6.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Lab 1: compare the evidence"
+  },
+  {
+    "number": 66,
+    "key": "M1",
+    "part": "ppt/slides/refinementSlide7.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Know the task"
+  },
+  {
+    "number": 67,
+    "key": "S1",
+    "part": "ppt/slides/refinementSlide8.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "A user story names an outcome"
+  },
+  {
+    "number": 68,
+    "key": "S2",
+    "part": "ppt/slides/refinementSlide9.xml",
+    "timed": false,
+    "source_slide": null,
+    "title": "Turn the story into observable checks"
+  },
+  {
+    "number": 69,
+    "key": "S3",
+    "part": "ppt/slides/refinementSlide10.xml",
+    "timed": false,
+    "source_slide": null,
+    "title": "Outline a small complete workflow"
+  },
+  {
+    "number": 70,
+    "key": 61,
+    "part": "ppt/slides/slide61.xml",
+    "timed": false,
+    "source_slide": 61,
+    "title": ""
+  },
+  {
+    "number": 71,
+    "key": "M2",
+    "part": "ppt/slides/refinementSlide11.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Guide the eye"
+  },
+  {
+    "number": 72,
+    "key": 62,
+    "part": "ppt/slides/slide62.xml",
+    "timed": false,
+    "source_slide": 62,
+    "title": ""
+  },
+  {
+    "number": 73,
+    "key": 63,
+    "part": "ppt/slides/slide63.xml",
+    "timed": false,
+    "source_slide": 63,
+    "title": ""
+  },
+  {
+    "number": 74,
+    "key": 64,
+    "part": "ppt/slides/slide64.xml",
+    "timed": false,
+    "source_slide": 64,
+    "title": ""
+  },
+  {
+    "number": 75,
+    "key": "V1",
+    "part": "ppt/slides/refinementSlide12.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Value and contrast are different ideas"
+  },
+  {
+    "number": 76,
+    "key": "V2",
+    "part": "ppt/slides/refinementSlide13.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Three quick hierarchy checks"
+  },
+  {
+    "number": 77,
+    "key": "G1",
+    "part": "ppt/slides/refinementSlide15.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Case study: GOLF+ Course Generator"
+  },
+  {
+    "number": 78,
+    "key": 65,
+    "part": "ppt/slides/slide65.xml",
+    "timed": false,
+    "source_slide": 65,
+    "title": ""
+  },
+  {
+    "number": 79,
+    "key": "V3",
+    "part": "ppt/slides/refinementSlide14.xml",
+    "timed": false,
+    "source_slide": null,
+    "title": "Choose color roles before choosing colors"
+  },
+  {
+    "number": 80,
+    "key": "M3",
+    "part": "ppt/slides/refinementSlide16.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Make actions clear"
+  },
+  {
+    "number": 81,
+    "key": "A1",
+    "part": "ppt/slides/refinementSlide17.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "State determines the next action"
+  },
+  {
+    "number": 82,
+    "key": "A2",
+    "part": "ppt/slides/refinementSlide18.xml",
+    "timed": false,
+    "source_slide": null,
+    "title": "One readiness rule becomes Qt code"
+  },
+  {
+    "number": 83,
+    "key": "A3",
+    "part": "ppt/slides/refinementSlide19.xml",
+    "timed": false,
+    "source_slide": null,
+    "title": "The same workflow can use different UIs"
+  },
+  {
+    "number": 84,
+    "key": "A4",
+    "part": "ppt/slides/refinementSlide20.xml",
+    "timed": false,
+    "source_slide": null,
+    "title": "Make review data readable"
+  },
+  {
+    "number": 85,
+    "key": 67,
+    "part": "ppt/slides/slide67.xml",
+    "timed": false,
+    "source_slide": 67,
+    "title": ""
+  },
+  {
+    "number": 86,
+    "key": 68,
+    "part": "ppt/slides/slide68.xml",
+    "timed": false,
+    "source_slide": 68,
+    "title": ""
+  },
+  {
+    "number": 87,
+    "key": 69,
+    "part": "ppt/slides/slide69.xml",
+    "timed": false,
+    "source_slide": 69,
+    "title": ""
+  },
+  {
+    "number": 88,
+    "key": 70,
+    "part": "ppt/slides/slide70.xml",
+    "timed": false,
+    "source_slide": 70,
+    "title": ""
+  },
+  {
+    "number": 89,
+    "key": 71,
+    "part": "ppt/slides/slide71.xml",
+    "timed": false,
+    "source_slide": 71,
+    "title": ""
+  },
+  {
+    "number": 90,
+    "key": 72,
+    "part": "ppt/slides/slide72.xml",
+    "timed": true,
+    "source_slide": 72,
+    "title": ""
+  },
+  {
+    "number": 91,
+    "key": 73,
+    "part": "ppt/slides/slide73.xml",
+    "timed": false,
+    "source_slide": 73,
+    "title": ""
+  },
+  {
+    "number": 92,
+    "key": "M4",
+    "part": "ppt/slides/refinementSlide21.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Keep a shared visual language"
+  },
+  {
+    "number": 93,
+    "key": "C1",
+    "part": "ppt/slides/refinementSlide22.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "A style sheet records design decisions"
+  },
+  {
+    "number": 94,
+    "key": "C2",
+    "part": "ppt/slides/refinementSlide23.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Use the style sheet when working with AI"
+  },
+  {
+    "number": 95,
+    "key": "C3",
+    "part": "ppt/slides/refinementSlide24.xml",
+    "timed": false,
+    "source_slide": null,
+    "title": "Case study: keep workflow names aligned"
+  },
+  {
+    "number": 96,
+    "key": "M5",
+    "part": "ppt/slides/refinementSlide25.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Test the whole workflow"
+  },
+  {
+    "number": 97,
+    "key": "T1",
+    "part": "ppt/slides/refinementSlide26.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Prototype the question you need to answer"
+  },
+  {
+    "number": 98,
+    "key": 66,
+    "part": "ppt/slides/slide66.xml",
+    "timed": false,
+    "source_slide": 66,
+    "title": ""
+  },
+  {
+    "number": 99,
+    "key": "T2",
+    "part": "ppt/slides/refinementSlide27.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "A useful finding separates evidence from explanation"
+  },
+  {
+    "number": 100,
+    "key": "T3",
+    "part": "ppt/slides/refinementSlide28.xml",
+    "timed": false,
+    "source_slide": null,
+    "title": "Events and observation answer different questions"
+  },
+  {
+    "number": 101,
+    "key": 74,
+    "part": "ppt/slides/slide74.xml",
+    "timed": false,
+    "source_slide": 74,
+    "title": ""
+  },
+  {
+    "number": 102,
+    "key": 75,
+    "part": "ppt/slides/slide75.xml",
+    "timed": true,
+    "source_slide": 75,
+    "title": ""
+  },
+  {
+    "number": 103,
+    "key": "P1",
+    "part": "ppt/slides/refinementSlide29.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Prepare one task a peer can attempt"
+  },
+  {
+    "number": 104,
+    "key": "P2",
+    "part": "ppt/slides/refinementSlide30.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Three roles, three seven-minute rounds"
+  },
+  {
+    "number": 105,
+    "key": "P3",
+    "part": "ppt/slides/refinementSlide31.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "One round produces evidence and a retest"
+  },
+  {
+    "number": 106,
+    "key": "P4",
+    "part": "ppt/slides/refinementSlide32.xml",
+    "timed": true,
+    "source_slide": null,
+    "title": "Choose a revision supported by evidence"
+  }
+]

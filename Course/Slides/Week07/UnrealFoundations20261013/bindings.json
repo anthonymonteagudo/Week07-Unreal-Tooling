@@ -1,0 +1,329 @@
+[
+  {
+    "slide": 5,
+    "anchor": "04",
+    "id": "UE01",
+    "blocks": [
+      "setup",
+      "focus"
+    ],
+    "mode": "complete",
+    "preceding": [],
+    "file": "ue/UE01_host.py",
+    "dependency": "Complete checkpoint shown. No previous script required.",
+    "hidden": false
+  },
+  {
+    "slide": 10,
+    "anchor": "07",
+    "id": "UE02",
+    "blocks": [
+      "setup",
+      "focus"
+    ],
+    "mode": "complete",
+    "preceding": [],
+    "file": "ue/UE02_level_selection.py",
+    "dependency": "Complete checkpoint shown. No previous script required.",
+    "hidden": false
+  },
+  {
+    "slide": 13,
+    "anchor": "07C",
+    "id": "UE03",
+    "blocks": [
+      "focus"
+    ],
+    "mode": "focus",
+    "preceding": [
+      "setup"
+    ],
+    "file": "ue/UE03_components.py",
+    "dependency": "First run UE03: setup. Then run the shown block(s).",
+    "hidden": false
+  },
+  {
+    "slide": 15,
+    "anchor": "UE04",
+    "id": "UE04",
+    "blocks": [
+      "setup",
+      "focus"
+    ],
+    "mode": "complete",
+    "preceding": [],
+    "file": "ue/UE04_asset_selection.py",
+    "dependency": "Complete checkpoint shown. No previous script required.",
+    "hidden": false
+  },
+  {
+    "slide": 18,
+    "anchor": "09G",
+    "id": "UE05",
+    "blocks": [
+      "setup",
+      "focus"
+    ],
+    "mode": "complete",
+    "preceding": [],
+    "file": "ue/UE05_texture_properties.py",
+    "dependency": "Complete checkpoint shown. No previous script required.",
+    "hidden": false
+  },
+  {
+    "slide": 20,
+    "anchor": "09H",
+    "id": "UE06",
+    "blocks": [
+      "focus"
+    ],
+    "mode": "focus",
+    "preceding": [
+      "setup"
+    ],
+    "file": "ue/UE06_validation_report.py",
+    "dependency": "First run UE06: setup. Then run the shown block(s).",
+    "hidden": false
+  },
+  {
+    "slide": 21,
+    "anchor": "07A",
+    "id": "UE07",
+    "blocks": [
+      "setup",
+      "focus"
+    ],
+    "mode": "complete",
+    "preceding": [],
+    "file": "ue/UE07_paths.py",
+    "dependency": "Complete checkpoint shown. No previous script required.",
+    "hidden": false
+  },
+  {
+    "slide": 24,
+    "anchor": "09I",
+    "id": "UE08",
+    "blocks": [
+      "focus"
+    ],
+    "mode": "focus",
+    "preceding": [
+      "setup",
+      "eligibility"
+    ],
+    "file": "ue/UE08_material_override.py",
+    "dependency": "First run UE08: setup + eligibility. Then run the shown block(s).",
+    "hidden": false
+  },
+  {
+    "slide": 27,
+    "anchor": "09F",
+    "id": "PY01",
+    "blocks": [
+      "setup",
+      "focus"
+    ],
+    "mode": "complete",
+    "preceding": [],
+    "file": "python/PY01_preview_snapshot.py",
+    "dependency": "Complete checkpoint shown. No previous script required.",
+    "hidden": false
+  },
+  {
+    "slide": 29,
+    "anchor": "09J",
+    "id": "UE10",
+    "blocks": [
+      "focus"
+    ],
+    "mode": "focus",
+    "preceding": [
+      "setup"
+    ],
+    "file": "ue/UE10_niagara_components.py",
+    "dependency": "First run UE10: setup. Then run the shown block(s).",
+    "hidden": false
+  },
+  {
+    "slide": 32,
+    "anchor": "BL01",
+    "id": "BL01",
+    "blocks": [
+      "setup",
+      "focus"
+    ],
+    "mode": "complete",
+    "preceding": [],
+    "file": "blender/BL01_host_selection.py",
+    "dependency": "Complete checkpoint shown. No previous script required.",
+    "hidden": false
+  },
+  {
+    "slide": 33,
+    "anchor": "BL02",
+    "id": "BL02",
+    "blocks": [
+      "setup",
+      "focus"
+    ],
+    "mode": "complete",
+    "preceding": [],
+    "file": "blender/BL02_object_mesh.py",
+    "dependency": "Complete checkpoint shown. No previous script required.",
+    "hidden": false
+  },
+  {
+    "slide": 36,
+    "anchor": "10C",
+    "id": "UE11",
+    "blocks": [
+      "options"
+    ],
+    "mode": "focus",
+    "preceding": [
+      "setup"
+    ],
+    "file": "ue/UE11_import_task.py",
+    "dependency": "First run UE11: setup. Then run the shown block(s).",
+    "hidden": false
+  },
+  {
+    "slide": 37,
+    "anchor": "10A",
+    "id": "UE11",
+    "blocks": [
+      "task"
+    ],
+    "mode": "focus",
+    "preceding": [
+      "setup",
+      "options"
+    ],
+    "file": "ue/UE11_import_task.py",
+    "dependency": "First run UE11: setup + options. Then run the shown block(s).",
+    "hidden": false
+  },
+  {
+    "slide": 38,
+    "anchor": "UE12",
+    "id": "UE12",
+    "blocks": [
+      "focus"
+    ],
+    "mode": "focus",
+    "preceding": [
+      "setup",
+      "options",
+      "task",
+      "eligibility"
+    ],
+    "file": "ue/UE12_import_and_verify.py",
+    "dependency": "First run UE12: setup + options + task + eligibility. Then run the shown block(s).",
+    "hidden": false
+  },
+  {
+    "slide": 101,
+    "anchor": "09L",
+    "id": "UE09",
+    "blocks": [
+      "focus"
+    ],
+    "mode": "focus",
+    "preceding": [
+      "setup"
+    ],
+    "file": "ue/UE09_material_readback.py",
+    "dependency": "First run UE09: setup. Then run the shown block(s).",
+    "hidden": true
+  },
+  {
+    "slide": 103,
+    "anchor": "BL03",
+    "id": "BL03",
+    "blocks": [
+      "focus"
+    ],
+    "mode": "focus",
+    "preceding": [
+      "setup"
+    ],
+    "file": "blender/BL03_evaluated_mesh.py",
+    "dependency": "First run BL03: setup. Then run the shown block(s).",
+    "hidden": true
+  },
+  {
+    "slide": 104,
+    "anchor": "BL04",
+    "id": "BL04",
+    "blocks": [
+      "focus"
+    ],
+    "mode": "focus",
+    "preceding": [
+      "setup"
+    ],
+    "file": "blender/BL04_export_fbx.py",
+    "dependency": "First run BL04: setup. Then run the shown block(s).",
+    "hidden": true
+  },
+  {
+    "slide": 105,
+    "anchor": "UE11S",
+    "id": "UE11",
+    "blocks": [
+      "setup"
+    ],
+    "mode": "focus",
+    "preceding": [],
+    "file": "ue/UE11_import_task.py",
+    "dependency": "First run UE11: no preceding blocks. Then run the shown block(s).",
+    "hidden": true
+  },
+  {
+    "slide": 106,
+    "anchor": "UE08S",
+    "id": "UE08",
+    "blocks": [
+      "setup"
+    ],
+    "mode": "focus",
+    "preceding": [],
+    "file": "ue/UE08_material_override.py",
+    "dependency": "First run UE08: no preceding blocks. Then run the shown block(s).",
+    "hidden": true
+  },
+  {
+    "slide": 107,
+    "anchor": "UE08E",
+    "id": "UE08",
+    "blocks": [
+      "eligibility"
+    ],
+    "mode": "focus",
+    "preceding": [
+      "setup"
+    ],
+    "file": "ue/UE08_material_override.py",
+    "dependency": "First run UE08: setup. Then run the shown block(s).",
+    "hidden": true
+  },
+  {
+    "slide": 108,
+    "anchor": "UE12C",
+    "id": "UE12",
+    "blocks": [
+      "check"
+    ],
+    "mode": "focus",
+    "preceding": [
+      "setup",
+      "options",
+      "task",
+      "eligibility",
+      "focus"
+    ],
+    "file": "ue/UE12_import_and_verify.py",
+    "dependency": "First run UE12: setup + options + task + eligibility + focus. Then run the shown block(s).",
+    "hidden": true
+  }
+]

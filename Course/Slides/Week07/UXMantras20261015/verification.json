@@ -1,0 +1,230 @@
+{
+  "date": "2026-10-15",
+  "original_notes_checked": 34,
+  "changed_original_notes": [],
+  "deck_unchanged": true,
+  "deck_sha256": "c2b745ba4fb6b18967adfb98a6b38d516bbf64f4eb8b03093feaf15a16134863",
+  "refined_notes": 34,
+  "unique_copied_course_images": 174,
+  "missing_source_captures": [],
+  "proposal_count": 36,
+  "unique_ids": true,
+  "current_slide_coverage_exact": true,
+  "preserved_preparation_boundary": true,
+  "existing_test_suite": {
+    "command": "Week07UnrealPython/Scripts/dev.py test",
+    "passed": 87,
+    "scope": "offline unit/widget/workflow suite; no live engine validation"
+  },
+  "rendered_after_states": [
+    "material_blocked.png",
+    "material_complete.png",
+    "material_preview.png",
+    "material_start.png",
+    "vfx_blocked.png",
+    "vfx_complete.png",
+    "vfx_preview.png",
+    "vfx_warning.png",
+    "vfx_warning_narrow.png"
+  ],
+  "contrast_pairs": [
+    {
+      "role": "Primary action text",
+      "foreground": "#142033",
+      "background": "#a9cfff",
+      "ratio": 10.17
+    },
+    {
+      "role": "Secondary action text",
+      "foreground": "#eef2f8",
+      "background": "#303e53",
+      "ratio": 9.64
+    },
+    {
+      "role": "Main text / canvas",
+      "foreground": "#eef2f8",
+      "background": "#171d27",
+      "ratio": 15.06
+    },
+    {
+      "role": "Focus / secondary surface",
+      "foreground": "#9ccaff",
+      "background": "#303e53",
+      "ratio": 6.34
+    },
+    {
+      "role": "Disabled text / surface",
+      "foreground": "#8793a6",
+      "background": "#252d39",
+      "ratio": 4.46
+    }
+  ],
+  "contrast_limit": "Computed from explicit opaque color pairs; not a screenshot pixel audit or full accessibility conformance test. Disabled content has different standards treatment. Text size, rendering, other surfaces and user testing remain separate.",
+  "skill_validation": "quick_validate.py passed with task-local PyYAML dependency",
+  "pending": [
+    "Live Unreal / native Slate integration",
+    "Actual target display scaling",
+    "Fresh GOLF+ matched captures",
+    "Final PowerPoint authoring, rendering and pacing"
+  ],
+  "preserved_media": [
+    {
+      "file": "assets\\golf-course-overlay.png",
+      "sha256": "80f165dd2a115383e5d084722ef38af5065721d4a4dd313a1feae140c833546e"
+    },
+    {
+      "file": "assets\\golf-spline-annotations.png",
+      "sha256": "8e817e838d0f64551cf2ff840dbfaf5b11b1d65cbf787663ec270e1a74695a27"
+    },
+    {
+      "file": "assets\\golf-spline-feedback.png",
+      "sha256": "26f5b22b9ff3080681a6431d0dd436288554d6ceac0c90c29438b956d32eeac9"
+    },
+    {
+      "file": "assets\\talk-26.png",
+      "sha256": "193394c49fa1dbe54c7e99cab863282be908b55cb168d169a136567e7d91083c"
+    },
+    {
+      "file": "assets\\talk-27.png",
+      "sha256": "9b9124d16d0cdeb3dee4a5658e676556fad8b9bab7b6c27ac1d65c9d2fdfe362"
+    },
+    {
+      "file": "assets\\talk-33.png",
+      "sha256": "3bea405dd69f7733b8a6ec438947d40e71baefb1d5957c3acf68bd6ea27cf75c"
+    },
+    {
+      "file": "assets\\talk-35.png",
+      "sha256": "ff59fe2f19c4e3fe562423b691e6755584dd6fe0daa56a745ecb16d3a826b240"
+    },
+    {
+      "file": "assets\\talk-36.png",
+      "sha256": "4849b2ddcbed6d3bd90d5c2cffd32318e71b7acc65545d916f9991f36f4edb55"
+    },
+    {
+      "file": "assets\\talk-37.png",
+      "sha256": "b1587ca1906eba0f430e4a7df3cc590e14b1711ce1e6b1c61b4eba58f9f39950"
+    }
+  ],
+  "keyboard_observation": {
+    "method": "Actual QtTest Tab key events in offscreen practice window",
+    "starting_at": "master",
+    "focus_sequence": [
+      "master",
+      "name",
+      "slot",
+      "review",
+      "preview_button",
+      "reset_button",
+      "qt_tabwidget_tabbar",
+      "master"
+    ],
+    "scope": "material start state; not live host or screen-reader testing"
+  },
+  "observed_action_states": [
+    {
+      "state": "start",
+      "preview_emphasis": "primary",
+      "apply_emphasis": "secondary",
+      "apply_enabled": false
+    },
+    {
+      "state": "preview",
+      "preview_emphasis": "secondary",
+      "apply_emphasis": "primary",
+      "apply_enabled": true
+    },
+    {
+      "state": "completed",
+      "preview_emphasis": "secondary",
+      "apply_emphasis": "secondary",
+      "apply_enabled": false
+    },
+    {
+      "state": "blocked_duplicate",
+      "preview_emphasis": "primary",
+      "apply_emphasis": "secondary",
+      "apply_enabled": false
+    }
+  ],
+  "browser_review": {
+    "localHtmlFilesChecked": 41,
+    "brokenLocalLinks": [],
+    "pageErrors": [],
+    "totalSlideCards": 36,
+    "searchSquintMatches": 1,
+    "mantraM3Matches": 9,
+    "newInsertions": 13,
+    "diagnosticModes": {
+      "gray": "Grayscale: does priority remain readable without hue? This is not a color-vision simulation.",
+      "squint": "Squint approximation: where does the largest visual emphasis remain? Blur is a coarse proxy, not a readability test.",
+      "shapes": "Simplified layout blockout: inspect grouping and proportion. This schematic intentionally omits detail.",
+      "normal": "Original current practice capture. Read the labels and inspect the task."
+    },
+    "pages": [
+      {
+        "name": "index.html",
+        "desktopOverflow": false,
+        "brokenImages": [],
+        "mobileOverflow": false
+      },
+      {
+        "name": "compiled-notes.html",
+        "desktopOverflow": false,
+        "brokenImages": [],
+        "mobileOverflow": false
+      },
+      {
+        "name": "plan.html",
+        "desktopOverflow": false,
+        "brokenImages": [],
+        "mobileOverflow": false
+      },
+      {
+        "name": "sources.html",
+        "desktopOverflow": false,
+        "brokenImages": [],
+        "mobileOverflow": false
+      },
+      {
+        "name": "demo-audit.html",
+        "desktopOverflow": false,
+        "brokenImages": [],
+        "mobileOverflow": false
+      },
+      {
+        "name": "diagnostics.html",
+        "desktopOverflow": false,
+        "brokenImages": [],
+        "mobileOverflow": false
+      },
+      {
+        "name": "golf-case.html",
+        "desktopOverflow": false,
+        "brokenImages": [],
+        "mobileOverflow": false
+      },
+      {
+        "name": "notes/18.html",
+        "desktopOverflow": false,
+        "brokenImages": []
+      },
+      {
+        "name": "notes/46.html",
+        "desktopOverflow": false,
+        "brokenImages": []
+      },
+      {
+        "name": "notes/49.html",
+        "desktopOverflow": false,
+        "brokenImages": [],
+        "mobileOverflow": false
+      }
+    ]
+  },
+  "final_content_review": {
+    "expanded_lesson_details": 34,
+    "current_slide_44_comparison": "visually inspected",
+    "notes_recap": "19-item crosswalk retained",
+    "html_overflow": false
+  }
+}

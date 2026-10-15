@@ -50,7 +50,7 @@ def main():
     if args.command == "list":
         print('Optional prop foundations (stable IDs, not slide numbers).')
         print('Direct Unreal/Blender API checkpoints: python Scripts/api_lessons.py list')
-        print('Main Material/VFX demo route: Docs/DEMO_SEQUENCE.md\n')
+        print('Main Material/VFX demo route: README.md\n')
         for step in sequence():
             print(f"{step['id']}  [{step['runtime']}] {step['title']}\n    {step['file']}")
     else:

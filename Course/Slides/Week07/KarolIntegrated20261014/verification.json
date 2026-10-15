@@ -1,0 +1,15 @@
+{
+  "slides": 120,
+  "live": 54,
+  "optional": 66,
+  "reviewed_lessons": 48,
+  "changed_existing_slides": 13,
+  "new_optional_slides": 5,
+  "original_media_preserved": 34,
+  "unchanged_slides_text_verified": 102,
+  "local_links_checked": 234,
+  "original_refined_files_unchanged": true,
+  "deck_sha256": "33a8e64719c1613d24875e0285c28d8347a3842ca6dfd4b4963c0e29df6a482c",
+  "validation": "passed",
+  "runtime_limit": "Offline code/UI checks only; no live Unreal or Blender UI execution."
+}

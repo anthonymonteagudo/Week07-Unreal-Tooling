@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 7 teaching tool style sheet</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/Docs/UI/UX_STYLE_SHEET.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/Docs/UI/UX_STYLE_SHEET.md<br>Source modified: 2026-10-15T08:31:37.548Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#week-7-teaching-tool-style-sheet">Week 7 teaching tool style sheet</a></li><li><a href="#purpose-and-task">Purpose and task</a></li><li><a href="#visual-roles">Visual roles</a></li><li><a href="#state-contract">State contract</a></li><li><a href="#layout-and-controls">Layout and controls</a></li><li><a href="#review-procedure">Review procedure</a></li><li><a href="#maintaining-the-rules-with-ai">Maintaining the rules with AI</a></li></ul></details><h1 id="week-7-teaching-tool-style-sheet">Week 7 teaching tool style sheet</h1>
+<p>Version 2 · 15 October 2026. Applies to the Material Setup and VFX Placement PySide assistants. It records the dark course-tool palette, action emphasis and state wording. It does not replace GOLF+ design rules or certify the native Slate and Blender/Maya surfaces.</p>
+<h2 id="purpose-and-task">Purpose and task</h2>
+<p>An artist chooses inputs, inspects a proposed change, applies that reviewed operation, and checks the result. The interface must expose scope and recovery. A successful API return is not proof that the artistic goal was achieved.</p>
+<h2 id="visual-roles">Visual roles</h2>
+<p>The existing palette lives in <code>Content/Python/week07_tooling/ui/window.py</code>. The assistant action roles live in <code>ui/assistant_style.py</code> and are the source for the new emphasis states. Migration of all legacy literals to tokens remains a separate cleanup; do not claim it is complete.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Treatment</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Canvas</td>
+<td>Existing dark neutral <code>#171d27</code></td>
+<td>Tool workspace</td>
+</tr>
+<tr>
+<td>Main text</td>
+<td><code>#eef2f8</code></td>
+<td>Readable content and labels</td>
+</tr>
+<tr>
+<td>Primary action</td>
+<td><code>#a9cfff</code>, text <code>#142033</code></td>
+<td>Available forward action in the refined stage</td>
+</tr>
+<tr>
+<td>Secondary action</td>
+<td><code>#303e53</code>, text <code>#eef2f8</code></td>
+<td>Supporting operation, still recognizable as a button</td>
+</tr>
+<tr>
+<td>Focus</td>
+<td><code>#9ccaff</code>, visible outline</td>
+<td>Keyboard destination; distinct from selection and availability</td>
+</tr>
+<tr>
+<td>Disabled</td>
+<td><code>#252d39</code>, text <code>#8793a6</code></td>
+<td>Unavailable operation; explanation is also provided</td>
+</tr>
+<tr>
+<td>Warning/error/success</td>
+<td>Existing tinted status surface plus explicit message</td>
+<td>State information; never hue alone</td>
+</tr>
+</tbody></table></div>
+<p>Preserve Segoe UI, the current scale and the 24-pixel outer margins. These are implementation choices for this tool, not universal design laws. Use the host’s layout managers. Essential labels must remain readable at supported window sizes; distinguish hierarchy with weight, spacing and grouping before reducing text contrast.</p>
+<h2 id="state-contract">State contract</h2>
+<ul>
+<li>No pending plan: Preview is the emphasized action when available. Apply is disabled.</li>
+<li>Valid plan, no unacknowledged warning: Apply becomes emphasized. Its label names the operation.</li>
+<li>Warning awaiting review: neither forward button receives primary emphasis. Keep the warning and acknowledgment visible; acknowledgment does not bypass hard limits.</li>
+<li>Inputs or task change: invalidate the plan and return to Preview. Say explicitly that this does not undo earlier applied changes; never imply that the scene or sample has been restored.</li>
+<li>Apply completed: keep the result inspectable, disable repeat Apply, explain the next verification step. Name the recovery scope: material assignment Undo retains the created asset; VFX Undo removes its placed batch; neither workflow automatically saves the map.</li>
+<li>Apply tooltip: explain the actual state—fresh preview required, warning acknowledgment required, ready to recheck and apply, or already completed. Do not show an active-operation promise on a disabled completed button.</li>
+<li>Error: name the problem and next action. Keep scope and unchanged-work claims accurate for the actual failure.</li>
+</ul>
+<p><code>WorkflowSession</code> continues to validate at execution. UI enablement is never the safety boundary.</p>
+<h2 id="layout-and-controls">Layout and controls</h2>
+<p>Keep inputs together, then state/scope, then the read-only review, then forward actions. Keep Reset separated from Preview/Apply. Use the same column order and labels across material and VFX reviews. A disabled control still looks like a control; a heading must not look like a clickable button. Full-width actions, borders, and text links are context-dependent choices, not prohibited styles.</p>
+<p>Keyboard order follows the task: task tabs, active inputs, review, acknowledgment when present, Preview, Apply, then practice reset. Hidden controls should be skipped by Qt. Test the actual focus sequence with keyboard input; code order alone is not proof. Keep focus visible on the review table as well as buttons and fields.</p>
+<h2 id="review-procedure">Review procedure</h2>
+<p>Render starting, preview, warning, blocked, applied and narrow-window states with <code>Scripts/assistants.py --render &lt;directory&gt;</code>. Use functional, guided and refined stages with the same backend. Run the existing workflow/widget gates. Check grayscale hierarchy, a squint/blur approximation, and actual foreground/background contrast separately. Neither grayscale nor squinting substitutes for color-vision, keyboard, text-size, screen-reader or user testing.</p>
+<p>Capture before/after from the same input and state. A practice capture must say it uses sample data. Do not label offscreen tests as live engine validation. Before a new showcase, revalidate the native Slate panel and host integration separately, then replace stale slide crops and code excerpts.</p>
+<h2 id="maintaining-the-rules-with-ai">Maintaining the rules with AI</h2>
+<p>Give the agent the current version of this sheet, token file, representative captures and the requested scope. Ask it to identify which existing pattern applies before changing UI. Require a before/after capture and a list of deliberate exceptions. Accept a rule change explicitly, update the source, then recapture affected states. An agent’s claim of compliance is not the verification step.</p>
+<p>For a classroom skill example, see <code>Course/Slides/Week07/UXMantras20261015/style-skill/SKILL.md</code> in the course workspace. It is a local teaching example, not a globally installed skill.</p>
+</main></body></html>

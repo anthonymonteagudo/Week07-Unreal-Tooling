@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Karol course completion handoff for Week 7</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/KarolCompletionReview20261014/HANDOFF.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/KarolCompletionReview20261014/HANDOFF.md<br>Source modified: 2026-10-15T01:51:33.041Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#karol-course-completion-handoff-for-week-7">Karol course completion handoff for Week 7</a></li><li><a href="#current-baseline">Current baseline</a></li><li><a href="#implement-the-teaching-edits-in-this-order">Implement the teaching edits in this order</a></li><li><a href="#bridge-implementation-facts-to-preserve">Bridge implementation facts to preserve</a></li><li><a href="#smallest-useful-new-feature">Smallest useful new feature</a></li><li><a href="#completed-note-work">Completed note work</a></li><li><a href="#verification-before-the-next-deck-revision">Verification before the next deck revision</a></li></ul></details><h1 id="karol-course-completion-handoff-for-week-7">Karol course completion handoff for Week 7</h1>
+<p>14 October 2026. The remaining course notes are refined. Use the current v13 deck and the existing Blender bridge as the integration baseline. This handoff proposes teaching edits; the PowerPoint and project implementation are unchanged.</p>
+<h2 id="current-baseline">Current baseline</h2>
+<ul>
+<li>Deck: Course/Slides/Week07/UnrealFirst20261013/output/Week_7_Python_in_Unreal_v13.pptx, 115 physical slides including the cover.</li>
+<li>Main sequence: Python in Unreal, brief Blender API/bridge, colleague material/Maya demonstrations, then the existing assessment, UI/UX and peer-testing blocks.</li>
+<li>Do not use the old v3 slide numbers or restore the earlier material-demo timing. Preserve the current 150-minute session and discussion/activity opportunities.</li>
+<li>The 14 October UI/UX, Golden Path imagery and motion reviews are separate proposals. Reconcile them with this handoff before producing a new deck; they do not establish that v13 was already edited.</li>
+</ul>
+<h2 id="implement-the-teaching-edits-in-this-order">Implement the teaching edits in this order</h2>
+<ol>
+<li>Slide 10 / CALL: keep the table. Explain editor-managed subsystem retrieval and direct iteration of Array[Actor] in narration. Lesson 49 is already correctly implemented.</li>
+<li>Slide 13 / RUN: keep the saved-file procedure. Link a short import troubleshooting reference based on lesson 48; keep installation work in preparation.</li>
+<li>Slide 29 / 10D: keep the Blender revision and reset sequence. Explain exported, sent, acknowledged and verified as distinct stages. Reuse the existing Golden Path before/after captures.</li>
+<li>Slide 61 / 08A: keep the correct PySide/Slate labels. Add the optional dependency-direction explanation from lesson 48.</li>
+<li>After optional slide 75 / 08: consider K2, a typed Map output example using lesson 50 screenshots 10–11. Make output variable/pin names consistent and show Map&lt;String, Integer&gt; explicitly.</li>
+<li>Slide 106 / K1: link the five completed lessons. Keep detailed import troubleshooting (proposed K3) and Remote Control object-path discovery (proposed K4) as optional material if dedicated slides are useful. Do not add them automatically to the live route.</li>
+</ol>
+<h2 id="bridge-implementation-facts-to-preserve">Bridge implementation facts to preserve</h2>
+<ul>
+<li>The classroom bridge uses file-based requests and acknowledgements, not Remote Control HTTP. Karol&#39;s direct export/import idea transfers; his transport does not describe this implementation.</li>
+<li>Current shared code is Content/Python/week07_bridge/client.py, transport.py, core.py and unreal_receiver.py in Week07UnrealPython. Host adapters supply Blender/Maya scene/export behavior.</li>
+<li>Existing behavior includes heartbeat, session protection, completed-request no-replay, explicit pending state and surfaced importer failure. Do not list these as unimplemented features.</li>
+<li>Receiver checks the destination asset and returned import paths, preserves existing materials, and temporarily selects/restores the demonstrated FBX importer setting. Do not replace those explicit choices with the older course defaults.</li>
+<li>Existing UI rehearsal evidence is Docs/Bridge/UI-Rehearsal/verification.json: the same Blender asset is revised from 180 to 220 cm and both blue placements use it; orange Maya examples remain at 180 cm. This is saved evidence, not a fresh session check.</li>
+</ul>
+<h2 id="smallest-useful-new-feature">Smallest useful new feature</h2>
+<p>Add a read-only Copy diagnostics report to the existing publisher: host/Python version, module location, exchange root, receiver project/session and request/result identity. Reuse shared state in both host views. It must not export, import, resend, cancel or mutate pending work. Check offline, mismatched environment, pending, failed and completed states with fixtures, then verify actual UI behavior in a separate authorized rehearsal.</p>
+<p>The offline-publish/send-later failure path is already implemented and tested. Consider showcasing it after rehearsal; do not implement a duplicate recovery mechanism.</p>
+<h2 id="completed-note-work">Completed note work</h2>
+<p>Created REFINED lessons 46–50 with all 70 new screenshots and key code/setup details. Updated the course index and linked lessons 44–45 to the runtime object-path correction. The user&#39;s edited lesson 45 was preserved around that small cross-reference addition.</p>
+<p>Corrected two misplaced supplemental paragraphs from the earlier audit: lesson 23 is square-texture validation, while lesson 24 checks membership in an explicit list of power-of-two dimensions. Their original lesson explanations/images were retained. A backup of the pre-edit refined collection is under history/.</p>
+<h2 id="verification-before-the-next-deck-revision">Verification before the next deck revision</h2>
+<p>Use actual PPTX physical slide numbers; adjacent metadata can use a different index. Preserve Isaac Oster/Northwood project attribution and credit Karol/Tech Art Corner for supplemental examples. Keep instructor instructions outside read-aloud notes. Do not present expected-result slides or historical rehearsal captures as new live evidence. New code snippets are syntax-checked examples; current-engine behavior must be checked separately before classroom execution.</p>
+</main></body></html>

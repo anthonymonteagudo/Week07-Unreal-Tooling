@@ -1,0 +1,157 @@
+{
+  "sources": {
+    "nielsen": [
+      "Jakob Nielsen \u00b7 10 Usability Heuristics",
+      "https://www.nngroup.com/articles/ten-usability-heuristics/",
+      "Heuristic guidance",
+      "Read heuristics 1\u20133, 5\u20137 and 9. Supports familiar terminology, visible state, prevention, recovery and expert shortcuts. These are broad heuristics, not proof of a particular layout."
+    ],
+    "vv": [
+      "Jeff Stewart \u00b7 Build Great Tools, GDC 2018",
+      "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf",
+      "Production practice",
+      "Read PDF pp.25\u201326, 33\u201336 and 40\u201346: grouping and adjacent workflow, content models, undo, preview and recovery. Stewart explicitly cites Nielsen on p.33: this is a production application of that principle, not an independent experiment."
+    ],
+    "mk": [
+      "Etienne Palmer-Campbell \u00b7 Mission Kontrol, GDC 2025",
+      "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf",
+      "Production case",
+      "Read PDF pp.45\u201349. QA feedback led to both-player controls and frame stepping in the tool. The case documents an iteration, not a controlled comparison or a Python implementation."
+    ],
+    "testing": [
+      "Kate Moran \u00b7 Usability Testing 101, NN/G",
+      "https://www.nngroup.com/articles/usability-testing-101/",
+      "Research-method guidance",
+      "Read Elements of Usability Testing, Tasks and Participants. Supports realistic tasks and observing behavior while avoiding coaching. Pair with the production case and local peer-test observations."
+    ],
+    "proximity": [
+      "Aurora Harley \u00b7 Proximity Principle in Visual Design, NN/G",
+      "https://www.nngroup.com/articles/gestalt-proximity/",
+      "Visual-design explanation",
+      "Read Close Proximity Indicates Relatedness and the grouped-form illustration. Supports using spacing to communicate relationships. It does not supply a measured gain for our Unreal interface."
+    ],
+    "layout": [
+      "Microsoft \u00b7 Layout, Windows desktop guidance",
+      "https://learn.microsoft.com/en-us/windows/win32/uxguide/vis-layout",
+      "Desktop platform guidance",
+      "Read Grouping, Alignment and sizing/resizing guidance. Use relationships and hierarchy; do not import legacy Windows styling, numeric spacing rules or group-count limits into Qt/Slate as universal requirements. The page identifies its Windows 7 origin."
+    ],
+    "keys": [
+      "Microsoft \u00b7 Keyboard accelerators",
+      "https://learn.microsoft.com/en-us/windows/apps/develop/input/keyboard-accelerators",
+      "Desktop platform guidance",
+      "Read When to use keyboard accelerators, Scoped accelerators and menu-label examples. Supports discoverable shortcuts for frequent actions and explicit focus scope. The API examples are Windows APIs, not PySide or Unreal code."
+    ],
+    "errors": [
+      "Microsoft \u00b7 Error Messages in Windows 7",
+      "https://learn.microsoft.com/en-us/windows/win32/uxguide/mess-error",
+      "Historical desktop guidance",
+      "Read Characteristics of good error messages. Supports specific, actionable explanations. Use the message structure, not its dated visual styling; retain diagnostic detail separately when needed."
+    ]
+  },
+  "priorities": [
+    [
+      "1",
+      "Artist\u2019s task and representation",
+      "36, 37, 40",
+      [
+        "nielsen",
+        "vv"
+      ],
+      "Highest priority: direct artist-tool example plus general guidance. Natoli 01\u201305 reinforces the framing.",
+      "State the intended outcome and use terms the artist can act on. Do not expose each internal function as a separate user decision."
+    ],
+    [
+      "2",
+      "Scope, preview and recovery",
+      "39, 41\u201344",
+      [
+        "nielsen",
+        "vv",
+        "errors"
+      ],
+      "Highest priority: directly relevant to tools that modify assets. Multiple guidance sources plus production practice.",
+      "Show affected objects, explain whether anything changed, and provide a recovery route that the tool actually supports."
+    ],
+    [
+      "3",
+      "Observe work and iterate",
+      "45\u201346, peer-test lab",
+      [
+        "testing",
+        "mk"
+      ],
+      "Highest priority: method guidance plus a documented game-development iteration from a separate organization.",
+      "Give a realistic task, observe a difficulty, make a targeted revision and retest. Do not substitute preference votes for task evidence."
+    ],
+    [
+      "4",
+      "Grouping and visual hierarchy",
+      "38\u201339, new 39A",
+      [
+        "proximity",
+        "layout",
+        "vv"
+      ],
+      "Strong visual addition: NN/G and Microsoft agree on grouping; Stewart discusses it in a content-tool context.",
+      "Use spacing and alignment to distinguish target, proposed change and action. Test the arrangement with the actual task."
+    ],
+    [
+      "5",
+      "Discoverability and expert efficiency",
+      "44, new 44A",
+      [
+        "nielsen",
+        "keys"
+      ],
+      "Strong desktop addition: supports both learning and repeated work; directly counters a phone-only interpretation.",
+      "Keep a visible route to commands while providing discoverable shortcuts for frequent actions. Check focus and scope."
+    ]
+  ],
+  "visuals": [
+    {
+      "id": "grouping",
+      "title": "Group related controls with space",
+      "slide": "39A",
+      "file": "ms-desktop-grouping.png",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/uxguide/images/vis-layout-image22.png",
+      "source": "layout",
+      "credit": "Microsoft \u00b7 Windows desktop Layout guidance",
+      "use": "Show the existing desktop control groups first; ask what belongs together. Follow with the course material-preview capture. These are separate examples, not a matched before/after.",
+      "rights": "Microsoft screenshot guidance: retain the original image; resize only. Historical Windows UI, not current Unreal styling."
+    },
+    {
+      "id": "form",
+      "title": "Same fields, different grouping",
+      "slide": "39A alternative",
+      "file": "nng-form-grouping.png",
+      "url": "https://media.nngroup.com/media/editor/2020/07/02/form-whitespacegroupings.png",
+      "source": "proximity",
+      "credit": "Aurora Harley \u00b7 Nielsen Norman Group \u00b7 Proximity Principle in Visual Design (2020)",
+      "use": "Use as an alternative conceptual opener if the desktop screenshot is too small. Compare grouping, then transfer to artist-tool controls. This is a schematic web form, not a measured usability result.",
+      "rights": "NN/G Articles and Videos terms permit credited educational illustrations. Preserve author, organization and original article link."
+    },
+    {
+      "id": "shortcuts",
+      "title": "Make the shortcut discoverable",
+      "slide": "44A",
+      "file": "ms-shortcut-menu.png",
+      "url": "https://learn.microsoft.com/en-us/windows/apps/develop/input/images/accelerators/accelerators_menuitemlabel.png",
+      "source": "keys",
+      "credit": "Microsoft \u00b7 Keyboard accelerators documentation",
+      "use": "Place the full menu screenshot on the left; on the right ask students to identify the visible command and its shortcut. Do not present these keys as implemented in the course tool.",
+      "rights": "Microsoft screenshot guidance: retain original pixels; resize only."
+    },
+    {
+      "id": "recovery",
+      "title": "A message with a next step",
+      "slide": "43",
+      "file": "ms-rename-error.png",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/uxguide/images/mess-error-image1.png",
+      "source": "errors",
+      "credit": "Microsoft \u00b7 Error Messages in Windows 7",
+      "use": "Use this historical rename-error screenshot beside the existing course blocked-state capture. Ask what failed and what action the user can take. Keep annotations outside the screenshot.",
+      "rights": "Microsoft screenshot guidance: retain original pixels; resize only. Historical message example, not a visual template."
+    }
+  ]
+}

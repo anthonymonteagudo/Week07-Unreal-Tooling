@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>49 Code Deprecation Notice · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#notes">Return to audit</a><a href="48.html">Previous lesson</a> <a href="50.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/49%20Code%20Deprecation%20Notice.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/49%20Code%20Deprecation%20Notice%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>49 Code Deprecation Notice</h1><p>0 screenshots preserved; organized explanation and copyable examples.</p><p class="meta">Read-only rendered snapshot, 14 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Change record</button></div><article class="document" id="refined"><h1>Updating Deprecated Editor Subsystem Access — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/49%20Code%20Deprecation%20Notice.md">Original notes</a></p>
+<p>The course began against Unreal 5.1 and records a change around 5.3: retrieve an editor subsystem from the running editor instead of constructing it directly.</p>
+<p>Historical form shown in the source:</p>
+<pre><code class="language-python">import unreal
+editor = unreal.EditorActorSubsystem()
+</code></pre>
+<p>Use the subsystem accessor in the updated example:</p>
+<pre><code class="language-python">import unreal
+editor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)
+actors = editor.get_selected_level_actors()
+</code></pre>
+<p><code>unreal.EditorActorSubsystem</code> is the class passed to the accessor; <code>editor</code> is the returned editor-managed instance. This is a specific migration note, not a claim that every constructor in Unreal is deprecated.</p>
+<p>When following older screenshots, check the API reference/stub for the engine version actually in use. Keep the algorithm and update the obsolete access pattern. The source notes that the accessor was also available in some earlier versions. No images were supplied for this lesson.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/48%20Fixing%20ImportError%20in%20Python%20and%20adding%20Python%20Modules%20as%20Plugins%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/50%20Working%20with%20Unreal%20data%20types%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p>This course development started when Unreal 5.1 was the latest.</p>
+<p>Half a year later, 5.3 is around and for sure there will be even more releases.</p>
+<p>Keeping videos up to date is very difficult. Each time I notice something deprecated I do my best to update them in some way.</p>
+<p>I also understand that games are not always made on the latest release of engine and that updating it may be difficult in case of big projects.</p>
+<p>I will keep extending list of deprecations and differences between various UE 5.3 versions and hopefully, it will help you if you struggle with errors while following tutorials included in the course.</p>
+<p><strong><em>Editor subsystems creation is deprecated and will be removed in UE5.3.</em></strong></p>
+<p>Unreal &lt; 5.3 syntax:</p>
+<ol>
+<li>EditorActorSubsystem = unreal.EditorActorSubsystem()</li>
+</ol>
+<p>Unreal 5.3+ syntax:</p>
+<ol>
+<li>EditorActorSubsystem = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)</li>
+</ol>
+<p>It also is available in some older releases so you can start updating your tools even before moving to 5.3</p>
+</article><article id="diff" hidden><h2>Completion change record</h2><pre>New REFINED version created from the completed source note. The original source is preserved in the adjacent tab.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

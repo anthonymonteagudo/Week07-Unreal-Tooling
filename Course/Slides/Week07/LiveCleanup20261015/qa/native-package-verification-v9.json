@@ -1,0 +1,268 @@
+{
+  "sections": [
+    {
+      "count": 2,
+      "start": 1,
+      "name": "Introduction"
+    },
+    {
+      "count": 6,
+      "start": 3,
+      "name": "Unreal Setup"
+    },
+    {
+      "count": 2,
+      "start": 9,
+      "name": "Python in Unreal"
+    },
+    {
+      "count": 2,
+      "start": 11,
+      "name": "UE01: Engine and Project"
+    },
+    {
+      "count": 6,
+      "start": 13,
+      "name": "UE02: Actor Selection"
+    },
+    {
+      "count": 5,
+      "start": 19,
+      "name": "UE03: Components and Meshes"
+    },
+    {
+      "count": 2,
+      "start": 24,
+      "name": "UE04: Content Browser Selection"
+    },
+    {
+      "count": 6,
+      "start": 26,
+      "name": "UE05: Texture Properties"
+    },
+    {
+      "count": 3,
+      "start": 32,
+      "name": "UE06: Validation"
+    },
+    {
+      "count": 1,
+      "start": 35,
+      "name": "UE07: Paths"
+    },
+    {
+      "count": 11,
+      "start": 36,
+      "name": "Asset Workflows"
+    },
+    {
+      "count": 5,
+      "start": 47,
+      "name": "Blender to Unreal"
+    },
+    {
+      "count": 8,
+      "start": 52,
+      "name": "Tool Demos"
+    },
+    {
+      "count": 2,
+      "start": 60,
+      "name": "Colleague Demos"
+    },
+    {
+      "count": 1,
+      "start": 62,
+      "name": "Break"
+    },
+    {
+      "count": 3,
+      "start": 63,
+      "name": "UI/UX and Lab 1"
+    },
+    {
+      "count": 5,
+      "start": 66,
+      "name": "Know the Task"
+    },
+    {
+      "count": 9,
+      "start": 71,
+      "name": "Guide the Eye"
+    },
+    {
+      "count": 12,
+      "start": 80,
+      "name": "Make Actions Clear"
+    },
+    {
+      "count": 4,
+      "start": 92,
+      "name": "Keep It Consistent"
+    },
+    {
+      "count": 6,
+      "start": 96,
+      "name": "Test the Workflow"
+    },
+    {
+      "count": 5,
+      "start": 102,
+      "name": "Peer Review Lab"
+    }
+  ],
+  "normalShowMatchesCustomShow": true,
+  "slideCount": 106,
+  "media": [
+    {
+      "mediaType": 3,
+      "slide": 10,
+      "name": "Embedded_taichi-fluid"
+    },
+    {
+      "mediaType": 3,
+      "slide": 20,
+      "name": "Embedded_tap-inspector"
+    },
+    {
+      "mediaType": 3,
+      "slide": 22,
+      "name": "Embedded_epic-material"
+    },
+    {
+      "mediaType": 3,
+      "slide": 51,
+      "name": "Embedded_course-bridge"
+    },
+    {
+      "mediaType": 3,
+      "slide": 59,
+      "name": "region-silent"
+    },
+    {
+      "mediaType": 3,
+      "slide": 86,
+      "name": "Embedded_powerrename-demo"
+    },
+    {
+      "mediaType": 3,
+      "slide": 87,
+      "name": "Embedded_mph.function_list"
+    },
+    {
+      "mediaType": 3,
+      "slide": 88,
+      "name": "Embedded_tap-callback"
+    },
+    {
+      "mediaType": 3,
+      "slide": 91,
+      "name": "Embedded_guerrilla"
+    }
+  ],
+  "customShows": [
+    {
+      "count": 96,
+      "slideIds": [
+        442,
+        443,
+        458,
+        455,
+        454,
+        461,
+        462,
+        444,
+        479,
+        448,
+        460,
+        463,
+        494,
+        447,
+        465,
+        464,
+        506,
+        449,
+        480,
+        507,
+        450,
+        495,
+        451,
+        468,
+        452,
+        481,
+        496,
+        453,
+        469,
+        508,
+        457,
+        511,
+        512,
+        459,
+        1001,
+        1002,
+        1003,
+        1004,
+        513,
+        510,
+        514,
+        471,
+        473,
+        475,
+        497,
+        498,
+        476,
+        474,
+        456,
+        482,
+        483,
+        484,
+        516,
+        518,
+        499,
+        500,
+        472,
+        477,
+        1005,
+        1006,
+        1007,
+        1008,
+        1009,
+        1011,
+        502,
+        519,
+        520,
+        1012,
+        1013,
+        1015,
+        521,
+        1014,
+        1016,
+        1017,
+        1018,
+        1019,
+        1020,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        1021,
+        1022,
+        1023,
+        1025,
+        1026,
+        522,
+        1027,
+        504,
+        505,
+        1029,
+        1030,
+        1031,
+        1032
+      ],
+      "name": "Week 7 live route"
+    }
+  ],
+  "claimBoundary": "PowerPoint recognizes media, ordered sections and matching show routes; this is not a new live engine rehearsal."
+}

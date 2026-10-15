@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "UI OFFLINE — Week 7: Material and VFX assistants",
+      "label": "UI OFFLINE : Week 7: Material and VFX assistants",
       "type": "process",
       "command": "${workspaceFolder}/.venv/Scripts/python.exe",
       "args": [
@@ -88,7 +88,7 @@
       "problemMatcher": []
     },
     {
-      "label": "ENGINE — Week 7: test in separate Unreal editor",
+      "label": "ENGINE : Week 7: test in separate Unreal editor",
       "type": "process",
       "command": "${workspaceFolder}/.venv/Scripts/python.exe",
       "args": [
@@ -101,7 +101,7 @@
       "problemMatcher": []
     },
     {
-      "label": "ENGINE — Week 7: refresh Unreal autocomplete",
+      "label": "ENGINE : Week 7: refresh Unreal autocomplete",
       "type": "process",
       "command": "${workspaceFolder}/.venv/Scripts/python.exe",
       "args": [
@@ -114,7 +114,7 @@
       "problemMatcher": []
     },
     {
-      "label": "UI OFFLINE — Week 7: open teaching stage",
+      "label": "UI OFFLINE : Week 7: open teaching stage",
       "type": "process",
       "command": "${workspaceFolder}/.venv/Scripts/python.exe",
       "args": [
@@ -129,7 +129,7 @@
       "detail": "Material Setup and VFX Placement: functional → guided → refined; identical safeguards."
     },
     {
-      "label": "UI OFFLINE — Week 7: quality gates",
+      "label": "UI OFFLINE : Week 7: quality gates",
       "type": "process",
       "command": "${workspaceFolder}/.venv/Scripts/python.exe",
       "args": [
@@ -143,7 +143,7 @@
       "problemMatcher": []
     },
     {
-      "label": "UI OFFLINE — Week 7: render without opening a window",
+      "label": "UI OFFLINE : Week 7: render without opening a window",
       "type": "process",
       "command": "${workspaceFolder}/.venv/Scripts/python.exe",
       "args": [
@@ -160,7 +160,7 @@
       "detail": "Capture the selected Material/VFX stage using actual offscreen PySide widgets."
     },
     {
-      "label": "UI OFFLINE — Week 7: render Material and VFX assistants",
+      "label": "UI OFFLINE : Week 7: render Material and VFX assistants",
       "type": "process",
       "command": "${workspaceFolder}/.venv/Scripts/python.exe",
       "args": [

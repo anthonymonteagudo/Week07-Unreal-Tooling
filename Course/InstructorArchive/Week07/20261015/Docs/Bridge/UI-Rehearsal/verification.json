@@ -1,0 +1,89 @@
+{
+  "method": "Actual Blender UI vertex edit and Publish & Send buttons; read-only Unreal evidence",
+  "expected_height_change_cm": [
+    180,
+    220
+  ],
+  "actors": [
+    {
+      "actor": "Blender - shared mesh instance 1",
+      "actor_path": "/Game/Week07/Bridge/W07_BridgeComparison.W07_BridgeComparison:PersistentLevel.StaticMeshActor_0",
+      "mesh": "/Game/Week07/Bridge/SM_Compare_Blender.SM_Compare_Blender",
+      "dimensions_cm": [
+        120.00001525878906,
+        60.00001525878906,
+        220.0
+      ],
+      "location": "<Struct 'Vector' (0x000001E8A4249EB0) {x: -130.000000, y: -160.000000, z: 0.000000}>",
+      "scale": "<Struct 'Vector' (0x000001E8A4249EB0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+      "material": "/Game/Week07/Bridge/M_BridgeBlender.M_BridgeBlender"
+    },
+    {
+      "actor": "Blender - shared mesh instance 2",
+      "actor_path": "/Game/Week07/Bridge/W07_BridgeComparison.W07_BridgeComparison:PersistentLevel.StaticMeshActor_1",
+      "mesh": "/Game/Week07/Bridge/SM_Compare_Blender.SM_Compare_Blender",
+      "dimensions_cm": [
+        120.00001525878906,
+        60.00001525878906,
+        220.0
+      ],
+      "location": "<Struct 'Vector' (0x000001E8A424B670) {x: 130.000000, y: -160.000000, z: 0.000000}>",
+      "scale": "<Struct 'Vector' (0x000001E8A424B670) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+      "material": "/Game/Week07/Bridge/M_BridgeBlender.M_BridgeBlender"
+    },
+    {
+      "actor": "Maya - shared mesh instance 1",
+      "actor_path": "/Game/Week07/Bridge/W07_BridgeComparison.W07_BridgeComparison:PersistentLevel.StaticMeshActor_2",
+      "mesh": "/Game/Week07/Bridge/SM_Compare_Maya.SM_Compare_Maya",
+      "dimensions_cm": [
+        120.0,
+        60.0,
+        180.0
+      ],
+      "location": "<Struct 'Vector' (0x000001E8A4248790) {x: -130.000000, y: 160.000000, z: 0.000000}>",
+      "scale": "<Struct 'Vector' (0x000001E8A4248790) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+      "material": "/Game/Week07/Bridge/M_BridgeMaya.M_BridgeMaya"
+    },
+    {
+      "actor": "Maya - shared mesh instance 2",
+      "actor_path": "/Game/Week07/Bridge/W07_BridgeComparison.W07_BridgeComparison:PersistentLevel.StaticMeshActor_3",
+      "mesh": "/Game/Week07/Bridge/SM_Compare_Maya.SM_Compare_Maya",
+      "dimensions_cm": [
+        120.0,
+        60.0,
+        180.0
+      ],
+      "location": "<Struct 'Vector' (0x000001E8A424B670) {x: 130.000000, y: 160.000000, z: 0.000000}>",
+      "scale": "<Struct 'Vector' (0x000001E8A424B670) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+      "material": "/Game/Week07/Bridge/M_BridgeMaya.M_BridgeMaya"
+    }
+  ],
+  "responses": [
+    {
+      "id": "0ac7221a5c4c4ebdac24fcb570ca6358",
+      "session": "cba5120a45d34364920a6af93c3ea48a",
+      "ok": true,
+      "asset_path": "/Game/Week07/Bridge/SM_Compare_Blender.SM_Compare_Blender",
+      "revision": "acdb7d1c39554c28b1aaadc3824fa2cd",
+      "dimensions_cm": [
+        120.00001525878906,
+        60.00001525878906,
+        180.0
+      ],
+      "updated_existing": true
+    },
+    {
+      "id": "f385419356c842babfd54d17fd2196fb",
+      "session": "cba5120a45d34364920a6af93c3ea48a",
+      "ok": true,
+      "asset_path": "/Game/Week07/Bridge/SM_Compare_Blender.SM_Compare_Blender",
+      "revision": "0e540b1873e5402da1001c053d512121",
+      "dimensions_cm": [
+        120.00001525878906,
+        60.00001525878906,
+        220.0
+      ],
+      "updated_existing": true
+    }
+  ]
+}

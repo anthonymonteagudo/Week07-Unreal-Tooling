@@ -1,0 +1,9 @@
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Course\Slides\Week07\Refinement20261015\assets\practice\material_start.png
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Course\Slides\Week07\Refinement20261015\assets\practice\material_preview.png
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Course\Slides\Week07\Refinement20261015\assets\practice\material_complete.png
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Course\Slides\Week07\Refinement20261015\assets\practice\material_blocked.png
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Course\Slides\Week07\Refinement20261015\assets\practice\vfx_preview.png
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Course\Slides\Week07\Refinement20261015\assets\practice\vfx_complete.png
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Course\Slides\Week07\Refinement20261015\assets\practice\vfx_blocked.png
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Course\Slides\Week07\Refinement20261015\assets\practice\vfx_warning.png
+C:\Users\antho\Perforce\anthony.monteagudo_TechArt\anthony.monteagudo\Course\Slides\Week07\Refinement20261015\assets\practice\vfx_warning_narrow.png

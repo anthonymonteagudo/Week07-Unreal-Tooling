@@ -1,0 +1,425 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>48 Fixing ImportError in Python and adding Python Modules as Plugins · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#notes">Return to audit</a><a href="47.html">Previous lesson</a> <a href="49.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/48%20Fixing%20ImportError%20in%20Python%20and%20adding%20Python%20Modules%20as%20Plugins.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/48%20Fixing%20ImportError%20in%20Python%20and%20adding%20Python%20Modules%20as%20Plugins%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>48 Fixing ImportError in Python and adding Python Modules as Plugins</h1><p>32 screenshots preserved; organized explanation and copyable examples.</p><p class="meta">Read-only rendered snapshot, 14 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Change record</button></div><article class="document" id="refined"><h1>Fixing Import Errors and Packaging Python Dependencies — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/48%20Fixing%20ImportError%20in%20Python%20and%20adding%20Python%20Modules%20as%20Plugins.md">Original notes</a></p>
+<p>An import failure can mean a missing dependency, a different interpreter/search path, an error inside the imported module, or a circular import. Identify which case applies before installing more packages.</p>
+<h2>Install into the interpreter that runs the code</h2>
+<p>The example imports <code>colorama</code>. It fails in a terminal or IDE when that environment cannot find the package. A successful installation in one Python environment does not fix every other environment.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185151.png" alt="Course screenshot"></p>
+<p>Run pip in a <strong>terminal</strong>, not at a Python <code>&gt;&gt;&gt;</code> prompt. In PowerShell, a quoted executable path needs the call operator <code>&amp;</code>:</p>
+<pre><code class="language-powershell">&amp; &#39;C:/Path/To/python.exe&#39; -m pip install colorama
+</code></pre>
+<p>An explicit interpreter path avoids relying on whichever <code>pip</code> happens to be on <code>PATH</code>. In VS Code, check the selected interpreter as well as the terminal environment.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185223.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185256.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185347.png" alt="Course screenshot"></p>
+<p>In PyCharm, the demonstrated route is <strong>Settings → Project → Python Interpreter → +</strong>, then find/install the package. Verify it by rerunning the import in that interpreter.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185029.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185056.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185127.png" alt="Course screenshot"></p>
+<h2>Install the project&#39;s requirements together</h2>
+<p>A repository&#39;s <code>requirements.txt</code> lists dependencies and may constrain their versions. Install that file into the intended environment:</p>
+<pre><code class="language-powershell">&amp; &#39;C:/Path/To/python.exe&#39; -m pip install -r &#39;C:/MyTool/requirements.txt&#39;
+</code></pre>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185430.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185826.png" alt="Course screenshot"></p>
+<p>PyCharm can offer to install missing requirements when the file is opened. The course also demonstrates <strong>Tools → Sync Python Requirements</strong> to generate/update the list, including version-specifier options. Review that list before treating it as the tool&#39;s supported dependency set.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185852.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185912.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185935.png" alt="Course screenshot"></p>
+<h2>Keep Unreal dependencies outside the engine installation</h2>
+<p>Use Unreal&#39;s bundled Python to install compatible packages into a project/plugin Python directory. The historical Windows location shown is <code>Engine/Binaries/ThirdParty/Python3/Win64/python.exe</code>; obtain the actual path from the installed engine rather than copying another machine&#39;s versioned path.</p>
+<p>Inside Unreal:</p>
+<pre><code class="language-python">import unreal
+print(unreal.get_interpreter_executable_path())
+</code></pre>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190302.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190422.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190355.png" alt="Course screenshot"></p>
+<p>For the first demonstration, install into the project&#39;s <code>Content/Python</code> folder:</p>
+<pre><code class="language-powershell">&amp; &#39;C:/Path/To/Unreal/Python/python.exe&#39; -m pip install --target &#39;C:/MyProject/Content/Python&#39; colorama
+</code></pre>
+<p>Restart Unreal and try <code>import colorama</code> in the Output Log&#39;s Python mode. This changes the target project folder, not the bundled interpreter&#39;s site-packages. Packages with native extensions must also match the host&#39;s Python/platform requirements.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190654.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190750.png" alt="Course screenshot"></p>
+<h2>Package dependencies as a content plugin</h2>
+<p>The course uses <strong>Python Foundation Packages</strong> as an example of an engine plugin supplying Python dependencies. Inspect the plugin available in your engine version rather than assuming its package inventory matches the recording.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190813.png" alt="Course screenshot"></p>
+<p>Create a <strong>Content Only</strong> plugin through <strong>Edit → Plugins → Add</strong>. Enable <strong>Show Plugin Content</strong> if needed, then create <code>Content/Python</code> inside the plugin.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190925.png" alt="Course screenshot"></p>
+<pre><code class="language-text">MyProject/Plugins/TechArtCornerPlugin/
+  TechArtCornerPlugin.uplugin
+  Content/Python/
+    colorama/
+    colorama-&lt;version&gt;.dist-info/
+</code></pre>
+<p>Install to that folder:</p>
+<pre><code class="language-powershell">&amp; &#39;C:/Path/To/Unreal/Python/python.exe&#39; -m pip install --target &#39;C:/MyProject/Plugins/TechArtCornerPlugin/Content/Python&#39; colorama
+</code></pre>
+<p>The course removes the earlier project-local test copy before testing the plugin copy. Avoid leaving duplicate installations that obscure which one is imported. Its manual removal of two known <code>colorama</code> folders is specific to that test, not a general uninstall recipe for every dependency tree.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014191115.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014191134.png" alt="Course screenshot"></p>
+<p>After enabling the plugin and restarting, inspect the loaded module:</p>
+<pre><code class="language-python">import colorama
+print(colorama.__file__)
+</code></pre>
+<p>The result should point to the plugin&#39;s Python folder. This is stronger evidence than an IDE autocomplete result.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014191201.png" alt="Course screenshot"></p>
+<p>Use the plugin&#39;s category, version, description and icon to make it recognizable. Plugin dependencies can express required plugins. Sharing the plugin shares its packaged files; disabling it and restarting removes that plugin&#39;s normal startup availability.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014211937.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014211953.png" alt="Course screenshot"></p>
+<h2>Use package-qualified imports</h2>
+<p>The IDE may add a script&#39;s own directory to its search path, masking an import that fails inside Unreal. The example has:</p>
+<pre><code class="language-text">Content/Python/example_folder/
+  __init__.py
+  hello_import.py
+  main.py
+</code></pre>
+<p>Keep <code>__init__.py</code> for an ordinary package; it may be empty. Python also supports namespace packages, so the file is not a universal requirement for every importable directory. It is the explicit package structure used here.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212328.png" alt="Course screenshot"></p>
+<p><code>from hello_import import hello</code> works in the demonstrated IDE configuration but fails in Unreal. Likewise, <code>import main</code> does not locate <code>example_folder/main.py</code> from the parent search root.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212421.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212503.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212524.png" alt="Course screenshot"></p>
+<p>Inside <code>main.py</code>, use:</p>
+<pre><code class="language-python">from example_folder.hello_import import hello
+hello()
+</code></pre>
+<p>Then invoke it in Unreal with <code>import example_folder.main</code>. A package-relative <code>from .hello_import import hello</code> is another option when the module is imported as part of the package. Repeated imports are cached; restart or deliberately manage development reloads before testing changed code.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212543.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212610.png" alt="Course screenshot"></p>
+<h2>Trace nested failures and circular imports</h2>
+<p>If importing a tool fails, read the traceback to find the innermost failing import. The outer module can exist while one of its dependencies is missing or broken. The course suggests stepping through imports with a debugger, or isolating imports one at a time when necessary; remember that imports can execute top-level code.</p>
+<p>The circular example is <code>main → hello_import → bug → main</code>. It reaches a partially initialized module before the needed name is defined.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212648.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212706.png" alt="Course screenshot"></p>
+<p>Break the cycle by giving modules clear responsibilities and moving shared definitions into a lower-level module. Keep dependency direction clear: UI calls reusable operations; host adapters supply Unreal/Blender/Maya specifics. Code without host dependencies can be reused by multiple interfaces or a command-line tool.</p>
+<p>Prefer project/plugin <code>Content/Python</code> for discoverability. Additional search paths can work, but they are another setting to distribute and maintain. See lessons 06 and 27 for discovery and debugger-package setup.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/47%20Making%20sure%20Remote%20Control%20calls%20work%20in%20Unreal%205.5%2B%20with%20correct%20Object%20Path%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/49%20Code%20Deprecation%20Notice%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185151.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185223.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185256.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185347.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185029.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185056.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185127.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185430.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185826.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185852.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185912.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014185935.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190422.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190302.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190355.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190654.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190750.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190813.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014190925.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014191115.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014191134.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014191201.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014211937.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014211953.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212328.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212421.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212503.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212524.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212543.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212610.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212648.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014212706.png" alt="Course screenshot"></p>
+<p>Hello.</p>
+<p>After receiving feedback, I decided to record a video on common issue, which is import error and on</p>
+<p>using external Python modules within the engine.</p>
+<p>You may encounter this import error working on multiple projects in Python, and not only when working</p>
+<p>with Unreal Engine.</p>
+<p>Your issue may need a little debugging, but overall I think the tutorial will be helpful for you either</p>
+<p>now when working with unreal, or maybe in future in some external program or standalone Python application.</p>
+<p>Missing external module.</p>
+<p>This scenario happens usually when you have copied code from internet, but also when you downloaded</p>
+<p>some repository and haven&#39;t installed requirements.</p>
+<p>Your code may be importing some module that is not installed in your environment.</p>
+<p>We can open my scratch file in notepad.</p>
+<p>It&#39;s just a single import and I made sure that this is some module that I am not using in any of my</p>
+<p>project, and is not installed on my PC.</p>
+<p>I want to show you that it can happen in any environment.</p>
+<p>So let&#39;s run it in the command line.</p>
+<p>Let&#39;s start it.</p>
+<p>And yeah, we have an error.</p>
+<p>But the same thing may happen in PyCharm.</p>
+<p>If it&#39;s not installed here we get the same issue.</p>
+<p>And also in VS code.</p>
+<p>And let&#39;s run this file.</p>
+<p>And yeah we have the bug.</p>
+<p>In most cases, installing the module is all you have to do.</p>
+<p>So if you are not proficient with Python, you may not know, but modules are installed with a tool</p>
+<p>called Pip.</p>
+<p>It&#39;s some sort of package management system.</p>
+<p>You can use it directly, but some Ides like PyCharm have user interfaces to make it easier for you.</p>
+<p>Whether there is some UI or not, Pip is almost always called at some point anyway.</p>
+<p>If you use pure command line environment with no fancy editors, you just need to type pip install command</p>
+<p>followed by the name of the module.</p>
+<p>This approach supposes that Pip is a command that is accessible via your system.</p>
+<p>Sometimes you may not be able to do that, and you have to provide path to your Python interpreter like</p>
+<p>you know that Python.</p>
+<p>Exe file.</p>
+<p>And then minus M, which says that we are running a module, the name of the module, which is Pip and</p>
+<p>the rest of it is just install and a command name.</p>
+<p>So if I didn&#39;t have it added to my system environments, I would literally copy this path.</p>
+<p>I would give it dash m pip install and type colorama and I guess it will give me some information that</p>
+<p>is this already installed.</p>
+<p>But yes, if you have issues running Pip, you can do it this way.</p>
+<p>And also if you have multiple interpreters installed on your drive, I recommend specifying directly</p>
+<p>which one you want to use.</p>
+<p>If you are using VS code, you also install modules using command line.</p>
+<p>You just go to terminal.</p>
+<p>Make sure it&#39;s not Python, make sure that it&#39;s PowerShell.</p>
+<p>Or maybe you are a Linux user, so it may be something else like bash and type pip install Colorama</p>
+<p>and I&#39;m using the same interpreter as before here, so the requirement is already satisfied.</p>
+<p>I can run this code and there is no prompt.</p>
+<p>We could add some print.</p>
+<p>Hello.</p>
+<p>But the issue itself is fixed.</p>
+<p>How do we do it in PyCharm?</p>
+<p>PyCharm is a little different.</p>
+<p>You can use command line and there is something like terminal tab here.</p>
+<p>But why if you have a nice UI.</p>
+<p>So they have added a Python packages tab here.</p>
+<p>But sometimes I had little issues with it.</p>
+<p>So I use the old approach which means I go to project settings.</p>
+<p>I usually access them with Ctrl alt s shortcut.</p>
+<p>Then I navigate to Project Python interpreter, and I use this little plus icon to find my desired module.</p>
+<p>I click install, wait a while and now we can run it again.</p>
+<p>And maybe also let&#39;s add some print here.</p>
+<p>Hello PyCharm.</p>
+<p>Let&#39;s run it.</p>
+<p>And the issue is fixed.</p>
+<p>Now let&#39;s suppose you are using some repository downloaded from GitHub.</p>
+<p>There is a very high chance that there is some requirements.txt file.</p>
+<p>Let&#39;s open it.</p>
+<p>It is just a list of modules required by this project.</p>
+<p>However, this list may also specify which versions they should be or the minimal versions.</p>
+<p>They literally use some equal mark and follow it by a number.</p>
+<p>You can install those manually, but if you have the file, why would you do so?</p>
+<p>So if so, if you are using command line or the VS code, it&#39;s actually the same.</p>
+<p>In that case you only have to use pip once again, but with a different command.</p>
+<p>You have to type pip, install dash r and then name of the file, which is obviously requirements.txt</p>
+<p>and all of that will be installed for you.</p>
+<p>If you are a PyCharm user, you don&#39;t even need to type anything.</p>
+<p>You open PyCharm, you have to find the file.</p>
+<p>And you will have some notification bar that will let you install the requirement.</p>
+<p>Also, an interesting feature in PyCharm is generating those requirements for you.</p>
+<p>And to do it you have to go to tools Sync Python requirements and you can generate a file.</p>
+<p>And also you have some options to remove the unused ones to modify base files and also have some versioning</p>
+<p>like you can automatically generate a requirements file with.</p>
+<p>Specified version of the modules that you already had installed, or maybe don&#39;t specify them at all.</p>
+<p>This is all when it comes to missing external modules without unreal.</p>
+<p>But I recommend reading more on this topic.</p>
+<p>If you are new to Python, it would be best to start with understanding what a module is, what pip</p>
+<p>actually is, and what are virtual environments.</p>
+<p>I think the last thing is the most important.</p>
+<p>And now let&#39;s talk about external modules.</p>
+<p>But in case of unreal, technically speaking, you could install Python modules with pip install command</p>
+<p>to unreal Python interpreter.</p>
+<p>However, it would be more difficult to share your changes.</p>
+<p>You would struggle making those changes accessible in other projects.</p>
+<p>And also, if epic delivers any change to Python interpreter binaries or directory, you will struggle</p>
+<p>fixing your issues.</p>
+<p>You may have some bugs or you may be in need to make some merch.</p>
+<p>So please don&#39;t do it this way.</p>
+<p>I rather recommend to install modules to separate directory that can be discovered by the editor.</p>
+<p>We can make a plugin out of it and we will do it in just a minute.</p>
+<p>But also, if you are not keen on making plugins, you can just deploy the files to contents slash Python</p>
+<p>directory of your project.</p>
+<p>And yeah, it will work.</p>
+<p>So the first thing to do is to locate your Python interpreter.</p>
+<p>You have to know where you installed your files and then navigate to.</p>
+<p>Unreal version.</p>
+<p>Slash engine slash binary slash third party slash Python three.</p>
+<p>And I&#39;m working on windows.</p>
+<p>So in my case I go into Win64 folder.</p>
+<p>And here we have Python.</p>
+<p>I recommend pressing Shift on Windows and right click so you can just copy it as path.</p>
+<p>Why do it this way.</p>
+<p>If we use peep via the correct interpreter, we will make sure that we install modules that are in a</p>
+<p>right fashion for our binary.</p>
+<p>It&#39;s like if you use Python two interpreter or Python 3.7, you will get different modules.</p>
+<p>I mean different module files than if you use Python 3.9, at least in most cases, because there are</p>
+<p>some modules like Pydev that are kind of interchangeable.</p>
+<p>So let&#39;s copy this path.</p>
+<p>Now let&#39;s open command line type path to our interpreter, then dash m pip install.</p>
+<p>And this time we also add dash dash target argument.</p>
+<p>Let me make the window wider so you can see that this is a double dash equals and a folder where we</p>
+<p>want to deploy the files.</p>
+<p>I want it to be in my Python automation five folder slash content slash Python.</p>
+<p>Then add some space bar and type name of the desired module.</p>
+<p>Okay.</p>
+<p>Colorama is installed, we can open this directory.</p>
+<p>You can see that there are colorama files.</p>
+<p>And let&#39;s also restart the engine.</p>
+<p>So we are 100% sure that files that were to be discovered were reloaded.</p>
+<p>The engine has restarted.</p>
+<p>Let&#39;s go to output log.</p>
+<p>We can switch command mode to Python and just type import Colorama.</p>
+<p>And as you can see, there is no import error.</p>
+<p>The more legitimate way of doing the same thing is having a plugin.</p>
+<p>But before we make one, let&#39;s take a look on a plugin by Epic Games and advantages of this approach.</p>
+<p>So let&#39;s just go to edit plugins and look for Python Foundation packages.</p>
+<p>This is a very simple plugin that has numpy pillow and torch modules.</p>
+<p>So if you are struggling with lack of numpy, you don&#39;t even have to install it yourself.</p>
+<p>You can just enable this plugin.</p>
+<p>You can enable and disable those plugins anytime.</p>
+<p>You can share them between projects and what is more.</p>
+<p>Plugins can be marked as dependencies of other plugins, so they cannot be enabled without enabling</p>
+<p>the dependent ones.</p>
+<p>And making such plugin is not that difficult.</p>
+<p>You just have to click add here.</p>
+<p>Let&#39;s pick content only.</p>
+<p>You may have more options.</p>
+<p>I haven&#39;t compiled my own engine, so I cannot make a C plus plus code plugin.</p>
+<p>This is the only one available for me, so let&#39;s pick it.</p>
+<p>Let&#39;s make options more visible on the screen.</p>
+<p>Oh, I cannot drag it.</p>
+<p>Sorry.</p>
+<p>Auto.</p>
+<p>Let it be.</p>
+<p>Tech art corner example Python module.</p>
+<p>Some advanced options okay we have this beta version auto URL and also plugin name.</p>
+<p>So tech art corner plugin.</p>
+<p>And that is all we need.</p>
+<p>So create plugin plugin was successfully created.</p>
+<p>Let&#39;s go to our content browser and we can see it on the list.</p>
+<p>If by any reason you cannot sit in content browser, you have to go to Content Browser settings and</p>
+<p>enable show plugin content.</p>
+<p>That&#39;s it.</p>
+<p>So now first let&#39;s clean what we did before we could run some pip uninstall command.</p>
+<p>But I tested this approach before, and I know that all I have to do is to remove those two folders.</p>
+<p>Great.</p>
+<p>And now we can open our folder with plugin.</p>
+<p>We already are in the content folder.</p>
+<p>So let&#39;s create a Python one and we can put our scripts here.</p>
+<p>So we are going to run the same command as before, but with different target folder.</p>
+<p>So let&#39;s copy the path and type it here.</p>
+<p>Great.</p>
+<p>Press enter.</p>
+<p>Colorama has been installed and now we can restart.</p>
+<p>Unreal.</p>
+<p>Welcome back.</p>
+<p>Let&#39;s go to output log once again.</p>
+<p>We are in Python mode, so import Colorama.</p>
+<p>And that&#39;s it.</p>
+<p>We can also try printing Colorama to see where it comes from.</p>
+<p>And the module comes from our plugin.</p>
+<p>That&#39;s great.</p>
+<p>If any time you want to get rid of it just go to plugins, find the plugin and you can disable it.</p>
+<p>You can also edit it and you have some more parameters.</p>
+<p>You can add a docstring.</p>
+<p>You can change icon to some other file or add dependencies on this list.</p>
+<p>I think it&#39;s great, and I think that&#39;s all you need.</p>
+<p>And if you keep developing your plugin, you can keep bumping the version name and maybe change category</p>
+<p>so it can be find more found more easily on that list.</p>
+<p>Just keep tinkering with it and make it more accessible to the user.</p>
+<p>Let me show you some inconsistency between programming IDE and Unreal Engine.</p>
+<p>But before we do it, we have to do a little preparation.</p>
+<p>You need some folder that contains two files.</p>
+<p>One of them declares a function and the other one will use it.</p>
+<p>Also, there is a slightly important thing which is creating a so-called init file.</p>
+<p>If we skip this step, it will very likely still work, but in some cases your code will be broken and</p>
+<p>you will be wondering why.</p>
+<p>So what is going on?</p>
+<p>If you want your folder to be treated by Python as a Python package, it has to contain init file.</p>
+<p>It&#39;s just file named underscore underscore init and then underscore underscore with extension of Python.</p>
+<p>That is it.</p>
+<p>This file can be empty.</p>
+<p>And you may notice.</p>
+<p>That our icon here has changed.</p>
+<p>Now it&#39;s treated as a package and not as a folder.</p>
+<p>We can add it to all those Python directories that we have and we can just forget about it.</p>
+<p>I try not to put any code in those init files because it can be easily missed, but some people use</p>
+<p>it to do some magic with imports.</p>
+<p>Let&#39;s get back to our main and keep coding.</p>
+<p>We can use automatic import added by PyCharm and that is great.</p>
+<p>However, we can also remove that package path and just import from hello import which is, you know,</p>
+<p>importing from the file.</p>
+<p>We can run it.</p>
+<p>And here we think we are good to go, and we can even have a habit of doing so.</p>
+<p>And if you are not using automatic import, you could just type it yourself and there would be no warning.</p>
+<p>The issue is that this line may not work in unreal.</p>
+<p>What you actually have to do is to make it as example folder dot.</p>
+<p>And now it works.</p>
+<p>So now we can execute that.</p>
+<p>Hello.</p>
+<p>So if I want to run my main.</p>
+<p>I cannot just import main.</p>
+<p>I have to make import.</p>
+<p>Example folder.</p>
+<p>Main.</p>
+<p>And because that module was trying to import the hello import, it was executed.</p>
+<p>And we have error on the first line.</p>
+<p>So let&#39;s fix it.</p>
+<p>I will quickly restart the engine.</p>
+<p>And now we can retry.</p>
+<p>So import.</p>
+<p>Example folder domain.</p>
+<p>And now it prints hello, which is great.</p>
+<p>And you should be really aware of those things, especially the error you have seen before.</p>
+<p>It was the first import that we typed here and it worked.</p>
+<p>And then in that file there was some other import that was broken.</p>
+<p>So what very often happens is that we import some module and there is a bug inside of it.</p>
+<p>And we have like ten lines of imports first line, second line, third line and so on.</p>
+<p>And we have a bug on fourth of them.</p>
+<p>And oftentimes you will not get a clear trace back like we did.</p>
+<p>We will have something completely different.</p>
+<p>You will have information like could not import my fancy tool module and that&#39;s it.</p>
+<p>So what I do in that case is if I can I go with debugger and go line by line, but sometimes it&#39;s not</p>
+<p>possible.</p>
+<p>So I literally copy all those imports from my file that runs, paste them and see if anything goes wrong,</p>
+<p>and if it does go wrong, I then copy them one by one and check which of them crashes.</p>
+<p>And now I know which one, so I can try going deeper and debugging it.</p>
+<p>And yeah, I may end up going file by file, but on each error message I am one step closer.</p>
+<p>So at some point I will find the actual issue, and the next thing I&#39;m going to show you is a circular</p>
+<p>dependency.</p>
+<p>It&#39;s also an import bug, but not due to some crashing code.</p>
+<p>So let&#39;s go back to my editor.</p>
+<p>And I&#39;ve just prepared three files.</p>
+<p>So main imports hello hello imports bug and bug.</p>
+<p>Imports main.</p>
+<p>So that&#39;s a full circle.</p>
+<p>And you may have something like that and not even notice it.</p>
+<p>And to prevent it, the easiest way is to remember that your classes should have single responsibility</p>
+<p>and that you should have clear structure of your files.</p>
+<p>And I really recommend reading something about design patterns, but more importantly about so-called</p>
+<p>abstraction layers, which are which is the way to structure your code.</p>
+<p>So.</p>
+<p>Um.</p>
+<p>You have.</p>
+<p>Special layers of functionalities like the low level stuff would be actual operations that work on maybe</p>
+<p>some API that work on unreal, and in the middle there would be some interface that calls them, but</p>
+<p>is called actually by user interface.</p>
+<p>And then you have user interface like.</p>
+<p>And this way you could even create your application in a way that you have some Python API that is called</p>
+<p>by this application.</p>
+<p>But there can be also a separate application that uses the same API.</p>
+<p>Or maybe this API could be exposed to command line.</p>
+<p>So you have something that processes files and can be launched from unreal from Maya, and also as a</p>
+<p>standalone application.</p>
+<p>Because if you have no dependencies on unreal for some reason because maybe you didn&#39;t need to, then</p>
+<p>why not share it with different tools?</p>
+<p>So back to the circular dependency.</p>
+<p>Let&#39;s just run it.</p>
+<p>And we have the bug.</p>
+<p>And it&#39;s very nice because it suggests us that this is a circular import.</p>
+<p>But that was a very simple example.</p>
+<p>And when you have something more advanced, it may not be that easy to debug.</p>
+<p>But also here on traceback you can see that we have same import at the start and at the beginning.</p>
+<p>And that&#39;s probably why it was able to detect it so easily.</p>
+<p>So these were the most common issues.</p>
+<p>But I also just want to remind you one more time to watch the video about making your scripts discoverable</p>
+<p>by unreal, because it just is the very base of how it works.</p>
+<p>So my approach is to put my scripts into content slash Python directory, whether it is my project folder</p>
+<p>or a plugin.</p>
+<p>But you can also go to settings and add some custom additional paths.</p>
+<p>However, in my opinion it&#39;s very easy to forget about it.</p>
+<p>And also it&#39;s not a very plugin able approach.</p>
+<p>I prefer to have something disabled or enabled as a plugin and not as a setting.</p>
+<p>I hope this video was useful and I wish you a great coding time.</p>
+</article><article id="diff" hidden><h2>Completion change record</h2><pre>New REFINED version created from the completed source note. The original source is preserved in the adjacent tab.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

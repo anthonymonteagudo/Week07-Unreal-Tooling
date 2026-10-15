@@ -1,0 +1,884 @@
+{
+  "date": "2026-10-14",
+  "deck": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\UnrealFirst20261013\\output\\Week_7_Python_in_Unreal_v13.pptx",
+  "deck_sha256": "ab17a019cdc9e688c505de2c4ff0f950d316d43646024348b0de3ae7d1eb23f0",
+  "numbering": "Actual PowerPoint slide index including cover; source JSON omits cover",
+  "items": [
+    {
+      "id": "V01",
+      "title": "One revision, two updated placements",
+      "slides": [
+        29,
+        37,
+        84
+      ],
+      "priority": 1,
+      "kind": "Matched live rehearsal",
+      "edit": "Keep the title and prediction question on slide 29. Replace a small overview with a large before/after Unreal pair; reveal the Blender edit between them. Reuse one frame on slide 37 beside the user story.",
+      "notes": "Predict which objects should change when I raise the roof in Blender. Both blue placements use the same mesh. After publishing, inspect both of them and compare the orange objects. What evidence would convince you the revision reached the intended asset?",
+      "rationale": "Shows the precise task and its observable outcome; gives the user story a real object. Verification records 180 to 220 cm for both Blender instances and 180 cm for Maya examples.",
+      "limits": "Historical rehearsal, not a newly executed check. Preserve the blue/orange identity and equal crop framing. Read the verification record before asserting more than the visible shape change.",
+      "refs": [
+        "import",
+        "mental"
+      ],
+      "assets": [
+        {
+          "file": "assets/V01-03-unreal-before.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\UI-Rehearsal\\03-unreal-before.png",
+          "dimensions": [
+            1286,
+            726
+          ],
+          "sha256": "01a811ae3a533295c0406bcd47bbc82a8dbf75b356183f4ac3c7b3a1a4914fbe",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        },
+        {
+          "file": "assets/V01-05-roof-plus-40cm.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\UI-Rehearsal\\05-roof-plus-40cm.png",
+          "dimensions": [
+            1440,
+            851
+          ],
+          "sha256": "83f507e77207b8211d7a70e8091a7724fc360c579800623c17f80ba501a05757",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        },
+        {
+          "file": "assets/V01-07-unreal-both-updated.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\UI-Rehearsal\\07-unreal-both-updated.png",
+          "dimensions": [
+            1286,
+            726
+          ],
+          "sha256": "cc2392805e93af01aa96832c6f05bbcfec3602d12f35b8e89ad4acc3429e3368",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        }
+      ]
+    },
+    {
+      "id": "V02",
+      "title": "Applied result and recovery are different checks",
+      "slides": [
+        41,
+        44,
+        59
+      ],
+      "priority": 1,
+      "kind": "Matched live Unreal results",
+      "edit": "On slide 41, keep the current status crop and add the actual blue-cube result. On slide 44, replace one bullet block with baseline / applied / recovered images. Retain the accessibility example separately.",
+      "notes": "The message says the operation completed. Now inspect the target and the protected cube. After Undo, inspect again. The recorded rehearsal restored the assignment, but the newly created material asset remained. What does recovery promise here?",
+      "rationale": "Makes completion versus task success visible. The rehearsal report corroborates the protected cube, shared mesh and assignment checks; it also records the limit of Undo.",
+      "limits": "These renders show scene appearance, not asset deletion. Do not label the final frame a complete project rollback.",
+      "refs": [
+        "transaction",
+        "heuristics"
+      ],
+      "assets": [
+        {
+          "file": "assets/V02-01_baseline.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\01_baseline.png",
+          "dimensions": [
+            1600,
+            900
+          ],
+          "sha256": "bdacb645a2cd826fe29602250e076881c0324268a6daa80a78773bfd1325cde0",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        },
+        {
+          "file": "assets/V02-02_material.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\02_material.png",
+          "dimensions": [
+            1600,
+            900
+          ],
+          "sha256": "8ccb2a0e4a9318679bc37c9b2eaf643dd5cda75ff249f47526900932b0a6e384",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": true,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        },
+        {
+          "file": "assets/V02-04_recovered.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\04_recovered.png",
+          "dimensions": [
+            1600,
+            900
+          ],
+          "sha256": "9868c51705df2d50469c86d2f2adad8f59b3a736f40aa61323390d7b4a4f59a8",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        }
+      ]
+    },
+    {
+      "id": "V03",
+      "title": "Warning and hard block require different decisions",
+      "slides": [
+        42,
+        43,
+        88
+      ],
+      "priority": 1,
+      "kind": "Offline practice states + separate live example",
+      "edit": "Keep the Qt enabled-state code on slide 42, with the warning acknowledgement beside it. On slide 43, compare the warning and blocked message at readable size. Use the live duplicate-placement panel as optional follow-through.",
+      "notes": "A warning asks you to review a condition. A block requires you to change the input before continuing. Which action is available in each state? Acknowledgement does not turn an invalid operation into a valid one.",
+      "rationale": "Grounds a code condition in visible controls and provides a precise recovery discussion. The local live report separately confirms duplicate placement is blocked.",
+      "limits": "The practice screenshots explicitly use invented sample data. The native panel is a different live state; do not present the three as one continuous recorded attempt.",
+      "refs": [
+        "heuristics",
+        "qt"
+      ],
+      "assets": [
+        {
+          "file": "assets/V03-vfx_warning.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\vfx_warning.png",
+          "dimensions": [
+            1120,
+            900
+          ],
+          "sha256": "a480a1e1c20e8482a4f313adeccb026d0e8ef6a2cfd4e631626196143b4746cb",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": true,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        },
+        {
+          "file": "assets/V03-vfx_blocked.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\vfx_blocked.png",
+          "dimensions": [
+            1120,
+            900
+          ],
+          "sha256": "5e53aad4b6771a78ac7f4a14c22364709584f11389beba387f3e01f23bcdaedc",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        },
+        {
+          "file": "assets/V03-native-vfx-repeat-block.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\native-vfx-repeat-block.png",
+          "dimensions": [
+            1006,
+            606
+          ],
+          "sha256": "e8a087369d6394312e8380ccb11c2de88675e96a397bee849b292c3a6fbed66b",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        }
+      ]
+    },
+    {
+      "id": "V04",
+      "title": "Two real interfaces for the same workflow",
+      "slides": [
+        39,
+        61
+      ],
+      "priority": 1,
+      "kind": "Live Unreal native panel and PySide window",
+      "edit": "Use as the main comparison on slide 61. Keep slide 39 focused on one table, then link Explore further: Two interfaces, one Python workflow. Do not compare the screenshots as equal operational states.",
+      "notes": "Find the scope, proposed or applied rows, and next action in each interface. The first capture shows a preview; the second shows completion. We can compare how each presents the workflow, but these images do not measure which interface is easier.",
+      "rationale": "Directly supports the desktop focus and replaces abstract UI talk with the actual tools students encounter.",
+      "limits": "Different states, not a controlled usability test. Native preview versus PySide completion must remain labeled.",
+      "refs": [
+        "python",
+        "qt"
+      ],
+      "assets": [
+        {
+          "file": "assets/V04-native-material-preview.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\native-material-preview.png",
+          "dimensions": [
+            1006,
+            606
+          ],
+          "sha256": "73164d17eea1de95a9bf3ec8ed220c5f8d16a771306c541d25f5d71f2eabfc63",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        },
+        {
+          "file": "assets/V04-pyside-material.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\pyside-material.png",
+          "dimensions": [
+            1120,
+            900
+          ],
+          "sha256": "09da30352588c46cbc10d80c00fd9cc57afecb36c9bcbfae63728589a1a95359",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        }
+      ]
+    },
+    {
+      "id": "V05",
+      "title": "Preview targets, then inspect the effect",
+      "slides": [
+        23,
+        63
+      ],
+      "priority": 1,
+      "kind": "Live VFX preview and scene result",
+      "edit": "On slide 63, place the preview table next to a large scene result. For slide 23, use the preview only as a separate example of inspectable scope; retain the actual validation code.",
+      "notes": "Count the target rows before applying. Then inspect where the effects appear in the scene. Placement validation checks scope and spacing; what other evidence would you need to discuss performance?",
+      "rationale": "Links a textual plan to three spatial outcomes. The rehearsal report records exactly three placements.",
+      "limits": "No frame-time or packaged-runtime measurement. A still of fountains is not performance evidence.",
+      "refs": [
+        "heuristics",
+        "python"
+      ],
+      "assets": [
+        {
+          "file": "assets/V05-native-vfx-preview.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\native-vfx-preview.png",
+          "dimensions": [
+            1006,
+            606
+          ],
+          "sha256": "ee67535273f98a0c4bc76610422434ef3390d0b6bef0adfd6c2f2593ab5ce94a",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        },
+        {
+          "file": "assets/V05-03_vfx.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\03_vfx.png",
+          "dimensions": [
+            1600,
+            900
+          ],
+          "sha256": "de02ec02254529359ab5ccaa89f561b1a6694421842308a8350ca5716394da62",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": true,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        }
+      ]
+    },
+    {
+      "id": "V06",
+      "title": "Grouping in an actual desktop tool",
+      "slides": [
+        38,
+        39
+      ],
+      "priority": 1,
+      "kind": "Three offline course UI stages",
+      "edit": "Keep the two alternative sketches on slide 38; add a named Explore further link to these desktop states. On slide 39, use one enlarged current screenshot and discuss scope, inputs, preview, action grouping.",
+      "notes": "Locate the selected scope, the material inputs, the change preview and Apply. Which relationships are clear from grouping? Make a prediction about where someone might hesitate, then test it. A more polished screen does not by itself prove better usability.",
+      "rationale": "Turns the spacing/grouping discussion into a course-specific desktop example, with the same material task across stages.",
+      "limits": "Prepared UI progression, not measured improvement. These are offline practice captures, not live engine outputs.",
+      "refs": [
+        "layout",
+        "heuristics"
+      ],
+      "assets": [
+        {
+          "file": "assets/V06-assistants_stage_1_material_preview.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\assistants_stage_1_material_preview.png",
+          "dimensions": [
+            1120,
+            900
+          ],
+          "sha256": "74203124546f8a2abf08eb0904b0174ea1888bb4bb3d1a073964e0a32a9fdfdb",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        },
+        {
+          "file": "assets/V06-assistants_stage_2_material_preview.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\assistants_stage_2_material_preview.png",
+          "dimensions": [
+            1120,
+            900
+          ],
+          "sha256": "2b3016ab6c15ebed722afdb92f3a7220e4b15864b390503d52634eab9a2abb46",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        },
+        {
+          "file": "assets/V06-material_preview.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\material_preview.png",
+          "dimensions": [
+            1120,
+            900
+          ],
+          "sha256": "cd8b9e73470ad1a041ce889a1c97dd6f39eee7f1861a78434fc7c89e5d1b63ac",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": true,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        }
+      ]
+    },
+    {
+      "id": "V07",
+      "title": "Responsive desktop controls",
+      "slides": [
+        44,
+        89
+      ],
+      "priority": 2,
+      "kind": "Offline normal and narrow windows",
+      "edit": "Add the pair to the keyboard/accessibility reference. Use one enlarged region to discuss wrapping, scroll access and the acknowledgement checkbox; keep the code accessible-name example as implementation detail.",
+      "notes": "What stays reachable as the window narrows? Try to locate the warning, checkbox and Apply control. What would you still need to test using the keyboard?",
+      "rationale": "Adds desktop resizing to the accessibility discussion, rather than borrowing a phone layout rule.",
+      "limits": "A screenshot cannot establish tab order, screen-reader support or successful keyboard operation.",
+      "refs": [
+        "focus",
+        "qt"
+      ],
+      "assets": [
+        {
+          "file": "assets/V07-vfx_warning.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\vfx_warning.png",
+          "dimensions": [
+            1120,
+            900
+          ],
+          "sha256": "a480a1e1c20e8482a4f313adeccb026d0e8ef6a2cfd4e631626196143b4746cb",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": true,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        },
+        {
+          "file": "assets/V07-vfx_warning_narrow.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\vfx_warning_narrow.png",
+          "dimensions": [
+            800,
+            700
+          ],
+          "sha256": "d8c537d9040721d9d37b75f76b7b2d27f4f9e870e44c7c4134bb4c61ca7f301d",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        }
+      ]
+    },
+    {
+      "id": "V08",
+      "title": "Shared mesh, distinct surface appearance",
+      "slides": [
+        16,
+        57
+      ],
+      "priority": 2,
+      "kind": "Previously collected Epic reference",
+      "edit": "Promote the three-cube image to slide 16 if not already present. Keep the Actor/component/mesh code on slide 15; use the image to predict the difference between component override and shared-asset editing.",
+      "notes": "These Actors share a mesh but can display different materials. Which part of the setup would you change to affect one placement? Which change could affect all users of the shared asset?",
+      "rationale": "Clear visual contrast with very little reading. Supports the object-model distinction.",
+      "limits": "Existing collection, not a new discovery. This is Epic documentation imagery, not the classroom fixture. Source screenshot alone does not demonstrate the course Python call.",
+      "refs": [
+        "EditorActorSubsystem",
+        "StaticMeshComponent"
+      ],
+      "assets": [
+        {
+          "file": "assets/V08-shared-mesh-materials.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Visuals\\Week07\\Online20261013\\shared-mesh-materials.png",
+          "dimensions": [
+            1603,
+            793
+          ],
+          "sha256": "9b20e4e03cb9ff5c6d2ed0f2b95fe03078be43c9424ed8e1fb9d7e71c3087145",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Epic Games · Static Mesh Actors · three Actors using one mesh with different materials",
+          "rights": {
+            "url": "https://legal.epicgames.com/epicgames/tos?lang=en-US",
+            "label": "Epic-published documentation media; no standalone open redistribution license confirmed. Original files are staged for attributed instructional commentary and review, not relicensed as course artwork. Retain the publisher link; do not treat public access or the Fan Content Policy as blanket clearance for every publication."
+          },
+          "source_page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-actors-in-unreal-engine",
+          "source_url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/ca73186b-9c02-42a8-8207-c4d3e53b48ba/cubes.png"
+        },
+        {
+          "file": "assets/V08-material-override-poster.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Visuals\\Week07\\Online20261013\\material-override-poster.png",
+          "dimensions": [
+            800,
+            553
+          ],
+          "sha256": "1383dace0f112e852497862187d8463efe40f190a2c19517c3c96a8855d6d46d",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Existing course capture; retain application and asset provenance",
+          "rights": "Existing course material; no new external license assigned"
+        }
+      ]
+    },
+    {
+      "id": "V09",
+      "title": "A familiar desktop rename preview",
+      "slides": [
+        33,
+        36
+      ],
+      "priority": 2,
+      "kind": "Previously collected Microsoft example",
+      "edit": "Use as a brief comparison after the Lab 1 prediction, without revealing the lab outcome in advance. Preserve the current fictional exercise and its labels.",
+      "notes": "Before renaming, locate the original and proposed names. What can this preview help you predict, and what would you still inspect after the action?",
+      "rationale": "Independent desktop example corroborates the value of visible consequences; avoids a phone-app detour.",
+      "limits": "Existing collection. A production interface is an example, not proof of universal usability. Preserve publisher credit and source rights.",
+      "refs": [
+        "heuristics",
+        "ryan"
+      ],
+      "assets": [
+        {
+          "file": "assets/V09-powerrename-preview.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Visuals\\Week07\\Online20261013\\powerrename-preview.png",
+          "dimensions": [
+            1290,
+            851
+          ],
+          "sha256": "1490a9c7adc076083893f68a652aee2b354498a7490c0d984663ddfc743ca629",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": false,
+          "credit": "Microsoft PowerToys PowerRename · Microsoft Learn · Used with permission from Microsoft.",
+          "rights": {
+            "url": "https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/permissions",
+            "label": "Microsoft screenshot guidance permits specified uses subject to its conditions. Keep the complete screenshot, resize only, and include “Used with permission from Microsoft.” No cropped or redrawn version is supplied here."
+          },
+          "source_page": "https://learn.microsoft.com/en-us/windows/powertoys/powerrename",
+          "source_url": "https://learn.microsoft.com/en-us/windows/powertoys/images/powerrename/menu.png"
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "title": "Retain the production cases, enlarge the teaching detail",
+      "slides": [
+        40,
+        45
+      ],
+      "priority": 2,
+      "kind": "Existing GDC production figures",
+      "edit": "Keep both topics. On slide 40 enlarge the artist-facing duration example; on slide 45 enlarge the feedback-driven controls. Remove surrounding dead space only with recorded crops, leaving the full figure available.",
+      "notes": "An artist reasons about the duration of an effect. A QA tester needs nearby controls to complete a repeated test. Which representation or adjacent action does your own tool make unnecessarily difficult?",
+      "rationale": "Strong existing corroboration for mental models and iteration; higher instructional value than adding generic decorative illustrations.",
+      "limits": "Already in the deck. Publisher figure rights remain unchanged. These support specific production accounts, not a measured comparison of our student tools.",
+      "refs": [
+        "vv",
+        "mkpdf",
+        "mental"
+      ],
+      "assets": [
+        {
+          "file": "assets/V10-vv-content-model.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\ExpandedDeck20261013\\assets\\vv-content-model.png",
+          "dimensions": [
+            1440,
+            1080
+          ],
+          "sha256": "de4b252c300093797b5145a5a9ac9e54b6261d13fb04eca9a930497fe5c87bf5",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": true,
+          "credit": "Jeff Stewart / Vicarious Visions / GDC 2018, PDF p.35",
+          "rights": "Existing attributed publisher figure; no open artwork license established",
+          "source_page": "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf"
+        },
+        {
+          "file": "assets/V10-mk-feedback.png",
+          "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\ExpandedDeck20261013\\assets\\mk-feedback.png",
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "d375f9b5a3fa2a7fdbd4cf1feac9548f1b9fc76dabb4b80dc4fe1a9d0fcfecc8",
+          "crop": null,
+          "method": "Unmodified copy; source pixels and aspect ratio retained",
+          "already_embedded_exact_bytes": true,
+          "credit": "Etienne Palmer-Campbell / NetherRealm / GDC 2025, PDF p.47",
+          "rights": "Existing attributed publisher figure; no open artwork license established",
+          "source_page": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "file": "assets/V01-03-unreal-before.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\UI-Rehearsal\\03-unreal-before.png",
+      "dimensions": [
+        1286,
+        726
+      ],
+      "sha256": "01a811ae3a533295c0406bcd47bbc82a8dbf75b356183f4ac3c7b3a1a4914fbe",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V01-05-roof-plus-40cm.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\UI-Rehearsal\\05-roof-plus-40cm.png",
+      "dimensions": [
+        1440,
+        851
+      ],
+      "sha256": "83f507e77207b8211d7a70e8091a7724fc360c579800623c17f80ba501a05757",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V01-07-unreal-both-updated.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\UI-Rehearsal\\07-unreal-both-updated.png",
+      "dimensions": [
+        1286,
+        726
+      ],
+      "sha256": "cc2392805e93af01aa96832c6f05bbcfec3602d12f35b8e89ad4acc3429e3368",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V02-01_baseline.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\01_baseline.png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "sha256": "bdacb645a2cd826fe29602250e076881c0324268a6daa80a78773bfd1325cde0",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V02-02_material.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\02_material.png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "sha256": "8ccb2a0e4a9318679bc37c9b2eaf643dd5cda75ff249f47526900932b0a6e384",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": true,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V02-04_recovered.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\04_recovered.png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "sha256": "9868c51705df2d50469c86d2f2adad8f59b3a736f40aa61323390d7b4a4f59a8",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V03-vfx_warning.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\vfx_warning.png",
+      "dimensions": [
+        1120,
+        900
+      ],
+      "sha256": "a480a1e1c20e8482a4f313adeccb026d0e8ef6a2cfd4e631626196143b4746cb",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": true,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V03-vfx_blocked.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\vfx_blocked.png",
+      "dimensions": [
+        1120,
+        900
+      ],
+      "sha256": "5e53aad4b6771a78ac7f4a14c22364709584f11389beba387f3e01f23bcdaedc",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V03-native-vfx-repeat-block.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\native-vfx-repeat-block.png",
+      "dimensions": [
+        1006,
+        606
+      ],
+      "sha256": "e8a087369d6394312e8380ccb11c2de88675e96a397bee849b292c3a6fbed66b",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V04-native-material-preview.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\native-material-preview.png",
+      "dimensions": [
+        1006,
+        606
+      ],
+      "sha256": "73164d17eea1de95a9bf3ec8ed220c5f8d16a771306c541d25f5d71f2eabfc63",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V04-pyside-material.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\pyside-material.png",
+      "dimensions": [
+        1120,
+        900
+      ],
+      "sha256": "09da30352588c46cbc10d80c00fd9cc57afecb36c9bcbfae63728589a1a95359",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V05-native-vfx-preview.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\native-vfx-preview.png",
+      "dimensions": [
+        1006,
+        606
+      ],
+      "sha256": "ee67535273f98a0c4bc76610422434ef3390d0b6bef0adfd6c2f2593ab5ce94a",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V05-03_vfx.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Saved\\LiveRehearsal\\03_vfx.png",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "sha256": "de02ec02254529359ab5ccaa89f561b1a6694421842308a8350ca5716394da62",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": true,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V06-assistants_stage_1_material_preview.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\assistants_stage_1_material_preview.png",
+      "dimensions": [
+        1120,
+        900
+      ],
+      "sha256": "74203124546f8a2abf08eb0904b0174ea1888bb4bb3d1a073964e0a32a9fdfdb",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V06-assistants_stage_2_material_preview.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\assistants_stage_2_material_preview.png",
+      "dimensions": [
+        1120,
+        900
+      ],
+      "sha256": "2b3016ab6c15ebed722afdb92f3a7220e4b15864b390503d52634eab9a2abb46",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V06-material_preview.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\material_preview.png",
+      "dimensions": [
+        1120,
+        900
+      ],
+      "sha256": "cd8b9e73470ad1a041ce889a1c97dd6f39eee7f1861a78434fc7c89e5d1b63ac",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": true,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V07-vfx_warning.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\vfx_warning.png",
+      "dimensions": [
+        1120,
+        900
+      ],
+      "sha256": "a480a1e1c20e8482a4f313adeccb026d0e8ef6a2cfd4e631626196143b4746cb",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": true,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V07-vfx_warning_narrow.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\captures\\vfx_warning_narrow.png",
+      "dimensions": [
+        800,
+        700
+      ],
+      "sha256": "d8c537d9040721d9d37b75f76b7b2d27f4f9e870e44c7c4134bb4c61ca7f301d",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V08-shared-mesh-materials.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Visuals\\Week07\\Online20261013\\shared-mesh-materials.png",
+      "dimensions": [
+        1603,
+        793
+      ],
+      "sha256": "9b20e4e03cb9ff5c6d2ed0f2b95fe03078be43c9424ed8e1fb9d7e71c3087145",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Epic Games · Static Mesh Actors · three Actors using one mesh with different materials",
+      "rights": {
+        "url": "https://legal.epicgames.com/epicgames/tos?lang=en-US",
+        "label": "Epic-published documentation media; no standalone open redistribution license confirmed. Original files are staged for attributed instructional commentary and review, not relicensed as course artwork. Retain the publisher link; do not treat public access or the Fan Content Policy as blanket clearance for every publication."
+      },
+      "source_page": "https://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-actors-in-unreal-engine",
+      "source_url": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/ca73186b-9c02-42a8-8207-c4d3e53b48ba/cubes.png"
+    },
+    {
+      "file": "assets/V08-material-override-poster.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Visuals\\Week07\\Online20261013\\material-override-poster.png",
+      "dimensions": [
+        800,
+        553
+      ],
+      "sha256": "1383dace0f112e852497862187d8463efe40f190a2c19517c3c96a8855d6d46d",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Existing course capture; retain application and asset provenance",
+      "rights": "Existing course material; no new external license assigned"
+    },
+    {
+      "file": "assets/V09-powerrename-preview.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Visuals\\Week07\\Online20261013\\powerrename-preview.png",
+      "dimensions": [
+        1290,
+        851
+      ],
+      "sha256": "1490a9c7adc076083893f68a652aee2b354498a7490c0d984663ddfc743ca629",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": false,
+      "credit": "Microsoft PowerToys PowerRename · Microsoft Learn · Used with permission from Microsoft.",
+      "rights": {
+        "url": "https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/permissions",
+        "label": "Microsoft screenshot guidance permits specified uses subject to its conditions. Keep the complete screenshot, resize only, and include “Used with permission from Microsoft.” No cropped or redrawn version is supplied here."
+      },
+      "source_page": "https://learn.microsoft.com/en-us/windows/powertoys/powerrename",
+      "source_url": "https://learn.microsoft.com/en-us/windows/powertoys/images/powerrename/menu.png"
+    },
+    {
+      "file": "assets/V10-vv-content-model.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\ExpandedDeck20261013\\assets\\vv-content-model.png",
+      "dimensions": [
+        1440,
+        1080
+      ],
+      "sha256": "de4b252c300093797b5145a5a9ac9e54b6261d13fb04eca9a930497fe5c87bf5",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": true,
+      "credit": "Jeff Stewart / Vicarious Visions / GDC 2018, PDF p.35",
+      "rights": "Existing attributed publisher figure; no open artwork license established",
+      "source_page": "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf"
+    },
+    {
+      "file": "assets/V10-mk-feedback.png",
+      "original": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\ExpandedDeck20261013\\assets\\mk-feedback.png",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "d375f9b5a3fa2a7fdbd4cf1feac9548f1b9fc76dabb4b80dc4fe1a9d0fcfecc8",
+      "crop": null,
+      "method": "Unmodified copy; source pixels and aspect ratio retained",
+      "already_embedded_exact_bytes": true,
+      "credit": "Etienne Palmer-Campbell / NetherRealm / GDC 2025, PDF p.47",
+      "rights": "Existing attributed publisher figure; no open artwork license established",
+      "source_page": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf"
+    }
+  ],
+  "new_external_visuals": 0,
+  "note": "Expanded local compilation. Previously collected external images explicitly marked. No PowerPoint modifications."
+}

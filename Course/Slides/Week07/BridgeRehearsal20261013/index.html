@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Blender → Unreal: rehearsed bridge and Karol review</title>
 <style>body{font:18px/1.6 system-ui;background:#101720;color:#ecf1f7;margin:0}main{max-width:1160px;margin:auto;padding:48px 28px}h1{font-size:42px;line-height:1.15}h2{margin-top:56px}a{color:#66d1f1}img{max-width:100%;border-radius:8px}section,.card{background:#1b2634;padding:26px;border-radius:12px;margin:24px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}table{border-collapse:collapse;width:100%;font-size:16px}td,th{border-bottom:1px solid #435467;padding:14px;text-align:left;vertical-align:top}.tag{color:#66d1f1;font-size:15px;letter-spacing:.08em}button{font:inherit;padding:10px 18px;background:#245b7b;color:white;border:0;border-radius:7px;cursor:pointer}blockquote{border-left:4px solid #66d1f1;padding-left:22px;margin:20px 0}.muted{color:#b8c7d8}code{font-size:.9em;overflow-wrap:anywhere}@media(max-width:800px){.grid{grid-template-columns:1fr}h1{font-size:32px}table{font-size:14px}}</style>
-<main><p class="tag">WEEK 7 · ACTUAL UI REHEARSAL · 13 OCTOBER 2026</p>
+<main><section><h2>Now integrated into the full lecture</h2><p>Use <a href="../IntegratedBridge20261013/index.html">Week 7 v10</a>. The Maya/Blender parity comparison is slide 19, after the bridge overview. The separate PPT below is retained as a source excerpt. Earlier proposals on this page describe its pre-integration state.</p></section><p class="tag">WEEK 7 · ACTUAL UI REHEARSAL · 13 OCTOBER 2026</p>
 <h1>One Blender edit updates both Unreal instances</h1>
 <section><h2 style="margin-top:0">Maya / Blender implementation parity</h2>
 <p>Both tools use one Publisher, FBX/JSON contract, transport and Unreal receiver. The host adapters handle scene access, temporary geometry, units/pivot and FBX export; the UI uses each application's own controls and timer.</p>
@@ -43,4 +43,5 @@
 <p><a href="../../../Readers/readme-78ab53f5.html">Bridge setup and technical comparison</a> · <a href="../../../../Week07UnrealPython/Docs/Bridge/karol-download-audit.json">Archive inventory</a> · <a href="https://www.udemy.com/course/unreal-engine-5-python-automation/">Karol course</a> · <a href="https://www.youtube.com/watch?v=5Liq0JckHqA">Requested Blender Conference reference</a></p>
 <p class="muted">The conference character-workflow reference has a broader rigging/animation scope. This is an independently written static-mesh teaching bridge.</p>
 </main><script>let after=false;document.getElementById('toggle').onclick=()=>{after=!after;document.getElementById('compare').src='assets/'+(after?'07-unreal-both-updated.png':'03-unreal-before.png');document.getElementById('state').textContent=after?'After: 220 cm, both blue instances updated':'Before: 180 cm';document.getElementById('toggle').textContent=after?'Show before':'Show after'};</script></html>
+
 

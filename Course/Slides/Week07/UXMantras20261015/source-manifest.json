@@ -1,0 +1,1370 @@
+{
+  "notes": [
+    {
+      "lesson": 1,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\01 Design is Design is Design.md",
+      "sha256": "46d3358714e8f0cf5ce6d090613a3139172ff6c24b228393b42c8be3f3af186a",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\01 Design is Design is Design - REFINED.md",
+      "captures": [],
+      "missing_captures": []
+    },
+    {
+      "lesson": 2,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\02 Stop Solving Other People's Problems.md",
+      "sha256": "361ee14a06ff0207eca34607c7695dc62ed784b72ddde0acb271207a0611bb29",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\02 Stop Solving Other People's Problems - REFINED.md",
+      "captures": [],
+      "missing_captures": []
+    },
+    {
+      "lesson": 3,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\03 Form Doesn't and Shouldn't Follow Function.md",
+      "sha256": "fc2ca28ddd13f5a7b9e7ca48b418544f9eca2542cfa22d023b985551a476afa1",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\03 Form Doesn't and Shouldn't Follow Function - REFINED.md",
+      "captures": [],
+      "missing_captures": []
+    },
+    {
+      "lesson": 4,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\04 Balancing Form and Function - Prescription vs Description.md",
+      "sha256": "ed35d723d0bfa44a24a7d760615db2a3008114ab7bef89a9f3d60a0ba3136223",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\04 Balancing Form and Function - Prescription vs Description - REFINED.md",
+      "captures": [],
+      "missing_captures": []
+    },
+    {
+      "lesson": 5,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\05 Why Form Follows Function is NOT a UI Design Prescription.md",
+      "sha256": "72564a3391b5b995a3f62588d6253e0e681dcfaf01632103702ca1b27e995ae1",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\05 Why Form Follows Function is NOT a UI Design Prescription - REFINED.md",
+      "captures": [],
+      "missing_captures": []
+    },
+    {
+      "lesson": 6,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\06 Every Force Evolves Form (So Don't Follow the Prescription).md",
+      "sha256": "ed35d723d0bfa44a24a7d760615db2a3008114ab7bef89a9f3d60a0ba3136223",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\06 Every Force Evolves Form (So Don't Follow the Prescription) - REFINED.md",
+      "captures": [],
+      "missing_captures": []
+    },
+    {
+      "lesson": 7,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\07 Less is More - Small Screens, Big Challenges.md",
+      "sha256": "aee64f93e1dfaa4b839e97dc97aed77f19ad83addf5cf2b5dbd4c0b32ba7b770",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\07 Less is More - Small Screens, Big Challenges - REFINED.md",
+      "captures": [],
+      "missing_captures": []
+    },
+    {
+      "lesson": 8,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\08 Five Rules for Effective UI Design on Small Screens.md",
+      "sha256": "126595d6c646699f951484efcf864f08c7421e2b33b352e1d9d12b69b5a6a1f0",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Ground Rules\\08 Five Rules for Effective UI Design on Small Screens - REFINED.md",
+      "captures": [],
+      "missing_captures": []
+    },
+    {
+      "lesson": 9,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\09 Balance Creates Visual Order.md",
+      "sha256": "0bdde1d63a78ca18d8e2a443169409cb060b240d7e49a867d188ec5636c43a19",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\09 Balance Creates Visual Order - REFINED.md",
+      "captures": [
+        "assets/note-09-01.png",
+        "assets/note-09-02.png",
+        "assets/note-09-03.png",
+        "assets/note-09-04.png",
+        "assets/note-09-05.png",
+        "assets/note-09-06.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 10,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\10 Case Studies - Improving Balance in the User Interface.md",
+      "sha256": "b08a6e8567d71e2962b678a029dd45efd54199348d4e085e7a71b47288d07ab3",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\10 Case Studies - Improving Balance in the User Interface - REFINED.md",
+      "captures": [
+        "assets/note-10-01.png",
+        "assets/note-10-02.png",
+        "assets/note-10-03.png",
+        "assets/note-10-04.png",
+        "assets/note-10-05.png",
+        "assets/note-10-06.png",
+        "assets/note-10-07.png",
+        "assets/note-10-08.png",
+        "assets/note-10-09.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 11,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\11 Rhythm - Establishing and Reinforcing Comprehension.md",
+      "sha256": "edb6b29b7943bfdbaeaf5b7b20b02d84164f8bd58b76ba4e518e2012c5076c66",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\11 Rhythm - Establishing and Reinforcing Comprehension - REFINED.md",
+      "captures": [
+        "assets/note-11-01.png",
+        "assets/note-11-02.png",
+        "assets/note-11-03.png",
+        "assets/note-11-04.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 12,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\12 Harmony - Shaping the Parts into a Whole.md",
+      "sha256": "4099c65c3097ebb9ae8a07a20bd23c96c44886788ed2ad60ee172f41966c8aef",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\12 Harmony - Shaping the Parts into a Whole - REFINED.md",
+      "captures": [
+        "assets/note-12-01.png",
+        "assets/note-12-02.png",
+        "assets/note-12-03.png",
+        "assets/note-12-04.png",
+        "assets/note-12-05.png",
+        "assets/note-12-06.png",
+        "assets/note-12-07.png",
+        "assets/note-12-08.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 13,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\13 Using Harmony to Create Directional Flow.md",
+      "sha256": "d6780c6ec441d3c0d46ae0eba2a5f884822271f8ad1e0c34a279587b0f4d63ae",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\13 Using Harmony to Create Directional Flow - REFINED.md",
+      "captures": [
+        "assets/note-13-01.png",
+        "assets/note-13-02.png",
+        "assets/note-13-03.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 14,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\14 Case Study - Using Harmony for Better Form Design.md",
+      "sha256": "846694bfa7bad98de007cc5142ce7ba44edaf8ee91188068d0fd64b4c37ee44c",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\14 Case Study - Using Harmony for Better Form Design - REFINED.md",
+      "captures": [
+        "assets/note-14-01.png",
+        "assets/note-14-02.png",
+        "assets/note-14-03.png",
+        "assets/note-14-04.png",
+        "assets/note-14-05.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 15,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\15 Dominance - Directing (and Maintaining) User Focus.md",
+      "sha256": "b32f254767d034868e28b87c9967e37b1bea02dc869999715ec816a3b29e34d2",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\15 Dominance - Directing (and Maintaining) User Focus - REFINED.md",
+      "captures": [
+        "assets/note-15-01.png",
+        "assets/note-15-02.png",
+        "assets/note-15-03.png",
+        "assets/note-15-04.png",
+        "assets/note-15-05.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 16,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\16 - Using Dominance to Increase Focus - and Decrease Cognitive Effort.md",
+      "sha256": "19bd3b70f240d4ec9e09d9b6b562adde1fc5610790e665464e0414ed7577d5b2",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\16 - Using Dominance to Increase Focus - and Decrease Cognitive Effort - REFINED.md",
+      "captures": [
+        "assets/note-16-01.png",
+        "assets/note-16-02.png",
+        "assets/note-16-03.png",
+        "assets/note-16-04.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 17,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\17 Creating Dominance with Size, Negative Space and Contrast.md",
+      "sha256": "4e494d9fbba9222a98a4610058236c684b1251ddf4b3ef89a7defa8c3d8638b6",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\17 Creating Dominance with Size, Negative Space and Contrast - REFINED.md",
+      "captures": [
+        "assets/note-17-01.png",
+        "assets/note-17-02.png",
+        "assets/note-17-03.png",
+        "assets/note-17-04.png",
+        "assets/note-17-05.png",
+        "assets/note-17-06.png",
+        "assets/note-17-07.png",
+        "assets/note-17-08.png",
+        "assets/note-17-09.png",
+        "assets/note-17-10.png",
+        "assets/note-17-11.png",
+        "assets/note-17-12.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 18,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\18 Alignment - Leading the Eye Across the Screen.md",
+      "sha256": "6ecd38c9034b628a5fb87e79c6e06a978b09231f878d7b0db20a8862d7ca1d45",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\18 Alignment - Leading the Eye Across the Screen - REFINED.md",
+      "captures": [
+        "assets/note-18-01.png",
+        "assets/note-18-02.png",
+        "assets/note-18-03.png",
+        "assets/note-18-04.png",
+        "assets/note-18-05.png",
+        "assets/note-18-06.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 20,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\20 Proximity - Showing and Communicating Visual Relationships.md",
+      "sha256": "a890654a159fd81222438b30bd2b8cb41c20cf9cb4baedc62f2c7b8399272061",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\20 Proximity - Showing and Communicating Visual Relationships - REFINED.md",
+      "captures": [
+        "assets/note-20-01.png",
+        "assets/note-20-02.png",
+        "assets/note-20-03.png",
+        "assets/note-20-04.png",
+        "assets/note-20-05.png",
+        "assets/note-20-06.png",
+        "assets/note-20-07.png",
+        "assets/note-20-08.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 21,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\21 - Using Proximity to Make Cognition Faster.md",
+      "sha256": "b11c6408e2fad9a350768c8defe254257e6a9e9a583fd0a383200ef2597ab7f3",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Organizing Visual Information\\21 - Using Proximity to Make Cognition Faster - REFINED.md",
+      "captures": [
+        "assets/note-21-01.png",
+        "assets/note-21-02.png",
+        "assets/note-21-03.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 23,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\23 Color - Getting Attention and Communicating Emotion.md",
+      "sha256": "5d3436da87c405d7ba5e8deeb271d0e1ce2efcfb1ab6eae3b0537550de931f65",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\23 Color - Getting Attention and Communicating Emotion - REFINED.md",
+      "captures": [
+        "assets/note-23-01.png",
+        "assets/note-23-02.png",
+        "assets/note-23-03.png",
+        "assets/note-23-04.png",
+        "assets/note-23-05.png",
+        "assets/note-23-06.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 24,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\24 How Color Influences Interaction.md",
+      "sha256": "468f4501d74df24d1e2729b340fe080cafdac487c20b3815423ce4dbb547b049",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\24 How Color Influences Interaction - REFINED.md",
+      "captures": [
+        "assets/note-24-01.png",
+        "assets/note-24-02.png",
+        "assets/note-24-03.png",
+        "assets/note-24-04.png",
+        "assets/note-24-05.png",
+        "assets/note-24-06.png",
+        "assets/note-24-07.png",
+        "assets/note-24-08.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 25,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\25 A Word on Color Theory - and Using Color Correctly.md",
+      "sha256": "6fd7480640768eba0fe416d16663b0c110116af64581d99c06c7ae4b27645b70",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\25 A Word on Color Theory - and Using Color Correctly - REFINED.md",
+      "captures": [
+        "assets/note-25-01.png",
+        "assets/note-25-02.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 30,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\30 The Power of Contrast.md",
+      "sha256": "6609f022293a3d5a1aaf053632cf25d87a4519683cde783e3e01213412c9689c",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\30 The Power of Contrast - REFINED.md",
+      "captures": [
+        "assets/note-30-01.png",
+        "assets/note-30-02.png",
+        "assets/note-30-03.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 31,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\31 Using Contrast to Improve Readability, Attention and Focus.md",
+      "sha256": "ab1a65126561ee0ac1a8db9dece902b8f574c2f888b925173a7951abc7e1cfc6",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\31 Using Contrast to Improve Readability, Attention and Focus - REFINED.md",
+      "captures": [
+        "assets/note-31-01.png",
+        "assets/note-31-02.png",
+        "assets/note-31-03.png",
+        "assets/note-31-04.png",
+        "assets/note-31-05.png",
+        "assets/note-31-06.png",
+        "assets/note-31-07.png",
+        "assets/note-31-08.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 32,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\32 Three Essential Functions of Contrast in UI Design.md",
+      "sha256": "6a97738bba73b3500e67857ce6e6ae4d72a4e8e167f5de5998370ce4681ccabc",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\32 Three Essential Functions of Contrast in UI Design - REFINED.md",
+      "captures": [
+        "assets/note-32-01.png",
+        "assets/note-32-02.png",
+        "assets/note-32-03.png",
+        "assets/note-32-04.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 33,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\33 How to Determine Appropriate Color and Contrast.md",
+      "sha256": "a56cdaae05ac3f026deb9c529a4d76db6655b0dfc645beaea6918a7853be2f34",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Using Color and Contrast Appropriately\\33 How to Determine Appropriate Color and Contrast - REFINED.md",
+      "captures": [
+        "assets/note-33-01.png",
+        "assets/note-33-02.png",
+        "assets/note-33-03.png",
+        "assets/note-33-04.png",
+        "assets/note-33-05.png",
+        "assets/note-33-06.png",
+        "assets/note-33-07.png",
+        "assets/note-33-08.png",
+        "assets/note-33-09.png",
+        "assets/note-33-10.png",
+        "assets/note-33-11.png",
+        "assets/note-33-12.png",
+        "assets/note-33-13.png",
+        "assets/note-33-14.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 43,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Creating and Simplifying Visual Cues\\43 Dealing with Data.md",
+      "sha256": "91e938a9c2e974e4dabae982354afe95df2f61536a818d890365a9b9a9f5e70b",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Creating and Simplifying Visual Cues\\43 Dealing with Data - REFINED.md",
+      "captures": [
+        "assets/note-43-01.png",
+        "assets/note-43-02.png",
+        "assets/note-43-03.png",
+        "assets/note-43-04.png",
+        "assets/note-43-05.png",
+        "assets/note-43-06.png",
+        "assets/note-43-07.png",
+        "assets/note-43-08.png",
+        "assets/note-43-09.png",
+        "assets/note-43-10.png",
+        "assets/note-43-11.png",
+        "assets/note-43-12.png",
+        "assets/note-43-13.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 44,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Creating and Simplifying Visual Cues\\44 Five Rules for Great Data Design.md",
+      "sha256": "865a0ee8b1ff7579dfe24a70513f0bb3384ab4940608e9be50788d2051ae5529",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Creating and Simplifying Visual Cues\\44 Five Rules for Great Data Design - REFINED.md",
+      "captures": [
+        "assets/note-44-01.png",
+        "assets/note-44-02.png",
+        "assets/note-44-03.png",
+        "assets/note-44-04.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 45,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Creating and Simplifying Visual Cues\\45 Simplifying Visual Information Part 01.md",
+      "sha256": "b9355457962cf89fe1f1cd0e652d7ab4e2693100500acf7670782d69c9e00f0b",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Creating and Simplifying Visual Cues\\45 Simplifying Visual Information Part 01 - REFINED.md",
+      "captures": [
+        "assets/note-45-01.png",
+        "assets/note-45-02.png",
+        "assets/note-45-03.png",
+        "assets/note-45-04.png",
+        "assets/note-45-05.png",
+        "assets/note-45-06.png",
+        "assets/note-45-07.png",
+        "assets/note-45-08.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 46,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Creating and Simplifying Visual Cues\\46 Simplifying Visual Information Part 02.md",
+      "sha256": "567c6ae8ac4fe89c2f249f23a897ff23b1fb522b24a5ee98d62b35f558f13e2c",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Creating and Simplifying Visual Cues\\46 Simplifying Visual Information Part 02 - REFINED.md",
+      "captures": [
+        "assets/note-46-01.png",
+        "assets/note-46-02.png",
+        "assets/note-46-03.png",
+        "assets/note-46-04.png",
+        "assets/note-46-05.png",
+        "assets/note-46-06.png",
+        "assets/note-46-07.png",
+        "assets/note-46-08.png",
+        "assets/note-46-09.png",
+        "assets/note-46-10.png",
+        "assets/note-46-11.png",
+        "assets/note-46-12.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 47,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Creating and Simplifying Visual Cues\\47 Separating Content from Controls Part 01.md",
+      "sha256": "3e5592b3141963f03da5593125e5117eea41cb3a5a126d8c5e77fd0b61291aca",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Creating and Simplifying Visual Cues\\47 Separating Content from Controls Part 01 - REFINED.md",
+      "captures": [
+        "assets/note-47-01.png",
+        "assets/note-47-02.png",
+        "assets/note-47-03.png",
+        "assets/note-47-04.png",
+        "assets/note-47-05.png",
+        "assets/note-47-06.png",
+        "assets/note-47-07.png",
+        "assets/note-47-08.png",
+        "assets/note-47-09.png",
+        "assets/note-47-10.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 48,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Creating and Simplifying Visual Cues\\48 Separating Content from Controls Part 02.md",
+      "sha256": "4232869271c9d800ab781f6053ed1e3d7eff3eb06a0fd454cf7316ca4a48cf0b",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Creating and Simplifying Visual Cues\\48 Separating Content from Controls Part 02 - REFINED.md",
+      "captures": [
+        "assets/note-48-01.png",
+        "assets/note-48-02.png",
+        "assets/note-48-03.png",
+        "assets/note-48-04.png",
+        "assets/note-48-05.png",
+        "assets/note-48-06.png",
+        "assets/note-48-07.png",
+        "assets/note-48-08.png",
+        "assets/note-48-09.png"
+      ],
+      "missing_captures": []
+    },
+    {
+      "lesson": 49,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\06 Things to Remember\\49 Recap - UI Design Mantras.md",
+      "sha256": "e1e9b596c605c90520a7d2a029c250109d3e0edb5717de26389ad11c288039e4",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\06 Things to Remember\\49 Recap - UI Design Mantras - REFINED.md",
+      "captures": [],
+      "missing_captures": []
+    }
+  ],
+  "images": {
+    "Pasted image 20261014220323.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014220323.png",
+      "local": "assets/note-09-01.png",
+      "sha256": "1c0c7fc5614c92a5f97a7b92d4b7833080d9d2a773b202a69a8026fb93c08552"
+    },
+    "Pasted image 20261014220358.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014220358.png",
+      "local": "assets/note-09-02.png",
+      "sha256": "c6e6622fe71a5d4e19d481f625e1d95984a0b7f728b36aad5859971ef1df1cd2"
+    },
+    "Pasted image 20261014220430.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014220430.png",
+      "local": "assets/note-09-03.png",
+      "sha256": "e86ef85e14da36a0277df3f47ada2b064c89bf5ea91cce94cf3aecd7fad43b1f"
+    },
+    "Pasted image 20261014220620.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014220620.png",
+      "local": "assets/note-09-04.png",
+      "sha256": "9b52c60bf0d0899f575c0d4eb9be9be9d515ac2c8c2881b3bc9ae4739025c383"
+    },
+    "Pasted image 20261014220632.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014220632.png",
+      "local": "assets/note-09-05.png",
+      "sha256": "4dc8c6560c380c95af644fd4dc1e124e6c9607840b17650f2832f6a936c149f8"
+    },
+    "Pasted image 20261014220849.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014220849.png",
+      "local": "assets/note-09-06.png",
+      "sha256": "6cfdd23645f7d87753741cdbfbed02766e7019c1c153653fda86b85ee5acb2a5"
+    },
+    "Pasted image 20261014031029.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014031029.png",
+      "local": "assets/note-10-01.png",
+      "sha256": "fd6531eeab9edc4360ff77152027ec9ab0aa3a92486be0d8e5920fac1c1748de"
+    },
+    "Pasted image 20261014220928.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014220928.png",
+      "local": "assets/note-10-02.png",
+      "sha256": "6fb6ff0ea8700e8577c3865da8dbeb12e12a708bdd079940553204bed83a95fc"
+    },
+    "Pasted image 20261014220943.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014220943.png",
+      "local": "assets/note-10-03.png",
+      "sha256": "6c5f0eb6b7ec0f71553e0b4bf2c974bbbfac65013c57ab77083e8f31037593c6"
+    },
+    "Pasted image 20261014221018.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014221018.png",
+      "local": "assets/note-10-04.png",
+      "sha256": "391843757620e96c9c5a41df231859568c7dbbc72239b7e900d7ab361f4daad0"
+    },
+    "Pasted image 20261014221121.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014221121.png",
+      "local": "assets/note-10-05.png",
+      "sha256": "c7c35bfdbeb2bd2f30330af14918254cb50cb3a40882151fd172b60f200c3342"
+    },
+    "Pasted image 20261014221358.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014221358.png",
+      "local": "assets/note-10-06.png",
+      "sha256": "ac23b3edfc687e32d7d9b6e316ed4ef35d02ac4e6a6767ebe9c6f9264454ee81"
+    },
+    "Pasted image 20261014221420.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014221420.png",
+      "local": "assets/note-10-07.png",
+      "sha256": "8031cd443855f4721b2b399bc382901ec7141a683a5a81eab046b4ee8b130394"
+    },
+    "Pasted image 20261014221502.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014221502.png",
+      "local": "assets/note-10-08.png",
+      "sha256": "f2ee55a763e19dd76e8a71393def880e85307469735d1c2123f18074a9e6e4fa"
+    },
+    "Pasted image 20261014221536.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014221536.png",
+      "local": "assets/note-10-09.png",
+      "sha256": "927eaa4fcc6df5a48e4e3103306e4006c1f570c21ed0db04bc666baf3d3db0bf"
+    },
+    "Pasted image 20261014221753.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014221753.png",
+      "local": "assets/note-11-01.png",
+      "sha256": "ed2f6eebc7953b6bf4a49652324eff91e6d01982cebbbcffc4829e2ebf2967c3"
+    },
+    "Pasted image 20261014222218.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014222218.png",
+      "local": "assets/note-11-02.png",
+      "sha256": "640c72d8a115cbed4b8f2d13f316611152f0f25d828993acbe455061a3f5eb60"
+    },
+    "Pasted image 20261014222354.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014222354.png",
+      "local": "assets/note-11-03.png",
+      "sha256": "cf56f9719236bcd6d9298aec0453b8ccaed7e5902e7f128ab6d351ff95da8f3d"
+    },
+    "Pasted image 20261014222539.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014222539.png",
+      "local": "assets/note-11-04.png",
+      "sha256": "fac552bb1b1c3566585fd405c27ee0083351da4cbdfe723c2bb2bff0b007e990"
+    },
+    "Pasted image 20261014222839.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014222839.png",
+      "local": "assets/note-12-01.png",
+      "sha256": "bea47e614a4a827645de71d015312be25469cc24e9a8eaf1d89493c5382bc94b"
+    },
+    "Pasted image 20261014222824.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014222824.png",
+      "local": "assets/note-12-02.png",
+      "sha256": "e2c29a3bd5d996b99a92be34a8571b011d66bba4a7048f77c012ca6157030d33"
+    },
+    "Pasted image 20261014222950.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014222950.png",
+      "local": "assets/note-12-03.png",
+      "sha256": "2b924bf29e00a43f4945b1d899a58a066b6f664baf973ef38ca77648bffe07e5"
+    },
+    "Pasted image 20261014223106.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014223106.png",
+      "local": "assets/note-12-04.png",
+      "sha256": "a562e548df8d25f29d5eb363f7d0688609363c1e79377d39ae4f11a90ad5f87b"
+    },
+    "Pasted image 20261014223134.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014223134.png",
+      "local": "assets/note-12-05.png",
+      "sha256": "c549b7680f316b839c1abd5c195eafebb1a6b2b5f56765a5c4637bf516f7f3fd"
+    },
+    "Pasted image 20261014223207.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014223207.png",
+      "local": "assets/note-12-06.png",
+      "sha256": "23174e24f5e8f688a3d78e9881cf794497c84739a30e9578d76063644ef2f770"
+    },
+    "Pasted image 20261014223339.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014223339.png",
+      "local": "assets/note-12-07.png",
+      "sha256": "fc1636a442d08ad06f1373243561e035393a844ad3c0ac42cfd8f9484d2c6e7c"
+    },
+    "Pasted image 20261014223437.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014223437.png",
+      "local": "assets/note-12-08.png",
+      "sha256": "aba0b88030db21089c72b05cfc7557cc35cd5fb9a34af17b478aef5f3114a008"
+    },
+    "Pasted image 20261014223811.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014223811.png",
+      "local": "assets/note-13-01.png",
+      "sha256": "fe705a88e9c02b0896d82e032b507a69cf28906be470a30f39eb05c5f694ffb5"
+    },
+    "Pasted image 20261014224055.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014224055.png",
+      "local": "assets/note-13-02.png",
+      "sha256": "158d1af972cf5a60be2dcd0a2171112b7855388f191b84e7dcfba9ea9598e49f"
+    },
+    "Pasted image 20261014224146.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014224146.png",
+      "local": "assets/note-13-03.png",
+      "sha256": "b12d7ca1e4daba692102bd6db1cb363f283091e3db9892f10da2e0fd1f3a887a"
+    },
+    "Pasted image 20261014224357.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014224357.png",
+      "local": "assets/note-14-01.png",
+      "sha256": "e548943efbea67939dd101b5df080fc3a06b9dd9d31ae7347331f525ddbd0f24"
+    },
+    "Pasted image 20261014224341.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014224341.png",
+      "local": "assets/note-14-02.png",
+      "sha256": "70cd337bdc719d94edbe6c855b2226cc5c7ee0012271b85d8d5322c079c22e83"
+    },
+    "Pasted image 20261014224607.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014224607.png",
+      "local": "assets/note-14-03.png",
+      "sha256": "7b1682ecb9e785111f9d707e032f50b8cf369bf859267f1d1a7f1f771deaf8c9"
+    },
+    "Pasted image 20261014224630.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014224630.png",
+      "local": "assets/note-14-04.png",
+      "sha256": "a55bc9e7090c15688336355bd4f1b8bff28b724df496d808e8a70938be5bae70"
+    },
+    "Pasted image 20261014224702.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014224702.png",
+      "local": "assets/note-14-05.png",
+      "sha256": "fcbfd75cb1ee9c02f73353f324293a72dd552846343663a9461c9c46f74adf80"
+    },
+    "Pasted image 20261014225014.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014225014.png",
+      "local": "assets/note-15-01.png",
+      "sha256": "f767eb69b19d45a5b6ab54cf8080ba8a1045a11151768cbcd996c2ff2ce489f6"
+    },
+    "Pasted image 20261014224957.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014224957.png",
+      "local": "assets/note-15-02.png",
+      "sha256": "b52e85852ee703ac3c48be72a7195ab313451e00370f9a93ac6c5712b2034ef6"
+    },
+    "Pasted image 20261014225035.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014225035.png",
+      "local": "assets/note-15-03.png",
+      "sha256": "e7fdb26c50158998edb41d17c1e23798bf55d6b9c8b2fc4f9ae9b4bf8cf2ab1b"
+    },
+    "Pasted image 20261014225229.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014225229.png",
+      "local": "assets/note-15-04.png",
+      "sha256": "d202f05d45a095f9c28b31d25bddb5a9850005ebbef72e7c66a03405f9013e07"
+    },
+    "Pasted image 20261014225320.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014225320.png",
+      "local": "assets/note-15-05.png",
+      "sha256": "4135f3ada3fe755c182f40d959997556a90346c7068f0d6efa0fc8af4afba4b7"
+    },
+    "Pasted image 20261014225457.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014225457.png",
+      "local": "assets/note-16-01.png",
+      "sha256": "376b404bbb7df5ead77693bf38be3ed0df65d4c58897d26f2941d27d0bd43528"
+    },
+    "Pasted image 20261014225654.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014225654.png",
+      "local": "assets/note-16-02.png",
+      "sha256": "880d9dc48e8ab6ac15c0f24e5fdb50122cd98cd693627378ac489c5ba128b450"
+    },
+    "Pasted image 20261014225833.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014225833.png",
+      "local": "assets/note-16-03.png",
+      "sha256": "914b05aa095bccad63a34fae7db99bf02b3b856bbe2aa3274eedf57ab6db6eee"
+    },
+    "Pasted image 20261014225931.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014225931.png",
+      "local": "assets/note-16-04.png",
+      "sha256": "cac55fa3ceb59dd685598e3cff87af6bd4a092e93994c5f3e952f6a566b48b8c"
+    },
+    "Pasted image 20261014230316.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014230316.png",
+      "local": "assets/note-17-01.png",
+      "sha256": "e508bea36a2260068bb257b996160fa11a7e6b81364404d04e2067bc3bc484bd"
+    },
+    "Pasted image 20261014230346.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014230346.png",
+      "local": "assets/note-17-02.png",
+      "sha256": "3f3070cb100d2f0d18baa54f29f6c74afda7a6b05d87f43bdd9b18b46c7b1115"
+    },
+    "Pasted image 20261014230406.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014230406.png",
+      "local": "assets/note-17-03.png",
+      "sha256": "f966c86f3fe45666b91c342372cfd453d1dab609933d52f4fba9b1923616227e"
+    },
+    "Pasted image 20261014230442.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014230442.png",
+      "local": "assets/note-17-04.png",
+      "sha256": "a34bd2a77791a33222c83a61c13724bb0d5f0850c173ba5d19918bcaabf4bf1e"
+    },
+    "Pasted image 20261014231934.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014231934.png",
+      "local": "assets/note-17-05.png",
+      "sha256": "70456f1fa244385b6626146920cd45bd74243bd7e967570db42b5244f081ae5d"
+    },
+    "Pasted image 20261014232106.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014232106.png",
+      "local": "assets/note-17-06.png",
+      "sha256": "b94e0877678d157f050f49af77cd68e8e55c253f621d8dbb115c6c28f45ae00f"
+    },
+    "Pasted image 20261014232154.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014232154.png",
+      "local": "assets/note-17-07.png",
+      "sha256": "35c25cb12b5fa852cbf1bf411eda070c334ee27df8714c25d0c9789bc4cbc60b"
+    },
+    "Pasted image 20261014232233.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014232233.png",
+      "local": "assets/note-17-08.png",
+      "sha256": "3d180a62a28d9098b579975c91f15d47a0fb851a888d1d4731282e90916cf8a4"
+    },
+    "Pasted image 20261014232612.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014232612.png",
+      "local": "assets/note-17-09.png",
+      "sha256": "c6defc2e79118e065ab05c460a2558b5a6a1d644f1bce94d190eb944a2983134"
+    },
+    "Pasted image 20261014232826.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014232826.png",
+      "local": "assets/note-17-10.png",
+      "sha256": "aa94de7581f8f936c19e294c17792df1dd7863f42003a1eecd2ada05b30e6722"
+    },
+    "Pasted image 20261014232932.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014232932.png",
+      "local": "assets/note-17-11.png",
+      "sha256": "6cc4b5042bec742230508fea030e58708096569e7c50545ef64f2c1f4ed66112"
+    },
+    "Pasted image 20261014233112.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014233112.png",
+      "local": "assets/note-17-12.png",
+      "sha256": "f70acf10d886ec184eae170c618167bf6f66c59b2d55dd186f1aae8bf811ba1d"
+    },
+    "Pasted image 20261014233452.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014233452.png",
+      "local": "assets/note-18-01.png",
+      "sha256": "a4924f65aab4ca2d2558f53dd8af6f6cc239c52ca80764ed2ed5be1c3c0dcd27"
+    },
+    "Pasted image 20261014233503.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014233503.png",
+      "local": "assets/note-18-02.png",
+      "sha256": "5c8255ac2ba4d300cac2c3b48176689aa1fb6125328f27f5b7ecc89ac5b97731"
+    },
+    "Pasted image 20261014233609.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014233609.png",
+      "local": "assets/note-18-03.png",
+      "sha256": "11b2e67575b5215fe2c023282b54b431963a458b4d26a10473850c99dedabe4b"
+    },
+    "Pasted image 20261014233700.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014233700.png",
+      "local": "assets/note-18-04.png",
+      "sha256": "99e6e0699aa7e1a5f8b10900c192aed553e7f6ba9fc3b3b089bfa456a68dfc62"
+    },
+    "Pasted image 20261014233754.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014233754.png",
+      "local": "assets/note-18-05.png",
+      "sha256": "f7dc9ba9c362efc72f101482b0789ec44be7b384b0f78b67cc19e27050ee0ae8"
+    },
+    "Pasted image 20261014233858.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014233858.png",
+      "local": "assets/note-18-06.png",
+      "sha256": "a1ff5bde8e90e79261a776c82ce28c2338077166d339bb1b124490fce65818d7"
+    },
+    "Pasted image 20261014234752.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014234752.png",
+      "local": "assets/note-20-01.png",
+      "sha256": "3a5434045b07e7a562903bf010e90cd6affb7be7c82850bef78752077b4ddfc5"
+    },
+    "Pasted image 20261014234817.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014234817.png",
+      "local": "assets/note-20-02.png",
+      "sha256": "e20c2a77034364a5a3bad76b5d753728fbe5eccbcf2b04d3a67e79ef8fb46824"
+    },
+    "Pasted image 20261014234846.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014234846.png",
+      "local": "assets/note-20-03.png",
+      "sha256": "95d6f36daf03383c43558ecf98e4b341d8bd8b32bd2250d3e4fff1ce5ee10ba1"
+    },
+    "Pasted image 20261014234933.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014234933.png",
+      "local": "assets/note-20-04.png",
+      "sha256": "2a6e788bbc029c4648b8f9cb2bf032c160ee57d7c610d7599692990fb0d4b292"
+    },
+    "Pasted image 20261014235033.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014235033.png",
+      "local": "assets/note-20-05.png",
+      "sha256": "f276f8eaa744c4a46d3df6692ee39a47e06cbd74d7e38e7effd618a41fe18a91"
+    },
+    "Pasted image 20261014235159.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014235159.png",
+      "local": "assets/note-20-06.png",
+      "sha256": "2dab290e338788a3654b157cc76c75cc0d0c80819944472a9df02bca3bf472e1"
+    },
+    "Pasted image 20261014235221.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014235221.png",
+      "local": "assets/note-20-07.png",
+      "sha256": "e942035b433a3a7fa13f8fb378d2bde5e7c87b27a29b9d5272dcbd9e63b40be8"
+    },
+    "Pasted image 20261014235258.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014235258.png",
+      "local": "assets/note-20-08.png",
+      "sha256": "73e76aee323c323a0d1de802be6fb1928d98a606e8e050d6cfe2d5220710ddf7"
+    },
+    "Pasted image 20261014235714.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014235714.png",
+      "local": "assets/note-21-01.png",
+      "sha256": "0d4ff82e8b692e1a5d95662ea7511d0046e5bd85b8b20676253a404a1f6913f3"
+    },
+    "Pasted image 20261014235902.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014235902.png",
+      "local": "assets/note-21-02.png",
+      "sha256": "cf3439b685631cce3a08a67c633c2a0eb022b8602c002036eaa51a1d98310e7a"
+    },
+    "Pasted image 20261015000003.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015000003.png",
+      "local": "assets/note-21-03.png",
+      "sha256": "10f29b0c8a412a05f55394df0eb4be4a522019fb3ce40787e27140f34aa04918"
+    },
+    "Pasted image 20261015000335.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015000335.png",
+      "local": "assets/note-23-01.png",
+      "sha256": "7e79d26d817edb4ec51c2093bb4831dca6de8badc1b42730bd60eb8f57d3349c"
+    },
+    "Pasted image 20261015000625.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015000625.png",
+      "local": "assets/note-23-02.png",
+      "sha256": "7508b5b5cdf5c5f1a4eaa0edbdc4bf0b9f265ef29c8e256db1496e4d1b75aad8"
+    },
+    "Pasted image 20261015000733.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015000733.png",
+      "local": "assets/note-23-03.png",
+      "sha256": "ef8bb9496afa2e4f8aa929c09aa57a1c67d3db423cb448957229250f726af652"
+    },
+    "Pasted image 20261015000744.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015000744.png",
+      "local": "assets/note-23-04.png",
+      "sha256": "294e97748f66869ae539dd95b8531e3d7f058e6421fb2368623a2cb172ece3e6"
+    },
+    "Pasted image 20261015000845.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015000845.png",
+      "local": "assets/note-23-05.png",
+      "sha256": "7ebf13c912ba4c03f980f3a3c4a24fe1f94c0509f35c8e8010708120c7ddaa8b"
+    },
+    "Pasted image 20261015000924.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015000924.png",
+      "local": "assets/note-23-06.png",
+      "sha256": "b8f6941dcf0f31d68c3661cadc1c5329ae73f80a044a55c1f4b5c7e0ce3483d9"
+    },
+    "Pasted image 20261015001234.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015001234.png",
+      "local": "assets/note-24-01.png",
+      "sha256": "7d2bd66563a7512f73f645ce23c08c01671d02a8c3994f9a0094a67acd074c94"
+    },
+    "Pasted image 20261015001355.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015001355.png",
+      "local": "assets/note-24-02.png",
+      "sha256": "2ce27b5d30670702618fd463c01c8c66e611f832f0396f017559e12481120cc0"
+    },
+    "Pasted image 20261015001411.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015001411.png",
+      "local": "assets/note-24-03.png",
+      "sha256": "3a57bc5237ceca94d38751cfc5d090fb688f3f14365188e2a6ab9e937dc208fe"
+    },
+    "Pasted image 20261015001509.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015001509.png",
+      "local": "assets/note-24-04.png",
+      "sha256": "0b84d17f2c196ed1baa00088e3c80512cb3598a83e81797fcf4d3b393183dd72"
+    },
+    "Pasted image 20261015001937.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015001937.png",
+      "local": "assets/note-24-05.png",
+      "sha256": "4b6d07dd74b370a30adb8de315a9208f8b0f32394736ddcb471f68a7021f0a96"
+    },
+    "Pasted image 20261015002038.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015002038.png",
+      "local": "assets/note-24-06.png",
+      "sha256": "990c46f950e8efa13d065ebbd93de98cdc82330ccf4e4f8e34b1b35e26fd012e"
+    },
+    "Pasted image 20261015002059.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015002059.png",
+      "local": "assets/note-24-07.png",
+      "sha256": "a120465faaaec590d8213e95177f512f4c78824f5d41deae657a6b66fecd20fe"
+    },
+    "Pasted image 20261015002308.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015002308.png",
+      "local": "assets/note-24-08.png",
+      "sha256": "1e179b34a4a5f4dffc546a8e7d22be2ad4079b843b239c916f31dd1887836c24"
+    },
+    "Pasted image 20261015003319.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015003319.png",
+      "local": "assets/note-25-01.png",
+      "sha256": "2ed12f5104d1747c50a44c511e079f4e54a035f4604d73efaca66fc50b0023dd"
+    },
+    "Pasted image 20261015003534.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015003534.png",
+      "local": "assets/note-25-02.png",
+      "sha256": "804e05316843dcf2a9ef41416863205b6ce48ce6d9149ff382802bcacd3fa721"
+    },
+    "Pasted image 20261015003726.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015003726.png",
+      "local": "assets/note-30-01.png",
+      "sha256": "2c4b1813b3ef77a71e3c45b20f8e73b8a44a8060e354f4b547d04aad681ead4e"
+    },
+    "Pasted image 20261015003941.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015003941.png",
+      "local": "assets/note-30-02.png",
+      "sha256": "2607e5a5648e8fb8748259dec8eba6f099e4bc46bd9c092fef3cb445fd1f32aa"
+    },
+    "Pasted image 20261015003927.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015003927.png",
+      "local": "assets/note-30-03.png",
+      "sha256": "0209a3829100ca783e4b6960fb551dd6b794aad417c39877ee5ce84a5944293e"
+    },
+    "Pasted image 20261015004332.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015004332.png",
+      "local": "assets/note-31-01.png",
+      "sha256": "75ee695e9462c556916a686ac5ed9f5d5f3466fa8ccf4fef6b88bbfc60efbbee"
+    },
+    "Pasted image 20261015004526.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015004526.png",
+      "local": "assets/note-31-02.png",
+      "sha256": "2e5c26dec9877607ac0daa19f36fbc00b263427ab8d275b7d6567fab780f2844"
+    },
+    "Pasted image 20261015004701.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015004701.png",
+      "local": "assets/note-31-03.png",
+      "sha256": "ca826f9b13460e69cfe2d47f4ca8ad6b7ad1118abc3381fbdfeb38fea039784d"
+    },
+    "Pasted image 20261015004724.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015004724.png",
+      "local": "assets/note-31-04.png",
+      "sha256": "fa86d159142214d3d4af88004443e94f8b1078ca395a56e93829c0af1e5d7c29"
+    },
+    "Pasted image 20261015005046.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015005046.png",
+      "local": "assets/note-31-05.png",
+      "sha256": "7dd6a366356273c7bd62b33e64c3ca2ce9cc2e17e0e9bb9dce60af435f01dbe7"
+    },
+    "Pasted image 20261015004923.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015004923.png",
+      "local": "assets/note-31-06.png",
+      "sha256": "f4f7f94871262225fca57d45b63ff3ae173acb71c431d20749accc9bead807a1"
+    },
+    "Pasted image 20261015005022.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015005022.png",
+      "local": "assets/note-31-07.png",
+      "sha256": "64c9fc314ec36f8b339bea78e8b2f739bb9ed0b994c53b6569e21007e243e4ba"
+    },
+    "Pasted image 20261015005133.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015005133.png",
+      "local": "assets/note-31-08.png",
+      "sha256": "3ee62ebe2890f6d2b7f48aa196c21a53d62664f4c742f240c36dc57606f3cd0c"
+    },
+    "Pasted image 20261015005220.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015005220.png",
+      "local": "assets/note-32-01.png",
+      "sha256": "bb8d63e9f7f3b1a446e44b9405b6f594426bd71ecc83881e724ecd1ba179883d"
+    },
+    "Pasted image 20261015005328.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015005328.png",
+      "local": "assets/note-32-02.png",
+      "sha256": "99163f971161e90199fd96f1e38a511ec5be17a5b7cc52bfb4e4b4a548954832"
+    },
+    "Pasted image 20261015005338.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015005338.png",
+      "local": "assets/note-32-03.png",
+      "sha256": "8b02628f3818927d2808d351c5a5a65c385056cbd81f01e87641937cb22bca35"
+    },
+    "Pasted image 20261015005521.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015005521.png",
+      "local": "assets/note-32-04.png",
+      "sha256": "4f075ed3334a0dcab00af73069a907f80bf0e6c4c92d06fd4cbb1ce1767a2114"
+    },
+    "Pasted image 20261015005657.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015005657.png",
+      "local": "assets/note-33-01.png",
+      "sha256": "ae2214f5fca045b65ed807f78185665e67d09a36e52a66d49cf4d45d415affc3"
+    },
+    "Pasted image 20261015005709.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015005709.png",
+      "local": "assets/note-33-02.png",
+      "sha256": "0a9be22b5a5fdff73cf545405900db93080a4a84c00e967664b1a8eeb244ad83"
+    },
+    "Pasted image 20261015005824.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015005824.png",
+      "local": "assets/note-33-03.png",
+      "sha256": "a6d8ddb543782c106e6ba4e9ebd5bfc5f6f36276c84fb9f78abb3f9a4f408616"
+    },
+    "Pasted image 20261015005925.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015005925.png",
+      "local": "assets/note-33-04.png",
+      "sha256": "7b0a1fe0aed1d7a5ad20b13fb6f08dd670e08916f0ba7dff169e2aed549edfdc"
+    },
+    "Pasted image 20261015010235.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015010235.png",
+      "local": "assets/note-33-05.png",
+      "sha256": "a2eae4b0f0c689c69b396b53830684ffbfb91dfd5f567af2f3dc0153be28339d"
+    },
+    "Pasted image 20261015010245.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015010245.png",
+      "local": "assets/note-33-06.png",
+      "sha256": "0c370d1f63acd1da4a2345942fd3da724d643a05c6d825c47d64be18bb83f9f4"
+    },
+    "Pasted image 20261015010329.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015010329.png",
+      "local": "assets/note-33-07.png",
+      "sha256": "6bb7b3e7d8e31c10ce4a44750479b5f940ba48136cce9e6d179dd0bffc95a60d"
+    },
+    "Pasted image 20261015010354.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015010354.png",
+      "local": "assets/note-33-08.png",
+      "sha256": "9bbd0c6d7b95d59ef338e43399aaa0a4779f79e2f03d4bc89fbc08e508f9a14f"
+    },
+    "Pasted image 20261015010406.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015010406.png",
+      "local": "assets/note-33-09.png",
+      "sha256": "a06fda4f4487562db4559605f5d80dd8b163d8c028770110c96b7228c48b3421"
+    },
+    "Pasted image 20261015010417.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015010417.png",
+      "local": "assets/note-33-10.png",
+      "sha256": "dbd085135f07a277eb06b11ee9e153ff6d43c913944629d9a5fa36383ed3fe8f"
+    },
+    "Pasted image 20261015010441.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015010441.png",
+      "local": "assets/note-33-11.png",
+      "sha256": "cee4ca72c13f29b40acd9af510d675c9013b4a3a10c6a7b4992e5fc0891cbe48"
+    },
+    "Pasted image 20261015010505.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015010505.png",
+      "local": "assets/note-33-12.png",
+      "sha256": "ea307c3d0f4784c5a710d2ff02105c91c09418c9ce0219ee01e152ea258ef2cc"
+    },
+    "Pasted image 20261015010520.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015010520.png",
+      "local": "assets/note-33-13.png",
+      "sha256": "d065bda8cd2051e3799ce2c894efc23416255e129f10888ad631a9337b9c76f2"
+    },
+    "Pasted image 20261015010534.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015010534.png",
+      "local": "assets/note-33-14.png",
+      "sha256": "e79c8e56b789ac5bf063ee249c5cc32b798ddc7fcf6f4877bd10af4d2642f9f3"
+    },
+    "Pasted image 20261015011136.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011136.png",
+      "local": "assets/note-43-01.png",
+      "sha256": "19881ea5c778fd57a8bd563136e256c9dd0569e9623ddd10c45954f8c3ba1615"
+    },
+    "Pasted image 20261015011156.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011156.png",
+      "local": "assets/note-43-02.png",
+      "sha256": "62a27b7513f081eb717fed111bdb30317c7d8025bf10b2087e20d5140db52c37"
+    },
+    "Pasted image 20261015011209.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011209.png",
+      "local": "assets/note-43-03.png",
+      "sha256": "0065e684bda6cb412a1e22144262623a5373a26120064077b462a196849ada48"
+    },
+    "Pasted image 20261015011306.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011306.png",
+      "local": "assets/note-43-04.png",
+      "sha256": "120af77e14ca2c5219b7940aa5c7fa1ef449443509b862d36d96af3869702170"
+    },
+    "Pasted image 20261015011317.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011317.png",
+      "local": "assets/note-43-05.png",
+      "sha256": "bb9c78d3287e87310f5d04e2cbc8841d490e0c26f7c02d8a66a0c6dd0c18981c"
+    },
+    "Pasted image 20261015011409.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011409.png",
+      "local": "assets/note-43-06.png",
+      "sha256": "598b33f93e3cbe0d21cff2f80ec3d92c4aeeab2d2b66fd20afde4163c70bcb29"
+    },
+    "Pasted image 20261015011455.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011455.png",
+      "local": "assets/note-43-07.png",
+      "sha256": "0c77ced859475c6d88e04999d5f625f2094b9281f84ee5f95ac921990204b56d"
+    },
+    "Pasted image 20261015011606.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011606.png",
+      "local": "assets/note-43-08.png",
+      "sha256": "9c5f43a027a0d408bef6365c06c5f03c287fe645507926be1a6d6a1632edd2f4"
+    },
+    "Pasted image 20261015011617.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011617.png",
+      "local": "assets/note-43-09.png",
+      "sha256": "b4e4a09f8e5786ed7a7a0c27c52ca759ec63cfc09027fa2ee460e6ca8f6f3d53"
+    },
+    "Pasted image 20261015011727.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011727.png",
+      "local": "assets/note-43-10.png",
+      "sha256": "aebf0eafdc9cbaa53aed8d3266173d006b8e45514debee32f96e897e4c1872db"
+    },
+    "Pasted image 20261015011737.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011737.png",
+      "local": "assets/note-43-11.png",
+      "sha256": "c1d88eec9e7289de438082a41b5c155c7d9697e163cedb497474a4d323fd80d8"
+    },
+    "Pasted image 20261015011825.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011825.png",
+      "local": "assets/note-43-12.png",
+      "sha256": "5a49fa8ff0a06d25dbde72f3fde9b91eb2706bab2e1f07eca44547f93be3605a"
+    },
+    "Pasted image 20261015011839.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015011839.png",
+      "local": "assets/note-43-13.png",
+      "sha256": "06439a9547170ed94be1299218bbb90766ab3ebb307e25891cf2ced0593e32ab"
+    },
+    "Pasted image 20261015012028.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015012028.png",
+      "local": "assets/note-44-01.png",
+      "sha256": "3eb33e282d3b37fe596b7b102c93f3a14ae0262bb1d17fa71dfebf421cb578eb"
+    },
+    "Pasted image 20261015012412.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015012412.png",
+      "local": "assets/note-44-02.png",
+      "sha256": "4f816ef07ab0be48852feea7e22ec605c0422127dbd05f5f03b4cc0a5baaa602"
+    },
+    "Pasted image 20261015012502.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015012502.png",
+      "local": "assets/note-44-03.png",
+      "sha256": "022926087ae3b7b70b63714e765c63ecd520495c96684001b3f3e58bf27a05c2"
+    },
+    "Pasted image 20261015012549.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015012549.png",
+      "local": "assets/note-44-04.png",
+      "sha256": "5f66c22c1979ea49b70ed69f77c69a674ac6279378b7773dcbf540002e7d4a22"
+    },
+    "Pasted image 20261015012811.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015012811.png",
+      "local": "assets/note-45-01.png",
+      "sha256": "5b95612b873d505e5327d4a9333b1ef44b7393de87f430d2ad9059b954dfd080"
+    },
+    "Pasted image 20261015015035.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015015035.png",
+      "local": "assets/note-45-02.png",
+      "sha256": "cc0a30a408354de525aa9937828769c01ac592019b9d308f5e16ffb02f2f19d4"
+    },
+    "Pasted image 20261015015301.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015015301.png",
+      "local": "assets/note-45-03.png",
+      "sha256": "713d12d74f65ea5eda2f3789fcac83f78af834e8469d7dfba9434f9788ef762e"
+    },
+    "Pasted image 20261015015318.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015015318.png",
+      "local": "assets/note-45-04.png",
+      "sha256": "98423aa1780421e97ac7a80dfb0df89e43d473bd7e7817939072ade2b6fa51b8"
+    },
+    "Pasted image 20261015015331.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015015331.png",
+      "local": "assets/note-45-05.png",
+      "sha256": "0058fc4c9726d1708f2f29074aa3a9dc0ec1fdc25d21bbbaceac9851ee4e0fd3"
+    },
+    "Pasted image 20261015015345.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015015345.png",
+      "local": "assets/note-45-06.png",
+      "sha256": "943d36057ab595f3111c2c922145aae5b500bd829244b87fa462c9402cd3e85b"
+    },
+    "Pasted image 20261015015449.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015015449.png",
+      "local": "assets/note-45-07.png",
+      "sha256": "1e965b0b2adb08e862a539e95f10b21bddc8aa4a486872a2a178555b9421fc80"
+    },
+    "Pasted image 20261015015508.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015015508.png",
+      "local": "assets/note-45-08.png",
+      "sha256": "ce3d532fc9f6ba851a32f53807b402efb05206d1d93f0a8719fc1bc044ef4669"
+    },
+    "Pasted image 20261015015749.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015015749.png",
+      "local": "assets/note-46-01.png",
+      "sha256": "de85b5f3372a08c3679eeb151fe890812f108808c75d2853e02a7a521bc57450"
+    },
+    "Pasted image 20261015015900.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015015900.png",
+      "local": "assets/note-46-02.png",
+      "sha256": "562b66832a4fdcd824124fa9b6361cd35c16e3b4fd1257831ff39eb389d7880c"
+    },
+    "Pasted image 20261015015949.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015015949.png",
+      "local": "assets/note-46-03.png",
+      "sha256": "37f259e0e0184d1b3b27058d7b59f7735fb75bb2c2de586280a8f58e74674b69"
+    },
+    "Pasted image 20261015020018.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015020018.png",
+      "local": "assets/note-46-04.png",
+      "sha256": "80fe923ff9b1decb11544dc27741ac9ba1d145d49c42340bbe428b0b933e1e2d"
+    },
+    "Pasted image 20261015020038.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015020038.png",
+      "local": "assets/note-46-05.png",
+      "sha256": "439e83dd8dbcc5d99f499c704817f17e11cd75e089d9d39b65fe98812bc712d9"
+    },
+    "Pasted image 20261015020126.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015020126.png",
+      "local": "assets/note-46-06.png",
+      "sha256": "3dd79fad31493fa1cbc57dd6cc8d3e10fe6a3bdca884e3828b3b0366847d88cb"
+    },
+    "Pasted image 20261015020207.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015020207.png",
+      "local": "assets/note-46-07.png",
+      "sha256": "6c3970809a58aa380a87bae672b4d790c68b5caa11a0396f2c13b7ef1c741a7f"
+    },
+    "Pasted image 20261015020247.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015020247.png",
+      "local": "assets/note-46-08.png",
+      "sha256": "2b23768f9f6c2b938be07cec08b7c6a8f97191cfc071d2de9b9c1dff1b71be1a"
+    },
+    "Pasted image 20261015020304.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015020304.png",
+      "local": "assets/note-46-09.png",
+      "sha256": "915e6e43e2ea062f1490704713aab0451e6d42a31a67aad9fae2eaa290207921"
+    },
+    "Pasted image 20261015020429.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015020429.png",
+      "local": "assets/note-46-10.png",
+      "sha256": "c076a15b9dac920c97b6f3ff4ea2d8b40b45cbbbcf04f7bd7858d6fc3326a249"
+    },
+    "Pasted image 20261015020504.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015020504.png",
+      "local": "assets/note-46-11.png",
+      "sha256": "61b2bb2145821e58f9af2c5bf9a3ab17f4ad24176785ebd3c6519a92b72b8caa"
+    },
+    "Pasted image 20261015020548.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015020548.png",
+      "local": "assets/note-46-12.png",
+      "sha256": "d2d0806627e992ba2509e8f6f72995a5937dbe07c274bdfbb82a10c69dd416c3"
+    },
+    "Pasted image 20261015020913.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015020913.png",
+      "local": "assets/note-47-01.png",
+      "sha256": "8ca27f062b56e84e89f2f1208442afae708bccb9ba81ea3bfc0330710935782d"
+    },
+    "Pasted image 20261015020939.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015020939.png",
+      "local": "assets/note-47-02.png",
+      "sha256": "1665108f7f65649085758c7272032efa0871570c94d1a7acc8e550a3200a7905"
+    },
+    "Pasted image 20261015021034.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015021034.png",
+      "local": "assets/note-47-03.png",
+      "sha256": "001cfa82f582ff6fb0b6fccc0a3fe5564246d425f19a47a21700a905aa5b98b9"
+    },
+    "Pasted image 20261015021152.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015021152.png",
+      "local": "assets/note-47-04.png",
+      "sha256": "cdd57cbece797ce8a1dfb184c0ac1414b024f8acf06ce556f008ff70a4955931"
+    },
+    "Pasted image 20261015021216.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015021216.png",
+      "local": "assets/note-47-05.png",
+      "sha256": "1ad20cd8ac2bf5885e8480593f4b8a6ceb870b163418f59412281c32cb8cec1b"
+    },
+    "Pasted image 20261015021233.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015021233.png",
+      "local": "assets/note-47-06.png",
+      "sha256": "de7d54e01753b7729f53526373c24bd194b76c42017c03c9f8010019131058f3"
+    },
+    "Pasted image 20261015021401.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015021401.png",
+      "local": "assets/note-47-07.png",
+      "sha256": "aa22b7cd2e87f34b77e7f25c333028e86ba2ca582c8b4db77c84aabac5aef2fb"
+    },
+    "Pasted image 20261015021440.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015021440.png",
+      "local": "assets/note-47-08.png",
+      "sha256": "defc10dcd0912507feb3202bfec0f9ead7171842627e491264f047c987b6d869"
+    },
+    "Pasted image 20261015021451.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015021451.png",
+      "local": "assets/note-47-09.png",
+      "sha256": "7dc18a4d952cac92f77f35f3aa15e7d2fabfeb6ff3f36bd02ca3ab2df7e7cff4"
+    },
+    "Pasted image 20261015021520.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015021520.png",
+      "local": "assets/note-47-10.png",
+      "sha256": "a117fd1e77c5e58372a32125c75483f575c0ca1eaf8313aeb8c734b8caaf2c25"
+    },
+    "Pasted image 20261015021640.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015021640.png",
+      "local": "assets/note-48-01.png",
+      "sha256": "4437215d9ba7a7a37bca72f8b077fd0e980abad165a978ab976624ffdc4055bb"
+    },
+    "Pasted image 20261015021652.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015021652.png",
+      "local": "assets/note-48-02.png",
+      "sha256": "99ea555eb3ddd8b4c8d9ac3983b541c9a74be22abd8264e9e093175b13f1f432"
+    },
+    "Pasted image 20261015022110.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015022110.png",
+      "local": "assets/note-48-03.png",
+      "sha256": "c881a7add00b867e3209122d3a3666cea94b9ecfc091d5fbe4e87b47d9d3f870"
+    },
+    "Pasted image 20261015022155.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015022155.png",
+      "local": "assets/note-48-04.png",
+      "sha256": "fdc07c3e7f2463cf1cb0592ecc6c8f120793a6fb38c23467caca22e8c0c917c9"
+    },
+    "Pasted image 20261015022220.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015022220.png",
+      "local": "assets/note-48-05.png",
+      "sha256": "e7d3645346db299dd5d35231055862e9f0351d7c23462a159886703d502705bc"
+    },
+    "Pasted image 20261015022339.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015022339.png",
+      "local": "assets/note-48-06.png",
+      "sha256": "183fa10420f11931acb1e18e2f59e33f3fa93f75be7a4437c71db10407197d18"
+    },
+    "Pasted image 20261015022411.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015022411.png",
+      "local": "assets/note-48-07.png",
+      "sha256": "56e94c1df550df9257c85974ce46f53b85a322956f3142f47bde44ee291c86dc"
+    },
+    "Pasted image 20261015022434.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015022434.png",
+      "local": "assets/note-48-08.png",
+      "sha256": "5ce12e5c6d3bc596c9754e42470c41a16d56ce70f23980e571416ed67a8a5fce"
+    },
+    "Pasted image 20261015022458.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015022458.png",
+      "local": "assets/note-48-09.png",
+      "sha256": "610a326e6ce7bfd2fa7f973296d3c71f8ef77469dd4c172bd909ca7efddd166a"
+    }
+  },
+  "deck": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\DesktopIntegrated20261014\\output\\Week_7_Python_in_Unreal_v15.pptx",
+  "deck_sha256": "c2b745ba4fb6b18967adfb98a6b38d516bbf64f4eb8b03093feaf15a16134863",
+  "duplicate": [
+    4,
+    6
+  ],
+  "not_supplied": [
+    19,
+    22,
+    26,
+    27,
+    28,
+    29,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42
+  ]
+}

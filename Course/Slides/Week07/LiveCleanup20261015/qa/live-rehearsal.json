@@ -1,0 +1,713 @@
+{
+  "engine": "5.7.4-51494982+++UE5+Release-5.7",
+  "started": "2026-10-15T10:45:11.348884-04:00",
+  "steps": [
+    {
+      "label": "Clean baseline before UI rehearsal",
+      "time": "2026-10-15T10:45:11.348884-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Native Material Apply through button",
+      "time": "2026-10-15T10:46:24.461253-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Game/Week07/Generated/Materials/MI_Crate_Live.MI_Crate_Live",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Material assignment Undo",
+      "time": "2026-10-15T10:47:44.636432-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Game/Week07/Generated/Materials/MI_Crate_Live.MI_Crate_Live",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Material Undo verified",
+      "time": "2026-10-15T10:52:37.571247-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Clean baseline before UI rehearsal",
+      "time": "2026-10-15T10:56:37.195064-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [],
+      "selected_assets": []
+    },
+    {
+      "label": "Updated native Material preview: scene unchanged",
+      "time": "2026-10-15T10:57:51.678916-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Updated native Material preview: scene unchanged",
+      "time": "2026-10-15T10:58:01.624062-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Updated native Material Apply",
+      "time": "2026-10-15T10:58:17.072804-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Game/Week07/Generated/Materials/MI_Crate_Live.MI_Crate_Live",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Updated native Material Undo",
+      "time": "2026-10-15T10:58:34.484383-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Native VFX preview: no effects created",
+      "time": "2026-10-15T11:00:17.174580-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_VFXAnchor_1",
+        "W07_VFXAnchor_2",
+        "W07_VFXAnchor_3"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Native VFX Apply: 3 effects",
+      "time": "2026-10-15T11:00:33.641483-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [
+        {
+          "name": "W07_FX_TargetPoint_0",
+          "location": "<Struct 'Vector' (0x0000026CC95420E0) {x: 300.000000, y: -300.000000, z: 20.000000}>",
+          "scale": "<Struct 'Vector' (0x0000026CC95420E0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+          "tags": [
+            "W07_PlacedVFX",
+            "W07_Source=/Game/Week07/Maps/W07_MaterialVFXLab.W07_MaterialVFXLab:PersistentLevel.TargetPoint_0"
+          ]
+        },
+        {
+          "name": "W07_FX_TargetPoint_1",
+          "location": "<Struct 'Vector' (0x0000026CC9541FF0) {x: 300.000000, y: 0.000000, z: 20.000000}>",
+          "scale": "<Struct 'Vector' (0x0000026CC9541FF0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+          "tags": [
+            "W07_PlacedVFX",
+            "W07_Source=/Game/Week07/Maps/W07_MaterialVFXLab.W07_MaterialVFXLab:PersistentLevel.TargetPoint_1"
+          ]
+        },
+        {
+          "name": "W07_FX_TargetPoint_2",
+          "location": "<Struct 'Vector' (0x0000026CC95423B0) {x: 300.000000, y: 300.000000, z: 20.000000}>",
+          "scale": "<Struct 'Vector' (0x0000026CC95423B0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+          "tags": [
+            "W07_PlacedVFX",
+            "W07_Source=/Game/Week07/Maps/W07_MaterialVFXLab.W07_MaterialVFXLab:PersistentLevel.TargetPoint_2"
+          ]
+        }
+      ],
+      "selected": [
+        "W07_VFXAnchor_1",
+        "W07_VFXAnchor_2",
+        "W07_VFXAnchor_3"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Native VFX Undo: batch removed",
+      "time": "2026-10-15T11:00:50.686690-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_VFXAnchor_1",
+        "W07_VFXAnchor_2",
+        "W07_VFXAnchor_3"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Improved stage contrast: clean fixture saved",
+      "time": "2026-10-15T11:01:44.733500-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Live Qt material preview",
+      "time": "2026-10-15T11:02:46.243270-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Live Qt material Apply",
+      "time": "2026-10-15T11:03:08.980437-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Game/Week07/Generated/Materials/MI_Crate_Qt.MI_Crate_Qt",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Live Qt material Undo",
+      "time": "2026-10-15T11:03:37.407268-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Live Qt VFX preview",
+      "time": "2026-10-15T11:05:28.219874-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_VFXAnchor_1",
+        "W07_VFXAnchor_2",
+        "W07_VFXAnchor_3"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Live Qt VFX Apply",
+      "time": "2026-10-15T11:05:53.210428-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [
+        {
+          "name": "W07_FX_TargetPoint_0",
+          "location": "<Struct 'Vector' (0x0000026CD02460E0) {x: 300.000000, y: -300.000000, z: 20.000000}>",
+          "scale": "<Struct 'Vector' (0x0000026CD02460E0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+          "tags": [
+            "W07_PlacedVFX",
+            "W07_Source=/Game/Week07/Maps/W07_MaterialVFXLab.W07_MaterialVFXLab:PersistentLevel.TargetPoint_0"
+          ]
+        },
+        {
+          "name": "W07_FX_TargetPoint_1",
+          "location": "<Struct 'Vector' (0x0000026CD0245BE0) {x: 300.000000, y: 0.000000, z: 20.000000}>",
+          "scale": "<Struct 'Vector' (0x0000026CD0245BE0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+          "tags": [
+            "W07_PlacedVFX",
+            "W07_Source=/Game/Week07/Maps/W07_MaterialVFXLab.W07_MaterialVFXLab:PersistentLevel.TargetPoint_1"
+          ]
+        },
+        {
+          "name": "W07_FX_TargetPoint_2",
+          "location": "<Struct 'Vector' (0x0000026CD0246180) {x: 300.000000, y: 300.000000, z: 20.000000}>",
+          "scale": "<Struct 'Vector' (0x0000026CD0246180) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+          "tags": [
+            "W07_PlacedVFX",
+            "W07_Source=/Game/Week07/Maps/W07_MaterialVFXLab.W07_MaterialVFXLab:PersistentLevel.TargetPoint_2"
+          ]
+        }
+      ],
+      "selected": [
+        "W07_VFXAnchor_1",
+        "W07_VFXAnchor_2",
+        "W07_VFXAnchor_3"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Live Qt VFX Undo",
+      "time": "2026-10-15T11:06:21.979452-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_VFXAnchor_1",
+        "W07_VFXAnchor_2",
+        "W07_VFXAnchor_3"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Live stale-selection Apply blocked without mutation",
+      "time": "2026-10-15T11:06:21.984958-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Final Material capture: clean stage, new reviewed instance",
+      "time": "2026-10-15T11:07:33.531476-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Game/Week07/Generated/Materials/MI_Crate_Final.MI_Crate_Final",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Final clean demo state after all rehearsals",
+      "time": "2026-10-15T11:08:02.279795-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Clean baseline before UI rehearsal",
+      "time": "2026-10-15T11:14:02.031223-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [],
+      "selected_assets": []
+    },
+    {
+      "label": "Clean restart; Qt panel fits screen; rehearsal assets discarded",
+      "time": "2026-10-15T11:14:20.650716-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    },
+    {
+      "label": "Ready for instructor: clean map, material target and textures selected",
+      "time": "2026-10-15T11:20:06.974315-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_Normal"
+      ]
+    },
+    {
+      "label": "Ready for instructor: clean map, material target and textures selected",
+      "time": "2026-10-15T11:20:40.481574-04:00",
+      "cubes": {
+        "W07_Crate_Target": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        },
+        "W07_Crate_Protected": {
+          "material": "/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial",
+          "mesh_default": "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial",
+          "mesh": "/Engine/BasicShapes/Cube.Cube"
+        }
+      },
+      "effects": [],
+      "selected": [
+        "W07_Crate_Target"
+      ],
+      "selected_assets": [
+        "T_Crate_BaseColor",
+        "T_Crate_Normal",
+        "T_Crate_ORM"
+      ]
+    }
+  ],
+  "material_texture_readback": {
+    "BaseColorTexture": "/Game/Week07/LiveDemo/Textures/T_Crate_BaseColor.T_Crate_BaseColor",
+    "NormalTexture": "/Game/Week07/LiveDemo/Textures/T_Crate_Normal.T_Crate_Normal",
+    "ORMTexture": "/Game/Week07/LiveDemo/Textures/T_Crate_ORM.T_Crate_ORM"
+  }
+}

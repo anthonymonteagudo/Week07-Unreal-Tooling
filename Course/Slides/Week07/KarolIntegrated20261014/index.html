@@ -1,0 +1,346 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 7 · Karol integrated revision</title><style>body{font:17px/1.55 system-ui;margin:0;color:#202332;background:#f5f6f9}main{max-width:1380px;margin:auto;padding:35px}a{color:#285c9b}h1{font-size:36px}h2{margin-top:2em}article,section.box{background:white;border:1px solid #d9dce5;border-radius:8px;padding:24px;margin:22px 0}img{max-width:100%;height:auto;border:1px solid #ddd}.pair{display:grid;grid-template-columns:1fr 1fr;gap:22px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f3f7;padding:16px;font:14px/1.5 Consolas,monospace}input,select{font:inherit;padding:10px;border:1px solid #aaa;border-radius:4px}nav{display:flex;gap:22px;flex-wrap:wrap}table{border-collapse:collapse;width:100%}td,th{text-align:left;border-bottom:1px solid #ddd;padding:13px;vertical-align:top}td:first-child{width:25%}.tag{font-weight:bold;color:#476153}.sub{color:#596171}.notes{max-width:1050px}.control{position:sticky;top:0;background:#f5f6f9;padding:12px;z-index:2}details{margin:14px 0}summary{cursor:pointer;font-weight:600}@media(max-width:760px){main{padding:16px}.pair{grid-template-columns:1fr}td,th{padding:7px}table{font-size:14px}}*{box-sizing:border-box}main,article,.pair>div{min-width:0;overflow-wrap:anywhere}.control{display:flex;flex-wrap:wrap;gap:12px}input,select{max-width:100%}table{table-layout:fixed}</style><main><h1>Week 7: Karol integration completed</h1><p>14 October 2026 · v14 · 120 slides: 54 live and 66 hidden references. The live sequence and 150-minute session remain unchanged.</p><nav><a href="output/Week_7_Python_in_Unreal_v14.pptx">Open updated PowerPoint</a><a href="#changes">Slide comparisons</a><a href="#coverage">All 48 lessons</a><a href="#diagnostics">Copy diagnostics</a><a href="gallery.html">All slides and narration</a></nav><section class="box"><h2>What this revision integrates</h2><p>The subsystem and array explanation, import recovery pointer and bridge acknowledgement sequence are now in the deck. The optional Map example follows the Blueprint overview. The full-note pass also added property-result verification, cancellation versus Undo, explicit test invocation, and parameter-override scope.</p><p>Five optional slides: K2 (76), K3 (117), K4 (118), K5 (119), K6 (120). All remain hidden during the main slide show. Existing stable anchors remain unchanged; physical slide numbers after the new Map slide shift by one.</p><p>UI/UX redesign, Golden Path imagery and motion proposals from other reviews remain separate. This revision preserves the current design and their source material rather than treating those proposals as already approved deck edits.</p><p><a href="../UnrealFirst20261013/teach.html">Existing timed teaching route</a> · <a href="../LiveTesting20261013/index.html">Instructor host rehearsal walkthrough</a> · <a href="../KarolCompletionReview20261014/index.html">Previous completion review</a></p></section>
+<section class="box" id="diagnostics"><h2>Copy diagnostics in Blender and Maya</h2><p>Both publishers copy the same read-only JSON snapshot: host/Python versions, module path, active and configured exchange folders, receiver project/session/heartbeat, manifest, pending or last request ID, result and status. Reading the report does not export, import, resend or consume the pending acknowledgement.</p><p>The last completed or failed result remains available after the regular UI poll. New publishing or switching exchange folders clears that context. Missing, stale and malformed records remain diagnosable. Clipboard confirmation does not replace the operation status.</p><p>Offline tests and the Maya offscreen button/clipboard check passed. No live Unreal session or Blender UI was controlled. Reload the publishers before instructor rehearsal, then exercise offline, pending, failure and success cases and inspect the copied text. Review local paths before sharing.</p><img style="width:600px;max-width:100%" src="../../../../Week07UnrealPython/Docs/Bridge/maya-publisher.png" alt="Actual Maya UI rendered offscreen with Copy diagnostics and confirmation"><p><a href="readers/bridge-guide.html">Bridge instructions and report behavior</a></p></section>
+<h2 id="changes">Actual v13 content and v14 changes</h2><p>Rationale and field edits are editorial guidance. Narration is the read-aloud text stored in the updated deck.</p><div class="control"><input id="q" placeholder="Search slides or lessons" aria-label="Search"><select id="filter" aria-label="Slide route"><option value="all">All slide changes</option><option value="live">Live route</option><option value="optional">Optional material</option></select></div><article class="entry" data-route="live" id="slide-10"><h2>v14 slide 10 · live</h2><p><b>Field edits / rationale:</b> Keep table and takeaway. Add a class/instance question and explain direct array iteration.</p><div class="pair"><div><h3>v13 · physical 10</h3><img loading="lazy" src="before/slide-10.png" alt="Original slide 10"><details><summary>Exact original slide text</summary><pre>01  Python in Unreal
+An Unreal function call, explained
+WEEK 7  /  CALL
+10
+Expression
+Meaning
+unreal.get_editor_subsystem(...)
+Ask the running editor for a subsystem.
+unreal.EditorActorSubsystem
+Class argument: which subsystem we need.
+editor.get_selected_level_actors()
+Call on that instance. No explicit arguments.
+actors = ...
+Keep the returned Array[Actor] to inspect.
+A class names a type. The returned editor object performs the operation.</pre></details></div><div><h3>Updated slide 10</h3><img loading="lazy" src="previews/slide-010.png" alt="Updated slide 10"><details><summary>Exact updated slide text</summary><pre>01  Python in Unreal
+An Unreal function call, explained
+WEEK 7  /  CALL
+10
+Expression
+Meaning
+unreal.get_editor_subsystem(...)
+Ask the running editor for a subsystem.
+unreal.EditorActorSubsystem
+Class argument: which subsystem we need.
+editor.get_selected_level_actors()
+Call on that instance. No explicit arguments.
+actors = ...
+Keep the returned Array[Actor] to inspect.
+A class names a type. The returned editor object performs the operation.
+Which expression names the class, and which retrieves its instance?</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">Read this together with the selection example. Unreal is the module. EditorActorSubsystem names the type we request. get_editor_subsystem returns the existing editor-owned instance. We store that instance as editor and call its method. The empty parentheses mean no explicit arguments on this call. Its return is a collection, so len counts it and a for loop inspects each Actor. Karol highlights the distinction between static library calls and calls on subsystem instances.<br><br>We ask the editor for its managed subsystem instance. Older course screenshots construct EditorActorSubsystem directly; use the accessor shown here. The returned Unreal Array supports this loop directly. Converting it to a Python list is optional. What questions do you have about the class, instance or collection?</p></details></article><article class="entry" data-route="live" id="slide-13"><h2>v14 slide 13 · live</h2><p><b>Field edits / rationale:</b> Keep run procedure. Add named K3 reference and import/reload guidance.</p><div class="pair"><div><h3>v13 · physical 13</h3><img loading="lazy" src="before/slide-13.png" alt="Original slide 13"><details><summary>Exact original slide text</summary><pre>01  Python in Unreal
+A saved example, run inside Unreal
+WEEK 7  /  RUN
+13
+Save the complete UE02 example as Content/Python/selection_demo.py.
+In Unreal, choose Tools &gt; Execute Python Script and select that file.
+Read the Output Log. Change the Outliner selection and execute the file again.
+Each execution reads the selection that exists at that moment.</pre></details></div><div><h3>Updated slide 13</h3><img loading="lazy" src="previews/slide-013.png" alt="Updated slide 13"><details><summary>Exact updated slide text</summary><pre>01  Python in Unreal
+A saved example, run inside Unreal
+WEEK 7  /  RUN
+13
+Save the complete UE02 example as Content/Python/selection_demo.py.
+In Unreal, choose Tools &gt; Execute Python Script and select that file.
+Read the Output Log. Change the Outliner selection and execute the file again.
+Each execution reads the selection that exists at that moment.
+Explore further: Import troubleshooting (K3)</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">Use the same small file shown in the deck. It contains its own import and subsystem lookup so no earlier script is needed. A normal VS Code Run Python File command does not run inside Unreal. Re-executing the saved script is also different from importing a cached module again. During tool development, reload a module explicitly when needed.<br><br>If an import fails, read the traceback first. Is our module missing, or did something it imports fail? The interpreter and package folder matter. The optional Import troubleshooting example walks through that distinction. Repeated imports are cached; replacing registered callbacks needs deliberate cleanup. What questions do you have about finding or running the file?</p></details></article><article class="entry" data-route="live" id="slide-21"><h2>v14 slide 21 · live</h2><p><b>Field edits / rationale:</b> Keep read-only code. Add narration distinguishing property readback from the resulting asset.</p><div class="pair"><div><h3>v13 · physical 21</h3><img loading="lazy" src="before/slide-21.png" alt="Original slide 21"><details><summary>Exact original slide text</summary><pre>01  Python in Unreal
+UE05: Texture editor properties
+WEEK 7  /  09G
+21
+import unreal
+assets = unreal.EditorUtilityLibrary.get_selected_assets()
+textures = [asset for asset in assets
+            if isinstance(asset, unreal.Texture2D)]
+print(&quot;Textures:&quot;, len(textures), &quot;skipped:&quot;, len(assets) - len(textures))
+
+for texture in textures:
+    compression = texture.get_editor_property(&quot;compression_settings&quot;)
+    srgb = texture.get_editor_property(&quot;srgb&quot;)
+    print(texture.get_name(), compression, &quot;sRGB:&quot;, srgb)
+isinstance filters Texture2D inputs. get_editor_property reads the named setting; it does not change it.
+Run in Unreal. Complete example.
+Would changing a shared texture affect more than one material?</pre></details></div><div><h3>Updated slide 21</h3><img loading="lazy" src="previews/slide-021.png" alt="Updated slide 21"><details><summary>Exact updated slide text</summary><pre>01  Python in Unreal
+UE05: Texture editor properties
+WEEK 7  /  09G
+21
+import unreal
+assets = unreal.EditorUtilityLibrary.get_selected_assets()
+textures = [asset for asset in assets
+            if isinstance(asset, unreal.Texture2D)]
+print(&quot;Textures:&quot;, len(textures), &quot;skipped:&quot;, len(assets) - len(textures))
+
+for texture in textures:
+    compression = texture.get_editor_property(&quot;compression_settings&quot;)
+    srgb = texture.get_editor_property(&quot;srgb&quot;)
+    print(texture.get_name(), compression, &quot;sRGB:&quot;, srgb)
+isinstance filters Texture2D inputs. get_editor_property reads the named setting; it does not change it.
+Run in Unreal. Complete example.
+Would changing a shared texture affect more than one material?</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">Read compression and sRGB. Non-texture selections are counted and skipped. Complete checkpoint shown. No previous script required. Texture/skipped counts, compression and sRGB values. Would changing a shared texture affect more than one material? Compare a normal map with a color texture.<br><br>This checkpoint only reads properties. When you later write one, use its editor setter and compare the actual result with a manual edit. Karol’s source-color-space example needed a change notification to rebuild dependent values. Reading back one field alone would miss that problem. Saving and Undo are separate decisions.</p></details></article><article class="entry" data-route="live" id="slide-23"><h2>v14 slide 23 · live</h2><p><b>Field edits / rationale:</b> Keep validator and question. Clarify project-specific rules, skipped inputs and actionable failures.</p><div class="pair"><div><h3>v13 · physical 23</h3><img loading="lazy" src="before/slide-23.png" alt="Original slide 23"><details><summary>Exact original slide text</summary><pre>01  Python in Unreal
+UE06: Read-only validation
+WEEK 7  /  09H
+23
+for texture in textures:
+    if not texture.get_name().endswith(&quot;_Normal&quot;):
+        continue
+    checked += 1
+    actual = texture.get_editor_property(&quot;compression_settings&quot;)
+    if actual != expected:
+        mismatches += 1
+        print(&quot;MISMATCH&quot;, texture.get_path_name(), actual, expected)
+Setup defines textures, expected compression and counters. Check prints the final totals.
+Run in Unreal. First run UE06: setup.
+Why does zero checked not establish a pass?</pre></details></div><div><h3>Updated slide 23</h3><img loading="lazy" src="previews/slide-023.png" alt="Updated slide 23"><details><summary>Exact updated slide text</summary><pre>01  Python in Unreal
+UE06: Read-only validation
+WEEK 7  /  09H
+23
+for texture in textures:
+    if not texture.get_name().endswith(&quot;_Normal&quot;):
+        continue
+    checked += 1
+    actual = texture.get_editor_property(&quot;compression_settings&quot;)
+    if actual != expected:
+        mismatches += 1
+        print(&quot;MISMATCH&quot;, texture.get_path_name(), actual, expected)
+Setup defines textures, expected compression and counters. Check prints the final totals.
+Run in Unreal. First run UE06: setup.
+Why does zero checked not establish a pass?</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">Setup defines textures, expected compression and counters. Check prints the final totals. First run UE06: setup. Then run the shown block(s). Every mismatching _Normal texture and final checked/mismatch counts. Zero checked is explicitly inconclusive. Why does zero checked not establish a pass? Change only the suffix rule for your project. Predict which assets are eligible.<br><br>Our suffix and expected compression are project rules. Karol uses a different naming convention, and his square and allowed-size validators are separate checks. A skipped input is not a pass. A useful failure names the asset, its actual value and the expected rule.</p></details></article><article class="entry" data-route="live" id="slide-29"><h2>v14 slide 29 · live</h2><p><b>Field edits / rationale:</b> Keep selection, +0.4 m revision, two placements and reset. Explain each handoff stage and Copy diagnostics.</p><div class="pair"><div><h3>v13 · physical 29</h3><img loading="lazy" src="before/slide-29.png" alt="Original slide 29"><details><summary>Exact original slide text</summary><pre>02  Brief Blender bridge demo
+Blender bridge: one geometry revision
+WEEK 7  /  10D
+29
+Select one mesh. Publish &amp; Send to Unreal.
+Raise the roof 0.4 m. Send the same asset name.
+Verify both blue instances update; placement and materials stay.
+Recorded Blender UI reference. Geometry revision; materials stay in Unreal.
+Reset: publish the baseline mesh again using the same asset name.</pre></details></div><div><h3>Updated slide 29</h3><img loading="lazy" src="previews/slide-029.png" alt="Updated slide 29"><details><summary>Exact updated slide text</summary><pre>02  Brief Blender bridge demo
+Blender bridge: one geometry revision
+WEEK 7  /  10D
+29
+Select one mesh. Publish &amp; Send to Unreal.
+Raise the roof 0.4 m. Send the same asset name.
+Verify both blue instances update; placement and materials stay.
+Publish files. Send request. Wait for acknowledgement. Inspect the asset.
+Reset: publish the baseline mesh again using the same asset name.</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">This is the short demonstration before the handoff. Start with the prepared Blender mesh, in Object Mode, and the Unreal bridge comparison map. Publish as SM_Compare_Blender and wait for Imported. Use the prepared revised source or raise only the roof vertices by 0.4 metres along Blender Z, return to Object Mode, and publish under the same name. The two blue Unreal instances should update from 180 to 220 centimetres high. Verify their placement and existing materials. Publish the baseline again to restore the shared asset. The Maya objects are comparison fixtures; do not run the Maya publisher in this portion.<br><br>Publishing writes FBX and JSON. Sending queues an import request. Wait for Unreal’s acknowledgement, then inspect both blue placements and their shared asset. Our bridge uses files for requests and acknowledgements. Karol’s example uses HTTP Remote Control. If the send is blocked or pending, Copy diagnostics records the environment, exchange folder and request/result identities without sending another request. What proves the revision reached the intended asset?</p></details></article><article class="entry" data-route="live" id="slide-43"><h2>v14 slide 43 · live</h2><p><b>Field edits / rationale:</b> Keep error screenshot. Add the implemented diagnostics example and its read-only purpose.</p><div class="pair"><div><h3>v13 · physical 43</h3><img loading="lazy" src="../UnrealFirst20261013/previews/slide-43.png" alt="Original slide 43"><details><summary>Exact original slide text</summary><pre>06  UI/UX for artist tools
+An error should support recovery
+WEEK 7  /  15D
+43
+Actual course PySide tool · offline blocked state
+What would you change in this message?</pre></details></div><div><h3>Updated slide 43</h3><img loading="lazy" src="previews/slide-043.png" alt="Updated slide 43"><details><summary>Exact updated slide text</summary><pre>06  UI/UX for artist tools
+An error should support recovery
+WEEK 7  /  15D
+43
+Actual course PySide tool · offline blocked state
+What would you change in this message?
+Bridge example: Copy diagnostics preserves the request and its evidence.</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">Read the message as an artist who has not seen the code. Can you identify the problem, the affected input, and the next action? A raw exception may help the developer, but the artist also needs a way to resume the task.<br><br>The bridge now offers Copy diagnostics. It copies the active environment, exchange folder, receiver identity and request result. It leaves the current operation in place. We can attach that report to reproduction steps before deciding whether to retry.</p></details></article><article class="entry" data-route="live" id="slide-44"><h2>v14 slide 44 · live</h2><p><b>Field edits / rationale:</b> Keep accessibility content. Add cancellation versus Undo distinction and K5 pointer in narration.</p><div class="pair"><div><h3>v13 · physical 44</h3><img loading="lazy" src="../UnrealFirst20261013/previews/slide-44.png" alt="Original slide 44"><details><summary>Exact original slide text</summary><pre>06  UI/UX for artist tools
+Recovery and accessibility
+WEEK 7  /  15B
+44
+# Existing PySide view implementation
+self.preview.setAccessibleName(
+    &quot;Selected Actors change preview&quot;
+)
+Review consequential changes before applying them
+Test the recovery path you actually offer
+Keep focus, labels, and status understandable
+Requires the surrounding widget class.
+Could a classmate recover without help?</pre></details></div><div><h3>Updated slide 44</h3><img loading="lazy" src="previews/slide-044.png" alt="Updated slide 44"><details><summary>Exact updated slide text</summary><pre>06  UI/UX for artist tools
+Recovery and accessibility
+WEEK 7  /  15B
+44
+# Existing PySide view implementation
+self.preview.setAccessibleName(
+    &quot;Selected Actors change preview&quot;
+)
+Review consequential changes before applying them
+Test the recovery path you actually offer
+Keep focus, labels, and status understandable
+Requires the surrounding widget class.
+Could a classmate recover without help?</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">Recovery can mean Undo for an editor transaction, or a separate restore and reimport procedure. Do not promise that all operations can be undone. The code excerpt names the preview for accessibility; it is one implementation detail, not a complete accessibility guarantee. Check keyboard operation, visible focus, readable text, and status cues that do not rely on color alone. This UI fragment requires the surrounding widget instance. Use the checkpoint guide for independently runnable Unreal and Blender examples.<br><br>Cancellation stops future work at the next check. It does not undo changes already made. A transaction groups supported editor edits, while file export and import need their own recovery procedure. Explore further in Progress, cancellation and Undo, K5.</p></details></article><article class="entry" data-route="live" id="slide-46"><h2>v14 slide 46 · live</h2><p><b>Field edits / rationale:</b> Keep peer-test visual and discussion. Connect to optional test-wiring example.</p><div class="pair"><div><h3>v13 · physical 46</h3><img loading="lazy" src="../UnrealFirst20261013/previews/slide-46.png" alt="Original slide 46"><details><summary>Exact original slide text</summary><pre>06  UI/UX for artist tools
+A test produces the next question
+WEEK 7  /  16E
+46
+Course testing loop · a possible explanation is not yet a finding
+What questions remain before you write the peer-test task?</pre></details></div><div><h3>Updated slide 46</h3><img loading="lazy" src="previews/slide-046.png" alt="Updated slide 46"><details><summary>Exact updated slide text</summary><pre>06  UI/UX for artist tools
+A test produces the next question
+WEEK 7  /  16E
+46
+Course testing loop · a possible explanation is not yet a finding
+What questions remain before you write the peer-test task?</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">An observation gives you evidence. Your explanation is still a hypothesis. Make one change that addresses it and repeat the task. If the difficulty remains, revise the explanation rather than merely adding more instructions. For example, the tester chose the wrong destination. That is the observation. An unclear label is a possible explanation. Showing the full path is a proposed change, and a new tester’s attempt is the retest. What questions do you have before writing your own task?<br><br>For automated checks, also prove that a deliberately failing expectation is detected. A discovered file that never calls its checks gives no evidence about those checks. Explore further in Tests that detect failure, K6.</p></details></article><article class="entry" data-route="optional" id="slide-61"><h2>v14 slide 61 · optional</h2><p><b>Field edits / rationale:</b> Keep PySide/Slate table. Add dependency-direction caption.</p><div class="pair"><div><h3>v13 · physical 61</h3><img loading="lazy" src="before/slide-61.png" alt="Original slide 61"><details><summary>Exact original slide text</summary><pre>02  Unreal API calls in working tools
+Two interfaces, one Python workflow
+WEEK 7  /  08A
+61
+Layer
+Current implementation
+Artist interface
+PySide window or native Slate editor panel
+Shared Python
+WorkflowSession: Preview, rules, Apply
+Editor backend
+Unreal API calls and result checks
+Which logic should survive a complete UI redesign?</pre></details></div><div><h3>Updated slide 61</h3><img loading="lazy" src="previews/slide-061.png" alt="Updated slide 61"><details><summary>Exact updated slide text</summary><pre>02  Unreal API calls in working tools
+Two interfaces, one Python workflow
+WEEK 7  /  08A
+61
+Layer
+Current implementation
+Artist interface
+PySide window or native Slate editor panel
+Shared Python
+WorkflowSession: Preview, rules, Apply
+Editor backend
+Unreal API calls and result checks
+Which logic should survive a complete UI redesign?
+UI calls workflow logic; host adapters call the editor API.</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">The current native Unreal panel uses Slate. The other interface uses PySide. Both call the same Python workflow. An Editor Utility Blueprint is another possible entry point, but it is not the implementation of our current panel. Which rules should remain unchanged if we redesign the interface?<br><br>Reusable workflow logic should not import the window that calls it. That direction helps avoid circular imports and lets another interface reuse the operation. The bridge follows the same idea with shared Publisher logic and separate Blender and Maya adapters.</p></details></article><article class="entry" data-route="optional" id="slide-75"><h2>v14 slide 75 · optional</h2><p><b>Field edits / rationale:</b> Keep Blueprint overview. Link by name to the optional Map example immediately following.</p><div class="pair"><div><h3>v13 · physical 75</h3><img loading="lazy" src="before/slide-75.png" alt="Original slide 75"><details><summary>Exact original slide text</summary><pre>Explore further
+Blueprints as an editor interface
+WEEK 7  /  08
+75
+Layer
+Responsibility
+Editor Utility Widget
+Inputs, scope, actions, and result display
+Execute Python Script
+Pass named inputs and outputs
+Python operation
+Validate, perform the operation, report results
+Should the button contain the whole tool—or call one operation?</pre></details></div><div><h3>Updated slide 75</h3><img loading="lazy" src="previews/slide-075.png" alt="Updated slide 75"><details><summary>Exact updated slide text</summary><pre>Explore further
+Blueprints as an editor interface
+WEEK 7  /  08
+75
+Layer
+Responsibility
+Editor Utility Widget
+Inputs, scope, actions, and result display
+Execute Python Script
+Pass named inputs and outputs
+Python operation
+Validate, perform the operation, report results
+Should the button contain the whole tool—or call one operation?
+Explore further: Python data to a Blueprint Map (K2)</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">This is the Blueprint connection we need today. Epic supports Python execution nodes in editor-only Blueprints such as Editor Utility Widgets. The Execute Python Script node can expose custom inputs and outputs. It does not make Python a gameplay scripting language. Its execution-success output is not a substitute for checking whether the artist’s task succeeded.</p></details></article><article class="entry" data-route="optional" id="slide-76"><h2>v14 slide 76 · optional</h2><p><b>Field edits / rationale:</b> New optional slide, hidden from the live route. Reuses the deck typography and reference palette.</p><div class="pair"><div><h3>New optional material</h3><p>No prior slide. Added after the existing Blueprint overview for K2; remaining references follow the former final reference slide.</p></div><div><h3>Updated slide 76</h3><img loading="lazy" src="previews/slide-076.png" alt="Updated slide 76"><details><summary>Exact updated slide text</summary><pre>Explore further
+Python data to a Blueprint Map
+WEEK 7  /  K2
+import unreal
+my_dict = {&quot;a&quot;: 1, &quot;b&quot;: 2}
+unreal_map = unreal.Map.cast(str, int, my_dict)
+Output: unreal_map     Config: Map&lt;String, Integer&gt;
+Karol Kowalczyk / Tech Art Corner · lesson 50
+What must match on both sides? What would you like clarified?
+76</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">This script runs in Execute Python Script inside an editor utility Blueprint. Add an output named unreal_map. Create Config as a Map with String keys and Integer values. Connect the execution wire and the unreal_map output to Set Config. The Python variable name matches the output name. Return Value reports execution success; it is separate from the returned Map. Inspect Config: a should be 1 and b should be 2. Change b to 3 and check it again. What would you inspect if the receiving pin had the wrong type?</p></details></article><article class="entry" data-route="optional" id="slide-98"><h2>v14 slide 98 · optional</h2><p><b>Field edits / rationale:</b> Keep production reference. Add concrete bridge reproduction evidence.</p><div class="pair"><div><h3>v13 · physical 97</h3><img loading="lazy" src="../UnrealFirst20261013/previews/slide-97.png" alt="Original slide 97"><details><summary>Exact original slide text</summary><pre>Explore further
+Shareable reproduction steps
+WEEK 7  /  A9
+97
+Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.51
+What would you attach to a useful bug report?</pre></details></div><div><h3>Updated slide 98</h3><img loading="lazy" src="previews/slide-098.png" alt="Updated slide 98"><details><summary>Exact updated slide text</summary><pre>Explore further
+Shareable reproduction steps
+WEEK 7  /  A9
+98
+Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.51
+What would you attach to a useful bug report?</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">Mission Kontrol supports sharing test scripts as JSON. For your tool, consider saving the input and settings needed to repeat a reported problem. A screenshot of the final failure may not include the starting conditions.<br><br>For the classroom bridge, attach Copy diagnostics with the steps that led to the problem. It preserves the active exchange, receiver project/session and last request/result identity. Review local paths before sharing the report. The report does not export or resend anything.</p></details></article><article class="entry" data-route="optional" id="slide-106"><h2>v14 slide 106 · optional</h2><p><b>Field edits / rationale:</b> Keep parameter readback. Add prerequisite and clear-all scope clarification.</p><div class="pair"><div><h3>v13 · physical 105</h3><img loading="lazy" src="../UnrealFirst20261013/previews/slide-105.png" alt="Original slide 105"><details><summary>Exact original slide text</summary><pre>Explore further
+UE09: Material parameter readback
+WEEK 7  /  09L
+105
+names = library.get_texture_parameter_names(instance)
+print(&quot;Texture parameters:&quot;, len(names))
+for name in names:
+    texture = library.get_material_instance_texture_parameter_value(
+        instance, name)
+    print(name, texture.get_path_name() if texture else None)
+Setup validates one selected material instance. Read back its texture parameters.
+Run in Unreal. First run UE09: setup.
+Which returned path would you compare with the expected input?</pre></details></div><div><h3>Updated slide 106</h3><img loading="lazy" src="previews/slide-106.png" alt="Updated slide 106"><details><summary>Exact updated slide text</summary><pre>Explore further
+UE09: Material parameter readback
+WEEK 7  /  09L
+106
+names = library.get_texture_parameter_names(instance)
+print(&quot;Texture parameters:&quot;, len(names))
+for name in names:
+    texture = library.get_material_instance_texture_parameter_value(
+        instance, name)
+    print(name, texture.get_path_name() if texture else None)
+Setup validates one selected material instance. Read back its texture parameters.
+Run in Unreal. First run UE09: setup.
+Which returned path would you compare with the expected input?</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">Setup validates one selected material instance. Read back its texture parameters. First run UE09: setup. Then run the shown block(s). Texture parameter names and resolved texture paths, or None. Zero parameters prints zero. Which returned path would you compare with the expected input? Compare an expected texture mapping with the reported value.<br><br>Parameter names must match the parent material. Check expected names before applying edits, inspect setter results, then read back the assigned values. Clearing all parameter overrides is a separate operation that can remove unrelated choices. Constructing MaterialParameterInfo only describes a parameter; it does not set one.</p></details></article><article class="entry" data-route="optional" id="slide-107"><h2>v14 slide 107 · optional</h2><p><b>Field edits / rationale:</b> Keep existing connection table. Add named references to the completed-course examples.</p><div class="pair"><div><h3>v13 · physical 106</h3><img loading="lazy" src="before/slide-106.png" alt="Original slide 106"><details><summary>Exact original slide text</summary><pre>Explore further
+Karol course connections
+WEEK 7  /  K1
+106
+Course material
+Week 7 use
+Selection and help()
+Host, subsystem and object inspection
+Properties and texture compression
+Read-only validation example
+FBX import and remote calls
+Task, options and acknowledgement
+Undo and tool interfaces
+Recovery boundaries and shared rules</pre></details></div><div><h3>Updated slide 107</h3><img loading="lazy" src="previews/slide-107.png" alt="Updated slide 107"><details><summary>Exact updated slide text</summary><pre>Explore further
+Karol course connections
+WEEK 7  /  K1
+107
+Course material
+Week 7 use
+Selection and help()
+Host, subsystem and object inspection
+Properties and texture compression
+Read-only validation example
+FBX import and remote calls
+Task, options and acknowledgement
+Undo and tool interfaces
+Recovery boundaries and shared rules
+Completed course: K2 Map · K3 imports · K4 Remote Control
+K5 cancellation / Undo · K6 automated test evidence</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">These are the specific connections we used from Karol Kowalczyk’s course. The classroom bridge and tools are course-authored implementations. The original downloaded projects provide references for further study, rather than the classroom launch project.<br><br>The completed course adds a typed Map output example, import troubleshooting and runtime object-path discovery. The latter applies to Remote Control, while our classroom bridge uses file requests. The further examples separate cancellation from Undo and show how to prove a test is actually running. Which reference would help your own tool next?</p></details></article><article class="entry" data-route="optional" id="slide-117"><h2>v14 slide 117 · optional</h2><p><b>Field edits / rationale:</b> New optional slide, hidden from the live route. Reuses the deck typography and reference palette.</p><div class="pair"><div><h3>New optional material</h3><p>No prior slide. Added after the existing Blueprint overview for K2; remaining references follow the former final reference slide.</p></div><div><h3>Updated slide 117</h3><img loading="lazy" src="previews/slide-117.png" alt="Updated slide 117"><details><summary>Exact updated slide text</summary><pre>Explore further
+Import troubleshooting
+WEEK 7  /  K3
+Missing module, nested failure, or a circular import?
+import sys
+import unreal
+print(unreal.get_interpreter_executable_path())
+print(&quot;\n&quot;.join(sys.path))
+Read the traceback. Check the loaded module’s __file__.
+Use package-qualified imports from Content/Python.
+Install dependencies with the host interpreter during preparation.
+Return to: A saved example, run inside Unreal (RUN)
+Which interpreter ran the failing import? Questions about discovery?
+117</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">Run this diagnostic in Unreal. The first path identifies its Python interpreter; the remaining lines show import search locations. An IDE’s successful autocomplete does not prove that Unreal can import the module. If an import succeeds, print that module’s __file__ to verify which copy loaded. Read nested tracebacks before installing anything. Package-qualified imports avoid relying on a script folder added only by the IDE. Repeated imports are cached, and a circular import needs a dependency change. Keep the UI dependent on shared operations, not the other way around.</p></details></article><article class="entry" data-route="optional" id="slide-118"><h2>v14 slide 118 · optional</h2><p><b>Field edits / rationale:</b> New optional slide, hidden from the live route. Reuses the deck typography and reference palette.</p><div class="pair"><div><h3>New optional material</h3><p>No prior slide. Added after the existing Blueprint overview for K2; remaining references follow the former final reference slide.</p></div><div><h3>Updated slide 118</h3><img loading="lazy" src="previews/slide-118.png" alt="Updated slide 118"><details><summary>Exact updated slide text</summary><pre>Explore further
+Remote Control object paths
+WEEK 7  /  K4
+Inside Unreal, after registering the course class:
+from remote_control_demo_functions import RemoteControlDemo
+object_path = RemoteControlDemo.get_default_object().get_path_name()
+print(object_path)
+Use the printed value as objectPath in the HTTP request.
+Check HTTP status and ReturnValue, then inspect the operation’s result.
+The classroom FBX bridge uses file requests instead.
+Return to: Blender bridge (10D) or Karol course connections (K1)
+What does a successful ping prove? What remains untested?
+118</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">This fragment requires the RemoteControlDemo class from the course module, imported and registered inside Unreal. Ask that registered class for its default object path. A copied Engine/PythonTypes path may not describe a class imported from a module. Use the discovered string in the request and check the response. A ping confirms that callable, not the correctness of an asset import. Our file-based bridge does not require this Remote Control setup.</p></details></article><article class="entry" data-route="optional" id="slide-119"><h2>v14 slide 119 · optional</h2><p><b>Field edits / rationale:</b> New optional slide, hidden from the live route. Reuses the deck typography and reference palette.</p><div class="pair"><div><h3>New optional material</h3><p>No prior slide. Added after the existing Blueprint overview for K2; remaining references follow the former final reference slide.</p></div><div><h3>Updated slide 119</h3><img loading="lazy" src="previews/slide-119.png" alt="Updated slide 119"><details><summary>Exact updated slide text</summary><pre>Explore further
+Progress, cancellation and Undo
+WEEK 7  /  K5
+Mechanism
+What it establishes
+Progress
+Work completed relative to the declared total
+Cancellation
+Stops future work when the loop checks
+Transaction / Undo
+Restores supported editor changes
+Restore and reimport
+Recovers exported or imported asset revisions
+A Cancel button needs a cooperative check between work units.
+Return to: Recovery and accessibility (15B)
+After item 3 of 10, what remains changed if the artist cancels?
+119</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">ScopedSlowTask can display progress and a Cancel button. The loop still has to check should_cancel between work units. Cancelling leaves completed edits in place. Put supported batch edits inside one meaningful ScopedEditorTransaction when one Undo should cover them. Verify that the affected operation participates in transactions. FBX exports, imports and file writes require an explicit recovery procedure. In our bridge, publish the baseline under the same asset name. What questions do you have about the recovery your tool promises?</p></details></article><article class="entry" data-route="optional" id="slide-120"><h2>v14 slide 120 · optional</h2><p><b>Field edits / rationale:</b> New optional slide, hidden from the live route. Reuses the deck typography and reference palette.</p><div class="pair"><div><h3>New optional material</h3><p>No prior slide. Added after the existing Blueprint overview for K2; remaining references follow the former final reference slide.</p></div><div><h3>Updated slide 120</h3><img loading="lazy" src="previews/slide-120.png" alt="Updated slide 120"><details><summary>Exact updated slide text</summary><pre>Explore further
+Tests that detect failure
+WEEK 7  /  K6
+The discovered script must call its check.
+import unreal
+
+def test_upper():
+    actual = &quot;foo&quot;.upper()
+    if actual != &quot;FOO&quot;:
+        unreal.log_error(f&quot;Expected FOO, got {actual!r}&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    test_upper()
+Temporarily expect BAR. Confirm failure, then restore FOO.
+Return to: A test produces the next question (16E)
+Would a green result prove that an uncalled check passed?
+120</pre></details></div></div><details><summary>Read-aloud narration</summary><p class="notes">Save this as a test_ Python script in a discoverable folder for the course’s Python Automation Test setup. Defining the function alone does not run it; the final call matters. First confirm the successful expectation. Temporarily change the expected value to BAR and confirm the runner detects the logged failure. Restore FOO afterward. Keep normal, empty and failure cases isolated. An excluded check is skipped, not passed. Expected-log rules must match the real tested operation; emitting a synthetic matching warning would not prove that operation ran. What would your tool’s meaningful failure case be?</p></details></article><h2 id="coverage">Full REFINED collection: 48 lesson decisions</h2><p>Read every existing REFINED lesson, including code and caveats. This pass assesses teaching integration; it does not claim to revalidate every historical screenshot against the current engine. Lessons 04, 05 and 28 are absent from the collection. Original and refined note files are unchanged in this pass.</p><table><thead><tr><th>Lesson</th><th>Decision / destination</th><th>Technical context retained</th></tr></thead><tbody><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/00%20UE%20Python%20Overview%20-%20REFINED.md">00 UE Python Overview</a></td><td><b>Covered</b><br>3, 6, 19, 24</td><td>Automation scope and production uses already frame the opening.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/01%20Initial%20Setup%20-%20REFINED.md">01 Initial Setup</a></td><td><b>Covered</b><br>4–5</td><td>Plugins, restart and host readiness already covered. Keep engine-version package differences in preparation.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/02%20VS%20Code%20Autocomplete%20Setup%20-%20REFINED.md">02 VS Code Autocomplete Setup</a></td><td><b>Covered</b><br>8–9</td><td>IDE stub path is for autocomplete; runtime remains Unreal. No extra installation lecture.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/01%20Setup/03%20Typing%20in%20Python%20-%20REFINED.md">03 Typing in Python</a></td><td><b>Reference</b><br>K2 / 76</td><td>Typed Map reinforces boundary types. Full typing syntax and legacy comments remain notes.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/06%20Making%20scripts%20discoverable%20by%20Unreal%20-%20REFINED.md">06 Making scripts discoverable by Unreal</a></td><td><b>Integrated</b><br>13; K3 / 117</td><td>Discoverability, qualified package names and host search paths.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/07%20Running%20Scripts%20From%20Editor%20-%20REFINED.md">07 Running Scripts From Editor</a></td><td><b>Integrated</b><br>13</td><td>File execution versus cached import, and intentional reload with cleanup.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/08%20Running%20Script%20via%20Commandline%20-%20REFINED.md">08 Running Script via Commandline</a></td><td><b>Deferred</b><br>Course notes</td><td>Headless commandlet and startup readiness are useful later pipeline depth; not required for the current interactive demos.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/02%20Running%20Scripts/09%20Startup%20Scripts%20and%20init_unreal.py%20-%20REFINED.md">09 Startup Scripts and init_unreal.py</a></td><td><b>Integrated</b><br>13; K3 / 117</td><td>Startup/import cache context in narration. Avoid implicit classroom receiver startup.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/10%20Getting%20User%20Selection%20and%20Listing%20Assets%20-%20REFINED.md">10 Getting User Selection and Listing Assets</a></td><td><b>Covered</b><br>10–18, 25</td><td>Subsystems, actors/assets, selection and path forms already explicit.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/11%20Filtering%20Asset%20and%20Actor%20List%20with%20EditorFilterLibrary%20-%20REFINED.md">11 Filtering Asset and Actor List with EditorFilterLibrary</a></td><td><b>Covered</b><br>21, 23</td><td>Inheritance-aware filtering already visible. Library filters and benchmark comparison remain reference.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/12%20Texture%20Compression%20Settings%20Validator%20-%20Accessing%20Editor%20Properties%20-%20REFINED.md">12 Texture Compression Settings Validator - Accessing Editor Properties</a></td><td><b>Integrated</b><br>21, 23</td><td>Project suffix rules, report versus apply and actual/expected messages. Keep current _Normal conventions.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/13%20Importance%20of%20PropertyAccessChangeNotifyMode%20in%20setting%20editor%20properties%20-%20REFINED.md">13 Importance of PropertyAccessChangeNotifyMode in setting editor properties</a></td><td><b>Integrated</b><br>21 narration</td><td>A notifying setter may rebuild dependent data. Inspect actual appearance as well as assigned values; no universal sRGB rewrite.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/14%20Editing%20Material%20Instance%20Parameters%20-%20Material%20Editing%20Library%20-%20REFINED.md">14 Editing Material Instance Parameters - Material Editing Library</a></td><td><b>Integrated</b><br>106 (formerly 105) narration</td><td>Validate parameter names, read back results, and treat clear-all-overrides as a separate consequential operation.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/15%20Find%20Duplicated%20Actors%20On%20The%20Level%20-%20REFINED.md">15 Find Duplicated Actors On The Level</a></td><td><b>Deferred</b><br>Course notes</td><td>Duplicate placement detection is a candidate report, not proof of redundant actors. Do not expand the chosen Material/VFX scope.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/16%20ImportRules%20Plugin%20-%20Run%20Custom%20post%20Import%20Action%20-%20REFINED.md">16 ImportRules Plugin - Run Custom post Import Action</a></td><td><b>Deferred</b><br>Course notes</td><td>ImporterRules is an external framework. Automatic metadata-based moving could break the bridge’s stable destination/ownership contract.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/17%20Post%20Import%20Actions%20Using%20ImportSubsystem%20-%20REFINED.md">17 Post Import Actions Using ImportSubsystem</a></td><td><b>Integrated</b><br>13 narration; course reference</td><td>Reload requires callback cleanup; a module flag is not reload-safe. Do not add post-import auto-moving to the bridge.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/18%20Remove%20Unused%20Assets%20-%20REFINED.md">18 Remove Unused Assets</a></td><td><b>Deferred</b><br>Course notes</td><td>Referencer queries depend on saved state and cannot prove dynamic non-use. Force deletion is outside the demo and is not an Undo example.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/19%20Batch%20Import%20FBX%20Meshes%20%28Asset%20Import%20Task%29%20-%20REFINED.md">19 Batch Import FBX Meshes (Asset Import Task)</a></td><td><b>Covered</b><br>29, 67–69</td><td>Task fields, imported paths and explicit current importer behavior exist. Preserve material and destination policy.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/03%20Automation%20Scripting/20%20Batch%20Import%20Textures%20%28Automated%20Asset%20Import%29%20-%20REFINED.md">20 Batch Import Textures (Automated Asset Import)</a></td><td><b>Reference</b><br>Course notes</td><td>AutomatedAssetImportData returns objects; task imports expose result paths. Keep one import API in the live bridge explanation.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/21%20Why%20you%20need%20asset%20validation%20-%20REFINED.md">21 Why you need asset validation</a></td><td><b>Integrated</b><br>23 narration</td><td>Rules are project policy, unsupported inputs are skipped, and useful failure messages identify actual/expected values.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/22%20Naming%20Convention%20Validator%20-%20REFINED.md">22 Naming Convention Validator</a></td><td><b>Reference</b><br>23; course notes</td><td>Full EditorValidatorBase registration and historical override signatures remain optional. No unverified version migration.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/23%20Square%20texture%20validator%20-%20REFINED.md">23 Square texture validator</a></td><td><b>Integrated</b><br>23 narration; audit</td><td>Square and allowed dimensions are independent checks. 300x300 is square, while 256x512 is not.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/24%20Power%20of%20two%20texture%20size%20validator%20-%20REFINED.md">24 Power of two texture size validator</a></td><td><b>Integrated</b><br>23 narration; audit</td><td>The explicit allowed tuple excludes 1 and sizes over 8192. Do not describe it as merely a maximum-size rule.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/04%20Asset%20Validation/25%20Triangle%20Count%20Validator%20-%20REFINED.md">25 Triangle Count Validator</a></td><td><b>Reference</b><br>23; course notes</td><td>Missing registry triangle tags are NOT_VALIDATED, not a pass. Counts are project budgets, not proof of runtime cost.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/05%20Developing%20Code%20More%20Efficiently/26%20Working%20with%20dir%28%29%20and%20help%28%29%20-%20REFINED.md">26 Working with dir() and help()</a></td><td><b>Covered</b><br>7, 10; K1 / 107</td><td>dir/help and signatures support API reading. Avoid unnecessary print(help(...)) or new live material.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/05%20Developing%20Code%20More%20Efficiently/27%20Remote%20debugging%20with%20VS%20Code%20and%20debugpy%20-%20REFINED.md">27 Remote debugging with VS Code and debugpy</a></td><td><b>Reference</b><br>K3 / 117; course notes</td><td>Interpreter-compatible dependency setup is retained. Live debugger attachment can pause the editor; keep it in preparation.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/29%20Adding%20Custom%20Menu%20Actions%20-%20REFINED.md">29 Adding Custom Menu Actions</a></td><td><b>Reference</b><br>61, 75; course notes</td><td>ToolMenu entry ownership/lifecycle useful for packaging; existing UI entry points already satisfy the lesson.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/30%20Menu%20Entry%20Icon%20-%20REFINED.md">30 Menu Entry Icon</a></td><td><b>Deferred</b><br>Course notes</td><td>Slate style keys are version/context dependent. Icon implementation is detail beyond this integration.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/31%20Followup%20to%20Menu%20Entries%20-%20REFINED.md">31 Followup to Menu Entries</a></td><td><b>Reference</b><br>Course notes</td><td>ToolMenus.Edit and supported entry types useful for advanced UI authoring, not required for publisher diagnostics.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/32%20Menu%20Entries%20-%20Additional%20Notes%20-%20REFINED.md">32 Menu Entries - Additional Notes</a></td><td><b>Reference</b><br>13, 61 narration</td><td>Explicit owner cleanup supports deliberate reload. Do not confuse owner name with submenu path.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/33%20Progress%20bars%20for%20slow%20tasks%20-%20REFINED.md">33 Progress bars for slow tasks</a></td><td><b>Integrated</b><br>44 narration; K5 / 119</td><td>Progress requires consistent units and cooperative cancellation. Cancellation leaves completed work in place.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/34%20Undo%20and%20Redo%20operations%20-%20REFINED.md">34 Undo and Redo operations</a></td><td><b>Integrated</b><br>44, 59; K5 / 119</td><td>Transaction scope groups supported changes; imports/files require separate recovery. Existing material assignment Undo remains accurate.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/35%20Introduction%20to%20automation%20testing%20in%20Unreal%20Engine%20-%20REFINED.md">35 Introduction to automation testing in Unreal Engine</a></td><td><b>Integrated</b><br>K6 / 120</td><td>Distinguish runner/plugin setup and excluded tests from passes. Keep ordinary bridge unittest separate.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/36%20Writing%20your%20first%20Python%20test%20for%20Unreal%20-%20REFINED.md">36 Writing your first Python test for Unreal</a></td><td><b>Integrated</b><br>46 narration; K6 / 120</td><td>Explicit call and deliberate failure prove the check is actually exercised.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/37%20Appendix%20-%20New%20to%20automated%20tests%20-%20REFINED.md">37 Appendix - New to automated tests</a></td><td><b>Integrated</b><br>46, 98; K6 / 120</td><td>Meaningful boundary/failure cases, isolated state and full workflow evidence. Implemented in diagnostics tests.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/06%20Creating%20Better%20Python%20Tools/38%20Suppressing%20warnings%20in%20Python%20tests%20-%20REFINED.md">38 Suppressing warnings in Python tests</a></td><td><b>Integrated</b><br>K6 narration</td><td>Expected logs must come from the real condition. Synthetic matching warnings are not verification.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/07%20Releasing%20Tools/39%20Packing%20Python%20Tool%20As%20Unreal%20Plugin%20-%20REFINED.md">39 Packing Python Tool As Unreal Plugin</a></td><td><b>Integrated</b><br>61 narration</td><td>UI calls reusable operations; adapters handle host APIs. Do not wrap an Unreal Array as a single list item.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/08%20Python%20and%20Blueprints/40%20Python%20Scripts%20in%20Asset%20Scripted%20Action%20Blueprints%20-%20REFINED.md">40 Python Scripts in Asset Scripted Action Blueprints</a></td><td><b>Integrated</b><br>75; K2 / 76</td><td>Named Python output variable and Blueprint pin match. Execution success is separate from domain success.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/41%20Remote%20Control%20in%20Unreal%20-%20Overview%20and%20Quick%20Setup%20-%20REFINED.md">41 Remote Control in Unreal - Overview and Quick Setup</a></td><td><b>Reference</b><br>K4 / 118</td><td>Remote Control is an optional alternative transport, not the prepared file bridge.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/42%20Remote%20Control%20Preset%20and%20WebApp%20-%20REFINED.md">42 Remote Control Preset and WebApp</a></td><td><b>Deferred</b><br>Course notes</td><td>Preset/web interface is a useful later museum-control example. Avoid adding server/plugin setup to this lesson.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/43%20Remote%20Control%20Preset%20Controllers%20-%20REFINED.md">43 Remote Control Preset Controllers</a></td><td><b>Deferred</b><br>Course notes</td><td>Controllers can bind one input to multiple compatible properties. Keep this as later museum-control study.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/44%20Python%20and%20Remote%20Control%20API%20%2B%20Testing%20API%20with%20Insomnia%20-%20REFINED.md">44 Python and Remote Control API + Testing API with Insomnia</a></td><td><b>Integrated</b><br>K4 / 118</td><td>Inspect HTTP response and exposed method result. JSON-string returns require a second decode only for that contract.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/45%20Remote%20Control%20Python%20Progress%20Bar%20-%20REFINED.md">45 Remote Control Python Progress Bar</a></td><td><b>Integrated</b><br>K5 narration; course reference</td><td>Multi-request modal lifetime requires finally cleanup; do not transplant fragile remote progress into the existing bridge.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/46%20Direct%20FBX%20Mesh%20Export%20From%20Blender%20to%20Unreal%20-%20REFINED.md">46 Direct FBX Mesh Export From Blender to Unreal</a></td><td><b>Integrated</b><br>29; bridge diagnostics</td><td>Export, send, acknowledgement and inspection are separate evidence. Current selected-mesh scope is explicit.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/47%20Making%20sure%20Remote%20Control%20calls%20work%20in%20Unreal%205.5%2B%20with%20correct%20Object%20Path%20-%20REFINED.md">47 Making sure Remote Control calls work in Unreal 5.5+ with correct Object Path</a></td><td><b>Integrated</b><br>K4 / 118</td><td>Discover the default-object path from the registered class. Path regression and HTTP reachability are separate checks.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/48%20Fixing%20ImportError%20in%20Python%20and%20adding%20Python%20Modules%20as%20Plugins%20-%20REFINED.md">48 Fixing ImportError in Python and adding Python Modules as Plugins</a></td><td><b>Integrated</b><br>13, 61; K3 / 117; Copy diagnostics</td><td>Identify interpreter/module folder and nested failure. Preserve dependency direction and package-qualified imports.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/49%20Code%20Deprecation%20Notice%20-%20REFINED.md">49 Code Deprecation Notice</a></td><td><b>Integrated</b><br>10 narration</td><td>Retrieve the editor-managed subsystem. This is not a blanket ban on Unreal constructors.</td></tr><tr class="lesson"><td><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/50%20Working%20with%20Unreal%20data%20types%20-%20REFINED.md">50 Working with Unreal data types</a></td><td><b>Integrated</b><br>10; K2 / 76; 106 narration</td><td>Direct array iteration, explicit typed Map boundary, and struct construction distinct from parameter assignment.</td></tr></tbody></table><section class="box"><h2>Integration boundaries</h2><p>Automatic asset moving/deletion, remote web control, icon/menu construction and commandlet deployment remain reference topics. They would add new workflow requirements or duplicate existing demonstrations. The current bridge keeps its stable asset identity, material-preservation policy, explicit file transport and recovery path.</p><p>Source credit: Karol Kowalczyk / Tech Art Corner for supplemental course material and the typed-Map capture. The original Northwood project remains the instructor’s result of following Isaac Oster’s course; the classroom tooling is its preparation spinoff.</p></section><script>function filter(){let q=document.querySelector('#q').value.toLowerCase(),f=document.querySelector('#filter').value;document.querySelectorAll('.entry').forEach(e=>e.hidden=!(e.textContent.toLowerCase().includes(q)&&(f==='all'||e.dataset.route===f)));document.querySelectorAll('.lesson').forEach(e=>e.hidden=!e.textContent.toLowerCase().includes(q));}document.querySelector('#q').oninput=filter;document.querySelector('#filter').onchange=filter;</script></main></html>

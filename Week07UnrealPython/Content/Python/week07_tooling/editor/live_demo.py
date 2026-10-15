@@ -44,6 +44,9 @@ def preflight():
         if not unreal.load_asset('/Game/Week07/LiveDemo/Textures/T_Crate_' + suffix):
             raise RuntimeError('Missing prepared texture: ' + suffix)
     camera = by_label['W07_LiveDemo_Camera']
-    unreal.EditorLevelLibrary.set_level_viewport_camera_info(camera.get_actor_location(),camera.get_actor_rotation())
+    editor = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem)
+    editor.set_level_viewport_camera_info(camera.get_actor_location(), camera.get_actor_rotation())
     select_material()
-    return 'Baseline ready. Native: Tools > Material & VFX Tools. Use a fresh MI_ name. Preview after the browser updates.'
+    return ('Material & VFX: ready. Target and textures selected. '
+            'Open Tools > Material & VFX Tools. Enter a new MI_ name, then Preview. '
+            'This check does not test the Maya/Blender bridge.')

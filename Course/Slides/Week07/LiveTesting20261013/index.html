@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Week 7 — live Unreal demo testing</title>
+<style>
+body{margin:0;background:#f1f2f6;color:#242335;font:18px/1.6 Arial}main{max-width:1120px;margin:auto;padding:32px}h1{font-size:40px;line-height:1.15}h2{font-size:29px}h3{font-size:23px}nav{display:flex;flex-wrap:wrap;gap:15px}a{color:#255D96}section{background:white;padding:26px;margin:26px 0;border-top:8px solid var(--accent,#6550A2);scroll-margin-top:16px}pre{background:#f1f2f6;padding:20px;white-space:pre-wrap;overflow-wrap:anywhere;font:16px/1.5 Consolas,monospace}button{font:inherit;padding:8px 14px;cursor:pointer}table{width:100%;border-collapse:collapse}td,th{border-bottom:1px solid #ddd;padding:12px;text-align:left;vertical-align:top}code{overflow-wrap:anywhere}.note{color:#555;font-size:16px}.result{border-left:4px solid #096962;padding-left:18px}li{margin:8px 0}img{max-width:100%}#copied{min-height:28px}@media(max-width:750px){main{padding:12px}section{padding:16px}table{font-size:15px}td,th{padding:7px}}@media print{button,nav,#copied{display:none}body{background:white}main{padding:0}section{border-top-width:3px;break-before:auto}h2,h3{break-after:avoid}pre,tr{break-inside:avoid}}
+</style>
+<main>
+<h1>Week 7: live Unreal demo testing</h1>
+<p>One route for the native Slate panel, live PySide window, and Maya/Blender bridge. Updated 13 October 2026.</p>
+<nav><a href="#setup">1. Prepare Unreal</a><a href="#native">2. Native UI</a><a href="#pyside">3. PySide</a><a href="#bridge">4. Bridge</a><a href="#resets">Reset reference</a><a href="#recovery">Troubleshooting</a><a href="#record">Test record</a></nav>
+<p><button onclick="window.print()">Print walkthrough</button></p><p id="copied" role="status" aria-live="polite"></p>
+<p class="note">This is a written testing procedure checked against the current implementation. Creating this guide did not launch or test any editor. Earlier host evidence is linked at the end. Copy buttons copy code only; they do not execute it.</p>
+
+<section id="setup" style="--accent:#255D96">
+<h2>1. Prepare Unreal</h2>
+<ol><li>Open <a href="../../../../Week07UnrealPython/Week07UnrealPython.uproject">Week07UnrealPython.uproject</a> in <strong>UE 5.7.4</strong>. Its configured association is 5.7. Use this prepared project for the tests.</li><li>Open <strong>/Game/Week07/Maps/W07_MaterialVFXLab</strong> from the Content Browser. Stop Play in Editor.</li><li>Open <strong>Window → Developer Tools → Output Log</strong>. Set the input selector to <strong>Python</strong>. All commands labeled Unreal below run there, not in PowerShell or the ordinary console-command mode.</li></ol>
+<p>The current checkout is:</p><pre>C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Week07UnrealPython</pre>
+<h3>Unreal: check the host and project</h3>
+<pre data-code>import unreal
+print(unreal.SystemLibrary.get_engine_version())
+print(unreal.Paths.project_dir())</pre>
+<p class="result"><strong>Expected:</strong> the prepared Unreal version and the Week07UnrealPython folder. If another project appears, switch projects before proceeding.</p>
+<h3>Unreal: check and stage the classroom scene</h3>
+<pre data-code>from week07_tooling.editor import live_demo
+print(live_demo.preflight())</pre>
+<p class="result"><strong>Expected:</strong> a message starting <strong>Baseline ready.</strong> The helper checks the target/protected cubes, baseline materials, textures, effect preset and absence of earlier placed effects. It also moves the viewport to the teaching camera and selects the material target and three textures. It does not reset or rebuild the map.</p>
+<p>If the check fails, follow the specific message. Use the <a href="#resets">reset reference</a> for previous rehearsal changes. Do not run the one-time fixture-construction script on an existing map.</p>
+<p class="note">The project enables Python Script Plugin, Editor Scripting Utilities and Week07Tools. The native panel is the compiled Week07Tools Slate plugin. Older documents mentioning a future Editor Utility Widget or starting with PRACTICE MODE describe earlier work.</p>
+</section>
+
+<section id="native" style="--accent:#096962">
+<h2>2. Test the native Unreal UI</h2>
+<p>Open <strong>Tools → Material &amp; VFX Tools</strong>. Expect a dockable tab labeled <strong>UNREAL EDITOR</strong>, with Material Setup, VFX Placement and Reconnect controls.</p>
+<p>The native panel uses the prepared classroom surface and fountain automatically. It does not have the same parent/preset dropdowns as PySide. Its editable material inputs are the new instance name and slot; VFX uses effect scale.</p>
+<h3>2A. Material Setup</h3>
+<ol><li>After preflight, wait for the Content Browser selection to finish updating. Confirm only <strong>W07_Crate_Target</strong> is selected in the Outliner and the three <strong>T_Crate_BaseColor</strong>, <strong>T_Crate_Normal</strong>, <strong>T_Crate_ORM</strong> textures are selected in the Content Browser.</li><li>Choose <strong>Material Setup</strong>. Enter a fresh name such as <strong>MI_Native_Test_01</strong> and material slot <strong>0</strong>. If that name exists, increment it.</li><li>Choose <strong>Preview changes</strong>. Inspect the three texture mappings, the prepared parent and the target's before/after assignment.</li><li>Only after the preview matches your intent, choose Apply.</li></ol>
+<p class="result"><strong>Expected:</strong> one new material instance under <strong>/Game/Week07/Generated/Materials</strong> and one component assignment. The target cube changes; <strong>W07_Crate_Protected</strong> does not. Apply is consumed and a new preview is required for another operation.</p>
+<p>Open the new instance. Parent should be <strong>/Game/Week07/LiveDemo/Materials/M_PreparedSurface</strong>. Its BaseColorTexture, NormalTexture and ORMTexture parameters should point to the three selected textures. Inspect the target component's <strong>Details → Materials → Element 0</strong> assignment.</p>
+<h3>2B. Verify blocking and material reset</h3>
+<ol><li>Preview again with the same instance name. <strong>Expected:</strong> an existing-destination rejection, with no overwrite.</li><li>Put focus over the level viewport and Undo the material assignment once. <strong>Expected:</strong> the target returns to its original material, the protected cube stays unchanged, and the new instance remains in the Content Browser.</li><li>Choose a new name for the next test. Use <strong>Reconnect</strong> if the panel has an expired session, then preview again.</li></ol>
+<p>Assignment Undo does not delete the new material asset. The tool does not automatically save either the asset or map. Retain the test instance for inspection or remove only that individual instance after checking that nothing uses it.</p>
+<h3>2C. VFX Placement</h3>
+<p><strong>Unreal:</strong></p>
+<pre data-code>from week07_tooling.editor import live_demo
+print(live_demo.select_vfx())</pre>
+<p class="result"><strong>Expected:</strong> <strong>Three anchors selected. Preview before Apply.</strong></p>
+<ol><li>Choose <strong>VFX Placement</strong>. Set Effect scale to <strong>1.0</strong>.</li><li>Preview. Expect the three tagged anchors and three proposed effects. With a clean baseline, the effect count should change from zero to three.</li><li>Apply. Inspect one fountain at each anchor, with matching position and rotation.</li><li>Preview again using those anchors. Expect duplicate-placement rejection.</li><li>Focus the level viewport and Undo the placement once. Expect all three effects in that batch to disappear while the anchors remain.</li></ol>
+<p>These checks establish placement behavior, not frame cost. The effect graph and simulation settings are not edited by this workflow.</p>
+<h3>2D. Optional stale-input test</h3>
+<p>Prepare a material preview using a fresh name. Before Apply, change the Outliner selection to include the protected cube. Apply should refuse the changed inputs rather than execute the old plan. Restore selection with the command below, then make a fresh preview:</p>
+<pre data-code>from week07_tooling.editor import live_demo
+print(live_demo.select_material())</pre>
+<p><strong>Before switching interfaces:</strong> Undo known test changes, close the native tab, and run preflight again. Proceed when it reports Baseline ready.</p>
+</section>
+
+<section id="pyside" style="--accent:#6550A2">
+<h2>3. Test the live PySide version</h2>
+<p>Use the same Unreal project and MaterialVFXLab map. Keep the native tab closed while comparing workflows.</p>
+<h3>Unreal: open PySide against the real editor</h3>
+<pre data-code>from week07_tooling.editor import live_demo
+print(live_demo.preflight())
+import week07_tools as w7
+w7.show_assistants()</pre>
+<p class="result"><strong>Expected:</strong> a PySide Material/VFX window using real Unreal assets and Actor selection. It is an external Qt window parented to Unreal, not the native dockable tab. It must not say PRACTICE MODE.</p>
+<ol><li>In Material Setup, choose <strong>Classroom blue surface</strong>, a new name such as <strong>MI_PySide_Test_01</strong>, and slot <strong>0</strong>.</li><li>Repeat the native material sequence: Preview, verify mapping, Apply, inspect both cubes and parameter values, test duplicate-name rejection, then Undo the assignment.</li><li>Run <code>live_demo.select_vfx()</code>. In VFX Placement, choose <strong>Classroom fountain</strong> and scale <strong>1.0</strong>.</li><li>Repeat the native VFX sequence: Preview, Apply, inspect three placements, confirm duplicate blocking, then Undo the batch.</li></ol>
+<p class="result"><strong>Pass condition:</strong> the results and protections match the native UI. Test with fresh names; an asset created during the native test remains an existing asset during the PySide test.</p>
+<h3>Unreal: close PySide cleanly</h3>
+<pre data-code>import week07_tools as w7
+w7.close_ui()</pre>
+<p><strong>Expected:</strong> the window closes and its UI update callback is removed. This does not undo scene edits, delete assets or reset selections. Use the same material/VFX reset steps, then run preflight again.</p>
+<details><summary>Only when Python source has changed during testing</summary><p>After reviewing any scene edits, close the active tool and use:</p><pre data-code>import week07_tools as w7
+w7.reload_tools()
+w7.show_assistants()</pre><p>Reload closes the shared Qt panel and expires native plans. Reopen the native tab or Reconnect if needed. Always create a fresh preview. Reload is not a scene reset and does not rebuild the C++ plugin.</p></details>
+<p class="note">Running Scripts/assistants.py from a terminal opens the separate sample-data practice interface. It does not test the live Unreal backend.</p>
+</section>
+
+<section id="bridge" style="--accent:#93551E">
+<h2>4. Test the Maya/Blender bridge</h2>
+<p>Finish and reset the Material/VFX tests first. Review unsaved changes before changing maps. Open <strong>/Game/Week07/Bridge/W07_BridgeComparison</strong> in Unreal and remain out of Play mode.</p>
+<p>The map has two Maya instances (orange) and two Blender instances (blue). Each pair shares one mesh asset. Testing a revision in one source host should update that host's pair.</p>
+<h3>4A. Unreal: start the receiver</h3>
+<pre data-code>from week07_bridge import unreal_receiver
+unreal_receiver.install_menu()
+print(unreal_receiver.start())</pre>
+<p class="result"><strong>Expected:</strong> a listening message and the absolute exchange folder, normally <strong>Week07UnrealPython/Saved/BridgeExchange</strong>. Tools gains Start FBX Bridge Receiver and Stop FBX Bridge Receiver. Importing the module by itself does not start the receiver.</p>
+<p>Match this exact folder in the Maya and Blender publishers. If a receiver is already running, start returns its current folder. To deliberately change folders, first resolve pending work, then stop and restart with the chosen absolute path.</p>
+<h3>4B. Maya: baseline, revision, reset</h3>
+<ol><li>Open <a href="../../../../Week07UnrealPython/Samples/Bridge/BridgeCompare.ma">BridgeCompare.ma</a> in Maya. Use centimeters and Object Mode. Select the one mesh transform, not its vertices. The supplied scene is Y-up.</li><li>In the Script Editor's <strong>Python</strong> tab, run the launcher below.</li></ol>
+<pre data-code>import runpy
+runpy.run_path(
+    r"C:/Users/antho/Perforce/anthony.monteagudo_TechArt/"
+    r"anthony.monteagudo/Week07UnrealPython/Scripts/bridge/open_maya.py"
+)</pre>
+<ol start="3"><li>Confirm the exchange folder and keep the asset name <strong>SM_Compare_Maya</strong>. Choose <strong>Publish &amp; Send to Unreal</strong>. Wait for <strong>Imported:</strong>, not merely Sent.</li><li>In Unreal verify the same asset path, both orange instances, baseline size <strong>120 × 60 × 180 cm</strong>, floor-level pivot, expected roof direction and retained materials.</li><li>For a reproducible revision, open <a href="../../../../Week07UnrealPython/Samples/Bridge/BridgeCompare_Revised.ma">BridgeCompare_Revised.ma</a>. Review unsaved changes at the scene switch, select its mesh transform and run the launcher again if needed. Keep <strong>SM_Compare_Maya</strong> and Publish &amp; Send.</li><li>Wait for Imported. Verify both orange instances are now <strong>220 cm high</strong>, with the same asset path, placement transforms and material assignments.</li><li><strong>Reset:</strong> reopen the baseline BridgeCompare.ma, select its mesh transform, and Publish &amp; Send using the same name. Verify the height returns to 180 cm in both instances.</li></ol>
+<p>For the manual-edit version, raise only the four roof vertices <strong>40 cm in world Y</strong>. Return to Object Mode and select the transform before publishing. Keep the floor and source pivot unchanged.</p>
+<h3>4C. Blender: baseline, revision, reset</h3>
+<ol><li>Open <a href="../../../../Week07UnrealPython/Samples/Bridge/BridgeCompare.blend">BridgeCompare.blend</a>. In the Text Editor, use Text → Open to open <a href="../../../../Week07UnrealPython/Scripts/bridge/open_blender.py">Scripts/bridge/open_blender.py</a>, then Run Script (Alt+P).</li></ol>
+<p>Alternatively, paste this complete block into Blender's Text Editor and run it:</p>
+<pre data-code>import runpy
+runpy.run_path(
+    r"C:/Users/antho/Perforce/anthony.monteagudo_TechArt/"
+    r"anthony.monteagudo/Week07UnrealPython/Scripts/bridge/open_blender.py"
+)</pre>
+<ol start="2"><li>In the 3D View press <strong>N</strong>, then choose the <strong>Week 7</strong> tab. In Object Mode select only the wedge mesh.</li><li>Confirm the exchange path and keep <strong>SM_Compare_Blender</strong>. Choose <strong>Publish &amp; Send to Unreal</strong>. Wait for Imported.</li><li>Verify both blue instances and the <strong>120 × 60 × 180 cm</strong> baseline in Unreal.</li><li>Open <a href="../../../../Week07UnrealPython/Samples/Bridge/BridgeCompare_Revised.blend">BridgeCompare_Revised.blend</a>, reviewing unsaved changes first. Rerun the launcher if the panel is unavailable, select the mesh, keep the same asset name and Publish &amp; Send.</li><li>Verify both blue instances are <strong>220 cm high</strong>, with stable asset identity, placement transforms and materials.</li><li><strong>Reset:</strong> reopen the baseline BridgeCompare.blend and republish under <strong>SM_Compare_Blender</strong>. Verify both blue instances return to 180 cm.</li></ol>
+<p>For the manual-edit version, raise only the roof vertices <strong>0.4 m in world Z</strong> in the supplied scene. Return to Object Mode before publishing. Other scene unit scales require their own conversion.</p>
+<h3>4D. Unreal: inspect both shared meshes</h3>
+<pre data-code>import unreal
+for name in ("SM_Compare_Maya", "SM_Compare_Blender"):
+    mesh = unreal.load_asset("/Game/Week07/Bridge/" + name)
+    if mesh is None:
+        print("Missing:", name)
+        continue
+    bounds = mesh.get_bounding_box()
+    size = bounds.max - bounds.min
+    print(mesh.get_path_name(), "cm:", size.x, size.y, size.z)</pre>
+<p class="result"><strong>Expected:</strong> each baseline prints approximately <strong>120, 60, 180</strong>; the revised host prints approximately <strong>120, 60, 220</strong>. Small floating-point differences are normal. Inspect both placed Actors too: bounds alone do not prove correct placement, pivot or materials.</p>
+<table><tr><th>Inspect in Unreal</th><th>Expected</th></tr><tr><td>Static Mesh asset path</td><td>/Game/Week07/Bridge/SM_Compare_Maya.SM_Compare_Maya or the Blender equivalent; unchanged across revisions</td></tr><tr><td>Both corresponding Actors</td><td>Same shared mesh reference, updated shape, unchanged location/rotation/scale</td></tr><tr><td>Static Mesh material slots and component overrides</td><td>Existing Unreal assignments retained. The bridge disables material/texture import; it does not translate source shader graphs.</td></tr><tr><td>Visual comparison</td><td>Expected dimensions, floor-level pivot and roof direction. FBX smoothing/triangulation can differ between hosts; identical shading is not established.</td></tr></table>
+<h3>4E. Understand the three publisher actions</h3>
+<table><tr><th>Button</th><th>What happened</th></tr><tr><td>Publish FBX + JSON</td><td>Exports a new revision to disk. Does not request an Unreal import.</td></tr><tr><td>Publish &amp; Send to Unreal</td><td>Exports and queues the revision, then waits for acknowledgement.</td></tr><tr><td>Send Published Revision</td><td>Sends the existing exported revision. Does not include later scene edits.</td></tr></table>
+<h3>4F. Unreal: stop the receiver after testing</h3>
+<p>First wait for acknowledgement and inspect the final state. Then run:</p>
+<pre data-code>from week07_bridge import unreal_receiver
+unreal_receiver.stop()</pre>
+<p><strong>Expected:</strong> polling stops and the publisher eventually shows disconnected. Stopping does not undo an import or cancel queued work. Changing the exchange path also does not cancel work in the old folder.</p>
+</section>
+
+<section id="resets">
+<h2>Reset reference</h2>
+<table><tr><th>What needs resetting?</th><th>Action</th><th>What remains / verify</th></tr><tr><td>Material assignment</td><td>Undo the known assignment transaction with focus over the level viewport.</td><td>Original component material restored. New instance asset remains.</td></tr><tr><td>Created test instance</td><td>Prefer a new MI_ name for the next test. If cleaning up, inspect references and delete only your individual unused test asset.</td><td>Do not delete the prepared parent, textures or output folder. The tool never overwrites an existing name.</td></tr><tr><td>VFX batch</td><td>Undo its known placement transaction once.</td><td>Three generated effects removed; tagged anchors remain.</td></tr><tr><td>Unknown Material/VFX map state</td><td>Review unsaved work, then reopen the known clean saved map and discard only rehearsal changes you intend to discard.</td><td>Run preflight again. If rehearsal changes were saved, reopening will not restore the baseline; inspect/restore the known baseline before continuing.</td></tr><tr><td>Native reviewed plan</td><td>Reconnect or close/reopen the tab, then Preview again.</td><td>No scene edits are undone.</td></tr><tr><td>PySide window/session</td><td>Run w7.close_ui(), then w7.show_assistants().</td><td>Scene edits/assets remain. Run preflight after restoring the scene.</td></tr><tr><td>Bridge mesh revision</td><td>Republish the baseline source scene with the same asset name and destination; wait for Imported.</td><td>Receiver saves the verified mesh. Confirm 180 cm height in both instances. Reloading the level is not a mesh-asset reset.</td></tr><tr><td>Bridge connection</td><td>Resolve pending work, stop the receiver, then start again with the intended exchange folder.</td><td>Already queued work is not automatically cancelled. Inspect its status before another send.</td></tr></table>
+<p><strong>Do not use Save All, folder deletion, or the earlier prop demo's reset_demo() as a general reset for these workflows.</strong></p>
+</section>
+
+<section id="recovery">
+<h2>If a test stops</h2>
+<table><tr><th>Symptom</th><th>Check next</th></tr><tr><td>No Material &amp; VFX Tools menu</td><td>Confirm the Week07UnrealPython project and Week07Tools plugin are loaded. Inspect Output Log for plugin/build errors. The prepared native tool is a Slate plugin, not an EUW asset to find in the Content Browser.</td></tr><tr><td>ModuleNotFoundError</td><td>Confirm Unreal Python input mode, the project path and Python Script Plugin. Modules live in Content/Python. Do not add the autocomplete stub to the runtime path.</td></tr><tr><td>Preflight fails</td><td>Read the named map, Actor, material or preset problem. Restore the known fixture; preflight is not a repair command.</td></tr><tr><td>Material preview blocked</td><td>Select all three matching textures and only the target cube. Check sRGB, Normalmap compression, slot 0 and a fresh instance name. The tool does not repair shared texture settings.</td></tr><tr><td>VFX duplicates or previous effects</td><td>Undo the known previous batch, inspect the scene, reselect the three anchors and Preview again.</td></tr><tr><td>PySide fails to open</td><td>Capture the Output Log error. Confirm you called show_assistants() inside Unreal and the configured Qt dependencies are available. The native tab is available as the other interface; practice mode is not evidence of live integration.</td></tr><tr><td>Bridge disconnected / another receiver active</td><td>Compare absolute exchange folders and check which Unreal session owns the active receiver. Resolve ownership before restarting; do not delete exchange files to force a connection.</td></tr><tr><td>Sent, awaiting acknowledgement</td><td>Inspect Unreal Output Log and receiver status. The publisher blocks another pending request. Do not keep clicking Send or switch folders to evade that state.</td></tr><tr><td>Source selection rejected</td><td>Choose one mesh object/transform in Object Mode. Maya requires centimeters. Inspect shape, child transforms, rigging and scale restrictions.</td></tr><tr><td>Unowned destination refused</td><td>Use the prepared bridge-owned mesh or a fresh SM_ name. Do not overwrite unrelated assets.</td></tr><tr><td>Imported but not saved / save failed</td><td>Inspect dimensions, units, axes and file/Perforce permissions. A partially imported result is not a successful test; record the error and inspect before retrying.</td></tr></table>
+</section>
+
+<section id="record">
+<h2>Record one clean run per interface</h2>
+<p>Print this table or copy it into your notes. The checkboxes below are for this browser session only and are not saved.</p>
+<table><tr><th>Check</th><th>Pass</th><th>Evidence to keep</th></tr><tr><td>Native material</td><td><input type="checkbox" aria-label="Native material passed"></td><td>Preview, parameter references, changed target, unchanged protected cube, duplicate block, Undo</td></tr><tr><td>Native VFX</td><td><input type="checkbox" aria-label="Native VFX passed"></td><td>Three placements, duplicate block, Undo removes batch</td></tr><tr><td>Live PySide material and VFX</td><td><input type="checkbox" aria-label="Live PySide passed"></td><td>Same results using fresh names and clean baseline</td></tr><tr><td>Maya baseline / revision / reset</td><td><input type="checkbox" aria-label="Maya bridge passed"></td><td>Three acknowledgements; 180 → 220 → 180 cm; both instances, pivot, transforms and materials</td></tr><tr><td>Blender baseline / revision / reset</td><td><input type="checkbox" aria-label="Blender bridge passed"></td><td>Same evidence, plus original source scene remains intact</td></tr><tr><td>Finished state</td><td><input type="checkbox" aria-label="Reset completed"></td><td>Both bridge meshes at baseline, receiver stopped, Material/VFX map baseline checked, test assets accounted for</td></tr></table>
+<p>Record engine/host versions, test asset names, observed result and any error. A successful Publish or Sent message is not a successful bridge import. Existing records below are historical evidence, not a substitute for this run.</p>
+</section>
+
+<section>
+<h2>References and existing evidence</h2>
+<ul><li><a href="../StudentFacing20261013/index.html">Latest slide review</a> · <a href="../StudentFacing20261013/checkpoints.html">Small runnable API examples</a> · <a href="../StudentFacing20261013/walkthrough.html">Material properties and manual equivalents</a></li><li><a href="../FinalClass20261013/live-demo.html">Material/VFX run sheet and captures</a> · <a href="../FinalClass20261013/live-captures/rehearsal.json">Recorded Material/VFX rehearsal</a></li><li><a href="../../../../Week07UnrealPython/Docs/Bridge/parity.html">Shared bridge implementation</a> · <a href="../../../../Week07UnrealPython/Docs/Bridge/verification.json">Recorded Maya/Blender host tests</a> · <a href="../../../../Week07UnrealPython/Docs/Bridge/UI-Rehearsal/verification.json">Recorded Blender UI test</a></li><li><a href="../../../../Week07UnrealPython/Content/Python/week07_tooling/editor/live_demo.py">Scene staging helper</a> · <a href="../../../../Week07UnrealPython/Content/Python/week07_tools.py">PySide entry points</a> · <a href="../../../../Week07UnrealPython/Content/Python/week07_bridge/unreal_receiver.py">Receiver start, stop and import behavior</a></li></ul>
+<p class="note">The previous Material/VFX native and live PySide workflows have recorded host rehearsal. The new API checkpoints still need host rehearsal. Maya has recorded integration and offscreen UI evidence; this guide specifies the live button sequence to test, not a claim that it has already been completed.</p>
+</section>
+</main>
+<script>
+document.querySelectorAll('pre[data-code]').forEach(pre=>{const b=document.createElement('button');b.textContent='Copy command';b.addEventListener('click',async()=>{const code=pre.textContent;try{await navigator.clipboard.writeText(code)}catch{const input=document.createElement('textarea');input.value=code;document.body.append(input);input.select();document.execCommand('copy');input.remove()}document.getElementById('copied').textContent='Copied. Paste into the host named above the command.';b.textContent='Copied';setTimeout(()=>b.textContent='Copy command',1800)});pre.before(b)});
+</script>
+</html>

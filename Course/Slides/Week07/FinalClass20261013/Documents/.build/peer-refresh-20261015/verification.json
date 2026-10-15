@@ -1,0 +1,18 @@
+{
+  "page_count": 3,
+  "all_final_pages_visually_checked": true,
+  "renderer": "Microsoft Word COM followed by Poppler; canonical renderer unavailable because soffice.exe is absent",
+  "word_counts": {
+    "Week 7 Peer Review Packet.docx": 482,
+    "Week 7 Peer Review Packet v2.docx": 420
+  },
+  "timing_source": "Week_7_Python_in_Unreal_v15.pptx slides 61\u201368",
+  "ux_source": "UXMantras20261015 integration plan and supplied refined UI UX course notes",
+  "original_packet_preserved": true,
+  "html_sheets_updated": [
+    "preparation.html",
+    "peer-sheet.html",
+    "reflection.html"
+  ],
+  "course_readers_rebuilt": true
+}

@@ -6,6 +6,7 @@ No view decides whether a request is safe or performs a mutation.
 """
 from PySide6 import QtWidgets
 from week07_tooling.ui.views import table, fill
+from week07_tooling.workflow_presentation import display_cell
 
 
 class FunctionalReview:
@@ -22,7 +23,7 @@ class FunctionalReview:
 
     def render(self, presentation, applied=False):
         self.presentation = presentation
-        phase = 'Applied change' if applied else 'After Apply'
+        phase = 'Result' if applied else 'After Apply'
         lines = [('APPLIED RESULT' if applied else 'PROPOSED CHANGES'), presentation['summary']]
         for item, before, after in presentation['rows']:
             lines.append(f'{item}\n  Before: {before}\n  {phase}: {after}')
@@ -36,19 +37,24 @@ class FunctionalReview:
 class GuidedReview:
     """The same information becomes a side-by-side comparison."""
     def __init__(self):
-        self.widget = table(['Item or target', 'Before', 'After Apply'])
+        self.widget = table(['Item', 'Before', 'After Apply'])
         self.widget.setAccessibleName('Read-only before and after preview')
 
     def clear(self):
         fill(self.widget, [])
-        self.widget.setHorizontalHeaderLabels(['Item or target', 'Before', 'After Apply'])
+        self.widget.setHorizontalHeaderLabels(['Item', 'Before', 'After Apply'])
 
     def render(self, presentation):
         self.clear()
         fill(self.widget, presentation['rows'])
+        for row in range(self.widget.rowCount()):
+            for col in range(3):
+                cell = self.widget.item(row, col)
+                cell.setText(display_cell(cell.text()))
+        self.widget.resizeRowsToContents()
 
     def complete(self):
-        self.widget.setHorizontalHeaderLabels(['Item or target', 'Before', 'Applied change'])
+        self.widget.setHorizontalHeaderLabels(['Item', 'Before', 'Result'])
 
 
 STAGES = {1: 'Functional', 2: 'Guided', 3: 'Refined'}

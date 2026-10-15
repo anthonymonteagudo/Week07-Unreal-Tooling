@@ -1,235 +1,78 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Material &amp; VFX Tools · canonical demo route</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/Docs/DEMO_SEQUENCE.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/Docs/DEMO_SEQUENCE.md<br>Source modified: 2026-10-13T07:38:52.068Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#material-amp-vfx-tools-canonical-demo-route">Material &amp;amp; VFX Tools · canonical demo route</a></li><li><a href="#rehearse-the-primary-route">Rehearse the primary route</a></li><li><a href="#trace-the-implementation-in-this-order">Trace the implementation in this order</a></li><li><a href="#ui-ux-progression-the-same-material-vfx-tools">UI/UX progression: the same Material/VFX tools</a></li><li><a href="#compatibility-and-reset-boundaries">Compatibility and reset boundaries</a></li><li><a href="#what-this-cleanup-resolved">What this cleanup resolved</a></li></ul></details><h1 id="material-amp-vfx-tools-canonical-demo-route">Material &amp; VFX Tools · canonical demo route</h1>
-<blockquote>
-<p>Current classroom route, 13 October 2026: Material/VFX workflows were rehearsed in Unreal 5.7.4 with both live PySide and the native C++ Slate tab in <code>Plugins/Week07Tools</code>. Prepared assets and <code>W07_MaterialVFXLab</code> now exist. Use the <a href="../Slides/Week07/FinalClass20261013/live-demo.html">live run sheet and actual capture fallback</a>. Pending statements below describe the earlier plan, not current Material/VFX readiness. The separate Maya bridge is outside this rehearsal.</p>
-</blockquote>
-<p>Updated 13 October 2026. This is the demo project&#39;s rehearsal order and capture
-map. D1–D6 identify demonstration beats, not slide numbers. No deck was edited,
-timings assigned or lab requirements finalized by this cleanup.</p>
-<p><strong>Student route:</strong> <a href="start-here-0c8c24d9.html">Choose → Preview → Apply → Check</a>.
-<strong>Instructor readiness:</strong> <a href="presentation-checklist-052347ac.html">presentation checklist</a>.
-The two tasks use the same interaction pattern, with different domain rules.
-Teach one task fully before transferring that pattern to the second.</p>
-<h2 id="rehearse-the-primary-route">Rehearse the primary route</h2>
-<p>From the project root, manually run:</p>
-<pre><code class="language-powershell">./.venv/Scripts/python.exe Scripts/assistants.py
-</code></pre>
-<p>Keep <strong>PRACTICE MODE</strong> visible. The sample supplies textures, a crate and three
-markers; clicking in Unreal does not change these inputs. Begin with fresh practice
-data, name <code>MI_Crate_Demo</code>, slot <code>0</code>, and effect scale <code>1.00×</code>.</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Material and VFX classroom demonstration</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/Docs/DEMO_SEQUENCE.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/Docs/DEMO_SEQUENCE.md<br>Source modified: 2026-10-15T08:31:37.547Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#material-and-vfx-classroom-demonstration">Material and VFX classroom demonstration</a></li><li><a href="#choose-the-teaching-mode">Choose the teaching mode</a></li><li><a href="#ten-minute-route">Ten-minute route</a></li><li><a href="#state-language-shared-with-the-slides">State language shared with the slides</a></li><li><a href="#read-the-implementation">Read the implementation</a></li></ul></details><h1 id="material-and-vfx-classroom-demonstration">Material and VFX classroom demonstration</h1>
+<p>Use the <a href="../Slides/Week07/Refinement20261015/index.html">current Week 7 class pack</a> and its revised live-demo run sheet. The ten-minute instructor allocation is five minutes for Material Setup, four for VFX Placement and one for questions. The Blender bridge has a separate allocation. Colleague demonstrations retain their fifteen-minute block.</p>
+<h2 id="choose-the-teaching-mode">Choose the teaching mode</h2>
+<p>The native C++ Slate tab and live PySide window were rehearsed in Unreal 5.7.4 on the prepared <code>W07_MaterialVFXLab</code> fixture. The <a href="../Slides/Week07/FinalClass20261013/live-captures/rehearsal.json">recorded report</a> and <a href="../Slides/Week07/FinalClass20261013/live-demo.html">capture fallback</a> document that run. The 15 October copy and action-tooltip refinement was checked offline; it is not a fresh engine rehearsal.</p>
+<p>For a prepared live run, use <code>Scripts/launch_live_demo.ps1</code> from the project. If the project is already open, use its current editor and Tools → Material &amp; VFX Tools. <code>import week07_tools as w7; w7.show_assistants()</code> opens the separate PySide window. Use one interface for the task, then compare captures of the other.</p>
+<p>For practice, run <code>./.venv/Scripts/python.exe Scripts/assistants.py</code>. Keep PRACTICE MODE visible. Inputs are fictional sample data; Unreal selection does not change them. See the <a href="start-here-0c8c24d9.html">student tasks</a>.</p>
+<h2 id="ten-minute-route">Ten-minute route</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Beat / purpose</th>
-<th>Demonstrate</th>
-<th>Expected result / gate to continue</th>
-<th>Capture</th>
+<th>Elapsed</th>
+<th>Action and evidence</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>D1 · Define the task and scope</td>
-<td>Open Material Setup; identify the parent, output name and slot. Ask what should change.</td>
-<td>Students distinguish a component assignment from shared mesh or parent-graph changes. Apply is disabled until preview.</td>
-<td><a href="../../Week07UnrealPython/Docs/UI/captures/material_start.png">Material start</a></td>
+<td>0:00–0:30</td>
+<td>Show the target and protected cube. Ask what changes and what stays shared.</td>
 </tr>
 <tr>
-<td>D2 · Review before mutation</td>
-<td>Preview the default material request. Read texture mapping and before/after assignment.</td>
-<td>Exactly one new instance and one component assignment. Slot 0 is the sample crate&#39;s only slot.</td>
-<td><a href="../../Week07UnrealPython/Docs/UI/captures/material_preview.png">Material preview</a></td>
+<td>0:30–1:30</td>
+<td>Select Material Setup, slot 0 and a fresh MI_ name. Preview destination, parent, three texture bindings and component assignment.</td>
 </tr>
 <tr>
-<td>D3 · Apply, check and recover</td>
-<td>Apply once. Preview the same name again; read the rejection. Reset practice data for the next task.</td>
-<td>Completion consumes the plan. Existing names cannot be overwritten. Reset clears both sample workflows, retaining input fields.</td>
-<td><a href="../../Week07UnrealPython/Docs/UI/captures/material_complete.png">Completed</a>, <a href="../../Week07UnrealPython/Docs/UI/captures/material_blocked.png">blocked</a></td>
+<td>1:30–2:30</td>
+<td>Apply once. Inspect the blue target and unchanged protected cube; read back the instance parameters.</td>
 </tr>
 <tr>
-<td>D4 · Transfer the workflow</td>
-<td>Open VFX Placement; preview Steam at the three supplied markers. Review transforms, then apply.</td>
-<td>Three markers produce three effects. Loaded component count changes from 0 to 3. No scatter or Niagara graph edits.</td>
-<td><a href="../../Week07UnrealPython/Docs/UI/captures/vfx_preview.png">VFX preview</a>, <a href="../../Week07UnrealPython/Docs/UI/captures/vfx_complete.png">completed</a></td>
+<td>2:30–3:00</td>
+<td>Preview the same name again. Existing output must block creation.</td>
 </tr>
 <tr>
-<td>D5 · Explain the placement limits</td>
-<td>Preview the same markers again. Explain the duplicate rejection. Optionally show the separate density-warning capture.</td>
-<td>Students distinguish a hard blocker from a reviewable warning. Acknowledging a warning cannot bypass a hard limit. Counts do not establish frame cost.</td>
-<td><a href="../../Week07UnrealPython/Docs/UI/captures/vfx_blocked.png">Duplicate blocked</a>, <a href="../../Week07UnrealPython/Docs/UI/captures/vfx_warning.png">warning</a></td>
+<td>3:00–4:00</td>
+<td>Undo only the known material-assignment transaction. Inspect the target; the new instance remains as a separate asset.</td>
 </tr>
 <tr>
-<td>D6 · Explain the code and host boundary</td>
-<td>Trace sample → rules/session → presentation → UI → Unreal adapter using the files below.</td>
-<td>Students identify where proposed data becomes a real editor mutation. End with the pending live/native work, not a claim of a completed Unreal demo.</td>
-<td>Reuse the preview alongside the relevant code; no native capture exists yet.</td>
+<td>4:00–5:00</td>
+<td>Ask for input, action, expected result and protected scope. Leave the draft for later inspection.</td>
+</tr>
+<tr>
+<td>5:00–5:45</td>
+<td>Select the three tagged VFX anchors and Classroom fountain at scale 1.0. Predict count and positions.</td>
+</tr>
+<tr>
+<td>5:45–6:30</td>
+<td>Preview transforms, then Apply once. Inspect exactly three placements.</td>
+</tr>
+<tr>
+<td>6:30–7:15</td>
+<td>Preview the same anchors again. Occupied anchors must block duplication.</td>
+</tr>
+<tr>
+<td>7:15–8:00</td>
+<td>Undo the known VFX placement. Verify all three effects disappear and pedestals remain.</td>
+</tr>
+<tr>
+<td>8:00–9:00</td>
+<td>Separate placement safeguards from performance measurement. State the current evidence and limits.</td>
+</tr>
+<tr>
+<td>9:00–10:00</td>
+<td>Questions and transition. Switch to captures after one short recovery attempt if needed.</td>
 </tr>
 </tbody></table></div>
-<p>The warning capture uses a separately seeded sample with existing effects. The
-default three-marker task does not produce that warning. Do not invent a live
-failure or repeatedly apply batches just to reach a screenshot&#39;s count.</p>
-<p>Use these short explanations while showing the corresponding state:</p>
-<ul>
-<li><strong>D2:</strong> “This table is our proposed change. We can review the destination and
-component assignment before creating anything.”</li>
-<li><strong>D3:</strong> “The preview has been used. Repeating the name is blocked, so we need a
-new name or a fresh practice sample.”</li>
-<li><strong>D4:</strong> “We reuse the same interaction pattern. The rules now describe markers
-and effect placement instead of textures and material slots.”</li>
-<li><strong>D5:</strong> “Placement checks passed does not mean the effect is cheap. Rendering
-and optimization work will measure what these count checks cannot.”</li>
-<li><strong>D6:</strong> “The sample lets us study behavior without an editor. The adapter is
-where we will need to verify real assets, transactions and editor behavior.”</li>
-</ul>
-<h2 id="trace-the-implementation-in-this-order">Trace the implementation in this order</h2>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Read</th>
-<th>Focus</th>
-<th>Question for the demo</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="../../Week07UnrealPython/Content/Python/week07_tooling/workflow_sample.py">workflow_sample.py</a></td>
-<td><code>SampleBackend.snapshot</code></td>
-<td>Which inputs and state are fictional? Why does slot 1 fail?</td>
-</tr>
-<tr>
-<td><a href="../../Week07UnrealPython/Content/Python/week07_tooling/workflows.py">workflows.py</a></td>
-<td><code>material_plan</code>, then <code>vfx_plan</code></td>
-<td>What must be true before proposing this operation?</td>
-</tr>
-<tr>
-<td><a href="../../Week07UnrealPython/Content/Python/week07_tooling/workflows.py">workflows.py</a></td>
-<td><code>WorkflowSession.preview/apply</code></td>
-<td>Why clear old plans, recheck the snapshot and consume Apply?</td>
-</tr>
-<tr>
-<td><a href="../../Week07UnrealPython/Content/Python/week07_tooling/workflow_presentation.py">workflow_presentation.py</a></td>
-<td><code>describe_plan</code></td>
-<td>How do structured data become useful rows, counts and action labels?</td>
-</tr>
-<tr>
-<td><a href="../../Week07UnrealPython/Content/Python/week07_tooling/ui/assistants.py">assistants.py</a></td>
-<td><code>AssistantWindow</code></td>
-<td>How do input changes, feedback and disabled actions guide the user?</td>
-</tr>
-<tr>
-<td><a href="../../Week07UnrealPython/Content/Python/week07_tooling/editor/workflow_backend.py">workflow_backend.py</a></td>
-<td><code>EditorWorkflowBackend</code></td>
-<td>Where are actual editor reads, mutations and cleanup handled?</td>
-</tr>
-</tbody></table></div>
-<p>This is a reading route through the working implementation. It does not replace
-the small, independent <a href="readme-680db8cd.html">Python foundations 01–08</a>.
-Use those only when a concept needs a smaller example. Their prop data, naming
-rules and reset behavior differ from these two workflows.</p>
-<h2 id="ui-ux-progression-the-same-material-vfx-tools">UI/UX progression: the same Material/VFX tools</h2>
-<p>Use <a href="readme-44ea130d.html">the three assistant stages</a>.
-Compare Material Setup across stages 1 → 2 → 3, then VFX Placement across 1 → 2 → 3.
-Keep inputs and window size constant; each stage begins with fresh practice data.
-Use D2 and D4 as the preview comparison beats, and D3/D5 to compare recovery.</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Stage</th>
-<th>Observe</th>
-<th>Quality question</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1 · Functional</td>
-<td>Linear text review and explicit actions</td>
-<td>Can the user inspect and complete the entire task?</td>
-</tr>
-<tr>
-<td>2 · Guided</td>
-<td>Before/after table, scope summary and inline input guidance</td>
-<td>Can the user find the exact target and compare values without holding them in memory?</td>
-</tr>
-<tr>
-<td>3 · Refined</td>
-<td>Progress cues, counted Apply labels and primary-action emphasis</td>
-<td>Can the user identify the current step and predict the next action?</td>
-</tr>
-</tbody></table></div>
-<p>Run <code>Scripts/assistants.py --stage N</code> manually, or add <code>--render Docs/UI/captures</code>
-for offscreen captures. <code>Scripts/ui_quality.py --stage N</code> now gates these assistant
-stages. The shared session retains all safeguards at every stage. Prop Inspector
-is retained only as an earlier reference; the UI lesson no longer switches tools.
-Unreal-facing cohesion remains a later pass.</p>
-<h2 id="compatibility-and-reset-boundaries">Compatibility and reset boundaries</h2>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Established entry point</th>
-<th>Still means</th>
-<th>Do not confuse it with</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>Scripts/lessons.py run 01</code> through <code>07</code>; reading <code>08</code></td>
-<td>Optional pure-Python prop foundations</td>
-<td>D1–D6, slide numbers, or the five editor examples</td>
-</tr>
-<tr>
-<td><code>Scripts/assistants.py --stage 1/2/3</code></td>
-<td>Main Material/VFX UI progression, offline</td>
-<td>The unchanged live panel API</td>
-</tr>
-<tr>
-<td><code>Scripts/ui.py --stage 1/2/3</code></td>
-<td>Earlier Prop Inspector reference, offline</td>
-<td>The main UI/UX lesson</td>
-</tr>
-<tr>
-<td><code>w7.show_ui()</code> / <code>w7.show_pyside_ui(stage=3)</code></td>
-<td>Live Prop Inspector Qt panel</td>
-<td>The main assistants or a native dockable tab</td>
-</tr>
-<tr>
-<td><code>w7.show_assistants()</code></td>
-<td>Live Material/VFX Qt panel, pending rehearsal</td>
-<td>Standalone practice data or a finished native widget</td>
-</tr>
-<tr>
-<td><code>w7.preview()</code>, <code>apply(plan)</code>, <code>check()</code>, <code>reset_demo()</code></td>
-<td>Six-prop fixture operations</td>
-<td>Material asset cleanup or removal of placed effects</td>
-</tr>
-<tr>
-<td><strong>Reset practice data</strong></td>
-<td>Restore both fictional assistant workflows; retain inputs</td>
-<td>Undo, map reset, asset deletion or saving in Unreal</td>
-</tr>
-<tr>
-<td><code>w7.reload_tools()</code> / <code>w7.run_example(...)</code></td>
-<td>Reload implementation; close shared Qt window and expire native sessions/plans</td>
-<td>A way to keep the current UI preview while stepping console examples</td>
-</tr>
-</tbody></table></div>
-<p>The live Qt host owns one panel. Opening another stage/tool replaces it. Finish
-the current demo before switching, then reopen and preview again after reload.
-The native bridge has separate session entry points for props and workflows;
-<code>close_all()</code> expires both. The original commands and stable IDs are retained.</p>
-<p>For future live material rehearsal, restoring component assignments and handling
-the newly created material asset are separate steps. For VFX, inspect the actual
-placed Actors and Undo behavior. Neither workflow automatically saves. Follow
-the <a href="presentation-checklist-052347ac.html">live acceptance checklist</a> before presenting
-these as verified editor operations.</p>
-<h2 id="what-this-cleanup-resolved">What this cleanup resolved</h2>
-<ul>
-<li>Competing “start here” instructions now converge on Material Setup → VFX
-Placement. Prop examples remain optional foundations or fallback. The UI progression now uses Material/VFX themselves.</li>
-<li>The outdated “cleanup or batch import?” decision is resolved to the user&#39;s
-selected tools. Advanced graph editing and scattering remain outside scope.</li>
-<li>Practice mode now rejects unavailable material slots, parents and presets;
-previously a changed slot could silently preview the sample&#39;s slot 0.</li>
-<li>Reload, reset and single-window behavior are explicit, rather than implied to
-apply uniformly to both tool families.</li>
-</ul>
-<p>Original Northwood was the instructor&#39;s work through Isaac Oster&#39;s public UE
-Python course. This project is the classroom-preparation spinoff. Earlier
-<a href="../Slides/Week07/UnrealPythonDemo/index.html">prop-fixture screenshots and GIFs</a>
-document that earlier demo; they are not evidence of Material/VFX integration.
-Current Material/VFX images are actual offscreen PySide practice captures.
-The live presets, Unreal rehearsal and native EUW asset remain pending.</p>
+<p>Do not save the modified demonstration map. Restore the saved baseline after class; inspect any new material instance separately. Reopening a map does not remove a created asset. Never use broad asset deletion as a reset.</p>
+<h2 id="state-language-shared-with-the-slides">State language shared with the slides</h2>
+<p>Choose → Preview → Apply → Check. Changing inputs expires the preview; it does not undo prior edits. A completed plan cannot be applied twice. Warnings require acknowledgment; hard blockers require correction. Apply rechecks selection and state in the backend even when the button was enabled. A successful call and a visible success message both require a result check.</p>
+<p>The sample reset restores both fictional workflows and retains input fields. Engine Undo restores the documented transaction scope. Material assignment Undo retains the new asset; VFX placement Undo removes that batch. Effect counts do not establish frame cost.</p>
+<h2 id="read-the-implementation">Read the implementation</h2>
+<ol>
+<li><code>Content/Python/week07_tooling/workflow_sample.py</code>: sample inputs and reset.</li>
+<li><code>workflows.py</code>: plan rules, preview expiration and guarded Apply.</li>
+<li><code>workflow_presentation.py</code>: counts, rows and operation names.</li>
+<li><code>ui/assistants.py</code> and <code>ui/assistant_style.py</code>: state, action emphasis and copy.</li>
+<li><code>editor/workflow_backend.py</code>: actual editor reads, mutation, verification and cleanup.</li>
+<li><code>Plugins/Week07Tools</code>: the native Slate presentation.</li>
+</ol>
+<p>Compare the same task across stages 1, 2 and 3 using <code>Scripts/assistants.py --stage N</code>. The <a href="ux-style-sheet-9cce80e5.html">style sheet</a> records the rules; the <a href="presentation-checklist-052347ac.html">presentation checklist</a> separates automated evidence from manual host checks.</p>
 </main></body></html>

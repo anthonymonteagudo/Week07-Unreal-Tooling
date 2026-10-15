@@ -99,12 +99,12 @@ class AssistantStageGates(unittest.TestCase):
                 window.preview_button.click()
                 expected = describe_plan(window.session.pending[3])
                 self.assertEqual(window.summary.text(), expected['summary'])
-                actual = [tuple(window.review.item(r, c).text() for c in range(3))
+                actual = [tuple(window.review.item(r, c).toolTip() for c in range(3))
                           for r in range(window.review.rowCount())]
                 self.assertEqual(actual, expected['rows'])
                 self.assertEqual(window.review.editTriggers(), QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
                 window.apply_button.click()
-                self.assertEqual(window.review.horizontalHeaderItem(2).text(), 'Applied change')
+                self.assertEqual(window.review.horizontalHeaderItem(2).text(), 'Result')
 
     def test_gate_3_progress_and_specific_action_explain_the_next_step(self):
         for stage in (1, 2, 3):
@@ -113,12 +113,26 @@ class AssistantStageGates(unittest.TestCase):
             self.assertEqual(window.material_help.isHidden(), stage == 1)
             self.assertIn(f'Stage {stage}', window.mode.text())
             window.preview_button.click()
-            self.assertIn('create 1 instance' if stage == 3 else 'Apply reviewed changes', window.apply_button.text())
+            self.assertIn('create instance' if stage == 3 else 'Apply', window.apply_button.text())
             window.tabs.setCurrentIndex(1)
             self.assertIsNone(window.session.pending)
             window.preview_button.click()
-            self.assertIn('place 3 effects' if stage == 3 else 'Apply reviewed changes', window.apply_button.text())
+            self.assertIn('place 3 effects' if stage == 3 else 'Apply', window.apply_button.text())
             if stage == 3:
                 self.assertIn('REVIEW PREVIEW', window.steps.text())
                 window.apply_button.click()
                 self.assertIn('CHECK RESULT', window.steps.text())
+
+    def test_gate_3_input_edit_does_not_imply_undo_after_apply(self):
+        window = self.panel(3)
+        window.preview_button.click()
+        window.apply_button.click()
+        applied = window.session.backend.created.copy()
+        self.assertTrue(applied)
+        self.assertIn('already applied', window.apply_button.toolTip())
+        window.name.setText('MI_Another_Review')
+        self.assertEqual(window.session.backend.created, applied)
+        self.assertIsNone(window.session.pending)
+        self.assertFalse(window.apply_button.isEnabled())
+        self.assertIn('does not undo', window.summary.text())
+        self.assertIn('valid preview', window.apply_button.toolTip())

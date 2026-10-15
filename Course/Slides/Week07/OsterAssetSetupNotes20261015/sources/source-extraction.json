@@ -1,0 +1,289 @@
+[
+  {
+    "name": "Asset Setup 01.md",
+    "path": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\18 Oster Asset Setup UE Python API\\Asset Setup 01.md",
+    "text": "![[Pasted image 20261015024355.png]]\n\n![[Pasted image 20261015024020.png]]\n\n![[Pasted image 20261015024041.png]]\n\n![[Pasted image 20261015024243.png]]\n\n![[Pasted image 20261015024308.png]]\n\n![[Pasted image 20261015024421.png]]\n\n![[Pasted image 20261015024434.png]]\n\n![[Pasted image 20261015024450.png]]\n\n![[Pasted image 20261015024615.png]]\n\n![[Pasted image 20261015024630.png]]\n\n![[Pasted image 20261015024928.png]]\n\n![[Pasted image 20261015025030.png]]\n\n![[Pasted image 20261015025201.png]]\n\n![[Pasted image 20261015025301.png]]\n\n![[Pasted image 20261015025337.png]]\n\n![[Pasted image 20261015025347.png]]\n\n![[Pasted image 20261015025315.png]]\n\n![[Pasted image 20261015025523.png]]\n\n![[Pasted image 20261015025817.png]]\n\n![[Pasted image 20261015025912.png]]\n\n![[Pasted image 20261015030201.png]]\n\n![[Pasted image 20261015030212.png]]\n\nhi there my name is Isaac Oster and in\n\nthis video we're going to talk about how\n\nto import these assets piece of geometry\n\nand some textures into an unreal project\n\nand then create a material instance that\n\nuses this as its parent and then plugs\n\nthese Textures in and applies it to the\n\nmaterial slot so this is going to be\n\nbased on or extending the previous two\n\nvideos the first one covers exporting a\n\nselection that you have in the content\n\nbrowser and then the second video covers\n\nimporting an asset from a file path or\n\nin this case several assets so I've\n\nadded a few lines to both of these the\n\nfirst line that I added is setting an\n\nattribute to replace existing to true\n\nfor our asset import data so that it'll\n\njust override anything that happens to\n\nbe in the project already and then the\n\nother thing that I added is a little\n\nsection here that will handle selected\n\ntextures now probably the better way to\n\ndo this would be to detect the textures\n\nthat are associated with static mesh and\n\nthen just run them through this is like\n\na separate process but anyway this is\n\nhow you would do that if you wanted to\n\njust handle a selection other than\n\ngeometry all right so the first thing\n\nI'm going to do is create a new function\n\ncalled build selected assets\n\nand I am going to create a reference to\n\nthis object this material\n\nand then I just need to get the path so\n\nI'm going to right click over here and\n\ncopy file path probably okay\n\npaste it in and then I'm just going to\n\nclean this up a little bit so\n\nwe basically want to go to content and\n\nreplace that with game\n\nand it needs a forward slash\n\nand then we want to just take off that\n\nyou asset at the end\n\nthat'll give us a reference to the\n\nmaterial parent so the next thing we\n\nneed to do is get a reference to our\n\nimported objects and I'm going to go\n\nahead and just run this\n\nwe don't have to call this yet but\n\neverything else should work just fine as\n\nis\n\nlooking for asset importer\n\nall right so here's our new objects\n\nultimately we're going to delete this\n\nthis is the material that comes in by\n\ndefault with the fbx\n\nbut we can hold off on that for just a\n\nmoment first we have to identify it\n\nso we have some information here that's\n\nvery useful which is the import file\n\npaths so what we can actually do is go\n\nthrough everything in the folder that we\n\njust imported our assets into and track\n\ndown you can see at the bottom there of\n\nthat source file if we double click it\n\nand then scroll down a bit\n\nsee file path so this is right now it's\n\nit's giving a relative path but it has\n\naccess to the full thing and so we can\n\nactually compare this data for every\n\nsingle asset in our folder here to our\n\npaths to say like yes this is something\n\nthat I just imported or know this is\n\nsomething that was here before because\n\nwe don't really want to mess with\n\nwhatever assets might already be in this\n\nfolder I'm going to be using another\n\nmethod here on editor asset Library\n\ncalled list assets we feed it a\n\ndirectory path and it'll give us the\n\nasset paths for everything that is in\n\nthe directory\n\nand because I'm going to be using the\n\neditor asset Library a few times I'm\n\njust going to create a single instance\n\nof it\n\nso I'm going to need a directory path\n\nand I have it right here\n\nso I'm going to go ahead and just set up\n\na function call inside import assets\n\nand we'll just add an argument here\n\ncalled folder path\n\nso now when this function is called\n\nit'll be passed whatever this happens to\n\nbe which is something you would probably\n\nwant to get user data from via you know\n\nUI or something\n\nso now we've got the asset paths that\n\nare associated with every asset in the\n\nfolder\n\nand now we need to load the asset\n\nbut it might actually complain there's a\n\nthere's a change to how the asset paths\n\nare handled I'll go and print the asset\n\npath real quick so we can take a look at\n\nit\n\nright so these are the asset paths for\n\neverything in there and it does this\n\nlittle thing here which didn't used to\n\nbe a problem but now is a problem if you\n\nwere to try to load this asset it'll\n\ncomplain I'll go ahead and do that\n\nreally you just gotta trim everything\n\npast that dot and it'll work just fine\n\nbut we can go ahead and run through the\n\nregular process using load asset\n\nto show you the issue\n\nand I'll set this\n\nequal to asset\n\nright so this is the issue here try\n\nconvert file name to Long package name\n\nwas passed blah blah blah so if you if\n\nyou're getting this error the the\n\nproblem is you've got to remove that\n\nlast little bit from the path there so\n\nwe'll just try this\n\nright and now it's happy\n\nso now that we've got the assets we can\n\nget the import file path assuming it has\n\none\n\nwe can take a look here at the\n\ndocumentation for static mesh it has an\n\neditor property called asset import data\n\nwhich will return the asset import data\n\nobject associated with static mesh and\n\non the asset import data object we have\n\na method get first file name which will\n\nreturn the import file path for the\n\nasset\n\nanything that's been imported will have\n\nan asset import data object but any\n\nnative unreal objects such as a material\n\nwill not so we need to have a little\n\ncheck in here that will add momentarily\n\nso we'll grab the asset import data\n\neditor property\n\nand from the asset import data\n\nwe'll use get first file name\n\nand we'll just print the import file\n\npath\n\nnow this is going to yield an error\n\nbecause not everything in here has an\n\nasset import data object but let's take\n\na look at what that error looks like\n\nso you can see there's an attribute\n\nerror none type object has no attribute\n\nget first file name\n\nso what we've done here is we've asked\n\nfor the asset import data object\n\nassociated with the asset and then we\n\nare calling this method here but if this\n\nreturns as none obviously this method\n\ndoesn't exist on none so that's what the\n\nissue is so we can do a tricceptor\n\nand let's run it again\n\nand here you can see all of our import\n\nfile paths for the textures and then\n\nhere is the geometry as well so now that\n\nI've got the import file paths for all\n\nthe Assets in the directory at least the\n\nassets that have import file paths I can\n\ncompare them against the files that I\n\njust imported and identify the new\n\nAssets in here that need to be set up\n\nso I'm going to need to pass in my list\n\nof file names\n\nso I'll just add another argument\n\nand rather than printing this we're\n\ngoing to do a little comparison\n\nand then we need to identify whether or\n\nnot it is a texture or a piece of\n\ngeometry\n\nso I'm just going to create a list up\n\nhere\n\nall right so\n\nif I can find the import file path\n\nassociated with the asset in my list of\n\nrecently imported assets\n\nthen I'm going to do a text see if it's\n\neither a static mesh or a texture and\n\nthen put it into the appropriate list\n\nin the next video we'll take a look at\n\nhow to identify and delete the default\n\nmaterial created when we imported the\n\ngeometry how to create a new material\n\ninstance and assign the material parent\n\nhow to assign the textures and then how\n\nto take that new material instance and\n\nassign it to our geometry",
+    "sha256": "d67b314944c3d1f4b40845054b15c9fe3d3ab9a507aa64ae9d35dcdab7c2b87e",
+    "images": [
+      {
+        "name": "Pasted image 20261015024355.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024355.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015024020.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024020.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015024041.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024041.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015024243.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024243.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015024308.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024308.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015024421.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024421.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015024434.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024434.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015024450.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024450.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015024615.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024615.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015024630.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024630.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015024928.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024928.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015025030.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025030.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015025201.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025201.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015025301.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025301.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015025337.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025337.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015025347.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025347.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015025315.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025315.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015025523.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025523.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015025817.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025817.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015025912.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025912.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015030201.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030201.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015030212.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030212.png"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Asset Setup 02.md",
+    "path": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\18 Oster Asset Setup UE Python API\\Asset Setup 02.md",
+    "text": "![[Pasted image 20261015030730.png]]\n\n![[Pasted image 20261015030810.png]]\n\n![[Pasted image 20261015030825.png]]\n\n![[Pasted image 20261015030914.png]]\n\n![[Pasted image 20261015030926.png]]\n\n![[Pasted image 20261015031301.png]]\n\n![[Pasted image 20261015031431.png]]\n\n![[Pasted image 20261015031633.png]]\n\n![[Pasted image 20261015031646.png]]\n\n![[Pasted image 20261015031856.png]]\n\n![[Pasted image 20261015031919.png]]\n\n![[Pasted image 20261015031933.png]]\n\n![[Pasted image 20261015032937.png]]\n\n![[Pasted image 20261015032952.png]]\n\n![[Pasted image 20261015033455.png]]\n\n![[Pasted image 20261015033536.png]]\n\n![[Pasted image 20261015033602.png]]\n\n![[Pasted image 20261015033628.png]]\n\n![[Pasted image 20261015033646.png]]\n\n![[Pasted image 20261015033705.png]]\n\n![[Pasted image 20261015033719.png]]\n\n![[Pasted image 20261015033754.png]]\n\nso our next task is going to be to\n\nidentify and remove any of the default\n\nmaterials that got created on import\n\nbecause we're going to want to create\n\nmaterial instances and then reuse the\n\nnames that are associated here with\n\nthese materials\n\nso we can get that data from the static\n\nmesh for each material assigned in your\n\nDCC it's going to create a material slot\n\nand give it a material name and a\n\nmaterial slot name and those will\n\ncorrespond to the materials here that\n\nget created and that comes from the\n\nmaterial name itself so this is Maya\n\nthere's the material name and if I were\n\nto modify this and re-import it it would\n\ncreate a new material with that new name\n\nso I'm going to go ahead and grab this\n\ndata off of the static mesh and if we go\n\nto the documentation for static mesh\n\nand we scroll all the way the bottom\n\nyou're going to see there's a property\n\ncalled Static materials\n\nstatic material is essentially a\n\ndictionary it's human readable\n\nand it has some properties has a\n\nmaterial interface a material slot name\n\nand the UV Channel data I'm not really\n\never worried about this but these two\n\nare pretty useful\n\nso the material interface is essentially\n\na very high level grandparent material\n\nobject both material instance and\n\nmaterial inherit from Material interface\n\nso what this property is doing is it's\n\nreturning back the material itself so\n\nwhatever happens to be assigned to that\n\nslot that's going to be returned by this\n\nproperty so let's go ahead and get that\n\nalso I made a little typo here that\n\nneeds to be a lowercase f\n\nso this could arguably be a new function\n\nbut I'm going to just kind of keep it\n\nsimple here\n\nso I'm going to get all of the static\n\nmaterials associated with my static mesh\n\nlet's take a look at what it's got here\n\nso here is our static material struct\n\nand if we scroll down a bit we can see\n\nwe have the path to our material that we\n\ncreated which is all we need to delete\n\nthis asset\n\ndeleting assets is going to be pretty\n\neasy\n\nlet's go over to the API documentation\n\nand we find this method here on the\n\neditor asset Library utility class and\n\nall it's going to take is the asset path\n\nto delete now the static material is\n\nactually going to return to us the\n\nmaterial itself so we need to get the\n\npath\n\nso I'm just going to print this out to\n\nconfirm that I'm actually getting the\n\npath here of the material\n\nso there's our path\n\nand we'll head over try this again\n\nall right it looks like we're getting a\n\nwarning here forced Elite object failed\n\nto delete our material this package is\n\nnot potentially corrupt so we'll take a\n\nlook\n\nand you can see it was removed from the\n\nstatic mesh this is now using the world\n\ngrid\n\nbut the material still exists so what\n\nI'm going to do just to make sure I've\n\ngot kind of a clean pass I'm going to\n\ndelete everything\n\nit may be that because we're importing\n\nassets over things that already exist\n\nthat there's some kind of a weird\n\npermissions thing and we'll just try\n\nthis again\n\nall right perfect so now we can see the\n\nstatic mesh is assigned to the world\n\ngrid material and that material that was\n\ncreated by default is now deleted all\n\nright make your progress\n\nnow we need to make our material\n\ninstance\n\nand to do this we're going to need to\n\nuse asset tools\n\nasset tools that's a method on it called\n\ncreate asset\n\nand in order to create an asset tools\n\nobject you need to use the asset tools\n\nhelpers class for some reason I don't\n\nknow why that is\n\none of those little gotches\n\nso we don't need to be doing this every\n\ntime\n\nwe can just create one asset tools\n\nobject\n\nand I'm just going to copy this for my\n\nother screen\n\nget a set tools\n\nnow that we've got our asset tools\n\ninstance\n\nwe're going to use create asset\n\nit's going to have a few inputs\n\nthe first will be the asset name\n\nthen the path we're going to save it\n\nthe class and the factory\n\nas a default value for calling context\n\nso we're not going to worry about that\n\nwe'll start with the asset name\n\nin this case we can get it from our\n\nstatic material\n\nand it will be\n\nthe slot name\n\nso if we take a look at our static\n\nmaterial documentation here's our\n\nproperty\n\nso static material dot slot name how to\n\ncommit the end there the next thing we\n\nuse the path we'll be using our folder\n\npath\n\nafter that we're going to need\n\nthe asset class\n\nso we can probably use material and\n\nsince if this doesn't work\n\nwe may need to use material instance\n\nconstant\n\nwhich you can see right here constant\n\nDynamic are the two likely\n\nAlternatives but we'll try this one\n\nfirst\n\nand then for the factory\n\nI'm just going to add the word Factory\n\nto my search here\n\nand you can see we have a limited number\n\nof options material instance constant\n\nfactoring new\n\nso this is going to throw an error\n\nbecause one of these needs to be\n\ninstantiated and I can never remember\n\nwhich one\n\nbut I real will tell me\n\nI'm going to go ahead and\n\nadd some code to delete this stuff\n\nprocedurally\n\ntry that again\n\nall right datavize object cannot native\n\nice material instance constant Factory\n\nnew as object a loud class can be a\n\nfactory so this is the one we need to\n\ninstantiate and that just means we need\n\nto add some friends at the end here\n\ndelete this stuff\n\nall right new asset wasn't created\n\nbecause the supply Factory does not\n\nsupport the supply class\n\nso that's probably this just needs to be\n\nmaterial instance constant\n\nbeautiful okay so here's our material\n\ninstance constant\n\nstatic mesh doesn't have anything\n\nassigned yet\n\nthis is basically totally blank which is\n\nperfect okay fantastic in the next video\n\nwe'll take a look at setting this\n\nmaterial as the parent and then\n\nassigning this material listens to this\n\ngeometry and then deciding these\n\ntextures to this material instance",
+    "sha256": "f03848aaecf68e0a07f48a77c93c1907633c03339b6df333df873bb8f74de27d",
+    "images": [
+      {
+        "name": "Pasted image 20261015030730.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030730.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015030810.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030810.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015030825.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030825.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015030914.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030914.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015030926.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030926.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015031301.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031301.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015031431.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031431.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015031633.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031633.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015031646.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031646.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015031856.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031856.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015031919.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031919.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015031933.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031933.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015032937.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015032937.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015032952.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015032952.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015033455.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033455.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015033536.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033536.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015033602.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033602.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015033628.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033628.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015033646.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033646.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015033705.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033705.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015033719.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033719.png"
+        ]
+      },
+      {
+        "name": "Pasted image 20261015033754.png",
+        "matches": [
+          "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033754.png"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Asset Setup 03.md",
+    "path": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\18 Oster Asset Setup UE Python API\\Asset Setup 03.md",
+    "text": "in the last video we covered deleting\n\nthe default material that comes in with\n\nthe import of the fbx and creating a new\n\nempty material instance here that is\n\nnamed according to the slot name here\n\nso I'm going to go ahead and create a\n\nnew variable here\n\nso now we can refer to this object\n\nwe'll take a look at the documentation\n\nso we want to go ahead and set the\n\nparent\n\nlet's read and write in the editor\n\nproperty\n\nand read only as a property so we're\n\ngoing to want to use the editor property\n\nand then over here we have our material\n\nparent which is going to be this\n\nwe're loading in the asset at this path\n\nand now we can see our material instance\n\nnow is using the parent material here as\n\nits parent\n\n## Set Material\n\nso now we want to come over and assign\n\nthe material instance to this slot\n\non the static mesh\n\nto do that we will take a look at the\n\ndocumentation for static mesh\n\nit has a method called set material\n\nit's going to need the material index\n\nand the new material\n\nso the easy way to get the index is to\n\ngrab it here\n\nso this is our list\n\nyou get the index\n\nof the static material that we are\n\niterating over\n\nhere's our static mesh\n\ndot set\n\nmaterial\n\nso now we have our index\n\nso that just means\n\nwhat slot this case there's only one but\n\nthat could be a lot\n\nand then the material which will be\n\nour new material instance\n\nand here we can see into our first slot\n\nour new material instance is assigned\n\nand now we take a look at adding the\n\ntextures as parameters\n\nto this material instance\n\n## Set Material Instance\n\nso this part of the process has some\n\nminor technical complexity normally with\n\nthe material instance we'd be able to\n\naccess the texture parameter values and\n\nthen easily set the textures\n\nusing the the parameter value property\n\nhere but in the case of a newly created\n\nmaterial instance\n\nthe texture parameter values are going\n\nto be disabled so essentially if these\n\nthings are not checked we don't have a\n\ntexture parameter value for this texture\n\nso we need another method to access this\n\ninformation here\n\nthere is a class called the material\n\nediting library and on that class there\n\nis a method called set material instance\n\ntexture parameter value\n\ntakes three arguments the material\n\ninstance the parameter name and the\n\nvalue which in this case is going to be\n\nthe texture so getting the instance is\n\ngoing to be pretty easy and getting the\n\ntextures will be pretty easy but the\n\nparameter name is going to be the part\n\nthat we need to think about\n\nso when I set up this material parent\n\nI created these texture inputs these\n\ntexture parameters here and I gave them\n\nspecific names so there's BC for base\n\ncolor and for normal map and then orm\n\nfor occlusion roughness and metalness\n\nthe textures all have those same names\n\nBC underscore n and underscore orm so I\n\ncan easily use the suffix here at the\n\nend of the of the texture to correctly\n\nidentify what the parameter needs to be\n\n## Assigning Textures\n\nso let's go ahead and iterate over all\n\nthe textures and here is my populated\n\ntextures list\n\nfirst thing I need to do is get the\n\nsuffix\n\nit also call it parameter name that\n\nmight be better\n\nso we'll get the the name of the texture\n\nwe'll do a split operation\n\nwe'll split it\n\nthe underscore and we'll grab\n\nthe last item in the list that's\n\nreturned by that process\n\nnow I'm going to go ahead and grab the\n\nunreal\n\nmaterial editing Library\n\nand then\n\nour method\n\nthis is going to have a few arguments so\n\nI'm going to space it out a little bit\n\nfirst thing is the material instance\n\nthe next thing is going to be the\n\nparameter name\n\nand then\n\nthe final argument will be the texture\n\nall right\n\nso as we can see all of the textures are\n\nassigned to the appropriate slot on this\n\nmaterial instance the material instance\n\nhas the correct parent and the material\n\ninstance is assigned here to the static\n\nmesh now there's one significant error\n\n## Saving Assets\n\nin the logic that we need to resolve and\n\nthat is\n\ncurrently we're iterating over the\n\nentire list of imported assets\n\nand taking all of the textures and\n\nputting them in this one list and then\n\nwe're iterating over that list and just\n\nassigning them as we go so if we have\n\nmore than one asset with more than one\n\nset of textures we're just going to end\n\nup with whatever the last three textures\n\nwere in that list so we need to just do\n\na quick check here and look for the\n\nasset name which in this case is going\n\nto be air conditioning and then if the\n\ntexture also has air conditioning in it\n\nthen we'll go ahead and assign it but\n\notherwise we'll skip it\n\nfirst thing we need to do is get the\n\nasset name\n\nso this will give us air conditioning\n\nhere and if we needed this version this\n\nis zero one probably get rid of that\n\nthat underscore there so that it\n\nwouldn't it wouldn't fail this test\n\nand then down here in our list of\n\ntextures\n\nso this would save us if we had a lot of\n\ntextures we would make sure that we're\n\nonly assigning the appropriate texture\n\nbased on the naming convention the other\n\nthing that would be cool is if we could\n\nsave these assets\n\nwe'll use editor asset library has a\n\nmethod called save assets but I need to\n\ncreate another list up here\n\nbecause again we don't know how many\n\nmaterial instances we're going to be\n\nmaking\n\nand then we can throw all the new stuff\n\ninto a list here\n\nand this would be looking for a path\n\nand there you go\n\nthere are probably a lot more things we\n\ncould do with this in terms of features\n\nand bulletproofing but this covers most\n\nof the moving parts\n\nthese kinds of quality of life tools can\n\nmake a big difference in your project\n\nand I highly recommend looking for\n\nopportunities to automate processes that\n\nare repetitive or tedious or prone to\n\nhuman error I hope you've enjoyed these\n\nvideos I'd appreciate you taking time to\n\nwatch them I'll be posting the commented\n\ncode on my unreal developer Network page\n\nplease feel free to post questions there\n\nor in the comment section below thanks\n\nCODE:\ndef buildSelectedAssets(folderPath,fileNames):\n    \"\"\"\n    Sets up static mesh, material instances, and textures.  Args passed in by import script.\n    \"\"\"\n    # lists to hold new assets\n    textures = []\n    geo = []\n    materialInstances = []\n    # create asset tools instance\n    assetTools = unreal.AssetToolsHelpers.get_asset_tools()\n    EAL = unreal.EditorAssetLibrary()\n    # hard coded path to parent material\n    materialParent = EAL.load_asset('/Game/Meshes/ImportTest/M_parent')\n    # get all assets in folder path\n    for assetPath in EAL.list_assets(folderPath):\n        # clean up asset path\n        assetPath = assetPath.split('.')[0]\n        # identify newly import assets\n        # load assets, located file import path, and compare to file import paths passed in from import script.\n        asset = EAL.load_asset(assetPath)\n        try:\n            assetImportData = asset.get_editor_property('asset_import_data')\n            importfilePath = assetImportData.get_first_filename()\n            if importfilePath in fileNames:\n                if isinstance(asset, unreal.StaticMesh):\n                    geo.append(asset)\n                if isinstance(asset, unreal.Texture):\n                    textures.append(asset)\n        except AttributeError: # not all assets have asset import data\n            pass\n    for staticMesh in geo:\n        # get asset name from static mesh to find textures later\n        assetName = staticMesh.get_name().split('_')[1]\n        # iterate over all static materials associated with mesh\n        for staticMaterial in staticMesh.static_materials:\n            # get the index of the current static material for later\n            index = staticMesh.static_materials.index(staticMaterial)\n            # locate and delete the default material created on import\n            matPath = staticMaterial.material_interface.get_path_name()\n            unreal.EditorAssetLibrary.delete_asset(matPath)\n            # create new material instance\n            materialInstance = assetTools.create_asset(\n                staticMaterial.material_slot_name,\n                folderPath,\n                unreal.MaterialInstanceConstant,\n                unreal.MaterialInstanceConstantFactoryNew(),\n            )\n            materialInstances.append(materialInstance)\n            # set parent material\n            materialInstance.set_editor_property('parent', materialParent)\n            # assign new material instance to correct material slot\n            staticMesh.set_material(index, materialInstance)\n            # iterate over textures\n            for texture in textures:\n                # identify textures associated with asset by naming convention\n                if assetName in texture.get_name():\n                    # get parameter name from texture name - i.e. T_Airconditioner_BC -> BC\n                    parameterName = texture.get_name().split('_')[-1]\n                    # set up material instance parameter\n                    unreal.MaterialEditingLibrary.set_material_instance_texture_parameter_value(\n                        materialInstance,\n                        parameterName,\n                        texture\n                )\n    # save all new assets\n    newAssets = [geo,textures,materialInstances]\n    for list in newAssets:\n        for asset in list:\n            unreal.EditorAssetLibrary.save_asset(asset.get_path_name())",
+    "sha256": "a329a5ab62f2e5e0490f806a87714af78c2f749474dd1712cf5bf7cf80a55d52",
+    "images": []
+  }
+]

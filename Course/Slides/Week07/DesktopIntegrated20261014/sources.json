@@ -1,0 +1,18 @@
+{
+  "nielsen": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+  "vv": "https://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf",
+  "layout": "https://learn.microsoft.com/en-us/windows/win32/uxguide/vis-layout",
+  "proximity": "https://www.nngroup.com/articles/gestalt-proximity/",
+  "keys": "https://learn.microsoft.com/en-us/windows/apps/develop/input/keyboard-accelerators",
+  "errors": "https://learn.microsoft.com/en-us/windows/win32/uxguide/mess-error",
+  "testing": "https://www.nngroup.com/articles/usability-testing-101/",
+  "mk": "https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf",
+  "api": "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorActorSubsystem?application_version=5.7#unreal.EditorActorSubsystem.get_selected_level_actors",
+  "python": "https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python?application_version=5.7",
+  "plugins": "https://dev.epicgames.com/documentation/en-us/unreal-engine/plugins-in-unreal-engine?application_version=5.7",
+  "analytics": "https://www.nngroup.com/articles/quantitative-user-research-methods/",
+  "spectrum": "https://spectrum.adobe.com/page/color-fundamentals/",
+  "color": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html",
+  "contrast": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+  "picker": "https://dev.epicgames.com/documentation/en-us/unreal-engine/color-picker?application_version=4.27"
+}

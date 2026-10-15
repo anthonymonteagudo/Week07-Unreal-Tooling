@@ -129,7 +129,9 @@ class ApiCheckpointTests(unittest.TestCase):
             self.assertIn("0", output)
 
     def test_validation_reports_all_mismatches_and_never_edits(self):
-        assets = [Texture("A_Normal"), Texture("B_Normal"), Texture("C_Normal", "NORMAL"), Texture("D_Base"), object()]
+        assets = [Texture("A_Normal"), Texture("B_Normal"),
+                  Texture("C_Normal", "NORMAL"), Texture("Legacy_N"),
+                  Texture("D_Base"), object()]
         host = NS(Texture2D=Texture, TextureCompressionSettings=NS(TC_NORMALMAP="NORMAL"),
                   EditorUtilityLibrary=NS(get_selected_assets=lambda: assets))
         output, ns = execute("UE06", host)

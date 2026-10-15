@@ -1,0 +1,386 @@
+{
+  "source_sha256": "e92cccbf002281c7167207647836dc505cd38092821f711977d07f7183a40853",
+  "restored": [
+    7,
+    8,
+    16,
+    18,
+    21,
+    25,
+    30,
+    49
+  ],
+  "hidden": {
+    "5": "Duplicate host check. UE01 on slide 11 retains the complete example and expected output.",
+    "41": "Standalone script-editor case study.",
+    "44": "Optional Remote Control example.",
+    "45": "Standalone AYON pipeline case study.",
+    "58": "Second independent Project Titan tool case.",
+    "69": "Additional workflow-scope example; user stories and acceptance criteria remain visible.",
+    "70": "Additional mental-model example; the user story remains visible.",
+    "85": "Task-feedback summary; state, preview, warning and Undo examples remain visible.",
+    "95": "Second naming-consistency example; the style-sheet lesson remains visible.",
+    "100": "Optional telemetry comparison; direct observation and useful feedback remain visible."
+  },
+  "visible": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    42,
+    43,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    96,
+    97,
+    98,
+    99,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106
+  ],
+  "custom_show": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    42,
+    43,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    96,
+    97,
+    98,
+    99,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106
+  ],
+  "sections": [
+    {
+      "start": 1,
+      "name": "Introduction"
+    },
+    {
+      "start": 3,
+      "name": "Unreal Setup"
+    },
+    {
+      "start": 9,
+      "name": "Python in Unreal"
+    },
+    {
+      "start": 11,
+      "name": "UE01: Engine and Project"
+    },
+    {
+      "start": 13,
+      "name": "UE02: Actor Selection"
+    },
+    {
+      "start": 19,
+      "name": "UE03: Components and Meshes"
+    },
+    {
+      "start": 24,
+      "name": "UE04: Content Browser Selection"
+    },
+    {
+      "start": 26,
+      "name": "UE05: Texture Properties"
+    },
+    {
+      "start": 32,
+      "name": "UE06: Validation"
+    },
+    {
+      "start": 35,
+      "name": "UE07: Paths"
+    },
+    {
+      "start": 36,
+      "name": "Asset Workflows"
+    },
+    {
+      "start": 47,
+      "name": "Blender to Unreal"
+    },
+    {
+      "start": 52,
+      "name": "Tool Demos"
+    },
+    {
+      "start": 60,
+      "name": "Colleague Demos"
+    },
+    {
+      "start": 62,
+      "name": "Break"
+    },
+    {
+      "start": 63,
+      "name": "UI/UX and Lab 1"
+    },
+    {
+      "start": 66,
+      "name": "Know the Task"
+    },
+    {
+      "start": 71,
+      "name": "Guide the Eye"
+    },
+    {
+      "start": 80,
+      "name": "Make Actions Clear"
+    },
+    {
+      "start": 92,
+      "name": "Keep It Consistent"
+    },
+    {
+      "start": 96,
+      "name": "Test the Workflow"
+    },
+    {
+      "start": 102,
+      "name": "Peer Review Lab"
+    }
+  ],
+  "copy_changes": [
+    {
+      "slide": 16,
+      "before": "Running a Python FileSave the complete UE02 example as Content/Python/selection_demo.py.In Unreal, choose Tools > Execute Python Script and select that file.Change the Outliner selection and rerun to compare the Output Log.16",
+      "after": "UE02: Run a Python FileChoose Tools > Execute Python Script.Open UE02_level_selection.py from the project\u2019s lesson_materials folder.Change the Outliner selection and rerun to compare the Output Log.16"
+    },
+    {
+      "slide": 18,
+      "before": "01 Unreal Python18UE02: Actor SelectionThe selected crate appears in the scene and the Outliner.Output LogThe log identifies the selected Actor.",
+      "after": "01 Unreal Python18UE02: Selection in UnrealThe selected crate appears in the scene and the Outliner.Output LogThe log identifies the selected Actor."
+    },
+    {
+      "slide": 19,
+      "before": "UE03: Actor Selection01 Unreal Python19import unrealeditor = unreal.get_editor_subsystem(    unreal.EditorActorSubsystem)actors = editor.get_selected_level_actors()print(\"Selected Actors:\", len(actors))for actor in actors:    print(actor.get_actor_label(), actor.get_class().get_name())UE03 uses this selection to read components and their mesh assets.",
+      "after": "UE03: Components and Meshes01 Unreal Python19import unrealeditor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)actors = editor.get_selected_level_actors()print(\"Selected Actors:\", len(actors))for actor in actors:    components = actor.get_components_by_class(unreal.StaticMeshComponent)    print(actor.get_actor_label(), \"mesh components:\", len(components))    for component in components:        mesh = component.get_editor_property(\"static_mesh\")        print(component.get_name(), mesh.get_path_name() if mesh else None)Run UE03_components.py with a mesh Actor selected."
+    },
+    {
+      "slide": 21,
+      "before": "01 Unreal Python21UE03: Components and MeshesThe Actor\u2019s StaticMeshComponent references the Cube asset.Output LogThe Actor, component and mesh asset are separate objects.",
+      "after": "01 Unreal Python21UE03: Output in UnrealThe Actor\u2019s StaticMeshComponent references the Cube asset.Output LogThe Actor, component and mesh asset are separate objects."
+    },
+    {
+      "slide": 31,
+      "before": "01 Unreal Python31UE04\u201305: Texture PropertiesSelected asset in the Content BrowserEditor tooltipOutput LogNormal map: Normalmap compression, sRGB off.",
+      "after": "01 Unreal Python31UE05: Output in UnrealSelected asset in the Content BrowserEditor tooltipOutput LogNormal map: Normalmap compression, sRGB off."
+    }
+  ],
+  "lesson_blocks": {
+    "UE01": [
+      11,
+      12
+    ],
+    "UE02": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "UE03": [
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "UE04": [
+      24,
+      25
+    ],
+    "UE05": [
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "UE06": [
+      32,
+      33,
+      34
+    ],
+    "UE07": [
+      35
+    ],
+    "Blender": [
+      47,
+      48,
+      49,
+      50,
+      51
+    ]
+  }
+}

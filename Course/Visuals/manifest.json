@@ -524,6 +524,13 @@
       "html": "Week07/Online20261013/index.html",
       "manifest": "Week07/Online20261013/manifest.json",
       "count": 9
+    },
+    {
+      "id": "week07-uiux-evidence-20261014",
+      "title": "Week 7: desktop UI/UX evidence and sourced visuals",
+      "html": "../Slides/Week07/UIUXIntegrationReview20261014/index.html#visuals",
+      "manifest": "../Slides/Week07/UIUXIntegrationReview20261014/visual-provenance.json",
+      "count": 4
     }
   ]
 }

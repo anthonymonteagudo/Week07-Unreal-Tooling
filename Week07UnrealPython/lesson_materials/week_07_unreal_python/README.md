@@ -1,9 +1,9 @@
-# Week 7 Python tooling — draft checkpoints
+# Week 7 Python tooling: draft checkpoints
 
 For direct Unreal and Blender API topics, use the new [runnable API checkpoints](../week_07_api_checkpoints/README.md). The sequence below remains the ordinary-Python foundations recap.
 
 For the main student-facing Material Setup and VFX Placement activities, use
-[the student quick-start](../../Docs/Students/START_HERE.md). The small prop-based
+[the student quick-start](../../README.md). The small prop-based
 checkpoints below are an optional code recap, with stable IDs retained for reference.
 
 Use these for an **optional VS Code foundations recap**. Steps 01–07 operate on invented records in
@@ -47,7 +47,7 @@ than the six-prop Unreal fixture. Paths beginning `sample://` are identifiers on
 | [04 · Lab starter](stage_04_lab_starter/README.md) | unnumbered | Optional exercise to shape after lecture/lab scope is settled. |
 | [05 · UI progression](stage_05_ui_progression/README.md) | UI 1–3 | Material/VFX functional → guided → refined; same tools and safeguards, Qt captures and gates. |
 
-For the main demo, follow [the canonical route](../../Docs/DEMO_SEQUENCE.md).
+For the main demo, follow [the canonical route](../../README.md).
 Read [SEQUENCING.md](SEQUENCING.md) for the teaching rationale and open decisions.
 Step IDs identify checkpoints, **not slides**. The earlier five `w7.run_example()`
 commands remain the integrated editor demo; they are not this new step numbering.

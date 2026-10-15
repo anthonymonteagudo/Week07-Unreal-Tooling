@@ -6,7 +6,7 @@ import unreal
 from week07_bridge import core
 
 root = Path(unreal.Paths.project_dir()).resolve()
-out = root / 'Docs/Bridge'
+out = root / 'Saved/Rehearsal/Bridge'
 out.mkdir(parents=True, exist_ok=True)
 unreal.EditorPythonScripting.set_keep_python_script_alive(True)
 unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).load_level('/Game/Week07/Bridge/W07_BridgeComparison')

@@ -1,0 +1,76 @@
+[
+  {
+    "archive": "Python.zip",
+    "entries": 32,
+    "relevant_files": [
+      "Python/__init__.py",
+      "Python/add_menu_entry.py",
+      "Python/debug_me.py",
+      "Python/editing_material_properties.py",
+      "Python/example_transactions.py",
+      "Python/find_duplicated_actors.py",
+      "Python/fix_texture_compression.py",
+      "Python/hello.py",
+      "Python/init_unreal.py",
+      "Python/list_tool_menus.py",
+      "Python/menu_entry_icon.py",
+      "Python/nested_menu_entry.py",
+      "Python/post_import_callbacks.py",
+      "Python/progress_bar.py",
+      "Python/selection.py",
+      "Python/startup_script.py",
+      "Python/tech_art_corner_example.py",
+      "Python/test_classic_python_test.py",
+      "Python/test_tutorial_test.py",
+      "Python/remove_unused_assets.py",
+      "Python/remote_control_demo_functions.py",
+      "Python/remote_control_progress_bar.py",
+      "Python/batch_fbx_import.py",
+      "Python/batch_texture_import.py",
+      "Python/remote_import_fbx.py",
+      "Python/validate_asset_prefix.py",
+      "Python/validate_texture.py",
+      "Python/validate_triangle_count.py"
+    ]
+  },
+  {
+    "archive": "UE5_2_project.zip",
+    "entries": 294,
+    "relevant_files": [
+      "MyProject.uproject",
+      "Content/Python/add_menu_entry.py",
+      "Content/Python/editing_material_properties.py",
+      "Content/Python/find_duplicated_actors.py",
+      "Content/Python/fix_texture_compression.py",
+      "Content/Python/hello.py",
+      "Content/Python/init_unreal.py",
+      "Content/Python/list_tool_menus.py",
+      "Content/Python/progress_bar.py",
+      "Content/Python/selection.py",
+      "Content/Python/startup_script.py"
+    ]
+  },
+  {
+    "archive": "VP_Demo_UE53_starting_point.zip",
+    "entries": 508,
+    "relevant_files": [
+      "VP_Demo_UE53/VP_Demo_UE53.uproject"
+    ]
+  },
+  {
+    "archive": "ExamplePlugin_FixTextureCompression.zip",
+    "entries": 9,
+    "relevant_files": [
+      "FixTextureCompression/Content/Python/__init__.py",
+      "FixTextureCompression/Content/Python/fix_compression.py",
+      "FixTextureCompression/Content/Python/init_unreal.py",
+      "FixTextureCompression/Content/Python/setup_fix_compression_ui.py",
+      "FixTextureCompression/FixTextureCompression.uplugin"
+    ]
+  },
+  {
+    "archive": "Files.zip",
+    "entries": 3,
+    "relevant_files": []
+  }
+]

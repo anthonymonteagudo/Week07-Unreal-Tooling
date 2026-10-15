@@ -1,0 +1,22 @@
+{
+  "copiedReviewAssets": {
+    "sourceDirectory": "../../UIUXIntegrationReview20261014/assets",
+    "files": ["epic-selection-doc-detail.png", "ms-rename-error.png", "ms-shortcut-menu.png", "nng-form-grouping.png", "plugin-template-user.png"],
+    "provenance": "See UIUXIntegrationReview20261014/visual-provenance.json and additional-topics-sources.json. Plugin screenshot supplied by the instructor."
+  },
+  "adobe-color-alone.png": {
+    "source": "https://spectrum.adobe.com/page/color-fundamentals/",
+    "method": "Browser screenshot of the original published example image",
+    "image": "https://spectrum.adobe.com/page/color-fundamentals/media_1c9cefe91435c778a9966713132ffeb845940fbf7.png?format=png&optimize=medium&width=750"
+  },
+  "adobe-color-label.png": {
+    "source": "https://spectrum.adobe.com/page/color-fundamentals/",
+    "method": "Browser screenshot of the original published example image",
+    "image": "https://spectrum.adobe.com/page/color-fundamentals/media_130cdd17e3ef910ccab2221c2169bfd2b24189153.png?format=png&optimize=medium&width=750"
+  },
+  "epic-color-picker.png": {
+    "source": "https://dev.epicgames.com/documentation/en-us/unreal-engine/color-picker?application_version=4.27",
+    "method": "Original published image bytes; historical UE 4.27 reference, labeled on slide",
+    "image": "https://d1iv7db44yhgxn.cloudfront.net/documentation/images/08e83a59-c5b4-475d-a2ff-20d87eaedc49/colorpicker.png"
+  }
+}

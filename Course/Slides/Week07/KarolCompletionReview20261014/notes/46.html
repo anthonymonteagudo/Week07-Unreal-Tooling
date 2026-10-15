@@ -1,0 +1,208 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>46 Direct FBX Mesh Export From Blender to Unreal · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#notes">Return to audit</a> <a href="47.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/46%20Direct%20FBX%20Mesh%20Export%20From%20Blender%20to%20Unreal.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/46%20Direct%20FBX%20Mesh%20Export%20From%20Blender%20to%20Unreal%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>46 Direct FBX Mesh Export From Blender to Unreal</h1><p>7 screenshots preserved; organized explanation and copyable examples.</p><p class="meta">Read-only rendered snapshot, 14 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Change record</button></div><article class="document" id="refined"><h1>Direct FBX Export from Blender to Unreal — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/46%20Direct%20FBX%20Mesh%20Export%20From%20Blender%20to%20Unreal.md">Original notes</a></p>
+<p>Combine the FBX importer from lesson 19 with the Remote Control functions from lesson 44. Blender exports a file, then asks the running Unreal editor to import that exact file. The button hides repeated steps; it does not eliminate the file handoff.</p>
+<h2>Follow the complete operation</h2>
+<ol>
+<li>Export the intended Blender mesh to an FBX file.</li>
+<li>Send its disk path and the Unreal destination folder to an exposed Python function.</li>
+<li>Create one <code>AssetImportTask</code>, apply the import settings, and import it.</li>
+<li>Inspect the returned result and the asset in Unreal.</li>
+</ol>
+<p>The opening screenshots show the <strong>Example Export</strong> button and the resulting imported mesh/material. This is the course demonstration, not a complete production publisher.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014175743.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014175819.png" alt="Course screenshot"></p>
+<h2>Reuse the importer and remote-call interface</h2>
+<p>The batch importer searched a directory and built tasks in a loop. The exporter already knows its output path, so this version needs neither directory discovery nor a loop. It accepts two strings: <code>source_path</code> and <code>destination</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014175912.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014180107.png" alt="Course screenshot"></p>
+<p>This consolidated receiver follows the screenshot&#39;s settings. Execute its definition <strong>inside Unreal</strong>, with the Python and Remote Control plugins enabled:</p>
+<pre><code class="language-python">from pathlib import Path
+import unreal
+
+@unreal.uclass()
+class RemoteImporter(unreal.Object):
+    @unreal.ufunction(ret=bool, params=[str, str],
+                      meta=dict(Category=&quot;TechArtCorner&quot;))
+    def import_fbx(self, source_path, destination):
+        mesh_data = unreal.FbxStaticMeshImportData()
+        mesh_data.set_editor_property(&quot;combine_meshes&quot;, True)
+        mesh_data.set_editor_property(&quot;remove_degenerates&quot;, True)
+
+        options = unreal.FbxImportUI()
+        options.set_editor_property(&quot;import_mesh&quot;, True)
+        options.set_editor_property(&quot;import_textures&quot;, False)
+        options.set_editor_property(&quot;import_materials&quot;, True)
+        options.set_editor_property(&quot;automated_import_should_detect_type&quot;, True)
+        options.set_editor_property(&quot;static_mesh_import_data&quot;, mesh_data)
+
+        task = unreal.AssetImportTask()
+        task.set_editor_property(&quot;filename&quot;, source_path)
+        task.set_editor_property(&quot;destination_path&quot;, destination)
+        task.set_editor_property(&quot;destination_name&quot;, Path(source_path).stem)
+        task.set_editor_property(&quot;automated&quot;, True)
+        task.set_editor_property(&quot;replace_existing&quot;, True)
+        task.set_editor_property(&quot;save&quot;, False)  # Course testing choice.
+        task.set_editor_property(&quot;options&quot;, options)
+        unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks([task])
+        return True
+</code></pre>
+<p>The course returns <code>True</code> after the import call. That means execution reached the return statement; it is not a check of mesh contents, scale, destination, or reimport identity. A stronger tool also inspects <code>task.imported_object_paths</code> and the resulting asset. Replacement is enabled and saving is disabled here; choose those policies deliberately.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014180250.png" alt="Course screenshot"></p>
+<h2>Test the endpoint before adding Blender UI</h2>
+<p>Use Insomnia or Postman to call <code>import_fbx</code> with a known FBX and destination such as <code>/Game/Enviro</code>. Determine the class default object&#39;s actual path using lesson 47; the older <code>/Engine/PythonTypes.Default__RemoteImporter</code> path is not reliable for every registration mode/version.</p>
+<p>The external client below is a cleaned-up equivalent of the screenshot, with an explicit timeout and response check added. <code>object_path</code> must be the path printed by the receiver in Unreal:</p>
+<pre><code class="language-python">import requests
+
+def send_to_unreal(filepath, object_path, destination=&quot;/Game/Enviro&quot;):
+    response = requests.put(
+        &quot;http://localhost:30010/remote/object/call&quot;,
+        json={&quot;objectPath&quot;: object_path, &quot;functionName&quot;: &quot;import_fbx&quot;,
+              &quot;parameters&quot;: {&quot;source_path&quot;: filepath,
+                             &quot;destination&quot;: destination}},
+        timeout=30,
+    )
+    response.raise_for_status()
+    if response.json().get(&quot;ReturnValue&quot;) is not True:
+        raise RuntimeError(&quot;Unreal did not report a successful call&quot;)
+</code></pre>
+<p>Use the configured server port. Install <code>requests</code> in the <strong>calling application&#39;s</strong> Python environment if needed; installing it in Unreal does not install it in Blender. A local path works only if the Unreal process can access the exported file.</p>
+<h2>Connect Blender export to the request</h2>
+<p>The screenshot&#39;s operator subclasses <code>bpy.types.Operator</code>; its <code>execute(self, context)</code> exports the FBX, then calls <code>send_to_unreal</code>. Its export call uses <code>mesh_smooth_type=&#39;FACE&#39;</code>, <code>object_types={&#39;MESH&#39;}</code>, and <code>use_custom_props=True</code>.</p>
+<pre><code class="language-python"># Fragment inside the Blender operator; filepath and object_path are configured.
+result = bpy.ops.export_scene.fbx(
+    filepath=filepath,
+    mesh_smooth_type=&quot;FACE&quot;,
+    object_types={&quot;MESH&quot;},
+    use_custom_props=True,
+)
+if &quot;FINISHED&quot; not in result:
+    raise RuntimeError(&quot;FBX export did not finish&quot;)
+send_to_unreal(filepath, object_path)
+</code></pre>
+<p>The export-result check is an added safeguard. The captured example does <strong>not</strong> specify <code>use_selection=True</code>; filtering by object type is not the same as exporting only selected meshes. Decide and display the intended scope before adopting this code.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014180332.png" alt="Course screenshot"></p>
+<p>A <code>bpy.types.Panel</code> adds the operator through <code>layout.operator(...)</code>. The course panel lives in the 3D View&#39;s sidebar (<code>bl_space_type=&#39;VIEW_3D&#39;</code>, <code>bl_region_type=&#39;UI&#39;</code>) under <strong>Tech Art Corner</strong>. Press <strong>N</strong> to reveal that sidebar. Register both classes with <code>bpy.utils.register_class</code>; provide matching unregister calls when replacing the tool.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014180353.png" alt="Course screenshot"></p>
+<p>The example catches request exceptions but only prints a reminder to handle them. In a usable tool, report whether export succeeded, whether Unreal received the request, and whether import succeeded. Do not return an apparently successful operator result after swallowing an error. Check failures such as Unreal being closed, Remote Control being unavailable, or an incorrect object path.</p>
+<p>Choose destination rules with artists: fixed folder, user selection, source-path convention, or metadata. Keep settings and recovery visible enough that the single button remains understandable. See <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/47%20Making%20sure%20Remote%20Control%20calls%20work%20in%20Unreal%205.5%2B%20with%20correct%20Object%20Path%20-%20REFINED.md">lesson 47</a> for the path correction and <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/48%20Fixing%20ImportError%20in%20Python%20and%20adding%20Python%20Modules%20as%20Plugins%20-%20REFINED.md">lesson 48</a> for dependencies.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/45%20Remote%20Control%20Python%20Progress%20Bar%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/47%20Making%20sure%20Remote%20Control%20calls%20work%20in%20Unreal%205.5%2B%20with%20correct%20Object%20Path%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014175743.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014175819.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014175912.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014180107.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014180250.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014180332.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014180353.png" alt="Course screenshot"></p>
+<p>You can create an exporter that exports directly into unreal with just a single click.</p>
+<p>Click wait for export.</p>
+<p>Wait for import to unreal and done.</p>
+<p>That is just a demo example of what we already learned in the course, and I wanted to inspire you to</p>
+<p>create tools that your users will love to use.</p>
+<p>All it takes is to find an application that you want to bridge with unreal, like Maya Motionbuilder</p>
+<p>or in my case, blender.</p>
+<p>Prepare code for the tool and bridge it with code you already prepared in this course.</p>
+<p>This course contains a tutorial on batch FBX import.</p>
+<p>That&#39;s what we are going to do, as well as on exposing Python functions to remote control API.</p>
+<p>And that&#39;s what we are going to use for communication with blender.</p>
+<p>Turns out, combining them together is quite simple.</p>
+<p>On the right side of the screen there is a code from batch FBX import tutorial.</p>
+<p>What we do here is finding a number of assets that we are going to import, and then we create an asset</p>
+<p>import task for each of them, such as an import task, know which assets, which the source paths are</p>
+<p>going to be imported and which settings we want to set and use during import.</p>
+<p>But if we are exporting something from Maya or Blender, we don&#39;t have to discover files on our drive.</p>
+<p>We actually have already an exported path, which is great, so we no longer have to do all that Pathlib</p>
+<p>related code.</p>
+<p>There is a single asset, so we don&#39;t have to create asset tasks in a loop.</p>
+<p>And the whole import fits in about 15 lines of code.</p>
+<p>What we have to do is to bridge it, is to expose it to remote control API.</p>
+<p>And that&#39;s what we already did in the past.</p>
+<p>On the left side of my screen you see a demo remote control API functions.</p>
+<p>We have some pink unreal that lets us execute some code and then return a value.</p>
+<p>But what we need is executing code with given file path.</p>
+<p>And for that we could use this code snippet.</p>
+<p>Because return params function takes a an integer and string parameter and it also returns a string.</p>
+<p>But that&#39;s not a thing we need really.</p>
+<p>I have already prepared a combined code, and you can find it in a file called Remote import FBX in</p>
+<p>the course content.</p>
+<p>The code is pretty simple and also pretty short.</p>
+<p>We do the very basics.</p>
+<p>We declare some class and import function, and then we expose them to API using those view class and</p>
+<p>view function decorators we used already in the past.</p>
+<p>My function takes two strings as arguments.</p>
+<p>First one is source path of the asset I&#39;m going to import, and the second one is the destination.</p>
+<p>You can hard code this destination path.</p>
+<p>You can guess it based on maybe a path to the source asset or some metadata.</p>
+<p>It&#39;s up to you, but if you want, you can also maybe even specify it in blender.</p>
+<p>If you are really considering implementing such feature in your company in your project, just ask artists</p>
+<p>what they need.</p>
+<p>Maybe they need something simple, or maybe they don&#39;t just want something more complex.</p>
+<p>Maybe they want to be able to pick the way the path is created.</p>
+<p>Then we create static mesh, import data and import options and import task the same way we did it in</p>
+<p>PHP batch import video.</p>
+<p>Then we import it and just return true.</p>
+<p>That&#39;s all.</p>
+<p>At this point I recommend you to run Insomnia or Postman client and check if this code works.</p>
+<p>It will be less annoying for you if you find any mistakes right now.</p>
+<p>Then if you start debugging why some code in blender doesn&#39;t work.</p>
+<p>Jumping into blender.</p>
+<p>The code we have here is only for example purposes, and it&#39;s also quite short in my opinion, it is</p>
+<p>just 60 lines.</p>
+<p>You will have to dive into your Python API of your software of choice depending on what your needs are,</p>
+<p>but luckily blender is free so I picked it as my example.</p>
+<p>If you want to borrow bits of my code and you don&#39;t really want to jump into it, just download source</p>
+<p>code from the course content.</p>
+<p>Blender API is not so similar to the code you probably have written in the past, but this tool should</p>
+<p>be quite simple to understand.</p>
+<p>It&#39;s completely different than typical Python code, and I would say that Maya and Motionbuilder also</p>
+<p>are different than typical Python, but blender is not like any of those.</p>
+<p>So our main functionality is in an operator class.</p>
+<p>Operator is a blender way of running functions.</p>
+<p>The operator has execute method and that&#39;s the most important part.</p>
+<p>It uses a single line of code to export Ndfb with some hardcoded test path, and then it uses send to</p>
+<p>unreal function to guess what, import it to unreal.</p>
+<p>Sent to unreal implementation is taken straight from insomnia client that we used in previous videos.</p>
+<p>The only thing I modified is not having hard coded file path here.</p>
+<p>Instead it&#39;s a variable and I also added race for status.</p>
+<p>Um, which means that if your request was successful but you got an error code in return, then it will</p>
+<p>raise an exception.</p>
+<p>And of course, I have super basic handling that just tells you that you didn&#39;t really handle it and</p>
+<p>you should do it.</p>
+<p>That&#39;s a reminder for you to handle it correctly.</p>
+<p>Most likely this exception will happen when unreal is not running, but you try to export anyway.</p>
+<p>Or if someone didn&#39;t enable remote control API plugin.</p>
+<p>Once the operator is created and registered, all we have to do is to add it to the UI.</p>
+<p>And that is what this class Python Automation course panel in line 38 does.</p>
+<p>It just adds a button with operator to the UI.</p>
+<p>And I know it&#39;s a bit confusing because you add some operator straight into the layout and there is</p>
+<p>nothing about buttons, but that is how blender works, and explaining it would be a topic for a separate</p>
+<p>course.</p>
+<p>Lastly, we have to register our classes because we wouldn&#39;t see anything here.</p>
+<p>And once this code is executed, which can be done with this little triangle button, our functionality</p>
+<p>is available.</p>
+<p>Here on that menu on the right side.</p>
+<p>You can also open it with N on your keyboard.</p>
+<p>And we have a tab called tech Art corner.</p>
+<p>Example export.</p>
+<p>It freezes for a while, but that&#39;s just because it was exporting.</p>
+<p>And then when you jump until you could expect an imported mesh, just like we had seen it in the very</p>
+<p>beginning of the video.</p>
+<p>Hopefully this video gives you some ideas of what is possible.</p>
+<p>You could not only automatically export and import meshes from various softwares that are made for 3D</p>
+<p>modeling, but maybe also export textures from Substance Designer, Substance Painter or even Photoshop.</p>
+<p>I really believe that making such features makes tool cool and just more pleasant to use.</p>
+<p>And it looks like wow, when you show it to others and you know they have to do all that stuff manually.</p>
+<p>And you know what?</p>
+<p>We in our company, we do it with a single button.</p>
+<p>And it not only reduces the number of boring manual actions and makes everything cooler, it simply</p>
+<p>gives them more time for the creative process and what is also important.</p>
+<p>It saves money in big teams.</p>
+<p>Saving um time on repetitive tasks really saves money.</p>
+<p>If you have to do certain thing x number of times a day, just multiply it by number of days in the</p>
+<p>month and number of your team members.</p>
+<p>And who knows, maybe spending a few hours on implementing simple feature saved way way way more work</p>
+<p>time in your company.</p>
+<p>And that&#39;s it.</p>
+<p>I hope you liked it.</p>
+<p>See you in the next video.</p>
+</article><article id="diff" hidden><h2>Completion change record</h2><pre>New REFINED version created from the completed source note. The original source is preserved in the adjacent tab.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

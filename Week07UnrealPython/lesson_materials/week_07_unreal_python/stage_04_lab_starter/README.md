@@ -1,4 +1,4 @@
-# Lab starter — scope pending
+# Lab starter: scope pending
 
 This optional starter is separate from the worked checkpoints, following the
 starter/example distinction in the SimonDev reference. It is not a finalized lab

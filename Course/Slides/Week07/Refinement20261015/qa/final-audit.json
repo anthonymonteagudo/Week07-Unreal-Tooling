@@ -1,0 +1,167 @@
+{
+  "started_utc": "2026-10-15T07:58:39+00:00",
+  "audited_utc": "2026-10-15T08:59:42.484868+00:00",
+  "elapsed_minutes": 61.06,
+  "deck": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\Refinement20261015\\output\\Week 7 - Integrated UX and Asset Workflows v6.pptx",
+  "checks": [
+    {
+      "label": "Original gradient deck unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Full deck contains 106 ordered slides",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "All 78 original media parts preserved byte for byte",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Nine original embedded video files preserved",
+      "passed": true,
+      "detail": [
+        "ppt/media/media3.mp4",
+        "ppt/media/media2.mp4",
+        "ppt/media/media1.mp4",
+        "ppt/media/media5.mp4",
+        "ppt/media/media7.mp4",
+        "ppt/media/media9.mp4",
+        "ppt/media/media8.mp4",
+        "ppt/media/media6.mp4",
+        "ppt/media/media4.mp4"
+      ]
+    },
+    {
+      "label": "70-slide custom show exactly follows the teaching plan",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "All 32 authored slides retain editable native content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "All 106 slides have narration, sources and instructor guidance",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Final deck hash matches validation receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Structural and layout findings are clear",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Native PowerPoint text and table-cell fit clear",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "PowerPoint recognizes the 70-slide custom show and nine videos",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "All 106 final slides rendered by PowerPoint",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Review displays current final renders",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Original Word source unchanged: Week 7 Lab 1 Student Handout.docx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Preserved Word package except document text: Week 7 Lab 1 Student Handout v4.docx",
+      "passed": true,
+      "detail": [
+        "word/document.xml"
+      ]
+    },
+    {
+      "label": "Original Word source unchanged: Week 7 Peer Review Packet v2.docx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Preserved Word package except document text: Week 7 Peer Review Packet v3.docx",
+      "passed": true,
+      "detail": [
+        "word/document.xml"
+      ]
+    },
+    {
+      "label": "Original Word source unchanged: Week 7 Lab Instructor Guide.docx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Preserved Word package except document text: Week 7 Lab Instructor Guide v4.docx",
+      "passed": true,
+      "detail": [
+        "word/document.xml"
+      ]
+    },
+    {
+      "label": "Original Word source unchanged: Week 7 Live Demo Run Sheet.docx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Preserved Word package except document text: Week 7 Live Demo Run Sheet v4.docx",
+      "passed": true,
+      "detail": [
+        "word/document.xml"
+      ]
+    },
+    {
+      "label": "Timetable totals 150 minutes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Tool tests passed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Assistant UI gates passed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Course Python source parses",
+      "passed": true,
+      "detail": 44
+    },
+    {
+      "label": "Desktop/mobile pages and classroom interactions pass",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "label": "Offscreen Qt key-event checks pass",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "conservative_layout_warning": "Slide 81 table estimate warns by 0.0863 in. Actual PowerPoint cell fit has zero findings; full-size rendered table and question have a visible gap.",
+  "evidence_limits": [
+    "No new live Unreal or Unity rehearsal.",
+    "Existing recorded UE 5.7.4 fixture and fresh offline practice checks are distinguished.",
+    "No manual projection-distance, DPI or screen-reader validation."
+  ]
+}

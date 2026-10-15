@@ -1,0 +1,166 @@
+[
+  {
+    "page": 1,
+    "text": "Confidential\nUsing Python to Streamline Asset Workflows \nfor a Small Team"
+  },
+  {
+    "page": 2,
+    "text": "Confidential\nAbout Me\n● Marcus White\n● Principal Technical Artist\n● 9 years experience as a TA\n● At Unit 2 Games since early 2018\n"
+  },
+  {
+    "page": 3,
+    "text": "Confidential\n● Collaborative game \ncreation platform\n● Highly accessible\n● Player created games\n● Ability for users to import \ntheir own assets"
+  },
+  {
+    "page": 4,
+    "text": "Confidential\nWhat we will cover\n● Why use Python?\n● Python in Unreal Engine\n● Case studies @ Unit 2 Games\n○ Asset authoring workflow & ingestion\n○ Asset management\n● Future work\n● Takeaways\n"
+  },
+  {
+    "page": 5,
+    "text": "Confidential\nWhy Use Python?\n"
+  },
+  {
+    "page": 6,
+    "text": "Confidential\nWhy Use Python?\n● Quick iteration\n● No compile times!\n● Vast wealth of 3rd party libraries\n● Easy to distribute\n● Don’t need to involve programmers\n● Easier to learn\n● Can extend Python based workflow from Maya to engine\n● I like Python :)"
+  },
+  {
+    "page": 7,
+    "text": "Confidential\nPython in Unreal Engine"
+  },
+  {
+    "page": 8,
+    "text": "Confidential\nPython in Unreal Engine\n● Unreal Python\n○ Official Epic implementation\n○ Released in UE 4.19\n○ Python 2.7 integrated, supports building with custom versions\n● UnrealEnginePython\n○ 3rd Party Plugin\n○ Available on Github:  github.com/20tab/UnrealEnginePython\n○ Full access to UE4 Reflection system\n○ Python 2.7, 3.5 & 3.6 supported\nUnreal Python wasn’t available at the start of our project :("
+  },
+  {
+    "page": 9,
+    "text": "Confidential\nUnrealEnginePython\n● Embedded Python VM\n● Built in Python console\n● Access to UE4 internal API & \nReflection system\n● Ability to extend editor\n"
+  },
+  {
+    "page": 10,
+    "text": "Confidential\nUnrealEnginePython\nfrom unreal_engine import SWindow, STextBlock\nwindow = SWindow(\nclient_size = (512,512),\ntitle = 'Hello World',\nmodal = True\n)\ntextblock = STextBlock(text=\"Here's some text!\")\nwindow.set_content(textblock)\nwindow.add_modal()\n="
+  },
+  {
+    "page": 11,
+    "text": "Confidential\nHow we used Python at Unit 2 Games\nCase Studies"
+  },
+  {
+    "page": 12,
+    "text": "Confidential\nCase Study #1: Asset Ingestion"
+  },
+  {
+    "page": 13,
+    "text": "Confidential\nThe Problem\n“Import & setup many props in as little time as possible with as little \nhuman error as possible.”\n● Be able to support small art team (6 artists, 2 full time on props)\n● Cope with the large asset throughput with minimal error & repetition\n● Heavy reliance on outsourcing\n○ Rapid turnaround on fixes & new content\n○ Easy to use authoring workflow\n● Retain a consistent art style across a variety of themes\n● Keep User Generated Content in mind!"
+  },
+  {
+    "page": 14,
+    "text": "Confidential\n● Internally created Substance material library\n● Used internally & by the creators\n● Retains consistency over art style in a UGC \nenvironment\n● Retain a consistent art style across a variety of themes\n● Keep User Generated Content in mind!"
+  },
+  {
+    "page": 15,
+    "text": "Confidential\n● Retain a consistent art style across a variety of themes\n● Keep User Generated Content in mind!\n● Be able to support small art team (6 artists, 2 full time on props)\n● Cope with the large asset throughput with minimal error & repetition\n● Heavy reliance on outsourcing\n○ Rapid turnaround on fixes & new content\n○ Easy to use authoring workflow"
+  },
+  {
+    "page": 16,
+    "text": "Confidential\n● Be able to support small art team (6 artists, 2 full time on \nprops)\n● Cope with the large asset throughput with minimal error \n& repetition\n● Heavy reliance on outsourcing\nReview in \ngame\nSetup \nmaterials\nImport \ninto \nUnreal\nBake \nTextures\nReceive from \nOutsourcer"
+  },
+  {
+    "page": 17,
+    "text": "Confidential\nWrite a tool!\n"
+  },
+  {
+    "page": 18,
+    "text": "Confidential\nAsset Preparation\n● Assign named materials to faces\n● Names matched against our material library\n● Export!\n"
+  },
+  {
+    "page": 19,
+    "text": "Confidential\nNormal\nFBX"
+  },
+  {
+    "page": 20,
+    "text": "Confidential\nsbsbaker.ex\ne\nNormal\nFBX"
+  },
+  {
+    "page": 21,
+    "text": "Confidential\nsbsbaker.ex\ne\nCurvature\nAmbient Occlusion\nNormal\nFBX"
+  },
+  {
+    "page": 22,
+    "text": "Confidential\nsbsbaker.ex\ne\nPIL\nCurvature\nAmbient Occlusion\nNormal\nFBX"
+  },
+  {
+    "page": 23,
+    "text": "Confidential\nsbsbaker.ex\ne\nPIL\nCurvature\nAmbient Occlusion\nID\nNormal\nFBX"
+  },
+  {
+    "page": 24,
+    "text": "Confidential\nsbsbaker.ex\ne\nPIL\nCurvature\nAmbient Occlusion\nID\nNormal\nFBX\nPIL"
+  },
+  {
+    "page": 25,
+    "text": "Confidential\nsbsbaker.ex\ne\nPIL\nCurvature\nAmbient Occlusion\n Control\nID\nNormal\nFBX\nPIL"
+  },
+  {
+    "page": 26,
+    "text": "Confidential\nSolution\n● Easy to use\n● No room for error\n● No repetition\n● Quick turnaround\n"
+  },
+  {
+    "page": 27,
+    "text": "Confidential\nSolution\n● Easy to use ✔\n● No room for error\n● No repetition\n● Quick turnaround\n"
+  },
+  {
+    "page": 28,
+    "text": "Confidential\nSolution\n● Easy to use ✔\n● No room for error ✔\n● No repetition\n● Quick turnaround\n"
+  },
+  {
+    "page": 29,
+    "text": "Confidential\nSolution\n● Easy to use ✔\n● No room for error ✔\n● No repetition ✔\n● Quick turnaround\n"
+  },
+  {
+    "page": 30,
+    "text": "Confidential\nSolution\n● Easy to use ✔\n● No room for error ✔\n● No repetition ✔\n● Quick turnaround ✔\n"
+  },
+  {
+    "page": 31,
+    "text": "Confidential\nAsset Preparation\n"
+  },
+  {
+    "page": 32,
+    "text": "Confidential\nAsset Result\n"
+  },
+  {
+    "page": 33,
+    "text": "Confidential\nReview \nin game\nReview \nin game\nRun \nIngestion \ntool\nReceive from \nOutsourcer\nSetup \nmaterials\nImport \ninto \nUnreal\nBake \nTextures\nReceive from \nOutsourcer"
+  },
+  {
+    "page": 34,
+    "text": "Confidential\nCase Study #2: Asset Overview"
+  },
+  {
+    "page": 35,
+    "text": "Confidential\nCase Study #2: Asset Overview\n● Keep an up-to-date overview of all of our \nassets and their current state of production\n● Useful outside of the art team\n● Artists like pictures ;)"
+  },
+  {
+    "page": 36,
+    "text": "Confidential\nCase Study #2: Asset Overview\n● Using py-trello API \nwrapper\n● Includes Perforce \nhistory\n● Upload asset thumbnails \n& metadata\n● Calculate asset \nproduction state based \noff of metadata\n"
+  },
+  {
+    "page": 37,
+    "text": "Confidential\n"
+  },
+  {
+    "page": 38,
+    "text": "Confidential\nFuture Work\n● Automation with Jenkins\n● Incidentals - Batch fix assets\n● Extra editor automation\n● Taming the art process"
+  },
+  {
+    "page": 39,
+    "text": "Confidential\nTakeaways\n● Let the computer do the heavy lifting\n● Automated pipelines save lives in a small team\n● Python is powerful and quick to use in UE4\n"
+  },
+  {
+    "page": 40,
+    "text": "Confidential\nWe’re hiring!\nhttps://unit2games.com/#careers\n"
+  },
+  {
+    "page": 41,
+    "text": "Confidential\nEnd. Questions?"
+  }
+]

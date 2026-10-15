@@ -1,0 +1,1849 @@
+[
+  {
+    "number": 1,
+    "part": "ppt/slides/slide1.xml",
+    "text": [
+      "Python in Unreal & Tool Review",
+      "Week 7",
+      "1"
+    ],
+    "words": 8,
+    "hidden": false
+  },
+  {
+    "number": 2,
+    "part": "ppt/slides/slide2.xml",
+    "text": [
+      "AGENDA",
+      "2",
+      "TIME",
+      "TOPIC",
+      "3:30\u20133:35 PM",
+      "Introduction",
+      "3:35\u20133:50 PM",
+      "Unreal setup + host check",
+      "3:50\u20134:10 PM",
+      "Selection, objects + texture validation",
+      "4:10\u20134:40 PM",
+      "Blender bridge + tool demos / case studies",
+      "4:40\u20134:55 PM",
+      "Colleague demos / discussion",
+      "4:55\u20135:10 PM",
+      "Break",
+      "5:10\u20135:30 PM",
+      "UI/UX + guided tool assessment",
+      "5:30\u20136:00 PM",
+      "Final Peer Review Lab \u2013 Testing & Feedback"
+    ],
+    "words": 74,
+    "hidden": false
+  },
+  {
+    "number": 3,
+    "part": "ppt/slides/slide3.xml",
+    "text": [
+      "00 Setting Up Python in Unreal",
+      "Enable editor scripting and check the project before running code.",
+      "3"
+    ],
+    "words": 17,
+    "hidden": false
+  },
+  {
+    "number": 4,
+    "part": "ppt/slides/slide4.xml",
+    "text": [
+      "Python setup in Unreal",
+      "00 Setup",
+      "4",
+      "Open Week07UnrealPython.uproject in UE 5.7.4.",
+      "Open /Game/Week07/Maps/W07_MaterialVFXLab from the Content Browser.",
+      "Open Window \u2192 Output Log.",
+      "Set the input selector to Python."
+    ],
+    "words": 34,
+    "hidden": false
+  },
+  {
+    "number": 5,
+    "part": "ppt/slides/slide5.xml",
+    "text": [
+      "Python setup in Unreal",
+      "00 Setup",
+      "5",
+      "import unreal",
+      "print(unreal.SystemLibrary.get_engine_version())",
+      "print(unreal.Paths.project_dir())",
+      "Unreal: Check the host and project",
+      "Engine version: 5.7.4 in the prepared project.",
+      "Project folder: your local Week07UnrealPython directory.",
+      "Expected"
+    ],
+    "words": 39,
+    "hidden": true
+  },
+  {
+    "number": 6,
+    "part": "ppt/slides/slide6.xml",
+    "text": [
+      "Python setup in Unreal",
+      "00 Setup",
+      "6",
+      "Python Editor Script Plugin",
+      "Run in editor.",
+      "IDE stubs provide autocomplete only.",
+      "Editor Scripting Utilities"
+    ],
+    "words": 22,
+    "hidden": false
+  },
+  {
+    "number": 7,
+    "part": "ppt/slides/slide7.xml",
+    "text": [
+      "Open the Week07UnrealPython folder in VS Code.\u2003Install microsoft python and pylance.In Unreal: Editor Preferences > Plugins > Python > Developer Mode. Restart Unreal. Confirm Intermediate/PythonStub/unreal.py exists in this project.",
+      "7",
+      "VS Code: Python Autocomplete"
+    ],
+    "words": 36,
+    "hidden": false
+  },
+  {
+    "number": 8,
+    "part": "ppt/slides/slide8.xml",
+    "text": [
+      "{",
+      "\u00a0 \"python.analysis.extraPaths\": [",
+      "\u00a0\u00a0\u00a0 \"${workspaceFolder}/Intermediate/PythonStub\",",
+      "\u00a0\u00a0\u00a0 \"${workspaceFolder}/Content/Python\"",
+      "\u00a0 ]",
+      "}",
+      "8",
+      "VS Code: Workspace Settings",
+      "Save in .vscode/settings.json. Type unreal. in a Python file to check suggestions."
+    ],
+    "words": 28,
+    "hidden": false
+  },
+  {
+    "number": 9,
+    "part": "ppt/slides/slide9.xml",
+    "text": [
+      "01 Python in Unreal",
+      "Read the selection, inspect its objects, and validate texture settings.",
+      "9"
+    ],
+    "words": 15,
+    "hidden": false
+  },
+  {
+    "number": 10,
+    "part": "ppt/slides/slide10.xml",
+    "text": [
+      "01 Unreal Python",
+      "10",
+      "Case study: Python-driven scene tools",
+      "Notice: an input drives a visible scene change.",
+      "Apply: expose the input and show what it affects.",
+      "cgerchenhp \u2022 click video to play"
+    ],
+    "words": 32,
+    "hidden": false
+  },
+  {
+    "number": 11,
+    "part": "ppt/slides/slide11.xml",
+    "text": [
+      "UE01: Unreal host and project",
+      "01 Unreal Python",
+      "11",
+      "import unreal",
+      "unreal.log(\"Hello from Unreal\")",
+      "print(unreal.SystemLibrary.get_engine_version())",
+      "print(unreal.Paths.project_dir())",
+      "Expected: \"Hello from Unreal\", your engine version, and your project folder."
+    ],
+    "words": 35,
+    "hidden": false
+  },
+  {
+    "number": 12,
+    "part": "ppt/slides/slide12.xml",
+    "text": [
+      "Unreal Python Documentation",
+      "12",
+      "Python API reference: choose Unreal 5.7",
+      "EditorActorSubsystem: selected level actors",
+      "EditorUtilityLibrary: selected assets"
+    ],
+    "words": 18,
+    "hidden": false
+  },
+  {
+    "number": 13,
+    "part": "ppt/slides/slide13.xml",
+    "text": [
+      "Unreal Function Call, Explained",
+      "13",
+      "Pass the subsystem class; call selection methods on the returned editor instance.",
+      "Expression",
+      "Meaning",
+      "unreal.get_editor_subsystem(...)",
+      "Ask the running editor for a subsystem.",
+      "unreal.EditorActorSubsystem",
+      "Class argument: which subsystem we need.",
+      "editor.get_selected_level_actors()",
+      "Call on that instance. No explicit arguments.",
+      "actors = ...",
+      "Keep the returned Array[Actor] to inspect."
+    ],
+    "words": 53,
+    "hidden": false
+  },
+  {
+    "number": 14,
+    "part": "ppt/slides/slide14.xml",
+    "text": [
+      "01 Unreal Python",
+      "14",
+      "Unreal: finding the working selection",
+      "editor is the returned subsystem. actor is one Actor from the selection.",
+      "Expression",
+      "Use in an artist tool",
+      "unreal.get_editor_subsystem(",
+      "    unreal.EditorActorSubsystem)",
+      "Get the editor service that manages level Actors.",
+      "editor.get_selected_level_actors()",
+      "Read the current Outliner selection.",
+      "actor.get_actor_label()",
+      "Show the artist-facing Actor label in a report.",
+      "actor.get_class().get_name()",
+      "Report the selected object\u2019s Unreal class."
+    ],
+    "words": 67,
+    "hidden": false
+  },
+  {
+    "number": 15,
+    "part": "ppt/slides/slide15.xml",
+    "text": [
+      "UE02: Level selection",
+      "01 Unreal Python",
+      "15",
+      "import unreal",
+      "editor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)",
+      "actors = editor.get_selected_level_actors()",
+      "print(\"Selected Actors:\", len(actors))",
+      "for actor in actors:",
+      "\u00a0\u00a0\u00a0 print(actor.get_actor_label(), actor.get_class().get_name())",
+      "get_selected_level_actors() returns Actor objects. len counts them; the loop reads each label and class."
+    ],
+    "words": 46,
+    "hidden": false
+  },
+  {
+    "number": 16,
+    "part": "ppt/slides/slide16.xml",
+    "text": [
+      "Example inside Unreal",
+      "Save the complete UE02 example as Content/Python/selection_demo.py.",
+      "In Unreal, choose Tools > Execute Python Script and select that file.",
+      "Read the Output Log. Change the Outliner selection and execute the file again.",
+      "16"
+    ],
+    "words": 38,
+    "hidden": false
+  },
+  {
+    "number": 17,
+    "part": "ppt/slides/slide22.xml",
+    "text": [
+      "17",
+      "Selection Example: Expected Output",
+      "INPUT",
+      "Outliner: select only W07_Crate_Target.",
+      "Run the complete UE02 example.",
+      "Selected Actors: 1",
+      "W07_Crate_Target StaticMeshActor",
+      "The label matches the Outliner. The class identifies the Actor type."
+    ],
+    "words": 31,
+    "hidden": false
+  },
+  {
+    "number": 18,
+    "part": "ppt/slides/slide17.xml",
+    "text": [
+      "01 Unreal Python",
+      "18",
+      "UE02 in Unreal: selection becomes data",
+      "The selected crate appears in the scene and the Outliner.",
+      "Output Log",
+      "One Actor. The label and class identify exactly what the script read."
+    ],
+    "words": 34,
+    "hidden": false
+  },
+  {
+    "number": 19,
+    "part": "ppt/slides/slide20.xml",
+    "text": [
+      "UE03: reuse the Actor selection",
+      "01 Unreal Python",
+      "19",
+      "import unreal",
+      "editor = unreal.get_editor_subsystem(",
+      "    unreal.EditorActorSubsystem)",
+      "actors = editor.get_selected_level_actors()",
+      "print(\"Selected Actors:\", len(actors))",
+      "for actor in actors:",
+      "    print(actor.get_actor_label(), actor.get_class().get_name())",
+      "Same selection setup as UE02. The complete UE03 file also reads components and meshes."
+    ],
+    "words": 48,
+    "hidden": false
+  },
+  {
+    "number": 20,
+    "part": "ppt/slides/slide21.xml",
+    "text": [
+      "01 Unreal Python",
+      "20",
+      "Case study: TAPython\u2019s object inspector",
+      "Notice: properties belong to specific objects.",
+      "Apply: identify the target before exposing an edit.",
+      "TAPython \u2022 click video to play"
+    ],
+    "words": 29,
+    "hidden": false
+  },
+  {
+    "number": 21,
+    "part": "ppt/slides/slide23.xml",
+    "text": [
+      "01 Unreal Python",
+      "21",
+      "UE03 in Unreal: component and mesh",
+      "The selected Actor owns a StaticMeshComponent.",
+      "That component refers to the engine Cube asset.",
+      "Actual UE03 output",
+      "Actor label, component name and asset path describe different objects."
+    ],
+    "words": 37,
+    "hidden": false
+  },
+  {
+    "number": 22,
+    "part": "ppt/slides/slide24.xml",
+    "text": [
+      "01 Unreal Python",
+      "22",
+      "Shared asset, separate placements",
+      "Which placement changed? What stayed shared?",
+      "Epic Games \u2022 click video to play",
+      "Same mesh. Different material assignments."
+    ],
+    "words": 25,
+    "hidden": false
+  },
+  {
+    "number": 23,
+    "part": "ppt/slides/slide25.xml",
+    "text": [
+      "01 Unreal Python",
+      "23",
+      "Unreal: Actor, component, asset",
+      "Check that the mesh exists before asking for its path.",
+      "Expression",
+      "Use in an artist tool",
+      "actor.get_components_by_class(",
+      "    unreal.StaticMeshComponent)",
+      "Find every Static Mesh Component on this Actor.",
+      "component.get_editor_property(",
+      "    \"static_mesh\")",
+      "Read the mesh asset referenced by a component.",
+      "mesh.get_path_name()",
+      "Identify the exact shared mesh asset.",
+      "component.get_material(0)",
+      "Read the material assigned to slot 0."
+    ],
+    "words": 65,
+    "hidden": false
+  },
+  {
+    "number": 24,
+    "part": "ppt/slides/slide26.xml",
+    "text": [
+      "UE04: Content Browser Selection",
+      "01 Unreal Python",
+      "24",
+      "import unreal",
+      "assets =\u00a0unreal.EditorUtilityLibrary.get_selected_assets()",
+      "print(\"Selected assets:\", len(assets))",
+      "for asset in assets:",
+      "\u00a0\u00a0\u00a0 print(asset.get_name(), asset.get_class().get_name())",
+      "\u00a0\u00a0\u00a0 print(asset.get_path_name())",
+      "This selection supplies assets, independently of the Outliner."
+    ],
+    "words": 40,
+    "hidden": false
+  },
+  {
+    "number": 25,
+    "part": "ppt/slides/slide27.xml",
+    "text": [
+      "25",
+      "UE04: asset selection and result",
+      "Select T_Crate_BaseColor in the Content Browser.",
+      "Run the complete UE04 file.",
+      "Selected assets: 1",
+      "T_Crate_BaseColor  Texture2D",
+      "The log also prints the full /Game/\u2026 object path.",
+      "Try another asset and rerun. Reset by reselecting the texture.",
+      "Read the name, class and object path\u2014not the Outliner selection."
+    ],
+    "words": 52,
+    "hidden": false
+  },
+  {
+    "number": 26,
+    "part": "ppt/slides/slide28.xml",
+    "text": [
+      "Texture Settings: Inspect First",
+      "26",
+      "Texture role",
+      "sRGB",
+      "Prepared compression",
+      "BaseColor",
+      "On",
+      "Default",
+      "Normal",
+      "Off",
+      "Normalmap",
+      "ORM",
+      "Off",
+      "Masks (no sRGB)",
+      "UE05 reads sRGB and compression. UE06 checks _Normal textures for Normalmap compression."
+    ],
+    "words": 33,
+    "hidden": false
+  },
+  {
+    "number": 27,
+    "part": "ppt/slides/slide29.xml",
+    "text": [
+      "01 Unreal Python",
+      "27",
+      "Texture validation in context",
+      "Normal-map image, but compression is set to Masks. What should the validator flag?"
+    ],
+    "words": 22,
+    "hidden": false
+  },
+  {
+    "number": 28,
+    "part": "ppt/slides/slide30.xml",
+    "text": [
+      "01 Unreal Python",
+      "28",
+      "Unreal: inspecting selected assets",
+      "Read first. Compare with the asset\u2019s intended role before proposing a fix.",
+      "Expression",
+      "Use in an artist tool",
+      "(unreal.EditorUtilityLibrary",
+      "    .get_selected_assets())",
+      "Read Content Browser selection, not level selection.",
+      "isinstance(asset, unreal.Texture2D)",
+      "Process textures and report skipped asset types.",
+      "texture.get_editor_property(",
+      "    \"compression_settings\")",
+      "Read the compression mode for validation.",
+      "texture.get_editor_property(\"srgb\")",
+      "Check how the texture\u2019s color data is interpreted."
+    ],
+    "words": 69,
+    "hidden": false
+  },
+  {
+    "number": 29,
+    "part": "ppt/slides/slide31.xml",
+    "text": [
+      "UE05: Texture Editor Properties",
+      "01 Unreal Python",
+      "29",
+      "import unreal",
+      "assets = unreal.EditorUtilityLibrary.get_selected_assets()",
+      "textures = [asset for asset in assets",
+      "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 if isinstance(asset, unreal.Texture2D)]",
+      "print(\"Textures:\", len(textures), \"skipped:\", len(assets) - len(textures))",
+      "for texture in textures:",
+      "\u00a0\u00a0\u00a0 compression = texture.get_editor_property(\"compression_settings\")",
+      "\u00a0\u00a0\u00a0 srgb = texture.get_editor_property(\"srgb\")",
+      "\u00a0\u00a0\u00a0 print(texture.get_name(), compression, \"sRGB:\", srgb)",
+      "Read compression and sRGB. Non-texture selections are counted and skipped."
+    ],
+    "words": 63,
+    "hidden": false
+  },
+  {
+    "number": 30,
+    "part": "ppt/slides/slide32.xml",
+    "text": [
+      "UE05: compare texture readbacks",
+      "Run UE05 once for each selected texture.",
+      "BaseColor: sRGB True \u00b7 TC_DEFAULT",
+      "Normal: sRGB False \u00b7 TC_NORMALMAP",
+      "Each run: 1 texture, 0 skipped.",
+      "Compare the log with Texture Editor settings.",
+      "Expected values; enum formatting may differ. No edits are made.",
+      "30"
+    ],
+    "words": 43,
+    "hidden": false
+  },
+  {
+    "number": 31,
+    "part": "ppt/slides/slide33.xml",
+    "text": [
+      "01 Unreal Python",
+      "31",
+      "UE04\u201305 in Unreal: texture readback",
+      "Selected asset in the Content Browser",
+      "Editor tooltip",
+      "Actual UE04 + UE05 output",
+      "T_Crate_Normal reads as TC_NORMALMAP with sRGB False."
+    ],
+    "words": 29,
+    "hidden": false
+  },
+  {
+    "number": 32,
+    "part": "ppt/slides/slide34.xml",
+    "text": [
+      "UE06: Read-only Validation",
+      "01 Unreal Python",
+      "32",
+      "for texture in textures:",
+      "\u00a0\u00a0\u00a0 if not texture.get_name().endswith(\"_Normal\"):",
+      "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 continue",
+      "\u00a0\u00a0\u00a0 checked += 1",
+      "\u00a0\u00a0\u00a0 actual = texture.get_editor_property(\"compression_settings\")",
+      "\u00a0\u00a0\u00a0 if actual != expected:",
+      "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 mismatches += 1",
+      "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 print(\"MISMATCH\", texture.get_path_name(), actual, expected)",
+      "Excerpt: run the complete UE06 file to initialize textures, expected mode and counters."
+    ],
+    "words": 49,
+    "hidden": false
+  },
+  {
+    "number": 33,
+    "part": "ppt/slides/slide35.xml",
+    "text": [
+      "01 Unreal Python",
+      "33",
+      "Validation should explain the next action",
+      "A useful result identifies the asset, the rule and a correction.",
+      "Project rule: Blueprint names start with BP_.",
+      "Choose warning or failure to match the project policy.",
+      "Asset validation checks content. It does not prove that the validator code is correct.",
+      "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lessons 21\u201322"
+    ],
+    "words": 62,
+    "hidden": false
+  },
+  {
+    "number": 34,
+    "part": "ppt/slides/slide36.xml",
+    "text": [
+      "01 Unreal Python",
+      "34",
+      "Test the tool, not just the assets",
+      "Unit check: a small rule with a known answer",
+      "def is_power_of_two(n):",
+      "    return n > 0 and (n & (n - 1)) == 0",
+      "assert is_power_of_two(1024)",
+      "assert not is_power_of_two(1000)",
+      "Karol\u2019s test wiring check",
+      "Not called",
+      "Called",
+      "Deliberately fail once: prove the runner actually executes the check.",
+      "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 36 \u00b7 log crops; code: classroom example"
+    ],
+    "words": 71,
+    "hidden": false
+  },
+  {
+    "number": 35,
+    "part": "ppt/slides/slide38.xml",
+    "text": [
+      "UE07: Disk paths and asset paths",
+      "01 Unreal Python",
+      "35",
+      "import unreal",
+      "from pathlib import Path",
+      "disk_folder = Path(unreal.Paths.project_dir()) / \"Content\"",
+      "object_path = \"/Engine/BasicShapes/Cube.Cube\"",
+      "mesh = unreal.load_asset(object_path)",
+      "print(\"Disk folder:\", disk_folder)",
+      "print(\"Loaded object:\", mesh.get_path_name() if mesh else None)",
+      "print(\"Content directory exists:\", disk_folder.is_dir())",
+      "The filesystem path and Unreal object path name different things."
+    ],
+    "words": 60,
+    "hidden": false
+  },
+  {
+    "number": 36,
+    "part": "ppt/slides/refinementSlide1.xml",
+    "text": [
+      "01 Unreal Python",
+      "36",
+      "Import is the start of setup",
+      "Stage",
+      "Evidence to carry forward",
+      "Import",
+      "Returned objects and source files",
+      "Plan",
+      "Mesh slot, parent and exact texture roles",
+      "Configure",
+      "Instance parent and parameter values",
+      "Assign and verify",
+      "Intended target changes; protected scope stays",
+      "What could import successfully but still be wrong in the scene?",
+      "Isaac Oster \u00b7 Asset Setup series \u00b7 teaching adaptation"
+    ],
+    "words": 62,
+    "hidden": false
+  },
+  {
+    "number": 37,
+    "part": "ppt/slides/refinementSlide2.xml",
+    "text": [
+      "01 Unreal Python",
+      "37",
+      "A naming rule must preserve identity",
+      "Match the complete family and a declared suffix. Require one intended texture per role.",
+      "Mesh / texture name",
+      "Family",
+      "Role",
+      "SM_AirConditioning_01",
+      "AirConditioning_01",
+      "Mesh",
+      "T_AirConditioning_01_BC",
+      "AirConditioning_01",
+      "Base color",
+      "T_AirConditioning_010_BC",
+      "AirConditioning_010",
+      "Different asset",
+      "Why can a substring match assign the wrong base-color texture?"
+    ],
+    "words": 51,
+    "hidden": false
+  },
+  {
+    "number": 38,
+    "part": "ppt/slides/refinementSlide3.xml",
+    "text": [
+      "01 Unreal Python",
+      "38",
+      "A slot record is not the material",
+      "Value",
+      "What it identifies",
+      "Slot index",
+      "Numeric position used for assignment",
+      "Slot name",
+      "Semantic label such as Body",
+      "Material interface",
+      "Assigned material or instance object",
+      "Assignment target",
+      "Shared mesh default or one component override",
+      "Two Actors use one mesh. Which object would you edit to change only one?"
+    ],
+    "words": 59,
+    "hidden": false
+  },
+  {
+    "number": 39,
+    "part": "ppt/slides/refinementSlide4.xml",
+    "text": [
+      "01 Unreal Python",
+      "39",
+      "Verify the relationship after the call",
+      "library.set_material_instance_texture_parameter_value(",
+      "    instance, \"BaseColorTexture\", texture)",
+      "actual = library.get_material_instance_texture_parameter_value(",
+      "    instance, \"BaseColorTexture\")",
+      "if actual != texture:",
+      "    raise RuntimeError(\"Base-color binding did not match\")",
+      "Read back the value, inspect the assignment, then check the scene.",
+      "What does a successful return value establish\u2014and what does it leave untested?",
+      "Excerpt from the course backend \u00b7 existing instance and loaded texture required"
+    ],
+    "words": 66,
+    "hidden": false
+  },
+  {
+    "number": 40,
+    "part": "ppt/slides/slide39.xml",
+    "text": [
+      "01 Unreal Python",
+      "40",
+      "Long operations need visible progress",
+      "Count the work. Show the current step. Check Cancel between items.",
+      "ScopedSlowTask(total, message)",
+      "make_dialog(can_cancel=True)",
+      "should_cancel() \u2192 stop remaining work",
+      "enter_progress_frame(1) \u2192 advance one unit",
+      "Cancel stops future iterations; it does not undo completed edits.",
+      "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 33 \u00b7 dialog crop"
+    ],
+    "words": 57,
+    "hidden": false
+  },
+  {
+    "number": 41,
+    "part": "ppt/slides/slide18.xml",
+    "text": [
+      "Case study: Unreal Script Editor",
+      "Python/Qt editor: files, temporary scripts and familiar editing controls.",
+      "Notice: users can organize and run scripts in one place.",
+      "Apply: give artists a clear entry point for a repeatable task.",
+      "41"
+    ],
+    "words": 37,
+    "hidden": false
+  },
+  {
+    "number": 42,
+    "part": "ppt/slides/slide19.xml",
+    "text": [
+      "01 Unreal Python",
+      "42",
+      "Blueprint interface, Python operation",
+      "Selected assets + material choice \u2192 Execute Python Script",
+      "Inputs become Python variables. Set output variables to report a result.",
+      "Use in Editor Utility Blueprints or Widgets; Python remains editor-only.",
+      "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 40 \u00b7 wiring checkpoint"
+    ],
+    "words": 49,
+    "hidden": false
+  },
+  {
+    "number": 43,
+    "part": "ppt/slides/slide40.xml",
+    "text": [
+      "01 Unreal Python",
+      "43",
+      "From a script to a tool someone can use",
+      "Package the logic and the entry point separately.",
+      "Version + supported engine",
+      "Install / enable instructions",
+      "One example task",
+      "Known limits + recovery",
+      "A clean-project smoke test",
+      "Release check: can another artist install it and complete the example without you?",
+      "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 39 \u00b7 release checklist: teaching synthesis"
+    ],
+    "words": 65,
+    "hidden": false
+  },
+  {
+    "number": 44,
+    "part": "ppt/slides/slide41.xml",
+    "text": [
+      "01 Unreal Python",
+      "44",
+      "A tool interface can live outside Unreal",
+      "External app \u2192 HTTP request \u2192 exposed Unreal function \u2192 response",
+      "PUT /remote/object/call \u2192 ReturnValue: true",
+      "Remote Control is another entry point. It still needs scope, validation and useful feedback.",
+      "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 44"
+    ],
+    "words": 49,
+    "hidden": false
+  },
+  {
+    "number": 45,
+    "part": "ppt/slides/slide37.xml",
+    "text": [
+      "Case study: AYON for Unreal",
+      "AYON connects Loader, Publisher and Scene Inventory to Unreal.",
+      "Notice: the tools follow distinct pipeline tasks.",
+      "Apply: define the handoff\u2014input, result and next step\u2014for your tool.",
+      "45"
+    ],
+    "words": 34,
+    "hidden": false
+  },
+  {
+    "number": 46,
+    "part": "ppt/slides/slide42.xml",
+    "text": [
+      "Python in Unreal: questions",
+      "46",
+      "Where does the code run?",
+      "Which object owns the state we change?",
+      "What would you like clarified about success or recovery?"
+    ],
+    "words": 26,
+    "hidden": false
+  },
+  {
+    "number": 47,
+    "part": "ppt/slides/slide44.xml",
+    "text": [
+      "02 Blender to Unreal",
+      "Same Python language, different application API.",
+      "47"
+    ],
+    "words": 11,
+    "hidden": false
+  },
+  {
+    "number": 48,
+    "part": "ppt/slides/slide45.xml",
+    "text": [
+      "BL01: Blender host and selection",
+      "02 Blender to Unreal",
+      "48",
+      "import bpy",
+      "print(\"Blender:\", bpy.app.version_string)",
+      "print(\"Mode:\", bpy.context.mode)",
+      "objects = list(bpy.context.selected_objects)",
+      "print(\"Selected objects:\", len(objects))",
+      "for obj in objects:",
+      "\u00a0\u00a0\u00a0 print(obj.name, obj.type)",
+      "bpy.context.selected_objects supplies Blender Objects. Unreal uses its own editor APIs.",
+      "Run in Blender. Complete example."
+    ],
+    "words": 58,
+    "hidden": false
+  },
+  {
+    "number": 49,
+    "part": "ppt/slides/slide46.xml",
+    "text": [
+      "02 Blender to Unreal",
+      "49",
+      "Blender: selection and object data",
+      "The active Object and the full selection answer different questions.",
+      "Expression",
+      "Use in an artist tool",
+      "bpy.context.selected_objects",
+      "Read the selected Objects. This is a property.",
+      "bpy.context.active_object",
+      "Read the active Object, or None.",
+      "bpy.data.objects.get(\"Crate\")",
+      "Find an Object by name, or return None.",
+      "obj.name, obj.type",
+      "Identify an Object and filter with",
+      "obj.type == \"MESH\"."
+    ],
+    "words": 72,
+    "hidden": false
+  },
+  {
+    "number": 50,
+    "part": "ppt/slides/slide47.xml",
+    "text": [
+      "02 Blender to Unreal",
+      "50",
+      "Blender: inspecting and changing state",
+      "bpy.ops performs an operation. Its result depends on mode and context.",
+      "Expression",
+      "Use in an artist tool",
+      "obj.location",
+      "Read local position. Assigning a value moves it.",
+      "obj.data",
+      "Read the data block, such as a Mesh.",
+      "obj.select_set(True)",
+      "Select this Object in the view layer.",
+      "bpy.ops.object.transform_apply(",
+      "    location=False, rotation=True, scale=True)",
+      "Apply rotation and scale to selected Objects. Requires Object Mode."
+    ],
+    "words": 78,
+    "hidden": false
+  },
+  {
+    "number": 51,
+    "part": "ppt/slides/slide48.xml",
+    "text": [
+      "02 Blender to Unreal",
+      "51",
+      "BL02: Blender Bridge",
+      "Rehearsal: republish the baseline mesh under the same asset name to reset.",
+      "Publish one mesh.",
+      "Raise the roof 0.4 m.",
+      "Republish the same asset.",
+      "Inspect both blue placements.",
+      "Course rehearsal sequence \u2022 six timed still states \u2022 click video to play"
+    ],
+    "words": 48,
+    "hidden": false
+  },
+  {
+    "number": 52,
+    "part": "ppt/slides/slide49.xml",
+    "text": [
+      "03 Tool Demos",
+      "Watch the input, the affected objects, and the visible result.",
+      "52"
+    ],
+    "words": 14,
+    "hidden": false
+  },
+  {
+    "number": 53,
+    "part": "ppt/slides/slide43.xml",
+    "text": [
+      "Classroom demo setup",
+      "03 Tool Demos",
+      "53",
+      "from week07_tooling.editor import live_demo",
+      "print(live_demo.preflight())",
+      "Unreal: Check and stage the classroom scene",
+      "Material & VFX: ready.",
+      "Target and textures selected.",
+      "Open Tools > Material & VFX Tools.",
+      "The bridge is checked separately.",
+      "Expected:"
+    ],
+    "words": 40,
+    "hidden": false
+  },
+  {
+    "number": 54,
+    "part": "ppt/slides/slide50.xml",
+    "text": [
+      "03 Tool Demos",
+      "54",
+      "Material parameters in context",
+      "Which exposed parameter could an artist tool edit?"
+    ],
+    "words": 16,
+    "hidden": false
+  },
+  {
+    "number": 55,
+    "part": "ppt/slides/slide51.xml",
+    "text": [
+      "03 Tool Demos",
+      "55",
+      "Material tool: preview and visible result",
+      "Inspect the proposed assignment, then check the target in the scene.",
+      "After Apply",
+      "One target changes.",
+      "The protected cube stays."
+    ],
+    "words": 30,
+    "hidden": false
+  },
+  {
+    "number": 56,
+    "part": "ppt/slides/slide52.xml",
+    "text": [
+      "03 Tool Demos",
+      "56",
+      "VFX tool: scope and placement",
+      "Count the proposed targets. Then inspect where the effects appear.",
+      "Scene result",
+      "Three placements.",
+      "Performance needs a separate check."
+    ],
+    "words": 28,
+    "hidden": false
+  },
+  {
+    "number": 57,
+    "part": "ppt/slides/slide53.xml",
+    "text": [
+      "03 Tool Demos",
+      "57",
+      "Case study: Project Titan\u2019s ivy tool",
+      "Notice",
+      "Input shape",
+      "Branch growth",
+      "Leaf placement",
+      "Apply",
+      "Expose controls for",
+      "shape and variation.",
+      "Houdini digital asset in Unreal: a procedural tool, not a Python-only example.",
+      "Simon Verstraete / SideFX \u00b7 Project Titan, 2022"
+    ],
+    "words": 44,
+    "hidden": false
+  },
+  {
+    "number": 58,
+    "part": "ppt/slides/slide54.xml",
+    "text": [
+      "03 Tool Demos",
+      "58",
+      "Case study: Project Titan\u2019s train rig",
+      "Notice",
+      "Modular parts",
+      "Pattern rules",
+      "Automatic rig",
+      "Apply",
+      "Check the result at",
+      "each handoff.",
+      "Project Titan\u2019s train tool combines modular assembly with an animatable rig.",
+      "Simon Verstraete / SideFX \u00b7 Project Titan, 2022"
+    ],
+    "words": 43,
+    "hidden": false
+  },
+  {
+    "number": 59,
+    "part": "ppt/slides/slide55.xml",
+    "text": [
+      "03 Tool Demos",
+      "59",
+      "Case study: Project Titan\u2019s environment",
+      "Notice: repeated systems support an authored environment.",
+      "Apply: automate one repeatable step; preserve artistic choices.",
+      "SideFX \u00b7 Project Titan \u00b7 26-second silent clip \u00b7 click video to play"
+    ],
+    "words": 36,
+    "hidden": false
+  },
+  {
+    "number": 60,
+    "part": "ppt/slides/slide56.xml",
+    "text": [
+      "03 Tool Demos",
+      "60",
+      "Zoey\u2019s tool demo",
+      "Maya face technical-animation tool"
+    ],
+    "words": 13,
+    "hidden": false
+  },
+  {
+    "number": 61,
+    "part": "ppt/slides/slide57.xml",
+    "text": [
+      "03 Tool Demos",
+      "61",
+      "Xicheng\u2019s tool demo",
+      "Maya bridge and pipeline tool"
+    ],
+    "words": 13,
+    "hidden": false
+  },
+  {
+    "number": 62,
+    "part": "ppt/slides/slide58.xml",
+    "text": [
+      "BREAK ~15 min.",
+      "62"
+    ],
+    "words": 4,
+    "hidden": false
+  },
+  {
+    "number": 63,
+    "part": "ppt/slides/slide59.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "Use the same observation method for case studies, peers, and your own tool.",
+      "63"
+    ],
+    "words": 20,
+    "hidden": false
+  },
+  {
+    "number": 64,
+    "part": "ppt/slides/refinementSlide5.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "64",
+      "Lab 1: predict before the reveal",
+      "Rename selected assets with exactly one SM_ prefix. Preserve the rest of every name.",
+      "Selected?",
+      "Starting name",
+      "Your expected name",
+      "Yes",
+      "crate_A",
+      "?",
+      "Yes",
+      "crate_B",
+      "?",
+      "Yes",
+      "SM_crate_C",
+      "?",
+      "No",
+      "barrel_D",
+      "?",
+      "What must remain unchanged? Record all four predictions."
+    ],
+    "words": 49,
+    "hidden": false
+  },
+  {
+    "number": 65,
+    "part": "ppt/slides/refinementSlide6.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "65",
+      "Lab 1: compare the evidence",
+      "The tool reports: \u201cSuccess: 4 assets updated.\u201d",
+      "Starting name",
+      "Expected",
+      "Reported result",
+      "crate_A",
+      "SM_crate_A",
+      "SM_crate_A",
+      "crate_B",
+      "SM_crate_B",
+      "SM_crate_B",
+      "SM_crate_C",
+      "SM_crate_C",
+      "SM_SM_crate_C",
+      "barrel_D",
+      "barrel_D",
+      "SM_barrel_D",
+      "Name one observed failure, its consequence, and a precise retest."
+    ],
+    "words": 46,
+    "hidden": false
+  },
+  {
+    "number": 66,
+    "part": "ppt/slides/refinementSlide7.xml",
+    "text": [
+      "66",
+      "Know the task",
+      "Identify the artist, the situation, and a result worth achieving.",
+      "What is the artist trying to accomplish?"
+    ],
+    "words": 21,
+    "hidden": false
+  },
+  {
+    "number": 67,
+    "part": "ppt/slides/refinementSlide8.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "67",
+      "A user story names an outcome",
+      "Part",
+      "Material-tool example",
+      "User and context",
+      "Environment artist trying a look on one prop",
+      "Desired outcome",
+      "Preview and assign a prepared texture set",
+      "Benefit",
+      "Compare the look while other placements stay unchanged",
+      "What is missing from \u201cAs a user, I want a blue Apply button\u201d?"
+    ],
+    "words": 59,
+    "hidden": false
+  },
+  {
+    "number": 68,
+    "part": "ppt/slides/refinementSlide9.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "68",
+      "Turn the story into observable checks",
+      "Given",
+      "When",
+      "Then",
+      "Prepared textures + target",
+      "Preview",
+      "Target, slot and mappings are visible; scene unchanged",
+      "A reviewed plan",
+      "Selection changes",
+      "Apply requires a fresh preview",
+      "A valid reviewed plan",
+      "Apply once",
+      "Target changes; protected cube and shared mesh stay",
+      "Which check tests the result, and which checks the boundary?"
+    ],
+    "words": 62,
+    "hidden": false
+  },
+  {
+    "number": 69,
+    "part": "ppt/slides/refinementSlide10.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "69",
+      "Outline a small complete workflow",
+      "Start with the current workaround and prepared input.",
+      "Choose \u2192 inspect scope \u2192 preview \u2192 apply \u2192 check.",
+      "Include a blocked path and a way to recover.",
+      "Split a large feature into a useful result the artist can try.",
+      "Which small result could a classmate test today?"
+    ],
+    "words": 55,
+    "hidden": false
+  },
+  {
+    "number": 70,
+    "part": "ppt/slides/slide61.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "70",
+      "UI/UX: the artist\u2019s mental model",
+      "Artist\u2019s task",
+      "\u201cPreview a material on the selected prop.\u201d",
+      "Implementation",
+      "Find Actor, inspect components, assign material.",
+      "Interface",
+      "Show the target, material choice, preview and commit.",
+      "Assessment question: can the artist predict what the control will do?",
+      "UI/UX course connection \u00b7 Joe Natoli, Design Rules"
+    ],
+    "words": 59,
+    "hidden": false
+  },
+  {
+    "number": 71,
+    "part": "ppt/slides/refinementSlide11.xml",
+    "text": [
+      "71",
+      "Guide the eye",
+      "Use composition to communicate priority and relationships.",
+      "Where should the artist look first, and why?"
+    ],
+    "words": 19,
+    "hidden": false
+  },
+  {
+    "number": 72,
+    "part": "ppt/slides/slide62.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "72",
+      "UI/UX: grouping and visual hierarchy",
+      "Assessment question: which controls belong to the same step?",
+      "Spacing should separate unrelated steps.",
+      "Labels should describe the artist\u2019s task.",
+      "Scope and primary action should remain easy to find.",
+      "UI/UX course connection \u00b7 Joe Natoli, Design Rules"
+    ],
+    "words": 51,
+    "hidden": false
+  },
+  {
+    "number": 73,
+    "part": "ppt/slides/slide63.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "73",
+      "Case study: Blender\u2019s UI rework",
+      "Notice: grouping and alignment make control relationships clearer.",
+      "Apply: group one tool by task, then test whether a peer finds the next control.",
+      "Blender Foundation \u00b7 Blender 2.90 release notes \u00b7 original before/after figures"
+    ],
+    "words": 47,
+    "hidden": false
+  },
+  {
+    "number": 74,
+    "part": "ppt/slides/slide64.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "74",
+      "Week 2 composition \u2192 tool hierarchy",
+      "In a scene: guide the eye toward the focal point.",
+      "In a tool: guide attention through the task.",
+      "Use spacing, alignment and contrast to clarify scope, preview and the primary action.",
+      "Left: Week 2 course image, Mariam Bellard / Rockstar North, GDC 2019 \u00b7 Right: course tool capture"
+    ],
+    "words": 58,
+    "hidden": false
+  },
+  {
+    "number": 75,
+    "part": "ppt/slides/refinementSlide12.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "75",
+      "Value and contrast are different ideas",
+      "HSV Value is a color coordinate. It is not perceived lightness or a contrast ratio.",
+      "Concept",
+      "Meaning in art and tool design",
+      "Value",
+      "The lightness or darkness of a visual area",
+      "Contrast",
+      "A difference between neighboring elements",
+      "Visual hierarchy",
+      "The priority suggested by size, value, spacing and emphasis",
+      "Would different hues remain distinct if their light and dark values were similar?"
+    ],
+    "words": 74,
+    "hidden": false
+  },
+  {
+    "number": 76,
+    "part": "ppt/slides/refinementSlide13.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "76",
+      "Three quick hierarchy checks",
+      "Check",
+      "Try it",
+      "Ask",
+      "Shape blockout",
+      "Ignore labels; reduce regions to simple masses",
+      "Are related decisions grouped?",
+      "Grayscale",
+      "Temporarily remove hue",
+      "Does meaning survive without color?",
+      "Squint test",
+      "Squint briefly or step back",
+      "Which large shapes and values dominate?",
+      "Now restore the original. Can you read the labels and use the controls?"
+    ],
+    "words": 63,
+    "hidden": false
+  },
+  {
+    "number": 77,
+    "part": "ppt/slides/refinementSlide15.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "77",
+      "Case study: GOLF+ Course Generator",
+      "Notice: numbered stages reveal the intended sequence.",
+      "Generate receives strong visual emphasis.",
+      "Edit is explicitly optional.",
+      "Apply: make the next step and its prerequisites easy to find.",
+      "What does the warning beside Input mean? Can this image tell us?",
+      "GOLF+ Course Generator \u00b7 instructor\u2019s production tool"
+    ],
+    "words": 58,
+    "hidden": false
+  },
+  {
+    "number": 78,
+    "part": "ppt/slides/slide65.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "78",
+      "Week 2 color \u2192 meaning in a tool",
+      "Art: palette and contrast establish emphasis.",
+      "Tools: color supports an explicit state label.",
+      "Do not make color the only cue. State the problem and the next action in text.",
+      "Left: Week 2 / Daniel Candil, A Crowd of Monsters \u00b7 Right: course tool \u00b7 Guidance: W3C"
+    ],
+    "words": 57,
+    "hidden": false
+  },
+  {
+    "number": 79,
+    "part": "ppt/slides/refinementSlide14.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "79",
+      "Choose color roles before choosing colors",
+      "Give primary actions, warnings and supporting surfaces distinct roles.",
+      "Pair status color with a label, icon or shape.",
+      "Explore palettes with Coolors; check actual foreground/background pairs.",
+      "Text benchmark: 4.5:1 ordinary text, 3:1 large text under WCAG definitions.",
+      "Does this palette explain \u201cselected,\u201d \u201cavailable,\u201d and \u201ccomplete\u201d separately?"
+    ],
+    "words": 63,
+    "hidden": false
+  },
+  {
+    "number": 80,
+    "part": "ppt/slides/refinementSlide16.xml",
+    "text": [
+      "80",
+      "Make actions clear",
+      "Show scope, current state, and the next useful action.",
+      "Can the artist predict the result before acting?"
+    ],
+    "words": 21,
+    "hidden": false
+  },
+  {
+    "number": 81,
+    "part": "ppt/slides/refinementSlide17.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "81",
+      "State determines the next action",
+      "State",
+      "Useful next action",
+      "What the UI communicates",
+      "No plan",
+      "Preview",
+      "Inputs can be checked without mutation",
+      "Valid reviewed plan",
+      "Apply",
+      "Names the operation and affected count",
+      "Warning",
+      "Review and acknowledge",
+      "Explains the concern; limits still apply",
+      "Completed",
+      "Inspect result",
+      "No repeated Apply from the consumed plan",
+      "If an input changes, what should happen to the old preview?"
+    ],
+    "words": 70,
+    "hidden": false
+  },
+  {
+    "number": 82,
+    "part": "ppt/slides/refinementSlide18.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "82",
+      "One readiness rule becomes Qt code",
+      "pending = self.session.pending",
+      "ready = bool(pending) and (",
+      "    not pending[3].get(\"warnings\") or self.ack.isChecked())",
+      "self.apply_button.setEnabled(ready)",
+      "Input-change signals invalidate the preview.",
+      "The session rechecks scope when Apply runs.",
+      "Why must the backend validate again if Apply is already enabled?",
+      "Current PySide implementation \u00b7 excerpt, not a standalone script"
+    ],
+    "words": 66,
+    "hidden": false
+  },
+  {
+    "number": 83,
+    "part": "ppt/slides/refinementSlide19.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "83",
+      "The same workflow can use different UIs",
+      "Surface",
+      "Useful implementation distinction",
+      "PySide / Qt",
+      "Layouts and signals in a Python window",
+      "Native Unreal Slate",
+      "Editor tab using the host UI framework",
+      "Editor Utility Widget",
+      "Blueprint-based editor interface; a separate option",
+      "Shared workflow",
+      "Inputs \u2192 reviewed plan \u2192 guarded apply \u2192 result",
+      "Which parts should stay consistent when the host interface changes?"
+    ],
+    "words": 65,
+    "hidden": false
+  },
+  {
+    "number": 84,
+    "part": "ppt/slides/refinementSlide20.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "84",
+      "Make review data readable",
+      "Show exact identity and target slot.",
+      "Keep Before beside After Apply.",
+      "Separate the proposed result from a completed result.",
+      "Which row would you inspect to confirm the affected component?",
+      "Updated course PySide interface \u00b7 sample data \u00b7 no Unreal connection"
+    ],
+    "words": 49,
+    "hidden": false
+  },
+  {
+    "number": 85,
+    "part": "ppt/slides/slide67.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "85",
+      "UI/UX: clarity during the whole task",
+      "Assessment includes behavior, keyboard use and recovery.",
+      "UI/UX course connection \u00b7 Joe Natoli, Design Rules",
+      "Moment",
+      "What the interface should make clear",
+      "Before acting",
+      "Which objects are affected, and what will change?",
+      "During the operation",
+      "Is it working, waiting, or blocked?",
+      "After it finishes",
+      "What changed, and what was skipped?",
+      "If the result is wrong",
+      "How can the artist correct or undo it?"
+    ],
+    "words": 77,
+    "hidden": false
+  },
+  {
+    "number": 86,
+    "part": "ppt/slides/slide68.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "86",
+      "Case study: PowerRename\u2019s preview",
+      "Notice: original and proposed filenames appear together.",
+      "Apply: preview asset-name changes before committing.",
+      "Microsoft \u2022 click video to play"
+    ],
+    "words": 31,
+    "hidden": false
+  },
+  {
+    "number": 87,
+    "part": "ppt/slides/slide69.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "87",
+      "Case study: Material Parameters Helper",
+      "Notice: filters determine which parameters appear.",
+      "Apply: group controls and make the active filter obvious.",
+      "Ryan DowlingSoka \u2022 click video to play"
+    ],
+    "words": 33,
+    "hidden": false
+  },
+  {
+    "number": 88,
+    "part": "ppt/slides/slide70.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "88",
+      "Case study: TAPython click feedback",
+      "Notice: the counter changes immediately after the click.",
+      "Apply: show a result or progress state after every action.",
+      "Input",
+      "Click a control.",
+      "Visible state",
+      "The counter updates.",
+      "TAPython \u2022 click video to play"
+    ],
+    "words": 44,
+    "hidden": false
+  },
+  {
+    "number": 89,
+    "part": "ppt/slides/slide71.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "89",
+      "Warnings and blocked actions",
+      "What can the artist do next in each state?",
+      "Review and acknowledge",
+      "Correct the input"
+    ],
+    "words": 26,
+    "hidden": false
+  },
+  {
+    "number": 90,
+    "part": "ppt/slides/slide72.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "90",
+      "What does recovery restore?",
+      "Undo restored the assignment. The newly created material asset remained.",
+      "Baseline",
+      "Applied",
+      "After Undo"
+    ],
+    "words": 25,
+    "hidden": false
+  },
+  {
+    "number": 91,
+    "part": "ppt/slides/slide73.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "91",
+      "Case study: Guerrilla\u2019s contextual tools",
+      "Notice: inspection stays in the scene\u2019s spatial context.",
+      "Apply: show feedback beside the affected object or region.",
+      "Guerrilla Games \u2022 click video to play"
+    ],
+    "words": 37,
+    "hidden": false
+  },
+  {
+    "number": 92,
+    "part": "ppt/slides/refinementSlide21.xml",
+    "text": [
+      "92",
+      "Keep a shared visual language",
+      "Record decisions so people and tools use the same meanings.",
+      "Which rules should every contributor be able to find?"
+    ],
+    "words": 25,
+    "hidden": false
+  },
+  {
+    "number": 93,
+    "part": "ppt/slides/refinementSlide22.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "93",
+      "A style sheet records design decisions",
+      "Shared rules reduce drift across people, tools and releases.",
+      "Record",
+      "Example from the course tool",
+      "Typography and spacing",
+      "Title, field label, help text; consistent group gaps",
+      "Color and control roles",
+      "Primary action, focus, warning, unavailable state",
+      "Interaction and wording",
+      "Preview before Apply; name the affected operation",
+      "Examples and exceptions",
+      "Starting, blocked, completed and narrow-window views",
+      "What would a color palette alone leave unspecified?"
+    ],
+    "words": 77,
+    "hidden": false
+  },
+  {
+    "number": 94,
+    "part": "ppt/slides/refinementSlide23.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "94",
+      "Use the style sheet when working with AI",
+      "Keep design rules in a versioned style-sheet skill.",
+      "Have design agents reference it before changing the UI.",
+      "Review screenshots and behavior against the same rules.",
+      "Record an intentional exception; update the sheet when the rule changes.",
+      "What evidence would you request before accepting \u201cthe design is consistent\u201d?"
+    ],
+    "words": 63,
+    "hidden": false
+  },
+  {
+    "number": 95,
+    "part": "ppt/slides/refinementSlide24.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "95",
+      "Case study: keep workflow names aligned",
+      "The supplied UI has six named stages.",
+      "An earlier playbook used different stage terms.",
+      "Reconcile the intended names in the interface, documentation and AI instructions.",
+      "Which version would a new teammate\u2014or an agent\u2014treat as the source of truth?",
+      "Same supplied GOLF+ interface \u00b7 documentation consistency example"
+    ],
+    "words": 60,
+    "hidden": false
+  },
+  {
+    "number": 96,
+    "part": "ppt/slides/refinementSlide25.xml",
+    "text": [
+      "96",
+      "Test the whole workflow",
+      "Observe the attempt, inspect the result, and retest the revision.",
+      "What evidence would change your design decision?"
+    ],
+    "words": 22,
+    "hidden": false
+  },
+  {
+    "number": 97,
+    "part": "ppt/slides/refinementSlide26.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "97",
+      "Prototype the question you need to answer",
+      "Prototype",
+      "Good question",
+      "What remains untested",
+      "Paper or Figma",
+      "Can a peer find the next action?",
+      "Real data and engine behavior",
+      "PySide practice UI",
+      "Do controls and states make sense?",
+      "Live assets and host integration",
+      "Prepared engine fixture",
+      "Does this operation respect scope?",
+      "Other projects and target performance",
+      "Which is the cheapest prototype that answers your current uncertainty?"
+    ],
+    "words": 72,
+    "hidden": false
+  },
+  {
+    "number": 98,
+    "part": "ppt/slides/slide66.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "98",
+      "Case study: NN/g\u2019s tested redesign",
+      "Three rounds of testing.",
+      "New and returning users.",
+      "Notice",
+      "Users liked the grid,",
+      "but preferred the list",
+      "after seeing alternatives.",
+      "Apply: compare two layouts with the same task; observe hesitation and completion.",
+      "Kathryn Whitenton & Sarah Gibbons / Nielsen Norman Group, 2018"
+    ],
+    "words": 54,
+    "hidden": false
+  },
+  {
+    "number": 99,
+    "part": "ppt/slides/refinementSlide27.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "99",
+      "A useful finding separates evidence from explanation",
+      "Part",
+      "Example",
+      "Observed",
+      "The tester paused at the destination field and asked for help.",
+      "Possible explanation",
+      "The label may not identify which folder will change.",
+      "Proposed revision",
+      "Name the destination and affected assets beside Preview.",
+      "Retest",
+      "Same task and inputs; can a new tester identify scope without help?",
+      "What did you observe, and what are you still inferring?"
+    ],
+    "words": 72,
+    "hidden": false
+  },
+  {
+    "number": 100,
+    "part": "ppt/slides/refinementSlide28.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "100",
+      "Events and observation answer different questions",
+      "Evidence",
+      "Can help answer",
+      "Cannot establish alone",
+      "preview_finished",
+      "Did it complete, and how long did it take?",
+      "Did the artist understand it?",
+      "apply_blocked + reason",
+      "Which rule stopped the operation?",
+      "Whether the message supported recovery",
+      "Observed task attempt",
+      "Where did the user hesitate or need help?",
+      "Frequency across the whole user population",
+      "Which evidence would help explain a slow task in your tool?"
+    ],
+    "words": 75,
+    "hidden": false
+  },
+  {
+    "number": 101,
+    "part": "ppt/slides/slide74.xml",
+    "text": [
+      "04 UI/UX for Artist Tools",
+      "101",
+      "Feedback that another person can use",
+      "\u201cI expected Preview to affect only the selected prop.",
+      "The target was unclear, so I paused before clicking.\u201d",
+      "\u201cShow the target name beside Preview.",
+      "Then test whether a new user can identify the scope.\u201d",
+      "Describe what happened, how it affected the task, and what to change and test."
+    ],
+    "words": 61,
+    "hidden": false
+  },
+  {
+    "number": 102,
+    "part": "ppt/slides/slide75.xml",
+    "text": [
+      "05 Final Peer Review",
+      "102",
+      "Final Peer Review Lab",
+      "A task, an observation, a revision to test"
+    ],
+    "words": 17,
+    "hidden": false
+  },
+  {
+    "number": 103,
+    "part": "ppt/slides/refinementSlide29.xml",
+    "text": [
+      "05 Final Peer Review",
+      "103",
+      "Prepare one task a peer can attempt",
+      "Specify",
+      "Example",
+      "User and goal",
+      "Environment artist comparing one surface",
+      "Input and boundary",
+      "Prepared textures + target crate; protected crate stays",
+      "Visible success",
+      "Expected look, correct slot and unchanged comparison object",
+      "Repeat / fallback",
+      "Restore prepared state; use a labeled walkthrough if blocked",
+      "Give a goal, not a list of clicks."
+    ],
+    "words": 61,
+    "hidden": false
+  },
+  {
+    "number": 104,
+    "part": "ppt/slides/refinementSlide30.xml",
+    "text": [
+      "05 Final Peer Review",
+      "104",
+      "Three roles, three seven-minute rounds",
+      "Owner: state the goal. Tester: attempt. Observer: record evidence and help.",
+      "Round",
+      "Owner",
+      "Tester",
+      "Observer",
+      "1",
+      "A",
+      "B",
+      "C",
+      "2",
+      "B",
+      "C",
+      "A",
+      "3",
+      "C",
+      "A",
+      "B",
+      "Each tool gets one observed attempt with two peer perspectives."
+    ],
+    "words": 48,
+    "hidden": false
+  },
+  {
+    "number": 105,
+    "part": "ppt/slides/refinementSlide31.xml",
+    "text": [
+      "05 Final Peer Review",
+      "105",
+      "One round produces evidence and a retest",
+      "Elapsed",
+      "Action",
+      "0:00\u20130:45",
+      "Owner states task, input and success",
+      "0:45\u20133:45",
+      "Tester attempts; observer records",
+      "3:45\u20135:15",
+      "Compare expectation with observed result",
+      "5:15\u20136:15",
+      "Choose a strength and one revision or uncertainty",
+      "6:15\u20137:00",
+      "Write a retest; reset and rotate",
+      "If execution is blocked, label the mode and continue with the prepared fallback."
+    ],
+    "words": 76,
+    "hidden": false
+  },
+  {
+    "number": 106,
+    "part": "ppt/slides/refinementSlide32.xml",
+    "text": [
+      "05 Final Peer Review",
+      "106",
+      "Choose a revision supported by evidence",
+      "Keep one strength a peer actually observed.",
+      "Prioritize one issue or uncertainty by its consequence.",
+      "State the change or investigation you will try.",
+      "Specify the retest: input, action, expected result and protected scope.",
+      "What changed\u2014or strengthened\u2014your original judgment?"
+    ],
+    "words": 51,
+    "hidden": false
+  }
+]

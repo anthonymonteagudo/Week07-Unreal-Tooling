@@ -1,5 +1,15 @@
 # Week 7 preparation · start here
 
+**Latest full lecture v14:** [Karol integration, all 48 refined lessons reviewed, and updated deck](../KarolIntegrated20261014/index.html). Retains the 54-slide live route and existing 150-minute schedule. Adds optional typed Map, import/Remote Control troubleshooting, cancellation/Undo and test-wiring examples. Both bridge publishers now include Copy diagnostics. Offline checks passed; the new examples and controls still need instructor host rehearsal. Earlier revisions below are historical.
+
+**Live tool testing:** [One walkthrough for the native UI, PySide and Maya/Blender bridge](../LiveTesting20261013/index.html). Includes commands, expected results, reset boundaries and a printable test checklist.
+
+**Latest full lecture v11:** [Student-facing cleanup and review](../StudentFacing20261013/index.html). Removes the encoding artifact, instructor-only setup caption, technical source-guide footers and inherited Notes Master date. The integrated bridge slide and 150-minute route are retained.
+
+**Current full lecture v10:** [Integrated deck and slide review](../IntegratedBridge20261013/index.html). The Maya/Blender parity companion is now slide 19 in the main sequence after the bridge overview. It uses one minute from the existing bridge demo; the class remains 150 minutes. The separate companion is retained as a source excerpt, not a second lecture deck.
+
+**Latest revision v9:** [Cleaned checkpoint code and material slides](../MaterialsWalkthrough20261013/index.html) · [Manual/API walkthrough](../MaterialsWalkthrough20261013/walkthrough.html) · [Maya bridge walkthrough](../MaterialsWalkthrough20261013/maya.html). Explains texture settings, instance parameters, assignment scope and manual UI locations. Supersedes v8 below. New checkpoints and the Maya button sequence still require live rehearsal.
+
 **Latest review · runnable API revision v8:** [Slide review and latest PowerPoint](../CheckpointDeck20261013/index.html) · [17 runnable checkpoints with copy buttons](../CheckpointDeck20261013/checkpoints.html) · [Current teaching route](../CheckpointDeck20261013/teach.html). Slide code is extracted from the runnable files. Setup, expected results and recovery are explicit. This supersedes v7 below and retains the 150-minute schedule. New checkpoint host rehearsal remains outstanding after offline validation.
 
 **Current revision · 13 October:** [Sectioned deck, visible Unreal Python API examples, Karol integration and current demo review](../SectionsAndAPI20261013/index.html). This supersedes the v3 deck and slide-by-slide timing below. [Current teaching route](../SectionsAndAPI20261013/teach.html) preserves the 150-minute schedule and student activity blocks. The Material/VFX rehearsal and Maya/Blender bridge verification are now recorded; the bridge still needs a complete interactive publisher click-through. [Evidence and Downloads audit](../SectionsAndAPI20261013/audit.html).

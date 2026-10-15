@@ -1,0 +1,53 @@
+{
+  "mode": "Offscreen Qt key-event smoke check; sample backend only",
+  "checks": [
+    {
+      "label": "Material Tab reaches name",
+      "passed": true
+    },
+    {
+      "label": "Material Tab reaches slot",
+      "passed": true
+    },
+    {
+      "label": "Material Tab reaches review",
+      "passed": true
+    },
+    {
+      "label": "Hidden VFX inputs and disabled Apply are skipped",
+      "passed": true
+    },
+    {
+      "label": "Space activates Preview",
+      "passed": true
+    },
+    {
+      "label": "Tab reaches enabled Apply",
+      "passed": true
+    },
+    {
+      "label": "Space applies once and disables repeat",
+      "passed": true
+    },
+    {
+      "label": "Typed input clears preview without undoing prior result",
+      "passed": true
+    },
+    {
+      "label": "Warning does not enable Apply",
+      "passed": true
+    },
+    {
+      "label": "Shift Tab reaches warning acknowledgment",
+      "passed": true
+    },
+    {
+      "label": "Space acknowledges warning",
+      "passed": true
+    },
+    {
+      "label": "Forward Tab reaches Apply after acknowledgment",
+      "passed": true
+    }
+  ]
+}

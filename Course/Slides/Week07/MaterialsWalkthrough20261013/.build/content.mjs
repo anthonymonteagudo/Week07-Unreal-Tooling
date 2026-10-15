@@ -8,12 +8,14 @@ export const S={...oldS,
 const base=oldSlides.map((s,i)=>({...structuredClone(s),sourceNumber:i+2}));
 const make=(id,title,section,fields,notes,refs)=>({id,title,section,tag:sections[section].name,...fields,notes,refs,local:['Course/Slides/Week07/MaterialsWalkthrough20261013/walkthrough.html'],facilitation:'Open the matching walkthrough for the exact UI locations, manual steps and expected evidence.'});
 const textures=make('MAT1','Texture settings: inspect first','python',{
- table:[['Texture role','sRGB','Compression'],['BaseColor','On','Prepared color texture'],['Normal','Off','Normalmap'],['ORM','Off','Prepared data texture']],
+ table:[['Texture role','sRGB','Prepared compression'],['BaseColor','On','Default'],['Normal','Off','Normalmap'],['ORM','Off','Masks (no sRGB)']],
+ bullets:['The tool checks sRGB and Normalmap compression. It leaves shared textures unchanged.'],
  caption:'Content Browser: open texture > Details. Search sRGB or Compression Settings.',
  question:'Which other materials could use this same texture?'
 },'Open one prepared texture. In its Details panel, Texture contains sRGB, and Compression contains Compression Settings. Our tool reads these properties and blocks unsuitable inputs. It does not repair or save shared textures. Base color is color data. Normal and packed ORM are data maps. UE06 now checks the same _Normal suffix as the material tool. A suffix identifies a candidate, not the image contents.', ['textureUI']);
 const parameters=make('MAT2','Material instance: set texture inputs','demos',{
  table:[['Instance parameter','Prepared texture','Parent input'],['BaseColorTexture','T_Crate_BaseColor','Base Color'],['NormalTexture','T_Crate_Normal','Normal'],['ORMTexture','T_Crate_ORM','R: AO / G: Roughness / B: Metallic']],
+ bullets:['The tool sets the parent and texture references, then reads them back.'],
  caption:'Right-click M_PreparedSurface > Create Material Instance. Open it > Parameter Groups.',
  question:'What does the parent graph decide that an instance cannot?'
 },'Create a material instance from the prepared parent and open it. Enable each texture parameter override and choose the matching texture. The tool sets the same parent and three texture references, then reads them back. It does not build a shader graph or set separate roughness and metallic sliders. The prepared parent routes the ORM channels. Save intentionally after review; the demo backend leaves the new instance as a draft.', ['instanceUI']);

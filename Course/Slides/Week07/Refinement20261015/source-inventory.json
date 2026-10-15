@@ -1,0 +1,3510 @@
+{
+  "source": "C:\\Users\\antho\\Documents\\Codex\\2026-10-14\\vi\\outputs\\Week 7 - Slides - Final Review.pptx",
+  "sha256": "ba4d07cfc0fc1bc471d514455ca0a7e65234625860bfc23398b5cc197aca9c6c",
+  "slides": [
+    {
+      "number": 1,
+      "part": "ppt/slides/slide1.xml",
+      "hidden": false,
+      "text": [
+        "Python in Unreal & Tool Review",
+        "Week 7",
+        "",
+        "1",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "7",
+          "text": "Python in Unreal & Tool Review"
+        },
+        {
+          "id": "8",
+          "text": "Week 7"
+        },
+        {
+          "id": "5",
+          "text": ""
+        },
+        {
+          "id": "6",
+          "text": "1"
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\n4"
+    },
+    {
+      "number": 2,
+      "part": "ppt/slides/slide2.xml",
+      "hidden": false,
+      "text": [
+        "AGENDA",
+        "2",
+        "TIME",
+        "TOPIC",
+        "3:30–3:35 PM",
+        "Introduction",
+        "3:35–3:50 PM",
+        "Unreal setup + host check",
+        "3:50–4:10 PM",
+        "Selection, objects + texture validation",
+        "4:10–4:40 PM",
+        "Blender bridge + tool demos / case studies",
+        "4:40–4:55 PM",
+        "Colleague demos / discussion",
+        "4:55–5:10 PM",
+        "Break",
+        "5:10–5:30 PM",
+        "UI/UX + guided tool assessment",
+        "5:30–6:00 PM",
+        "Final Peer Review Lab – Testing & Feedback",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "AGENDA"
+        },
+        {
+          "id": "5",
+          "text": "2"
+        },
+        {
+          "id": "3",
+          "text": ""
+        }
+      ],
+      "notes": "TIMED TEACHING ROUTE — protect the break and peer review\n3:30–3:35: frame the goal: read application state, make a useful tool, assess its behavior.\n3:35–3:50: open the project, confirm plugins and host. VS Code settings are reference if already configured.\n3:50–4:10: run selection, distinguish Actor/component/asset, then read and validate a texture. Use actual captures instead of repeating every expected-output slide.\n4:10–4:40: spend about 7 minutes on reliability and entry points, 7 on Blender/bridge, 10 on Material/VFX demos, 4 on the two Titan case studies, and 2 on transitions. Reference slides are optional.\n4:40–4:55: Zoey and Xicheng, approximately 6 minutes each, with 3 minutes shared discussion.\n4:55–5:10: break.\n5:10–5:30: assessment method (2 min), mental model/grouping + Blender redesign (5), composition/color (3), whole-task checklist + PowerRename (4), warnings/recovery (3), actionable feedback (3). Other UI case studies are optional substitutes, not extra time.\n5:30–6:00: peer review. Use 2 minutes to assign tasks/roles, three 7-minute rounds to rotate roles, 4 minutes to apply the checklist to your own tool, 3 minutes to record the revision and retest task.\nIf behind: cut reference slides and repeated playback first. Preserve the two creative tool cases, one guided UI case study and the full peer-review block.\nPACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\n4"
+    },
+    {
+      "number": 3,
+      "part": "ppt/slides/slide3.xml",
+      "hidden": false,
+      "text": [
+        "00 Setting Up Python in Unreal",
+        "Enable editor scripting and check the project before running code.",
+        "",
+        "3",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "00 Setting Up Python in Unreal"
+        },
+        {
+          "id": "3",
+          "text": "Enable editor scripting and check the project before running code."
+        },
+        {
+          "id": "6",
+          "text": "3"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\n4"
+    },
+    {
+      "number": 4,
+      "part": "ppt/slides/slide4.xml",
+      "hidden": false,
+      "text": [
+        "Python setup in Unreal",
+        "00 Setup",
+        "4",
+        "Open Week07UnrealPython.uproject in UE 5.7.4.",
+        "Open /Game/Week07/Maps/W07_MaterialVFXLab from the Content Browser.",
+        "Open Window → Output Log.",
+        "Set the input selector to Python.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "Python setup in Unreal"
+        },
+        {
+          "id": "3",
+          "text": "00 Setup"
+        },
+        {
+          "id": "5",
+          "text": "4"
+        },
+        {
+          "id": "14",
+          "text": "Open \nWeek07UnrealPython.uproject\n in \nUE 5.7.4\n.\nOpen \n/Game/Week07/Maps/W07_MaterialVFXLab\n from the Content Browser.\nOpen \nWindow → Output Log\n.\nSet the input selector to \nPython\n."
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nUnreal supplies the objects and editor operations behind this Python module. Enable the prepared plugins and use Python mode in the Output Log. Autocomplete in an IDE does not provide a running Unreal editor. Which part of the execution setup would you like clarified?\nSource insight (instructor): \nFacilitation (not narration):  Time: 0.5 min; elapsed 1–1.5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python?application_version=5.7\nVisual: Editable slide text/table\nHistorical course setup captures · verify placement in the teaching engine\nReview anchor: 03\n4"
+    },
+    {
+      "number": 5,
+      "part": "ppt/slides/slide5.xml",
+      "hidden": true,
+      "text": [
+        "Python setup in Unreal",
+        "00 Setup",
+        "5",
+        "import unreal",
+        "print(unreal.SystemLibrary.get_engine_version())",
+        "print(unreal.Paths.project_dir())",
+        "Unreal: Check the host and project",
+        "",
+        "Engine version: 5.7.4 in the prepared project.",
+        "Project folder: your local Week07UnrealPython directory.",
+        "Expected",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "Python setup in Unreal"
+        },
+        {
+          "id": "3",
+          "text": "00 Setup"
+        },
+        {
+          "id": "5",
+          "text": "5"
+        },
+        {
+          "id": "14",
+          "text": "import unreal\nprint(unreal.SystemLibrary.get_engine_version())\nprint(unreal.Paths.project_dir())"
+        },
+        {
+          "id": "10",
+          "text": "Unreal: Check the host and project"
+        },
+        {
+          "id": "13",
+          "text": "Engine version: 5.7.4 in the prepared project.\nProject folder: your local Week07UnrealPython directory."
+        },
+        {
+          "id": "19",
+          "text": "Expected"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nIf another project appears, switch projects before proceeding.\n5"
+    },
+    {
+      "number": 6,
+      "part": "ppt/slides/slide6.xml",
+      "hidden": false,
+      "text": [
+        "Python setup in Unreal",
+        "00 Setup",
+        "6",
+        "Python Editor Script Plugin",
+        "",
+        "Run in editor.",
+        "IDE stubs provide autocomplete only.",
+        "Editor Scripting Utilities",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "Python setup in Unreal"
+        },
+        {
+          "id": "3",
+          "text": "00 Setup"
+        },
+        {
+          "id": "5",
+          "text": "6"
+        },
+        {
+          "id": "6",
+          "text": "Python Editor Script Plugin"
+        },
+        {
+          "id": "14",
+          "text": "Run in editor.\nIDE stubs provide autocomplete only."
+        },
+        {
+          "id": "16",
+          "text": "Editor Scripting Utilities"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nUnreal supplies the objects and editor operations behind this Python module. Enable the prepared plugins and use Python mode in the Output Log. Autocomplete in an IDE does not provide a running Unreal editor. Which part of the execution setup would you like clarified?\nSource insight (instructor): \nFacilitation (not narration):  Time: 0.5 min; elapsed 1–1.5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python?application_version=5.7\nVisual: Editable slide text/table\nHistorical course setup captures · verify placement in the teaching engine\nReview anchor: 03\n6"
+    },
+    {
+      "number": 7,
+      "part": "ppt/slides/slide7.xml",
+      "hidden": false,
+      "text": [
+        "Open the Week07UnrealPython folder in VS Code. Install microsoft python and pylance.In Unreal: Editor Preferences > Plugins > Python > Developer Mode. Restart Unreal. Confirm Intermediate/PythonStub/unreal.py exists in this project.",
+        "",
+        "",
+        "",
+        "7",
+        "VS Code: Python Autocomplete",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "Open the Week07UnrealPython folder in VS Code. \nInstall \nmicrosoft\n python and \npylance\n.\nIn Unreal: Editor Preferences > Plugins > Python > Developer Mode. Restart Unreal. \nConfirm Intermediate/PythonStub/unreal.py exists in this project."
+        },
+        {
+          "id": "3",
+          "text": ""
+        },
+        {
+          "id": "5",
+          "text": "7"
+        },
+        {
+          "id": "6",
+          "text": "VS Code: Python Autocomplete"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nKarol separates writing code from running the editor. Open the folder containing the \nuproject\n so the next slide uses the correct relative paths. Enable Developer Mode before class and restart Unreal to generate its stub. The stub describes the API for autocomplete. It does not supply a running editor. Older course captures put this setting in Project Settings; the linked Unreal 5.7 documentation uses Editor Preferences.\nSource insight (instructor): \nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/setting-up-autocomplete-for-unreal-editor-python-scripting?application_version=5.7\nhttps://code.visualstudio.com/docs/python/settings-reference\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/01 Setup/02 VS Code Autocomplete Setup - REFINED.md\nVisual: Editable slide text/table\nReview anchor: VSC1\n7"
+    },
+    {
+      "number": 8,
+      "part": "ppt/slides/slide8.xml",
+      "hidden": false,
+      "text": [
+        "{",
+        "  \"python.analysis.extraPaths\": [",
+        "    \"${workspaceFolder}/Intermediate/PythonStub\",",
+        "    \"${workspaceFolder}/Content/Python\"",
+        "  ]",
+        "}",
+        "",
+        "",
+        "8",
+        "VS Code: Workspace Settings",
+        "Save in .vscode/settings.json. Type unreal. in a Python file to check suggestions.",
+        "",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "{\n  \"\npython.analysis.extraPaths\n\": [\n    \"${\nworkspaceFolder\n}/Intermediate/\nPythonStub\n\",\n    \"${\nworkspaceFolder\n}/Content/Python\"\n  ]\n}"
+        },
+        {
+          "id": "3",
+          "text": ""
+        },
+        {
+          "id": "5",
+          "text": "8"
+        },
+        {
+          "id": "6",
+          "text": "VS Code: Workspace Settings"
+        },
+        {
+          "id": "8",
+          "text": "Save in .\nvscode\n/\nsettings.json\n. Type unreal. in a Python file to check suggestions."
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nMerge these entries with existing workspace settings rather than replacing unrelated settings. \nPylance\n reads the stub folder for Unreal names and Content/Python for our project modules. Use Python: Select Interpreter for your ordinary Python tools, but selecting an interpreter does not create an Unreal editor session. Never add the stub directory to runtime PYTHONPATH. If suggestions are absent, check the generated file and reload the VS Code window.\nSource insight (instructor): \nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/setting-up-autocomplete-for-unreal-editor-python-scripting?application_version=5.7\nhttps://code.visualstudio.com/docs/python/settings-reference\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/01 Setup/02 VS Code Autocomplete Setup - REFINED.md\nVisual: Editable slide text/table\nJSON settings for VS Code. Run Unreal scripts inside Unreal.\nReview anchor: VSC2\n8"
+    },
+    {
+      "number": 9,
+      "part": "ppt/slides/slide9.xml",
+      "hidden": false,
+      "text": [
+        "01 Python in Unreal",
+        "Read the selection, inspect its objects, and validate texture settings.",
+        "",
+        "9",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "01 Python in Unreal"
+        },
+        {
+          "id": "3",
+          "text": "Read the selection, inspect its objects, and validate texture settings."
+        },
+        {
+          "id": "6",
+          "text": "9"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\n4"
+    },
+    {
+      "number": 10,
+      "part": "ppt/slides/slide10.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "10",
+        "Case study: Python-driven scene tools",
+        "Notice: an input drives a visible scene change.",
+        "Apply: expose the input and show what it affects.",
+        "cgerchenhp • click video to play",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "10"
+        },
+        {
+          "id": "12",
+          "text": "Case study: Python-driven scene tools"
+        },
+        {
+          "id": "13",
+          "text": "Notice: an input drives a visible scene change.\nApply: expose the input and show what it affects."
+        },
+        {
+          "id": "14",
+          "text": "cgerchenhp • click video to play"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nCASE STUDY DISCUSSION\nNotice: an input drives a visible scene change.\nApply: expose the input and show what it affects.\nAsk students to name one equivalent input, target or feedback cue in their own tool. Accept a concrete design proposal, not just a preference. Pause the clip once the behavior is visible; replay only to answer a specific observation.\nBoth placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\nSource insight (instructor): \nFacilitation (not narration):  Time: 1 min; elapsed 4–5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A\n\nBefore we discuss individual API calls, look at the kind of visible result a tool can connect to. Here an editor-side fluid experiment drives a changing scene; our exercises will use much smaller operations.\nDiscussion: What input is driving the visible change?\nContext: TAPython + Taichi editor demo, shown in UE 5.0.3 by its author. This is inspiration, not a claim about runtime Python or a tested class dependency.\nSource: cgerchenhp / TAPython + Taichi Stable Fluid UE5 demo\nhttps://github.com/cgerchenhp/TAPython_Taichi_StableFluid_UE5\nPlayback: click the embedded movie. 8.33 seconds. Silent. Pause for discussion.\n10"
+    },
+    {
+      "number": 11,
+      "part": "ppt/slides/slide11.xml",
+      "hidden": false,
+      "text": [
+        "UE01: Unreal host and project",
+        "01 Unreal Python",
+        "11",
+        "import unreal",
+        "unreal.log(\"Hello from Unreal\")",
+        "print(unreal.SystemLibrary.get_engine_version())",
+        "print(unreal.Paths.project_dir())",
+        "",
+        "",
+        "",
+        "",
+        "Expected: \"Hello from Unreal\", your engine version, and your project folder.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "UE01: Unreal host and project"
+        },
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "11"
+        },
+        {
+          "id": "6",
+          "text": "import unreal\nunreal.log(\"Hello from Unreal\")\nprint(\nunreal.SystemLibrary.get_engine_version\n())\nprint(\nunreal.Paths.project_dir\n())"
+        },
+        {
+          "id": "8",
+          "text": "Expected: \"Hello from Unreal\", your engine version, and your project folder."
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nTake three minutes to open the intended project, choose Python in the Output Log and run this complete snippet. Confirm the greeting, engine version and project directory. Your user folder can differ from mine. This checks the Python host and project only. It does not certify the Material/VFX fixture or bridge. Tell me if you see an error or a different project.\nSource insight (instructor): \nFacilitation (not narration): Allow the full three minutes. Use the provided Week07UnrealPython project for the prepared demos. Address setup errors before continuing.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/SystemLibrary?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE01_host.py\nVisual: Editable slide text/table\nRun in Unreal. Complete example.\nReview anchor: 04\n11"
+    },
+    {
+      "number": 12,
+      "part": "ppt/slides/slide12.xml",
+      "hidden": false,
+      "text": [
+        "Unreal Python Documentation",
+        "",
+        "12",
+        "Python API reference: choose Unreal 5.7",
+        "EditorActorSubsystem: selected level actors",
+        "EditorUtilityLibrary: selected assets",
+        "",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "Unreal Python Documentation"
+        },
+        {
+          "id": "3",
+          "text": ""
+        },
+        {
+          "id": "5",
+          "text": "12"
+        },
+        {
+          "id": "6",
+          "text": "Python API reference: choose Unreal 5.7\nEditorActorSubsystem: selected level actors\nEditorUtilityLibrary: selected assets"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nOpen the Python API reference and match the engine version. Search for the class, then the method. Read which object owns the call, the parameters, the return type and any deprecation notice. Array[Actor] tells us we can loop over actors. This is a lookup exercise: what comes back, and what can we do with it?\nSource insight (instructor): \nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md\nVisual: Editable slide text/table\nRead the owning class, parameters, return type and deprecation notices.\nReview anchor: DOCS\n12"
+    },
+    {
+      "number": 13,
+      "part": "ppt/slides/slide13.xml",
+      "hidden": false,
+      "text": [
+        "Unreal Function Call, Explained",
+        "",
+        "13",
+        "Pass the subsystem class; call selection methods on the returned editor instance.",
+        "Expression",
+        "Meaning",
+        "unreal.get_editor_subsystem(...)",
+        "Ask the running editor for a subsystem.",
+        "unreal.EditorActorSubsystem",
+        "Class argument: which subsystem we need.",
+        "editor.get_selected_level_actors()",
+        "Call on that instance. No explicit arguments.",
+        "actors = ...",
+        "Keep the returned Array[Actor] to inspect.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "Unreal Function Call, Explained"
+        },
+        {
+          "id": "3",
+          "text": ""
+        },
+        {
+          "id": "5",
+          "text": "13"
+        },
+        {
+          "id": "11",
+          "text": "Pass the subsystem class; call selection methods on the returned editor instance."
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nBRIEF STOP. Allow about 30–60 seconds for one distinction or one observation; avoid explaining every control.\nRead this together with the selection example. Unreal is the module. \nEditorActorSubsystem\n names the type we request. \nget_editor_subsystem\n returns the existing editor-owned instance. We store that instance as editor and call its method. The empty parentheses mean no explicit arguments on this call. Its return is a collection, so \nlen\n counts it and a for loop inspects each Actor. Karol highlights the distinction between static library calls and calls on subsystem instances.\nSource insight (instructor): \nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md\nVisual: Editable slide text/table\nReview anchor: CALL\n13"
+    },
+    {
+      "number": 14,
+      "part": "ppt/slides/slide14.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "14",
+        "Unreal: finding the working selection",
+        "editor is the returned subsystem. actor is one Actor from the selection.",
+        "Expression",
+        "Use in an artist tool",
+        "unreal.get_editor_subsystem(",
+        "    unreal.EditorActorSubsystem)",
+        "Get the editor service that manages level Actors.",
+        "editor.get_selected_level_actors()",
+        "Read the current Outliner selection.",
+        "actor.get_actor_label()",
+        "Show the artist-facing Actor label in a report.",
+        "actor.get_class().get_name()",
+        "Report the selected object’s Unreal class.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "14"
+        },
+        {
+          "id": "6",
+          "text": "Unreal: finding the working selection"
+        },
+        {
+          "id": "7",
+          "text": "editor is the returned subsystem. actor is one Actor from the selection."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nCommon calls used in our examples, not a measured ranking of API popularity. import unreal first.\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorActorSubsystem?application_version=5.7\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/Actor?application_version=5.7\n14"
+    },
+    {
+      "number": 15,
+      "part": "ppt/slides/slide15.xml",
+      "hidden": false,
+      "text": [
+        "UE02: Level selection",
+        "01 Unreal Python",
+        "15",
+        "import unreal",
+        "editor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)",
+        "",
+        "actors = editor.get_selected_level_actors()",
+        "print(\"Selected Actors:\", len(actors))",
+        "for actor in actors:",
+        "    print(actor.get_actor_label(), actor.get_class().get_name())",
+        "",
+        "get_selected_level_actors() returns Actor objects. len counts them; the loop reads each label and class.",
+        "",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "UE02: Level selection"
+        },
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "15"
+        },
+        {
+          "id": "6",
+          "text": "import unreal\neditor = \nunreal.get_editor_subsystem\n(\nunreal.EditorActorSubsystem\n)\nactors = \neditor.get_selected_level_actors\n()\nprint(\"Selected Actors:\", \nlen\n(actors))\nfor actor in actors:\n    print(\nactor.get_actor_label\n(), \nactor.get_class\n().\nget_name\n())"
+        },
+        {
+          "id": "8",
+          "text": "get_selected_level_actors\n() returns Actor objects. \nlen\n counts them; the loop reads each label and class."
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nRun, then change the Outliner selection and rerun. Complete checkpoint shown. No previous script required. Selected Actor count, labels and class names. Empty selection prints zero. What should an empty selection print? Select both cubes. Predict the count before running.\nSource insight (instructor): \nFacilitation (not narration)\n: Host: unreal. Before running: Select the target cube, then try an empty selection. Recovery: Read only. Selection is manual. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE02_level_selection.py Time: 1 min; elapsed 2–3.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorActorSubsystem?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE02_level_selection.py\nVisual: Editable slide text/table\nUNREAL / UE02 / setup + focus / whole checkpoint / open source guide\nReview anchor: 07\n15"
+    },
+    {
+      "number": 16,
+      "part": "ppt/slides/slide16.xml",
+      "hidden": false,
+      "text": [
+        "Example inside Unreal",
+        "Save the complete UE02 example as Content/Python/selection_demo.py.",
+        "In Unreal, choose Tools > Execute Python Script and select that file.",
+        "Read the Output Log. Change the Outliner selection and execute the file again.",
+        "",
+        "",
+        "",
+        "16",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "Example inside Unreal"
+        },
+        {
+          "id": "3",
+          "text": "Save the complete UE02 example as Content/Python/selection_demo.py.\nIn Unreal, choose Tools > Execute Python Script and select that file.\nRead the Output Log. Change the Outliner selection and execute the file again."
+        },
+        {
+          "id": "4",
+          "text": ""
+        },
+        {
+          "id": "6",
+          "text": "16"
+        },
+        {
+          "id": "5",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nUse the same small file shown in the deck. It contains its own import and subsystem lookup so no earlier script is needed. A normal VS Code Run Python File command does not run inside Unreal. Re-executing the saved script is also different from importing a cached module again. During tool development, reload a module explicitly when needed.\nSource insight (instructor): \nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md\nVisual: Editable slide text/table\nReview anchor: RUN\n16"
+    },
+    {
+      "number": 17,
+      "part": "ppt/slides/slide22.xml",
+      "hidden": false,
+      "text": [
+        "",
+        "17",
+        "Selection Example: Expected Output",
+        "INPUT",
+        "Outliner: select only W07_Crate_Target.",
+        "Run the complete UE02 example.",
+        "",
+        "Selected Actors: 1",
+        "W07_Crate_Target StaticMeshActor",
+        "",
+        "",
+        "The label matches the Outliner. The class identifies the Actor type.",
+        "",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": ""
+        },
+        {
+          "id": "5",
+          "text": "17"
+        },
+        {
+          "id": "6",
+          "text": "Selection Example: Expected Output"
+        },
+        {
+          "id": "8",
+          "text": "INPUT\nOutliner: select only W07_Crate_Target.\nRun the complete UE02 example.\nSelected Actors: 1\nW07_Crate_Target \nStaticMeshActor"
+        },
+        {
+          "id": "9",
+          "text": "The label matches the Outliner. The class identifies the Actor type."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nThis is expected output for the prepared classroom map, not a new captured run. UE02 reads the current selection each time. The Content Browser can stay unchanged while this result changes. If the count is wrong, inspect the selected Outliner rows before investigating the loop.\nSource insight (instructor): \nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md\nVisual: Editable slide text/table\nReview anchor: UE02R\n22"
+    },
+    {
+      "number": 18,
+      "part": "ppt/slides/slide17.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "18",
+        "UE02 in Unreal: selection becomes data",
+        "The selected crate appears in the scene and the Outliner.",
+        "Output Log",
+        "One Actor. The label and class identify exactly what the script read.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "18"
+        },
+        {
+          "id": "12",
+          "text": "UE02 in Unreal: selection becomes data"
+        },
+        {
+          "id": "13",
+          "text": "The selected crate appears in the scene and the Outliner."
+        },
+        {
+          "id": "14",
+          "text": "Output Log"
+        },
+        {
+          "id": "15",
+          "text": "One Actor. The label and class identify exactly what the script read."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nActual Unreal Editor 5.7.4 capture on 2026-10-14, Week07UnrealPython / W07_MaterialVFXLab. UE02_level_selection.py was copied unchanged to Content/Python/selection_demo.py. It ran through Tools > Execute Python Script and was rerun by filename in the Python console for the clean Output Log capture. Cropped scene, Output Log and Tools menu are separate views. The script only reads the selection. The capture has one selected Actor, W07_Crate_Target, with class StaticMeshActor. Change the Outliner selection and rerun to compare.\n17"
+    },
+    {
+      "number": 19,
+      "part": "ppt/slides/slide20.xml",
+      "hidden": false,
+      "text": [
+        "UE03: reuse the Actor selection",
+        "01 Unreal Python",
+        "19",
+        "import unreal",
+        "editor = unreal.get_editor_subsystem(",
+        "    unreal.EditorActorSubsystem)",
+        "actors = editor.get_selected_level_actors()",
+        "print(\"Selected Actors:\", len(actors))",
+        "for actor in actors:",
+        "    print(actor.get_actor_label(), actor.get_class().get_name())",
+        "Same selection setup as UE02. The complete UE03 file also reads components and meshes.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "UE03: reuse the Actor selection"
+        },
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "19"
+        },
+        {
+          "id": "6",
+          "text": "import unreal\neditor = unreal.get_editor_subsystem(\n    unreal.EditorActorSubsystem)\nactors = editor.get_selected_level_actors()\nprint(\"Selected Actors:\", len(actors))\nfor actor in actors:\n    print(actor.get_actor_label(), actor.get_class().get_name())"
+        },
+        {
+          "id": "8",
+          "text": "Same selection setup as UE02. The complete UE03 file also reads components and meshes."
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nSetup reads the current Actor selection. This block inspects each component. First run UE03: setup. Then run the shown block(s). Component count and shared mesh path. Actors without mesh components print zero. Can one Actor have zero mesh components? Select two cubes sharing a mesh. Compare their object labels and mesh paths.\nSource insight (instructor): \nFacilitation (not narration): Host: unreal. Before running: Select a mesh Actor; repeat with a camera or light. Recovery: Read only. No dependency on UE02's variables. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE03_components.py Time: 1 min; elapsed 3–4.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/StaticMeshComponent?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE03_components.py\nVisual: Editable slide text/table\nUNREAL / UE03 / focus / after setup / open source guide\nReview anchor: 07C\n20"
+    },
+    {
+      "number": 20,
+      "part": "ppt/slides/slide21.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "20",
+        "Case study: TAPython’s object inspector",
+        "Notice: properties belong to specific objects.",
+        "Apply: identify the target before exposing an edit.",
+        "TAPython • click video to play",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "20"
+        },
+        {
+          "id": "12",
+          "text": "Case study: TAPython’s object inspector"
+        },
+        {
+          "id": "13",
+          "text": "Notice: properties belong to specific objects.\nApply: identify the target before exposing an edit."
+        },
+        {
+          "id": "14",
+          "text": "TAPython • click video to play"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nCASE STUDY DISCUSSION\nNotice: properties belong to specific objects.\nApply: identify the target before exposing an edit.\nAsk students to name one equivalent input, target or feedback cue in their own tool. Accept a concrete design proposal, not just a preference. Pause the clip once the behavior is visible; replay only to answer a specific observation.\nBoth placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\nSource insight (instructor): \nFacilitation (not narration):  Time: 1 min; elapsed 4–5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A\n\nA selected thing in the viewport leads to an object with properties and related objects. Watch the inspector drill into that structure, then connect it back to actor, component and mesh.\nDiscussion: Which object is selected now, and where would you look for its material?\nContext: Third-party TAPython inspector. Dense UI: use nearly the full slide, then pause. The native Slate UI is not Qt/PySide.\nSource: TAPython / chpsemail (tool author), Epic community post, 2022\nhttps://forums.unrealengine.com/t/free-plugin-tapython-a-plugin-for-making-python-editor-tools/505357\nPlayback: click the embedded movie. 19.61 seconds. Silent. Pause for discussion.\n21"
+    },
+    {
+      "number": 21,
+      "part": "ppt/slides/slide23.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "21",
+        "UE03 in Unreal: component and mesh",
+        "The selected Actor owns a StaticMeshComponent.",
+        "That component refers to the engine Cube asset.",
+        "Actual UE03 output",
+        "Actor label, component name and asset path describe different objects.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "21"
+        },
+        {
+          "id": "10",
+          "text": "UE03 in Unreal: component and mesh"
+        },
+        {
+          "id": "11",
+          "text": "The selected Actor owns a StaticMeshComponent."
+        },
+        {
+          "id": "12",
+          "text": "That component refers to the engine Cube asset."
+        },
+        {
+          "id": "13",
+          "text": "Actual UE03 output"
+        },
+        {
+          "id": "14",
+          "text": "Actor label, component name and asset path describe different objects."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nActual UE03_components.py executed in Unreal Editor 5.7.4 using runpy.run_path in the Python console. It read one selected StaticMeshActor, found one StaticMeshComponent and reported /Engine/BasicShapes/Cube.Cube. Details-panel and log crops are from the same captured editor state. No assets or level properties were modified. The earlier UE03 setup slide reads selection; the complete saved checkpoint contains the component loop.\n23"
+    },
+    {
+      "number": 22,
+      "part": "ppt/slides/slide24.xml",
+      "hidden": false,
+      "text": [
+        "",
+        "01 Unreal Python",
+        "22",
+        "Shared asset, separate placements",
+        "Which placement changed? What stayed shared?",
+        "Epic Games • click video to play",
+        "Same mesh. Different material assignments.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "9",
+          "text": ""
+        },
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "22"
+        },
+        {
+          "id": "11",
+          "text": "Shared asset, separate placements"
+        },
+        {
+          "id": "12",
+          "text": "Which placement changed? What stayed shared?"
+        },
+        {
+          "id": "13",
+          "text": "Epic Games • click video to play"
+        },
+        {
+          "id": "14",
+          "text": "Same mesh. Different material assignments."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nBRIEF STOP. Allow about 30–60 seconds for one distinction or one observation; avoid explaining every control.\nBoth placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\nSource insight (instructor): \nFacilitation (not narration):  Time: 1 min; elapsed 4–5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A\n\nWatch one cube change while its neighbors keep their appearance. This is a useful visual starting point for deciding whether an operation targets a placement or a shared asset.\nDiscussion: Which placement changed? Did its neighbors change too?\nContext: Epic example of manual material assignment. It does not demonstrate a Python call or a global mesh-asset edit.\nSource: Epic Games / previously collected\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/static-mesh-actors-in-unreal-engine\nPlayback: click the embedded movie. 9.16 seconds. Silent. Pause for discussion.\nThe original editable relationship diagram remains on this slide. A component override affects the placement; it is distinct from changing the shared mesh asset.\n24"
+    },
+    {
+      "number": 23,
+      "part": "ppt/slides/slide25.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "23",
+        "Unreal: Actor, component, asset",
+        "Check that the mesh exists before asking for its path.",
+        "Expression",
+        "Use in an artist tool",
+        "actor.get_components_by_class(",
+        "    unreal.StaticMeshComponent)",
+        "Find every Static Mesh Component on this Actor.",
+        "component.get_editor_property(",
+        "    \"static_mesh\")",
+        "Read the mesh asset referenced by a component.",
+        "mesh.get_path_name()",
+        "Identify the exact shared mesh asset.",
+        "component.get_material(0)",
+        "Read the material assigned to slot 0.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "23"
+        },
+        {
+          "id": "6",
+          "text": "Unreal: Actor, component, asset"
+        },
+        {
+          "id": "7",
+          "text": "Check that the mesh exists before asking for its path."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nThese calls inspect existing scene data. A component can have no mesh. Slot 0 is only meaningful when a material slot exists.\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/Actor?application_version=5.7\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/StaticMeshComponent?application_version=5.7\n25"
+    },
+    {
+      "number": 24,
+      "part": "ppt/slides/slide26.xml",
+      "hidden": false,
+      "text": [
+        "UE04: Content Browser Selection",
+        "01 Unreal Python",
+        "24",
+        "import unreal",
+        "",
+        "assets = unreal.EditorUtilityLibrary.get_selected_assets()",
+        "print(\"Selected assets:\", len(assets))",
+        "for asset in assets:",
+        "    print(asset.get_name(), asset.get_class().get_name())",
+        "    print(asset.get_path_name())",
+        "",
+        "",
+        "This selection supplies assets, independently of the Outliner.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "UE04: Content Browser Selection"
+        },
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "24"
+        },
+        {
+          "id": "6",
+          "text": "import unreal\nassets = \nunreal.EditorUtilityLibrary.get_selected_assets\n()\nprint(\"Selected assets:\", \nlen\n(assets))\nfor asset in assets:\n    print(\nasset.get_name\n(), \nasset.get_class\n().\nget_name\n())\n    print(\nasset.get_path_name\n())"
+        },
+        {
+          "id": "8",
+          "text": "This selection supplies assets, independently of the Outliner."
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nThis selection supplies assets, independently of the Outliner. Complete checkpoint shown. No previous script required. Asset count, names, class names and object paths. Which selection supplies textures to the material tool? Select one texture and one mesh. Which class names print?\nSource insight (instructor): \nFacilitation (not narration): Host: unreal. Before running: Select assets in the Content Browser, independently of the Outliner. Recovery: Read only. Rerun after changing asset selection. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE04_asset_selection.py Time: 0.75 min; elapsed 5–5.75.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorUtilityLibrary?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE04_asset_selection.py\nVisual: Editable slide text/table\nUNREAL / UE04 / setup + focus / whole checkpoint / open source guide\nReview anchor: UE04\n26"
+    },
+    {
+      "number": 25,
+      "part": "ppt/slides/slide27.xml",
+      "hidden": false,
+      "text": [
+        "",
+        "25",
+        "UE04: asset selection and result",
+        "Select T_Crate_BaseColor in the Content Browser.",
+        "Run the complete UE04 file.",
+        "",
+        "Selected assets: 1",
+        "T_Crate_BaseColor  Texture2D",
+        "",
+        "The log also prints the full /Game/… object path.",
+        "Try another asset and rerun. Reset by reselecting the texture.",
+        "Read the name, class and object path—not the Outliner selection.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": ""
+        },
+        {
+          "id": "5",
+          "text": "25"
+        },
+        {
+          "id": "6",
+          "text": "UE04: asset selection and result"
+        },
+        {
+          "id": "8",
+          "text": "Select T_Crate_BaseColor in the Content Browser.\nRun the complete UE04 file.\nSelected assets: 1\nT_Crate_BaseColor  Texture2D\nThe log also prints the full /Game/… object path."
+        },
+        {
+          "id": "9",
+          "text": "Try another asset and rerun. Reset by reselecting the texture."
+        },
+        {
+          "id": "7",
+          "text": "Read the name, class and object path—not the Outliner selection."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nKarol makes selected objects and their identity distinct. \nget_selected_assets\n is a library call that returns loaded objects. We can ask each object for its name, class and path without loading it again. These methods return values; print displays them. Changing Content Browser selection does not change Outliner selection.\nSource insight (instructor): \nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md\nVisual: Editable slide text/table\nReview anchor: UE04R\n27"
+    },
+    {
+      "number": 26,
+      "part": "ppt/slides/slide28.xml",
+      "hidden": false,
+      "text": [
+        "Texture Settings: Inspect First",
+        "",
+        "26",
+        "Texture role",
+        "sRGB",
+        "Prepared compression",
+        "BaseColor",
+        "On",
+        "Default",
+        "Normal",
+        "Off",
+        "Normalmap",
+        "ORM",
+        "Off",
+        "Masks (no sRGB)",
+        "UE05 reads sRGB and compression. UE06 checks _Normal textures for Normalmap compression.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "Texture Settings: Inspect First"
+        },
+        {
+          "id": "3",
+          "text": ""
+        },
+        {
+          "id": "5",
+          "text": "26"
+        },
+        {
+          "id": "11",
+          "text": "UE05 reads sRGB and compression. UE06 checks _Normal textures for Normalmap compression."
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nOpen one prepared texture. In its Details panel, Texture contains sRGB, and Compression contains Compression Settings. Our tool reads these properties and blocks unsuitable inputs. It does not repair or save shared textures. Base color is color data. Normal and packed ORM are data maps. UE06 now checks the same _Normal suffix as the material tool. A suffix identifies a candidate, not the image contents.\nSource insight (instructor): \nFacilitation (not narration): Open the matching walkthrough for the exact UI locations, manual steps and expected evidence. Time: 0.75 min; elapsed 5.75–6.5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/texture-asset-editor-in-unreal-engine?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\MaterialsWalkthrough20261013\\walkthrough.html\nVisual: Editable slide text/table\nContent Browser: open texture > Details. Search sRGB or Compression Settings.\nReview anchor: MAT1\n28"
+    },
+    {
+      "number": 27,
+      "part": "ppt/slides/slide29.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "27",
+        "Texture validation in context",
+        "Normal-map image, but compression is set to Masks. What should the validator flag?",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "27"
+        },
+        {
+          "id": "12",
+          "text": "Texture validation in context"
+        },
+        {
+          "id": "13",
+          "text": "Normal-map image, but compression is set to Masks. What should the validator flag?"
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nBoth placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\nSource insight (instructor): \nFacilitation (not narration):  Time: 1 min; elapsed 4–5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A\nThis is a captured example from Karol’s course, not the prepared classroom texture. The displayed Compression Settings value is Masks (no sRGB), despite the normal-map image. Use it as a mismatch to inspect, not as recommended normal-map settings. The class expects Normalmap compression.\nCredit: Karol Unreal Python course / user-captured study image\nSource lesson: 12 Texture Compression Settings Validator - Accessing Editor Properties - REFINED.md\nOriginal capture: C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261011002553.png\n29"
+    },
+    {
+      "number": 28,
+      "part": "ppt/slides/slide30.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "28",
+        "Unreal: inspecting selected assets",
+        "Read first. Compare with the asset’s intended role before proposing a fix.",
+        "Expression",
+        "Use in an artist tool",
+        "(unreal.EditorUtilityLibrary",
+        "    .get_selected_assets())",
+        "Read Content Browser selection, not level selection.",
+        "isinstance(asset, unreal.Texture2D)",
+        "Process textures and report skipped asset types.",
+        "texture.get_editor_property(",
+        "    \"compression_settings\")",
+        "Read the compression mode for validation.",
+        "texture.get_editor_property(\"srgb\")",
+        "Check how the texture’s color data is interpreted.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "28"
+        },
+        {
+          "id": "6",
+          "text": "Unreal: inspecting selected assets"
+        },
+        {
+          "id": "7",
+          "text": "Read first. Compare with the asset’s intended role before proposing a fix."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nisinstance is a Python built-in, not an Unreal API function. A normal map and an albedo texture have different requirements.\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorUtilityLibrary?application_version=5.7\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/Texture2D?application_version=5.7\n30"
+    },
+    {
+      "number": 29,
+      "part": "ppt/slides/slide31.xml",
+      "hidden": false,
+      "text": [
+        "UE05: Texture Editor Properties",
+        "01 Unreal Python",
+        "29",
+        "import unreal",
+        "assets = unreal.EditorUtilityLibrary.get_selected_assets()",
+        "textures = [asset for asset in assets",
+        "            if isinstance(asset, unreal.Texture2D)]",
+        "print(\"Textures:\", len(textures), \"skipped:\", len(assets) - len(textures))",
+        "for texture in textures:",
+        "    compression = texture.get_editor_property(\"compression_settings\")",
+        "    srgb = texture.get_editor_property(\"srgb\")",
+        "    print(texture.get_name(), compression, \"sRGB:\", srgb)",
+        "Read compression and sRGB. Non-texture selections are counted and skipped.",
+        "",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "UE05: Texture Editor Properties"
+        },
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "29"
+        },
+        {
+          "id": "6",
+          "text": "import unreal\nassets = \nunreal.EditorUtilityLibrary.get_selected_assets\n()\ntextures = [asset for asset in assets\n            if \nisinstance\n(asset, unreal.Texture2D)]\nprint(\"Textures:\", \nlen\n(textures), \"skipped:\", \nlen\n(assets) - \nlen\n(textures))\nfor texture in textures:\n    compression = \ntexture.get_editor_property\n(\"\ncompression_settings\n\")\n    \nsrgb\n = \ntexture.get_editor_property\n(\"\nsrgb\n\")\n    print(\ntexture.get_name\n(), compression, \"sRGB:\", \nsrgb\n)"
+        },
+        {
+          "id": "8",
+          "text": "Read compression and sRGB. Non-texture selections are counted and skipped."
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nRead compression and sRGB. Non-texture selections are counted and skipped. Complete checkpoint shown. No previous script required. Texture/skipped counts, compression and sRGB values. Would changing a shared texture affect more than one material? Compare a normal map with a color texture.\nSource insight (instructor): \nFacilitation (not narration): Host: unreal. Before running: Select textures; include a non-texture to test eligibility. Recovery: Read only. Shared texture assets remain unchanged. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE05_texture_properties.py Time: 0.75 min; elapsed 6.5–7.25.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/Texture?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE05_texture_properties.py\nVisual: Editable slide text/table\nUNREAL / UE05 / setup + focus / whole checkpoint / open source guide\nReview anchor: 09G\n31"
+    },
+    {
+      "number": 30,
+      "part": "ppt/slides/slide32.xml",
+      "hidden": false,
+      "text": [
+        "UE05: compare texture readbacks",
+        "Run UE05 once for each selected texture.",
+        "",
+        "BaseColor: sRGB True · TC_DEFAULT",
+        "Normal: sRGB False · TC_NORMALMAP",
+        "",
+        "Each run: 1 texture, 0 skipped.",
+        "Compare the log with Texture Editor settings.",
+        "",
+        "Expected values; enum formatting may differ. No edits are made.",
+        "",
+        "30",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "UE05: compare texture readbacks"
+        },
+        {
+          "id": "3",
+          "text": "Run UE05 once for each selected texture.\nBaseColor: sRGB True · TC_DEFAULT\nNormal: sRGB False · TC_NORMALMAP\nEach run: 1 texture, 0 skipped.\nCompare the log with Texture Editor settings.\nExpected values; enum formatting may differ. No edits are made."
+        },
+        {
+          "id": "4",
+          "text": ""
+        },
+        {
+          "id": "6",
+          "text": "30"
+        },
+        {
+          "id": "5",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nThe example filters selected assets with \nisinstance\n before reading texture properties. The string passed to \nget_editor_property\n names an exposed property. Its return type depends on that property. We are reading, not changing, the checkbox and compression setting. Select a mesh too to see the skipped count increase. This demonstration connects code output to the manual controls students can inspect.\nSource insight (instructor): \nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md\nVisual: Editable slide text/table\nReview anchor: UE05R\n32"
+    },
+    {
+      "number": 31,
+      "part": "ppt/slides/slide33.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "31",
+        "UE04–05 in Unreal: texture readback",
+        "Selected asset in the Content Browser",
+        "Editor tooltip",
+        "Actual UE04 + UE05 output",
+        "T_Crate_Normal reads as TC_NORMALMAP with sRGB False.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "31"
+        },
+        {
+          "id": "12",
+          "text": "UE04–05 in Unreal: texture readback"
+        },
+        {
+          "id": "13",
+          "text": "Selected asset in the Content Browser"
+        },
+        {
+          "id": "14",
+          "text": "Editor tooltip"
+        },
+        {
+          "id": "15",
+          "text": "Actual UE04 + UE05 output"
+        },
+        {
+          "id": "16",
+          "text": "T_Crate_Normal reads as TC_NORMALMAP with sRGB False."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nActual Unreal Editor 5.7.4 captures, 2026-10-14. T_Crate_Normal was selected in Content/Week07/LiveDemo/Textures. UE04_asset_selection.py reported one Texture2D and its object path. UE05_texture_properties.py reported Textures: 1, skipped: 0, TC_NORMALMAP and sRGB False. Content Browser, tooltip and later Output Log are separate crops. Both scripts were run with runpy.run_path in the Python console. No texture settings were changed. Compare this prepared normal map with the separate Karol capture whose compression is Masks.\n33"
+    },
+    {
+      "number": 32,
+      "part": "ppt/slides/slide34.xml",
+      "hidden": false,
+      "text": [
+        "UE06: Read-only Validation",
+        "01 Unreal Python",
+        "32",
+        "for texture in textures:",
+        "    if not texture.get_name().endswith(\"_Normal\"):",
+        "        continue",
+        "    checked += 1",
+        "    actual = texture.get_editor_property(\"compression_settings\")",
+        "    if actual != expected:",
+        "        mismatches += 1",
+        "        print(\"MISMATCH\", texture.get_path_name(), actual, expected)",
+        "",
+        "Excerpt: run the complete UE06 file to initialize textures, expected mode and counters.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "UE06: Read-only Validation"
+        },
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "32"
+        },
+        {
+          "id": "6",
+          "text": "for texture in textures:\n    if not \ntexture.get_name\n().\nendswith\n(\"_Normal\"):\n        continue\n    checked += 1\n    actual = \ntexture.get_editor_property\n(\"\ncompression_settings\n\")\n    if actual != expected:\n        mismatches += 1\n        print(\"MISMATCH\", \ntexture.get_path_name\n(), actual, expected)"
+        },
+        {
+          "id": "8",
+          "text": "Excerpt: run the complete UE06 file to initialize textures, expected mode and counters."
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nSetup defines textures, expected compression and counters. Check prints the final totals. First run UE06: setup. Then run the shown block(s). Every mismatching _Normal texture and final checked/mismatch counts. Zero checked is explicitly inconclusive. Why does zero checked not establish a pass? Change only the suffix rule for your project. Predict which assets are eligible.\nSource insight (instructor): \nFacilitation (not narration): Host: unreal. Before running: Select textures. The prepared material tool uses the suffix _Normal. Recovery: Read only. No repair or saving. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE06_validation_report.py Time: 1.25 min; elapsed 7.25–8.5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/Texture?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE06_validation_report.py\nVisual: Editable slide text/table\nUNREAL / UE06 / focus / after setup / open source guide\nReview anchor: 09H\n34"
+    },
+    {
+      "number": 33,
+      "part": "ppt/slides/slide35.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "33",
+        "",
+        "Validation should explain the next action",
+        "A useful result identifies the asset, the rule and a correction.",
+        "Project rule: Blueprint names start with BP_.",
+        "Choose warning or failure to match the project policy.",
+        "Asset validation checks content. It does not prove that the validator code is correct.",
+        "Instructor captures from Karol’s Unreal Python course · lessons 21–22"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "33"
+        },
+        {
+          "id": "6",
+          "text": ""
+        },
+        {
+          "id": "7",
+          "text": "Validation should explain the next action"
+        },
+        {
+          "id": "8",
+          "text": "A useful result identifies the asset, the rule and a correction."
+        },
+        {
+          "id": "9",
+          "text": "Project rule: Blueprint names start with BP_.\nChoose warning or failure to match the project policy."
+        },
+        {
+          "id": "10",
+          "text": "Asset validation checks content. It does not prove that the validator code is correct."
+        },
+        {
+          "id": "11",
+          "text": "Instructor captures from Karol’s Unreal Python course · lessons 21–22"
+        }
+      ],
+      "notes": "PACING\nBRIEF STOP. Allow about 30–60 seconds for one distinction or one observation; avoid explaining every control.\nThe existing UE06 exercise inspects texture compression. Here the same idea becomes a project-level naming rule inside the Message Log. Karol’s screenshot is horizontally scrolled, so some path prefixes are not visible. Read the explicit “Name should start with BP_” message. Naming, square-texture and triangle-budget rules are project policy, not universal artistic requirements. Keep inspection separate from automatic repair.\n\nSource: C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/04 Asset Validation/21 Why you need asset validation - REFINED.md\n\nPlacement rationale: Extends the existing read-only compression check into actionable validation messages, rather than repeating another texture-property table.\n35"
+    },
+    {
+      "number": 34,
+      "part": "ppt/slides/slide36.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "34",
+        "",
+        "Test the tool, not just the assets",
+        "Unit check: a small rule with a known answer",
+        "def is_power_of_two(n):",
+        "    return n > 0 and (n & (n - 1)) == 0",
+        "",
+        "assert is_power_of_two(1024)",
+        "assert not is_power_of_two(1000)",
+        "Karol’s test wiring check",
+        "Not called",
+        "Called",
+        "Deliberately fail once: prove the runner actually executes the check.",
+        "Instructor captures from Karol’s Unreal Python course · lesson 36 · log crops; code: classroom example"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "34"
+        },
+        {
+          "id": "8",
+          "text": ""
+        },
+        {
+          "id": "9",
+          "text": "Test the tool, not just the assets"
+        },
+        {
+          "id": "10",
+          "text": "Unit check: a small rule with a known answer"
+        },
+        {
+          "id": "11",
+          "text": "def is_power_of_two(n):\n    return n > 0 and (n & (n - 1)) == 0\nassert is_power_of_two(1024)\nassert not is_power_of_two(1000)"
+        },
+        {
+          "id": "12",
+          "text": "Karol’s test wiring check"
+        },
+        {
+          "id": "13",
+          "text": "Not called"
+        },
+        {
+          "id": "14",
+          "text": "Called"
+        },
+        {
+          "id": "15",
+          "text": "Deliberately fail once: prove the runner actually executes the check."
+        },
+        {
+          "id": "16",
+          "text": "Instructor captures from Karol’s Unreal Python course · lesson 36 · log crops; code: classroom example"
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nThe short power-of-two example is a new teaching example, not copied course code. It runs as ordinary Python and tests a pure rule. For editor integration, use isolated test assets and verify changes through Unreal. Karol’s paired log crops show a test script reporting success before a failing function is called, then reporting failure when it is called. An uncalled function is not a successful test. The crops omit a separate missing-pytest failure to focus on the demonstrated test_tutorial_test. A unit test checks code behavior; an asset validator checks current project content.\n\nSource: C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/06 Creating Better Python Tools/36 Writing your first Python test for Unreal - REFINED.md\n\nPlacement rationale: Contrasts with UE06: checking content and checking the checking code are different jobs. The pass/fail pair makes the testing pitfall concrete.\n36"
+    },
+    {
+      "number": 35,
+      "part": "ppt/slides/slide38.xml",
+      "hidden": false,
+      "text": [
+        "UE07: Disk paths and asset paths",
+        "01 Unreal Python",
+        "35",
+        "import unreal",
+        "from pathlib import Path",
+        "",
+        "disk_folder = Path(unreal.Paths.project_dir()) / \"Content\"",
+        "object_path = \"/Engine/BasicShapes/Cube.Cube\"",
+        "mesh = unreal.load_asset(object_path)",
+        "print(\"Disk folder:\", disk_folder)",
+        "print(\"Loaded object:\", mesh.get_path_name() if mesh else None)",
+        "print(\"Content directory exists:\", disk_folder.is_dir())",
+        "",
+        "The filesystem path and Unreal object path name different things.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "UE07: Disk paths and asset paths"
+        },
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "35"
+        },
+        {
+          "id": "6",
+          "text": "import unreal\nfrom \npathlib\n import Path\ndisk_folder\n = Path(\nunreal.Paths.project_dir\n()) / \"Content\"\nobject_path\n = \"/Engine/\nBasicShapes\n/\nCube.Cube\n\"\nmesh = \nunreal.load_asset\n(\nobject_path\n)\nprint(\"Disk folder:\", \ndisk_folder\n)\nprint(\"Loaded object:\", \nmesh.get_path_name\n() if mesh else None)\nprint(\"Content directory exists:\", \ndisk_folder.is_dir\n())"
+        },
+        {
+          "id": "8",
+          "text": "The filesystem path and Unreal object path name different things."
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nThe filesystem path and Unreal object path name different things. Complete checkpoint shown. No previous script required. Project Content disk folder and loaded /Engine object path. Does loading a mesh place it in the level? Which path could a filesystem function inspect?\nSource insight (instructor): \nFacilitation (not narration): Host: unreal. Before running: Any Unreal project with the built-in \nBasicShapes\n cube available. Recovery: Read only. Loading the cube does not place an Actor. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE07_paths.py Time: 0.75 min; elapsed 8.5–9.25.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorAssetLibrary?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE07_paths.py\nVisual: Editable slide text/table\nUNREAL / UE07 / setup + focus / whole checkpoint / open source guide\nReview anchor: 07A\n38"
+    },
+    {
+      "number": 36,
+      "part": "ppt/slides/slide39.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "36",
+        "",
+        "Long operations need visible progress",
+        "Count the work. Show the current step. Check Cancel between items.",
+        "ScopedSlowTask(total, message)",
+        "make_dialog(can_cancel=True)",
+        "should_cancel() → stop remaining work",
+        "enter_progress_frame(1) → advance one unit",
+        "Cancel stops future iterations; it does not undo completed edits.",
+        "Instructor captures from Karol’s Unreal Python course · lesson 33 · dialog crop"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "36"
+        },
+        {
+          "id": "6",
+          "text": ""
+        },
+        {
+          "id": "7",
+          "text": "Long operations need visible progress"
+        },
+        {
+          "id": "8",
+          "text": "Count the work. Show the current step. Check Cancel between items."
+        },
+        {
+          "id": "9",
+          "text": "ScopedSlowTask(total, message)\nmake_dialog(can_cancel=True)\nshould_cancel() → stop remaining work\nenter_progress_frame(1) → advance one unit"
+        },
+        {
+          "id": "10",
+          "text": "Cancel stops future iterations; it does not undo completed edits."
+        },
+        {
+          "id": "11",
+          "text": "Instructor captures from Karol’s Unreal Python course · lesson 33 · dialog crop"
+        }
+      ],
+      "notes": "PACING\nBRIEF STOP. Allow about 30–60 seconds for one distinction or one observation; avoid explaining every control.\nKarol demonstrates a 100-step simulated operation using ScopedSlowTask. The screenshot shows the actual progress dialog at 23 percent. This is an API cue list, not a standalone script. Keep the scoped task in a with block, supply a meaningful total, check cancellation between work units, and report what completed. The sleep in the course only makes progress visible; real tools replace it with real work. This is cooperative cancellation, not background execution and not rollback.\n\nSource: C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/06 Creating Better Python Tools/33 Progress bars for slow tasks - REFINED.md | https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/ScopedSlowTask?application_version=5.7\n\nPlacement rationale: Adds a long-running counterpart to the existing immediate click-feedback example and connects naturally to recovery.\n39"
+    },
+    {
+      "number": 37,
+      "part": "ppt/slides/slide18.xml",
+      "hidden": false,
+      "text": [
+        "Case study: Unreal Script Editor",
+        "Python/Qt editor: files, temporary scripts and familiar editing controls.",
+        "",
+        "Notice: users can organize and run scripts in one place.",
+        "",
+        "Apply: give artists a clear entry point for a repeatable task.",
+        "",
+        "37",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "Case study: Unreal Script Editor"
+        },
+        {
+          "id": "3",
+          "text": "Python/Qt editor: files, temporary scripts and familiar editing controls.\nNotice: users can organize and run scripts in one place.\nApply: give artists a clear entry point for a repeatable task."
+        },
+        {
+          "id": "4",
+          "text": ""
+        },
+        {
+          "id": "6",
+          "text": "37"
+        },
+        {
+          "id": "5",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nCASE STUDY DISCUSSION\nNotice the familiar editor workflow. Ask which part of a student tool should be a saved, repeatable action rather than an ad hoc command. This is a script-authoring interface; an artist-facing tool may need a simpler entry point.\nThis is a downloadable open-source tool, rather than a short teaching snippet. The repository includes the UI preview and launch instructions. It credits the original script editor and links the related Hannes \nDelbeke\n plugin. Version 0.0.3 and later use PySide6. The README marks autocomplete as unfinished, so do not promise that feature. A Qt window is not proof of native Slate docking. Open the creator’s preview to show the interface. We have not installed or tested this tool against our Unreal 5.7 classroom project.\nSource insight (instructor): \nFacilitation (not narration): Open the linked primary source before class. Showcase only; no installation or new live host test was performed.\nSources:\nhttps://github.com/leixingyu/unrealScriptEditor\nhttps://github.com/hannesdelbeke/unreal-script-editor\nVisual: Editable slide text/table\nReview anchor: TOOL1\n18"
+    },
+    {
+      "number": 38,
+      "part": "ppt/slides/slide19.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "38",
+        "",
+        "Blueprint interface, Python operation",
+        "Selected assets + material choice → Execute Python Script",
+        "Inputs become Python variables. Set output variables to report a result.",
+        "Use in Editor Utility Blueprints or Widgets; Python remains editor-only.",
+        "Instructor captures from Karol’s Unreal Python course · lesson 40 · wiring checkpoint"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "38"
+        },
+        {
+          "id": "6",
+          "text": ""
+        },
+        {
+          "id": "7",
+          "text": "Blueprint interface, Python operation"
+        },
+        {
+          "id": "8",
+          "text": "Selected assets + material choice → Execute Python Script"
+        },
+        {
+          "id": "9",
+          "text": "Inputs become Python variables. Set output variables to report a result."
+        },
+        {
+          "id": "10",
+          "text": "Use in Editor Utility Blueprints or Widgets; Python remains editor-only."
+        },
+        {
+          "id": "11",
+          "text": "Instructor captures from Karol’s Unreal Python course · lesson 40 · wiring checkpoint"
+        }
+      ],
+      "notes": "PACING\nBRIEF STOP. Allow about 30–60 seconds for one distinction or one observation; avoid explaining every control.\nThis is Karol’s real Blueprint graph. The pictured script prints the selected assets: it is a wiring checkpoint, not yet the final material assignment. The named input pins supply variables to Python. A later version assigns the chosen material to mesh asset slots, which affects uses of those assets. Success? means the script executed; inspect the intended result separately. Editor Utility Widgets and Editor Utility Blueprints can host Python nodes; ordinary runtime Actor Blueprints cannot.\n\nSource: C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/08 Python and Blueprints/40 Python Scripts in Asset Scripted Action Blueprints - REFINED.md | https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python?application_version=5.7\n\nPlacement rationale: Complements the Script Editor example: a third launch surface lets artists use familiar Blueprint controls while Python handles the operation.\n19"
+    },
+    {
+      "number": 39,
+      "part": "ppt/slides/slide40.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "39",
+        "",
+        "From a script to a tool someone can use",
+        "Package the logic and the entry point separately.",
+        "Version + supported engine",
+        "Install / enable instructions",
+        "One example task",
+        "Known limits + recovery",
+        "A clean-project smoke test",
+        "Release check: can another artist install it and complete the example without you?",
+        "Instructor captures from Karol’s Unreal Python course · lesson 39 · release checklist: teaching synthesis"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "39"
+        },
+        {
+          "id": "6",
+          "text": ""
+        },
+        {
+          "id": "7",
+          "text": "From a script to a tool someone can use"
+        },
+        {
+          "id": "8",
+          "text": "Package the logic and the entry point separately."
+        },
+        {
+          "id": "9",
+          "text": "Version + supported engine\nInstall / enable instructions\nOne example task\nKnown limits + recovery\nA clean-project smoke test"
+        },
+        {
+          "id": "10",
+          "text": "Release check: can another artist install it and complete the example without you?"
+        },
+        {
+          "id": "11",
+          "text": "Instructor captures from Karol’s Unreal Python course · lesson 39 · release checklist: teaching synthesis"
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nKarol packages the compression tool as an Unreal plugin with Content/Python, init_unreal.py and separate core/UI modules. The capture shows the resulting context-menu entry. The checklist on this slide is a teaching synthesis for a usable release, not a claim that the screenshot proves distribution quality. A release includes tested installation, supported versions, documentation and a way to recover. Try a clean project and fresh editor session; do not rely on imports left over in your development session.\n\nSource: C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/07 Releasing Tools/39 Packing Python Tool As Unreal Plugin - REFINED.md\n\nPlacement rationale: Extends the existing launch/setup slides to the handoff: the user needs a discoverable entry point and a repeatable installation, not only a working file.\n40"
+    },
+    {
+      "number": 40,
+      "part": "ppt/slides/slide41.xml",
+      "hidden": false,
+      "text": [
+        "01 Unreal Python",
+        "40",
+        "",
+        "A tool interface can live outside Unreal",
+        "External app → HTTP request → exposed Unreal function → response",
+        "PUT /remote/object/call → ReturnValue: true",
+        "Remote Control is another entry point. It still needs scope, validation and useful feedback.",
+        "Instructor captures from Karol’s Unreal Python course · lesson 44"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "01 Unreal Python"
+        },
+        {
+          "id": "5",
+          "text": "40"
+        },
+        {
+          "id": "6",
+          "text": ""
+        },
+        {
+          "id": "7",
+          "text": "A tool interface can live outside Unreal"
+        },
+        {
+          "id": "8",
+          "text": "External app → HTTP request → exposed Unreal function → response"
+        },
+        {
+          "id": "9",
+          "text": "PUT /remote/object/call → ReturnValue: true"
+        },
+        {
+          "id": "10",
+          "text": "Remote Control is another entry point. It still needs scope, validation and useful feedback."
+        },
+        {
+          "id": "11",
+          "text": "Instructor captures from Karol’s Unreal Python course · lesson 44"
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nThis is an optional breadth example. Karol uses Insomnia to call a function registered in the running Unreal editor, then generates an external Python client. The screenshot shows a local HTTP request and ReturnValue true. The editor must be running, the API enabled and the function registered. A successful HTTP response is separate from verifying a game-asset operation. For a classroom demo keep the service local; deployment and access controls are a separate design problem. Do not imply this enables Python gameplay scripting.\n\nSource: C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/44 Python and Remote Control API + Testing API with Insomnia - REFINED.md | https://dev.epicgames.com/documentation/en-us/unreal-engine/remote-control-api-http-reference-for-unreal-engine?application_version=5.7\n\nPlacement rationale: Broadens the existing Blender–Unreal bridge: external clients can request editor work through an API, while keeping the same input/result contract.\n41"
+    },
+    {
+      "number": 41,
+      "part": "ppt/slides/slide37.xml",
+      "hidden": false,
+      "text": [
+        "Case study: AYON for Unreal",
+        "AYON connects Loader, Publisher and Scene Inventory to Unreal.",
+        "",
+        "Notice: the tools follow distinct pipeline tasks.",
+        "",
+        "Apply: define the handoff—input, result and next step—for your tool.",
+        "",
+        "41",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "Case study: AYON for Unreal"
+        },
+        {
+          "id": "3",
+          "text": "AYON connects Loader, Publisher and Scene Inventory to Unreal.\nNotice: the tools follow distinct pipeline tasks.\nApply: define the handoff—input, result and next step—for your tool."
+        },
+        {
+          "id": "4",
+          "text": ""
+        },
+        {
+          "id": "6",
+          "text": "41"
+        },
+        {
+          "id": "5",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nCASE STUDY DISCUSSION\nNotice the separation of loading, publishing and scene inventory. Ask students to name the upstream input and downstream consumer of their own tool. This is a production integration example, not a requirement to reproduce an entire pipeline.\nAYON is a broader production system with an Unreal integration. Show the Loader or Publisher screenshot in the artist guide, then the public client/\nayon_unreal\n source. The Python integration works with an Unreal plugin; this is not a claim that the whole platform is pure Python. It requires an AYON environment and configuration, so this is a possibility showcase rather than an in-class installation. Ask students to identify the input, operation and evidence of success in a finished artist tool.\nSource insight (instructor): \nFacilitation (not narration): Open the linked primary source before class. Showcase only; no installation or new live host test was performed.\nSources:\nhttps://help.ayon.app/en/help/articles/2228078-working-with-unreal-in-ayon\nhttps://github.com/ynput/ayon-unreal\nhttps://docs.ayon.dev/ayon-unreal/latest/autoapi/client/ayon_unreal/api/pipeline.html\nVisual: Editable slide text/table\nReview anchor: TOOL2\n37"
+    },
+    {
+      "number": 42,
+      "part": "ppt/slides/slide42.xml",
+      "hidden": false,
+      "text": [
+        "Python in Unreal: questions",
+        "",
+        "42",
+        "Where does the code run?",
+        "Which object owns the state we change?",
+        "What proves success, and how do we recover?",
+        "",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "Python in Unreal: questions"
+        },
+        {
+          "id": "3",
+          "text": ""
+        },
+        {
+          "id": "5",
+          "text": "42"
+        },
+        {
+          "id": "6",
+          "text": "Where does the code run?\nWhich object owns the state we change?\nWhat proves success, and how do we recover?"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "TRANSITION\nAsk for one answer to each question. Then contrast Unreal with Blender: the language stays Python, but the host, object types and APIs change.\nPACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nWe have seen the same language call different host APIs. Connect the object, the operation and the evidence. What would you like clarified before our contributors show their tools?\nSource insight (instructor): \nFacilitation (not narration):  \nSources:\nVisual: Editable slide text/table\nReview anchor: 09K\n42"
+    },
+    {
+      "number": 43,
+      "part": "ppt/slides/slide44.xml",
+      "hidden": false,
+      "text": [
+        "02 Blender to Unreal",
+        "Same Python language, different application API.",
+        "43",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "02 Blender to Unreal"
+        },
+        {
+          "id": "3",
+          "text": "Same Python language, different application API."
+        },
+        {
+          "id": "6",
+          "text": "43"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nWe have focused on Python inside Unreal. Before I hand over, here is a short comparison: Blender also exposes its scene through Python, using \nbpy\n. I will inspect one selected object, then send a geometry revision to Unreal. Our colleagues will take us further into materials and a Maya bridge.\nFacilitation: Keep this as the final instructor demo immediately before the colleague handoff.\n44"
+    },
+    {
+      "number": 44,
+      "part": "ppt/slides/slide45.xml",
+      "hidden": false,
+      "text": [
+        "BL01: Blender host and selection",
+        "02 Blender to Unreal",
+        "44",
+        "import bpy",
+        "print(\"Blender:\", bpy.app.version_string)",
+        "print(\"Mode:\", bpy.context.mode)",
+        "objects = list(bpy.context.selected_objects)",
+        "print(\"Selected objects:\", len(objects))",
+        "for obj in objects:",
+        "    print(obj.name, obj.type)",
+        "bpy.context.selected_objects supplies Blender Objects. Unreal uses its own editor APIs.",
+        "",
+        "Run in Blender. Complete example.",
+        "",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "BL01: Blender host and selection"
+        },
+        {
+          "id": "3",
+          "text": "02 Blender to Unreal"
+        },
+        {
+          "id": "5",
+          "text": "44"
+        },
+        {
+          "id": "6",
+          "text": "import \nbpy\nprint(\"Blender:\", \nbpy.app.version_string\n)\nprint(\"Mode:\", \nbpy.context.mode\n)\nobjects = list(\nbpy.context.selected_objects\n)\nprint(\"Selected objects:\", \nlen\n(objects))\nfor obj in objects:\n    print(obj.name, \nobj.type\n)"
+        },
+        {
+          "id": "8",
+          "text": "bpy.context.selected_objects\n supplies Blender Objects. Unreal uses its own editor APIs."
+        },
+        {
+          "id": "7",
+          "text": "Run in Blender. Complete example."
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nBlender supplies \nbpy.context\n. Run this file in its Text Editor. Complete checkpoint shown. No previous script required. Blender version, mode, selection count, object names/types. Which part of the selection loop stays familiar? Select a camera and a mesh together. Predict their types.\nSource insight (instructor): \nFacilitation (not narration): Host: blender. Before running: Blender Text Editor, preferably the prepared \nBridgeCompare.blend\n. Recovery: Read only. Rerun freely. Run the full saved checkpoint to jump here with a fresh namespace. Source: blender/BL01_host_selection.py \nSources:\nhttps://docs.blender.org/api/5.1/bpy.context.html\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\blender\\BL01_host_selection.py\nVisual: Editable slide text/table\nRun in Blender. Complete example.\nReview anchor: BL01\n45"
+    },
+    {
+      "number": 45,
+      "part": "ppt/slides/slide46.xml",
+      "hidden": false,
+      "text": [
+        "02 Blender to Unreal",
+        "45",
+        "Blender: selection and object data",
+        "The active Object and the full selection answer different questions.",
+        "Expression",
+        "Use in an artist tool",
+        "bpy.context.selected_objects",
+        "Read the selected Objects. This is a property.",
+        "bpy.context.active_object",
+        "Read the active Object, or None.",
+        "bpy.data.objects.get(\"Crate\")",
+        "Find an Object by name, or return None.",
+        "obj.name, obj.type",
+        "Identify an Object and filter with",
+        "obj.type == \"MESH\".",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "02 Blender to Unreal"
+        },
+        {
+          "id": "5",
+          "text": "45"
+        },
+        {
+          "id": "6",
+          "text": "Blender: selection and object data"
+        },
+        {
+          "id": "7",
+          "text": "The active Object and the full selection answer different questions."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nimport bpy first. Object selection is context-sensitive; active_object may be None. Property access has no parentheses. Names are examples, not guaranteed objects.\nhttps://docs.blender.org/api/current/info_quickstart.html\nhttps://docs.blender.org/api/current/bpy.context.html\nhttps://docs.blender.org/api/current/bpy.types.BlendDataObjects.html\n46"
+    },
+    {
+      "number": 46,
+      "part": "ppt/slides/slide47.xml",
+      "hidden": false,
+      "text": [
+        "02 Blender to Unreal",
+        "46",
+        "Blender: inspecting and changing state",
+        "bpy.ops performs an operation. Its result depends on mode and context.",
+        "Expression",
+        "Use in an artist tool",
+        "obj.location",
+        "Read local position. Assigning a value moves it.",
+        "obj.data",
+        "Read the data block, such as a Mesh.",
+        "obj.select_set(True)",
+        "Select this Object in the view layer.",
+        "bpy.ops.object.transform_apply(",
+        "    location=False, rotation=True, scale=True)",
+        "Apply rotation and scale to selected Objects. Requires Object Mode.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "02 Blender to Unreal"
+        },
+        {
+          "id": "5",
+          "text": "46"
+        },
+        {
+          "id": "6",
+          "text": "Blender: inspecting and changing state"
+        },
+        {
+          "id": "7",
+          "text": "bpy.ops performs an operation. Its result depends on mode and context."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nCommon selection and export-preparation calls. The final two rows change state. Inspect scope and test on a copy before applying transforms. Mesh data can be shared by multiple Objects. obj.location is local, not guaranteed world position.\nhttps://docs.blender.org/api/current/bpy.types.Object.html\nhttps://docs.blender.org/api/current/bpy.ops.object.html#bpy.ops.object.transform_apply\nhttps://docs.blender.org/api/current/info_gotchas_operators.html\n47"
+    },
+    {
+      "number": 47,
+      "part": "ppt/slides/slide48.xml",
+      "hidden": false,
+      "text": [
+        "02 Blender to Unreal",
+        "47",
+        "BL02: Blender Bridge",
+        "Rehearsal: republish the baseline mesh under the same asset name to reset.",
+        "Publish one mesh.",
+        "",
+        "Raise the roof 0.4 m.",
+        "Republish the same asset.",
+        "",
+        "Inspect both blue placements.",
+        "Course rehearsal sequence • six timed still states • click video to play",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "02 Blender to Unreal"
+        },
+        {
+          "id": "5",
+          "text": "47"
+        },
+        {
+          "id": "15",
+          "text": "BL02: Blender Bridge"
+        },
+        {
+          "id": "16",
+          "text": "Rehearsal: republish the baseline mesh under the same asset name to reset."
+        },
+        {
+          "id": "17",
+          "text": "Publish one mesh.\nRaise the roof 0.4 m.\nRepublish the same asset.\nInspect both blue placements."
+        },
+        {
+          "id": "18",
+          "text": "Course rehearsal sequence • six timed still states • click video to play"
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nThis is the short demonstration before the handoff. Start with the prepared Blender mesh, in Object Mode, and the Unreal bridge comparison map. Publish as SM_Compare_Blender and wait for Imported. Use the prepared revised source or raise only the roof vertices by 0.4 metres along Blender Z, return to Object Mode, and publish under the same name. The two blue Unreal instances should update from 180 to 220 centimetres high. Verify their placement and existing materials. Publish the baseline again to restore the shared asset. The Maya objects are comparison fixtures; do not run the Maya publisher in this portion.\nSource insight (instructor): \nFacilitation (not narration): Use the unified testing walkthrough. Resolve the recent receiver.json access-denied issue before a live send. A fresh bridge success has not been established in this revision. If blocked, use the recorded UI rehearsal and label it as recorded. Do not add a debugging detour to the handoff.\nSources:\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\UI-Rehearsal\\verification.json\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\README.md\nVisual: Week07UnrealPython/Docs/Bridge/UI-Rehearsal/01-blender-baseline.png\nRecorded Blender UI reference. Geometry revision; materials stay in Unreal.\nReview anchor: 10D\n\nThis is our rehearsal sequence, shown as timed stills. Follow the initial publish, the geometry revision and the republish; compare the blue placements with the orange reference.\nDiscussion: What changed after republish, and what stayed independent?\nContext: Six timed still states, not a continuous screen recording. Label “rehearsal sequence.” The final state is deliberately held.\nSource: Course capture sequence / Blender to Unreal UI rehearsal\nCourse/Slides/Week07/BridgeRehearsal20261013/index.html\nPlayback: click the embedded movie. 25 seconds. Silent. Pause for discussion.\n48"
+    },
+    {
+      "number": 48,
+      "part": "ppt/slides/slide49.xml",
+      "hidden": false,
+      "text": [
+        "03 Tool Demos",
+        "Watch the input, the affected objects, and the visible result.",
+        "48",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "03 Tool Demos"
+        },
+        {
+          "id": "3",
+          "text": "Watch the input, the affected objects, and the visible result."
+        },
+        {
+          "id": "6",
+          "text": "48"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "TRANSITION\nWe have read state and crossed applications. Now watch complete artist tasks: what goes in, what changes, and how the artist knows it worked. Stage the classroom scene on the next slide.\nPACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nWe have seen how Python accesses Unreal objects and how a small Blender revision reaches the editor. Now our colleagues will showcase their tools, including material work in Unreal and a Maya bridge. As you watch, connect the interface to the inputs, API operations and evidence of success we just discussed.\n  \n49"
+    },
+    {
+      "number": 49,
+      "part": "ppt/slides/slide43.xml",
+      "hidden": false,
+      "text": [
+        "Classroom demo setup",
+        "03 Tool Demos",
+        "49",
+        "from week07_tooling.editor import live_demo",
+        "print(live_demo.preflight())",
+        "Unreal: Check and stage the classroom scene",
+        "",
+        "Material & VFX: ready.",
+        "Target and textures selected.",
+        "Open Tools > Material & VFX Tools.",
+        "The bridge is checked separately.",
+        "Expected:",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "Classroom demo setup"
+        },
+        {
+          "id": "3",
+          "text": "03 Tool Demos"
+        },
+        {
+          "id": "5",
+          "text": "49"
+        },
+        {
+          "id": "14",
+          "text": "from week07_tooling.editor import \nlive_demo\nprint(\nlive_demo.preflight\n())"
+        },
+        {
+          "id": "10",
+          "text": "Unreal: Check and stage the classroom scene"
+        },
+        {
+          "id": "13",
+          "text": "Material & VFX: ready.\nTarget and textures selected.\nOpen Tools > Material & VFX Tools.\nThe bridge is checked separately."
+        },
+        {
+          "id": "19",
+          "text": "Expected:"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nIf another project appears, switch projects before proceeding.\n43"
+    },
+    {
+      "number": 50,
+      "part": "ppt/slides/slide50.xml",
+      "hidden": false,
+      "text": [
+        "03 Tool Demos",
+        "50",
+        "Material parameters in context",
+        "Which exposed parameter could an artist tool edit?",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "03 Tool Demos"
+        },
+        {
+          "id": "5",
+          "text": "50"
+        },
+        {
+          "id": "12",
+          "text": "Material parameters in context"
+        },
+        {
+          "id": "13",
+          "text": "Which exposed parameter could an artist tool edit?"
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nBoth placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\nSource insight (instructor): \nFacilitation (not narration):  Time: 1 min; elapsed 4–5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A\nUse the color picker and preview as concrete context before the material tool demonstration. This source capture shows a material editing workflow, not our classroom fixture.\nCredit: Karol Unreal Python course / user-captured study image\nSource lesson: 14 Editing Material Instance Parameters - Material Editing Library - REFINED.md\nOriginal capture: C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261011134822.png\n50"
+    },
+    {
+      "number": 51,
+      "part": "ppt/slides/slide51.xml",
+      "hidden": false,
+      "text": [
+        "03 Tool Demos",
+        "51",
+        "Material tool: preview and visible result",
+        "Inspect the proposed assignment, then check the target in the scene.",
+        "After Apply",
+        "One target changes.",
+        "The protected cube stays.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "03 Tool Demos"
+        },
+        {
+          "id": "5",
+          "text": "51"
+        },
+        {
+          "id": "12",
+          "text": "Material tool: preview and visible result"
+        },
+        {
+          "id": "13",
+          "text": "Inspect the proposed assignment, then check the target in the scene."
+        },
+        {
+          "id": "14",
+          "text": "After Apply"
+        },
+        {
+          "id": "15",
+          "text": "One target changes.\nThe protected cube stays."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nBoth placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\nSource insight (instructor): \nFacilitation (not narration):  Time: 1 min; elapsed 4–5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A\nLive course captures from the material rehearsal. The left image shows the native preview panel; the right shows a separate later scene result. Inspect W07_Crate_Target and the protected neighbor. Changes are not saved automatically. These are separate screenshots, not a continuous recording.\nSources: Week07UnrealPython/Saved/LiveRehearsal/native-material-preview.png and 02_material.png.\n51"
+    },
+    {
+      "number": 52,
+      "part": "ppt/slides/slide52.xml",
+      "hidden": false,
+      "text": [
+        "03 Tool Demos",
+        "52",
+        "VFX tool: scope and placement",
+        "Count the proposed targets. Then inspect where the effects appear.",
+        "Scene result",
+        "Three placements.",
+        "Performance needs a separate check.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "03 Tool Demos"
+        },
+        {
+          "id": "5",
+          "text": "52"
+        },
+        {
+          "id": "12",
+          "text": "VFX tool: scope and placement"
+        },
+        {
+          "id": "13",
+          "text": "Count the proposed targets. Then inspect where the effects appear."
+        },
+        {
+          "id": "14",
+          "text": "Scene result"
+        },
+        {
+          "id": "15",
+          "text": "Three placements.\nPerformance needs a separate check."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nBoth placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\nSource insight (instructor): \nFacilitation (not narration):  Time: 1 min; elapsed 4–5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A\nTwo separate live course captures: native VFX preview and scene result. The recorded rehearsal places three effects. These show scope and visible placement, not a frame-time or performance measurement.\nSources: Week07UnrealPython/Saved/LiveRehearsal/native-vfx-preview.png and 03_vfx.png.\n52"
+    },
+    {
+      "number": 53,
+      "part": "ppt/slides/slide53.xml",
+      "hidden": false,
+      "text": [
+        "03 Tool Demos",
+        "53",
+        "",
+        "Case study: Project Titan’s ivy tool",
+        "Notice",
+        "Input shape",
+        "Branch growth",
+        "Leaf placement",
+        "Apply",
+        "Expose controls for",
+        "shape and variation.",
+        "Houdini digital asset in Unreal: a procedural tool, not a Python-only example.",
+        "Simon Verstraete / SideFX · Project Titan, 2022"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "03 Tool Demos"
+        },
+        {
+          "id": "5",
+          "text": "53"
+        },
+        {
+          "id": "6",
+          "text": ""
+        },
+        {
+          "id": "7",
+          "text": "Case study: Project Titan’s ivy tool"
+        },
+        {
+          "id": "8",
+          "text": "Notice\nInput shape\nBranch growth\nLeaf placement"
+        },
+        {
+          "id": "9",
+          "text": "Apply\nExpose controls for\nshape and variation."
+        },
+        {
+          "id": "10",
+          "text": "Houdini digital asset in Unreal: a procedural tool, not a Python-only example."
+        },
+        {
+          "id": "11",
+          "text": "Simon Verstraete / SideFX · Project Titan, 2022"
+        }
+      ],
+      "notes": "PACING\nBRIEF STOP. Allow about 30–60 seconds for one distinction or one observation; avoid explaining every control.\nCASE STUDY DISCUSSION\nNotice how shape, growth and leaf placement divide the problem into artist-controllable choices. Ask students to sketch three controls for a repetitive art task, then remove any that do not support a real decision. Keep the Houdini/Unreal context explicit; this is not a claim that the system is Python-only.\nSimon Verstraete’s Project Titan ivy tool takes an input shape, generates branches and distributes leaves. Simulation handles falling branches. It is packaged as a Houdini digital asset for Unreal. Compare this with placing three VFX systems: the tool is now constructing organic content. Ask which controls should be exposed for art direction and which implementation details should stay internal. This image is the creator’s tutorial preview, not our own test result.\n\nSource: https://www.sidefx.com/tutorials/project-titan-ivy-tool/\n\nPlacement rationale: Adds an organic content-generation example beyond the deck’s material assignments and fixed VFX placements.\n53"
+    },
+    {
+      "number": 54,
+      "part": "ppt/slides/slide54.xml",
+      "hidden": false,
+      "text": [
+        "03 Tool Demos",
+        "54",
+        "",
+        "Case study: Project Titan’s train rig",
+        "Notice",
+        "Modular parts",
+        "Pattern rules",
+        "Automatic rig",
+        "Apply",
+        "Check the result at",
+        "each handoff.",
+        "Project Titan’s train tool combines modular assembly with an animatable rig.",
+        "Simon Verstraete / SideFX · Project Titan, 2022"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "03 Tool Demos"
+        },
+        {
+          "id": "5",
+          "text": "54"
+        },
+        {
+          "id": "6",
+          "text": ""
+        },
+        {
+          "id": "7",
+          "text": "Case study: Project Titan’s train rig"
+        },
+        {
+          "id": "8",
+          "text": "Notice\nModular parts\nPattern rules\nAutomatic rig"
+        },
+        {
+          "id": "9",
+          "text": "Apply\nCheck the result at\neach handoff."
+        },
+        {
+          "id": "10",
+          "text": "Project Titan’s train tool combines modular assembly with an animatable rig."
+        },
+        {
+          "id": "11",
+          "text": "Simon Verstraete / SideFX · Project Titan, 2022"
+        }
+      ],
+      "notes": "PACING\nBRIEF STOP. Allow about 30–60 seconds for one distinction or one observation; avoid explaining every control.\nCASE STUDY DISCUSSION\nNotice that modular assembly and rigging are linked. Ask where a student tool could hand off to the next discipline, and what must be checked at that boundary. A useful small project could automate just one of those handoffs.\nThe train tool demonstrates a different kind of leverage: modular model generation and automatic rig creation are packaged together. Its author describes pattern-driven modeling and a toggle that creates the rig. The screenshot shows the rigged result and part of the Houdini network, not the full interface. This is inspiration for connecting modeling, rigging and export workflows; it is not presented as a beginner Python exercise. Compare it with Zoey’s face technical-animation demo and Xicheng’s pipeline bridge.\n\nSource: https://www.sidefx.com/tutorials/project-titan-train-tool/\n\nPlacement rationale: Complements the ivy example with a hard-surface and rigging workflow; establishes a useful bridge into the two colleague demos.\n54"
+    },
+    {
+      "number": 55,
+      "part": "ppt/slides/slide55.xml",
+      "hidden": false,
+      "text": [
+        "03 Tool Demos",
+        "55",
+        "",
+        "Case study: Project Titan’s environment",
+        "Notice: repeated systems support an authored environment.",
+        "Apply: automate one repeatable step; preserve artistic choices.",
+        "SideFX · Project Titan · 26-second silent clip · click video to play"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "03 Tool Demos"
+        },
+        {
+          "id": "5",
+          "text": "55"
+        },
+        {
+          "id": "4",
+          "text": ""
+        },
+        {
+          "id": "6",
+          "text": "Case study: Project Titan’s environment"
+        },
+        {
+          "id": "7",
+          "text": "Notice: repeated systems support an authored environment.\nApply: automate one repeatable step; preserve artistic choices."
+        },
+        {
+          "id": "8",
+          "text": "SideFX · Project Titan · 26-second silent clip · click video to play"
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nCASE STUDY DISCUSSION\nNotice: repeated systems support an authored environment.\nApply: automate one repeatable step; preserve artistic choices.\nAsk students to name one equivalent input, target or feedback cue in their own tool. Accept a concrete design proposal, not just a preference. Pause the clip once the behavior is visible; replay only to answer a specific observation.\nPlay this 26-second SideFX blockout-to-final clip after the two specific tool examples. It shows a production-tech-demo environment evolving; it does not show one tool automatically generating an entire finished level. Identify modular structures, repeated props, vegetation, lighting and deliberate composition. The source video is embedded with its audio removed; the image sequence is unchanged. Stop at the final view and ask which decisions should remain with the artist.\n\nSource: https://www.sidefx.com/titan/\n\nPlacement rationale: Provides a visual payoff for the two new tools while contrasting with the existing small-scene demos; explicitly avoids an unsupported one-click-world claim.\n55"
+    },
+    {
+      "number": 56,
+      "part": "ppt/slides/slide56.xml",
+      "hidden": false,
+      "text": [
+        "03 Tool Demos",
+        "56",
+        "Zoey’s tool demo",
+        "Maya face technical-animation tool",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "03 Tool Demos"
+        },
+        {
+          "id": "5",
+          "text": "56"
+        },
+        {
+          "id": "6",
+          "text": "Zoey’s tool demo"
+        },
+        {
+          "id": "7",
+          "text": "Maya face technical-animation tool"
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nLIVE COLLEAGUE DEMO. Share the 15-minute slot: about 6 minutes per demo plus 3 minutes for transitions and discussion. Ask for the task, affected objects and evidence of success.\nReserved for Zoey’s live demonstration. Topic supplied by the instructor. No functionality or screenshots inferred. Ask what artist task the tool supports and what evidence shows completion.\n56"
+    },
+    {
+      "number": 57,
+      "part": "ppt/slides/slide57.xml",
+      "hidden": false,
+      "text": [
+        "03 Tool Demos",
+        "57",
+        "Xicheng’s tool demo",
+        "Maya bridge and pipeline tool",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "03 Tool Demos"
+        },
+        {
+          "id": "5",
+          "text": "57"
+        },
+        {
+          "id": "6",
+          "text": "Xicheng’s tool demo"
+        },
+        {
+          "id": "7",
+          "text": "Maya bridge and pipeline tool"
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nLIVE COLLEAGUE DEMO. Share the 15-minute slot: about 6 minutes per demo plus 3 minutes for transitions and discussion. Ask for the task, affected objects and evidence of success.\nReserved for Xicheng’s live demonstration. Topic supplied by the instructor. No functionality or screenshots inferred. Ask what artist task the tool supports and what evidence shows completion.\n57"
+    },
+    {
+      "number": 58,
+      "part": "ppt/slides/slide58.xml",
+      "hidden": false,
+      "text": [
+        "BREAK ~15 min.",
+        "",
+        "58",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "BREAK ~15 min."
+        },
+        {
+          "id": "3",
+          "text": ""
+        },
+        {
+          "id": "5",
+          "text": "58"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "RETURN CUE\nAfter the break, move from watching what tools can do to assessing how clearly they communicate. Students will reuse that method in peer review.\nPACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\n4"
+    },
+    {
+      "number": 59,
+      "part": "ppt/slides/slide59.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "Use the same observation method for case studies, peers, and your own tool.",
+        "59",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "2",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "3",
+          "text": "Use the same observation method for case studies, peers, and your own tool."
+        },
+        {
+          "id": "6",
+          "text": "59"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nWe are beginning \nui\n/\nux\n for\nartist tools. 16 minutes of concepts and discussion. Revisit your Lab 1 judgment using the artist’s task\nFacilitation:  \n59"
+    },
+    {
+      "number": 60,
+      "part": "ppt/slides/slide60.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "60",
+        "After the break: how we’ll assess tools",
+        "Before each demo, predict the next action and its result.",
+        "",
+        "While watching, record a visible cue or moment of hesitation.",
+        "",
+        "Afterward, explain one issue and propose one change to test.",
+        "Predict → observe → propose one revision to test.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "60"
+        },
+        {
+          "id": "6",
+          "text": "After the break: how we’ll assess tools"
+        },
+        {
+          "id": "7",
+          "text": "Before each demo, predict the next action and its result.\nWhile watching, record a visible cue or moment of hesitation.\nAfterward, explain one issue and propose one change to test."
+        },
+        {
+          "id": "8",
+          "text": "Predict → observe → propose one revision to test."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nMove this slide after the UI/UX divider and after the break. Invite all students to write an observation, compare with a partner, then contribute one evidence-based comment. Observing a clip is not a usability test: state what remains untested. No invented grading or submission requirements.\n60"
+    },
+    {
+      "number": 61,
+      "part": "ppt/slides/slide61.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "61",
+        "UI/UX: the artist’s mental model",
+        "Artist’s task",
+        "“Preview a material on the selected prop.”",
+        "",
+        "Implementation",
+        "Find Actor, inspect components, assign material.",
+        "",
+        "Interface",
+        "Show the target, material choice, preview and commit.",
+        "Assessment question: can the artist predict what the control will do?",
+        "UI/UX course connection · Joe Natoli, Design Rules",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "61"
+        },
+        {
+          "id": "6",
+          "text": "UI/UX: the artist’s mental model"
+        },
+        {
+          "id": "7",
+          "text": "Artist’s task\n“Preview a material on the selected prop.”\nImplementation\nFind Actor, inspect components, assign material.\nInterface\nShow the target, material choice, preview and commit."
+        },
+        {
+          "id": "8",
+          "text": "Assessment question: can the artist predict what the control will do?"
+        },
+        {
+          "id": "9",
+          "text": "UI/UX course connection · Joe Natoli, Design Rules"
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nCourse connection: Joe Natoli, Design Rules: Visual Design Principles for Great UI Design. Instructor notes: 17 UI UX Design Principles / REFINED - Course Index.md. Notes 01, 03/04 and 05: problem and task first; appearance and behavior together; mental, implementation and represented models. The example here is an instructional mapping, not a claim about a particular production tool.\n61"
+    },
+    {
+      "number": 62,
+      "part": "ppt/slides/slide62.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "62",
+        "UI/UX: grouping and visual hierarchy",
+        "Assessment question: which controls belong to the same step?",
+        "Spacing should separate unrelated steps.",
+        "",
+        "Labels should describe the artist’s task.",
+        "",
+        "Scope and primary action should remain easy to find.",
+        "UI/UX course connection · Joe Natoli, Design Rules",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "62"
+        },
+        {
+          "id": "7",
+          "text": "UI/UX: grouping and visual hierarchy"
+        },
+        {
+          "id": "8",
+          "text": "Assessment question: which controls belong to the same step?"
+        },
+        {
+          "id": "9",
+          "text": "Spacing should separate unrelated steps.\nLabels should describe the artist’s task.\nScope and primary action should remain easy to find."
+        },
+        {
+          "id": "10",
+          "text": "UI/UX course connection · Joe Natoli, Design Rules"
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nCourse connection: Joe Natoli, Design Rules: Visual Design Principles for Great UI Design. Instructor notes: 17 UI UX Design Principles / REFINED - Course Index.md. Notes 07 and 09: spacing and alignment communicate relationships. Simplification must preserve scope, feedback and action. Examine the genuine tool screenshot. Ask students to locate input, preview and apply controls, then identify any ambiguous grouping. Do not infer usability from symmetry alone.\n62"
+    },
+    {
+      "number": 63,
+      "part": "ppt/slides/slide63.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "63",
+        "",
+        "Case study: Blender’s UI rework",
+        "Notice: grouping and alignment make control relationships clearer.",
+        "Apply: group one tool by task, then test whether a peer finds the next control.",
+        "Blender Foundation · Blender 2.90 release notes · original before/after figures"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "63"
+        },
+        {
+          "id": "8",
+          "text": ""
+        },
+        {
+          "id": "9",
+          "text": "Case study: Blender’s UI rework"
+        },
+        {
+          "id": "10",
+          "text": "Notice: grouping and alignment make control relationships clearer."
+        },
+        {
+          "id": "11",
+          "text": "Apply: group one tool by task, then test whether a peer finds the next control."
+        },
+        {
+          "id": "12",
+          "text": "Blender Foundation · Blender 2.90 release notes · original before/after figures"
+        }
+      ],
+      "notes": "PACING\nBRIEF STOP. Allow about 30–60 seconds for one distinction or one observation; avoid explaining every control.\nCASE STUDY DISCUSSION\nPoint to the revised Transform grouping and aligned labels. Ask students to name the relationship the spacing communicates, then apply it to one cluster in their own interface. These are shipped Blender changes; the images alone do not establish a measured speed gain.\nThese are genuine before/after images from Blender 2.90 release notes. The first aligns checkboxes and their labels; the second places Auto Smooth beside its angle value. Blender documents the goals of grouping related settings and compact layouts. This is evidence of a shipped design change, not a published measurement that every task became faster. Ask students to locate Affect Only and explain which labels belong to it. Compare the change with our existing grouping/filtering demo.\n\nSource: https://developer.blender.org/docs/release_notes/2.90/user_interface/\n\nPlacement rationale: Stronger than the existing principle-only grouping slide for showing a concrete rework. Keeps the existing course tool as the transfer exercise.\n63"
+    },
+    {
+      "number": 64,
+      "part": "ppt/slides/slide64.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "64",
+        "",
+        "Week 2 composition → tool hierarchy",
+        "In a scene: guide the eye toward the focal point.",
+        "In a tool: guide attention through the task.",
+        "Use spacing, alignment and contrast to clarify scope, preview and the primary action.",
+        "Left: Week 2 course image, Mariam Bellard / Rockstar North, GDC 2019 · Right: course tool capture"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "64"
+        },
+        {
+          "id": "8",
+          "text": ""
+        },
+        {
+          "id": "9",
+          "text": "Week 2 composition → tool hierarchy"
+        },
+        {
+          "id": "10",
+          "text": "In a scene: guide the eye toward the focal point."
+        },
+        {
+          "id": "11",
+          "text": "In a tool: guide attention through the task."
+        },
+        {
+          "id": "12",
+          "text": "Use spacing, alignment and contrast to clarify scope, preview and the primary action."
+        },
+        {
+          "id": "13",
+          "text": "Left: Week 2 course image, Mariam Bellard / Rockstar North, GDC 2019 · Right: course tool capture"
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nRecall the Week 2 composition slide and its focal hierarchy. The left image is reused from that deck; the right is our existing material-tool capture. These are separate contexts, not a before/after pair. A game view guides spatial attention; a tool guides a sequence of decisions. Do not mechanically impose the rule of thirds on a form. Ask students where they look first, how they find the affected target, and whether Preview and Apply are distinguishable.\n\nSource: Week 2 - Game Assets Pipelines and Validation LAB-ALIGNED.pptx, slide 24; existing Week 7 material-tool capture\n\nPlacement rationale: Makes the requested Week 2 connection explicit and gives the existing material panel a second teaching role: visual attention rather than API behavior.\n64"
+    },
+    {
+      "number": 65,
+      "part": "ppt/slides/slide65.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "65",
+        "",
+        "Week 2 color → meaning in a tool",
+        "Art: palette and contrast establish emphasis.",
+        "Tools: color supports an explicit state label.",
+        "Do not make color the only cue. State the problem and the next action in text.",
+        "Left: Week 2 / Daniel Candil, A Crowd of Monsters · Right: course tool · Guidance: W3C"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "65"
+        },
+        {
+          "id": "8",
+          "text": ""
+        },
+        {
+          "id": "9",
+          "text": "Week 2 color → meaning in a tool"
+        },
+        {
+          "id": "10",
+          "text": "Art: palette and contrast establish emphasis."
+        },
+        {
+          "id": "11",
+          "text": "Tools: color supports an explicit state label."
+        },
+        {
+          "id": "12",
+          "text": "Do not make color the only cue. State the problem and the next action in text."
+        },
+        {
+          "id": "13",
+          "text": "Left: Week 2 / Daniel Candil, A Crowd of Monsters · Right: course tool · Guidance: W3C"
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nThe Week 2 image from Blues and Bullets illustrates a restricted palette with strong red emphasis. The course tool uses a warning region accompanied by a message and acknowledgement control. These examples are not a matched before/after. Artistic emphasis can be expressive; operational color needs consistent meaning and redundant cues. W3C guidance says information and actions should not be distinguished only by color. Ask what would remain understandable without the warning hue. This is a design transfer, not a full accessibility audit of the tool.\n\nSource: Week 2 - Game Assets Pipelines and Validation LAB-ALIGNED.pptx, slide 26 | https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html\n\nPlacement rationale: Adds the artistic color connection and a concrete accessibility rule to the existing warning/block comparison.\n65"
+    },
+    {
+      "number": 66,
+      "part": "ppt/slides/slide66.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "66",
+        "",
+        "Case study: NN/g’s tested redesign",
+        "Three rounds of testing.",
+        "New and returning users.",
+        "Notice",
+        "Users liked the grid,",
+        "but preferred the list",
+        "after seeing alternatives.",
+        "Apply: compare two layouts with the same task; observe hesitation and completion.",
+        "Kathryn Whitenton & Sarah Gibbons / Nielsen Norman Group, 2018"
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "66"
+        },
+        {
+          "id": "6",
+          "text": ""
+        },
+        {
+          "id": "7",
+          "text": "Case study: NN/g’s tested redesign"
+        },
+        {
+          "id": "8",
+          "text": "Three rounds of testing.\nNew and returning users."
+        },
+        {
+          "id": "9",
+          "text": "Notice\nUsers liked the grid,\nbut preferred the list\nafter seeing alternatives."
+        },
+        {
+          "id": "10",
+          "text": "Apply: compare two layouts with the same task; observe hesitation and completion."
+        },
+        {
+          "id": "11",
+          "text": "Kathryn Whitenton & Sarah Gibbons / Nielsen Norman Group, 2018"
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nCASE STUDY DISCUSSION\nSeparate the reported preference from your proposed tool test. The article does not establish that lists are universally better. Ask students to test two versions of one task with similar inputs and record what happened before asking which version they like.\nThis is a real website redesign case, not a game-tool study. NN/g reports three rounds of testing and a shift from a uniform content grid toward differentiated formats. The figure shows wireframes and successive visual prototypes. The article reports user preference for the list alternative, but does not establish a universal list-over-grid rule or a quantified speed gain. Transfer the method: compare alternatives on the same artist task, observe behavior, and revise. Keep the original peer-review roles and use this as the reason to test rather than only critique aesthetics.\n\nSource: https://www.nngroup.com/articles/case-study-iterative-design-prototyping/\n\nPlacement rationale: Adds documented iterative testing to the existing peer-feedback framework; complements Blender’s shipped redesign without claiming measured benefits that the release notes do not provide.\n66"
+    },
+    {
+      "number": 67,
+      "part": "ppt/slides/slide67.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "67",
+        "UI/UX: clarity during the whole task",
+        "Assessment includes behavior, keyboard use and recovery.",
+        "UI/UX course connection · Joe Natoli, Design Rules",
+        "Moment",
+        "What the interface should make clear",
+        "Before acting",
+        "Which objects are affected, and what will change?",
+        "During the operation",
+        "Is it working, waiting, or blocked?",
+        "After it finishes",
+        "What changed, and what was skipped?",
+        "If the result is wrong",
+        "How can the artist correct or undo it?",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "67"
+        },
+        {
+          "id": "6",
+          "text": "UI/UX: clarity during the whole task"
+        },
+        {
+          "id": "7",
+          "text": "Assessment includes behavior, keyboard use and recovery."
+        },
+        {
+          "id": "8",
+          "text": "UI/UX course connection · Joe Natoli, Design Rules"
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nCourse connection: Joe Natoli, Design Rules: Visual Design Principles for Great UI Design. Instructor notes: 17 UI UX Design Principles / REFINED - Course Index.md. Notes 03/04 and 07/08: appearance and behavior work together; simplifying the screen must not hide necessary actions; adapt interaction principles to desktop tools. Keyboard focus and repeated entry matter in DCC workflows. This checklist is a teaching application, not a verbatim quotation or grading rubric.\n67"
+    },
+    {
+      "number": 68,
+      "part": "ppt/slides/slide68.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "68",
+        "Case study: PowerRename’s preview",
+        "Notice: original and proposed filenames appear together.",
+        "Apply: preview asset-name changes before committing.",
+        "Microsoft • click video to play",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "68"
+        },
+        {
+          "id": "12",
+          "text": "Case study: PowerRename’s preview"
+        },
+        {
+          "id": "13",
+          "text": "Notice: original and proposed filenames appear together.\nApply: preview asset-name changes before committing."
+        },
+        {
+          "id": "14",
+          "text": "Microsoft • click video to play"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nCASE STUDY DISCUSSION\nNotice: original and proposed filenames appear together.\nApply: preview asset-name changes before committing.\nAsk students to name one equivalent input, target or feedback cue in their own tool. Accept a concrete design proposal, not just a preference. Pause the clip once the behavior is visible; replay only to answer a specific observation.\nThis video demonstrates PowerToys PowerRename on ordinary Windows files. It is not a game-asset tool demonstration. Watch the Original and Renamed columns change before Apply. The transferable pattern is a visible proposal before committing a batch operation. In an Unreal asset tool, show old and new asset names, affected scope and conflicts, then use Unreal-aware asset operations. Do not rename .uasset files in Explorer. Ask: what information would you add before trusting this interaction with a project? Source: https://learn.microsoft.com/en-us/windows/powertoys/powerrename\n68"
+    },
+    {
+      "number": 69,
+      "part": "ppt/slides/slide69.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "69",
+        "Case study: Material Parameters Helper",
+        "Notice: filters determine which parameters appear.",
+        "Apply: group controls and make the active filter obvious.",
+        "Ryan DowlingSoka • click video to play",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "69"
+        },
+        {
+          "id": "12",
+          "text": "Case study: Material Parameters Helper"
+        },
+        {
+          "id": "13",
+          "text": "Notice: filters determine which parameters appear.\nApply: group controls and make the active filter obvious."
+        },
+        {
+          "id": "14",
+          "text": "Ryan DowlingSoka • click video to play"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nCASE STUDY DISCUSSION\nNotice: filters determine which parameters appear.\nApply: group controls and make the active filter obvious.\nAsk students to name one equivalent input, target or feedback cue in their own tool. Accept a concrete design proposal, not just a preference. Pause the clip once the behavior is visible; replay only to answer a specific observation.\nBoth placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\nSource insight (instructor): \nFacilitation (not narration):  Time: 1 min; elapsed 4–5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A\n\nThe left-hand controls change which parameters the artist sees. Watch the relationship between those two areas, then decide whether you would understand it on a first use.\nDiscussion: Which panel controls what you see, and is that relationship obvious?\nContext: Ryan DowlingSoka’s Material Parameters Helper uses Blueprint/C++. Use as design evidence, not as a Python implementation example. Clip shows filtering, not graph navigation.\nSource: Ryan DowlingSoka / Material Parameters Helper, 2022\nhttps://ryandowlingsoka.com/unreal/material-parameters-helper/\nPlayback: click the embedded movie. 16 seconds. Silent. Pause for discussion.\n69"
+    },
+    {
+      "number": 70,
+      "part": "ppt/slides/slide70.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "70",
+        "Case study: TAPython click feedback",
+        "Notice: the counter changes immediately after the click.",
+        "Apply: show a result or progress state after every action.",
+        "Input",
+        "Click a control.",
+        "Visible state",
+        "The counter updates.",
+        "TAPython • click video to play",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "70"
+        },
+        {
+          "id": "12",
+          "text": "Case study: TAPython click feedback"
+        },
+        {
+          "id": "13",
+          "text": "Notice: the counter changes immediately after the click.\nApply: show a result or progress state after every action."
+        },
+        {
+          "id": "14",
+          "text": "Input"
+        },
+        {
+          "id": "15",
+          "text": "Click a control."
+        },
+        {
+          "id": "16",
+          "text": "Visible state"
+        },
+        {
+          "id": "17",
+          "text": "The counter updates."
+        },
+        {
+          "id": "18",
+          "text": "TAPython • click video to play"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nCASE STUDY DISCUSSION\nNotice: the counter changes immediately after the click.\nApply: show a result or progress state after every action.\nAsk students to name one equivalent input, target or feedback cue in their own tool. Accept a concrete design proposal, not just a preference. Pause the clip once the behavior is visible; replay only to answer a specific observation.\nBoth placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\nSource insight (instructor): \nFacilitation (not narration):  Time: 1 min; elapsed 4–5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A\n\nA click is an input, but the user needs to see that something happened. Here the counter supplies immediate feedback; name the corresponding visible state in your own tool.\nDiscussion: What tells the user that the click was received?\nContext: Only 466 × 257 px. Do not enlarge to full-screen or treat it as a Qt recording; this is TAPython native UI.\nSource: TAPython / chpsemail (tool author), Epic community post, 2022\nhttps://forums.unrealengine.com/t/free-plugin-tapython-a-plugin-for-making-python-editor-tools/505357\nPlayback: click the embedded movie. 4.84 seconds. Silent. Pause for discussion.\n70"
+    },
+    {
+      "number": 71,
+      "part": "ppt/slides/slide71.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "71",
+        "Warnings and blocked actions",
+        "What can the artist do next in each state?",
+        "Review and acknowledge",
+        "Correct the input",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "71"
+        },
+        {
+          "id": "12",
+          "text": "Warnings and blocked actions"
+        },
+        {
+          "id": "13",
+          "text": "What can the artist do next in each state?"
+        },
+        {
+          "id": "14",
+          "text": "Review and acknowledge"
+        },
+        {
+          "id": "15",
+          "text": "Correct the input"
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nBoth placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\nSource insight (instructor): \nFacilitation (not narration):  Time: 1 min; elapsed 4–5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A\nBoth images are offline practice states with sample data. A warning asks the artist to review a condition and acknowledge it. A block requires an input correction. Acknowledgement does not make an invalid operation valid.\nSources: Week07UnrealPython/Docs/UI/captures/vfx_warning.png and vfx_blocked.png.\n71"
+    },
+    {
+      "number": 72,
+      "part": "ppt/slides/slide72.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "72",
+        "What does recovery restore?",
+        "Undo restored the assignment. The newly created material asset remained.",
+        "Baseline",
+        "Applied",
+        "After Undo",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "72"
+        },
+        {
+          "id": "13",
+          "text": "What does recovery restore?"
+        },
+        {
+          "id": "14",
+          "text": "Undo restored the assignment. The newly created material asset remained."
+        },
+        {
+          "id": "15",
+          "text": "Baseline"
+        },
+        {
+          "id": "16",
+          "text": "Applied"
+        },
+        {
+          "id": "17",
+          "text": "After Undo"
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nBoth placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\nSource insight (instructor): \nFacilitation (not narration):  Time: 1 min; elapsed 4–5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A\nMatched live course result captures show baseline, applied material, and recovered assignment. This is not a complete rollback of project state. The rehearsal report records that the material asset remained after assignment Undo. Ask what the tool should promise and explain to the artist.\nSources: Week07UnrealPython/Saved/LiveRehearsal/01_baseline.png, 02_material.png, 04_recovered.png.\n72"
+    },
+    {
+      "number": 73,
+      "part": "ppt/slides/slide73.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "73",
+        "Case study: Guerrilla’s contextual tools",
+        "Notice: inspection stays in the scene’s spatial context.",
+        "Apply: show feedback beside the affected object or region.",
+        "Guerrilla Games • click video to play",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "73"
+        },
+        {
+          "id": "12",
+          "text": "Case study: Guerrilla’s contextual tools"
+        },
+        {
+          "id": "13",
+          "text": "Notice: inspection stays in the scene’s spatial context.\nApply: show feedback beside the affected object or region."
+        },
+        {
+          "id": "14",
+          "text": "Guerrilla Games • click video to play"
+        },
+        {
+          "id": "4",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nREFERENCE / OPTIONAL DEPTH. Keep available for questions; do not read line by line. Skip in the timed route unless it resolves a student question.\nCASE STUDY DISCUSSION\nNotice: inspection stays in the scene’s spatial context.\nApply: show feedback beside the affected object or region.\nAsk students to name one equivalent input, target or feedback cue in their own tool. Accept a concrete design proposal, not just a preference. Pause the clip once the behavior is visible; replay only to answer a specific observation.\nBoth placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\nSource insight (instructor): \nFacilitation (not narration):  Time: 1 min; elapsed 4–5.\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A\n\nTrack where information appears as the artist moves around this production view. The design question is how to reveal detail without forcing the artist to abandon their spatial context.\nDiscussion: How much context can the artist keep while inspecting a region?\nContext: Guerrilla / Decima production example. Do not label it Unreal or infer its implementation language from the footage.\nSource: Guerrilla Games / existing source clip\nhttps://www.guerrilla-games.com/read/creating-a-tools-pipeline-for-horizon-zero-dawn\nPlayback: click the embedded movie. 16.37 seconds. Silent. Pause for discussion.\n73"
+    },
+    {
+      "number": 74,
+      "part": "ppt/slides/slide74.xml",
+      "hidden": false,
+      "text": [
+        "04 UI/UX for Artist Tools",
+        "74",
+        "Feedback that another person can use",
+        "“I expected Preview to affect only the selected prop.",
+        "The target was unclear, so I paused before clicking.”",
+        "",
+        "“Show the target name beside Preview.",
+        "Then test whether a new user can identify the scope.”",
+        "Describe what happened, how it affected the task, and what to change and test.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "04 UI/UX for Artist Tools"
+        },
+        {
+          "id": "5",
+          "text": "74"
+        },
+        {
+          "id": "6",
+          "text": "Feedback that another person can use"
+        },
+        {
+          "id": "7",
+          "text": "“I expected Preview to affect only the selected prop.\nThe target was unclear, so I paused before clicking.”\n“Show the target name beside Preview.\nThen test whether a new user can identify the scope.”"
+        },
+        {
+          "id": "8",
+          "text": "Describe what happened, how it affected the task, and what to change and test."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "BRIDGE TO THE LAB\nAsk for one observation grounded in a visible cue. Separate the observation from the proposed fix. The fix is a hypothesis to retest, not a proven improvement. Carry this exact format into the lab.\nPACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nHypothetical feedback example, not a finding from the recorded tools. Have students distinguish observed evidence from interpretation and suggestion. “I don’t like the layout” alone gives the owner little to act on. The next test checks the proposal; it does not assume that the change improves usability.\n74"
+    },
+    {
+      "number": 75,
+      "part": "ppt/slides/slide75.xml",
+      "hidden": false,
+      "text": [
+        "05 Final Peer Review",
+        "75",
+        "Final Peer Review Lab",
+        "A task, an observation, a revision to test",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "05 Final Peer Review"
+        },
+        {
+          "id": "5",
+          "text": "75"
+        },
+        {
+          "id": "6",
+          "text": "Final Peer Review Lab"
+        },
+        {
+          "id": "7",
+          "text": "A task, an observation, a revision to test"
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "PACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nFinal Peer Review Lab introduction. Use the following slide to explain roles and carry the UI/UX assessment framework into peer review.\n75"
+    },
+    {
+      "number": 76,
+      "part": "ppt/slides/slide76.xml",
+      "hidden": false,
+      "text": [
+        "05 Final Peer Review",
+        "76",
+        "Final Peer Review: observe one task",
+        "Deliverable: one observed issue, one proposed revision, and a task to retest it.",
+        "Owner: state the task; avoid coaching.",
+        "",
+        "Tester: predict, then try the task.",
+        "",
+        "Observer: record hesitation, feedback and recovery.",
+        "",
+        "Rotate roles. Review your own tool.",
+        ""
+      ],
+      "shapes": [
+        {
+          "id": "3",
+          "text": "05 Final Peer Review"
+        },
+        {
+          "id": "5",
+          "text": "76"
+        },
+        {
+          "id": "12",
+          "text": "Final Peer Review: observe one task"
+        },
+        {
+          "id": "13",
+          "text": "Deliverable: one observed issue, one proposed revision, and a task to retest it."
+        },
+        {
+          "id": "14",
+          "text": "Owner: state the task; avoid coaching.\nTester: predict, then try the task.\nObserver: record hesitation, feedback and recovery.\nRotate roles. Review your own tool."
+        },
+        {
+          "id": "2",
+          "text": ""
+        }
+      ],
+      "notes": "30-MINUTE LAB\n2 min: groups of three choose a task and assign roles.\nThree 7-minute rounds: state the task, try it with minimal coaching, record evidence, propose one revision; rotate owner/tester/observer.\n4 min: apply the same checklist to your own tool.\n3 min: record one issue, one proposed revision, and one retest task.\nUse concrete evidence: target identification, status feedback, hesitation, skipped objects, recovery, keyboard access. Do not grade a tool only on visual taste.\nPACING\nCORE SEQUENCE. Teach the visible task or question, then advance once students can explain the result.\nOwner: state one artist task and its expected result, then observe without coaching. Tester: predict the next action, attempt the task and narrate uncertainty. Observer: record a visible event, its impact and one proposed change. Rotate roles. Apply the same checklist to your own tool after the review. If a peer tool is not runnable, label the review as a walkthrough and record what needs a live test. Capture one successful behavior and one revision to test. Production reference image: Etienne Palmer-Campbell / NetherRealm, GDC 2025. https://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf\n76"
+    }
+  ],
+  "size": {
+    "cx": "12192000",
+    "cy": "6858000"
+  },
+  "media": {
+    "ppt/media/image43.png": "3719350f93307558ccc061e582c4b73dd3960dcb5306462b98ab3b72af3a39cd",
+    "ppt/media/image42.png": "4415b0fd354bed1b4b10756b7690e22a22de66cb95ccf76d701352f837cdf790",
+    "ppt/media/image41.png": "c2356a97884efabcf003afbb6a7e3a5521cfe35c3264734529e016713841a1d7",
+    "ppt/media/image40.png": "71c37159174f7237c08c4f8118760b3470d4acda1e4f74819dae9496eedbf39a",
+    "ppt/media/image39.png": "d1d0c4fd00495efa150eac7b5e49cd0eb31d971763e2c7e1fdcfa5a0d1eac474",
+    "ppt/media/image53.png": "19a4d47738dd77c76e362fa6ab20c68ddfef055a987070e1ca495e0d11e3be73",
+    "ppt/media/image38.png": "5663bdd53113c8de7cde370840445f169ef0693b10269f4566e3551dcbc6c214",
+    "ppt/media/image37.png": "1116c21611c7483e09172963b58bf71f2081e68443234c81cca2e3e794a48b13",
+    "ppt/media/image36.png": "c40a32d463a8f3bf5b351aab3b2ca0b15570a99713933743bb94ebcfdb4503c5",
+    "ppt/media/image35.png": "c86df247fbab39a0cc4c2357e5a427065e1d5997414ab596c4e3c2480d762f41",
+    "ppt/media/image34.png": "2126516ed497da557580d0edd5c6b372ec5001cacb0136ea91eb9b43f1c22f7c",
+    "ppt/media/image33.png": "75cc6cb4a02b8f9d5ab936b3457ecc5e24b605b591cc8eadd801bef7af464b7a",
+    "ppt/media/image32.png": "138123cbfdaf3b39a467a8fa6cf7c4fce7393eba50ee5f4676105045c7d260a0",
+    "ppt/media/image48.png": "8ccb2a0e4a9318679bc37c9b2eaf643dd5cda75ff249f47526900932b0a6e384",
+    "ppt/media/image31.png": "49c24314d69bcd949bb1f6a21a95e389b72506c14404743382fbc34102318528",
+    "ppt/media/image30.png": "85be6fd5d0983f5529f074415070cc6bce033ce3fbe169a74cc541e3af6b1fd6",
+    "ppt/media/image29.png": "d8f6bb8682b27f739b0074e6f17501643b6f737d6d72935d740ff741e8181dfa",
+    "ppt/media/image47.png": "73164d17eea1de95a9bf3ec8ed220c5f8d16a771306c541d25f5d71f2eabfc63",
+    "ppt/media/image28.png": "7c3ab9d2d1442edc1b4e7de41637f229ebe8cda744a1dce549839bf897f998d7",
+    "ppt/media/image27.png": "d636dcb323d1e62e41697bf8f06c283201640e2453b9f5a6bf86934a81ade47d",
+    "ppt/media/image26.png": "6e0a684a3aae7d31a63f505cc652d3595067258b789bcad36eae48461f553c23",
+    "ppt/media/image25.png": "54bc634e74e6f9820739c8792355cb45a44d93cd4d4fbf0a7d665d3d17161cd9",
+    "ppt/media/image24.png": "9839449bf6d1c95d19ee80afbc45fa51ac5f2ae8cbfe49a6371d5a658515aacf",
+    "ppt/media/image46.png": "df31d8022be3448475d46e2c87b14e52fd25b439302b36299ae90f326030d963",
+    "ppt/media/image23.png": "bbc6e73f2dcac25974805157c34ad522f5253c77d1f7c359f87f63361ed119e9",
+    "ppt/media/image22.png": "519adcb75e25b4018c3b5897c5f8401ecf4a3badf95e4557af3d2817747351ce",
+    "ppt/media/image21.jpeg": "ee752cda30b4b69a183f6349998d8e1ab6e1594bd8b520343d660c0b2292ce5e",
+    "ppt/media/image20.jpeg": "bf0887b553736878eed283c0aa575a3d2fccfd581d4dccbc809729f5b9dddaec",
+    "ppt/media/image19.jpeg": "e59062d2a0b18f2d8cb9703449fde6460f4074fbdbd09142b5600751d525619f",
+    "ppt/media/image18.jpeg": "603f1c5c9ed8cd9269c250f1f96b4ecbf9af57dabad389b0def6836ee790cc95",
+    "ppt/media/image17.jpeg": "b26afdcec820f1bdcceffaa263f4e543c86e87a3af109905d1c5a63ea78f3657",
+    "ppt/media/image16.jpeg": "864f58fad9813adf2f7fbc592435c90d79857199b3c7947f3a4702857b5553a7",
+    "ppt/media/image15.jpeg": "f4ff231e18897a2214e22886cc6216efeed4a20df0df928bd4a3e50ae584ba2a",
+    "ppt/media/image14.jpeg": "7dfa88447f79620b7da25a93735c81cc56d28acd9803def271df16b366b42876",
+    "ppt/media/image13.png": "26cc52da68a136fd7dedd8c575ab5e7307b14fa2ff173359a7a7832cbf1d46c1",
+    "ppt/media/image12.jpeg": "cb043d6a9e87bfac1b466eadabc7ea2501662c5549fcf122880c0e70ec7fde4b",
+    "ppt/media/image11.jpeg": "966a2432c1b307069e4df6f1cae514741673c2bb63da1069b45656a64513fb7c",
+    "ppt/media/image10.jpeg": "7ce898d72130d9d0b97f9bae28bda16e50fb1102771f6f8818c6dbcaae628c40",
+    "ppt/media/image9.jpeg": "d762614e45e1b3f3f263166e079ff4e63a4463669667b0316f56e46e24f8c838",
+    "ppt/media/image8.jpeg": "b548de257fcafccc322f471b2f0fab1745601f4b70dd050086ee5b8f6a995639",
+    "ppt/media/image7.jpeg": "8b764e9b3c8a0a207881abe0defe9fb141b5a32bc3dfd5fb0d9b465cc787e0e0",
+    "ppt/media/image6.jpeg": "fd646af0631935c7d9dd378880f1b26972ca7eaee78aebf30f637c7b01f31d5d",
+    "ppt/media/image5.jpeg": "36a52b678b59f954c5ed87e389528a663f7a48b4892da308f009e8967700a2b8",
+    "ppt/media/image4.jpeg": "a7fe71fc1c4d743d0050a51d5255e450f139ba7bfd909f0c51415b1491ae6a9e",
+    "ppt/media/image3.jpeg": "2901564bae080f2cd6e99994da87e4450ba5af487ad241eceace6db416e632bc",
+    "ppt/media/image2.jpeg": "3fbc3b70bc8526974b9ffc679894055f1754a5542ca0992c0634f66116ce4872",
+    "ppt/media/image1.jpeg": "f3cd8c502b494e9dcdc77992d5c612c73ce27d9adfe6d1210fac3df78b0fbeb0",
+    "ppt/media/image45.png": "a3084931a7117725520afbd999932fc761709bea80efbcb19f72f2153672f94f",
+    "ppt/media/image62.png": "d471ee5081b5ab6d8f7a6241ce3333fa16541cc9b2479876726361e9d284eeaf",
+    "ppt/media/image58.png": "09da30352588c46cbc10d80c00fd9cc57afecb36c9bcbfae63728589a1a95359",
+    "ppt/media/image63.png": "f944d02ac134b8fcd2a517af2f6f0194fa42d7a3cc099161c81657d3ce14926e",
+    "ppt/media/image55.png": "00216017b4e78fd38abca52b33ea34728ec43790a9ad4343efa2e1d10f8ae086",
+    "ppt/media/image64.png": "6d8ba9c6e5116d7165cbff399ab2d9285c38c0edabf21709840ba2e7e2905f49",
+    "ppt/media/image59.png": "56d0bee248befaa7bb63dc67e4765b87395aabf7edb6b61a3110a2acfa8ea70e",
+    "ppt/media/image65.png": "5e53aad4b6771a78ac7f4a14c22364709584f11389beba387f3e01f23bcdaedc",
+    "ppt/media/image60.png": "a480a1e1c20e8482a4f313adeccb026d0e8ef6a2cfd4e631626196143b4746cb",
+    "ppt/media/image66.png": "bdacb645a2cd826fe29602250e076881c0324268a6daa80a78773bfd1325cde0",
+    "ppt/media/image67.png": "9868c51705df2d50469c86d2f2adad8f59b3a736f40aa61323390d7b4a4f59a8",
+    "ppt/media/image56.png": "49c872127042baf044fa3c3fda119a3593c2b03aa3c7d908706bf00c80281c84",
+    "ppt/media/image68.png": "9c6e9800e92a1c2fdf47db7a7c7609716afb1ee4cff6d9f1c67e0555ff7d1d0f",
+    "ppt/media/image61.jpg": "b38721be8c24ec739001045e01d7c17e755c2f2a30d96068950748623e9f103e",
+    "ppt/media/image54.png": "cd8b9e73470ad1a041ce889a1c97dd6f39eee7f1861a78434fc7c89e5d1b63ac",
+    "ppt/media/image69.png": "d375f9b5a3fa2a7fdbd4cf1feac9548f1b9fc76dabb4b80dc4fe1a9d0fcfecc8",
+    "ppt/media/image52.jpg": "d86d3a0dccf356cbab1505e05ffc29a0d2a20fcf01a515be2cc9793e924228cd",
+    "ppt/media/image44.png": "8ba47f34949137d91027927db58d1cc08f627ee9718b30476bd5f55b6d6e63ff",
+    "ppt/media/image57.png": "1b33cc457d3ee874a84c9b988b3e7a21dcef586590a5138e5d220ca6df31b30a",
+    "ppt/media/image51.jpg": "6c24cc943a000c5ceebc9f8fe7aa9a34c95e8165cf8b593678b9454b4f54815a",
+    "ppt/media/image50.png": "de02ec02254529359ab5ccaa89f561b1a6694421842308a8350ca5716394da62",
+    "ppt/media/image49.png": "ee67535273f98a0c4bc76610422434ef3390d0b6bef0adfd6c2f2593ab5ce94a",
+    "ppt/media/media3.mp4": "ebbc488592c1bfc49e60ba72b22c0a134d6142a1c2cf570d18a8140c477a287e",
+    "ppt/media/media2.mp4": "328d902ae62664a854761df0c18ac881417c50c4455daa9acab2d0a1d31fbb42",
+    "ppt/media/media1.mp4": "8e5b7db0ff4f27574be0dad35264b462a49ecaf6b154620fad4fcd1c7637f91a",
+    "ppt/media/media5.mp4": "6a4f599efc5d454c0aadd765d0f1360c9f19dcb7258acc7025ebae3cd47d3712",
+    "ppt/media/media7.mp4": "3ff40fa420f6c7f071c0f46a3e81744a36e51aa8fcc95cfba40e4c8fde401e07",
+    "ppt/media/media9.mp4": "1fcd475f496645d48cba6359fea4094b1e7126e7878074dbfb10c2f8ff0ff357",
+    "ppt/media/media8.mp4": "a485fff01630b7ad9b3a2d0892dd95bcf923334f1db65317888b8b602c69b1cb",
+    "ppt/media/media6.mp4": "41ca0a360c56f2cabb4c13ba31daac3c6fa2e380235483c643a79adfa4cfddf8",
+    "ppt/media/media4.mp4": "a2637cb796094823f0c30f85d11c08d330883d05150db7e7821e569f4f802133"
+  }
+}

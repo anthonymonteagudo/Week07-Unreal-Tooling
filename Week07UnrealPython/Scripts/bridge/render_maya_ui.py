@@ -14,8 +14,14 @@ QtGui.QFontDatabase.addApplicationFont('C:/Windows/Fonts/segoeui.ttf')
 window = maya_ui.show()
 window.setFont(QtGui.QFont('Segoe UI', 10))
 app.processEvents()
-assert len(window.findChildren(QtWidgets.QPushButton)) == 5
-out = ROOT / 'Docs/Bridge/maya-publisher.png'
+assert len(window.findChildren(QtWidgets.QPushButton)) == 6
+copy_button = next(b for b in window.findChildren(QtWidgets.QPushButton)
+                   if b.text() == 'Copy diagnostics')
+before = dict(window.publisher.__dict__)
+copy_button.click()
+assert 'Week 7 bridge diagnostics' in app.clipboard().text()
+assert window.publisher.__dict__ == before
+out = ROOT / 'Saved/Rehearsal/Bridge/maya-publisher.png'
 out.parent.mkdir(parents=True, exist_ok=True)
 assert window.grab().save(str(out))
 window.close()

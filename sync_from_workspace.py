@@ -18,7 +18,8 @@ target = Path(__file__).resolve().parent
 if source == target or not (source/'Week07UnrealPython/Week07UnrealPython.uproject').is_file():
     raise SystemExit('Expected the authoring workspace containing Week07UnrealPython.')
 roots = ['Week07UnrealPython', 'Course/Slides/Week07', 'Course/Readers', 'Course/Tools',
-         'Course/Visuals', 'Course/Skills', 'Course/Wiki', 'Course/References']
+         'Course/Visuals', 'Course/Skills', 'Course/Wiki', 'Course/References',
+         'Course/InstructorArchive/Week07']
 excluded_dirs = {'.git', '.venv', '.deps', 'node_modules', 'Saved', 'Intermediate',
                  'DerivedDataCache', 'Binaries', '__pycache__'}
 records, omitted = [], []
@@ -31,7 +32,10 @@ for root in roots:
             continue
         if path.name.startswith('~$') or path.suffix in {'.pyc', '.log', '.blend1', '.tmp'} or path.name == 'unreal.local.json':
             continue
-        if '.build' in rel.parts:
+        if 'qa' in rel.parts and path.suffix.lower() in {'.png', '.jpg', '.jpeg'}:
+            omitted.append(rel.as_posix())
+            continue
+        if '.build' in rel.parts or 'build' in rel.parts:
             authored = path.suffix in {'.mjs', '.js', '.py', '.html', '.css'}
             small_data = path.suffix == '.json' and path.name != 'deck.json' and path.stat().st_size < 1_000_000
             if not (authored or small_data):

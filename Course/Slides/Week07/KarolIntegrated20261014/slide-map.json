@@ -1,0 +1,2136 @@
+{
+  "source": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\UnrealFirst20261013\\output\\Week_7_Python_in_Unreal_v13.pptx",
+  "changes": [
+    {
+      "source": 10,
+      "reason": "Keep table and takeaway. Add a class/instance question and explain direct array iteration."
+    },
+    {
+      "source": 13,
+      "reason": "Keep run procedure. Add named K3 reference and import/reload guidance."
+    },
+    {
+      "source": 21,
+      "reason": "Keep read-only code. Add narration distinguishing property readback from the resulting asset."
+    },
+    {
+      "source": 23,
+      "reason": "Keep validator and question. Clarify project-specific rules, skipped inputs and actionable failures."
+    },
+    {
+      "source": 29,
+      "reason": "Keep selection, +0.4 m revision, two placements and reset. Explain each handoff stage and Copy diagnostics."
+    },
+    {
+      "source": 43,
+      "reason": "Keep error screenshot. Add the implemented diagnostics example and its read-only purpose."
+    },
+    {
+      "source": 44,
+      "reason": "Keep accessibility content. Add cancellation versus Undo distinction and K5 pointer in narration."
+    },
+    {
+      "source": 46,
+      "reason": "Keep peer-test visual and discussion. Connect to optional test-wiring example."
+    },
+    {
+      "source": 61,
+      "reason": "Keep PySide/Slate table. Add dependency-direction caption."
+    },
+    {
+      "source": 75,
+      "reason": "Keep Blueprint overview. Link by name to the optional Map example immediately following."
+    },
+    {
+      "source": 97,
+      "reason": "Keep production reference. Add concrete bridge reproduction evidence."
+    },
+    {
+      "source": 105,
+      "reason": "Keep parameter readback. Add prerequisite and clear-all scope clarification."
+    },
+    {
+      "source": 106,
+      "reason": "Keep existing connection table. Add named references to the completed-course examples."
+    }
+  ],
+  "additions": [
+    {
+      "id": "K2",
+      "title": "Python data to a Blueprint Map",
+      "slideId": "1loy80"
+    },
+    {
+      "id": "K3",
+      "title": "Import troubleshooting",
+      "slideId": "qvmv68"
+    },
+    {
+      "id": "K4",
+      "title": "Remote Control object paths",
+      "slideId": "a478fx"
+    },
+    {
+      "id": "K5",
+      "title": "Progress, cancellation and Undo",
+      "slideId": "snos7e"
+    },
+    {
+      "id": "K6",
+      "title": "Tests that detect failure",
+      "slideId": "0undlv"
+    }
+  ],
+  "slides": [
+    {
+      "number": 1,
+      "id": "y90nupkv",
+      "hidden": false,
+      "changed": false,
+      "source": 1,
+      "text": [
+        "WEEK 7 / 3:30–6:00 PM",
+        "Review & specialization",
+        "Python in Unreal",
+        "Artist-facing tools and peer feedback",
+        "WEEK 7",
+        "01"
+      ],
+      "notes": "We will connect Python automation with the experience of the artist who uses a tool.\n\nINSTRUCTOR PACING (not narration): Opening 30 seconds. The agenda gets another 30 seconds. The entire opening/Python/demo block ends at elapsed 32:00."
+    },
+    {
+      "number": 2,
+      "id": "hwbqtkby",
+      "hidden": false,
+      "changed": false,
+      "source": 2,
+      "text": [
+        "Today’s route",
+        "Today’s sequence",
+        "WEEK 7  /  02",
+        "2",
+        "Unreal fundamentals first. Blender bridge closes the introduction."
+      ],
+      "notes": "First we connect Python API calls to the editor and the prepared demos. After our contributors and the break, you will assess a tool, discuss its interface, and test a classmate’s work. We finish by choosing one revision supported by evidence.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\n\nVisual: Editable slide text/table\n\nReview anchor: 02"
+    },
+    {
+      "number": 3,
+      "id": "ofy9wn61",
+      "hidden": false,
+      "changed": false,
+      "source": 3,
+      "text": [
+        "01  Python in Unreal",
+        "Python in Unreal",
+        "Checkpoint files: inspect the host, objects and properties",
+        "Predict. Run one step. Inspect. Change one input.",
+        "WEEK 7   /   3"
+      ],
+      "notes": "We are beginning python in unreal. The editor host, objects and API calls. Next: inspect the inputs to an editor operation\n\nFacilitation:  "
+    },
+    {
+      "number": 4,
+      "id": "jyx0ra1s",
+      "hidden": false,
+      "changed": false,
+      "source": 4,
+      "text": [
+        "01  Python in Unreal",
+        "Python setup in Unreal",
+        "WEEK 7  /  03",
+        "4",
+        "Python Script Plugin + Editor Scripting Utilities. Run in the editor. IDE stubs provide autocomplete only.",
+        "Is the input field running Python or console commands?"
+      ],
+      "notes": "Unreal supplies the objects and editor operations behind this Python module. Enable the prepared plugins and use Python mode in the Output Log. Autocomplete in an IDE does not provide a running Unreal editor. Which part of the execution setup would you like clarified?\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python?application_version=5.7\n\nVisual: Editable slide text/table\n\nReview anchor: 03"
+    },
+    {
+      "number": 5,
+      "id": "i107q5of",
+      "hidden": false,
+      "changed": false,
+      "source": 5,
+      "text": [
+        "01  Python in Unreal",
+        "Project readiness check: 3 minutes",
+        "WEEK 7  /  04",
+        "5",
+        "import unreal\n\nunreal.log(\"Hello from Unreal\")\nprint(unreal.SystemLibrary.get_engine_version())\nprint(unreal.Paths.project_dir())",
+        "Expected: Hello from Unreal, your engine version and your intended project folder.",
+        "Run in Unreal. Complete example.",
+        "Wrong project or any error? Pause and ask for help."
+      ],
+      "notes": "Take three minutes to open the intended project, choose Python in the Output Log and run this complete snippet. Confirm the greeting, engine version and project directory. Your user folder can differ from mine. This checks the Python host and project only. It does not certify the Material/VFX fixture or bridge. Tell me if you see an error or a different project.\n\nSource insight (instructor): \n\nFacilitation (not narration): Allow the full three minutes. Use the provided Week07UnrealPython project for the prepared demos. Address setup errors before continuing.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/SystemLibrary?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE01_host.py\nVisual: Editable slide text/table\nRun in Unreal. Complete example.\nReview anchor: 04"
+    },
+    {
+      "number": 6,
+      "id": "x8f69ofe",
+      "hidden": false,
+      "changed": false,
+      "source": 6,
+      "text": [
+        "01  Python in Unreal",
+        "Python in production: Crayta",
+        "WEEK 7  /  PROD1",
+        "6",
+        "Unit 2 Games needed an asset workflow that a small team could sustain.",
+        "Marcus White describes Python-based importing and asset conditioning in Unreal.",
+        "Our connection: a repeatable script can apply the same checks to many assets.",
+        "Unreal Fest Europe 2019: talk and slides",
+        "Which repeated asset task would you want a script to handle?"
+      ],
+      "notes": "This is a game-production example from Unit 2 Games, presented by Marcus White at Unreal Fest Europe 2019. The documented problem is a small team facing large asset demands. The talk describes a Python workflow for importing and conditioning assets in Unreal. Our classroom connection is repeatability: the selection, properties and checks we are about to learn can become steps in an asset pipeline. That connection is our interpretation, not a claim that our classroom script reproduces their implementation.\n\nSource insight (instructor): \n\nFacilitation (not narration): Open the linked primary source before class. Showcase only; no installation or new live host test was performed.\n\nSources:\nhttps://www.unrealengine.com/events/unreal-fest-europe-2019/using-python-to-streamline-asset-workflows-for-a-small-team\n\nVisual: Editable slide text/table\n\nReview anchor: PROD1"
+    },
+    {
+      "number": 7,
+      "id": "gnmp4jqx",
+      "hidden": false,
+      "changed": false,
+      "source": 7,
+      "text": [
+        "01  Python in Unreal",
+        "Unreal Python documentation",
+        "WEEK 7  /  DOCS",
+        "7",
+        "Python API reference: choose Unreal 5.7",
+        "EditorActorSubsystem: selected level actors",
+        "EditorUtilityLibrary: selected assets",
+        "Read the owning class, parameters, return type and deprecation notices.",
+        "Find the return type of get_selected_level_actors()."
+      ],
+      "notes": "Open the Python API reference and match the engine version. Search for the class, then the method. Read which object owns the call, the parameters, the return type and any deprecation notice. Array[Actor] tells us we can loop over actors. This is a lookup exercise: what comes back, and what can we do with it?\n\nSource insight (instructor): \n\nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md\nVisual: Editable slide text/table\nRead the owning class, parameters, return type and deprecation notices.\nReview anchor: DOCS"
+    },
+    {
+      "number": 8,
+      "id": "fu1gfa1s",
+      "hidden": false,
+      "changed": false,
+      "source": 8,
+      "text": [
+        "01  Python in Unreal",
+        "VS Code: Python autocomplete",
+        "WEEK 7  /  VSC1",
+        "8",
+        "Open the Week07UnrealPython folder in VS Code. Install Microsoft Python and Pylance.",
+        "In Unreal: Editor Preferences > Plugins > Python > Developer Mode. Restart Unreal.",
+        "Confirm Intermediate/PythonStub/unreal.py exists in this project.",
+        "VS Code edits the script. Unreal executes the editor API."
+      ],
+      "notes": "Karol separates writing code from running the editor. Open the folder containing the uproject so the next slide uses the correct relative paths. Enable Developer Mode before class and restart Unreal to generate its stub. The stub describes the API for autocomplete. It does not supply a running editor. Older course captures put this setting in Project Settings; the linked Unreal 5.7 documentation uses Editor Preferences.\n\nSource insight (instructor): \n\nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/setting-up-autocomplete-for-unreal-editor-python-scripting?application_version=5.7\nhttps://code.visualstudio.com/docs/python/settings-reference\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/01 Setup/02 VS Code Autocomplete Setup - REFINED.md\nVisual: Editable slide text/table\n\nReview anchor: VSC1"
+    },
+    {
+      "number": 9,
+      "id": "udsvah03",
+      "hidden": false,
+      "changed": false,
+      "source": 9,
+      "text": [
+        "01  Python in Unreal",
+        "VS Code: workspace settings",
+        "WEEK 7  /  VSC2",
+        "9",
+        "{\n  \"python.analysis.extraPaths\": [\n    \"${workspaceFolder}/Intermediate/PythonStub\",\n    \"${workspaceFolder}/Content/Python\"\n  ]\n}",
+        "Save in .vscode/settings.json. Type unreal. in a Python file to check suggestions.",
+        "JSON settings for VS Code. Run Unreal scripts inside Unreal.",
+        "Ctrl-click an API symbol, then compare its signature with the docs."
+      ],
+      "notes": "Merge these entries with existing workspace settings rather than replacing unrelated settings. Pylance reads the stub folder for Unreal names and Content/Python for our project modules. Use Python: Select Interpreter for your ordinary Python tools, but selecting an interpreter does not create an Unreal editor session. Never add the stub directory to runtime PYTHONPATH. If suggestions are absent, check the generated file and reload the VS Code window.\n\nSource insight (instructor): \n\nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/setting-up-autocomplete-for-unreal-editor-python-scripting?application_version=5.7\nhttps://code.visualstudio.com/docs/python/settings-reference\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/01 Setup/02 VS Code Autocomplete Setup - REFINED.md\nVisual: Editable slide text/table\nJSON settings for VS Code. Run Unreal scripts inside Unreal.\nReview anchor: VSC2"
+    },
+    {
+      "number": 10,
+      "id": "m90b6t0r",
+      "hidden": false,
+      "changed": true,
+      "source": 10,
+      "text": [
+        "01  Python in Unreal",
+        "An Unreal function call, explained",
+        "WEEK 7  /  CALL",
+        "10",
+        "A class names a type. The returned editor object performs the operation.",
+        "Which expression names the class, and which retrieves its instance?"
+      ],
+      "notes": "Read this together with the selection example. Unreal is the module. EditorActorSubsystem names the type we request. get_editor_subsystem returns the existing editor-owned instance. We store that instance as editor and call its method. The empty parentheses mean no explicit arguments on this call. Its return is a collection, so len counts it and a for loop inspects each Actor. Karol highlights the distinction between static library calls and calls on subsystem instances.\n\nWe ask the editor for its managed subsystem instance. Older course screenshots construct EditorActorSubsystem directly; use the accessor shown here. The returned Unreal Array supports this loop directly. Converting it to a Python list is optional. What questions do you have about the class, instance or collection?\n\nSource insight (instructor): \n\nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md\nVisual: Editable slide text/table\n\nReview anchor: CALL\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 49 and 50."
+    },
+    {
+      "number": 11,
+      "id": "jetc3ut0",
+      "hidden": false,
+      "changed": false,
+      "source": 11,
+      "text": [
+        "01  Python in Unreal",
+        "UE02: Level selection",
+        "WEEK 7  /  07",
+        "11",
+        "import unreal\neditor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)\n\nactors = editor.get_selected_level_actors()\nprint(\"Selected Actors:\", len(actors))\nfor actor in actors:\n    print(actor.get_actor_label(), actor.get_class().get_name())",
+        "get_selected_level_actors() returns Actor objects. len counts them; the loop reads each label and class.",
+        "Run in Unreal. Complete example.",
+        "What should an empty selection print?"
+      ],
+      "notes": "Run, then change the Outliner selection and rerun. Complete checkpoint shown. No previous script required. Selected Actor count, labels and class names. Empty selection prints zero. What should an empty selection print? Select both cubes. Predict the count before running.\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: unreal. Before running: Select the target cube, then try an empty selection. Recovery: Read only. Selection is manual. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE02_level_selection.py \n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorActorSubsystem?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE02_level_selection.py\nVisual: Editable slide text/table\nRun in Unreal. Complete example.\nReview anchor: 07"
+    },
+    {
+      "number": 12,
+      "id": "8f2psfyx",
+      "hidden": false,
+      "changed": false,
+      "source": 12,
+      "text": [
+        "01  Python in Unreal",
+        "Selection example: expected output",
+        "WEEK 7  /  UE02R",
+        "12",
+        "INPUT",
+        "Outliner: select only W07_Crate_Target.\nRun the complete UE02 example.",
+        "Selected Actors: 1\nW07_Crate_Target StaticMeshActor",
+        "The label matches the Outliner. The class identifies the Actor type.",
+        "Clear the Outliner selection and rerun: Selected Actors: 0.\nReset: select W07_Crate_Target again. No scene edits."
+      ],
+      "notes": "This is expected output for the prepared classroom map, not a new captured run. UE02 reads the current selection each time. The Content Browser can stay unchanged while this result changes. If the count is wrong, inspect the selected Outliner rows before investigating the loop.\n\nSource insight (instructor): \n\nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md\nVisual: Editable slide text/table\n\nReview anchor: UE02R"
+    },
+    {
+      "number": 13,
+      "id": "hgzapcr6",
+      "hidden": false,
+      "changed": true,
+      "source": 13,
+      "text": [
+        "01  Python in Unreal",
+        "A saved example, run inside Unreal",
+        "WEEK 7  /  RUN",
+        "13",
+        "Save the complete UE02 example as Content/Python/selection_demo.py.",
+        "In Unreal, choose Tools > Execute Python Script and select that file.",
+        "Read the Output Log. Change the Outliner selection and execute the file again.",
+        "Each execution reads the selection that exists at that moment.",
+        "Explore further: Import troubleshooting (K3)"
+      ],
+      "notes": "Use the same small file shown in the deck. It contains its own import and subsystem lookup so no earlier script is needed. A normal VS Code Run Python File command does not run inside Unreal. Re-executing the saved script is also different from importing a cached module again. During tool development, reload a module explicitly when needed.\n\nIf an import fails, read the traceback first. Is our module missing, or did something it imports fail? The interpreter and package folder matter. The optional Import troubleshooting example walks through that distinction. Repeated imports are cached; replacing registered callbacks needs deliberate cleanup. What questions do you have about finding or running the file?\n\nSource insight (instructor): \n\nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md\nVisual: Editable slide text/table\n\nReview anchor: RUN\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 06–09, 17, 48."
+    },
+    {
+      "number": 14,
+      "id": "6lsnupw7",
+      "hidden": false,
+      "changed": false,
+      "source": 14,
+      "text": [
+        "01  Python in Unreal",
+        "Available tool: Unreal Script Editor",
+        "WEEK 7  /  TOOL1",
+        "14",
+        "A Python/Qt script editor with file and temporary-script support.",
+        "Provides syntax highlighting and editing shortcuts inside an Unreal workflow.",
+        "Study how a familiar artist interface launches and organizes Python operations.",
+        "Source and UI preview: leixingyu / unrealScriptEditor",
+        "What does a script editor add beyond a one-line console?"
+      ],
+      "notes": "This is a downloadable open-source tool, rather than a short teaching snippet. The repository includes the UI preview and launch instructions. It credits the original script editor and links the related Hannes Delbeke plugin. Version 0.0.3 and later use PySide6. The README marks autocomplete as unfinished, so do not promise that feature. A Qt window is not proof of native Slate docking. Open the creator’s preview to show the interface. We have not installed or tested this tool against our Unreal 5.7 classroom project.\n\nSource insight (instructor): \n\nFacilitation (not narration): Open the linked primary source before class. Showcase only; no installation or new live host test was performed.\n\nSources:\nhttps://github.com/leixingyu/unrealScriptEditor\nhttps://github.com/hannesdelbeke/unreal-script-editor\n\nVisual: Editable slide text/table\n\nReview anchor: TOOL1"
+    },
+    {
+      "number": 15,
+      "id": "vaxsvy10",
+      "hidden": false,
+      "changed": false,
+      "source": 15,
+      "text": [
+        "01  Python in Unreal",
+        "UE03: Actor, component and mesh",
+        "WEEK 7  /  07C",
+        "15",
+        "for actor in actors:\n    components = actor.get_components_by_class(unreal.StaticMeshComponent)\n    print(actor.get_actor_label(), \"mesh components:\", len(components))\n    for component in components:\n        mesh = component.get_editor_property(\"static_mesh\")\n        print(component.get_name(), mesh.get_path_name() if mesh else None)",
+        "Setup reads the current Actor selection. This block inspects each component.",
+        "Run in Unreal. First run UE03: setup.",
+        "Can one Actor have zero mesh components?"
+      ],
+      "notes": "Setup reads the current Actor selection. This block inspects each component. First run UE03: setup. Then run the shown block(s). Component count and shared mesh path. Actors without mesh components print zero. Can one Actor have zero mesh components? Select two cubes sharing a mesh. Compare their object labels and mesh paths.\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: unreal. Before running: Select a mesh Actor; repeat with a camera or light. Recovery: Read only. No dependency on UE02's variables. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE03_components.py \n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/StaticMeshComponent?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE03_components.py\nVisual: Editable slide text/table\nRun in Unreal. First run UE03: setup.\nReview anchor: 07C"
+    },
+    {
+      "number": 16,
+      "id": "gny5sjyp",
+      "hidden": false,
+      "changed": false,
+      "source": 16,
+      "text": [
+        "01  Python in Unreal",
+        "Shared asset, separate placements",
+        "WEEK 7  /  06A",
+        "16",
+        "The live material demo changes a component override on Actor A",
+        "Where would you make a change that affects only Actor A?"
+      ],
+      "notes": "Both placements reference one mesh. Changing the shared mesh affects its uses. Our material demo changes only one actor component’s override. Point to the scope you would choose to preserve Actor B. What questions do you have about assets and placements?\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\n\nVisual: Course/Visuals/Week07/shared-asset.png\nThe live material demo changes a component override on Actor A\nReview anchor: 06A"
+    },
+    {
+      "number": 17,
+      "id": "14bup87q",
+      "hidden": false,
+      "changed": false,
+      "source": 17,
+      "text": [
+        "01  Python in Unreal",
+        "UE04: Content Browser selection",
+        "WEEK 7  /  UE04",
+        "17",
+        "import unreal\n\nassets = unreal.EditorUtilityLibrary.get_selected_assets()\nprint(\"Selected assets:\", len(assets))\nfor asset in assets:\n    print(asset.get_name(), asset.get_class().get_name())\n    print(asset.get_path_name())",
+        "get_selected_assets() returns loaded Content Browser objects. Each object supplies its name, class and path.",
+        "Run in Unreal. Complete example.",
+        "Which selection supplies textures to the material tool?"
+      ],
+      "notes": "This selection supplies assets, independently of the Outliner. Complete checkpoint shown. No previous script required. Asset count, names, class names and object paths. Which selection supplies textures to the material tool? Select one texture and one mesh. Which class names print?\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: unreal. Before running: Select assets in the Content Browser, independently of the Outliner. Recovery: Read only. Rerun after changing asset selection. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE04_asset_selection.py \n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorUtilityLibrary?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE04_asset_selection.py\nVisual: Editable slide text/table\nRun in Unreal. Complete example.\nReview anchor: UE04"
+    },
+    {
+      "number": 18,
+      "id": "y5wne50z",
+      "hidden": false,
+      "changed": false,
+      "source": 18,
+      "text": [
+        "01  Python in Unreal",
+        "Asset example: expected output",
+        "WEEK 7  /  UE04R",
+        "18",
+        "INPUT",
+        "Content Browser: select only T_Crate_BaseColor.\nRun the complete UE04 example.",
+        "Selected assets: 1\nT_Crate_BaseColor Texture2D\n/Game/Week07/LiveDemo/Textures/\nT_Crate_BaseColor.T_Crate_BaseColor",
+        "get_name() reads the name. get_class() identifies the type.\nget_path_name() gives the object path.",
+        "Select another asset and rerun. Reset: reselect the texture.\nThe path above wraps for display; Unreal prints it as one line."
+      ],
+      "notes": "Karol makes selected objects and their identity distinct. get_selected_assets is a library call that returns loaded objects. We can ask each object for its name, class and path without loading it again. These methods return values; print displays them. Changing Content Browser selection does not change Outliner selection.\n\nSource insight (instructor): \n\nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md\nVisual: Editable slide text/table\n\nReview anchor: UE04R"
+    },
+    {
+      "number": 19,
+      "id": "nid43ytk",
+      "hidden": false,
+      "changed": false,
+      "source": 19,
+      "text": [
+        "01  Python in Unreal",
+        "Python in production: shot setup",
+        "WEEK 7  /  PROD2",
+        "19",
+        "M2 Animation uses Python to integrate Unreal into a studio pipeline.",
+        "ShotGrid data drives automatic level and sequence creation.",
+        "A custom interface manages Movie Render Queue presets and rendering.",
+        "Christophe Bardoux: Unreal Fest Bali 2025",
+        "What information would a script need to build one shot?"
+      ],
+      "notes": "Christophe Bardoux describes M2 Animation’s workflow in this official Unreal Fest recording. Focus on automatic shot management and the Movie Render Queue interface. The talk also includes Maya exports, but our colleagues will demonstrate that subject. The important connection here is that external data can drive Unreal objects and saved settings, and artists can use those operations through an interface. This is a production case study, not a claim that the studio’s internal tools are publicly downloadable.\n\nSource insight (instructor): \n\nFacilitation (not narration): Open the linked primary source before class. Showcase only; no installation or new live host test was performed.\n\nSources:\nhttps://www.youtube.com/watch?v=MjjkWH0eT3U\n\nVisual: Editable slide text/table\n\nReview anchor: PROD2"
+    },
+    {
+      "number": 20,
+      "id": "zyxsni5k",
+      "hidden": false,
+      "changed": false,
+      "source": 20,
+      "text": [
+        "01  Python in Unreal",
+        "Texture settings: inspect first",
+        "WEEK 7  /  MAT1",
+        "20",
+        "The tool checks sRGB and Normalmap compression. It leaves shared textures unchanged.",
+        "Content Browser: open texture > Details. Search sRGB or Compression Settings.",
+        "Which other materials could use this same texture?"
+      ],
+      "notes": "Open one prepared texture. In its Details panel, Texture contains sRGB, and Compression contains Compression Settings. Our tool reads these properties and blocks unsuitable inputs. It does not repair or save shared textures. Base color is color data. Normal and packed ORM are data maps. UE06 now checks the same _Normal suffix as the material tool. A suffix identifies a candidate, not the image contents.\n\nSource insight (instructor): \n\nFacilitation (not narration): Open the matching walkthrough for the exact UI locations, manual steps and expected evidence. \n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/texture-asset-editor-in-unreal-engine?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\MaterialsWalkthrough20261013\\walkthrough.html\nVisual: Editable slide text/table\nContent Browser: open texture > Details. Search sRGB or Compression Settings.\nReview anchor: MAT1"
+    },
+    {
+      "number": 21,
+      "id": "m1wvqtk3",
+      "hidden": false,
+      "changed": true,
+      "source": 21,
+      "text": [
+        "01  Python in Unreal",
+        "UE05: Texture editor properties",
+        "WEEK 7  /  09G",
+        "21",
+        "import unreal\nassets = unreal.EditorUtilityLibrary.get_selected_assets()\ntextures = [asset for asset in assets\n            if isinstance(asset, unreal.Texture2D)]\nprint(\"Textures:\", len(textures), \"skipped:\", len(assets) - len(textures))\n\nfor texture in textures:\n    compression = texture.get_editor_property(\"compression_settings\")\n    srgb = texture.get_editor_property(\"srgb\")\n    print(texture.get_name(), compression, \"sRGB:\", srgb)",
+        "isinstance filters Texture2D inputs. get_editor_property reads the named setting; it does not change it.",
+        "Run in Unreal. Complete example.",
+        "Would changing a shared texture affect more than one material?"
+      ],
+      "notes": "Read compression and sRGB. Non-texture selections are counted and skipped. Complete checkpoint shown. No previous script required. Texture/skipped counts, compression and sRGB values. Would changing a shared texture affect more than one material? Compare a normal map with a color texture.\n\nThis checkpoint only reads properties. When you later write one, use its editor setter and compare the actual result with a manual edit. Karol’s source-color-space example needed a change notification to rebuild dependent values. Reading back one field alone would miss that problem. Saving and Undo are separate decisions.\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: unreal. Before running: Select textures; include a non-texture to test eligibility. Recovery: Read only. Shared texture assets remain unchanged. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE05_texture_properties.py \n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/Texture?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE05_texture_properties.py\nVisual: Editable slide text/table\nRun in Unreal. Complete example.\nReview anchor: 09G\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 12–13."
+    },
+    {
+      "number": 22,
+      "id": "5onypobq",
+      "hidden": false,
+      "changed": false,
+      "source": 22,
+      "text": [
+        "01  Python in Unreal",
+        "Texture example: input and result",
+        "WEEK 7  /  UE05R",
+        "22",
+        "INPUT",
+        "Select T_Crate_BaseColor, then run UE05.\nRepeat with T_Crate_Normal.",
+        "BaseColor: Textures: 1 skipped: 0\nsRGB: True; compression: TC_DEFAULT\n\nNormal: Textures: 1 skipped: 0\nsRGB: False; compression: TC_NORMALMAP",
+        "get_editor_property(\"srgb\") reads a Boolean.\n\"compression_settings\" reads a TextureCompressionSettings enum.",
+        "Compare Texture Editor > Details > sRGB / Compression Settings.\nExpected values shown; enum formatting may differ. No reset needed."
+      ],
+      "notes": "The example filters selected assets with isinstance before reading texture properties. The string passed to get_editor_property names an exposed property. Its return type depends on that property. We are reading, not changing, the checkbox and compression setting. Select a mesh too to see the skipped count increase. This demonstration connects code output to the manual controls students can inspect.\n\nSource insight (instructor): \n\nFacilitation (not narration): Predict the result before execution. Compare the editor selection and output. New examples need classroom rehearsal.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.7\nC:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course/03 Automation Scripting/10 Getting User Selection and Listing Assets - REFINED.md\nVisual: Editable slide text/table\n\nReview anchor: UE05R"
+    },
+    {
+      "number": 23,
+      "id": "c7uhcr6t",
+      "hidden": false,
+      "changed": true,
+      "source": 23,
+      "text": [
+        "01  Python in Unreal",
+        "UE06: Read-only validation",
+        "WEEK 7  /  09H",
+        "23",
+        "for texture in textures:\n    if not texture.get_name().endswith(\"_Normal\"):\n        continue\n    checked += 1\n    actual = texture.get_editor_property(\"compression_settings\")\n    if actual != expected:\n        mismatches += 1\n        print(\"MISMATCH\", texture.get_path_name(), actual, expected)",
+        "Setup defines textures, expected compression and counters. Check prints the final totals.",
+        "Run in Unreal. First run UE06: setup.",
+        "Why does zero checked not establish a pass?"
+      ],
+      "notes": "Setup defines textures, expected compression and counters. Check prints the final totals. First run UE06: setup. Then run the shown block(s). Every mismatching _Normal texture and final checked/mismatch counts. Zero checked is explicitly inconclusive. Why does zero checked not establish a pass? Change only the suffix rule for your project. Predict which assets are eligible.\n\nOur suffix and expected compression are project rules. Karol uses a different naming convention, and his square and allowed-size validators are separate checks. A skipped input is not a pass. A useful failure names the asset, its actual value and the expected rule.\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: unreal. Before running: Select textures. The prepared material tool uses the suffix _Normal. Recovery: Read only. No repair or saving. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE06_validation_report.py \n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/Texture?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE06_validation_report.py\nVisual: Editable slide text/table\nRun in Unreal. First run UE06: setup.\nReview anchor: 09H\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 12, 21–25."
+    },
+    {
+      "number": 24,
+      "id": "7qto7e10",
+      "hidden": false,
+      "changed": false,
+      "source": 24,
+      "text": [
+        "01  Python in Unreal",
+        "Available toolkit: AYON for Unreal",
+        "WEEK 7  /  TOOL2",
+        "24",
+        "Artist tools include Loader, Publisher and Scene Inventory.",
+        "Sequence-building and render tools support shot workflows.",
+        "The public Python integration shows how these tools connect to Unreal.",
+        "Artist guide: screenshots and workflow steps",
+        "Where do you see selection, validation and feedback in this interface?"
+      ],
+      "notes": "AYON is a broader production system with an Unreal integration. Show the Loader or Publisher screenshot in the artist guide, then the public client/ayon_unreal source. The Python integration works with an Unreal plugin; this is not a claim that the whole platform is pure Python. It requires an AYON environment and configuration, so this is a possibility showcase rather than an in-class installation. Ask students to identify the input, operation and evidence of success in a finished artist tool.\n\nSource insight (instructor): \n\nFacilitation (not narration): Open the linked primary source before class. Showcase only; no installation or new live host test was performed.\n\nSources:\nhttps://help.ayon.app/en/help/articles/2228078-working-with-unreal-in-ayon\nhttps://github.com/ynput/ayon-unreal\nhttps://docs.ayon.dev/ayon-unreal/latest/autoapi/client/ayon_unreal/api/pipeline.html\n\nVisual: Editable slide text/table\n\nReview anchor: TOOL2"
+    },
+    {
+      "number": 25,
+      "id": "69wfm9o7",
+      "hidden": false,
+      "changed": false,
+      "source": 25,
+      "text": [
+        "01  Python in Unreal",
+        "UE07: Disk paths and asset paths",
+        "WEEK 7  /  07A",
+        "25",
+        "import unreal\nfrom pathlib import Path\n\ndisk_folder = Path(unreal.Paths.project_dir()) / \"Content\"\nobject_path = \"/Engine/BasicShapes/Cube.Cube\"\nmesh = unreal.load_asset(object_path)\nprint(\"Disk folder:\", disk_folder)\nprint(\"Loaded object:\", mesh.get_path_name() if mesh else None)\nprint(\"Content directory exists:\", disk_folder.is_dir())",
+        "The filesystem path and Unreal object path name different things.",
+        "Run in Unreal. Complete example.",
+        "Does loading a mesh place it in the level?"
+      ],
+      "notes": "The filesystem path and Unreal object path name different things. Complete checkpoint shown. No previous script required. Project Content disk folder and loaded /Engine object path. Does loading a mesh place it in the level? Which path could a filesystem function inspect?\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: unreal. Before running: Any Unreal project with the built-in BasicShapes cube available. Recovery: Read only. Loading the cube does not place an Actor. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE07_paths.py \n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorAssetLibrary?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE07_paths.py\nVisual: Editable slide text/table\nRun in Unreal. Complete example.\nReview anchor: 07A"
+    },
+    {
+      "number": 26,
+      "id": "l0bepsfm",
+      "hidden": false,
+      "changed": false,
+      "source": 26,
+      "text": [
+        "01  Python in Unreal",
+        "Python in Unreal: questions",
+        "WEEK 7  /  09K",
+        "26",
+        "Where does the code run?",
+        "Which object owns the state we change?",
+        "What proves success, and how do we recover?",
+        "What would you like clarified before the contributor demos?"
+      ],
+      "notes": "We have seen the same language call different host APIs. Connect the object, the operation and the evidence. What would you like clarified before our contributors show their tools?\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\n\nVisual: Editable slide text/table\n\nReview anchor: 09K"
+    },
+    {
+      "number": 27,
+      "id": "4vyxknqp",
+      "hidden": false,
+      "changed": false,
+      "source": 27,
+      "text": [
+        "02  Brief Blender bridge demo",
+        "Brief demo\nBlender to Unreal",
+        "The same Python language, a different application API.",
+        "One Blender selection example, one publish/revision, then colleague demos.",
+        "WEEK 7   /   27"
+      ],
+      "notes": "We have focused on Python inside Unreal. Before I hand over, here is a short comparison: Blender also exposes its scene through Python, using bpy. I will inspect one selected object, then send a geometry revision to Unreal. Our colleagues will take us further into materials and a Maya bridge.\n\nFacilitation: Keep this as the final instructor demo immediately before the colleague handoff."
+    },
+    {
+      "number": 28,
+      "id": "3mdove10",
+      "hidden": false,
+      "changed": false,
+      "source": 28,
+      "text": [
+        "02  Brief Blender bridge demo",
+        "BL01: Blender host and selection",
+        "WEEK 7  /  BL01",
+        "28",
+        "import bpy\n\nprint(\"Blender:\", bpy.app.version_string)\nprint(\"Mode:\", bpy.context.mode)\nobjects = list(bpy.context.selected_objects)\nprint(\"Selected objects:\", len(objects))\nfor obj in objects:\n    print(obj.name, obj.type)",
+        "bpy.context.selected_objects supplies Blender Objects. Unreal uses its own editor APIs.",
+        "Run in Blender. Complete example.",
+        "Which part of the selection loop stays familiar?"
+      ],
+      "notes": "Blender supplies bpy.context. Run this file in its Text Editor. Complete checkpoint shown. No previous script required. Blender version, mode, selection count, object names/types. Which part of the selection loop stays familiar? Select a camera and a mesh together. Predict their types.\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: blender. Before running: Blender Text Editor, preferably the prepared BridgeCompare.blend. Recovery: Read only. Rerun freely. Run the full saved checkpoint to jump here with a fresh namespace. Source: blender/BL01_host_selection.py \n\nSources:\nhttps://docs.blender.org/api/5.1/bpy.context.html\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\blender\\BL01_host_selection.py\nVisual: Editable slide text/table\nRun in Blender. Complete example.\nReview anchor: BL01"
+    },
+    {
+      "number": 29,
+      "id": "i5o3q10v",
+      "hidden": false,
+      "changed": true,
+      "source": 29,
+      "text": [
+        "02  Brief Blender bridge demo",
+        "Blender bridge: one geometry revision",
+        "WEEK 7  /  10D",
+        "29",
+        "Select one mesh. Publish & Send to Unreal.",
+        "Raise the roof 0.4 m. Send the same asset name.",
+        "Verify both blue instances update; placement and materials stay.",
+        "Publish files. Send request. Wait for acknowledgement. Inspect the asset.",
+        "Reset: publish the baseline mesh again using the same asset name."
+      ],
+      "notes": "This is the short demonstration before the handoff. Start with the prepared Blender mesh, in Object Mode, and the Unreal bridge comparison map. Publish as SM_Compare_Blender and wait for Imported. Use the prepared revised source or raise only the roof vertices by 0.4 metres along Blender Z, return to Object Mode, and publish under the same name. The two blue Unreal instances should update from 180 to 220 centimetres high. Verify their placement and existing materials. Publish the baseline again to restore the shared asset. The Maya objects are comparison fixtures; do not run the Maya publisher in this portion.\n\nPublishing writes FBX and JSON. Sending queues an import request. Wait for Unreal’s acknowledgement, then inspect both blue placements and their shared asset. Our bridge uses files for requests and acknowledgements. Karol’s example uses HTTP Remote Control. If the send is blocked or pending, Copy diagnostics records the environment, exchange folder and request/result identities without sending another request. What proves the revision reached the intended asset?\n\nSource insight (instructor): \n\nFacilitation (not narration): Use the unified testing walkthrough. Resolve the recent receiver.json access-denied issue before a live send. A fresh bridge success has not been established in this revision. If blocked, use the recorded UI rehearsal and label it as recorded. Do not add a debugging detour to the handoff.\n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\UI-Rehearsal\\verification.json\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\README.md\nVisual: Week07UnrealPython/Docs/Bridge/UI-Rehearsal/01-blender-baseline.png\nRecorded Blender UI reference. Geometry revision; materials stay in Unreal.\nReview anchor: 10D\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 19, 46–48; week07_bridge/client.py."
+    },
+    {
+      "number": 30,
+      "id": "wnqh07ex",
+      "hidden": false,
+      "changed": false,
+      "source": 30,
+      "text": [
+        "03  Colleague demonstrations",
+        "Colleague demonstrations",
+        "Material tools in Unreal and Maya-to-Unreal workflows",
+        "Watch for the input, the API operation and the result in the editor.",
+        "WEEK 7   /   30"
+      ],
+      "notes": "We have seen how Python accesses Unreal objects and how a small Blender revision reaches the editor. Now our colleagues will showcase their tools, including material work in Unreal and a Maya bridge. As you watch, connect the interface to the inputs, API operations and evidence of success we just discussed.\n\nFacilitation:  "
+    },
+    {
+      "number": 31,
+      "id": "lcn6tkb6",
+      "hidden": false,
+      "changed": false,
+      "source": 31,
+      "text": [
+        "Break",
+        "Break",
+        "15 minutes",
+        "Return at 4:52 PM for Lab 1",
+        "WEEK 7   /   31"
+      ],
+      "notes": "We are beginning break. 15 minutes. Return at 4:52 PM for Lab 1\n\nFacilitation:  "
+    },
+    {
+      "number": 32,
+      "id": "6l0j294r",
+      "hidden": false,
+      "changed": false,
+      "source": 32,
+      "text": [
+        "05  Lab 1: tool assessment",
+        "Lab 1\nTool assessment",
+        "8 minutes in groups",
+        "First predict. Then compare the evidence.",
+        "WEEK 7   /   32"
+      ],
+      "notes": "We are beginning lab 1\ntool assessment. 8 minutes in groups. First predict. Then compare the evidence.\n\nFacilitation:  "
+    },
+    {
+      "number": 33,
+      "id": "nax4b2dk",
+      "hidden": false,
+      "changed": false,
+      "source": 33,
+      "text": [
+        "05  Lab 1: tool assessment",
+        "Lab 1: predict the result",
+        "WEEK 7  /  12",
+        "33",
+        "Rule: exactly one SM_ prefix on selected assets. Leave all others unchanged."
+      ],
+      "notes": "Your group is investigating a fictional batch renamer. Give selected assets exactly one SM_ prefix, preserve the rest of each name, and leave unselected assets unchanged. First write your own predicted names. Then compare within the group. Choose a reader, recorder, evidence checker and reporter. We will look at the actual case result only after you have committed to a prediction. What needs clarification about the task?\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\facilitator.html\nVisual: Editable slide text/table\n\nReview anchor: 12"
+    },
+    {
+      "number": 34,
+      "id": "ofu103u5",
+      "hidden": false,
+      "changed": false,
+      "source": 34,
+      "text": [
+        "05  Lab 1: tool assessment",
+        "Lab 1: evidence and a retest",
+        "WEEK 7  /  12A",
+        "34",
+        "The tool says “4 assets updated.” Did the task succeed?"
+      ],
+      "notes": "Two rows match the rule. The selected asset that already has a prefix gets another, and the unselected barrel changes. Write one finding using the input, expected result and observed result. Explain why it matters and name a test after a fix. We have no evidence of Undo or another run. Keep your first judgment so we can revisit it after the UX discussion.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\facilitator.html\nVisual: Editable slide text/table\n\nReview anchor: 12A"
+    },
+    {
+      "number": 35,
+      "id": "1obmtofm",
+      "hidden": false,
+      "changed": false,
+      "source": 35,
+      "text": [
+        "06  UI/UX for artist tools",
+        "UI/UX for\nartist tools",
+        "16 minutes of concepts and discussion",
+        "Revisit your Lab 1 judgment using the artist’s task",
+        "WEEK 7   /   35"
+      ],
+      "notes": "We are beginning ui/ux for\nartist tools. 16 minutes of concepts and discussion. Revisit your Lab 1 judgment using the artist’s task\n\nFacilitation:  "
+    },
+    {
+      "number": 36,
+      "id": "m9s3ehgf",
+      "hidden": false,
+      "changed": false,
+      "source": 36,
+      "text": [
+        "06  UI/UX for artist tools",
+        "Interface and experience",
+        "WEEK 7  /  14",
+        "36",
+        "UI: the controls, labels, and layout",
+        "UX: reaching the intended result in context",
+        "A successful execution can still fail the task",
+        "Which part of your first assessment would you defend?"
+      ],
+      "notes": "Return to the renamer. A success count did not make the task successful. Some problems were functional errors; a clearer interface cannot repair the wrong mutation. UX also includes understanding scope, finding results, and recovering. Your initial instinct may be sound. We are adding a more precise way to explain and investigate it.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://www.nngroup.com/articles/ten-usability-heuristics/\n\nVisual: Editable slide text/table\n\nReview anchor: 14"
+    },
+    {
+      "number": 37,
+      "id": "jyhsreh4",
+      "hidden": false,
+      "changed": false,
+      "source": 37,
+      "text": [
+        "06  UI/UX for artist tools",
+        "User stories",
+        "WEEK 7  /  14B",
+        "37",
+        "As an environment artist…",
+        "I want to bring a revised prop into Unreal…",
+        "So I can inspect it without rebuilding its setup.",
+        "What would count as success for this artist?"
+      ],
+      "notes": "This is a classroom example of role, goal, and benefit. It starts a conversation rather than specifying a particular button. Add observable acceptance checks: the intended asset updates, the result is easy to locate, and unrelated work stays unchanged. Ask the artist about their current workflow before treating the story as a verified requirement. Include what the artist does before opening the tool and what they need to inspect afterwards. The tool window is one part of that workflow.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://www.nngroup.com/articles/user-story-mapping/\nhttps://www.gdcvault.com/play/1026441/Tools-Tutorial-Day-The-System\n\nVisual: Editable slide text/table\n\nReview anchor: 14B"
+    },
+    {
+      "number": 38,
+      "id": "ofahkri5",
+      "hidden": false,
+      "changed": false,
+      "source": 38,
+      "text": [
+        "06  UI/UX for artist tools",
+        "Two layouts for the same task",
+        "WEEK 7  /  14D",
+        "38",
+        "Illustrative sketches · neither layout is a tested recommendation",
+        "Which prediction could a paper test resolve?"
+      ],
+      "notes": "These sketches support the same import task. One keeps everything visible; the other separates decisions into steps. Predict where a novice might hesitate and where an experienced artist might want to move faster. Test that prediction before choosing a layout. Sketch a starting state, a result and a failure. Paper or linked Figma frames can test interpretation and flow. A running Unreal tool is still needed to test the actual operation.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://www.nngroup.com/articles/paper-prototyping/\nhttps://hci.stanford.edu/publications/2010/parallel-prototyping/ParallelPrototyping2010-submitted.pdf\nhttps://help.figma.com/hc/en-us/articles/360039823894-Create-and-manage-prototype-flows\n\nVisual: Course/Visuals/Week07/tool-layouts.png\nIllustrative sketches · neither layout is a tested recommendation\nReview anchor: 14D"
+    },
+    {
+      "number": 39,
+      "id": "twb2lg7e",
+      "hidden": false,
+      "changed": false,
+      "source": 39,
+      "text": [
+        "06  UI/UX for artist tools",
+        "Layout follows the task",
+        "WEEK 7  /  15",
+        "39",
+        "Detail from the current Material Setup practice interface",
+        "Which row tells you what will change on the crate?"
+      ],
+      "notes": "Return to the material task we tried earlier. Find the scope count, then the row naming the crate and slot. That row makes the proposed assignment inspectable. The parent and textures are part of the decision too. Which information would you need before allowing this operation on your own work?\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Students\\START_HERE.md\nVisual: Week07UnrealPython/Docs/UI/captures/material_preview.png\nDetail from the current Material Setup practice interface\nReview anchor: 15"
+    },
+    {
+      "number": 40,
+      "id": "5ojatgfe",
+      "hidden": false,
+      "changed": false,
+      "source": 40,
+      "text": [
+        "06  UI/UX for artist tools",
+        "The artist’s model of the work",
+        "WEEK 7  /  14F",
+        "40",
+        "Jeff Stewart · Vicarious Visions · GDC 2018 · PDF p.35",
+        "Would an artist rather edit a duration or two unrelated events?"
+      ],
+      "notes": "Stewart’s Cinematic Builder example contrasts an artist-facing VFX duration with underlying spawn and kill keyframes. The artist wants to reason about when an effect begins and how long it lasts. Exposing two unrelated implementation events made that task harder to understand. This does not mean hiding all technical detail: expose details when they support the user’s next decision. For our importer, a meaningful revised-prop result may be more useful than a list of internal package operations.\n\nSource insight (instructor): Vicarious Visions PDF p.35. Ask students for another representation mismatch: component override versus shared material asset is a useful course example.\n\nFacilitation (not narration):  \n\nSources:\nhttps://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/vv-content-model.png\nJeff Stewart · Vicarious Visions · GDC 2018 · PDF p.35\nReview anchor: 14F"
+    },
+    {
+      "number": 41,
+      "id": "cnmpwjmp",
+      "hidden": false,
+      "changed": false,
+      "source": 41,
+      "text": [
+        "06  UI/UX for artist tools",
+        "State and feedback",
+        "WEEK 7  /  15A",
+        "41",
+        "Detail from the current Material Setup practice interface",
+        "What would you inspect after the completion message?"
+      ],
+      "notes": "Completed tells us that this operation returned successfully. The table changes to applied rows, and Apply becomes unavailable because the plan has been consumed. We still inspect the affected target and protected scope. A completion message alone does not establish that the user achieved the intended task.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Students\\START_HERE.md\nVisual: Week07UnrealPython/Docs/UI/captures/material_complete.png\nDetail from the current Material Setup practice interface\nReview anchor: 15A"
+    },
+    {
+      "number": 42,
+      "id": "7mdw7yh8",
+      "hidden": false,
+      "changed": false,
+      "source": 42,
+      "text": [
+        "06  UI/UX for artist tools",
+        "A UI state becomes a Qt decision",
+        "WEEK 7  /  15G",
+        "42",
+        "pending = self.session.pending\nready = bool(pending) and (\n    not pending[3].get('warnings')\n    or self.ack.isChecked()\n)\nself.apply_button.setEnabled(ready)",
+        "Requires the surrounding widget class.",
+        "Why must Apply still recheck the operation?"
+      ],
+      "notes": "This is the current assistant interface. A pending preview must exist. If it contains warnings, the user must acknowledge them before Apply becomes available. The session still rechecks the operation when Apply runs. Enabling a button does not replace backend validation, and acknowledging a warning cannot bypass a hard limit. This UI fragment requires the surrounding widget instance. Use the checkpoint guide for independently runnable Unreal and Blender examples.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Content\\Python\\week07_tooling\\ui\\assistants.py\nVisual: Editable slide text/table\nRequires the surrounding widget class.\nReview anchor: 15G"
+    },
+    {
+      "number": 43,
+      "id": "qhkbqxoz",
+      "hidden": false,
+      "changed": true,
+      "source": 43,
+      "text": [
+        "06  UI/UX for artist tools",
+        "An error should support recovery",
+        "WEEK 7  /  15D",
+        "43",
+        "Actual course PySide tool · offline blocked state",
+        "What would you change in this message?",
+        "Bridge example: Copy diagnostics preserves the request and its evidence."
+      ],
+      "notes": "Read the message as an artist who has not seen the code. Can you identify the problem, the affected input, and the next action? A raw exception may help the developer, but the artist also needs a way to resume the task.\n\nThe bridge now offers Copy diagnostics. It copies the active environment, exchange folder, receiver identity and request result. It leaves the current operation in place. We can attach that report to reproduction steps before deciding whether to retry.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://www.nngroup.com/articles/ten-usability-heuristics/\n\nVisual: Week07UnrealPython/Docs/UI/captures/material_blocked.png\nActual course PySide tool · offline blocked state\nReview anchor: 15D\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 37, 46, 48; week07_bridge/client.py."
+    },
+    {
+      "number": 44,
+      "id": "pcvutcvy",
+      "hidden": false,
+      "changed": true,
+      "source": 44,
+      "text": [
+        "06  UI/UX for artist tools",
+        "Recovery and accessibility",
+        "WEEK 7  /  15B",
+        "44",
+        "# Existing PySide view implementation\nself.preview.setAccessibleName(\n    \"Selected Actors change preview\"\n)",
+        "Review consequential changes before applying them\nTest the recovery path you actually offer\nKeep focus, labels, and status understandable",
+        "Requires the surrounding widget class.",
+        "Could a classmate recover without help?"
+      ],
+      "notes": "Recovery can mean Undo for an editor transaction, or a separate restore and reimport procedure. Do not promise that all operations can be undone. The code excerpt names the preview for accessibility; it is one implementation detail, not a complete accessibility guarantee. Check keyboard operation, visible focus, readable text, and status cues that do not rely on color alone. This UI fragment requires the surrounding widget instance. Use the checkpoint guide for independently runnable Unreal and Blender examples.\n\nCancellation stops future work at the next check. It does not undo changes already made. A transaction groups supported editor edits, while file export and import need their own recovery procedure. Explore further in Progress, cancellation and Undo, K5.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://ryandowlingsoka.com/unreal/batch-rename-tool/\nhttps://developer.microsoft.com/en-us/games/events/gdc/2023/accessible-and-inclusive-developer-tools/\nhttps://doc.qt.io/qtforpython-6/tutorials/\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Content\\Python\\week07_tooling\\ui\\views.py\nVisual: Editable slide text/table\nRequires the surrounding widget class.\nReview anchor: 15B\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 33–34."
+    },
+    {
+      "number": 45,
+      "id": "kvipwnmh",
+      "hidden": false,
+      "changed": false,
+      "source": 45,
+      "text": [
+        "06  UI/UX for artist tools",
+        "Feedback changes the interface",
+        "WEEK 7  /  16C",
+        "45",
+        "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.47",
+        "Which nearby action would make your workflow easier to complete?"
+      ],
+      "notes": "QA feedback led Mission Kontrol to add controls for both players and frame stepping. Previously, debug actions could depend on gamepad combinations, but someone working in the tool might not be holding a gamepad. The lesson is specific: look at adjacent actions required to finish the task. A technically functional panel can still force awkward handoffs. Ask your tester what they need immediately before and after the operation, then observe whether the interface supports those steps. Mission Kontrol is NetherRealm’s Unreal-based developer tool for repeatable character actions. It uses Slate and game automation rather than our Python editor recipe.\n\nSource insight (instructor): Mission Kontrol PDF p.47. This is a documented iteration after QA feedback, not evidence that a particular layout is universally best.\n\nFacilitation (not narration):  \n\nSources:\nhttps://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/mk-feedback.png\nEtienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.47\nReview anchor: 16C"
+    },
+    {
+      "number": 46,
+      "id": "zixsf2ps",
+      "hidden": false,
+      "changed": true,
+      "source": 46,
+      "text": [
+        "06  UI/UX for artist tools",
+        "A test produces the next question",
+        "WEEK 7  /  16E",
+        "46",
+        "Course testing loop · a possible explanation is not yet a finding",
+        "What questions remain before you write the peer-test task?"
+      ],
+      "notes": "An observation gives you evidence. Your explanation is still a hypothesis. Make one change that addresses it and repeat the task. If the difficulty remains, revise the explanation rather than merely adding more instructions. For example, the tester chose the wrong destination. That is the observation. An unclear label is a possible explanation. Showing the full path is a proposed change, and a new tester’s attempt is the retest. What questions do you have before writing your own task?\n\nFor automated checks, also prove that a deliberately failing expectation is detected. A discovered file that never calls its checks gives no evidence about those checks. Explore further in Tests that detect failure, K6.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://www.nngroup.com/articles/usability-testing-101/\nhttps://www.nngroup.com/articles/task-scenarios-usability-testing/\n\nVisual: Course/Visuals/Week07/test-loop.png\nCourse testing loop · a possible explanation is not yet a finding\nReview anchor: 16E\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 35–38."
+    },
+    {
+      "number": 47,
+      "id": "atcnytkf",
+      "hidden": false,
+      "changed": false,
+      "source": 47,
+      "text": [
+        "07  Peer-test preparation",
+        "Peer-test\npreparation",
+        "4 minutes to prepare one task",
+        "Goal, inputs, visible success and reset",
+        "WEEK 7   /   47"
+      ],
+      "notes": "Now prepare the task your classmates will attempt. Use the preparation sheet. Give a goal and enough context to begin, and define how to return to the same starting state.\n\nFacilitation:  "
+    },
+    {
+      "number": 48,
+      "id": "pwb6x4jy",
+      "hidden": false,
+      "changed": false,
+      "source": 48,
+      "text": [
+        "07  Peer-test preparation",
+        "Your peer-test task",
+        "WEEK 7  /  16A",
+        "48",
+        "A goal, starting inputs and visible success",
+        "Protected scope and a reset method",
+        "One version, one task, three reviewers",
+        "Could a partner attempt this goal without a click-by-click script?"
+      ],
+      "notes": "Use the preparation sheet to write one task that fits a two-minute attempt. For example, give these three selected props exactly one prefix while leaving the unselected light unchanged. Define success and how you will restore the same input. Declare hands-on, recorded or concept review. Keep the same task and version across rounds so we can compare observations. If you have no runnable tool, sketch the input, action and intended output. Which part of your task needs clarification?\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\preparation.html\nVisual: Editable slide text/table\n\nReview anchor: 16A"
+    },
+    {
+      "number": 49,
+      "id": "oz2xg3q1",
+      "hidden": false,
+      "changed": false,
+      "source": 49,
+      "text": [
+        "08  Lab 2: peer testing",
+        "Lab 2\nPeer testing",
+        "35 minutes including briefing and three rounds",
+        "Each author receives evidence from three classmates",
+        "WEEK 7   /   49"
+      ],
+      "notes": "We are beginning lab 2\npeer testing. 35 minutes including briefing and three rounds. Each author receives evidence from three classmates\n\nFacilitation:  "
+    },
+    {
+      "number": 50,
+      "id": "a9gvuxsb",
+      "hidden": false,
+      "changed": false,
+      "source": 50,
+      "text": [
+        "08  Lab 2: peer testing",
+        "Lab 2: three peer reviews",
+        "WEEK 7  /  17",
+        "50",
+        "Author gives the goal, then observes",
+        "Reviewer attempts and records evidence",
+        "Give the completed sheet to the author",
+        "What questions do you have before the first attempt?"
+      ],
+      "notes": "Each person reviews three classmates in a group of four. Use the author’s prepared machine. The author gives the goal and necessary domain information, then lets the reviewer attempt it. Say what you expect and record any help. Use the same task and version each round. If launch is blocked for a minute, record the blocker and switch to your declared recording or concept. That evidence cannot establish untested execution. Ask now if the roles are unclear.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\peer-sheet.html\nVisual: Editable slide text/table\n\nReview anchor: 17"
+    },
+    {
+      "number": 51,
+      "id": "36hsrmts",
+      "hidden": false,
+      "changed": false,
+      "source": 51,
+      "text": [
+        "08  Lab 2: peer testing",
+        "A ten-minute reciprocal round",
+        "WEEK 7  /  18",
+        "51",
+        "Record the action, expected result, observed result and help needed."
+      ],
+      "notes": "In each pair the later letter tests the earlier letter’s tool first. You have thirty seconds for the goal, two minutes for the attempt, then ninety seconds to record and explain your finding. At four minutes swap roles. At eight minutes finish both sheets and reset. Record a supported strength. If no fault appeared, say so and propose a useful next test.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\nhttps://www.nngroup.com/articles/usability-testing-101/\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\facilitator.html\nVisual: Editable slide text/table\n\nReview anchor: 18"
+    },
+    {
+      "number": 52,
+      "id": "gfe1wbu1",
+      "hidden": false,
+      "changed": false,
+      "source": 52,
+      "text": [
+        "08  Lab 2: peer testing",
+        "Partner rotations",
+        "WEEK 7  /  19",
+        "52",
+        "Later letter tests first. Swap roles at minute 4.",
+        "Same task and start state. One sheet per reviewer, given to the author."
+      ],
+      "notes": "Stay within your group and follow these pairings. The later letter tests the earlier letter’s tool first. Both authors receive a review before you change partners. Give your sheet to the author immediately. If a round is interrupted, label the review incomplete. Three distinct classmates are possible in a full group of four. Tell me now if your group needs a different arrangement.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\facilitator.html\nVisual: Editable slide text/table\n\nReview anchor: 19"
+    },
+    {
+      "number": 53,
+      "id": "9w7yt8zy",
+      "hidden": false,
+      "changed": false,
+      "source": 53,
+      "text": [
+        "09  Reflection",
+        "Reflection\nand next revision",
+        "5 minutes to compare the evidence",
+        "Preserve a strength. Choose a revision. Specify a retest.",
+        "WEEK 7   /   53"
+      ],
+      "notes": "The attempts are complete. Compare your evidence before choosing what to change. Keep a supported strength and identify the next test.\n\nFacilitation:  "
+    },
+    {
+      "number": 54,
+      "id": "uhgfqdcf",
+      "hidden": false,
+      "changed": false,
+      "source": 54,
+      "text": [
+        "09  Reflection",
+        "One revision supported by evidence",
+        "WEEK 7  /  20",
+        "54",
+        "Preserve one observed strength",
+        "Choose a consequential issue or uncertainty",
+        "Specify the input, action and expected result",
+        "Which evidence changed or strengthened your first judgment?"
+      ],
+      "notes": "Read the three reviews you received. Choose a priority because of its consequence and evidence, not simply the number of votes. Preserve one thing that worked. Write the smallest useful revision or experiment and exactly how you would retest it. If feedback conflicts, compare tasks, versions, review modes and help before deciding. You may keep your initial design if the evidence supports it. Record any unresolved question.\n\nSource insight (instructor): \n\nFacilitation (not narration):  \n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\reflection.html\nVisual: Editable slide text/table\n\nReview anchor: 20"
+    },
+    {
+      "number": 55,
+      "id": "vyd8bips",
+      "hidden": true,
+      "changed": false,
+      "source": 55,
+      "text": [
+        "02  Unreal API calls in working tools",
+        "Unreal API calls\nin working tools",
+        "Selection and properties become a material or VFX operation.",
+        "Next: inspect inputs, preview one change, apply and verify.",
+        "WEEK 7   /   55"
+      ],
+      "notes": "We now use those API ideas in our prepared tools. Predict which objects may change before each operation. Watch the result and the recovery separately.\n\nFacilitation: Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration."
+    },
+    {
+      "number": 56,
+      "id": "83ix4rex",
+      "hidden": true,
+      "changed": false,
+      "source": 56,
+      "text": [
+        "02  Unreal API calls in working tools",
+        "Material instance: set texture inputs",
+        "WEEK 7  /  MAT2",
+        "56",
+        "The tool sets the parent and texture references, then reads them back.",
+        "Right-click M_PreparedSurface > Create Material Instance. Open it > Parameter Groups.",
+        "What does the parent graph decide that an instance cannot?"
+      ],
+      "notes": "Create a material instance from the prepared parent and open it. Enable each texture parameter override and choose the matching texture. The tool sets the same parent and three texture references, then reads them back. It does not build a shader graph or set separate roughness and metallic sliders. The prepared parent routes the ORM channels. Save intentionally after review; the demo backend leaves the new instance as a draft.\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-material-instance-editor-ui?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\MaterialsWalkthrough20261013\\walkthrough.html\nVisual: Editable slide text/table\nRight-click M_PreparedSurface > Create Material Instance. Open it > Parameter Groups.\nReview anchor: MAT2"
+    },
+    {
+      "number": 57,
+      "id": "p8vetc3e",
+      "hidden": true,
+      "changed": false,
+      "source": 57,
+      "text": [
+        "02  Unreal API calls in working tools",
+        "UE08: One material override",
+        "WEEK 7  /  09I",
+        "57",
+        "if before == material:\n    print(\"Already assigned. No change and no new Undo entry.\")\nelse:\n    with unreal.ScopedEditorTransaction(\"API lesson: material override\"):\n        component.modify()  # Record the previous state for Undo.\n        component.set_material(0, material)",
+        "Run UE08 Setup and Eligibility first. The full file checks the resulting slot.",
+        "Run in Unreal. First run UE08: setup, eligibility.",
+        "What happens if this material is already assigned?"
+      ],
+      "notes": "Run UE08 Setup and Eligibility first. The full file checks the resulting slot. First run UE08: setup + eligibility. Then run the shown block(s). Target slot zero changes; old/new materials print. Protected cube remains unchanged. What happens if this material is already assigned? Try selecting the protected cube. Confirm the check blocks before editing.\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/ScopedEditorTransaction?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE08_material_override.py\nVisual: Editable slide text/table\nRun in Unreal. First run UE08: setup, eligibility.\nReview anchor: 09I"
+    },
+    {
+      "number": 58,
+      "id": "mdo3u583",
+      "hidden": true,
+      "changed": false,
+      "source": 58,
+      "text": [
+        "02  Unreal API calls in working tools",
+        "Assign a material manually",
+        "WEEK 7  /  MAT3",
+        "58",
+        "UE08 changes a component override. Changing the shared mesh default has wider scope.",
+        "Which action changes only this placement?"
+      ],
+      "notes": "In Unreal select the target Actor, then its mesh component. In Details under Materials, choose the material in Element 0. That is the manual equivalent of set_material with slot zero. Inspect the protected cube and Undo once. Maya assigns a shading network through a shading group. Blender uses material slots, which may link to shared mesh data or the object. These are related tasks with different data models. The bridge preserves Unreal assignments rather than rebuilding source shader networks.\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\nhttps://help.autodesk.com/cloudhelp/2027/ENU/Maya-LightingShading/files/GUID-D41AF807-F7CB-447E-BACC-7F0867C14E8D.htm\nhttps://docs.blender.org/manual/en/latest/render/materials/assignment.html\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\MaterialsWalkthrough20261013\\walkthrough.html\nVisual: Editable slide text/table\nUE08 changes a component override. Changing the shared mesh default has wider scope.\nReview anchor: MAT3"
+    },
+    {
+      "number": 59,
+      "id": "7uxozyps",
+      "hidden": true,
+      "changed": false,
+      "source": 59,
+      "text": [
+        "02  Unreal API calls in working tools",
+        "Material Setup: a reviewed change",
+        "WEEK 7  /  09",
+        "59",
+        "Missing texture blocks Preview",
+        "One instance, one component assignment",
+        "Undo restores assignment. Asset remains.",
+        "Actual Unreal 5.7.4 result from the current tool",
+        "What changes? What must stay unchanged?"
+      ],
+      "notes": "First I leave one texture out. Preview blocks the operation before changing the scene. I restore the complete texture selection and preview again. Read the target, slot and texture mapping. Apply changes the target cube while the other cube and shared mesh stay unchanged. Undo restores the assignment. The new material instance remains for separate cleanup. What questions do you have about the result and recovery? UE08 separately demonstrates assignment of an already existing material. This full assistant also creates and verifies an instance. These are deliberately different scopes.\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\live-demo.html\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\Documents\\Week 7 Live Demo Run Sheet.docx\nVisual: Course/Slides/Week07/FinalClass20261013/live-captures/02_material.png\nActual Unreal 5.7.4 result from the current tool\nReview anchor: 09"
+    },
+    {
+      "number": 60,
+      "id": "bapcne9c",
+      "hidden": true,
+      "changed": false,
+      "source": 60,
+      "text": [
+        "02  Unreal API calls in working tools",
+        "PY01: A preview snapshot",
+        "WEEK 7  /  09F",
+        "60",
+        "current = {\"target\": \"Cube_A\", \"material\": \"MI_Blue\"}\nreviewed = current.copy()\nprint(\"Preview:\", reviewed)\n\ncurrent[\"target\"] = \"Cube_B\"\nif current != reviewed:\n    print(\"BLOCKED: inputs changed. Preview again.\")\nelse:\n    print(\"The inputs still match the preview.\")",
+        "Ordinary Python teaching data. A changed target invalidates the reviewed copy.",
+        "Run in Python. Complete example.",
+        "Which line makes the preview stale?"
+      ],
+      "notes": "Ordinary Python teaching data. A changed target invalidates the reviewed copy. Complete checkpoint shown. No previous script required. The changed target differs from the reviewed copy, so BLOCKED prints. Which line makes the preview stale? Comment out the target change and predict the other branch.\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\python\\PY01_preview_snapshot.py\nVisual: Editable slide text/table\nRun in Python. Complete example.\nReview anchor: 09F"
+    },
+    {
+      "number": 61,
+      "id": "atgzmloz",
+      "hidden": true,
+      "changed": true,
+      "source": 61,
+      "text": [
+        "02  Unreal API calls in working tools",
+        "Two interfaces, one Python workflow",
+        "WEEK 7  /  08A",
+        "61",
+        "Which logic should survive a complete UI redesign?",
+        "UI calls workflow logic; host adapters call the editor API."
+      ],
+      "notes": "The current native Unreal panel uses Slate. The other interface uses PySide. Both call the same Python workflow. An Editor Utility Blueprint is another possible entry point, but it is not the implementation of our current panel. Which rules should remain unchanged if we redesign the interface?\n\nReusable workflow logic should not import the window that calls it. That direction helps avoid circular imports and lets another interface reuse the operation. The bridge follows the same idea with shared Publisher logic and separate Blender and Maya adapters.\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/editor-utility-widgets-in-unreal-engine\nhttps://doc.qt.io/qtforpython-6/tutorials/\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Content\\Python\\week07_tooling\\workflows.py\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\UNREAL_NATIVE_UI.md\nVisual: Editable slide text/table\n\nReview anchor: 08A\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 39, 48."
+    },
+    {
+      "number": 62,
+      "id": "1kzq5knq",
+      "hidden": true,
+      "changed": false,
+      "source": 62,
+      "text": [
+        "02  Unreal API calls in working tools",
+        "UE10: Niagara component inspection",
+        "WEEK 7  /  09J",
+        "62",
+        "for actor in actors:\n    components = actor.get_components_by_class(unreal.NiagaraComponent)\n    print(actor.get_actor_label(), \"Niagara components:\", len(components))\n    for component in components:\n        system = component.get_editor_property(\"asset\")\n        print(system.get_path_name() if system else None)",
+        "Setup reads selected Actors. Inspect the effects after the prepared VFX tool places them.",
+        "Run in Unreal. First run UE10: setup.",
+        "Does a system reference tell us its frame cost?"
+      ],
+      "notes": "Setup reads selected Actors. Inspect the effects after the prepared VFX tool places them. First run UE10: setup. Then run the shown block(s). Niagara component counts and referenced system paths. No effects are spawned. Does a system reference tell us its frame cost? Would three successful placements establish GPU frame cost?\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/NiagaraComponent?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE10_niagara_components.py\nVisual: Editable slide text/table\nRun in Unreal. First run UE10: setup.\nReview anchor: 09J"
+    },
+    {
+      "number": 63,
+      "id": "8jepo3et",
+      "hidden": true,
+      "changed": false,
+      "source": 63,
+      "text": [
+        "02  Unreal API calls in working tools",
+        "VFX Placement: transfer the workflow",
+        "WEEK 7  /  09D",
+        "63",
+        "Three markers, three effects",
+        "Repeated placement is blocked",
+        "Undo removes this batch",
+        "Actual Unreal result with the reviewed classroom fountain",
+        "Do these checks establish frame cost? What questions remain?"
+      ],
+      "notes": "The three tagged markers define this placement. We choose VFX Placement, scale one, and Preview. The plan names three effects and their positions. Apply creates three visible fountains. Previewing these occupied anchors again blocks a second batch. Undo removes the placed effects and leaves the pedestals. These checks establish placement behavior and recovery in this fixture. They do not measure frame cost on target hardware. What questions remain about performance or wider production use? Run UE10 afterward when you want to inspect the resulting component/system references directly.\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\live-demo.html\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\Documents\\Week 7 Live Demo Run Sheet.docx\nVisual: Course/Slides/Week07/FinalClass20261013/live-captures/03_vfx.png\nActual Unreal result with the reviewed classroom fountain\nReview anchor: 09D"
+    },
+    {
+      "number": 64,
+      "id": "nedsfetc",
+      "hidden": true,
+      "changed": false,
+      "source": 64,
+      "text": [
+        "03  Blender and the bridge",
+        "BL02: Object and mesh data",
+        "WEEK 7  /  BL02",
+        "64",
+        "import bpy\nobjects = list(bpy.context.selected_objects)\nmeshes = [obj for obj in objects if obj.type == \"MESH\"]\nprint(\"Selected mesh objects:\", len(meshes))\n\nfor obj in meshes:\n    print(\"Object:\", obj.name, \"location:\", tuple(obj.location))\n    print(\"Mesh:\", obj.data.name, \"users:\", obj.data.users)\n    print(\"Source polygons:\", len(obj.data.polygons))",
+        "An Object has a transform. Its mesh datablock may have several users.",
+        "Run in Blender. Complete example.",
+        "What would editing shared mesh data affect?"
+      ],
+      "notes": "An Object has a transform. Its mesh datablock may have several users. Complete checkpoint shown. No previous script required. Object location, mesh datablock name/users and source polygon count. What would editing shared mesh data affect? With linked duplicates, compare Object names and mesh data names.\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\nhttps://docs.blender.org/api/5.1/bpy.types.Object.html\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\blender\\BL02_object_mesh.py\nVisual: Editable slide text/table\nRun in Blender. Complete example.\nReview anchor: BL02"
+    },
+    {
+      "number": 65,
+      "id": "u5wbe5cf",
+      "hidden": true,
+      "changed": false,
+      "source": 65,
+      "text": [
+        "03  Blender and the bridge",
+        "Maya and Blender publishing",
+        "WEEK 7  /  10",
+        "65",
+        "Two publishers, one receiver",
+        "FBX geometry + JSON manifest",
+        "Revision updates the same asset",
+        "Actual Unreal comparison map. Orange: Maya. Blue: Blender.",
+        "Which placements should change after one source revision?"
+      ],
+      "notes": "The two hosts publish the same contract: an FBX file and a manifest. Unreal checks and imports the revision. Each colored pair references one shared mesh. Our prepared revision raises the roof from 180 to 220 centimeters. Predict which pair will update and which transforms should stay the same. This bridge handles one static mesh and explicit publishing. It does not stream rigging or animation. The short BL01 and BL02 checkpoints explain the Blender host boundary. The production bridge additionally handles transformation, unit, pivot and transport concerns. Its complete publisher is the capstone, not the first API exercise.\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\nhttps://isaacoster.artstation.com/projects/Dvdrke\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\README.md\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\verification.json\nVisual: Week07UnrealPython/Docs/Bridge/unreal-comparison.png\nActual Unreal comparison map. Orange: Maya. Blue: Blender.\nReview anchor: 10"
+    },
+    {
+      "number": 66,
+      "id": "dovq5k3u",
+      "hidden": true,
+      "changed": false,
+      "source": 66,
+      "text": [
+        "03  Blender and the bridge",
+        "Maya and Blender: one publishing pipeline",
+        "Shared: Publisher, FBX + JSON, request / acknowledgement, Unreal import",
+        "Stable asset path: one reimport updates both existing placements.",
+        "Which code stays unchanged? What would you like to trace together?",
+        "WEEK 7  /  BR-PARITY",
+        "66"
+      ],
+      "notes": "Both buttons call the same Publisher class. We do not maintain a Blender copy of the naming rules, JSON writer, transport or Unreal importer. We substitute BlenderAdapter for MayaAdapter. Each adapter has just two entry points: inspect_selection and export_fbx.\n\nBlender reads a selected object through bpy and evaluates its modifiers into a disposable mesh. Maya reads a mesh transform through cmds, duplicates it and freezes the duplicate. Neither path applies those changes to the original mesh. Blender converts its scene scale to centimeters and uses the object origin. Maya requires centimeter working units and uses the rotate pivot. The adapter handles axis conversion before the shared receiver sees the asset.\n\nNow follow the click. The shared core validates, exports the FBX, hashes it and commits the JSON manifest. Send queues a request for the running receiver session. Unreal checks that pair, imports into the stable asset path, verifies dimensions and saves. A response travels back to the publisher. Sent means queued. Imported means the receiver reported success.\n\nThe two placed props share one Unreal asset. Keep the name and destination stable and a new revision updates both placements without replacing either Actor. Try the matching roof edit in Maya: forty centimeters on Y. In the supplied Blender scene it was point four meters on Z. Both revised assets should be 220 centimeters high.\n\nThe status and recovery rules are shared as well. Publish alone never sends. A failed export cannot leave an older revision selected for sending. While an acknowledgement is pending, another send is blocked. Changing the exchange folder clears local tracking; it does not cancel work already queued in the old folder.\n\nOne qualification: parity here means the same publishing contract and intended geometry. FBX triangulation and smoothing can differ. The screenshots show different smoothing, so compare shape, dimensions and pivot separately from shading.\n\nWhich code stays unchanged when we switch applications? What would you like us to trace together before the live revision?\n\nFacilitation: Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\parity.html\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\BridgeRehearsal20261013\\output\\Maya_Blender_Bridge_Parity_v2.pptx"
+    },
+    {
+      "number": 67,
+      "id": "w3ip4nuh",
+      "hidden": true,
+      "changed": false,
+      "source": 67,
+      "text": [
+        "03  Blender and the bridge",
+        "UE11: Prepare an import task",
+        "WEEK 7  /  10C",
+        "67",
+        "options = unreal.FbxImportUI()\noptions.set_editor_property(\"import_mesh\", True)\noptions.set_editor_property(\"import_as_skeletal\", False)\noptions.set_editor_property(\"import_materials\", False)\noptions.set_editor_property(\"import_textures\", False)\noptions.set_editor_property(\"automated_import_should_detect_type\", False)\nmesh_type = unreal.FBXImportType.FBXIT_STATIC_MESH\noptions.set_editor_property(\"mesh_type_to_import\", mesh_type)",
+        "UE11 Setup defines paths. These FbxImportUI options describe a static-mesh import.",
+        "Run in Unreal. First run UE11: setup.",
+        "Which setting prevents new materials from being imported?"
+      ],
+      "notes": "UE11 Setup defines paths. These FbxImportUI options describe a static-mesh import. First run UE11: setup. Then run the shown block(s). Prepared source and destination. No new Unreal asset. Which setting prevents new materials from being imported? Change destination_name in this preparation-only example. What would it identify?\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE11_import_task.py\nVisual: Editable slide text/table\nRun in Unreal. First run UE11: setup.\nReview anchor: 10C"
+    },
+    {
+      "number": 68,
+      "id": "36d8jy98",
+      "hidden": true,
+      "changed": false,
+      "source": 68,
+      "text": [
+        "03  Blender and the bridge",
+        "UE11: Prepare an import task",
+        "WEEK 7  /  10A",
+        "68",
+        "task = unreal.AssetImportTask()\ntask.set_editor_property(\"filename\", str(fbx))\ntask.set_editor_property(\"destination_path\", destination)\ntask.set_editor_property(\"destination_name\", asset_name)\ntask.set_editor_property(\"automated\", True)\ntask.set_editor_property(\"replace_existing\", False)\ntask.set_editor_property(\"save\", False)\ntask.set_editor_property(\"options\", options)\ntask.set_editor_property(\"factory\", unreal.FbxFactory())",
+        "Run UE11 Setup and Options first. This block prepares a task without importing.",
+        "Run in Unreal. First run UE11: setup, options.",
+        "Which line would permit an overwrite?"
+      ],
+      "notes": "Run UE11 Setup and Options first. This block prepares a task without importing. First run UE11: setup + options. Then run the shown block(s). Prepared source and destination. No new Unreal asset. Which line would permit an overwrite? Change destination_name in this preparation-only example. What would it identify?\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE11_import_task.py\nVisual: Editable slide text/table\nRun in Unreal. First run UE11: setup, options.\nReview anchor: 10A"
+    },
+    {
+      "number": 69,
+      "id": "ilkny5sj",
+      "hidden": true,
+      "changed": false,
+      "source": 69,
+      "text": [
+        "03  Blender and the bridge",
+        "UE12: Import and inspect",
+        "WEEK 7  /  UE12",
+        "69",
+        "flag = \"Interchange.FeatureFlags.Import.FBX\"\nprevious = unreal.SystemLibrary.get_console_variable_int_value(flag)\ntry:\n    unreal.SystemLibrary.execute_console_command(None, flag + \" 0\")\n    tools = unreal.AssetToolsHelpers.get_asset_tools()\n    tools.import_asset_tasks([task])\nfinally:\n    restore = flag + \" \" + str(previous)\n    unreal.SystemLibrary.execute_console_command(None, restore)",
+        "Run the full UE12 checkpoint. It repeats setup and refuses an existing destination.",
+        "Run in Unreal. First run UE12: setup, options, task, eligibility.",
+        "Why restore the previous importer setting even after failure?"
+      ],
+      "notes": "Run the full UE12 checkpoint. It repeats setup and refuses an existing destination. First run UE12: setup + options + task + eligibility. Then run the shown block(s). One unsaved StaticMesh at the exact lesson path, returned paths and bounds. Why restore the previous importer setting even after failure? Compare printed bounds with the supplied wedge's 120 x 60 x 180 cm reference. No size check is implied by file existence.\n\nSource insight (instructor): \n\nFacilitation (not narration): Optional depth. Material tools and Maya bridging are covered by colleagues; keep this as a reference, not a duplicate instructor demonstration.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE12_import_and_verify.py\nVisual: Editable slide text/table\nRun in Unreal. First run UE12: setup, options, task, eligibility.\nReview anchor: UE12"
+    },
+    {
+      "number": 70,
+      "id": "sb6p0vup",
+      "hidden": true,
+      "changed": false,
+      "source": 70,
+      "text": [
+        "Explore further",
+        "Explore further",
+        "Reference slides and deeper API examples",
+        "The live class ends before this section",
+        "WEEK 7   /   70"
+      ],
+      "notes": "These slides support later study and specific questions.\n\nFacilitation:  Optional reference, outside the 150-minute route. Optional reference."
+    },
+    {
+      "number": 71,
+      "id": "9kvil8fy",
+      "hidden": true,
+      "changed": false,
+      "source": 71,
+      "text": [
+        "Explore further",
+        "What you should be able to explain",
+        "WEEK 7  /  02A",
+        "71",
+        "Scope: what will change?",
+        "Evidence: did it work?",
+        "Use: can a peer succeed?",
+        "Course Unreal fixture · scope and verification are separate checks",
+        "What would make you trust a tool with your project?"
+      ],
+      "notes": "By the end, you should be able to explain scope, evidence, and the user’s task. A script finishing without an exception is only one part of success. Keep one tool from your own work in mind as we go.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://www.nngroup.com/articles/ten-usability-heuristics/\n\nVisual: Course/Slides/Week07/UnrealPythonDemo/Captures/02_organized.png\nCourse Unreal fixture · scope and verification are separate checks\nReview anchor: 02A"
+    },
+    {
+      "number": 72,
+      "id": "etcza1w3",
+      "hidden": true,
+      "changed": false,
+      "source": 72,
+      "text": [
+        "Explore further",
+        "Tools are part of game production",
+        "WEEK 7  /  02B",
+        "72",
+        "Guerrilla · Sumaili & van der Steen · GDC 2017 · PDF p.23",
+        "Which repeated task would you remove from this workflow?"
+      ],
+      "notes": "This is Guerrilla’s Decima level editor, shown in its Horizon Zero Dawn pipeline talk. The class-sized question is smaller: which repeated step prevents an artist from checking their work? Keep that task in view as we learn a new host API.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://www.guerrilla-games.com/read/creating-a-tools-pipeline-for-horizon-zero-dawn\nhttps://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/horizon-editor.png\nGuerrilla · Sumaili & van der Steen · GDC 2017 · PDF p.23\nReview anchor: 02B"
+    },
+    {
+      "number": 73,
+      "id": "v25cret4",
+      "hidden": true,
+      "changed": false,
+      "source": 73,
+      "text": [
+        "Explore further",
+        "Python across applications",
+        "WEEK 7  /  05",
+        "73",
+        "Keep loops, functions, conditions, and data structures",
+        "Replace Maya commands with Unreal editor APIs",
+        "Carry over explicit inputs, scope, and useful reports",
+        "Which part of your Maya tool is independent of Maya?"
+      ],
+      "notes": "Your general Python knowledge carries over. The objects and operations exposed by the host application change. Keep reusable rules separate from host-specific operations where practical. Here, unreal is the module exposed by the editor; installing ordinary Python alone does not create an Unreal editor session.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nhttps://www.udemy.com/course/unreal-engine-5-python-automation/\n\nVisual: Editable slide text/table\n\nReview anchor: 05"
+    },
+    {
+      "number": 74,
+      "id": "cb6x4vet",
+      "hidden": true,
+      "changed": false,
+      "source": 74,
+      "text": [
+        "Explore further",
+        "Unreal’s object model",
+        "WEEK 7  /  06",
+        "74",
+        "If two Actors share a mesh, which edits could affect both?"
+      ],
+      "notes": "A placed object and the asset it references are not the same thing. In our existing fixture, six prop Actors use five shared mesh assets. Editing an Actor transform is different from changing the shared asset. A component can also carry a material override. Always identify which layer your operation edits.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\PrepNotes\\sources\\oster-07.html\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\UnrealPythonDemo\\index.html\nVisual: Editable slide text/table\n\nReview anchor: 06"
+    },
+    {
+      "number": 75,
+      "id": "hcv6ho7e",
+      "hidden": true,
+      "changed": true,
+      "source": 75,
+      "text": [
+        "Explore further",
+        "Blueprints as an editor interface",
+        "WEEK 7  /  08",
+        "75",
+        "Should the button contain the whole tool—or call one operation?",
+        "Explore further: Python data to a Blueprint Map (K2)"
+      ],
+      "notes": "This is the Blueprint connection we need today. Epic supports Python execution nodes in editor-only Blueprints such as Editor Utility Widgets. The Execute Python Script node can expose custom inputs and outputs. It does not make Python a gameplay scripting language. Its execution-success output is not a substitute for checking whether the artist’s task succeeded.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/editor-utility-widgets-in-unreal-engine\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-blueprints\nhttps://www.udemy.com/course/unreal-engine-blueprint-automation/\n\nVisual: Editable slide text/table\n\nReview anchor: 08"
+    },
+    {
+      "number": 76,
+      "id": "1loy80",
+      "hidden": true,
+      "changed": true,
+      "source": null,
+      "text": [
+        "Explore further",
+        "Python data to a Blueprint Map",
+        "WEEK 7  /  K2",
+        "import unreal\nmy_dict = {\"a\": 1, \"b\": 2}\nunreal_map = unreal.Map.cast(str, int, my_dict)",
+        "Output: unreal_map     Config: Map<String, Integer>",
+        "Karol Kowalczyk / Tech Art Corner · lesson 50",
+        "What must match on both sides? What would you like clarified?",
+        "76"
+      ],
+      "notes": "This script runs in Execute Python Script inside an editor utility Blueprint. Add an output named unreal_map. Create Config as a Map with String keys and Integer values. Connect the execution wire and the unreal_map output to Set Config. The Python variable name matches the output name. Return Value reports execution success; it is separate from the returned Map. Inspect Config: a should be 1 and b should be 2. Change b to 3 and check it again. What would you inspect if the receiving pin had the wrong type?\n\nFacilitation (not narration): Optional reference. Enable editor scripting and Python. Code includes its import. Configure output and receiving variable before running. No scene edits; reset the variable to clear this example. Screenshot is the course demonstration. New current-engine execution remains to be rehearsed.\n\nSources: Karol Kowalczyk / Tech Art Corner, Unreal Python course; refined lessons 40, 50. under C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course"
+    },
+    {
+      "number": 77,
+      "id": "m1wv2xgv",
+      "hidden": true,
+      "changed": false,
+      "source": 76,
+      "text": [
+        "Explore further",
+        "Earlier prop demo: starting state",
+        "WEEK 7  /  09A",
+        "77",
+        "Existing course capture · Unreal 5.7.4 · six-prop fixture",
+        "Which values can this operation change safely?"
+      ],
+      "notes": "This is the starting state of the course fixture. The prepared operation changes Actor labels and positions, not the shared mesh assets. Predict the result before looking at the organized capture.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\UnrealPythonDemo\\index.html\nVisual: Course/Slides/Week07/UnrealPythonDemo/Captures/01_baseline.png\nExisting course capture · Unreal 5.7.4 · six-prop fixture\nReview anchor: 09A"
+    },
+    {
+      "number": 78,
+      "id": "vm1kr65c",
+      "hidden": true,
+      "changed": false,
+      "source": 77,
+      "text": [
+        "Explore further",
+        "Earlier prop demo: result inspection",
+        "WEEK 7  /  09B",
+        "78",
+        "Existing course capture · same fixture after the controlled operation",
+        "What does this image prove—and what still needs checking?"
+      ],
+      "notes": "The second capture shows the arranged props. An image alone does not verify labels, selection boundaries, or recovery. Use the tool’s report and an Undo check to establish those properties. Compare the capture with the tool’s report before drawing a conclusion.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\UnrealPythonDemo\\index.html\nVisual: Course/Slides/Week07/UnrealPythonDemo/Captures/02_organized.png\nExisting course capture · same fixture after the controlled operation\nReview anchor: 09B"
+    },
+    {
+      "number": 79,
+      "id": "s7u5k3mh",
+      "hidden": true,
+      "changed": false,
+      "source": 78,
+      "text": [
+        "Explore further",
+        "A workflow spans several tools",
+        "WEEK 7  /  14E",
+        "79",
+        "Jeff Stewart · Vicarious Visions · GDC 2018 · PDF p.9",
+        "What happens immediately before and after your tool?"
+      ],
+      "notes": "Vicarious Visions used Laboratory’s World Builder for Skylanders and Crash levels. For our importer, include the artist’s export and inspection steps when defining the task. Ask where the artist comes from and where they need to go next.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/vv-world-builder.png\nJeff Stewart · Vicarious Visions · GDC 2018 · PDF p.9\nReview anchor: 14E"
+    },
+    {
+      "number": 80,
+      "id": "x4vml8na",
+      "hidden": true,
+      "changed": false,
+      "source": 79,
+      "text": [
+        "Explore further",
+        "Sketching before implementation",
+        "WEEK 7  /  14C",
+        "80",
+        "Sketch two plausible approaches",
+        "Include a failure state",
+        "Test one uncertainty",
+        "Course interaction sketches · illustrative, not validated",
+        "What can a sketch test? What requires a running tool?"
+      ],
+      "notes": "Sketch enough for someone to attempt a decision: the input, the action, the result, and one failure. Paper is enough to test whether a label or sequence makes sense; Figma can connect screens into a repeatable simulated flow. Neither proves that an Unreal import works. Compare alternatives before polishing one. Dow and colleagues found benefits from parallel prototyping in a small web-advertisement study; applying that idea to our layouts is a teaching inference. The next slide asks you to predict where each layout may help or hinder an artist.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://www.nngroup.com/articles/paper-prototyping/\nhttps://help.figma.com/hc/en-us/articles/360039823894-Create-and-manage-prototype-flows\nhttps://hci.stanford.edu/publications/2010/parallel-prototyping/ParallelPrototyping2010-submitted.pdf\n\nVisual: Course/Visuals/Week07/tool-layouts.png\nCourse interaction sketches · illustrative, not validated\nReview anchor: 14C"
+    },
+    {
+      "number": 81,
+      "id": "d4ryxcn6",
+      "hidden": true,
+      "changed": false,
+      "source": 80,
+      "text": [
+        "Explore further",
+        "Mental models and visible scope",
+        "WEEK 7  /  14A",
+        "81",
+        "Group by the artist’s task",
+        "Expose relevant scope",
+        "Make expected actions findable",
+        "Jeff Stewart · Vicarious Visions · GDC 2018 · PDF p.24",
+        "Does filtering the report also change what Apply affects?"
+      ],
+      "notes": "Stewart distinguishes discovering available features from finding a feature you already expect. In this production menu example, the placement of Select Touching beside hide and unhide actions makes the grouping worth questioning. Ask where students would look before pointing it out. Then connect this to our tool: filtering visible rows does not change the Apply plan. Visible labels and scope information help users recover the right context without memorizing implementation rules. A tester’s prediction can reveal a mismatch between their model and the tool’s behavior.\n\nSource insight (instructor): Source distinction: discoverability and findability, Stewart PDF p.24. The transfer to filtering and Apply is our course application, not a Vicarious Visions implementation claim.\n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf\nhttps://www.nngroup.com/articles/recognition-and-recall/\nhttps://www.nngroup.com/articles/mental-models/\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Content\\Python\\week07_tooling\\ui\\views.py\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/vv-findability.png\nJeff Stewart · Vicarious Visions · GDC 2018 · PDF p.24\nReview anchor: 14A"
+    },
+    {
+      "number": 82,
+      "id": "kny10fi9",
+      "hidden": true,
+      "changed": false,
+      "source": 81,
+      "text": [
+        "Explore further",
+        "Mission Kontrol: repeatable testing",
+        "WEEK 7  /  16B",
+        "82",
+        "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.46",
+        "What knowledge should a tester need before starting?"
+      ],
+      "notes": "NetherRealm’s Mission Kontrol lets developers request actions without reproducing fighting-game input combinations. The game communicates the available move list to the tool, which avoids requiring the tester to memorize that list. This is an Unreal Slate and game-automation case, not Python editor scripting. The transferable design question is what knowledge the interface can supply at the moment it is needed. In our peer test, provide a reproducible starting state and an observable goal so we can evaluate the tool rather than the reviewer’s memory.\n\nSource insight (instructor): Mission Kontrol PDF p.46; architecture p.26 describes the Unreal plugin and adapters. Keep debug-only game integration distinct from the classroom editor operation.\n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://gdcvault.com/play/1035569/Tools-Summit-Mission-Kontrol-Revolutionizing\nhttps://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/mk-first.png\nEtienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.46\nReview anchor: 16B"
+    },
+    {
+      "number": 83,
+      "id": "7ehsvqh0",
+      "hidden": true,
+      "changed": false,
+      "source": 82,
+      "text": [
+        "Explore further",
+        "Evidence before explanation",
+        "WEEK 7  /  16",
+        "83",
+        "What questions remain before we begin testing?"
+      ],
+      "notes": "Separate what happened from why you think it happened. A preference can be useful, but it does not replace observing the task. Keep the version stable across today’s three rounds so findings can be compared. If an emergency fix is necessary, record it. Afterwards choose a change and retest. Three classmates provide useful leads, not proof that every user will succeed.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://www.nngroup.com/articles/usability-testing-101/\nhttps://www.nngroup.com/articles/task-scenarios-usability-testing/\n\nVisual: Editable slide text/table\n\nReview anchor: 16"
+    },
+    {
+      "number": 84,
+      "id": "ehgvyhg3",
+      "hidden": true,
+      "changed": false,
+      "source": 83,
+      "text": [
+        "Explore further",
+        "The current project is part of the input",
+        "WEEK 7  /  07B",
+        "84",
+        "Existing course Unreal capture · project, level and Outliner context",
+        "What context would you include in a useful run report?"
+      ],
+      "notes": "Before running an edit, identify the project and level. Check what is selected in the Outliner and what the tool reports. A familiar asset name can exist in more than one project. Your tool should make its working context inspectable.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\UnrealPythonDemo\\index.html\nVisual: Course/Slides/Week07/UnrealPythonDemo/Captures/05_demo_ready_editor.png\nExisting course Unreal capture · project, level and Outliner context\nReview anchor: 07B"
+    },
+    {
+      "number": 85,
+      "id": "tgfydgrm",
+      "hidden": true,
+      "changed": false,
+      "source": 84,
+      "text": [
+        "Explore further",
+        "Reimport needs a prediction",
+        "WEEK 7  /  10B",
+        "85",
+        "How would you detect an unintended duplicate?"
+      ],
+      "notes": "Before reimporting, predict one observable change and one thing that should remain stable. Then inspect both. The importer and its settings control the result, so repeat this check in the teaching project rather than assuming every asset behaves identically.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7\nhttps://isaacoster.artstation.com/projects/Dvdrke\n\nVisual: Editable slide text/table\n\nReview anchor: 10B"
+    },
+    {
+      "number": 86,
+      "id": "wb2x8b25",
+      "hidden": true,
+      "changed": false,
+      "source": 85,
+      "text": [
+        "Explore further",
+        "A preview is a temporary agreement",
+        "WEEK 7  /  09C",
+        "86",
+        "Course state model · changed inputs require a new preview",
+        "What else could make a preview stale?"
+      ],
+      "notes": "A preview describes a particular set of inputs. If the artist changes selection or another relevant value, the old preview may no longer describe the next edit. Invalidate it or rebuild it. After Apply, compare the actual result with the prediction.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Content\\Python\\week07_tooling\\editor\\demo.py\nVisual: Course/Visuals/Week07/reviewed-plan.png\nCourse state model · changed inputs require a new preview\nReview anchor: 09C"
+    },
+    {
+      "number": 87,
+      "id": "z6x8f2d0",
+      "hidden": true,
+      "changed": false,
+      "source": 86,
+      "text": [
+        "Explore further",
+        "Earlier prop demo: change and reset",
+        "WEEK 7  /  09E",
+        "87",
+        "Animated comparison of existing captures · not continuous execution footage",
+        "What can this animation show? What remains unverified?"
+      ],
+      "notes": "Watch the prepared comparison, then describe the changed values. Use the report and recovery demonstration to verify what the animation cannot show. The animation compares existing captured states; it does not show elapsed execution time.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\UnrealPythonDemo\\index.html\nVisual: Course/Slides/Week07/UnrealPythonDemo/Captures/week07_unreal_python_comparison.gif\nAnimated comparison of existing captures · not continuous execution footage\nReview anchor: 09E"
+    },
+    {
+      "number": 88,
+      "id": "ypgfux0n",
+      "hidden": true,
+      "changed": false,
+      "source": 87,
+      "text": [
+        "Explore further",
+        "A click connects to an operation",
+        "WEEK 7  /  15C",
+        "88",
+        "Existing course Qt schematic · signal, callback and visible result",
+        "Where would you stop an invalid operation?"
+      ],
+      "notes": "Qt emits a signal when the button is activated. A connected callback runs the operation and updates the result. This is where a UI decision becomes code: the callback can validate input, prevent duplicate work, and report the outcome.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://doc.qt.io/qtforpython-6/tutorials/basictutorial/signals_and_slots.html\n\nVisual: Course/Visuals/Week03/qt-click-route-light.png\nExisting course Qt schematic · signal, callback and visible result\nReview anchor: 15C"
+    },
+    {
+      "number": 89,
+      "id": "947ipo3a",
+      "hidden": true,
+      "changed": false,
+      "source": 88,
+      "text": [
+        "Explore further",
+        "Warning and blocked states",
+        "WEEK 7  /  15E",
+        "89",
+        "Actual course PySide tool · offline warning state",
+        "Can the artist proceed? What evidence supports that choice?"
+      ],
+      "notes": "A warning asks the artist to make a decision. A blocked state means a required condition is missing. Choose the behavior based on the operation’s consequence. Avoid treating every status update as an interruption.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://developer.apple.com/design/human-interface-guidelines/feedback\nhttps://www.nngroup.com/articles/ten-usability-heuristics/\n\nVisual: Week07UnrealPython/Docs/UI/captures/vfx_warning.png\nActual course PySide tool · offline warning state\nReview anchor: 15E"
+    },
+    {
+      "number": 90,
+      "id": "0nilwn6h",
+      "hidden": true,
+      "changed": false,
+      "source": 89,
+      "text": [
+        "Explore further",
+        "Keyboard and focus",
+        "WEEK 7  /  15F",
+        "90",
+        "source_field.setFocus()\nQWidget.setTabOrder(source_field, target_field)",
+        "A logical Tab order follows the task\nVisible focus shows the active control\nShortcuts remain discoverable",
+        "Requires the surrounding widget class.",
+        "Where does keyboard focus go after an error?"
+      ],
+      "notes": "Try completing the task without a mouse. Track where focus moves and whether you can tell which control is active. These Qt calls illustrate focus and tab order, but the surrounding widget setup is omitted. Test the behavior in the actual application. This UI fragment requires the surrounding widget instance. Use the checkpoint guide for independently runnable Unreal and Blender examples.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://doc.qt.io/qt-6/focus.html\nhttps://doc.qt.io/qtforpython-6/tutorials/\n\nVisual: Editable slide text/table\nRequires the surrounding widget class.\nReview anchor: 15F"
+    },
+    {
+      "number": 91,
+      "id": "y10z65c7",
+      "hidden": true,
+      "changed": false,
+      "source": 90,
+      "text": [
+        "Explore further",
+        "Testing continues after release",
+        "WEEK 7  /  16D",
+        "91",
+        "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.55",
+        "How will users report a problem after your first release?"
+      ],
+      "notes": "The talk describes focused QA, a studio introduction, and continued maintenance. Our peer lab is one small iteration. After the lab, make a targeted change and run the task again with someone who did not watch you build it.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/mk-lifecycle.png\nEtienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.55\nReview anchor: 16D"
+    },
+    {
+      "number": 92,
+      "id": "zi9cryxk",
+      "hidden": true,
+      "changed": false,
+      "source": 91,
+      "text": [
+        "Explore further",
+        "A useful observation record",
+        "WEEK 7  /  16F",
+        "92",
+        "Which statement could another observer verify?"
+      ],
+      "notes": "Record the behavior and the help you gave. Avoid writing only that the tool was confusing or intuitive. A precise observation gives the author something they can investigate and gives you a basis for choosing the next test.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://www.nngroup.com/articles/usability-testing-101/\nhttps://www.nngroup.com/articles/task-scenarios-usability-testing/\n\nVisual: Editable slide text/table\n\nReview anchor: 16F"
+    },
+    {
+      "number": 93,
+      "id": "cry98721",
+      "hidden": true,
+      "changed": false,
+      "source": 92,
+      "text": [
+        "Explore further",
+        "Material graphs: further study",
+        "WEEK 7  /  A1",
+        "93",
+        "Actual practice-mode interface · sample data, no Unreal connection",
+        "What should remain editable by the artist?"
+      ],
+      "notes": "This local practice panel illustrates how a prepared parent material, texture inputs, a new instance, and a component assignment can be reviewed before applying. It is not a capture of a live Unreal operation. Oster’s Asset Setup and Texture Utility series provide related Unreal Python study. Keep the first example bounded rather than constructing a full material system during this lesson.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://isaacoster.artstation.com/projects/xDB8zR\nhttps://isaacoster.artstation.com/projects/qeAwqe\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\UI\\MATERIAL_VFX_SCOPE.md\nVisual: Week07UnrealPython/Docs/UI/captures/material_preview.png\nActual practice-mode interface · sample data, no Unreal connection\nReview anchor: A1"
+    },
+    {
+      "number": 94,
+      "id": "5sjq9oby",
+      "hidden": true,
+      "changed": false,
+      "source": 93,
+      "text": [
+        "Explore further",
+        "Qt: small implementation examples",
+        "WEEK 7  /  A2",
+        "94",
+        "form = QFormLayout()\nform.addRow(\"Source file\", source_field)\nform.addRow(\"Destination\", target_field)\n\nsource_field.textChanged.connect(update_preview)\nimport_button.clicked.connect(run_import)",
+        "Layouts express relationships\nSignals connect actions and feedback",
+        "Requires the surrounding widget class.",
+        "Which UX decision does each line support?"
+      ],
+      "notes": "These are illustrative fragments requiring surrounding widget setup and callbacks. They are not a complete importer. Qt can illustrate general Python GUI concepts while Editor Utility Widgets provide an Unreal-native comparison. Neither toolkit determines the quality of the workflow on its own. This UI fragment requires the surrounding widget instance. Use the checkpoint guide for independently runnable Unreal and Blender examples.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://doc.qt.io/qtforpython-6/tutorials/\nhttps://doc.qt.io/qtforpython-6.8/overviews/qtwidgets-layout.html\n\nVisual: Editable slide text/table\nRequires the surrounding widget class.\nReview anchor: A2"
+    },
+    {
+      "number": 95,
+      "id": "idgbyp0n",
+      "hidden": true,
+      "changed": false,
+      "source": 94,
+      "text": [
+        "Explore further",
+        "Other production references",
+        "WEEK 7  /  A3",
+        "95",
+        "Ubisoft Connect: internal release-tool UX",
+        "Fortnite Tools: inspect and locate overlaps",
+        "Ryan DowlingSoka: batch renaming",
+        "Which workflow problem transfers to your own tool?"
+      ],
+      "notes": "Ubisoft’s GDC session describes the Pylon release tool’s UX redesign before Rainbow Six Extraction. Epic’s Fortnite Tools and Ryan’s batch-renaming tutorial provide different editor examples. Compare the user’s task and the evidence each tool exposes. These examples use different technologies and should not be treated as one Python pipeline.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://www.gdcvault.com/play/1027943/Tools-Summit-Ubisoft-Connect-Building\nhttps://dev.epicgames.com/documentation/fortnite/fortnite-tools-mode-in-fortnite?lang=en-US\nhttps://ryandowlingsoka.com/unreal/batch-rename-tool/\n\nVisual: Editable slide text/table\n\nReview anchor: A3"
+    },
+    {
+      "number": 96,
+      "id": "bmxsjyhk",
+      "hidden": true,
+      "changed": false,
+      "source": 95,
+      "text": [
+        "Explore further",
+        "Unreal production architecture",
+        "WEEK 7  /  A7",
+        "96",
+        "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.26",
+        "Which boundary makes independent changes easier?"
+      ],
+      "notes": "Mission Kontrol separates its Slate interface from network adapters and game automation. This is a production architecture example, not a Python editor recipe. Compare the separation of responsibilities with our smaller UI and operation model.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/mk-architecture.png\nEtienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.26\nReview anchor: A7"
+    },
+    {
+      "number": 97,
+      "id": "0b2pori9",
+      "hidden": true,
+      "changed": false,
+      "source": 96,
+      "text": [
+        "Explore further",
+        "Existing Unreal widgets as references",
+        "WEEK 7  /  A8",
+        "97",
+        "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.34",
+        "Which familiar editor control could guide your design?"
+      ],
+      "notes": "The Widget Reflector can inspect Unreal’s Slate widget hierarchy and connect a visible widget to implementation information. Use it as an exploration route when you move beyond the Python and Editor Utility examples in this class.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/widget-reflector-in-unreal-engine\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/mk-reflector.png\nEtienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.34\nReview anchor: A8"
+    },
+    {
+      "number": 98,
+      "id": "1wfq9orm",
+      "hidden": true,
+      "changed": true,
+      "source": 97,
+      "text": [
+        "Explore further",
+        "Shareable reproduction steps",
+        "WEEK 7  /  A9",
+        "98",
+        "Etienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.51",
+        "What would you attach to a useful bug report?"
+      ],
+      "notes": "Mission Kontrol supports sharing test scripts as JSON. For your tool, consider saving the input and settings needed to repeat a reported problem. A screenshot of the final failure may not include the starting conditions.\n\nFor the classroom bridge, attach Copy diagnostics with the steps that led to the problem. It preserves the active exchange, receiver project/session and last request/result identity. Review local paths before sharing the report. The report does not export or resend anything.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://media.gdcvault.com/gdc2025/Slides/Palmer-Campbell_Etienne_MissionKontrolRevolutionizing.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/mk-share.png\nEtienne Palmer-Campbell · NetherRealm · GDC 2025 · PDF p.51\nReview anchor: A9\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 37, 48; week07_bridge/client.py."
+    },
+    {
+      "number": 99,
+      "id": "6tkni9gr",
+      "hidden": true,
+      "changed": false,
+      "source": 98,
+      "text": [
+        "Explore further",
+        "Production feedback is evidence with limits",
+        "WEEK 7  /  A10",
+        "99",
+        "Jeff Stewart · Vicarious Visions · GDC 2018 · PDF p.13",
+        "What would you need before interpreting this as a causal result?"
+      ],
+      "notes": "This published chart reports Vicarious Visions’ internal workflow survey. Treat it as studio-reported feedback. It does not establish that a single feature caused a productivity gain. In your lab, combine ratings with observed task behavior.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://media.gdcvault.com/gdc2018/presentations/Stewart_Jeff_BuildGreatTools.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/vv-survey.png\nJeff Stewart · Vicarious Visions · GDC 2018 · PDF p.13\nReview anchor: A10"
+    },
+    {
+      "number": 100,
+      "id": "rex8n2xg",
+      "hidden": true,
+      "changed": false,
+      "source": 99,
+      "text": [
+        "Explore further",
+        "A production prototype evolves",
+        "WEEK 7  /  A11",
+        "100",
+        "Guerrilla · Sumaili & van der Steen · GDC 2017 · PDF pp.31,33",
+        "Which uncertainty should your next prototype answer?"
+      ],
+      "notes": "These are published stages in Guerrilla’s node-editor work. A prototype lets a team investigate an interaction before refining the full tool. For your own project, identify what the prototype proves and what it leaves untested.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/horizon-prototype.png; Course/Slides/Week07/ExpandedDeck20261013/assets/horizon-node-editor.png\nGuerrilla · Sumaili & van der Steen · GDC 2017 · PDF pp.31,33\nReview anchor: A11"
+    },
+    {
+      "number": 101,
+      "id": "q58fqtwb",
+      "hidden": true,
+      "changed": false,
+      "source": 100,
+      "text": [
+        "Explore further",
+        "A different discipline, a different view",
+        "WEEK 7  /  A12",
+        "101",
+        "Guerrilla · Sumaili & van der Steen · GDC 2017 · PDF p.25",
+        "Which controls would your target artist never need?"
+      ],
+      "notes": "Compare this conversation editor with the level-editor view shown earlier. They support different content decisions. Reusing a framework does not require showing every user the same controls.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/horizon-dialogue.png\nGuerrilla · Sumaili & van der Steen · GDC 2017 · PDF p.25\nReview anchor: A12"
+    },
+    {
+      "number": 102,
+      "id": "7y90baxs",
+      "hidden": true,
+      "changed": false,
+      "source": 101,
+      "text": [
+        "Explore further",
+        "Reveal detail where the artist is looking",
+        "WEEK 7  /  A13",
+        "102",
+        "Guerrilla · GDC 2017 · published world-map clip · 16 seconds",
+        "Play companion clip",
+        "What detail should be persistent, selected, or shown on hover?"
+      ],
+      "notes": "Play the sixteen-second world-map clip from the companion media page. Watch the cursor: an item gains a highlight and a readable label on hover. Ask what can remain visible and what can appear only when needed. For a classroom Unreal tool, the comparable decision might be a concise result list with additional information on selection. This clip demonstrates a production interaction; it does not establish that hover-only information is accessible to everyone. Preserve keyboard and persistent-detail alternatives where needed.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://www.guerrilla-games.com/read/creating-a-tools-pipeline-for-horizon-zero-dawn\nhttps://d3d3g8mu99pzk9.cloudfront.net/DanSumaili/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf\n\nVisual: Course/Slides/Week07/ExpandedDeck20261013/assets/guerrilla-map-poster.png\nGuerrilla · GDC 2017 · published world-map clip · 16 seconds\nReview anchor: A13"
+    },
+    {
+      "number": 103,
+      "id": "83qdw7m9",
+      "hidden": true,
+      "changed": false,
+      "source": 102,
+      "text": [
+        "Explore further",
+        "Python and Unreal: further study",
+        "WEEK 7  /  A4",
+        "103",
+        "Epic Python documentation",
+        "Oster: Import / Export",
+        "Oster: Texture Utility",
+        "Oster: Asset Setup",
+        "Karol: Python Automation"
+      ],
+      "notes": "Use official documentation for API behavior and the course sources for worked examples. The complete source audit preserves the individual tutorial episodes and the playlist already studied. Paid courses are optional instructor preparation, not student requirements.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python\nhttps://isaacoster.artstation.com/projects/Dvdrke\nhttps://isaacoster.artstation.com/projects/qeAwqe\nhttps://isaacoster.artstation.com/projects/xDB8zR\nhttps://www.udemy.com/course/unreal-engine-5-python-automation/\n\nVisual: Editable slide text/table\n\nReview anchor: A4"
+    },
+    {
+      "number": 104,
+      "id": "18fuxcb6",
+      "hidden": true,
+      "changed": false,
+      "source": 103,
+      "text": [
+        "Explore further",
+        "UI/UX: further study",
+        "WEEK 7  /  A5",
+        "104",
+        "NN/g: usability testing",
+        "NN/g: task scenarios",
+        "Apple: feedback",
+        "GDC: Jodie Azhar’s tool-design slides",
+        "Qt for Python tutorials"
+      ],
+      "notes": "These sources support different kinds of claims: professional guidance, examples of practice, and technical implementation. They do not all provide experimental evidence. Use the research supplement for the parallel-prototyping paper and its limits.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://www.nngroup.com/articles/usability-testing-101/\nhttps://www.nngroup.com/articles/task-scenarios-usability-testing/\nhttps://developer.apple.com/design/human-interface-guidelines/feedback\nhttps://media.gdcvault.com/gdc2018/presentations/Jodie_Azhar_ProductionValuesImproving.pdf#page=32\nhttps://doc.qt.io/qtforpython-6/tutorials/\n\nVisual: Editable slide text/table\n\nReview anchor: A5"
+    },
+    {
+      "number": 105,
+      "id": "2pkbi9wz",
+      "hidden": true,
+      "changed": false,
+      "source": 104,
+      "text": [
+        "Explore further",
+        "Later directions",
+        "WEEK 7  /  A6",
+        "105",
+        "Blueprint generators and spline-based artist tools",
+        "PCG, procedural modeling, and larger environments",
+        "Material workflows, VFX, and validation pipelines",
+        "Which direction supports a task you actually need?"
+      ],
+      "notes": "These are future study directions rather than additional Week 7 objectives. The complete source audit includes Oster’s later topics, the Blueprint courses, and the original C++ editor-tools course. SimonDev and Ben Cloward remain shader-related background rather than Unreal editor-tooling backbones.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://www.udemy.com/course/unreal-engine-blueprint-automation/\nhttps://isaacoster.artstation.com/projects/xDB8zR\nhttps://isaacoster.artstation.com/projects/qeAwqe\n\nVisual: Editable slide text/table\n\nReview anchor: A6"
+    },
+    {
+      "number": 106,
+      "id": "jutcfaps",
+      "hidden": true,
+      "changed": true,
+      "source": 105,
+      "text": [
+        "Explore further",
+        "UE09: Material parameter readback",
+        "WEEK 7  /  09L",
+        "106",
+        "names = library.get_texture_parameter_names(instance)\nprint(\"Texture parameters:\", len(names))\nfor name in names:\n    texture = library.get_material_instance_texture_parameter_value(\n        instance, name)\n    print(name, texture.get_path_name() if texture else None)",
+        "Setup validates one selected material instance. Read back its texture parameters.",
+        "Run in Unreal. First run UE09: setup.",
+        "Which returned path would you compare with the expected input?"
+      ],
+      "notes": "Setup validates one selected material instance. Read back its texture parameters. First run UE09: setup. Then run the shown block(s). Texture parameter names and resolved texture paths, or None. Zero parameters prints zero. Which returned path would you compare with the expected input? Compare an expected texture mapping with the reported value.\n\nParameter names must match the parent material. Check expected names before applying edits, inspect setter results, then read back the assigned values. Clearing all parameter overrides is a separate operation that can remove unrelated choices. Constructing MaterialParameterInfo only describes a parameter; it does not set one.\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: unreal. Before running: Select exactly one MaterialInstanceConstant in the Content Browser. Recovery: Read only. Use the instance from the prepared Material/VFX demo. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE09_material_readback.py Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/MaterialEditingLibrary?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE09_material_readback.py\nVisual: Editable slide text/table\nRun in Unreal. First run UE09: setup.\nReview anchor: 09L\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 14, 50."
+    },
+    {
+      "number": 107,
+      "id": "ov2p4vup",
+      "hidden": true,
+      "changed": true,
+      "source": 106,
+      "text": [
+        "Explore further",
+        "Karol course connections",
+        "WEEK 7  /  K1",
+        "107",
+        "Completed course: K2 Map · K3 imports · K4 Remote Control",
+        "K5 cancellation / Undo · K6 automated test evidence"
+      ],
+      "notes": "These are the specific connections we used from Karol Kowalczyk’s course. The classroom bridge and tools are course-authored implementations. The original downloaded projects provide references for further study, rather than the classroom launch project.\n\nThe completed course adds a typed Map output example, import troubleshooting and runtime object-path discovery. The latter applies to Remote Control, while our classroom bridge uses file requests. The further examples separate cancellation from Undo and show how to prove a test is actually running. Which reference would help your own tool next?\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\n\nC:/Users/antho/Downloads/Python.zip\nC:/Users/antho/Downloads/UE5_2_project.zip\nC:/Users/antho/Downloads/ExamplePlugin_FixTextureCompression.zip\nVisual: Editable slide text/table\n\nReview anchor: K1\nAdditional sources: Karol Kowalczyk / Tech Art Corner, refined lessons 46–50 and 33–38."
+    },
+    {
+      "number": 108,
+      "id": "loz2xkzi",
+      "hidden": true,
+      "changed": false,
+      "source": 107,
+      "text": [
+        "Explore further",
+        "BL03: Evaluated geometry",
+        "WEEK 7  /  BL03",
+        "108",
+        "graph = bpy.context.evaluated_depsgraph_get()\nevaluated = obj.evaluated_get(graph)\nmesh = evaluated.to_mesh()\ntry:\n    print(\"Source polygons:\", len(obj.data.polygons))\n    print(\"Evaluated polygons:\", len(mesh.polygons))\nfinally:\n    evaluated.to_mesh_clear()",
+        "Setup requires one mesh in Object Mode. Always release the temporary evaluated mesh.",
+        "Run in Blender. First run BL03: setup.",
+        "Why can source and evaluated polygon counts differ?"
+      ],
+      "notes": "Setup requires one mesh in Object Mode. Always release the temporary evaluated mesh. First run BL03: setup. Then run the shown block(s). Source and evaluated polygon counts. They can be equal without a topology-changing modifier. Why can source and evaluated polygon counts differ? Compare counts with a prepared subdivision modifier enabled and disabled.\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: blender. Before running: Object Mode with exactly one mesh selected. A modifier can make the contrast visible. Recovery: Read only. Temporary mesh released in finally; modifier is not applied. Run the full saved checkpoint to jump here with a fresh namespace. Source: blender/BL03_evaluated_mesh.py Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://docs.blender.org/api/5.1/bpy.types.Object.html\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\blender\\BL03_evaluated_mesh.py\nVisual: Editable slide text/table\nRun in Blender. First run BL03: setup.\nReview anchor: BL03"
+    },
+    {
+      "number": 109,
+      "id": "q50betc3",
+      "hidden": true,
+      "changed": false,
+      "source": 108,
+      "text": [
+        "Explore further",
+        "BL04: One FBX export",
+        "WEEK 7  /  BL04",
+        "109",
+        "result = bpy.ops.export_scene.fbx(\n    filepath=str(output), use_selection=True,\n    object_types={\"MESH\"}, use_mesh_modifiers=True,\n    bake_anim=False, add_leaf_bones=False,\n    axis_forward=\"-Y\", axis_up=\"Z\")",
+        "Setup checks one mesh and creates a new temporary output folder. Check verifies the FBX exists.",
+        "Run in Blender. First run BL04: setup.",
+        "What does file existence leave unverified?"
+      ],
+      "notes": "Setup checks one mesh and creates a new temporary output folder. Check verifies the FBX exists. First run BL04: setup. Then run the shown block(s). A nonempty FBX in a new temporary folder; exact path prints. What does file existence leave unverified? Read use_selection and bake_anim. Predict their effect on scope.\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: blender. Before running: Object Mode, one unrigged mesh, no shape keys. FBX exporter available. Recovery: Writes a new temporary folder each run. Remove only the printed lesson folder afterward. No scene save. Run the full saved checkpoint to jump here with a fresh namespace. Source: blender/BL04_export_fbx.py Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://docs.blender.org/api/5.1/bpy.ops.export_scene.html\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\blender\\BL04_export_fbx.py\nVisual: Editable slide text/table\nRun in Blender. First run BL04: setup.\nReview anchor: BL04"
+    },
+    {
+      "number": 110,
+      "id": "zi107e9c",
+      "hidden": true,
+      "changed": false,
+      "source": 109,
+      "text": [
+        "Explore further",
+        "UE11: Prepare an import task",
+        "WEEK 7  /  UE11S",
+        "110",
+        "import unreal\nfrom pathlib import Path\nroot = Path(unreal.Paths.project_dir())\nfbx = root / \"Samples/Bridge/Handoffs/blender/baseline/SM_Compare_Blender.fbx\"\ndestination = \"/Game/Week07/APILessons\"\nasset_name = \"SM_API_Wedge\"\nif not fbx.is_file():\n    raise RuntimeError(\"Open Week07UnrealPython with Samples included.\")",
+        "This is the real source file and destination used by UE11 and UE12.",
+        "Run in Unreal. Start with this setup.",
+        "Which path is on disk and which belongs to Unreal?"
+      ],
+      "notes": "This is the real source file and destination used by UE11 and UE12. First run UE11: no preceding blocks. Then run the shown block(s). Prepared source and destination. No new Unreal asset. Which path is on disk and which belongs to Unreal? Change destination_name in this preparation-only example. What would it identify?\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: unreal. Before running: Week07UnrealPython project with Samples/Bridge/Handoffs included. Recovery: Read only. Constructs task/options objects but does not execute an import. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE11_import_task.py Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE11_import_task.py\nVisual: Editable slide text/table\nRun in Unreal. Start with this setup.\nReview anchor: UE11S"
+    },
+    {
+      "number": 111,
+      "id": "pk3mp4by",
+      "hidden": true,
+      "changed": false,
+      "source": 110,
+      "text": [
+        "Explore further",
+        "UE08: One material override",
+        "WEEK 7  /  UE08S",
+        "111",
+        "import unreal\neditor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)\nlevel = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)\nworld = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem)\nmap_path = world.get_editor_world().get_path_name().split(\".\")[0]\nteaching_map = \"/Game/Week07/Maps/W07_MaterialVFXLab\"\nif level.is_in_play_in_editor() or map_path != teaching_map:\n    raise RuntimeError(\"Stop PIE and open W07_MaterialVFXLab.\")\nactors = editor.get_selected_level_actors()\nassets = unreal.EditorUtilityLibrary.get_selected_assets()",
+        "Map and PIE checks precede any material edit.",
+        "Run in Unreal. Start with this setup.",
+        "Why identify the teaching map before changing a component?"
+      ],
+      "notes": "Map and PIE checks precede any material edit. First run UE08: no preceding blocks. Then run the shown block(s). Target slot zero changes; old/new materials print. Protected cube remains unchanged. Why identify the teaching map before changing a component? Try selecting the protected cube. Confirm the check blocks before editing.\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: unreal. Before running: W07_MaterialVFXLab, PIE stopped. Select only tagged W07_Crate_Target and one existing material/instance. Recovery: One viewport Undo restores the assignment. No new asset or save. Already assigned material creates no new Undo entry. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE08_material_override.py Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/ScopedEditorTransaction?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE08_material_override.py\nVisual: Editable slide text/table\nRun in Unreal. Start with this setup.\nReview anchor: UE08S"
+    },
+    {
+      "number": 112,
+      "id": "sf6p0fed",
+      "hidden": true,
+      "changed": false,
+      "source": 111,
+      "text": [
+        "Explore further",
+        "UE08: One material override",
+        "WEEK 7  /  UE08E",
+        "112",
+        "if len(actors) != 1 or \"W07_MaterialTarget\" not in map(str, actors[0].tags):\n    raise RuntimeError(\"Select only the tagged W07_Crate_Target Actor.\")\nif len(assets) != 1 or not isinstance(assets[0], unreal.MaterialInterface):\n    raise RuntimeError(\"Select one material in the Content Browser.\")\ncomponents = actors[0].get_components_by_class(unreal.StaticMeshComponent)\nif len(components) != 1 or components[0].get_num_materials() < 1:\n    raise RuntimeError(\"Need one mesh component with slot zero.\")\ncomponent = components[0]\nmaterial = assets[0]\nbefore = component.get_material(0)",
+        "The guarded target and existing material are the inputs to UE08.",
+        "Run in Unreal. First run UE08: setup.",
+        "Which check protects the other cube?"
+      ],
+      "notes": "The guarded target and existing material are the inputs to UE08. First run UE08: setup. Then run the shown block(s). Target slot zero changes; old/new materials print. Protected cube remains unchanged. Which check protects the other cube? Try selecting the protected cube. Confirm the check blocks before editing.\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: unreal. Before running: W07_MaterialVFXLab, PIE stopped. Select only tagged W07_Crate_Target and one existing material/instance. Recovery: One viewport Undo restores the assignment. No new asset or save. Already assigned material creates no new Undo entry. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE08_material_override.py Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/ScopedEditorTransaction?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE08_material_override.py\nVisual: Editable slide text/table\nRun in Unreal. First run UE08: setup.\nReview anchor: UE08E"
+    },
+    {
+      "number": 113,
+      "id": "fu187e1o",
+      "hidden": true,
+      "changed": false,
+      "source": 112,
+      "text": [
+        "Explore further",
+        "UE12: Import and inspect",
+        "WEEK 7  /  UE12C",
+        "113",
+        "paths = list(task.get_editor_property(\"imported_object_paths\"))\nmesh = unreal.load_asset(package)\nexpected_path = package + \".\" + asset_name\nif expected_path not in paths or not isinstance(mesh, unreal.StaticMesh):\n    raise RuntimeError(\"Expected mesh missing. Inspect importer output.\")\nprint(\"Imported:\", paths)\nprint(\"Bounds:\", mesh.get_bounding_box())\nprint(\"Not saved. Inspect size, axes and pivot.\")\nprint(\"Import is not a general Undo transaction.\")",
+        "UE12 verifies the returned asset identity, then prints bounds for inspection.",
+        "Run in Unreal. First run UE12: setup, options, task, eligibility, focus.",
+        "Does an imported mesh necessarily have the intended size?"
+      ],
+      "notes": "UE12 verifies the returned asset identity, then prints bounds for inspection. First run UE12: setup + options + task + eligibility + focus. Then run the shown block(s). One unsaved StaticMesh at the exact lesson path, returned paths and bounds. Does an imported mesh necessarily have the intended size? Compare printed bounds with the supplied wedge's 120 x 60 x 180 cm reference. No size check is implied by file existence.\n\nSource insight (instructor): \n\nFacilitation (not narration): Host: unreal. Before running: Same project, PIE stopped, /Game/Week07/APILessons/SM_API_Wedge absent. Recovery: Creates an unsaved lesson asset. Refuses repeat overwrite. After inspection manually remove only that lesson asset, or use a fresh disposable project copy. Do not assume Undo reverses import. Run the full saved checkpoint to jump here with a fresh namespace. Source: ue/UE12_import_and_verify.py Optional reference, outside the 150-minute route. Optional reference.\n\nSources:\nhttps://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/AssetImportTask?application_version=5.7\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\lesson_materials\\week_07_api_checkpoints\\ue\\UE12_import_and_verify.py\nVisual: Editable slide text/table\nRun in Unreal. First run UE12: setup, options, task, eligibility, focus.\nReview anchor: UE12C"
+    },
+    {
+      "number": 114,
+      "id": "utonm5kj",
+      "hidden": true,
+      "changed": false,
+      "source": 113,
+      "text": [
+        "Explore further",
+        "One checkpoint, one run",
+        "WEEK 7  /  04A",
+        "114",
+        "import week07_lessons\n\n# Optional launcher: runs the readable UE02 file.\nweek07_lessons.run(\"UE02\")\n\n# Inspect the actual API code before running.\nprint(week07_lessons.source(\"UE02\"))",
+        "Or execute the saved .py file. Each checkpoint repeats its setup. Copy buttons in the guide provide a complete runnable file.",
+        "Run one saved example in Unreal.",
+        "What would you inspect before executing a checkpoint?"
+      ],
+      "notes": "We will use one prepared file per topic, as we did in Week 3. Read the API lines, predict their result, run the checkpoint, and inspect the output. The launcher runs the actual file in a fresh namespace. You can also open the file with Execute Python Script. In Blender use its Text Editor. A Setup block prepares variables only within that file.\n\nSource insight (instructor): \n\nFacilitation (not narration):  Optional reference.\n\nSources:\n\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Content\\Python\\week07_lessons.py\nVisual: Editable slide text/table\nRun one saved example in Unreal.\nReview anchor: 04A"
+    },
+    {
+      "number": 115,
+      "id": "14b2hofy",
+      "hidden": true,
+      "changed": false,
+      "source": 114,
+      "text": [
+        "Explore further",
+        "Texture inputs in Maya and Blender",
+        "WEEK 7  /  MATS",
+        "115",
+        "Use the image’s actual encoding. For non-color maps, use Raw / Non-Color as appropriate.",
+        "Why is a material assignment different from transferring a shader graph?"
+      ],
+      "notes": "In Maya inspect the file node Color Space, and in Blender inspect Image Texture Color Space. Color textures need their correct input color space; raw data maps must avoid a color transform. Maya labels depend on the active OCIO configuration. Normal maps need a renderer-appropriate normal node. Packed ORM channels need separate routing. The bridge does not create these networks or convert them to an Unreal material.\n\nSource insight (instructor): \n\nFacilitation (not narration): Open the matching walkthrough for the exact UI locations, manual steps and expected evidence. Optional reference.\n\nSources:\nhttps://help.autodesk.com/cloudhelp/2027/ENU/Maya-LightingShading/files/GUID-D41AF807-F7CB-447E-BACC-7F0867C14E8D.htm\nhttps://docs.blender.org/manual/en/latest/render/materials/assignment.html\nC:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\MaterialsWalkthrough20261013\\walkthrough.html\nVisual: Editable slide text/table\nUse the image’s actual encoding. For non-color maps, use Raw / Non-Color as appropriate.\nReview anchor: MATS"
+    },
+    {
+      "number": 116,
+      "id": "kz2lob61",
+      "hidden": true,
+      "changed": false,
+      "source": 115,
+      "text": [
+        "01  Python in Unreal",
+        "Explore further: Epic Python samples",
+        "WEEK 7  /  SAMPLES",
+        "116",
+        "Browse the public PythonSamples repository for complete examples.",
+        "Compare a sample’s API calls with documentation for your engine version.",
+        "Read prerequisites and intended scope before adapting a script.",
+        "Epic Games: PythonSamples source repository",
+        "Which small operation could become your own tool?"
+      ],
+      "notes": "These are example scripts rather than a packaged artist-facing application. Keep them distinct from the Script Editor and AYON toolkits. Use them for further study after students can identify the host, object, parameters and return value in a short call.\n\nSource insight (instructor): \n\nFacilitation (not narration): Open the linked primary source before class. Showcase only; no installation or new live host test was performed.\n\nSources:\nhttps://github.com/EpicGames/PythonSamples\n\nVisual: Editable slide text/table\n\nReview anchor: SAMPLES"
+    },
+    {
+      "number": 117,
+      "id": "qvmv68",
+      "hidden": true,
+      "changed": true,
+      "source": null,
+      "text": [
+        "Explore further",
+        "Import troubleshooting",
+        "WEEK 7  /  K3",
+        "Missing module, nested failure, or a circular import?",
+        "import sys\nimport unreal\nprint(unreal.get_interpreter_executable_path())\nprint(\"\\n\".join(sys.path))",
+        "Read the traceback. Check the loaded module’s __file__.\nUse package-qualified imports from Content/Python.\nInstall dependencies with the host interpreter during preparation.",
+        "Return to: A saved example, run inside Unreal (RUN)",
+        "Which interpreter ran the failing import? Questions about discovery?",
+        "117"
+      ],
+      "notes": "Run this diagnostic in Unreal. The first path identifies its Python interpreter; the remaining lines show import search locations. An IDE’s successful autocomplete does not prove that Unreal can import the module. If an import succeeds, print that module’s __file__ to verify which copy loaded. Read nested tracebacks before installing anything. Package-qualified imports avoid relying on a script folder added only by the IDE. Repeated imports are cached, and a circular import needs a dependency change. Keep the UI dependent on shared operations, not the other way around.\n\nFacilitation (not narration): Optional reference, outside the 150-minute live route.\n\nSources: Karol Kowalczyk / Tech Art Corner, Unreal Python course; refined lessons 06–09, 27, 48. under C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course"
+    },
+    {
+      "number": 118,
+      "id": "a478fx",
+      "hidden": true,
+      "changed": true,
+      "source": null,
+      "text": [
+        "Explore further",
+        "Remote Control object paths",
+        "WEEK 7  /  K4",
+        "Inside Unreal, after registering the course class:",
+        "from remote_control_demo_functions import RemoteControlDemo\nobject_path = RemoteControlDemo.get_default_object().get_path_name()\nprint(object_path)",
+        "Use the printed value as objectPath in the HTTP request.\nCheck HTTP status and ReturnValue, then inspect the operation’s result.\nThe classroom FBX bridge uses file requests instead.",
+        "Return to: Blender bridge (10D) or Karol course connections (K1)",
+        "What does a successful ping prove? What remains untested?",
+        "118"
+      ],
+      "notes": "This fragment requires the RemoteControlDemo class from the course module, imported and registered inside Unreal. Ask that registered class for its default object path. A copied Engine/PythonTypes path may not describe a class imported from a module. Use the discovered string in the request and check the response. A ping confirms that callable, not the correctness of an asset import. Our file-based bridge does not require this Remote Control setup.\n\nFacilitation (not narration): Optional alternative transport. Requires the course class and Remote Control API plugin/server. Do not run this fragment as a standalone checkpoint without the supplied module.\n\nSources: Karol Kowalczyk / Tech Art Corner, Unreal Python course; refined lessons 41–47. under C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course"
+    },
+    {
+      "number": 119,
+      "id": "snos7e",
+      "hidden": true,
+      "changed": true,
+      "source": null,
+      "text": [
+        "Explore further",
+        "Progress, cancellation and Undo",
+        "WEEK 7  /  K5",
+        "A Cancel button needs a cooperative check between work units.",
+        "Return to: Recovery and accessibility (15B)",
+        "After item 3 of 10, what remains changed if the artist cancels?",
+        "119"
+      ],
+      "notes": "ScopedSlowTask can display progress and a Cancel button. The loop still has to check should_cancel between work units. Cancelling leaves completed edits in place. Put supported batch edits inside one meaningful ScopedEditorTransaction when one Undo should cover them. Verify that the affected operation participates in transactions. FBX exports, imports and file writes require an explicit recovery procedure. In our bridge, publish the baseline under the same asset name. What questions do you have about the recovery your tool promises?\n\nFacilitation (not narration): Optional reference, outside the 150-minute live route.\n\nSources: Karol Kowalczyk / Tech Art Corner, Unreal Python course; refined lessons 33–34, 45. under C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course"
+    },
+    {
+      "number": 120,
+      "id": "0undlv",
+      "hidden": true,
+      "changed": true,
+      "source": null,
+      "text": [
+        "Explore further",
+        "Tests that detect failure",
+        "WEEK 7  /  K6",
+        "The discovered script must call its check.",
+        "import unreal\n\ndef test_upper():\n    actual = \"foo\".upper()\n    if actual != \"FOO\":\n        unreal.log_error(f\"Expected FOO, got {actual!r}\")\n\nif __name__ == \"__main__\":\n    test_upper()",
+        "Temporarily expect BAR. Confirm failure, then restore FOO.",
+        "Return to: A test produces the next question (16E)",
+        "Would a green result prove that an uncalled check passed?",
+        "120"
+      ],
+      "notes": "Save this as a test_ Python script in a discoverable folder for the course’s Python Automation Test setup. Defining the function alone does not run it; the final call matters. First confirm the successful expectation. Temporarily change the expected value to BAR and confirm the runner detects the logged failure. Restore FOO afterward. Keep normal, empty and failure cases isolated. An excluded check is skipped, not passed. Expected-log rules must match the real tested operation; emitting a synthetic matching warning would not prove that operation ran. What would your tool’s meaningful failure case be?\n\nFacilitation (not narration): Optional Unreal Python Automation Test setup. Do not leave the deliberate failure in the final script. This is an Unreal runner example, distinct from the bridge’s ordinary Python unittest suite.\n\nSources: Karol Kowalczyk / Tech Art Corner, Unreal Python course; refined lessons 35–38. under C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke Tech Art Course Notes/16 Karol UE Python Course"
+    }
+  ]
+}

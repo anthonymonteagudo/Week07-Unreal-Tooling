@@ -1,0 +1,231 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>50 Working with Unreal data types · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#notes">Return to audit</a><a href="49.html">Previous lesson</a> <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/50%20Working%20with%20Unreal%20data%20types.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/50%20Working%20with%20Unreal%20data%20types%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>50 Working with Unreal data types</h1><p>14 screenshots preserved; organized explanation and copyable examples.</p><p class="meta">Read-only rendered snapshot, 14 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Change record</button></div><article class="document" id="refined"><h1>Working with Unreal Arrays Maps and Structs — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/50%20Working%20with%20Unreal%20data%20types.md">Original notes</a></p>
+<p>Unreal exposes typed containers and structs to Python. They often support familiar iteration and inspection, but they are not interchangeable with arbitrary Python lists/dictionaries at every reflected API or Blueprint boundary.</p>
+<h2>Inspect and iterate returned arrays</h2>
+<pre><code class="language-python">import unreal
+asset_paths = unreal.EditorAssetLibrary.list_assets(&quot;/Game/StarterContent/Textures/&quot;)
+for path in asset_paths:
+    print(path)
+</code></pre>
+<p>The folder is the course example and must exist in the project. The console&#39;s direct object representation can show an Unreal type/reference while <code>print(...)</code> or iteration shows values; that display difference does not mean the array is empty.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213259.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213339.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213352.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213417.png" alt="Course screenshot"></p>
+<p>Use <code>dir(asset_paths)</code> or <code>help(...)</code> to inspect available operations. The screenshot includes familiar methods such as append, count, insert, reverse and sort. Convert with <code>list(asset_paths)</code> when you deliberately need a Python list; iteration alone does not require conversion.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213440.png" alt="Course screenshot"></p>
+<h2>Cast a Python list with an explicit element type</h2>
+<p>The failed constructor attempts pass values where Unreal expects type information. Use the cast helper and keep its returned value:</p>
+<pre><code class="language-python">numbers = unreal.Array.cast(int, [1, 2, 3])
+print(list(numbers))
+</code></pre>
+<p>Do not copy the failing <code>unreal.Array([1, 2, 3])</code> or <code>unreal.Array(1, 2, 3)</code> attempts. The declared element type constrains the array; do not rely on it accepting an arbitrary mixture of strings and integers.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213511.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213542.png" alt="Course screenshot"></p>
+<h2>Pass a typed map through a Blueprint Python node</h2>
+<p>This example converts string keys and integer values:</p>
+<pre><code class="language-python">import unreal
+my_dict = {&quot;a&quot;: 1, &quot;b&quot;: 2}
+unreal_map = unreal.Map.cast(str, int, my_dict)
+</code></pre>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213629.png" alt="Course screenshot"></p>
+<p>For inspection in Python, <code>dict(unreal_map)</code> produces a normal dictionary.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213647.png" alt="Course screenshot"></p>
+<p>On <strong>Execute Python Script</strong>, add an output named <code>unreal_map</code>. The assignment above supplies that output; the node&#39;s separate <strong>Return Value</strong> reports execution success, not the map data.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213732.png" alt="Course screenshot"></p>
+<p>Create a Blueprint variable named <strong>Config</strong>, change its container to <strong>Map</strong>, and set its key/value types to <strong>String → Integer</strong>. Connect the node&#39;s <code>unreal_map</code> output to <strong>Set Config</strong>, including the execution wire. The receiving Blueprint type must match the Python-created map; context-sensitive suggestions alone may not infer it.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213859.png" alt="Course screenshot"></p>
+<p>This conversion addresses the demonstrated typed boundary. It does not prove every API needs an explicit cast: some APIs accept compatible Python sequences. Remote Control also needs a correctly exposed signature and serializable result; compare lesson 44&#39;s JSON-string alternative.</p>
+<h2>Construct structs with named fields</h2>
+<p>The example uses <code>MaterialParameterInfo</code>. Inspect its fields and the <code>MaterialParameterAssociation</code> enum rather than guessing an integer enum value.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213947.png" alt="Course screenshot"></p>
+<pre><code class="language-python">import unreal
+info = unreal.MaterialParameterInfo(
+    association=unreal.MaterialParameterAssociation.GLOBAL_PARAMETER,
+    index=-1,
+    name=&quot;test_name&quot;,
+)
+print(info)
+</code></pre>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014214004.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014214021.png" alt="Course screenshot"></p>
+<p>Here <code>name</code> identifies the parameter, <code>association</code> selects a global parameter rather than a layer/blend parameter, and <code>index=-1</code> is the demonstrated global-parameter value. This constructs identifying data; it does not create a material parameter or set its value. Use the appropriate material API for the actual operation.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/49%20Code%20Deprecation%20Notice%20-%20REFINED.md">← Previous lesson</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213259.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213339.png" alt="Course screenshot">
+<img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213352.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213417.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213440.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213511.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213542.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213629.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213647.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213732.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213859.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014213947.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014214004.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014214021.png" alt="Course screenshot"></p>
+<p>Working with built in unreal type is simple but unintuitive for developers who never worked with C Plus</p>
+<p>plus.</p>
+<p>It usually becomes trouble in one of two cases.</p>
+<p>First is when you declare a remote control function that returns unreal type like array, but returning</p>
+<p>Python array doesn&#39;t work.</p>
+<p>Second one is when you embed Python in a blueprint node and it returns something, maybe a dictionary.</p>
+<p>And in that case you have no idea how you could use it later in the blueprint.</p>
+<p>But first, let&#39;s focus on the types we are working with.</p>
+<p>Basic types like strings and integers are fully compatible with Python.</p>
+<p>They work both ways.</p>
+<p>More complex types create an illusion of being compatible.</p>
+<p>We all know that if we are working with actors, textures or static meshes, we have to either get them</p>
+<p>using a function like load asset or to build them properly.</p>
+<p>But there is some middle ground in between, between those basic types like integers and those complex</p>
+<p>objects.</p>
+<p>There are also arrays, dictionaries, and structs that are more complex types, but they fall very</p>
+<p>closely to basic ones.</p>
+<p>Structs are simple.</p>
+<p>You just initialize them like a data class.</p>
+<p>But arrays and dictionaries, in some ways they behave the same as in Python, and in some ways they</p>
+<p>are different.</p>
+<p>So let&#39;s look on an example.</p>
+<p>We could initialize a variable assetpath list just by listing assets with editor asset library.</p>
+<p>That will be our example array.</p>
+<p>So if I print it but without calling print function, it&#39;s a bit different than in Python, because</p>
+<p>in Python, if I had an array of, let&#39;s say 1 to 3, I will always get the value we have.</p>
+<p>And here we just get an unreal type and some memory reference.</p>
+<p>So we know it&#39;s different.</p>
+<p>But on the other hand we can use it just like it was a Python type.</p>
+<p>We could do a for loop would print stuff and it will behave correctly.</p>
+<p>What&#39;s even better?</p>
+<p>The print function is overloaded so it also works fine.</p>
+<p>Yes, it does print correctly.</p>
+<p>The only thing that the representation of the object isn&#39;t the same.</p>
+<p>And if you look deeper into it, you can list all the functions that are available.</p>
+<p>Ah, of course we didn&#39;t print it.</p>
+<p>We have to change the Repl mode.</p>
+<p>And now we get the list of available functions, and they actually look like in a Python type you could</p>
+<p>append, count, insert or even reverse and sort.</p>
+<p>So it&#39;s pretty much the same.</p>
+<p>The only thing is that this type is going to work with both blueprints and remote control, and the</p>
+<p>Python type is not.</p>
+<p>So it&#39;s fine.</p>
+<p>You could probably cast it maybe the Python way or initialize it in some way.</p>
+<p>Yeah.</p>
+<p>If you have an empty array, you can just start appending stuff and you will initialize it.</p>
+<p>But you probably already have some Python list.</p>
+<p>And what many of you tries to do is to just call unreal array.</p>
+<p>And now in those brackets, usually you would put your data and this way you would cast the type.</p>
+<p>So you have one, two, three.</p>
+<p>But no it doesn&#39;t work.</p>
+<p>And of course if you just remove brackets and treat each of those numbers as a separate argument, it&#39;s</p>
+<p>going to be even worse.</p>
+<p>And the trick that many people miss is that you could simply do a cast that is built in unreal.</p>
+<p>So you just do unreal dot array and then you do cast.</p>
+<p>And this is going to work perfectly.</p>
+<p>But now you need two arguments, not just one.</p>
+<p>First, we declare the type that is going to be used inside the array.</p>
+<p>And in our case it is integer.</p>
+<p>And then we can pass our integers array and that thing works.</p>
+<p>The only issue is that now you cannot mix types anymore.</p>
+<p>Integers and strings are not going to work together.</p>
+<p>That is how most simple arrays work in C plus plus.</p>
+<p>And if you are used to storing whatever comes to your mind in an array because some Python things do</p>
+<p>that.</p>
+<p>Now that thing isn&#39;t going to work.</p>
+<p>So that was very basic thing.</p>
+<p>It was rocket science.</p>
+<p>You may have a feeling that you lost five minutes of your life, but we can do something more interesting</p>
+<p>with it.</p>
+<p>Imagine that you have a Python function.</p>
+<p>It could fetch some data from the internet.</p>
+<p>Maybe you have some online list of in-game locations and you want to feed that data into your blueprint.</p>
+<p>That is your camera manager.</p>
+<p>Or maybe you have some asset naming convention mapping stored in a JSON.</p>
+<p>Basically, you have a case where Python reads data and returns a dictionary, probably a config that</p>
+<p>could be used in blueprints And even though blueprints will not be able to operate on Python dictionary</p>
+<p>type and also remote control wouldn&#39;t be able, you can use a map instead.</p>
+<p>So this time we&#39;re going to do it in the note instead of this output log here.</p>
+<p>We have execute Python script node.</p>
+<p>It&#39;s simple.</p>
+<p>It only has the script field inputs and outputs.</p>
+<p>So my dictionary would be something like uh just a is one.</p>
+<p>So we have string to integer mapping and b is two.</p>
+<p>And then we prepare our unreal variable.</p>
+<p>So let&#39;s call it unreal map.</p>
+<p>And we go with the same approach as with an array.</p>
+<p>So unreal.</p>
+<p>Dot map now dot cast.</p>
+<p>And here we have to provide data types first.</p>
+<p>So our key is a string.</p>
+<p>So here goes str.</p>
+<p>Then our value is integer.</p>
+<p>So we put int.</p>
+<p>And as a third argument we can use our dictionary.</p>
+<p>And we should see if it works.</p>
+<p>So let&#39;s copy the first line go to output log paste.</p>
+<p>It seems fine.</p>
+<p>Let&#39;s try with the second line.</p>
+<p>And we get our unreal map.</p>
+<p>We have a map object.</p>
+<p>We can try casting it to this dictionary from Python and we can read the data.</p>
+<p>It seems fine.</p>
+<p>So as we have described, the only thing left is to return output.</p>
+<p>That&#39;s going to be unreal map.</p>
+<p>That&#39;s it.</p>
+<p>And the blueprint is not aware of the type we have here.</p>
+<p>So you will have no auto completion.</p>
+<p>Context sensitive helper will not help you in this case, but you could try storing it in a variable.</p>
+<p>And now the unreal will know what type it is.</p>
+<p>So it&#39;s probably some config.</p>
+<p>So let&#39;s call it config.</p>
+<p>And we have to change type um to anything.</p>
+<p>Right now we could go with the string because what&#39;s more important is that we go to details.</p>
+<p>And here with this pill icon we change it to map.</p>
+<p>And now we can change key type.</p>
+<p>This should be string.</p>
+<p>And we can also modify a value type that is already set properly as integer, so it&#39;s fine.</p>
+<p>Then we just drop it.</p>
+<p>Set config and we connect it to this value.</p>
+<p>Now unreal kinda knows that this is going to be a map, but not really.</p>
+<p>It is just following orders.</p>
+<p>So this step here technically could fail if you made any mistake in your code, but it is very likely</p>
+<p>to work fine.</p>
+<p>Now there is one more thing that could be confusing for you, and I would like to demonstrate that in</p>
+<p>PyCharm.</p>
+<p>Sometimes you also have things that are based on the struct base.</p>
+<p>So these are basically C style C plus plus style structures.</p>
+<p>And these are just some objects with few basic types.</p>
+<p>And you may not know how to initialize them and usually no getters for them.</p>
+<p>This is that simple, to be honest.</p>
+<p>You just create them like a data class and that means you call unreal.</p>
+<p>Then the name of the type, and then you only need to implement those properties that they have, and</p>
+<p>you already know what kind of properties they are.</p>
+<p>So it&#39;s really very, very simple.</p>
+<p>Let&#39;s make some more space and just paste the names of those.</p>
+<p>And let&#39;s go from the last one because we&#39;re having two very simple types at the end.</p>
+<p>So let&#39;s start with them.</p>
+<p>Name is simple.</p>
+<p>You could go with unreal name or just a string.</p>
+<p>So let&#39;s use test name then index.</p>
+<p>And that&#39;s also simple.</p>
+<p>That&#39;s some integer.</p>
+<p>We could also use negative one.</p>
+<p>And the only thing that could be difficult is this material parameter association.</p>
+<p>So let&#39;s look for it.</p>
+<p>Class material parameter association.</p>
+<p>And as you can see this is some enumerator.</p>
+<p>So unreal dot material parameter association.</p>
+<p>And then we could use one of those.</p>
+<p>So maybe global parameter everything is red because I didn&#39;t import unreal.</p>
+<p>But now we can go back and paste this code in.</p>
+<p>Our editor looks fine.</p>
+<p>And we just initialize a structure.</p>
+<p>So that&#39;s how you work with structures from my experience.</p>
+<p>Um you don&#39;t work with them most of the time.</p>
+<p>I think I only did once.</p>
+<p>So perhaps that will not be very helpful to you.</p>
+<p>But if you got stuck, then that&#39;s what you do.</p>
+<p>And that&#39;s it.</p>
+<p>That&#39;s all for this video.</p>
+<p>See you.</p>
+</article><article id="diff" hidden><h2>Completion change record</h2><pre>New REFINED version created from the completed source note. The original source is preserved in the adjacent tab.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

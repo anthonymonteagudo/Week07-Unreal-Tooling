@@ -1,0 +1,7 @@
+﻿{
+    "boundHeight":  123.12,
+    "text":  "{\r  \"python.analysis.extraPaths\": [\r    \"${workspaceFolder}/Intermediate/PythonStub\",\r    \"${workspaceFolder}/Content/Python\"\r  ]\r}",
+    "shape":  "Title 1",
+    "height":  90,
+    "slide":  8
+}

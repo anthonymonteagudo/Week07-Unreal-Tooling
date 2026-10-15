@@ -1,6 +1,6 @@
 # Week 7: runnable API checkpoints
 
-Open the [copyable source guide](../../../Course/Slides/Week07/CheckpointDeck20261013/checkpoints.html) and [latest slide review](../../../Course/Slides/Week07/CheckpointDeck20261013/index.html).
+Open the [copyable source guide](../../../Course/Slides/Week07/MaterialsWalkthrough20261013/checkpoints.html) and [latest slide review](../../../Course/Slides/Week07/MaterialsWalkthrough20261013/index.html).
 
 Each complete `.py` file is independent: imports, setup, one topic, and an observable result. Run the file in its named host. Blocks marked `# %%` are teaching segments, not automatic Unreal cells. Within a file, run blocks in order; they share variables. The guide can copy a complete file, one block, or all prerequisites through a block. Re-run setup after changing the selection.
 
@@ -30,6 +30,7 @@ UE08 edits one prepared target’s material override and supports Undo. UE12 ref
 
 `sequence.json` is built by `Scripts/build_api_lesson_catalog.py`. Slide code is extracted from the real marked source blocks by the deck’s `.build/content.mjs`; it is not a separately maintained example. `bindings.json` records the correspondence.
 
-Offline syntax checks and 79 project tests passed, including 13 checkpoint tests with explicit host doubles. New checkpoints have not been executed in Unreal or Blender in this revision. Rehearse in the actual hosts before teaching; these tests do not establish integration behavior. Existing production-demo host evidence is documented separately in `Docs/Bridge` and the slide demo review.
+Offline syntax checks and 82 project tests passed, including 13 checkpoint tests with explicit host doubles. New checkpoints have not been executed in Unreal or Blender in this revision. Rehearse in the actual hosts before teaching; these tests do not establish integration behavior. Existing production-demo host evidence is documented separately in the instructor run sheet and the slide demo review.
 
 The original `week_07_unreal_python` sequence remains an ordinary-Python foundations recap with stable IDs. Production implementations remain in `Content/Python`; these files isolate the visible API operations for teaching.
+

@@ -1,0 +1,57 @@
+{
+  "customShows": [
+    {
+      "name": "Week 7 live route",
+      "count": 61
+    }
+  ],
+  "slideCount": 106,
+  "claimBoundary": "PowerPoint recognizes media and the custom show; this is not a playback or live delivery rehearsal.",
+  "media": [
+    {
+      "mediaType": 3,
+      "slide": 10,
+      "name": "Embedded_taichi-fluid"
+    },
+    {
+      "mediaType": 3,
+      "slide": 20,
+      "name": "Embedded_tap-inspector"
+    },
+    {
+      "mediaType": 3,
+      "slide": 22,
+      "name": "Embedded_epic-material"
+    },
+    {
+      "mediaType": 3,
+      "slide": 51,
+      "name": "Embedded_course-bridge"
+    },
+    {
+      "mediaType": 3,
+      "slide": 59,
+      "name": "region-silent"
+    },
+    {
+      "mediaType": 3,
+      "slide": 86,
+      "name": "Embedded_powerrename-demo"
+    },
+    {
+      "mediaType": 3,
+      "slide": 87,
+      "name": "Embedded_mph.function_list"
+    },
+    {
+      "mediaType": 3,
+      "slide": 88,
+      "name": "Embedded_tap-callback"
+    },
+    {
+      "mediaType": 3,
+      "slide": 91,
+      "name": "Embedded_guerrilla"
+    }
+  ]
+}

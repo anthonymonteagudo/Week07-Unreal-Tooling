@@ -128,7 +128,7 @@ class ToolWindow(QtWidgets.QWidget):
         context = c.snapshot['world'] if c.snapshot else 'Context unavailable'
         self.scope.setText(f'{selected} selected Actors  ·  validation scope: entire six-prop fixture\n{context}')
         prefix = {'info': 'Ready', 'warning': 'Attention', 'error': 'Action needed', 'success': 'Complete'}[c.tone]
-        self.status.setText(f'{prefix} — {c.message}')
+        self.status.setText(f'{prefix}: {c.message}')
         self.status.setProperty('tone', c.tone)
         self.status.style().unpolish(self.status)
         self.status.style().polish(self.status)

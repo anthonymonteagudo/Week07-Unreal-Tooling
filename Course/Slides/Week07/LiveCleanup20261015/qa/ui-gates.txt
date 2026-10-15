@@ -1,0 +1,24 @@
+test_count_limits_include_unowned_effects (test_workflows.WorkflowTests.test_count_limits_include_unowned_effects) ... ok
+test_density_warning_needs_explicit_acknowledgement (test_workflows.WorkflowTests.test_density_warning_needs_explicit_acknowledgement) ... ok
+test_material_preview_read_only_and_no_overwrite (test_workflows.WorkflowTests.test_material_preview_read_only_and_no_overwrite) ... ok
+test_material_rejects_invalid_parent_slot_selection_and_texture_settings (test_workflows.WorkflowTests.test_material_rejects_invalid_parent_slot_selection_and_texture_settings) ... ok
+test_material_requires_complete_unambiguous_matching_set (test_workflows.WorkflowTests.test_material_requires_complete_unambiguous_matching_set) ... ok
+test_practice_rejects_unavailable_inputs_and_clears_previous_preview (test_workflows.WorkflowTests.test_practice_rejects_unavailable_inputs_and_clears_previous_preview) ... ok
+test_preset_lower_limit_is_enforced (test_workflows.WorkflowTests.test_preset_lower_limit_is_enforced) ... ok
+test_scale_rejects_nonfinite_and_out_of_range (test_workflows.WorkflowTests.test_scale_rejects_nonfinite_and_out_of_range) ... ok
+test_scene_preset_and_request_changes_cannot_mutate_reviewed_plan (test_workflows.WorkflowTests.test_scene_preset_and_request_changes_cannot_mutate_reviewed_plan) ... ok
+test_spacing_and_repeated_anchor_are_blocked (test_workflows.WorkflowTests.test_spacing_and_repeated_anchor_are_blocked) ... ok
+test_vfx_blocks_unreviewed_missing_scalability_and_mixed_selection (test_workflows.WorkflowTests.test_vfx_blocks_unreviewed_missing_scalability_and_mixed_selection) ... ok
+test_gate_1_both_tasks_have_identical_plans_and_results (test_assistant_stages.AssistantStageGates.test_gate_1_both_tasks_have_identical_plans_and_results) ... ok
+test_gate_1_invalid_inputs_and_stale_state_stop_every_stage (test_assistant_stages.AssistantStageGates.test_gate_1_invalid_inputs_and_stale_state_stop_every_stage) ... ok
+test_gate_1_warning_and_hard_limit_never_depend_on_stage (test_assistant_stages.AssistantStageGates.test_gate_1_warning_and_hard_limit_never_depend_on_stage) ... ok
+test_gate_2_structured_review_preserves_the_same_information (test_assistant_stages.AssistantStageGates.test_gate_2_structured_review_preserves_the_same_information) ... ok
+test_gate_3_input_edit_does_not_imply_undo_after_apply (test_assistant_stages.AssistantStageGates.test_gate_3_input_edit_does_not_imply_undo_after_apply) ... ok
+test_gate_3_progress_and_specific_action_explain_the_next_step (test_assistant_stages.AssistantStageGates.test_gate_3_progress_and_specific_action_explain_the_next_step) ... ok
+test_assistants_unconfigured_choices_and_keyboard_layout (test_ui_widgets.WidgetGates.test_assistants_unconfigured_choices_and_keyboard_layout) ... ok
+
+----------------------------------------------------------------------
+Automated assistants UI gates through stage 3 passed. Visual review and live Unreal rehearsal remain separate gates.
+Ran 18 tests in 0.168s
+
+OK

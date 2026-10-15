@@ -1,0 +1,136 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 7 UI/UX integration plan</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../Slides/Week07/UXMantras20261015/integration-plan.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Course/Slides/Week07/UXMantras20261015/integration-plan.md<br>Source modified: 2026-10-15T07:38:44.189Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#week-7-ui-ux-integration-plan">Week 7 UI/UX integration plan</a></li><li><a href="#follow-up-direction-fuller-slides-and-the-supplied-golf-example">Follow-up direction: fuller slides and the supplied GOLF+ example</a></li><li><a href="#assessment">Assessment</a></li><li><a href="#five-teaching-mantras">Five teaching mantras</a></li><li><a href="#user-stories-with-enough-substance-to-guide-design">User stories with enough substance to guide design</a></li><li><a href="#art-fundamentals-and-visual-diagnostics">Art fundamentals and visual diagnostics</a></li><li><a href="#color-tools-and-consistency">Color tools and consistency</a></li><li><a href="#style-sheets-design-systems-and-ai">Style sheets, design systems and AI</a></li><li><a href="#practical-grounding-and-prototyping">Practical grounding and prototyping</a></li><li><a href="#golf-and-attached-talk-placement">GOLF+ and attached talk placement</a></li><li><a href="#timing-and-insertion">Timing and insertion</a></li><li><a href="#integration-sequence-and-acceptance">Integration sequence and acceptance</a></li></ul></details><h1 id="week-7-ui-ux-integration-plan">Week 7 UI/UX integration plan</h1>
+<p>Prepared 15 October 2026 against <strong>Week_7_Python_in_Unreal_v15.pptx</strong>: 134 slides, with UI/UX on slides 39–60 and task preparation on 61–62. This is a content and implementation preparation package. It does not claim that v15 has been edited. The earlier review based on the first ten notes is retained as history.</p>
+<h2 id="follow-up-direction-fuller-slides-and-the-supplied-golf-example">Follow-up direction: fuller slides and the supplied GOLF+ example</h2>
+<p>The instructor is considering placing more readily available explanation directly in the slides because the teaching tools have not been extensively manually tested and colleagues have room to elaborate on their demos. This revision adopts that as the working direction for the proposal; it does not silently change demo allocations or the class schedule.</p>
+<p>Make the slide sequence understandable without a successful live tool run. Put definitions, worked user stories, acceptance checks, state tables, annotated observations and a small readable implementation excerpt on the slides themselves. Keep read-aloud notes for explanation and discussion, rather than making them the only location of essential information. Preserve clean mantra transitions and one main teaching point per slide. More information should come from a useful comparison or worked example; split an overloaded composition instead of shrinking the type.</p>
+<p>Prepared examples become the baseline: static state comparisons for Preview/Apply, a visible user-story worksheet, the supplied GOLF+ interface and an actual source-code excerpt. A live run is optional reinforcement after the exact operation is manually rehearsed. Keep the colleague demonstrations and existing peer-test time available for deeper implementation and behavior.</p>
+<p>The new main GOLF+ visual is the instructor-provided <strong>Course Generator — Paynes Valley</strong> screenshot received 15 October. Its six visible stages are Input, Parameters, Generate, optional Edit, Finalize and Integrate. The earlier overlay and Spline Suite captures are separate tools/process history. Use the supplied screenshot now for sequence, dominant emphasis, optional detail, typography and shared visual roles; no new Unity capture is necessary for those claims.</p>
+<p>The warning beside Input is a particularly useful critique prompt: what does it mean, and should the artist proceed? The screenshot alone cannot establish the cause or the code&#39;s response. Muted controls and filled stage markers also do not establish enabled/completed state. A future behavior example can add warning, in-progress, completed and recoverable-failure captures from one prepared task. Keep those as proposed evidence, not a prerequisite for the visual lesson.</p>
+<p>The October playbook&#39;s Detect → Generate → Finalize → Adopt terminology differs from the six-stage screenshot. Reconcile the intended names and scope before describing the document as a perfect match for the implementation. This is a concrete reason to maintain a style sheet over time.</p>
+<h2 id="assessment">Assessment</h2>
+<p>The new notes give the section a much stronger visual-design vocabulary: rhythm, harmony, dominance, alignment, proximity, color roles, contrast, data presentation and distinct interaction cues. These explain <em>why</em> a tool feels organized and how an artist can improve it deliberately. Their most useful teaching contribution is a repeatable method for critiquing the same interface, rather than a succession of unrelated website critiques.</p>
+<p>The current deck already handles matters the visual-design course covers less deeply: scope, preview, stale state, guarded application, recovery, observed testing and telemetry limits. Preserve those strengths. Attractive presentation does not establish correct behavior, and a robust backend does not establish usability. The revised section should connect the two.</p>
+<p>The selected notes contain 34 lesson files, including a duplicate of 04 in 06. Lessons 19, 22, 26–29 and 34–42 were not supplied as distinct notes. The recap mentions some omitted topics; that is not evidence that their detailed lessons were completed. The refined notes preserve each original and its available screenshots, repair transcription into paraphrases, separate the lecturer’s principle from the game-tool adaptation, and identify claims that should not be repeated literally.</p>
+<h2 id="five-teaching-mantras">Five teaching mantras</h2>
+<p>These are the proposed course structure, adapted from the notes and the existing Week 7 objectives. They are not presented as verbatim Joe Natoli quotations or as a replacement for his full recap.</p>
+<ol>
+<li><strong>Know the task.</strong> Establish the user, situation, desired outcome, benefit and evidence of success.</li>
+<li><strong>Guide the eye.</strong> Use art principles to communicate priority and relationships.</li>
+<li><strong>Make actions clear.</strong> Distinguish information from controls, expose state and scope, and support recovery.</li>
+<li><strong>Keep a shared visual language.</strong> Record and maintain the visual and interaction rules across tools and contributors.</li>
+<li><strong>Test the whole workflow.</strong> Match prototype fidelity to the question, observe attempts, verify results, and retest changes.</li>
+</ol>
+<p>Reuse existing section transitions as mantra dividers. Within a subsection, use short descriptive slide titles and one visual argument per slide. Avoid printing every principle on every slide. A small mantra label supplies continuity while the example changes.</p>
+<h2 id="user-stories-with-enough-substance-to-guide-design">User stories with enough substance to guide design</h2>
+<p>A user story expresses an outcome and its value from the user’s perspective. The familiar “As a …, I want …, so that …” structure helps expose assumptions, but writing that sentence is only the beginning. Discuss it with the person who does the work. <a href="https://www.atlassian.com/agile/project-management/user-stories">Atlassian</a> and <a href="https://www.nngroup.com/articles/user-story-mapping/">NN/g’s story-mapping guidance</a> support this distinction.</p>
+<p>Build the classroom example in four passes:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Pass</th>
+<th>Material-tool example</th>
+<th>What it establishes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Situation</td>
+<td>An environment artist is trying a supplied texture set on a selected crate in the teaching level.</td>
+<td>Actual context, frequency, starting data and host</td>
+</tr>
+<tr>
+<td>Story</td>
+<td>As an environment artist, I want to preview a material assignment on selected props so I can compare a look without changing other placements.</td>
+<td>User, outcome and benefit</td>
+</tr>
+<tr>
+<td>Acceptance checks</td>
+<td>The intended texture mapping and target slot are visible; applying changes only the named components; the protected crate stays unchanged; a stale preview cannot apply.</td>
+<td>Observable behavior and scope</td>
+</tr>
+<tr>
+<td>Test scenario</td>
+<td>“Try this texture set on the target crate and show me the result. Leave the protected crate unchanged.”</td>
+<td>A goal a peer can attempt without a click script</td>
+</tr>
+</tbody></table></div>
+<p>This is an illustrative teaching story, not a newly discovered production requirement. The import/reimport story on v15 slide 41 remains a second example: distinguish the stable Unreal asset identity from the revised source file, and check material assignments after reimport.</p>
+<p>Avoid stories such as “As a user I want a blue Apply button.” That prematurely chooses a solution and leaves the benefit unspecified. Split a large story into an end-to-end slice: choose inputs → inspect scope → review proposed change → apply → inspect result/recover. A slice should deliver a meaningful outcome, not just finish one layer of implementation.</p>
+<p>Acceptance criteria are not implementation instructions. For example: <strong>Given</strong> a prepared texture set and target selection, <strong>when</strong> a preview is created, <strong>then</strong> the target, slot and mapping are visible and no scene change has occurred. Add a second criterion for an input changing after preview: Apply becomes unavailable until a fresh review. A testing task then asks the participant to reach the outcome without prescribing those interface actions.</p>
+<p>Keep the four-minute peer preparation block. The richer story guidance belongs in the lecture and preparation reference; do not add a new graded deliverable or imply that a full Agile process is required for this lab.</p>
+<h2 id="art-fundamentals-and-visual-diagnostics">Art fundamentals and visual diagnostics</h2>
+<p>Use the instructor’s art vocabulary as a bridge. Balance describes the distribution of visual weight; rhythm and repetition establish expectations; emphasis suggests a focal point; unity/harmony makes related elements feel coherent; negative space and proximity communicate relationships. A composition can be asymmetrical and still balanced. <a href="https://www.getty.edu/education/teachers/building_lessons/formal_analysis2.html">Getty’s principles</a> provide a concise reference.</p>
+<p>In a game environment, a focal area may help a player orient themselves. In an editor tool, emphasis helps an artist locate the relevant target, warning or next action. That analogy explains the design intention; it does not establish that the same palette, density or input method works for both. Distinguish a desktop tool, a player HUD and a VR panel when discussing viewing distance, controller focus, motion and changing backgrounds.</p>
+<p><strong>Value</strong> in art refers to lightness and darkness. <strong>Contrast</strong> is a relationship: how different neighboring elements appear, including differences in value, hue, size, shape and texture. HSV “Value” is a software color-coordinate term, not the same thing as perceived lightness or WCAG relative luminance. Revise v15 slide 55 so this distinction is explicit. Hue difference alone can disappear when the interface is viewed in grayscale. <a href="https://www.getty.edu/education/teachers/building_lessons/formal_analysis.html">Getty’s elements of art</a> supports the art vocabulary.</p>
+<p>Apply three quick checks to the <strong>same screenshot</strong>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Procedure</th>
+<th>Useful question</th>
+<th>What it cannot prove</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Shape blockout</td>
+<td>Reduce regions to simple masses, preserving their location, size and gaps. Use the existing lesson 18 capture as the first example.</td>
+<td>Are groups and a reading route apparent without detailed labels?</td>
+<td>That labels, focus or behavior are clear</td>
+</tr>
+<tr>
+<td>Grayscale</td>
+<td>Temporarily remove hue from a copy/view.</td>
+<td>Does hierarchy and status meaning survive?</td>
+<td>All color-vision experiences or a contrast ratio</td>
+</tr>
+<tr>
+<td>Squint test</td>
+<td>Briefly squint or step back; a blurred preview is an approximation for demonstration.</td>
+<td>Which large shapes and light/dark masses dominate?</td>
+<td>Text readability, accessibility, correctness or measured attention</td>
+</tr>
+</tbody></table></div>
+<p>Restore the original image, read the text, inspect the actual color pairs and test the controls. Keep all essential text readable; quieter does not mean faint. As a practical benchmark, WCAG text contrast is 4.5:1 for ordinary text and 3:1 for large text, with definitions and exceptions in the standard. Desktop use of that benchmark is not a claim of complete conformance. <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">W3C</a></p>
+<p>The Week 1 source found in this workspace verifies the four course lenses and the broader artistic/technical connection. It did not yield a specific text slide covering every art principle above. Link explicitly to those verified lenses and present the art vocabulary as a recap/extension; do not invent Week 1 slide-number attribution.</p>
+<h2 id="color-tools-and-consistency">Color tools and consistency</h2>
+<p>Mention <a href="https://coolors.co/generate">Coolors</a> as a palette exploration tool and its <a href="https://coolors.co/contrast-checker">contrast checker</a> as a practical pointer. The links returned 403 to automated retrieval in this session, so the review does not claim a current interface walkthrough or feature verification. A palette is a starting point. Give the colors roles, test pairs on actual surfaces, and inspect the real application. A pleasing palette alone does not establish readable text or meaningful states.</p>
+<p>Use the existing color-with-labels example. Separate selected, focused, available, warning, blocked and complete; they are different states. Pair meaning with text or shape rather than hue alone. <a href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html">W3C use of color</a></p>
+<h2 id="style-sheets-design-systems-and-ai">Style sheets, design systems and AI</h2>
+<p>A <strong>style sheet</strong> is a maintained specification of the visual and interaction decisions a team agrees to reuse: typography roles, spacing, alignment, color meanings, icons, control states, wording, density and examples. It records the reason and the scope of each rule, not just a color swatch. A <strong>design system</strong> adds reusable components, patterns and a process for maintaining them. A <strong>QSS/CSS file</strong> implements part of the appearance; it is not the entire design specification.</p>
+<p>Large organizations commonly use shared style guides and design systems to coordinate contributors, reduce contradictory patterns, support onboarding and make updates consistent. Avoid “every large organization always does this”: names, maturity and adoption vary. <a href="https://www.figma.com/design-systems/">Figma’s design-system overview</a> gives a concrete example of shared styles, tokens and libraries.</p>
+<p>Use GOLF+ as the instructor’s case: the UI Quality Playbook records repeated workflow steps, a shared wrapper, semantic colors, icon conventions and screenshot review. It also records unresolved palette consolidation. Present that as evidence of a maintained design process, not proof that every tool already follows every rule. Keep its green/gold brand separate from the Week 7 tool’s blue/dark-neutral palette.</p>
+<p>Show an example style-sheet entry:</p>
+<blockquote>
+<p><strong>Forward action:</strong> Emphasize the available next action. Before preview, emphasize Preview. After a valid reviewed plan, emphasize Apply. If a warning needs acknowledgment, keep attention on the review. Backend checks still govern execution.</p>
+</blockquote>
+<p>Then show how the instructor uses AI: give the agent the style sheet, token source, representative examples and change scope; ask it to use existing components; compare the output against the same reference states; update the rules deliberately when an exception is accepted. A skill makes the reference reusable and discoverable. It does not guarantee that an agent loaded it, interpreted it correctly or produced conforming work. Check the result.</p>
+<p>The included local <code>style-skill/SKILL.md</code> is a small teaching example, not a global installation or a new agent configuration. It does not automatically spawn agents. A shared review role can be assigned when parallel agent work is already authorized.</p>
+<h2 id="practical-grounding-and-prototyping">Practical grounding and prototyping</h2>
+<p>The general principles are necessary but insufficient on their own. Retain <strong>one short implementation bridge</strong> using the actual Material/VFX tool, rather than introduce a full Qt or Blueprint course. Explain the same operation through a sketch, prepared PySide states and a small source excerpt. Use the native Unreal panel as a comparison when a matching capture is available; the lesson does not depend on opening it live. These are different front ends with different integration constraints.</p>
+<p>In PySide, show one layout decision and one state decision: a form layout associates labels and fields; signals invalidate an old preview after input changes; the session computes readiness; <code>setEnabled</code> reflects it. The revised demo also changes visual emphasis with state. Explain the backend recheck using the existing source and prepared state sequence; show a live stale-selection attempt only after manually rehearsing that exact operation. The executable source is the teaching evidence; update slide code from that source. <a href="https://doc.qt.io/qtforpython-6.8/overviews/qtwidgets-layout.html">Qt layouts</a></p>
+<p>Explain the Unreal choices accurately: Editor Utility Widgets use UMG/Blueprint for editor tools, while this project’s existing native panel is C++ Slate. A PySide window parented to Unreal is still a separate Qt interface and is not native docking. Do not imply the older attached talk’s <code>unreal_engine</code> plugin is the current official <code>unreal</code> module. <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/editor-utility-widgets-in-unreal-engine">Epic EUW documentation</a></p>
+<p>Use <strong>Figma or paper</strong> to test interpretation and flow before building the operation. Prepare a start state, a valid preview, a blocked state and a completion state. Ask the artist to attempt a goal. Figma can connect frames and interactions; it cannot establish asset integrity, real file I/O, undo or engine latency. Use a running tool when those are the questions. <a href="https://help.figma.com/hc/en-us/articles/360040314193-Guide-to-prototyping-in-Figma">Figma prototyping</a></p>
+<h2 id="golf-and-attached-talk-placement">GOLF+ and attached talk placement</h2>
+<p>The local GOLF+ notes supply real examples with useful process context:</p>
+<ul>
+<li><strong>Course Overlay TODO:</strong> compact toolbar capture and a shortcut-conflict note. Use for discoverability and host interaction, clearly labeled as an August capture with existing annotations.</li>
+<li><strong>GUI Feedback:</strong> the instructor explicitly identifies competing colors/contrast and asks for categories, sizing and design rules. Use as a problem statement. Do not invent a matched “after” capture or a measured improvement.</li>
+<li><strong>UI Quality Playbook:</strong> connects repeated workflow steps, shared visual rules and review practice. Use as the instructor’s style-sheet case.</li>
+</ul>
+<p>The Notion documentation was not accessed; these historical notes were found locally. The newly supplied Course Generator screenshot is now the primary teaching visual on 52A and 53C. A fresh overlay walkthrough is optional additional process evidence, not required to insert or explain the supplied image.</p>
+<p>Marcus White’s attached <strong>Using Python to Streamline Asset Workflows for a Small Team</strong> supplies a complementary production case. Pages 13–18 establish the small-team ingestion need; page 26 shows a compact batch importer; page 33 compares the workflow; pages 35–37 show asset overview/reporting. Use the workflow and UI evidence to ask what the tool removes from the artist’s effort and what information remains visible. “No room for error” is the presenter’s aspiration, not a guarantee to repeat. The UE4-era Python details on pages 8–10 are historical; do not copy them into the current UE5 setup. Preserve the source footer and attribution in borrowed captures.</p>
+<h2 id="timing-and-insertion">Timing and insertion</h2>
+<p>The v15 agenda allocates <strong>16 minutes to UX concepts/discussion plus four protected minutes for task preparation</strong>. The expanded content is a substantial teaching sequence, not a credible extra minute or two. The earlier full-sequence estimate was <strong>28–35 minutes</strong>. The fuller visible content now needs rehearsal; this is not a measured runtime or authorization to take time from colleagues.</p>
+<p>Keep the schedule unchanged in this preparation pass. Do not silently hide useful slides or squeeze the peer-test rounds. The integration manifest preserves every current anchor and separates proposed order from current numbers. All requested additions are marked for coverage; source-history detail and additional implementation study are explicitly references.</p>
+<p>For a fast 16-minute overview, the five mantras can guide five prepared explanations: story and criteria (3 minutes); one interface through the art checks (4); state/recovery with the short implementation connection (3); shared style sheet and AI workflow (3); prototype/test/retest handoff (3). That is an overview with references, not comprehensive delivery of every prepared slide. The full preparation stays available so the instructor can choose depth during rehearsal. Resolve pacing before finalizing a new full-deck export.</p>
+<h2 id="integration-sequence-and-acceptance">Integration sequence and acceptance</h2>
+<ol>
+<li>Refine and archive sources; keep source lesson numbers and provenance. <strong>Prepared.</strong></li>
+<li>Review the mantra sequence and field-level changes against v15. <strong>Prepared in the illustrated review and JSON manifest.</strong></li>
+<li>Align showcase tools with the lecture contract. <strong>Focused PySide change implemented and checked offline; remaining host-specific checks are identified in the demo audit.</strong></li>
+<li>Use the supplied GOLF+ image and prepared PySide states as the baseline. <strong>The visual lesson is ready to author; live captures and an instructor walkthrough are optional extensions requiring their own checks.</strong></li>
+<li>Import a copy of v15, preserve its masters, visuals, agenda and unrelated slides, then apply the manifest. Use stable insertion IDs until the new deck is exported. <strong>Ready for authoring around the prepared explanations; preserve the schedule and resolve pacing in rehearsal. Any live claim remains subject to its own checks.</strong></li>
+<li>Regenerate slide code from the changed source; replace affected tool crops; render every changed slide and its neighbors; verify notes, source links, font sizes, images, live/reference order and unchanged schedule. <strong>Required at direct integration.</strong></li>
+</ol>
+<p>Do not certify every showcased interface from one offscreen PySide test. Native Slate, Blender and Maya need their own resize, focus, state and recovery checks in the relevant host. Existing historical captures remain labeled as such until replaced.</p>
+</main></body></html>

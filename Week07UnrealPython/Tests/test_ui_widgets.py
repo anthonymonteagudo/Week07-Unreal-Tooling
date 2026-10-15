@@ -119,8 +119,8 @@ class WidgetGates(unittest.TestCase):
         self.assertFalse(window.apply_button.isEnabled())
         window.preview_button.click()
         window.apply_button.click()
-        self.assertIn('created one instance', window.status.text())
-        self.assertEqual(window.review.horizontalHeaderItem(2).text(), 'Applied change')
+        self.assertIn('created one instance', window.status.toolTip())
+        self.assertEqual(window.review.horizontalHeaderItem(2).text(), 'Result')
         self.assertGreater(window.review.rowCount(), 0)
         self.assertFalse(window.apply_button.isEnabled())
         window.tabs.setCurrentIndex(1)
@@ -185,7 +185,7 @@ class WidgetGates(unittest.TestCase):
         self.addCleanup(window.close)
         self.assertFalse(window.preview_button.isEnabled())
         self.assertFalse(window.apply_button.isEnabled())
-        self.assertIn('Instructor setup needed', window.status.text())
+        self.assertIn('Ask your instructor', window.status.text())
         window.tabs.setCurrentIndex(1)
         self.assertFalse(window.preview_button.isEnabled())
         window.show()
@@ -201,3 +201,5 @@ class WidgetGates(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+

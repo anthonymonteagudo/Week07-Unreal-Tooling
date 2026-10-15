@@ -7,16 +7,17 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'Deliverables/Week07_Bridge_Student_Pack.zip'
 OUT.parent.mkdir(parents=True, exist_ok=True)
 files = []
-for directory in ['Content/Python/week07_bridge', 'Samples/Bridge', 'Docs/Bridge', 'Scripts/bridge']:
+for directory in ['Content/Python/week07_bridge', 'Samples/Bridge', 'Scripts/bridge']:
     files.extend(p for p in (ROOT / directory).rglob('*') if p.is_file()
                  and '__pycache__' not in p.parts and p.suffix not in ('.pyc', '.blend1'))
 for name in ['SM_Compare_Blender.uasset', 'SM_Compare_Maya.uasset', 'M_BridgeBlender.uasset',
              'M_BridgeMaya.uasset', 'W07_BridgeComparison.umap']:
     files.append(ROOT / 'Content/Week07/Bridge' / name)
 files.append(ROOT / 'Tests/test_fbx_bridge.py')
+files = [p for p in files if p.parent != ROOT/'Scripts/bridge' or p.name in ('open_blender.py','open_maya.py')]
 files.extend(ROOT / 'Scripts/editor' / name for name in [
     'bridge_smoke_test.py', 'bridge_live_test.py', 'bridge_portable_smoke.py',
-    'prepare_bridge_demo.py', 'capture_bridge_demo.py'])
+    'prepare_bridge_demo.py'])
 project = {'FileVersion': 3, 'EngineAssociation': '5.7', 'Category': 'Teaching',
            'Description': 'Maya and Blender publish through one FBX + JSON bridge.',
            'Plugins': [{'Name': name, 'Enabled': True} for name in
@@ -25,7 +26,7 @@ readme = '''WEEK 7: MAYA / BLENDER TO UNREAL
 
 Extract this entire folder to a writable location before running.
 Open Week07BridgeDemo.uproject with Unreal 5.7.4.
-Read Docs/Bridge/README.md for both source-application launchers.
+Use the launchers below for your source application.
 
 In Unreal's Output Log, select Python and run:
 from week07_bridge import unreal_receiver; unreal_receiver.install_menu(); unreal_receiver.start()
@@ -36,8 +37,7 @@ runpy.run_path (Maya Python Script Editor). Both publish to this folder's
 Saved/BridgeExchange by default. Use Publish & Send, then inspect the result.
 
 The package contains the identical bridge code from the teaching project.
-The guide's instructor machine path is an example: substitute this extracted
-folder. Unreal materials and the comparison map are included. After moving the
+Use the paths inside this extracted folder. Unreal materials and the comparison map are included. After moving the
 project, publish from the source app to establish the new local FBX source path.
 
 Samples/Bridge/Handoffs contains inspectable example FBX + JSON pairs.

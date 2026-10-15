@@ -32,15 +32,15 @@
       "source": "Course/Slides/REVIEW_FORMAT_PREFERENCES.md",
       "reader": "review-format-preferences-74ba076b.html",
       "title": "Review format preferences",
-      "sha256": "21f583cf94f846c859b047fe7be0345b417df98df909118bb0307d80a4e89272",
-      "modified": "2026-10-14T00:02:38.789Z"
+      "sha256": "7a2b0eb16d783057b605e960d6cffcd1b65cd8e66450d35a54ca738622711b79",
+      "modified": "2026-10-15T16:13:25.644Z"
     },
     {
       "source": "Course/README.md",
       "reader": "readme-78dced28.html",
       "title": "Technical Art course materials",
-      "sha256": "46961a3ae9d453e89400ebebb39f9a150339cac30964f26669c3ca0c19faa6cb",
-      "modified": "2026-09-09T19:28:16.039Z"
+      "sha256": "05045038a23aa215e901d22e22772777abf7e4bc99c7cf3aa322e447494bfe10",
+      "modified": "2026-10-15T08:57:06.198Z"
     },
     {
       "source": "TechArtMuseumIntegration/Docs/MUSEUM_LAB02_EXHIBIT_MANIFEST.csv",
@@ -696,114 +696,58 @@
     {
       "source": "Week07UnrealPython/README.md",
       "reader": "readme-c55a0805.html",
-      "title": "Week 7 · Unreal Python Tooling",
-      "sha256": "e77a9976dc87b294b1bc11794dd1d6cfdb20f4f0317b67d4567919f5b4f3276e",
-      "modified": "2026-10-13T19:00:00.875Z"
-    },
-    {
-      "source": "Week07UnrealPython/Docs/UI/README.md",
-      "reader": "readme-d829682e.html",
-      "title": "Prop Inspector · UI and functionality status",
-      "sha256": "2876dbde0583afe408b6f49e3be06042676361b9780a360f9c93dae85aad919f",
-      "modified": "2026-10-13T04:15:59.032Z"
-    },
-    {
-      "source": "Week07UnrealPython/Docs/UI/UNREAL_NATIVE_UI.md",
-      "reader": "unreal-native-ui-2e7365ec.html",
-      "title": "Two interfaces, one Python tool",
-      "sha256": "1dfda0d8b027f18d5efac0c475ab11a444c5d69f2076b4f6a4e3158e788800cf",
-      "modified": "2026-10-13T07:38:52.069Z"
+      "title": "Week 7: Python tools in Unreal",
+      "sha256": "eb9b96c660bb8abf57a907fd3d18f7c87acc4b118129f178c0ea1a45cafa9621",
+      "modified": "2026-10-15T14:57:12.447Z"
     },
     {
       "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/README.md",
       "reader": "readme-680db8cd.html",
-      "title": "Week 7 Python tooling — draft checkpoints",
-      "sha256": "3bf3221fe2db637660f8e58bfc4740a2be041db809495f8afa4d64fd43eeb627",
-      "modified": "2026-10-14T00:00:39.876Z"
-    },
-    {
-      "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/SEQUENCING.md",
-      "reader": "sequencing-d0bca5bb.html",
-      "title": "Foundation sequence assessment — updated 13 October 2026",
-      "sha256": "2989bfd73407f2bfb06f169cc00b64a48119290c578b5fbdf3748f8825c723ab",
-      "modified": "2026-10-13T04:15:59.031Z"
+      "title": "Week 7 Python tooling: draft checkpoints",
+      "sha256": "97bcc7343f7efccb7c2e247d8eebe8c6f3c5fc4fdf2ac66453e857662b1e5793",
+      "modified": "2026-10-15T14:56:24.075Z"
     },
     {
       "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_00_data_and_scope/README.md",
       "reader": "readme-3a14ff9d.html",
       "title": "Stage 00 · Data and scope",
-      "sha256": "59f2a2dbefff95e428ecb41b45c541169e594caf758faee017645a34d40ecc85",
-      "modified": "2026-10-12T02:44:24.533Z"
+      "sha256": "c8b3905df66482179f08660428a36d5b5e741ea300936cd16611c41936cb8757",
+      "modified": "2026-10-15T14:56:24.081Z"
     },
     {
       "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_01_rules_and_reports/README.md",
       "reader": "readme-4443c274.html",
       "title": "Stage 01 · Rules and reports",
-      "sha256": "c155afccf016e2cf2a0066888eea3784312ccfa6753ddaf19caf6cad96e9d9e4",
-      "modified": "2026-10-12T02:44:24.534Z"
+      "sha256": "fb7a1b4ef9b4ce8f29703435bb2b7363964e20d2ea159ec44f0407d3770cac4f",
+      "modified": "2026-10-15T14:56:24.086Z"
     },
     {
       "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_02_preview_and_apply/README.md",
       "reader": "readme-1c2a126c.html",
       "title": "Stage 02 · Preview and apply",
-      "sha256": "dd67e2a9375226489246ae4e65d5f4bbc21d3ad065f341dc27a5c5481917ed5a",
-      "modified": "2026-10-12T02:44:24.534Z"
+      "sha256": "b9548f26908365673534e9eb55dddd9b4dec36145c03b28cb958e1f2a20948b0",
+      "modified": "2026-10-15T14:56:24.092Z"
     },
     {
       "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_03_project_bridge/README.md",
       "reader": "readme-b9f3ca7d.html",
       "title": "Stage 03 · Connect the example to the project",
-      "sha256": "5ed1d968ffcf477cf57dd6507e479701a0d76637147e0ec08c9f253b987a1a49",
-      "modified": "2026-10-12T02:44:24.535Z"
+      "sha256": "56ebce37f4e32b05f19f89fb01334837410829cb6dcf73c8bcf4e77b92df3292",
+      "modified": "2026-10-15T14:56:24.098Z"
     },
     {
       "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_04_lab_starter/README.md",
       "reader": "readme-c996af25.html",
-      "title": "Lab starter — scope pending",
-      "sha256": "244d0d4e8cc3e61dd80a2d5d00748bc814f31fe4a28c9d9246db3b86fbff5580",
-      "modified": "2026-10-12T02:44:24.537Z"
-    },
-    {
-      "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_05_ui_progression/README.md",
-      "reader": "readme-44ea130d.html",
-      "title": "Material & VFX Tools · functional → guided → refined",
-      "sha256": "e6ef59108076b4e410eccd0d3928097713d7c0e9fe75717688dd7a2ed4d1d04c",
-      "modified": "2026-10-13T04:15:59.019Z"
+      "title": "Lab starter: scope pending",
+      "sha256": "7d9d3ee841deff053dd85d31a4b62dc60dc97152741941c32e143b9dce8015c1",
+      "modified": "2026-10-15T14:56:24.109Z"
     },
     {
       "source": "Week07UnrealPython/lesson_materials/week_07_unreal_python/stage_03_project_bridge/step_08_editor_boundary.md",
       "reader": "step-08-editor-boundary-74cfcd5f.html",
-      "title": "08 · Read the editor boundary — manual demo later",
-      "sha256": "de74513e77058951a6977a13ddb91ffd5e736a647fdce384e95c6af5db8f000f",
-      "modified": "2026-10-12T02:44:24.536Z"
-    },
-    {
-      "source": "Week07UnrealPython/Docs/Students/START_HERE.md",
-      "reader": "start-here-0c8c24d9.html",
-      "title": "Week 7 · Material & VFX Tools",
-      "sha256": "655adcd6bd3dcb30adbc3f66d7c85bc7498c6abc0cbef644723a59f569f53900",
-      "modified": "2026-10-13T04:15:59.032Z"
-    },
-    {
-      "source": "Week07UnrealPython/Docs/DEMO_SEQUENCE.md",
-      "reader": "demo-sequence-74c30b13.html",
-      "title": "Material & VFX Tools · canonical demo route",
-      "sha256": "4e9d199970ebec867fefae0bddd850170e2fe6fa618e2866f26f0dacc203b36e",
-      "modified": "2026-10-13T07:38:52.068Z"
-    },
-    {
-      "source": "Week07UnrealPython/Docs/UI/PRESENTATION_CHECKLIST.md",
-      "reader": "presentation-checklist-052347ac.html",
-      "title": "Instructor presentation pass · Material & VFX Tools",
-      "sha256": "03a5415d6b99da238e585c243b2d75760dc5a69d39d80b5de5bc5abf2b32b784",
-      "modified": "2026-10-13T07:38:52.068Z"
-    },
-    {
-      "source": "Week07UnrealPython/Docs/UI/MATERIAL_VFX_SCOPE.md",
-      "reader": "material-vfx-scope-0a9ec19c.html",
-      "title": "Selected demo tools · 12 October 2026",
-      "sha256": "4732b44ab01801b294fd347c13f8b599e96ba77fabba29c6b3aeb2a81f1e75c3",
-      "modified": "2026-10-13T03:48:03.923Z"
+      "title": "08 · Read the editor boundary: manual demo later",
+      "sha256": "cf466ddc93b8ba9c3618fea1ae5891584c20bf8146f34b7c9e64378ab8a691ce",
+      "modified": "2026-10-15T14:56:24.103Z"
     },
     {
       "source": "Course/Slides/Week07/KarolIntegrationReview20261013/INTEGRATION_NOTES.md",
@@ -813,19 +757,322 @@
       "modified": "2026-10-13T15:04:48.528Z"
     },
     {
-      "source": "Week07UnrealPython/Docs/Bridge/README.md",
-      "reader": "readme-78ab53f5.html",
-      "title": "Maya / Blender to Unreal: working comparison bridge",
-      "sha256": "fa03c9fab04e1fa6714d297891479c5cdd0621c65d4b3e36d6b39c146b989e26",
-      "modified": "2026-10-14T00:06:26.162Z"
-    },
-    {
       "source": "Week07UnrealPython/lesson_materials/week_07_api_checkpoints/README.md",
       "reader": "readme-497dbdb5.html",
       "title": "Week 7: runnable API checkpoints",
-      "sha256": "14bd19167089edce1ccff4ed8e18f51ec95534ca7b9a312e8010d4a555fceece",
-      "modified": "2026-10-14T00:00:39.875Z"
+      "sha256": "e5dd3eceabc0f286d08e94887057525aca4f47a7e2ea071be53a8c6166acc63a",
+      "modified": "2026-10-15T14:56:24.066Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UIUXIntegrationReview20261014/organized-notes.md",
+      "reader": "organized-notes-63e7a7fb.html",
+      "title": "UI/UX Design Principles — organized course notes",
+      "sha256": "6108ca71bd2727dcb7f5e91590124529235fc54448bc79d88c2035e432b5add8",
+      "modified": "2026-10-15T01:45:04.769Z"
+    },
+    {
+      "source": "Course/Slides/Week07/MotionVisualReview20261014/integration-candidates.csv",
+      "reader": "integration-candidates-9bd17479.html",
+      "title": "integration-candidates",
+      "sha256": "d409ed12091cbba3c7cfbce3062247c31ffa7cb3ee722b9c11c99707d1fe48b8",
+      "modified": "2026-10-14T16:41:31.540Z"
+    },
+    {
+      "source": "Course/Slides/Week07/KarolCompletionReview20261014/HANDOFF.md",
+      "reader": "handoff-1e1ed2f8.html",
+      "title": "Karol course completion handoff for Week 7",
+      "sha256": "61bec934eabfa77469395f071ac5882585af79ed340284f277ce8ac74a09c157",
+      "modified": "2026-10-15T01:51:33.041Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/compiled-notes.md",
+      "reader": "compiled-notes-f38e684e.html",
+      "title": "UI/UX principles for game tools",
+      "sha256": "c4044ad8979b7023eeb4ac168b70a70b50d239f785fbb0eba5dda1bed1391567",
+      "modified": "2026-10-15T07:10:36.258Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/style-skill/SKILL.md",
+      "reader": "skill-88075c95.html",
+      "title": "Week 7 tool UI style",
+      "sha256": "3e820f4cde49a3bf13013277141648b57ee4cd55382249924840217dbb9bcebd",
+      "modified": "2026-10-15T06:47:06.035Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/INTEGRATION_HANDOFF.md",
+      "reader": "integration-handoff-6fe8e8e7.html",
+      "title": "Week 7 UI/UX integration handoff",
+      "sha256": "407c7fa815a00995b802f902d414148fb04a7cf852ad71d75ed9d52c7303ab95",
+      "modified": "2026-10-15T07:38:44.190Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/integration-plan.md",
+      "reader": "integration-plan-378b1b80.html",
+      "title": "Week 7 UI/UX integration plan",
+      "sha256": "6f8a6a37cf5f50b429412c975d5122f3063315f0e3399ce4dc20c3f411ad8da3",
+      "modified": "2026-10-15T07:38:44.189Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/01-refined.md",
+      "reader": "01-refined-6cffb7e3.html",
+      "title": "01 · Design is Design is Design",
+      "sha256": "f81dcb84f342da23625773dfb153c4d103578c0dc112c536fa733a2d790ca373",
+      "modified": "2026-10-15T07:10:35.968Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/02-refined.md",
+      "reader": "02-refined-11509f01.html",
+      "title": "02 · Stop Solving Other People's Problems",
+      "sha256": "c938561fffc32cd0c06b6ca0868a55911394fd24012dd6fed6cdd1c8aead0be8",
+      "modified": "2026-10-15T07:10:35.971Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/03-refined.md",
+      "reader": "03-refined-876cb5ef.html",
+      "title": "03 · Form Doesn't and Shouldn't Follow Function",
+      "sha256": "d435cbdf753a65a9f55c31184006bf5cfaa781aa915b16826050596d0447cd11",
+      "modified": "2026-10-15T07:10:35.973Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/04-refined.md",
+      "reader": "04-refined-3bc63f5a.html",
+      "title": "04 · Balancing Form and Function - Prescription vs Description",
+      "sha256": "a53421a6de1708053c50c7135f97cdc3cf62a345dba30163a3a3a097075f33e2",
+      "modified": "2026-10-15T07:10:35.975Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/05-refined.md",
+      "reader": "05-refined-5687483c.html",
+      "title": "05 · Why Form Follows Function is NOT a UI Design Prescription",
+      "sha256": "6505d1d34f7b60cf562f36268e2760e078c2c590d8a8fbd032df2bf7be362842",
+      "modified": "2026-10-15T07:10:35.977Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/06-refined.md",
+      "reader": "06-refined-ba63464e.html",
+      "title": "06 · Every Force Evolves Form (So Don't Follow the Prescription)",
+      "sha256": "0f9213d2548ab8d902779cf983fa05f65522a0c0f76725d8ae8977e948b1d8f0",
+      "modified": "2026-10-15T07:10:35.978Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/07-refined.md",
+      "reader": "07-refined-c16540cb.html",
+      "title": "07 · Less is More - Small Screens, Big Challenges",
+      "sha256": "c4ff844ffe8a6c4cf32ad9e844184618087412415233a68895420359e2816670",
+      "modified": "2026-10-15T07:10:35.980Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/08-refined.md",
+      "reader": "08-refined-623de2d2.html",
+      "title": "08 · Five Rules for Effective UI Design on Small Screens",
+      "sha256": "a30b3f71eeee2e21ac3d18a23ca787556e2caed341ee9c5fe0a2517a47394e40",
+      "modified": "2026-10-15T07:10:35.982Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/09-refined.md",
+      "reader": "09-refined-49faa012.html",
+      "title": "09 · Balance Creates Visual Order",
+      "sha256": "a5e900c11286d17d7c86825a17ad48376d9a4139f7b879a6bd393896c329f849",
+      "modified": "2026-10-15T07:10:35.991Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/10-refined.md",
+      "reader": "10-refined-b21c67c7.html",
+      "title": "10 · Case Studies - Improving Balance in the User Interface",
+      "sha256": "747f4569284e1d17c4ad6f2c1756c0d1221defb746d61046444b5d332c473ed8",
+      "modified": "2026-10-15T07:10:36.004Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/11-refined.md",
+      "reader": "11-refined-ea8fa7f2.html",
+      "title": "11 · Rhythm - Establishing and Reinforcing Comprehension",
+      "sha256": "c5cbd0665e2f1462b835922469d27b5a0ad22c6b8e0db3bd9bce40505ddf02fa",
+      "modified": "2026-10-15T07:10:36.010Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/12-refined.md",
+      "reader": "12-refined-145b99b7.html",
+      "title": "12 · Harmony - Shaping the Parts into a Whole",
+      "sha256": "66b929bd93ba231ca008eca81d3e5cfad045279156e3b5ba8d84b29a4edbdc66",
+      "modified": "2026-10-15T07:10:36.022Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/13-refined.md",
+      "reader": "13-refined-90e70f6f.html",
+      "title": "13 · Using Harmony to Create Directional Flow",
+      "sha256": "d9ee197ae21fc835cadc53849965d5532aa9e360002397bad5fbeb4fb12a995a",
+      "modified": "2026-10-15T07:10:36.028Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/14-refined.md",
+      "reader": "14-refined-9a9b1ad6.html",
+      "title": "14 · Case Study - Using Harmony for Better Form Design",
+      "sha256": "cfa1c930b8cc9a2bf9aada8f6e97180a1307a625019e42130caeedcac099bc72",
+      "modified": "2026-10-15T07:10:36.036Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/15-refined.md",
+      "reader": "15-refined-03c819ad.html",
+      "title": "15 · Dominance - Directing (and Maintaining) User Focus",
+      "sha256": "53bac9ebed59a8f960cd1380c5f1d061f52147f8328a33d3e4f09125d40f8e40",
+      "modified": "2026-10-15T07:10:36.045Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/16-refined.md",
+      "reader": "16-refined-9d267fa3.html",
+      "title": "16 · - Using Dominance to Increase Focus - and Decrease Cognitive Effort",
+      "sha256": "4892018d256c0bd06bcae765daeb8e037063d209cb914ac71efb6d61ac0c8a5f",
+      "modified": "2026-10-15T07:10:36.051Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/17-refined.md",
+      "reader": "17-refined-decc75cd.html",
+      "title": "17 · Creating Dominance with Size, Negative Space and Contrast",
+      "sha256": "7ee7b355757e817c2015dba1e5f1e74f457a31913a3147f94ebfd56c384f3256",
+      "modified": "2026-10-15T07:10:36.065Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/18-refined.md",
+      "reader": "18-refined-38780a03.html",
+      "title": "18 · Alignment - Leading the Eye Across the Screen",
+      "sha256": "75e77753183b2492c1f653f2dbc9b467e6b6af9201442b67bfcbb65b9efb49d4",
+      "modified": "2026-10-15T07:10:36.073Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/20-refined.md",
+      "reader": "20-refined-76b69589.html",
+      "title": "20 · Proximity - Showing and Communicating Visual Relationships",
+      "sha256": "a78c4eb5fcdf7d3ac0720fe4ba72b45b11cdc0892e57f4e4ec9284733e8bc5b4",
+      "modified": "2026-10-15T07:10:36.085Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/21-refined.md",
+      "reader": "21-refined-6a0b93af.html",
+      "title": "21 · - Using Proximity to Make Cognition Faster",
+      "sha256": "0695b7bb6a705921e18f50aec3e8befc2ca4054b7b0bf3ad458d7a85448e6581",
+      "modified": "2026-10-15T07:10:36.091Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/23-refined.md",
+      "reader": "23-refined-9ca65c23.html",
+      "title": "23 · Color - Getting Attention and Communicating Emotion",
+      "sha256": "8bb0716ec5c5ed35083e3dd11f5a22fea0af83c485100acc79c7715592454b70",
+      "modified": "2026-10-15T07:10:36.099Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/24-refined.md",
+      "reader": "24-refined-f561e6e2.html",
+      "title": "24 · How Color Influences Interaction",
+      "sha256": "b235310ab14e7b5da14cb5d7f0165562a34a3351661c5706697c307a9f2ba016",
+      "modified": "2026-10-15T07:10:36.109Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/25-refined.md",
+      "reader": "25-refined-8571dd55.html",
+      "title": "25 · A Word on Color Theory - and Using Color Correctly",
+      "sha256": "b54b493c24afc29738c870382f5d332d8089c9f2347392270e476ce4d425d283",
+      "modified": "2026-10-15T07:10:36.114Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/30-refined.md",
+      "reader": "30-refined-16dbde02.html",
+      "title": "30 · The Power of Contrast",
+      "sha256": "747c0b94576193f0881e0ad96f85c07f95e659d23b7b5d630af40c1594afc35e",
+      "modified": "2026-10-15T07:10:36.122Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/31-refined.md",
+      "reader": "31-refined-8832dc6b.html",
+      "title": "31 · Using Contrast to Improve Readability, Attention and Focus",
+      "sha256": "26572757f35b59780fd550e51c989fafb7aa0c479a186786b4a8a3865e877e68",
+      "modified": "2026-10-15T07:10:36.133Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/32-refined.md",
+      "reader": "32-refined-95273d77.html",
+      "title": "32 · Three Essential Functions of Contrast in UI Design",
+      "sha256": "03025ae17e97e8af21811eea00099dc4f2e7dd2fc23807811b6a6707a6b92cd2",
+      "modified": "2026-10-15T07:10:36.139Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/33-refined.md",
+      "reader": "33-refined-6e805f0f.html",
+      "title": "33 · How to Determine Appropriate Color and Contrast",
+      "sha256": "47c0e75d8550e94bfee3d1f66d91c7b8ce8d1dc87a93a9e1c5f0f010b5d52868",
+      "modified": "2026-10-15T07:10:36.155Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/43-refined.md",
+      "reader": "43-refined-436cd692.html",
+      "title": "43 · Dealing with Data",
+      "sha256": "04b6dd12f824f7659b3ca25951c08dd046224e74bd8fb28674c52645b24f977b",
+      "modified": "2026-10-15T07:10:36.171Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/44-refined.md",
+      "reader": "44-refined-5f1b3046.html",
+      "title": "44 · Five Rules for Great Data Design",
+      "sha256": "2540533ebf677a0ec16dbc862abd9913440c9f1353f64a6db846368eb6bc3b1e",
+      "modified": "2026-10-15T07:10:36.177Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/45-refined.md",
+      "reader": "45-refined-82c18e41.html",
+      "title": "45 · Simplifying Visual Information Part 01",
+      "sha256": "8cc439203fbe2a11a2a828d3b661fc5c464eef745f6e3525ca7976b7f55e8d08",
+      "modified": "2026-10-15T07:10:36.185Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/46-refined.md",
+      "reader": "46-refined-c787fefd.html",
+      "title": "46 · Simplifying Visual Information Part 02",
+      "sha256": "118ca2f57c5b035a2a727ba9675ee339a724add1b3706b24f083180903ca5085",
+      "modified": "2026-10-15T07:10:36.204Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/47-refined.md",
+      "reader": "47-refined-1794264d.html",
+      "title": "47 · Separating Content from Controls Part 01",
+      "sha256": "a5967660edad856cdb8ec0b8079068a547fe465f7948d6da87d2d004448e7bab",
+      "modified": "2026-10-15T07:10:36.219Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/48-refined.md",
+      "reader": "48-refined-24e3dcf7.html",
+      "title": "48 · Separating Content from Controls Part 02",
+      "sha256": "0e4b30040231d8213bf6e4d409e16aa2364ab07d338547061b03dd2cfc64b11d",
+      "modified": "2026-10-15T07:10:36.230Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/notes/49-refined.md",
+      "reader": "49-refined-28ceb371.html",
+      "title": "49 · Recap - UI Design Mantras",
+      "sha256": "cb8599201f5328b590a0bb165cd5f131a3edd6f3221fa8614e74a7933c0129e7",
+      "modified": "2026-10-15T07:10:36.233Z"
+    },
+    {
+      "source": "Course/Slides/Week07/UXMantras20261015/REVISION_HISTORY.md",
+      "reader": "revision-history-a7b72483.html",
+      "title": "Review revisions",
+      "sha256": "5c1dc3178c25698e3e935cb747f09a687de80584ac171eb96ff54dbf3a5bcb59",
+      "modified": "2026-10-15T07:38:44.269Z"
+    },
+    {
+      "source": "Course/Slides/Week07/OsterAssetSetupNotes20261015/compiled-notes.md",
+      "reader": "compiled-notes-83ba5c80.html",
+      "title": "Oster asset setup notes",
+      "sha256": "f32906aec67f2b39e258f7a4d3d5fbc7ec5dc4e16f38c6c5ff760f9ef1e88217",
+      "modified": "2026-10-15T08:40:51.537Z"
+    },
+    {
+      "source": "Course/InstructorArchive/Week07/20261015/Docs/Bridge/README.md",
+      "reader": "readme-50eb0dc2.html",
+      "title": "Maya / Blender to Unreal: working comparison bridge",
+      "sha256": "fc3c05286f8300cb11e4870bbbe331cc031b3bc98131c3287902453b7206cdfe",
+      "modified": "2026-10-15T02:03:18.344Z"
     }
   ],
-  "rewritten_html_files": []
+  "rewritten_html_files": [
+    "Course/Slides/Week07/LiveCleanup20261015/index.html"
+  ]
 }

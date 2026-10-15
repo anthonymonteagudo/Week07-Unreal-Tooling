@@ -48,6 +48,12 @@ def show():
             self.message.setWordWrap(True)
             self.message.setTextInteractionFlags(QtCore.Qt.TextSelectableByMouse)
             layout.addWidget(self.message)
+            diagnostics = QtWidgets.QPushButton('Copy diagnostics')
+            diagnostics.setToolTip('Copy environment and request status without exporting or sending')
+            diagnostics.clicked.connect(self.copy_diagnostics)
+            layout.addWidget(diagnostics)
+            self.copy_status = QtWidgets.QLabel()
+            layout.addWidget(self.copy_status)
             self.timer = QtCore.QTimer(self)
             self.timer.timeout.connect(self.poll)
             self.timer.start(1000)
@@ -64,6 +70,14 @@ def show():
         def publish(self, send):
             self.publisher.set_exchange(self.exchange.text())
             self.publisher.publish(self.name.text(), send=send)
+
+        def copy_diagnostics(self):
+            try:
+                report = self.publisher.diagnostics(self.exchange.text())
+                QtWidgets.QApplication.clipboard().setText(report)
+                self.copy_status.setText('Bridge diagnostics copied')
+            except Exception as error:
+                self.copy_status.setText('Could not copy diagnostics: ' + str(error))
 
         def poll(self):
             self.publisher.set_exchange(self.exchange.text())

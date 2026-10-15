@@ -1,0 +1,545 @@
+{
+  "Week 7 Peer Review Packet v2.docx": {
+    "paragraphs": [
+      "LAB 2 • PREPARATION • 4 MINUTES • ONE PER AUTHOR",
+      "Give each reviewer the same task and starting state. Ask for a result; let them choose the steps.",
+      "Author ____________________   Tool / version ____________________   Group ____   Letter A / B / C / D",
+      "1  User and goal  Who is this for? What do they need to do, and why?",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "2  Task to read aloud  Write one short task. Include the starting input and what must stay unchanged.",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "3  Success  What visible result will you check?",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "4  Ready to repeat  How will you reset? What will you show if the tool cannot run?",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "Example task: “Try this texture set on the target crate. Leave the protected crate unchanged.”",
+      "Ready check: prepared copies • same version • start state ready • reset ready",
+      "Choose a mode: hands-on / recording / paper or Figma. A prototype can test understanding; it cannot verify engine behavior.",
+      "LAB 2 • PEER REVIEW • ONE SHEET PER REVIEWER",
+      "Reviewer: try the task and say what you expect. Author: watch first. Record any help you give.",
+      "Round ____   Author ____________________   Reviewer ____________________   Tool / version ____________________",
+      "Mode: hands-on / recording / paper or Figma     Result: independent / helped / blocked / execution untested",
+      "1  Task  What result are you trying to reach?",
+      "________________________________________________________________________________________________________",
+      "2  Evidence  What did you do, expect and observe? Where did you need help?",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "Use a lens that fits your observation. You do not need to answer every question.",
+      "Know the task — Is the goal and scope clear?\nGuide the eye — Do grouping, spacing and contrast show what matters?\nMake actions clear — Can you tell what to click and what state it is in?\nKeep a shared visual language — Do labels, colors and controls mean the same thing?\nTest the whole workflow — Can you check the result and recover?",
+      "3  Keep and improve  One observed strength. One issue or question that matters, and why.",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "If no issue appeared, say so. Mark anything you could not test. Give this sheet to the author.",
+      "10-minute round: task 0:00 • try 0:30 • record and share 2:30 • swap 4:00 • finish and reset 8:00",
+      "LAB 2 • REFLECTION • FINAL 5 MINUTES • ONE PER AUTHOR",
+      "Compare your reviews. Preserve a strength, choose one change, and plan a test.",
+      "Author ____________________   Distinct reviewers ____   Modes used ____________________",
+      "1  Keep  Which strength did a reviewer observe?",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "2  Prioritize  Which issue or uncertainty matters most? Cite a peer’s observation and its consequence.",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "3  Revise  What specific change will you make or investigate?",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "4  Retest  State the input, action and expected result. Include what must stay unchanged.",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "5  Reflect  What changed or strengthened your judgment? What is still untested?",
+      "________________________________________________________________________________________________________",
+      "________________________________________________________________________________________________________",
+      "A serious failure can matter even if only one reviewer sees it. Record the reviews you actually received."
+    ],
+    "tables": [
+      [
+        [
+          "Prepare one peer test"
+        ]
+      ],
+      [
+        [
+          "Test a peer tool"
+        ]
+      ],
+      [
+        [
+          "Choose one revision"
+        ]
+      ]
+    ],
+    "sections": [
+      {
+        "width": 10058400,
+        "height": 7772400,
+        "margins": [
+          255905,
+          219710,
+          384175,
+          384175
+        ]
+      }
+    ]
+  },
+  "Week 7 Lab 1 Student Handout.docx": {
+    "paragraphs": [
+      "LAB 1 STUDENT HANDOUT   8 MINUTES   FICTIONAL CASE",
+      "Decide what the tool should do before seeing its output. Then use evidence to identify one issue and design a retest. No coding or installation is needed.",
+      "Group ______   Reader ______   Recorder ______   Evidence checker ______   Reporter ______",
+      "Prepare one 20-second finding. Keep your first judgment; revisit it during the UX discussion."
+    ],
+    "tables": [
+      [
+        [
+          "Investigate a batch renamer"
+        ]
+      ],
+      [
+        [
+          "Task and scope",
+          "The button says Rename selected. Give only selected assets exactly one SM_ prefix. Preserve the rest of each name. Already-prefixed names and all unselected assets must stay unchanged."
+        ]
+      ],
+      [
+        [
+          "Selected",
+          "Starting name",
+          "Expected before reveal",
+          "Observed after reveal"
+        ],
+        [
+          "Yes",
+          "crate_A",
+          "",
+          ""
+        ],
+        [
+          "Yes",
+          "crate_B",
+          "",
+          ""
+        ],
+        [
+          "Yes",
+          "SM_crate_C",
+          "",
+          ""
+        ],
+        [
+          "No",
+          "barrel_D",
+          "",
+          ""
+        ]
+      ],
+      [
+        [
+          "1  Problem",
+          "Before the reveal: what must stay unchanged, and what evidence would make you trust the result?\n________________________________________________________________________________"
+        ],
+        [
+          "2  Investigate",
+          "After the reveal: With [input], I expected [result], but observed [result].\n________________________________________________________________________________"
+        ],
+        [
+          "3  Intervention",
+          "What would you change first, and why? Separate the observed behavior from a guessed cause.\n________________________________________________________________________________"
+        ],
+        [
+          "4  Impact",
+          "Retest: starting input + action + exact expected result, including the unselected asset.\n________________________________________________________________________________"
+        ],
+        [
+          "5  Tradeoff",
+          "What remains unknown? Consider a second run, Undo or empty selection. What would testing it cost?\n________________________________________________________________________________"
+        ]
+      ]
+    ],
+    "sections": [
+      {
+        "width": 10058400,
+        "height": 7772400,
+        "margins": [
+          255905,
+          219710,
+          384175,
+          384175
+        ]
+      }
+    ]
+  },
+  "Week 7 Lab Instructor Guide.docx": {
+    "paragraphs": [
+      "INSTRUCTOR GUIDE   1 OF 2",
+      "Use the fictional renamer to establish evidence-based review before teaching UX vocabulary. Students compare a stated contract with visible behavior, then propose a test. Accept different priorities when the reasoning is supported.",
+      "INSTRUCTOR GUIDE   2 OF 2",
+      "Protect task preparation and complete attempts. Form groups of four, assign A–D, and keep tools on their prepared machines. Each pair tests in both directions. The later letter tests the earlier letter’s tool first.",
+      "Call every round: 0:00 state task; 0:30 attempt; 2:30 record; 3:30 explain; 4:00 swap; 4:30 attempt; 6:30 record; 7:30 explain; 8:00 finish and reset; 10:00 switch."
+    ],
+    "tables": [
+      [
+        [
+          "Facilitate Lab 1"
+        ]
+      ],
+      [
+        [
+          "Minute",
+          "Facilitation"
+        ],
+        [
+          "0–1",
+          "Distribute one group sheet. Assign reader, recorder, evidence checker and reporter. Read the rule."
+        ],
+        [
+          "1–2",
+          "Individual prediction. Do not reveal results."
+        ],
+        [
+          "2–4",
+          "Compare expected names as a group. Check that protected scope is explicit."
+        ],
+        [
+          "4–5",
+          "Record what evidence would establish success."
+        ],
+        [
+          "5–6",
+          "Open reveal.html. Display the fictional “Success: 4 assets updated” message and results."
+        ],
+        [
+          "6–7",
+          "Write one supported finding and a retest."
+        ],
+        [
+          "7–8",
+          "Two 20-second reports, then 20 seconds for questions."
+        ]
+      ],
+      [
+        [
+          "Input",
+          "Expected",
+          "Observed"
+        ],
+        [
+          "crate_A selected",
+          "SM_crate_A",
+          "SM_crate_A"
+        ],
+        [
+          "crate_B selected",
+          "SM_crate_B",
+          "SM_crate_B"
+        ],
+        [
+          "SM_crate_C selected",
+          "SM_crate_C",
+          "SM_SM_crate_C"
+        ],
+        [
+          "barrel_D unselected",
+          "barrel_D",
+          "SM_barrel_D"
+        ]
+      ],
+      [
+        [
+          "Interpretation",
+          "The output violates both protected scope and the exactly-one-prefix rule. The success count alone proves neither. Internal cause, Undo, a second run and performance remain unknown."
+        ],
+        [
+          "Model finding",
+          "With only the three crates selected, I expected barrel_D to stay unchanged, but it became SM_barrel_D. This changes unrelated work."
+        ],
+        [
+          "Model retest",
+          "Restore all four starting names; select only the crates; run once; inspect all four expected names above. Then propose a separate second-run test. Do not claim that test has occurred."
+        ],
+        [
+          "Acceptable alternatives",
+          "Prioritize scope because unrelated work changes, or the duplicate prefix because it violates the naming contract. Ask for the consequence and supporting observation, not a preferred phrase."
+        ],
+        [
+          "Discussion bridge",
+          "Which preview evidence could expose the mistake before Apply? What does a success message omit? Revisit first judgments during UX, then carry input/action/evidence/protected scope into peer review."
+        ]
+      ],
+      [
+        [
+          "Facilitate reciprocal peer reviews"
+        ]
+      ],
+      [
+        [
+          "Time",
+          "Pairing or action"
+        ],
+        [
+          "5:16–5:20",
+          "Prepare one bounded task and a fallback."
+        ],
+        [
+          "5:20–5:23",
+          "Brief roles and modes, confirm letters and answer questions."
+        ],
+        [
+          "5:23–5:33",
+          "Round 1: A–B and C–D."
+        ],
+        [
+          "5:33–5:34",
+          "Switch partners."
+        ],
+        [
+          "5:34–5:44",
+          "Round 2: A–C and B–D."
+        ],
+        [
+          "5:44–5:45",
+          "Switch partners."
+        ],
+        [
+          "5:45–5:55",
+          "Round 3: A–D and B–C."
+        ],
+        [
+          "5:55–6:00",
+          "Read reviews; choose priority, revision and retest; record changed judgment."
+        ]
+      ],
+      [
+        [
+          "Setup",
+          "Per student: preparation page, three copies of review page, synthesis page. One Lab 1 sheet per group. Display dashboard.html. Example for 24: six groups, 72 review sheets; roster is not assumed."
+        ],
+        [
+          "Coach evidence",
+          "“What did you expect, what happened, and why does it matter?” Record author help. A strength needs evidence too. If no fault is observed, propose a test rather than invent a defect."
+        ],
+        [
+          "Handle blockers",
+          "Allow at most one minute of troubleshooting within the attempt, then declare blocked and switch to recording or concept. Stop risks to real work. No software installation during rounds."
+        ],
+        [
+          "Attendance",
+          "Trio: A–B, A–C, B–C; third observes, each gets two distinct reviews. Five: A–B/C–D; A–C/B–E; A–D/C–E. A/C get three; B/D/E get two. Do not count observers or repeated partners as new reviewers."
+        ],
+        [
+          "Protect the close",
+          "End UX at 5:16. If late, state the reduced number of complete rounds honestly; retain five minutes of synthesis. Full staff scripts and additional attendance cases are in facilitator.html."
+        ]
+      ]
+    ],
+    "sections": [
+      {
+        "width": 10058400,
+        "height": 7772400,
+        "margins": [
+          255905,
+          219710,
+          384175,
+          384175
+        ]
+      }
+    ]
+  },
+  "Week 7 Live Demo Run Sheet.docx": {
+    "paragraphs": [
+      "LIVE UNREAL RUN SHEET   1 OF 4   SETUP",
+      "Teach the current Material & VFX Tools in Unreal 5.7.4. The native Slate tab and PySide window share the same Python planner and live backend. Use the isolated classroom fixture and preserve the saved baseline.",
+      "Optional selection helpers in the Unreal Python console",
+      "from week07_tooling.editor import live_demo\nprint(live_demo.preflight())\nlive_demo.select_material()\nlive_demo.select_vfx()",
+      "Run one helper at a time; Preview only after the browser updates. Helpers select inputs and frame the camera. They do not apply changes, reset the map, delete assets or save.",
+      "Go/no-go: baseline visible, both workflow previews available, fallback already open. Native plugin binaries match UE 5.7.4 on this Windows machine; another engine build requires rebuilding the plugin. Use the offline fallback if that prerequisite fails.",
+      "LIVE UNREAL RUN SHEET   2 OF 4   MATERIAL   3:49–3:56",
+      "Ask students to predict scope before Apply. The goal is one new material instance and one component override, while the second cube and shared mesh stay unchanged.",
+      "Actual Unreal capture: target becomes blue; protected cube remains plain. The scene was inspected in the running editor, not simulated for this image.",
+      "3:56–3:58 UI comparison: native Slate belongs to the editor tab system; PySide offers the current staged interface. Both call the same workflow. Use existing Stage 1/2/3 practice captures for the brief visual comparison; do not repeat the whole operation.",
+      "LIVE UNREAL RUN SHEET   3 OF 4   VFX   3:58–4:02",
+      "Place the prepared classroom fountain at three tagged anchors. Separate predictable placement from runtime performance: a bounded batch does not establish a frame-time budget.",
+      "Actual Unreal capture: three fountains at the three markers, after material Undo. Discrete captured state; not a live recording.",
+      "Preset review: one lightweight GPU sprite emitter, 90 particles/second, lifetime 1.4–1.75 seconds, sprite size 6–12 cm, default Niagara sprite material. Three new effects maximum; scale 0.25–1; anchors at least 100 cm apart. Effect Type: 5000 cm distance, maximum 4 instances per system and 8 overall. This classroom review does not certify packaged-game performance.",
+      "LIVE UNREAL RUN SHEET   4 OF 4   RECOVERY",
+      "Use one short recovery attempt, then switch to the prepared browser walkthrough. State what is observed and what is still unverified. Do not spend the peer-review time debugging the editor."
+    ],
+    "tables": [
+      [
+        [
+          "Prepare the live Material and VFX demo"
+        ]
+      ],
+      [
+        [
+          "Before class",
+          "Launch Scripts/launch_live_demo.ps1 from Week07UnrealPython. It opens W07_MaterialVFXLab and runs the non-destructive preflight. If this project is already open, use its existing editor and Tools > Material & VFX Tools."
+        ],
+        [
+          "Check the fixture",
+          "Two plain cubes, three empty pedestals, no placed effects. The near cube is W07_Crate_Target; the far cube is W07_Crate_Protected. Both use the same shared mesh. Open the map from Content/Week07/Maps if needed."
+        ],
+        [
+          "Prepare inputs",
+          "Select W07_Crate_Target in the Outliner. In Content/Week07/LiveDemo/Textures select all three T_Crate textures: BaseColor, Normal and ORM. Content Browser selection and level selection are separate. Wait for browser selection to update before Preview."
+        ],
+        [
+          "Panel and naming",
+          "Tools > Material & VFX Tools. Material Setup, slot 0, fresh MI_ name such as MI_Crate_Live_01. Do not overwrite an existing instance. For PySide: Python console: import week07_tools as w7; w7.show_assistants()."
+        ],
+        [
+          "Fallback readiness",
+          "Open live-demo.html in a browser before teaching. It contains actual baseline, material, VFX and native-panel captures, plus read-aloud prompts. It works offline without Unreal or Qt. If a failure persists beyond 30 seconds, use it within the same demo slot."
+        ]
+      ],
+      [
+        [
+          "Demonstrate material setup"
+        ]
+      ],
+      [
+        [
+          "Elapsed",
+          "Do and say"
+        ],
+        [
+          "0:00–1:00",
+          "Show both cubes. “They share a mesh. Which one should change, and what must remain untouched?” Point to the selected target and three textures."
+        ],
+        [
+          "1:00–2:30",
+          "Choose Material Setup, slot 0 and a fresh MI_ name. Preview. Read the destination, parent, three texture mappings and one target. “Preview has not changed the scene.”"
+        ],
+        [
+          "2:30–4:00",
+          "Apply once. Show the near blue cube and far plain cube. Check the instance parent and texture parameters if time permits. “A success message needs a visible scope check.”"
+        ],
+        [
+          "4:00–5:00",
+          "Try Preview again with the same output name. It must block overwrite. “What should happen on a repeat?”"
+        ],
+        [
+          "5:00–6:00",
+          "Use Edit > Undo only when its label identifies the material assignment. Target returns to plain. The new instance remains. Explain that assignment Undo and asset cleanup are separate."
+        ],
+        [
+          "6:00–7:00",
+          "Leave the unsaved draft for later inspection; use a fresh name next time. Ask one student to state input, action, expected result and protected scope."
+        ]
+      ],
+      [
+        [
+          "Demonstrate bounded VFX placement"
+        ]
+      ],
+      [
+        [
+          "Elapsed",
+          "Do and say"
+        ],
+        [
+          "0:00–0:45",
+          "Select W07_VFXAnchor_1, _2 and _3. Choose VFX Placement, classroom fountain, scale 1.0. “How many effects should this create, and where?”"
+        ],
+        [
+          "0:45–1:30",
+          "Preview: three anchors, three effects, their positions and rotations. Apply once. Show three visible fountains."
+        ],
+        [
+          "1:30–2:15",
+          "Reselect the same anchors if necessary. Preview again: occupied anchors must block repeated placement. “The tool checks duplication before mutation.”"
+        ],
+        [
+          "2:15–3:00",
+          "Edit > Undo the known VFX placement. Verify all three effects disappear; pedestals remain. If Undo label is unfamiliar, stop and use recovery instructions."
+        ],
+        [
+          "3:00–4:00",
+          "Ask: “What have we verified? What remains unmeasured?” Answer: placement and recovery checked; runtime performance on target hardware remains unmeasured. Hand off at 4:02."
+        ]
+      ],
+      [
+        [
+          "Recover and keep teaching"
+        ]
+      ],
+      [
+        [
+          "Symptom",
+          "Recovery",
+          "Teaching fallback"
+        ],
+        [
+          "Preview blocked",
+          "Read the message. Check target + textures separately, slot 0, valid fresh MI_ name, or three tagged anchors. Preview again.",
+          "Show the captured preview and ask students to identify scope."
+        ],
+        [
+          "Selection changed after Preview",
+          "Restore intended selection and Preview again. Apply consumes the old plan even when blocked.",
+          "Discuss why the old plan should expire."
+        ],
+        [
+          "Duplicate instance or occupied anchor",
+          "Use a new MI_ name; for effects, Undo the known previous batch. Do not overwrite assets or pile on effects.",
+          "Show the repeat-placement block capture."
+        ],
+        [
+          "Session expired or panel failed",
+          "Native: Reconnect, then Preview. PySide: close and reopen using w7.show_assistants().",
+          "Use the other UI only if already prepared; otherwise browser."
+        ],
+        [
+          "Unexpected partial result",
+          "Stop. Inspect target and protected cube, output asset and placed Actors. Failed material setup restores assignments but may retain a draft. Do not Save All.",
+          "Describe the uncertainty; use verified captured states."
+        ],
+        [
+          "Undo state is unclear",
+          "Do not issue repeated Undo blindly. Reopen the saved W07_MaterialVFXLab and decline saving only the rehearsal map edits. Inspect any new instance separately.",
+          "Continue from baseline capture."
+        ],
+        [
+          "Editor or dependency unavailable",
+          "Switch to live-demo.html. No engine, Qt, network or installation is needed.",
+          "Use prediction, observed result, repeat block and recovery prompts."
+        ]
+      ],
+      [
+        [
+          "Reset after class",
+          "Do not save the changed demo map. Reopen its saved baseline and verify two plain cubes and zero effects. New instance cleanup is separate: inspect references before deleting only your rehearsal asset. Never delete the Generated folder as a reset."
+        ],
+        [
+          "Verified in this rehearsal",
+          "UE 5.7.4 material creation/readback, protected cube/shared mesh unchanged, material Undo with asset retained, three exact VFX placements, duplicate block, VFX Undo, invalid/missing/stale selections, live PySide workflows and reopening. Native UI Preview/Apply is checked separately in the evidence report."
+        ],
+        [
+          "Scope of evidence",
+          "Actual editor results and discrete screenshots establish this fixture workflow. They do not establish every possible asset, target-machine performance, or a packaged-game result. See the rehearsal report beside the fallback captures for the recorded checks."
+        ]
+      ]
+    ],
+    "sections": [
+      {
+        "width": 10058400,
+        "height": 7772400,
+        "margins": [
+          255905,
+          219710,
+          384175,
+          384175
+        ]
+      }
+    ]
+  }
+}

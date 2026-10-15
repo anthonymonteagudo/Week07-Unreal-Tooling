@@ -9,5 +9,7 @@ public:
  UFUNCTION(BlueprintCallable,Category="Week07") static bool UndoDemo();
  UFUNCTION(BlueprintCallable,Category="Week07") static bool RedoDemo();
  UFUNCTION(BlueprintCallable,Category="Week07") static void OpenTools();
+ UFUNCTION(BlueprintCallable,Category="Week07") static bool CaptureTools(const FString& Filename);
+ UFUNCTION(BlueprintCallable,Category="Week07") static bool CaptureEditor(const FString& Filename);
  UFUNCTION(BlueprintCallable,Category="Week07") static FString InspectEffect(UNiagaraSystem* System);
 };

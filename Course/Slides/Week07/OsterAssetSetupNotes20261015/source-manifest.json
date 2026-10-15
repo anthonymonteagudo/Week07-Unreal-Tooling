@@ -1,0 +1,393 @@
+{
+  "date": "2026-10-15",
+  "notes": [
+    {
+      "lesson": 1,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\18 Oster Asset Setup UE Python API\\Asset Setup 01.md",
+      "source_sha256": "d67b314944c3d1f4b40845054b15c9fe3d3ab9a507aa64ae9d35dcdab7c2b87e",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\18 Oster Asset Setup UE Python API\\Asset Setup 01 - REFINED.md",
+      "local_note": "notes/01-refined.md",
+      "captures": 22
+    },
+    {
+      "lesson": 2,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\18 Oster Asset Setup UE Python API\\Asset Setup 02.md",
+      "source_sha256": "f03848aaecf68e0a07f48a77c93c1907633c03339b6df333df873bb8f74de27d",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\18 Oster Asset Setup UE Python API\\Asset Setup 02 - REFINED.md",
+      "local_note": "notes/02-refined.md",
+      "captures": 22
+    },
+    {
+      "lesson": 3,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\18 Oster Asset Setup UE Python API\\Asset Setup 03.md",
+      "source_sha256": "a329a5ab62f2e5e0490f806a87714af78c2f749474dd1712cf5bf7cf80a55d52",
+      "refined": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\18 Oster Asset Setup UE Python API\\Asset Setup 03 - REFINED.md",
+      "local_note": "notes/03-refined.md",
+      "captures": 0
+    }
+  ],
+  "images": {
+    "Pasted image 20261015024355.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024355.png",
+      "local": "assets/01-01.png",
+      "sha256": "4cc0ced9249a2926528a627b272328f9019decfaebd5113ab1f0517f978c38f2",
+      "lesson": 1,
+      "original_position": 1,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015024020.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024020.png",
+      "local": "assets/01-02.png",
+      "sha256": "25c15c8ef73af5c871b349b8e349efb32f7fc43e03965f4129172b770d48af4c",
+      "lesson": 1,
+      "original_position": 2,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015024041.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024041.png",
+      "local": "assets/01-03.png",
+      "sha256": "5481a2d5952b00cafec9c5767421552940fd92cb7a0579301e34dbe659cb43a5",
+      "lesson": 1,
+      "original_position": 3,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015024243.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024243.png",
+      "local": "assets/01-04.png",
+      "sha256": "fae797835e67ec2565f4578ce3354adeec94c2ead1211771a04250896ba99e4f",
+      "lesson": 1,
+      "original_position": 4,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015024308.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024308.png",
+      "local": "assets/01-05.png",
+      "sha256": "5b031f92f2135477802dd086c6beb3d27c4e703837ef3868b55ab9c83fbdca2c",
+      "lesson": 1,
+      "original_position": 5,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015024421.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024421.png",
+      "local": "assets/01-06.png",
+      "sha256": "c03b34b99bdaee3e8ff235f82caf3d4223e22b352047f73edfc54a6145dce591",
+      "lesson": 1,
+      "original_position": 6,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015024434.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024434.png",
+      "local": "assets/01-07.png",
+      "sha256": "d709210896f39e8120c79c8c0a2c2cf0b8d25e046e0052b2f130207001d7cc2d",
+      "lesson": 1,
+      "original_position": 7,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015024450.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024450.png",
+      "local": "assets/01-08.png",
+      "sha256": "a97ff468adec5d34b729f0da03875f342af5edc2a738df1ad4f35292e7df4e6b",
+      "lesson": 1,
+      "original_position": 8,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015024615.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024615.png",
+      "local": "assets/01-09.png",
+      "sha256": "6d55f60919969f63ae26d7939a20e383a01b5d56daee23b5228d9e162f9c9ecb",
+      "lesson": 1,
+      "original_position": 9,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015024630.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024630.png",
+      "local": "assets/01-10.png",
+      "sha256": "33100879ae1284c31fc90606b89ec54701d70de3e6450a17d9ed1397e867c122",
+      "lesson": 1,
+      "original_position": 10,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015024928.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015024928.png",
+      "local": "assets/01-11.png",
+      "sha256": "6e93f12dcc8704dd3e1d10bf6f7fb166e9b4a8550c24428faa51e9a9ece9db4f",
+      "lesson": 1,
+      "original_position": 11,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015025030.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025030.png",
+      "local": "assets/01-12.png",
+      "sha256": "663475151c56146c8dfbd6f5e2f18a7120096fd50b3a4965af0b94d67182f4f4",
+      "lesson": 1,
+      "original_position": 12,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015025201.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025201.png",
+      "local": "assets/01-13.png",
+      "sha256": "fcf616083c4bfe9bb9bad226dbcc7b3864582b98550cb99c3b714ea2564b050d",
+      "lesson": 1,
+      "original_position": 13,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015025301.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025301.png",
+      "local": "assets/01-14.png",
+      "sha256": "ad563335183146ff6b0c7d0a168337b238e3a76d2342ef23727261054943f261",
+      "lesson": 1,
+      "original_position": 14,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015025337.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025337.png",
+      "local": "assets/01-15.png",
+      "sha256": "779930076d28a03ad533d76822470c14eec42286fab0e983b1d5387068e48210",
+      "lesson": 1,
+      "original_position": 15,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015025347.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025347.png",
+      "local": "assets/01-16.png",
+      "sha256": "af4fd978f8c5ee4e112bbf7d11672afa451d6f429929b1cd0c2a4a132da4813b",
+      "lesson": 1,
+      "original_position": 16,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015025315.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025315.png",
+      "local": "assets/01-17.png",
+      "sha256": "68aefb2bcc9591039d64cd96f8033ebfcbcb281126f8964c5d53dab3c728e84c",
+      "lesson": 1,
+      "original_position": 17,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015025523.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025523.png",
+      "local": "assets/01-18.png",
+      "sha256": "f1639dcdbd4df23e85a79f930b7e95f61494796da587d026f05beb848f02f733",
+      "lesson": 1,
+      "original_position": 18,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015025817.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025817.png",
+      "local": "assets/01-19.png",
+      "sha256": "66fff19c2c126e9e6554fb301bf04d289c163bf4200f6d61ca90a393756cb676",
+      "lesson": 1,
+      "original_position": 19,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015025912.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015025912.png",
+      "local": "assets/01-20.png",
+      "sha256": "f2b2b2c193c1a62f4bf47406c539670815491444f1b7e46722d0ea63e6c090c2",
+      "lesson": 1,
+      "original_position": 20,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015030201.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030201.png",
+      "local": "assets/01-21.png",
+      "sha256": "966b4a45e803a1fa7a8e22c7ed06efc5cab46ca4af2f9e5c738bff3bbdbe3157",
+      "lesson": 1,
+      "original_position": 21,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015030212.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030212.png",
+      "local": "assets/01-22.png",
+      "sha256": "40e2906751fd671f3a1949da1aad45502a1e95ac9c0b313efc00fff9ee5db963",
+      "lesson": 1,
+      "original_position": 22,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015030730.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030730.png",
+      "local": "assets/02-01.png",
+      "sha256": "c75a90819718c48ed525e383c99810d809b15533a40227cb7a8e12e1519c819e",
+      "lesson": 2,
+      "original_position": 1,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015030810.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030810.png",
+      "local": "assets/02-02.png",
+      "sha256": "41217811ec079f3af42cb5571cd3a9003b469dbbae1add61a198a438072048d0",
+      "lesson": 2,
+      "original_position": 2,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015030825.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030825.png",
+      "local": "assets/02-03.png",
+      "sha256": "46241ba508035ae2e747ab569fdef789fb0083cafb98d02f21692c6dd83243a2",
+      "lesson": 2,
+      "original_position": 3,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015030914.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030914.png",
+      "local": "assets/02-04.png",
+      "sha256": "cb148933063703d38ac3fd46278cb93b330098dacc05966d8ce103cd1698dc8b",
+      "lesson": 2,
+      "original_position": 4,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015030926.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015030926.png",
+      "local": "assets/02-05.png",
+      "sha256": "2aea56b1b8dd7ee022e5c85a05107a09c76d96d39cc1b7f2050a06e6959dd79b",
+      "lesson": 2,
+      "original_position": 5,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015031301.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031301.png",
+      "local": "assets/02-06.png",
+      "sha256": "d7ef806f5d8e5bb650ddf103efd2549f953b1fe68b90920f8fecfc54f6e61ad8",
+      "lesson": 2,
+      "original_position": 6,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015031431.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031431.png",
+      "local": "assets/02-07.png",
+      "sha256": "ff02c7ec46e75e08b538733d91ce707d9d6f60d0a63e61a50e964cc4c811091c",
+      "lesson": 2,
+      "original_position": 7,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015031633.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031633.png",
+      "local": "assets/02-08.png",
+      "sha256": "7f4bb5a439b90affc29627793789dc66f59a02fc1ffb6cb8b4edcf7f272359b6",
+      "lesson": 2,
+      "original_position": 8,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015031646.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031646.png",
+      "local": "assets/02-09.png",
+      "sha256": "0dd72ee56ce50f23daf35595912f02814c2539c93af6d494e13e701f2bf2847f",
+      "lesson": 2,
+      "original_position": 9,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015031856.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031856.png",
+      "local": "assets/02-10.png",
+      "sha256": "9c09b2d008f1c8888a986f24a4f1ace472beb9c00959776edfcdfdcadc6e454b",
+      "lesson": 2,
+      "original_position": 10,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015031919.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031919.png",
+      "local": "assets/02-11.png",
+      "sha256": "bf9ebd7dd6ca50e1ccd91f218de44e17c440b13b66119575ba06cebe3ba0b77f",
+      "lesson": 2,
+      "original_position": 11,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015031933.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015031933.png",
+      "local": "assets/02-12.png",
+      "sha256": "1ac0967117a6e4625fccf407f354bfafb8a4051102b48dc84d88abaad526c57d",
+      "lesson": 2,
+      "original_position": 12,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015032937.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015032937.png",
+      "local": "assets/02-13.png",
+      "sha256": "fc600931470f551a4571d9dc7b1667d1426b3151e15a636cb4396fa77242336e",
+      "lesson": 2,
+      "original_position": 13,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015032952.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015032952.png",
+      "local": "assets/02-14.png",
+      "sha256": "36a0333a769cea75f03ab6f81a5d00a3850fdfb8527623c93d3ea58706a9d508",
+      "lesson": 2,
+      "original_position": 14,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015033455.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033455.png",
+      "local": "assets/02-15.png",
+      "sha256": "a28ff21ca224d8dee9ca0fbe8a11532588cdb1a32a1005613f0c5f9650a600bf",
+      "lesson": 2,
+      "original_position": 15,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015033536.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033536.png",
+      "local": "assets/02-16.png",
+      "sha256": "c3542e241f66356979fc4734ec17e7b25fe0db8049c683338199c60d3da5384b",
+      "lesson": 2,
+      "original_position": 16,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015033602.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033602.png",
+      "local": "assets/02-17.png",
+      "sha256": "e1c03dda4b02507c1fc1fa91b63f2d75fbcd51652fa602b5b38e5c39380ca095",
+      "lesson": 2,
+      "original_position": 17,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015033628.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033628.png",
+      "local": "assets/02-18.png",
+      "sha256": "4e75ea98a22d4ec55f12ef86de2638e24175c2da5e8045c69891f7b4425b5aa4",
+      "lesson": 2,
+      "original_position": 18,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015033646.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033646.png",
+      "local": "assets/02-19.png",
+      "sha256": "a0b3994bdda3bbe90b1885268520282082209c29967fb91899b9e5b69e61c7a5",
+      "lesson": 2,
+      "original_position": 19,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015033705.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033705.png",
+      "local": "assets/02-20.png",
+      "sha256": "1f9cdd9f61a5444fdbfe9ac10aa399613b252e52318669cf8733e5ccdc5246e5",
+      "lesson": 2,
+      "original_position": 20,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015033719.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033719.png",
+      "local": "assets/02-21.png",
+      "sha256": "9556c45940227269ffe3567976cffe6782f2d17a1b333261fab6df4e00f05254",
+      "lesson": 2,
+      "original_position": 21,
+      "method": "Unmodified copy"
+    },
+    "Pasted image 20261015033754.png": {
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261015033754.png",
+      "local": "assets/02-22.png",
+      "sha256": "8a93576b6ae673048047718de332b1b2ed09c4613f7d5b728865c5bf670d971e",
+      "lesson": 2,
+      "original_position": 22,
+      "method": "Unmodified copy"
+    }
+  },
+  "source_scope": "Three supplied Asset Setup lessons; prerequisite import/export recap identified separately.",
+  "api_stub": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Intermediate\\PythonStub\\unreal.py",
+  "api_stub_sha256": "defacfe9c2f316d46153c722f05129bfc4025954570a25c81b8609651423bf5d",
+  "engine_association": "5.7",
+  "original_code": {
+    "source_note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\18 Oster Asset Setup UE Python API\\Asset Setup 03.md",
+    "extraction": "Text after CODE:, with line endings normalized by text reading",
+    "sha256": "209e69e6c9d6a1afa2ffa79dc3fb42a4729512c30f4b4afeb129ca2058cf9079",
+    "executed": false
+  }
+}

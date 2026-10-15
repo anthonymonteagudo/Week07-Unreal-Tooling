@@ -1,0 +1,153 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Archived EUW design proposal</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/Docs/UI/UNREAL_NATIVE_UI_EUW_PROPOSAL_ARCHIVE.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/Docs/UI/UNREAL_NATIVE_UI_EUW_PROPOSAL_ARCHIVE.md<br>Source modified: 2026-10-15T08:31:37.548Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#archived-euw-design-proposal">Archived EUW design proposal</a></li><li><a href="#two-interfaces-one-python-tool">Two interfaces, one Python tool</a></li><li><a href="#recommendation-for-this-class">Recommendation for this class</a></li><li><a href="#shared-architecture">Shared architecture</a></li><li><a href="#native-assembly-specification-for-a-later-editor-session">Native assembly specification for a later editor session</a></li><li><a href="#native-progression-and-acceptance-gates">Native progression and acceptance gates</a></li><li><a href="#sources-checked">Sources checked</a></li></ul></details><h1 id="archived-euw-design-proposal">Archived EUW design proposal</h1>
+<p>Superseded by the implemented C++ Slate tab. Retained for architectural reference. Use <a href="unreal-native-ui-2e7365ec.html">the current interface guide</a> for teaching.</p>
+<h1 id="two-interfaces-one-python-tool">Two interfaces, one Python tool</h1>
+<blockquote>
+<p>Current classroom route, 13 October 2026: Material/VFX workflows were rehearsed in Unreal 5.7.4 with both live PySide and the native C++ Slate tab in <code>Plugins/Week07Tools</code>. Prepared assets and <code>W07_MaterialVFXLab</code> now exist. Use the <a href="../Slides/Week07/FinalClass20261013/live-demo.html">live run sheet and actual capture fallback</a>. Pending statements below describe the earlier plan, not current Material/VFX readiness. The separate Maya bridge is outside this rehearsal.</p>
+</blockquote>
+<p>The existing interface is <strong>PySide6 Qt Widgets</strong> (<code>QWidget</code>, <code>QTableWidget</code>, etc.).
+The dark appearance comes from a Qt stylesheet. It is not HTML, a browser, WebView,
+or Electron. Preserve it as the Python/PySide teaching tool.</p>
+<p>The instructor also requires an <strong>Unreal-native editor interface</strong>. An external
+Qt window parented to Unreal is still a Qt window; it does not satisfy the native
+dockable-tab requirement. The two interfaces should share operations and behavior,
+not try to embed the Qt widgets into Slate.</p>
+<h2 id="recommendation-for-this-class">Recommendation for this class</h2>
+<p>Build <strong>an Editor Utility Widget (EUW)</strong> for the Unreal-facing version, using
+UMG/Blueprint for presentation and the existing Python controller/backend for tool
+operations. This keeps Python central while adding a real Level Editor tab. Epic&#39;s
+5.7 documentation describes EUWs as editor tabs dockable with Level Editor tabs;
+EUW remains a Beta feature. This is the recommended first native implementation,
+not a claim that it has every capability of a C++ Slate plugin.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Strength</th>
+<th>Cost / boundary</th>
+<th>Role here</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PySide6 Qt Widgets</td>
+<td>Python-authored UI, portable patterns across DCC tools, easy offline tests</td>
+<td>External window; parenting is not native docking</td>
+<td>Keep the implemented staged PySide tool.</td>
+</tr>
+<tr>
+<td>Editor Utility Widget</td>
+<td>Native editor tab, visual layout authoring, Blueprint events call Python</td>
+<td>Editor asset must be created and wired; UMG controls need deliberate editor styling</td>
+<td>Recommended Week 7 Unreal-facing tool.</td>
+</tr>
+<tr>
+<td>C++ Slate editor plugin</td>
+<td>Direct editor framework, <code>SDockTab</code>, detailed styling and integration</td>
+<td>C++ module/build/reload lifecycle expands teaching scope</td>
+<td>Advanced extension if the class needs deeper editor-framework work.</td>
+</tr>
+<tr>
+<td>ToolMenus</td>
+<td>Discoverability from editor menus/toolbars</td>
+<td>Launch surface, not a panel UI framework</td>
+<td>Add a launcher after the native widget is working.</td>
+</tr>
+</tbody></table></div>
+<p>Epic&#39;s Slate quickstart uses the <strong>Editor Standalone Window</strong> plugin template and
+a C++ <code>SDockTab</code>. That is the direct editor-window system the instructor referred
+to. For the current Python-focused lecture, EUW is a smaller first integration.
+Use normal editor spacing, restrained emphasis, meaningful labels, keyboard focus,
+and visible scope; native docking alone does not guarantee good UX.</p>
+<h2 id="shared-architecture">Shared architecture</h2>
+<pre><code class="language-text">PySide widgets ──────────────────┐
+                               ├─ ToolController ─ UnrealBackend ─ demo/rules
+EUW Blueprint ─ native_bridge ──┘
+
+Offline PySide/tests ─ ToolController ─ OfflineBackend ─ same pure rules
+</code></pre>
+<p><code>Content/Python/week07_tooling/editor/native_bridge.py</code> is now prepared and tested
+offline. It imports no Qt. Each widget owns its own opaque session ID; the reviewed
+plan stays in Python. Dispatch is restricted to known actions. Stale/expired
+sessions cannot apply changes. Reload clears sessions and requires reconnection.
+The controller currently lives under <code>ui/</code> but has no Qt dependency.</p>
+<p><strong>Status:</strong> PySide implemented; native Python bridge prepared; EUW <code>.uasset</code>,
+Blueprint wiring, native menu entry and native captures <strong>not created yet</strong>.
+No editor was launched or manipulated to do this investigation. Creating/wiring
+and validating the EUW is the next in-engine work, outside the current code-only
+session. No project plugin/build settings were changed.</p>
+<h2 id="native-assembly-specification-for-a-later-editor-session">Native assembly specification for a later editor session</h2>
+<p>Proposed asset: <code>/Game/Week07/Tools/EUW_PropInspector</code> (not present yet).
+Create via Editor Utilities → Editor Utility Widget. Keep domain logic in Python;
+use Blueprint only for widget state, UI events and presentation.</p>
+<p>First native stage: a Vertical Box with scope/status Text Blocks, a Select/Refresh/
+Validate button row, separately labeled scrollable read-only preview and validation
+text, and Preview/Apply actions. Apply starts disabled. Add a reconnect action.
+This first stage can use the bridge&#39;s text outputs; a later stage should replace
+them with real row widgets/structured data for comparison, rather than rely on
+space-padded text as a fake table. Reset is separate and needs explicit confirmation.</p>
+<p>Use <strong>Execute Python Script</strong>, with typed input/output pins, not string-built Python
+commands. Epic recommends this node over Python-generated Blueprint function
+libraries, whose transient types have asset save/load problems.</p>
+<p>On widget Construct, create an output pin <code>session_id</code> of type String:</p>
+<pre><code class="language-python">from week07_tooling.editor import native_bridge
+session_id = native_bridge.open_session()
+</code></pre>
+<p>Store the returned String on the widget, then invoke Refresh. Reconnect first
+closes the old session, opens a new one, clears displays, and disables Apply.</p>
+<p>For each action node, input pins are <code>session_id</code> (String), <code>action</code> (String from
+a fixed button mapping), <code>reset_confirmed</code> (Boolean, false except confirmed Reset).
+Output pins match the variables assigned below:</p>
+<pre><code class="language-python">from week07_tooling.editor import native_bridge
+view = native_bridge.dispatch(session_id, action, reset_confirmed)
+operation_ok = view[&#39;ok&#39;]                 # Boolean
+session_valid = view[&#39;session_valid&#39;]     # Boolean
+status_text = view[&#39;status_text&#39;]         # String
+tone = view[&#39;tone&#39;]                       # String
+can_apply = view[&#39;can_apply&#39;]             # Boolean
+change_count = view[&#39;change_count&#39;]       # Integer
+selection_count = view[&#39;selection_count&#39;] # Integer
+world_text = view[&#39;world_text&#39;]           # String
+preview_text = view[&#39;preview_text&#39;]       # String
+validation_text = view[&#39;validation_text&#39;] # String
+report_json = view[&#39;report_json&#39;]         # String, for copy/export later
+</code></pre>
+<p>Map actions: <code>select_demo</code>, <code>refresh</code>, <code>validate</code>, <code>preview</code>, <code>apply</code>, <code>reset</code>.
+After each call, update displays and Apply enabled state. The node&#39;s <strong>Success?</strong>
+means script execution succeeded; <code>operation_ok</code> separately reports whether the
+tool action succeeded. Handle either failure inline; clear preview and disable
+Apply if the node itself fails. An expired session must offer Reconnect, not retry
+Apply automatically. Poll Refresh at a modest interval while active (e.g. 0.75 s),
+not on every frame; stop the timer on widget Destruct. Refresh never mutates scene
+data. Apply also rechecks immediately, so polling is not the safety boundary.</p>
+<p>On Destruct, pass the stored String into:</p>
+<pre><code class="language-python">from week07_tooling.editor import native_bridge
+native_bridge.close_session(session_id)
+</code></pre>
+<p>Reconstruction may run Construct again: close any existing session before replacing
+its ID. Keep a separate session for each tab instance. The native bridge requires
+no PySide dependencies. Do not call <code>show_pyside_ui()</code> from the EUW button graph.</p>
+<h2 id="native-progression-and-acceptance-gates">Native progression and acceptance gates</h2>
+<ol>
+<li><strong>Connected tab:</strong> actual EUW, explicit mode/scope/status, buttons call Python,
+empty/stale/error states work. Test closing/reopening and session cleanup.</li>
+<li><strong>Reviewable workflow:</strong> native before/after rows, selected scope vs whole fixture
+validation, Apply count, no-op handling, preserved focus and useful empty states.</li>
+<li><strong>Integrated editor tool:</strong> menu discoverability, docking/reopening, Undo feedback,
+reset recovery, keyboard/DPI review and consistent editor visual treatment.</li>
+</ol>
+<p>Retain the PySide functional/guided/refined examples. Explain why a portable DCC
+window and a host-native tab have different presentation code while sharing rules.
+Do not substitute the PySide screenshots for native Unreal captures. Native quality
+gates remain pending until a real widget runs in the editor.</p>
+<h2 id="sources-checked">Sources checked</h2>
+<ul>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/editor-utility-widgets-in-unreal-engine?application_version=5.7">Epic: Editor Utility Widgets, UE 5.7</a>
+— UMG-based editor tabs and Level Editor docking.</li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/scripting-the-unreal-editor-using-python?application_version=5.7">Epic: Python scripting, UE 5.7</a>
+— editor-only Blueprint Python nodes, typed custom pins, and the recommended bridge.</li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/slate-editor-window-quickstart-guide-for-unreal-engine">Epic: Slate editor-window quickstart</a>
+— C++ Standalone Window plugin and SDockTab. The current page resolves to 5.8;
+it is an architectural reference, not evidence of a compiled 5.7 implementation.</li>
+<li>Project-generated UE 5.7 stub: <code>EditorUtilitySubsystem.spawn_and_register_tab</code>
+and related tab APIs are exposed locally. The stub was inspected, never imported.</li>
+</ul>
+</main></body></html>

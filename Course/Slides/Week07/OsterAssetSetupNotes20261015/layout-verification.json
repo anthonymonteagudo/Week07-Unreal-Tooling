@@ -1,0 +1,142 @@
+[
+  {
+    "file": "index.html",
+    "viewport": "desktop",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 0,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "notes/01.html",
+    "viewport": "desktop",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 22,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "notes/02.html",
+    "viewport": "desktop",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 22,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "notes/03.html",
+    "viewport": "desktop",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 0,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "compiled-notes.html",
+    "viewport": "desktop",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 4,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "assessment.html",
+    "viewport": "desktop",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 0,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "original-script.html",
+    "viewport": "desktop",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 0,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "index.html",
+    "viewport": "mobile",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 0,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "notes/01.html",
+    "viewport": "mobile",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 22,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "notes/02.html",
+    "viewport": "mobile",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 22,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "notes/03.html",
+    "viewport": "mobile",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 0,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "compiled-notes.html",
+    "viewport": "mobile",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 4,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "assessment.html",
+    "viewport": "mobile",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 0,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  },
+  {
+    "file": "original-script.html",
+    "viewport": "mobile",
+    "overflow": false,
+    "brokenImages": [],
+    "images": 0,
+    "h1s": 1,
+    "missingAnchors": [],
+    "missingFiles": []
+  }
+]

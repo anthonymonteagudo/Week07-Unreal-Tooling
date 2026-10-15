@@ -8,7 +8,7 @@ def dispatch(payload):
     identity = data.get('session', '')
     if action == 'connect':
         return json.dumps({'session': native_bridge.open_workflow_session(), 'can_apply': False,
-                           'message': 'Connected to Unreal. Choose inputs, then preview.'})
+                           'message': 'Choose inputs, then Preview.'})
     if action == 'close':
         native_bridge.close_session(identity)
         return json.dumps({'can_apply': False, 'message': 'Closed.'})
@@ -32,7 +32,7 @@ def dispatch(payload):
             result = json.loads(native_bridge.dispatch_workflow(identity,action,kind,json.dumps(request)))
             if result['ok']:
                 warnings=result['plan'].get('warnings',[])
-                result['message']=('Review needed: '+' '.join(warnings)) if warnings else 'Ready to apply. Review the targets and proposed result.'
+                result['message']=('Review needed: '+' '.join(warnings)) if warnings else 'Review the changes, then Apply.'
             return json.dumps(result)
         return native_bridge.dispatch_workflow(identity,action,warnings_reviewed=data.get('ack') is True)
     except Exception as error:

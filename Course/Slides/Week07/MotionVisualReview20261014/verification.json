@@ -1,0 +1,114 @@
+{
+  "images": true,
+  "videos": [
+    {
+      "id": "taichi-fluid",
+      "duration": 8.333333,
+      "width": 960,
+      "height": 540
+    },
+    {
+      "id": "tap-inspector",
+      "duration": 19.6,
+      "width": 1270,
+      "height": 852
+    },
+    {
+      "id": "epic-material",
+      "duration": 9.166667,
+      "width": 800,
+      "height": 554
+    },
+    {
+      "id": "course-bridge",
+      "duration": 25,
+      "width": 1440,
+      "height": 930
+    },
+    {
+      "id": "powerrename-demo",
+      "duration": 34.266667,
+      "width": 1598,
+      "height": 1080
+    },
+    {
+      "id": "mph.function_list",
+      "duration": 42.733333,
+      "width": 1006,
+      "height": 606
+    },
+    {
+      "id": "tap-callback",
+      "duration": 4.833333,
+      "width": 466,
+      "height": 258
+    },
+    {
+      "id": "guerrilla",
+      "duration": 16.4,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "lyra-workflow",
+      "duration": 10.6,
+      "width": 800,
+      "height": 430
+    },
+    {
+      "id": "powerrename-demo2",
+      "duration": 10.366667,
+      "width": 1328,
+      "height": 876
+    },
+    {
+      "id": "tap-ui-edit",
+      "duration": 11.1,
+      "width": 948,
+      "height": 532
+    },
+    {
+      "id": "tap-shelf",
+      "duration": 31.566667,
+      "width": 1428,
+      "height": 664
+    },
+    {
+      "id": "mph.parameter_panel.main",
+      "duration": 36.233333,
+      "width": 1000,
+      "height": 604
+    },
+    {
+      "id": "course-props",
+      "duration": 6.6,
+      "width": 1200,
+      "height": 766
+    },
+    {
+      "id": "tap-gallery",
+      "duration": 14,
+      "width": 534,
+      "height": 642
+    },
+    {
+      "id": "mph.parameter_list.multiline",
+      "duration": 22.1,
+      "width": 602,
+      "height": 214
+    }
+  ],
+  "overflow": false,
+  "missing": [],
+  "playback": {
+    "time": 1.810788,
+    "paused": false
+  },
+  "stopped": {
+    "time": 4.833333,
+    "paused": true
+  },
+  "coreCount": 8,
+  "mobileOverflow": false,
+  "errors": []
+}

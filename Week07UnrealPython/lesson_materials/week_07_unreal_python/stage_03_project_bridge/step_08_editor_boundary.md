@@ -1,4 +1,4 @@
-# 08 · Read the editor boundary — manual demo later
+# 08 · Read the editor boundary: manual demo later
 
 Open these project-relative paths in VS Code in this order:
 

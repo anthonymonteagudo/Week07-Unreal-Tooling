@@ -1,0 +1,81 @@
+{
+  "slides": 106,
+  "visible": 88,
+  "hidden": 18,
+  "custom_show": 61,
+  "capture_slides": [
+    18,
+    31,
+    53,
+    55,
+    56,
+    72,
+    74,
+    78,
+    84,
+    89,
+    90
+  ],
+  "capture_assets": 15,
+  "source_sha256": "02fa59d65384fdb6068aa64bae9f4288689c87f5c3408cb6051a97c74e54a175",
+  "native_table_slides": [
+    2,
+    13,
+    14,
+    23,
+    26,
+    28,
+    36,
+    37,
+    38,
+    49,
+    50,
+    64,
+    65,
+    67,
+    68,
+    75,
+    76,
+    81,
+    83,
+    85,
+    93,
+    97,
+    99,
+    100,
+    103,
+    104,
+    105
+  ],
+  "deck_sha256": "ed2c183d0286f175e17a70f9f638d3e2a8f158c9cd9628e7d4b710bd7b335fac",
+  "empty_or_default_footer_placeholders": 0,
+  "em_dashes_or_garbled_characters": 0,
+  "unchanged_embedded_videos": 9,
+  "capture_hashes_match": true,
+  "documents": [
+    {
+      "name": "Week 7 Lab 1 Student Handout v5.docx",
+      "words": 202,
+      "pages": 1
+    },
+    {
+      "name": "Week 7 Lab Instructor Guide v5.docx",
+      "words": 577,
+      "pages": 2
+    },
+    {
+      "name": "Week 7 Live Demo Run Sheet v5.docx",
+      "words": 1184,
+      "pages": 4
+    },
+    {
+      "name": "Week 7 Peer Review Packet v4.docx",
+      "words": 509,
+      "pages": 3
+    }
+  ],
+  "python_files_parsed": 62,
+  "bridge_pack_files": 43,
+  "student_supplementary_docs_removed": true,
+  "live_rehearsal": "qa/live-rehearsal.json"
+}

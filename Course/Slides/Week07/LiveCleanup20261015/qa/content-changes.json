@@ -1,0 +1,300 @@
+{
+  "hidden": {
+    "5": "Host check repeats UE01.",
+    "7": "Autocomplete setup is reference material.",
+    "8": "Workspace settings are reference material.",
+    "16": "Script execution instructions repeat the quick start.",
+    "18": "Selection capture repeats the preceding expected-output example.",
+    "21": "Component capture repeats Actor/component/asset explanation.",
+    "25": "Asset selection result repeats UE04.",
+    "30": "Readback summary repeats the texture table and capture.",
+    "41": "Extra script-editor case study.",
+    "44": "Remote Control is beyond the current tool route.",
+    "45": "Additional pipeline platform case study.",
+    "49": "Selection reference duplicates the Blender example.",
+    "58": "Second Titan tool adds less than the ivy and environment cases.",
+    "69": "Workflow outline duplicates the user story and acceptance checks.",
+    "70": "Mental-model explanation repeats the same material story.",
+    "85": "Task-state summary duplicates the state/action table.",
+    "95": "Second GOLF+ case repeats naming consistency.",
+    "100": "Telemetry depth is optional for this observation lab."
+  },
+  "footer_placeholders_removed": [
+    "ppt/slides/slide1.xml",
+    "ppt/slides/slide7.xml",
+    "ppt/slides/slide8.xml",
+    "ppt/slides/slide12.xml",
+    "ppt/slides/slide13.xml",
+    "ppt/slides/slide16.xml",
+    "ppt/slides/slide18.xml",
+    "ppt/slides/slide22.xml",
+    "ppt/slides/slide27.xml",
+    "ppt/slides/slide28.xml",
+    "ppt/slides/slide32.xml",
+    "ppt/slides/slide37.xml",
+    "ppt/slides/slide42.xml",
+    "ppt/slides/slide58.xml",
+    "ppt/slideLayouts/slideLayout7.xml",
+    "ppt/slideLayouts/slideLayout8.xml",
+    "ppt/slideLayouts/slideLayout9.xml",
+    "ppt/slideLayouts/slideLayout10.xml",
+    "ppt/slideLayouts/slideLayout11.xml",
+    "ppt/slideLayouts/slideLayout12.xml",
+    "ppt/slideLayouts/slideLayout13.xml",
+    "ppt/slideLayouts/slideLayout14.xml",
+    "ppt/slideLayouts/slideLayout15.xml",
+    "ppt/slideLayouts/slideLayout16.xml",
+    "ppt/slideLayouts/slideLayout17.xml",
+    "ppt/slideLayouts/slideLayout18.xml",
+    "ppt/slideLayouts/slideLayout19.xml",
+    "ppt/slideLayouts/slideLayout20.xml",
+    "ppt/slideLayouts/slideLayout21.xml",
+    "ppt/slideLayouts/slideLayout22.xml",
+    "ppt/slideLayouts/slideLayout23.xml",
+    "ppt/slideLayouts/slideLayout24.xml",
+    "ppt/slideLayouts/slideLayout25.xml",
+    "ppt/slideLayouts/slideLayout26.xml",
+    "ppt/slideLayouts/slideLayout27.xml",
+    "ppt/slideLayouts/slideLayout28.xml",
+    "ppt/slideLayouts/slideLayout29.xml",
+    "ppt/slideLayouts/slideLayout30.xml",
+    "ppt/slideLayouts/slideLayout31.xml",
+    "ppt/slideLayouts/slideLayout32.xml",
+    "ppt/slideLayouts/slideLayout33.xml",
+    "ppt/slideLayouts/slideLayout34.xml",
+    "ppt/slideLayouts/slideLayout35.xml",
+    "ppt/slideLayouts/slideLayout36.xml",
+    "ppt/slideLayouts/slideLayout37.xml",
+    "ppt/slideLayouts/slideLayout38.xml",
+    "ppt/slideLayouts/slideLayout39.xml",
+    "ppt/slideLayouts/slideLayout40.xml",
+    "ppt/slideLayouts/slideLayout41.xml",
+    "ppt/slideLayouts/slideLayout42.xml",
+    "ppt/slideLayouts/slideLayout43.xml",
+    "ppt/slideLayouts/slideLayout44.xml",
+    "ppt/slideLayouts/slideLayout45.xml",
+    "ppt/slideLayouts/slideLayout46.xml",
+    "ppt/slideLayouts/slideLayout47.xml",
+    "ppt/slideLayouts/slideLayout48.xml",
+    "ppt/slideLayouts/slideLayout49.xml",
+    "ppt/slideLayouts/slideLayout50.xml",
+    "ppt/slideLayouts/slideLayout51.xml",
+    "ppt/slideLayouts/slideLayout52.xml",
+    "ppt/slideLayouts/slideLayout53.xml",
+    "ppt/slideLayouts/slideLayout54.xml",
+    "ppt/slideLayouts/slideLayout55.xml",
+    "ppt/slideLayouts/slideLayout56.xml",
+    "ppt/slideLayouts/slideLayout57.xml",
+    "ppt/slideLayouts/slideLayout58.xml",
+    "ppt/slideLayouts/slideLayout59.xml",
+    "ppt/slideLayouts/slideLayout60.xml",
+    "ppt/slideLayouts/slideLayout61.xml",
+    "ppt/slideLayouts/slideLayout62.xml",
+    "ppt/slideLayouts/slideLayout63.xml",
+    "ppt/slideMasters/slideMaster1.xml",
+    "ppt/slideLayouts/slideLayout1.xml",
+    "ppt/slideLayouts/slideLayout2.xml",
+    "ppt/slideLayouts/slideLayout3.xml",
+    "ppt/slideLayouts/slideLayout4.xml",
+    "ppt/slideLayouts/slideLayout5.xml",
+    "ppt/slideLayouts/slideLayout6.xml"
+  ],
+  "edits": [
+    {
+      "slide": 13,
+      "before": "Unreal Function Call, Explained 13 Pass the subsystem class; call selection methods on the returned editor instance. Expression Meaning unreal.get_editor_subsystem (...) Ask the running editor for a subsystem. unreal.EditorActorSubsystem Class argument: which subsystem we need. editor.get_selected_level_actors () Call on that instance. No explicit arguments. actors = ... Keep the returned Array[Actor] to inspect.",
+      "after": "Unreal Function Call, Explained 13 Get the subsystem, then ask it for the selection. Expression Meaning unreal.get_editor_subsystem (...) Ask the running editor for a subsystem. unreal.EditorActorSubsystem Class argument: which subsystem we need. editor.get_selected_level_actors () Call on that instance. No explicit arguments. actors = ... Keep the returned Array[Actor] to inspect.",
+      "before_words": 53,
+      "after_words": 50
+    },
+    {
+      "slide": 14,
+      "before": "01 Unreal Python 14 Unreal: finding the working selection editor is the returned subsystem. actor is one Actor from the selection. Expression Use in an artist tool unreal.get_editor_subsystem(     unreal.EditorActorSubsystem) Get the editor service that manages level Actors. editor.get_selected_level_actors() Read the current Outliner selection. actor.get_actor_label() Show the artist-facing Actor label in a report. actor.get_class().get_name() Report the selected object\u2019s Unreal class.",
+      "after": "01 Unreal Python 14 Unreal: finding the working selection editor: subsystem instance. actor: one selected Actor. Expression Use in an artist tool unreal.get_editor_subsystem(     unreal.EditorActorSubsystem) Get the editor service that manages level Actors. editor.get_selected_level_actors() Read the current Outliner selection. actor.get_actor_label() Show the artist-facing Actor label in a report. actor.get_class().get_name() Report the selected object\u2019s Unreal class.",
+      "before_words": 59,
+      "after_words": 54
+    },
+    {
+      "slide": 17,
+      "before": "17 Selection Example: Expected Output INPUT Outliner: select only W07_Crate_Target. Run the complete UE02 example. Selected Actors: 1 W07_Crate_Target  StaticMeshActor The label matches the Outliner. The class identifies the Actor type.",
+      "after": "17 Selection Example: Expected Output INPUT Select W07_Crate_Target. Run UE02. Selected Actors: 1 W07_Crate_Target  StaticMeshActor Label: Outliner identity. Class: Actor type.",
+      "before_words": 31,
+      "after_words": 21
+    },
+    {
+      "slide": 33,
+      "before": "01 Unreal Python 33 Validation should explain the next action A useful result identifies the asset, the rule and a correction. Project rule: Blueprint names start with BP_. Choose warning or failure to match the project policy. Asset validation checks content. It does not prove that the validator code is correct. Instructor captures from Karol\u2019s Unreal Python course \u00b7 lessons 21\u201322",
+      "after": "01 Unreal Python 33 Validation should explain the next action Name the asset, rule and correction. Project rule: Blueprint names start with BP_. Severity follows project policy. Asset validation checks content. It does not prove that the validator code is correct. Instructor captures from Karol\u2019s Unreal Python course \u00b7 lessons 21\u201322",
+      "before_words": 61,
+      "after_words": 51
+    },
+    {
+      "slide": 36,
+      "before": "01 Unreal Python 36 Import is the start of setup Stage Evidence to carry forward Import Returned objects and source files Plan Mesh slot, parent and exact texture roles Configure Instance parent and parameter values Assign and verify Intended target changes; protected scope stays What could import successfully but still be wrong in the scene? Isaac Oster \u00b7 Asset Setup series \u00b7 teaching adaptation",
+      "after": "01 Unreal Python 36 Import is the start of setup Stage Evidence to carry forward Import Objects + source files Plan Slot + parent + texture roles Configure Parent + parameters Assign and verify Intended target changes; protected scope stays What could import successfully but still be wrong in the scene? Isaac Oster \u00b7 Asset Setup series \u00b7 teaching adaptation",
+      "before_words": 64,
+      "after_words": 60
+    },
+    {
+      "slide": 38,
+      "before": "01 Unreal Python 38 A slot record is not the material Value What it identifies Slot index Numeric position used for assignment Slot name Semantic label such as Body Material interface Assigned material or instance object Assignment target Shared mesh default or one component override Two Actors use one mesh. Which object would you edit to change only one?",
+      "after": "01 Unreal Python 38 A slot record is not the material Value What it identifies Slot index Assignment index Slot name Semantic label, e.g. Body Material interface Material or instance object Assignment target Mesh default or component override Two Actors use one mesh. Which object would you edit to change only one?",
+      "before_words": 59,
+      "after_words": 52
+    },
+    {
+      "slide": 43,
+      "before": "01 Unreal Python 43 From a script to a tool someone can use Package the logic and the entry point separately. Version + supported engine Install / enable instructions One example task Known limits + recovery A clean-project smoke test Release check: can another artist install it and complete the example without you? Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 39 \u00b7 release checklist: teaching synthesis",
+      "after": "01 Unreal Python 43 From a script to a tool someone can use Package logic + a clear entry point. Version + supported engine Install / enable instructions One example task Known limits + recovery A clean-project smoke test Release check: can another artist install it and complete the example without you? Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 39 \u00b7 release checklist: teaching synthesis",
+      "before_words": 68,
+      "after_words": 67
+    },
+    {
+      "slide": 55,
+      "before": "03 Tool Demos 55 Material tool: preview and visible result Inspect the proposed assignment, then check the target in the scene. After Apply One target changes. The protected cube stays.",
+      "after": "03 Tool Demos 55 Material tool: preview and visible result Review the assignment. Inspect the scene. After Apply One target changes. The protected cube stays.",
+      "before_words": 30,
+      "after_words": 25
+    },
+    {
+      "slide": 56,
+      "before": "03 Tool Demos 56 VFX tool: scope and placement Count the proposed targets. Then inspect where the effects appear. Scene result Three placements. Performance needs a separate check.",
+      "after": "03 Tool Demos 56 VFX tool: scope and placement Preview three markers. Check three fountains. Scene result Three placements. Performance needs a separate check.",
+      "before_words": 28,
+      "after_words": 24
+    },
+    {
+      "slide": 67,
+      "before": "04 UI/UX for Artist Tools 67 A user story names an outcome Part Material-tool example User and context Environment artist trying a look on one prop Desired outcome Preview and assign a prepared texture set Benefit Compare the look while other placements stay unchanged What is missing from \u201cAs a user, I want a blue Apply button\u201d?",
+      "after": "04 UI/UX for Artist Tools 67 A user story names an outcome Part Material-tool example User and context Environment artist comparing one prop Desired outcome Preview and assign prepared textures Benefit Compare looks without changing other placements What is missing from \u201cAs a user, I want a blue Apply button\u201d?",
+      "before_words": 57,
+      "after_words": 50
+    },
+    {
+      "slide": 68,
+      "before": "04 UI/UX for Artist Tools 68 Turn the story into observable checks Given When Then Prepared textures + target Preview Target, slot and mappings are visible; scene unchanged A reviewed plan Selection changes Apply requires a fresh preview A valid reviewed plan Apply once Target changes; protected cube and shared mesh stay Which check tests the result, and which checks the boundary?",
+      "after": "04 UI/UX for Artist Tools 68 Turn the story into observable checks Given When Then Prepared textures + target Preview Targets visible; scene unchanged A reviewed plan Selection changes Fresh preview required Valid reviewed plan Apply once Target changes; protected cube and shared mesh stay Which check tests the result, and which checks the boundary?",
+      "before_words": 62,
+      "after_words": 55
+    },
+    {
+      "slide": 72,
+      "before": "04 UI/UX for Artist Tools 72 UI/UX: grouping and visual hierarchy Assessment question: which controls belong to the same step? Spacing should separate unrelated steps. Labels should describe the artist\u2019s task. Scope and primary action should remain easy to find. UI/UX course connection \u00b7 Joe Natoli, Design Rules",
+      "after": "04 UI/UX for Artist Tools 72 UI/UX: grouping and visual hierarchy Which controls belong together? Separate unrelated steps. Label the artist\u2019s task. Expose scope and the next action. UI/UX course connection \u00b7 Joe Natoli, Design Rules",
+      "before_words": 48,
+      "after_words": 36
+    },
+    {
+      "slide": 74,
+      "before": "04 UI/UX for Artist Tools 74 Week 2 composition \u2192 tool hierarchy In a scene: guide the eye toward the focal point. In a tool: guide attention through the task. Use spacing, alignment and contrast to clarify scope, preview and the primary action. Left: Week 2 course image, Mariam Bellard / Rockstar North, GDC 2019 \u00b7 Right: course tool capture",
+      "after": "04 UI/UX for Artist Tools 74 Week 2 composition \u2192 tool hierarchy Scene: guide the eye. Tool: guide the task. Use spacing, alignment and contrast. Left: Week 2 course image, Mariam Bellard / Rockstar North, GDC 2019 \u00b7 Right: course tool capture",
+      "before_words": 60,
+      "after_words": 42
+    },
+    {
+      "slide": 75,
+      "before": "04 UI/UX for Artist Tools 75 Value and contrast are different ideas HSV Value is a color coordinate. It is not perceived lightness or a contrast ratio. Concept Meaning in art and tool design Value The lightness or darkness of a visual area Contrast A difference between neighboring elements Visual hierarchy The priority suggested by size, value, spacing and emphasis Would different hues remain distinct if their light and dark values were similar?",
+      "after": "04 UI/UX for Artist Tools 75 Value, contrast, hierarchy HSV Value \u2260 perceived lightness \u2260 contrast ratio. Concept Meaning Value Lightness or darkness Contrast Difference between elements Visual hierarchy Priority from size, value and spacing Do different hues still separate in grayscale?",
+      "before_words": 73,
+      "after_words": 42
+    },
+    {
+      "slide": 76,
+      "before": "04 UI/UX for Artist Tools 76 Three quick hierarchy checks Check Try it Ask Shape blockout Ignore labels; reduce regions to simple masses Are related decisions grouped? Grayscale Temporarily remove hue Does meaning survive without color? Squint test Squint briefly or step back Which large shapes and values dominate? Now restore the original. Can you read the labels and use the controls?",
+      "after": "04 UI/UX for Artist Tools 76 Three quick hierarchy checks Check Try it Ask Shape blockout Reduce the layout to masses Are related controls grouped? Grayscale Remove hue Does meaning survive without color? Squint test Squint briefly or step back What dominates? Restore the original. Check labels and controls.",
+      "before_words": 62,
+      "after_words": 49
+    },
+    {
+      "slide": 77,
+      "before": "04 UI/UX for Artist Tools 77 Case study: GOLF+ Course Generator Notice: numbered stages reveal the intended sequence. Generate receives strong visual emphasis. Edit is explicitly optional. Apply: make the next step and its prerequisites easy to find. What does the warning beside Input mean? Can this image tell us? GOLF+ Course Generator \u00b7 instructor\u2019s production tool",
+      "after": "04 UI/UX for Artist Tools 77 Case study: GOLF+ Course Generator Numbered stages show sequence. Generate has emphasis. Edit is optional. Make the next step easy to find. What does the Input warning mean? GOLF+ Course Generator \u00b7 instructor\u2019s production tool",
+      "before_words": 57,
+      "after_words": 41
+    },
+    {
+      "slide": 78,
+      "before": "04 UI/UX for Artist Tools 78 Week 2 color \u2192 meaning in a tool Art: palette and contrast establish emphasis. Tools: color supports an explicit state label. Do not make color the only cue. State the problem and the next action in text. Left: Week 2 / Daniel Candil, A Crowd of Monsters \u00b7 Right: course tool \u00b7 Guidance: W3C",
+      "after": "04 UI/UX for Artist Tools 78 Week 2 color \u2192 meaning in a tool Art: color creates emphasis. Tools: color supports state labels. Pair color with the problem and next action. Left: Week 2 / Daniel Candil, A Crowd of Monsters \u00b7 Right: course tool \u00b7 Guidance: W3C",
+      "before_words": 60,
+      "after_words": 48
+    },
+    {
+      "slide": 79,
+      "before": "04 UI/UX for Artist Tools 79 Choose color roles before choosing colors Give primary actions, warnings and supporting surfaces distinct roles. Pair status color with a label, icon or shape. Explore palettes with Coolors; check actual foreground/background pairs. Text benchmark: 4.5:1 ordinary text, 3:1 large text under WCAG definitions. Does this palette explain \u201cselected,\u201d \u201cavailable,\u201d and \u201ccomplete\u201d separately?",
+      "after": "04 UI/UX for Artist Tools 79 Choose color roles first Separate actions, warnings and surfaces. Pair color with a label or icon. Explore with Coolors. Check actual color pairs. WCAG text: 4.5:1 normal; 3:1 large. Can you distinguish selected, available and complete?",
+      "before_words": 58,
+      "after_words": 42
+    },
+    {
+      "slide": 81,
+      "before": "04 UI/UX for Artist Tools 81 State determines the next action State Useful next action What the UI communicates No plan Preview Inputs can be checked without mutation Valid reviewed plan Apply Names the operation and affected count Warning Review and acknowledge Explains the concern; limits still apply Completed Inspect result No repeated Apply from the consumed plan If an input changes, what should happen to the old preview?",
+      "after": "04 UI/UX for Artist Tools 81 State determines the next action State Next action Meaning No plan Preview No changes yet Reviewed plan Apply Operation + affected count Warning Review and acknowledge Concern + limits Completed Inspect result Preview consumed Inputs changed. Is this preview still valid?",
+      "before_words": 69,
+      "after_words": 47
+    },
+    {
+      "slide": 82,
+      "before": "04 UI/UX for Artist Tools 82 One readiness rule becomes Qt code pending = self.session.pending ready = bool(pending) and (     not pending[3].get(\"warnings\") or self.ack.isChecked()) self.apply_button.setEnabled(ready) Input-change signals invalidate the preview. The session rechecks scope when Apply runs. Why must the backend validate again if Apply is already enabled? Current PySide implementation \u00b7 excerpt, not a standalone script",
+      "after": "04 UI/UX for Artist Tools 82 One readiness rule becomes Qt code pending = self.session.pending ready = bool(pending) and (     not pending[3].get(\"warnings\") or self.ack.isChecked()) self.apply_button.setEnabled(ready) Input-change signals invalidate the preview. The session rechecks scope when Apply runs. Why recheck when Apply is enabled? Current PySide implementation \u00b7 excerpt, not a standalone script",
+      "before_words": 57,
+      "after_words": 52
+    },
+    {
+      "slide": 83,
+      "before": "04 UI/UX for Artist Tools 83 The same workflow can use different UIs Surface Useful implementation distinction PySide / Qt Layouts and signals in a Python window Native Unreal Slate Editor tab using the host UI framework Editor Utility Widget Blueprint-based editor interface; a separate option Shared workflow Inputs \u2192 reviewed plan \u2192 guarded apply \u2192 result Which parts should stay consistent when the host interface changes?",
+      "after": "04 UI/UX for Artist Tools 83 One workflow, different interfaces Surface Implementation PySide / Qt Python window: layouts + signals Native Unreal Slate Dockable editor tab Editor Utility Widget Blueprint editor interface Shared workflow Inputs \u2192 preview \u2192 apply \u2192 result What should stay consistent across interfaces?",
+      "before_words": 67,
+      "after_words": 47
+    },
+    {
+      "slide": 84,
+      "before": "04 UI/UX for Artist Tools 84 Make review data readable Show exact identity and target slot. Keep Before beside After Apply. Separate the proposed result from a completed result. Which row would you inspect to confirm the affected component? Updated course PySide interface \u00b7 sample data \u00b7 no Unreal connection",
+      "after": "04 UI/UX for Artist Tools 84 Make review data readable Show the target and slot. Keep Before beside After Apply. After completion, label it Result. Which component will change? Updated course PySide interface \u00b7 sample data \u00b7 no Unreal connection",
+      "before_words": 50,
+      "after_words": 40
+    },
+    {
+      "slide": 93,
+      "before": "04 UI/UX for Artist Tools 93 A style sheet records design decisions Shared rules reduce drift across people, tools and releases. Record Example from the course tool Typography and spacing Title, field label, help text; consistent group gaps Color and control roles Primary action, focus, warning, unavailable state Interaction and wording Preview before Apply; name the affected operation Examples and exceptions Starting, blocked, completed and narrow-window views What would a color palette alone leave unspecified?",
+      "after": "04 UI/UX for Artist Tools 93 A style sheet records design decisions Shared rules reduce design drift. Record Example Typography and spacing Type scale + group spacing Color and control roles Action, focus, warning, disabled Interaction and wording Preview \u2192 Apply \u2192 Result Examples and exceptions Start, blocked, complete, narrow What does a palette leave unspecified?",
+      "before_words": 75,
+      "after_words": 56
+    },
+    {
+      "slide": 94,
+      "before": "04 UI/UX for Artist Tools 94 Use the style sheet when working with AI Keep design rules in a versioned style-sheet skill. Have design agents reference it before changing the UI. Review screenshots and behavior against the same rules. Record an intentional exception; update the sheet when the rule changes. What evidence would you request before accepting \u201cthe design is consistent\u201d?",
+      "after": "04 UI/UX for Artist Tools 94 Use the style sheet when working with AI Version the style-sheet skill. Require agents to read it first. Review visuals and behavior against it. Record exceptions. Update changed rules. What evidence would prove consistency?",
+      "before_words": 61,
+      "after_words": 40
+    },
+    {
+      "slide": 97,
+      "before": "04 UI/UX for Artist Tools 97 Prototype the question you need to answer Prototype Good question What remains untested Paper or Figma Can a peer find the next action? Real data and engine behavior PySide practice UI Do controls and states make sense? Live assets and host integration Prepared engine fixture Does this operation respect scope? Other projects and target performance Which is the cheapest prototype that answers your current uncertainty?",
+      "after": "04 UI/UX for Artist Tools 97 Prototype your uncertainty Prototype Good question What remains untested Paper or Figma Is the next action clear? Data + engine behavior PySide practice UI Are states understandable? Live host integration Prepared engine fixture Is scope respected? Other projects + frame cost What is the cheapest useful test?",
+      "before_words": 71,
+      "after_words": 53
+    },
+    {
+      "slide": 99,
+      "before": "04 UI/UX for Artist Tools 99 A useful finding separates evidence from explanation Part Example Observed The tester paused at the destination field and asked for help. Possible explanation The label may not identify which folder will change. Proposed revision Name the destination and affected assets beside Preview. Retest Same task and inputs; can a new tester identify scope without help? What did you observe, and what are you still inferring?",
+      "after": "04 UI/UX for Artist Tools 99 Separate observation from explanation Part Example Observed Tester paused at Destination and asked for help. Possible explanation The affected folder may be unclear. Proposed revision Name the folder and affected assets. Retest Same task, new tester: identify scope unaided. What is observed? What is inferred?",
+      "before_words": 71,
+      "after_words": 51
+    },
+    {
+      "slide": 103,
+      "before": "05 Final Peer Review 103 Prepare one task a peer can attempt Specify Example User and goal Environment artist comparing one surface Input and boundary Prepared textures + target crate; protected crate stays Visible success Expected look, correct slot and unchanged comparison object Repeat / fallback Restore prepared state; use a labeled walkthrough if blocked Give a goal, not a list of clicks.",
+      "after": "05 Final Peer Review 103 Prepare one task a peer can attempt Specify Example User and goal Artist comparing one surface Input and boundary Textures + target; protected crate unchanged Visible success Expected look + correct slot + protected scope Repeat / fallback Reset; labeled walkthrough if blocked Give a goal, not a list of clicks.",
+      "before_words": 63,
+      "after_words": 56
+    },
+    {
+      "slide": 105,
+      "before": "05 Final Peer Review 105 One round produces evidence and a retest Elapsed Action 0:00\u20130:45 Owner states task, input and success 0:45\u20133:45 Tester attempts; observer records 3:45\u20135:15 Compare expectation with observed result 5:15\u20136:15 Choose a strength and one revision or uncertainty 6:15\u20137:00 Write a retest; reset and rotate If execution is blocked, label the mode and continue with the prepared fallback.",
+      "after": "05 Final Peer Review 105 One round produces evidence and a retest Elapsed Action 0:00\u20130:45 Owner states task, input and success 0:45\u20133:45 Tester attempts; observer records 3:45\u20135:15 Compare expectation with observed result 5:15\u20136:15 Choose one strength + one revision 6:15\u20137:00 Write a retest; reset and rotate Blocked? Label the fallback mode and continue.",
+      "before_words": 61,
+      "after_words": 53
+    }
+  ]
+}

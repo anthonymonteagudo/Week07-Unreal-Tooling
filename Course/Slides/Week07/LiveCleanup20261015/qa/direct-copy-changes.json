@@ -1,0 +1,978 @@
+{
+  "source": "build/source-v7.pptx",
+  "source_sha256": "ed2c183d0286f175e17a70f9f638d3e2a8f158c9cd9628e7d4b710bd7b335fac",
+  "edits": [
+    {
+      "slide": 3,
+      "before": "00 Setting Up Python in Unreal Enable editor scripting and check the project before running code. 3",
+      "after": "00 Setting Up Python in Unreal Run Python inside the Unreal Editor. 3",
+      "before_words": 17,
+      "after_words": 13,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 4,
+      "before": "Python setup in Unreal 00 Setup 4 Open  Week07UnrealPython.uproject  in  UE 5.7.4 . Open  /Game/Week07/Maps/W07_MaterialVFXLab  from the Content Browser. Open  Window \u2192 Output Log . Set the input selector to  Python .",
+      "after": "Unreal Python Setup 00 Setup 4 Open  Week07UnrealPython.uproject  in  UE 5.7.4 . Open  /Game/Week07/Maps/W07_MaterialVFXLab  from the Content Browser. Open  Window \u2192 Output Log . Set the input selector to  Python .",
+      "before_words": 32,
+      "after_words": 31,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 5,
+      "before": "Python setup in Unreal 00 Setup 5 import unreal print(unreal.SystemLibrary.get_engine_version()) print(unreal.Paths.project_dir()) Unreal: Check the host and project Engine version: 5.7.4 in the prepared project. Project folder: your local Week07UnrealPython directory. Expected",
+      "after": "Engine and Project Check 00 Setup 5 import unreal print(unreal.SystemLibrary.get_engine_version()) print(unreal.Paths.project_dir()) Unreal: Check the host and project Engine version: 5.7.4 in the prepared project. Project folder: your local Week07UnrealPython directory. Expected",
+      "before_words": 31,
+      "after_words": 31,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 6,
+      "before": "Python setup in Unreal 00 Setup 6 Python Editor Script Plugin Run in editor. IDE stubs provide autocomplete only. Editor Scripting Utilities",
+      "after": "Required Plugins 00 Setup 6 Python Editor Script Plugin Run in editor. IDE stubs provide autocomplete only. Editor Scripting Utilities",
+      "before_words": 22,
+      "after_words": 20,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 7,
+      "before": "Open the Week07UnrealPython folder in VS Code.\u2003 Install  microsoft  python and  pylance . In Unreal: Editor Preferences > Plugins > Python > Developer Mode. Restart Unreal.  Confirm Intermediate/PythonStub/unreal.py exists in this project. 7 VS Code: Python Autocomplete",
+      "after": "Open the project folder in VS Code and install the Python and Pylance extensions.\nEnable Developer Mode under Unreal\u2019s Python preferences, then restart.\nCheck for Intermediate/PythonStub/unreal.py.        7 VS Code Autocomplete",
+      "before_words": 37,
+      "after_words": 30,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 8,
+      "before": "{ \u00a0 \" python.analysis.extraPaths \": [ \u00a0\u00a0\u00a0 \"${ workspaceFolder }/Intermediate/ PythonStub \", \u00a0\u00a0\u00a0 \"${ workspaceFolder }/Content/Python\" \u00a0 ] } 8 VS Code: Workspace Settings Save in . vscode / settings.json . Type unreal. in a Python file to check suggestions.",
+      "after": "{ \u00a0 \" python.analysis.extraPaths \": [ \u00a0\u00a0\u00a0 \"${ workspaceFolder }/Intermediate/ PythonStub \", \u00a0\u00a0\u00a0 \"${ workspaceFolder }/Content/Python\" \u00a0 ] } 8 VS Code Settings Save as .vscode/settings.json, then type unreal. to check autocomplete.    ",
+      "before_words": 36,
+      "after_words": 28,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 9,
+      "before": "01 Python in Unreal Read the selection, inspect its objects, and validate texture settings. 9",
+      "after": "01 Python in Unreal Use the editor\u2019s selection as input to a Python tool. 9",
+      "before_words": 15,
+      "after_words": 15,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 10,
+      "before": "01 Unreal Python 10 Case study: Python-driven scene tools Notice: an input drives a visible scene change. Apply: expose the input and show what it affects. cgerchenhp \u2022 click video to play",
+      "after": "01 Unreal Python 10 Python Scene Tools Changing an input updates the scene.",
+      "before_words": 32,
+      "after_words": 13,
+      "source_credits_moved": [
+        "cgerchenhp \u2022 click video to play"
+      ]
+    },
+    {
+      "slide": 11,
+      "before": "UE01: Unreal host and project 01 Unreal Python 11 import unreal unreal.log(\"Hello from Unreal\") print( unreal.SystemLibrary.get_engine_version ()) print( unreal.Paths.project_dir ()) Expected: \"Hello from Unreal\", your engine version, and your project folder.",
+      "after": "UE01: Engine and Project 01 Unreal Python 11 import unreal unreal.log(\"Hello from Unreal\") print( unreal.SystemLibrary.get_engine_version ()) print( unreal.Paths.project_dir ()) Expected: \"Hello from Unreal\", your engine version, and your project folder.",
+      "before_words": 31,
+      "after_words": 30,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 13,
+      "before": "Unreal Function Call, Explained 13 Get the subsystem, then ask it for the selection. Expression Meaning unreal.get_editor_subsystem (...) Ask the running editor for a subsystem. unreal.EditorActorSubsystem Class argument: which subsystem we need. editor.get_selected_level_actors () Call on that instance. No explicit arguments. actors = ... Keep the returned Array[Actor] to inspect.",
+      "after": "Unreal Subsystems 13 EditorActorSubsystem provides access to level Actors. Expression Meaning unreal.get_editor_subsystem (...) Get the editor subsystem. unreal.EditorActorSubsystem The subsystem class to request. editor.get_selected_level_actors () Return the selected Actors. actors = ... Store the returned Actor array.",
+      "before_words": 50,
+      "after_words": 37,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 14,
+      "before": "01 Unreal Python 14 Unreal: finding the working selection editor: subsystem instance. actor: one selected Actor. Expression Use in an artist tool unreal.get_editor_subsystem(     unreal.EditorActorSubsystem) Get the editor service that manages level Actors. editor.get_selected_level_actors() Read the current Outliner selection. actor.get_actor_label() Show the artist-facing Actor label in a report. actor.get_class().get_name() Report the selected object\u2019s Unreal class.",
+      "after": "01 Unreal Python 14 Selected Actors editor is the subsystem. actor is an Actor from its selection. Expression What it does unreal.get_editor_subsystem(     unreal.EditorActorSubsystem) Get the editor service that manages level Actors. editor.get_selected_level_actors() Read the current Outliner selection. actor.get_actor_label() Read the label shown in the Outliner. actor.get_class().get_name() Read the Actor\u2019s class name.",
+      "before_words": 54,
+      "after_words": 51,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 15,
+      "before": "UE02: Level selection 01 Unreal Python 15 import unreal editor =  unreal.get_editor_subsystem ( unreal.EditorActorSubsystem ) actors =  editor.get_selected_level_actors () print(\"Selected Actors:\",  len (actors)) for actor in actors: \u00a0\u00a0\u00a0 print( actor.get_actor_label (),  actor.get_class (). get_name ()) get_selected_level_actors () returns Actor objects.  len  counts them; the loop reads each label and class.",
+      "after": "UE02: Actor Selection 01 Unreal Python 15 import unreal editor =  unreal.get_editor_subsystem ( unreal.EditorActorSubsystem ) actors =  editor.get_selected_level_actors () print(\"Selected Actors:\",  len (actors)) for actor in actors: \u00a0\u00a0\u00a0 print( actor.get_actor_label (),  actor.get_class (). get_name ()) The loop prints the label and class of every selected Actor.   ",
+      "before_words": 49,
+      "after_words": 45,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 16,
+      "before": "Example inside Unreal Save the complete UE02 example as Content/Python/selection_demo.py. In Unreal, choose Tools > Execute Python Script and select that file. Read the Output Log. Change the Outliner selection and execute the file again. 16",
+      "after": "Running a Python File Save the complete UE02 example as Content/Python/selection_demo.py. In Unreal, choose Tools > Execute Python Script and select that file. Change the Outliner selection and rerun to compare the Output Log. 16",
+      "before_words": 36,
+      "after_words": 35,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 17,
+      "before": "17 Selection Example: Expected Output INPUT Select W07_Crate_Target. Run UE02. Selected Actors: 1 W07_Crate_Target  StaticMeshActor Label: Outliner identity. Class: Actor type.",
+      "after": "17 UE02: Expected Output INPUT Select W07_Crate_Target and run UE02. Selected Actors: 1 W07_Crate_Target  StaticMeshActor The output identifies the Actor by its Outliner label and class.",
+      "before_words": 21,
+      "after_words": 26,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 18,
+      "before": "01 Unreal Python 18 UE02 in Unreal: selection becomes data The selected crate appears in the scene and the Outliner. Output Log One Actor. The label and class identify exactly what the script read.",
+      "after": "01 Unreal Python 18 UE02: Actor Selection The selected crate appears in the scene and the Outliner. Output Log The log identifies the selected Actor.",
+      "before_words": 34,
+      "after_words": 25,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 19,
+      "before": "UE03: reuse the Actor selection 01 Unreal Python 19 import unreal editor = unreal.get_editor_subsystem(     unreal.EditorActorSubsystem) actors = editor.get_selected_level_actors() print(\"Selected Actors:\", len(actors)) for actor in actors:     print(actor.get_actor_label(), actor.get_class().get_name()) Same selection setup as UE02. The complete UE03 file also reads components and meshes.",
+      "after": "UE03: Actor Selection 01 Unreal Python 19 import unreal editor = unreal.get_editor_subsystem(     unreal.EditorActorSubsystem) actors = editor.get_selected_level_actors() print(\"Selected Actors:\", len(actors)) for actor in actors:     print(actor.get_actor_label(), actor.get_class().get_name()) UE03 uses this selection to read components and their mesh assets.",
+      "before_words": 41,
+      "after_words": 36,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 20,
+      "before": "01 Unreal Python 20 Case study: TAPython\u2019s object inspector Notice: properties belong to specific objects. Apply: identify the target before exposing an edit. TAPython \u2022 click video to play",
+      "after": "01 Unreal Python 20 TAPython Object Inspector The inspector shows properties for the selected object.",
+      "before_words": 29,
+      "after_words": 15,
+      "source_credits_moved": [
+        "TAPython \u2022 click video to play"
+      ]
+    },
+    {
+      "slide": 21,
+      "before": "01 Unreal Python 21 UE03 in Unreal: component and mesh The selected Actor owns a StaticMeshComponent. That component refers to the engine Cube asset. Actual UE03 output Actor label, component name and asset path describe different objects.",
+      "after": "01 Unreal Python 21 UE03: Components and Meshes The Actor\u2019s StaticMeshComponent references the Cube asset. Output Log The Actor, component and mesh asset are separate objects.",
+      "before_words": 37,
+      "after_words": 26,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 22,
+      "before": "01 Unreal Python 22 Shared asset, separate placements Which placement changed? What stayed shared? Epic Games \u2022 click video to play Same mesh. Different material assignments.",
+      "after": "01 Unreal Python 22 Material Overrides Which object owns the material override? Two Actors share a mesh but use different materials.",
+      "before_words": 26,
+      "after_words": 21,
+      "source_credits_moved": [
+        "Epic Games \u2022 click video to play"
+      ]
+    },
+    {
+      "slide": 23,
+      "before": "01 Unreal Python 23 Unreal: Actor, component, asset Check that the mesh exists before asking for its path. Expression Use in an artist tool actor.get_components_by_class(     unreal.StaticMeshComponent) Find every Static Mesh Component on this Actor. component.get_editor_property(     \"static_mesh\") Read the mesh asset referenced by a component. mesh.get_path_name() Identify the exact shared mesh asset. component.get_material(0) Read the material assigned to slot 0.",
+      "after": "01 Unreal Python 23 Actors, Components and Assets Check that the mesh exists before asking for its path. Expression What it does actor.get_components_by_class(     unreal.StaticMeshComponent) Find every Static Mesh Component on this Actor. component.get_editor_property(     \"static_mesh\") Read the mesh asset referenced by a component. mesh.get_path_name() Identify the exact shared mesh asset. component.get_material(0) Read the material assigned to slot 0.",
+      "before_words": 59,
+      "after_words": 57,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 24,
+      "before": "UE04: Content Browser Selection 01 Unreal Python 24 import unreal assets =\u00a0 unreal.EditorUtilityLibrary.get_selected_assets () print(\"Selected assets:\",  len (assets)) for asset in assets: \u00a0\u00a0\u00a0 print( asset.get_name (),  asset.get_class (). get_name ()) \u00a0\u00a0\u00a0 print( asset.get_path_name ()) This selection supplies assets, independently of the Outliner.",
+      "after": "UE04: Content Browser Selection 01 Unreal Python 24 import unreal assets =\u00a0 unreal.EditorUtilityLibrary.get_selected_assets () print(\"Selected assets:\",  len (assets)) for asset in assets: \u00a0\u00a0\u00a0 print( asset.get_name (),  asset.get_class (). get_name ()) \u00a0\u00a0\u00a0 print( asset.get_path_name ()) Content Browser selection is separate from Outliner selection.",
+      "before_words": 40,
+      "after_words": 40,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 25,
+      "before": "25 UE04: asset selection and result Select T_Crate_BaseColor in the Content Browser. Run the complete UE04 file. Selected assets: 1 T_Crate_BaseColor  Texture2D The log also prints the full /Game/\u2026 object path. Try another asset and rerun. Reset by reselecting the texture. Read the name, class and object path; not the Outliner selection.",
+      "after": "25 UE04: Expected Output Select T_Crate_BaseColor in the Content Browser and run UE04. Selected assets: 1 T_Crate_BaseColor  Texture2D The log also prints the full /Game/\u2026 object path. Try another asset and compare the output.",
+      "before_words": 52,
+      "after_words": 34,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 26,
+      "before": "Texture Settings: Inspect First 26 Texture role sRGB Prepared compression BaseColor On Default Normal Off Normalmap ORM Off Masks (no sRGB) UE05 reads sRGB and compression. UE06 checks _Normal textures for Normalmap compression.",
+      "after": "Texture Settings 26 Texture role sRGB Compression BaseColor On Default Normal Off Normalmap ORM Off Masks (no sRGB) UE05 reads sRGB and compression. UE06 checks _Normal textures for Normalmap compression.",
+      "before_words": 33,
+      "after_words": 30,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 27,
+      "before": "01 Unreal Python 27 Texture validation in context Normal-map image, but compression is set to Masks. What should the validator flag?",
+      "after": "01 Unreal Python 27 Texture Validation This normal map uses Masks compression. What should change?",
+      "before_words": 21,
+      "after_words": 15,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 28,
+      "before": "01 Unreal Python 28 Unreal: inspecting selected assets Read first. Compare with the asset\u2019s intended role before proposing a fix. Expression Use in an artist tool (unreal.EditorUtilityLibrary     .get_selected_assets()) Read Content Browser selection, not level selection. isinstance(asset, unreal.Texture2D) Process textures and report skipped asset types. texture.get_editor_property(     \"compression_settings\") Read the compression mode for validation. texture.get_editor_property(\"srgb\") Check how the texture\u2019s color data is interpreted.",
+      "after": "01 Unreal Python 28 Texture Properties Compare each texture\u2019s settings with its intended use. Expression What it does (unreal.EditorUtilityLibrary     .get_selected_assets()) Read selected Content Browser assets. isinstance(asset, unreal.Texture2D) Process textures and report skipped asset types. texture.get_editor_property(     \"compression_settings\") Read the compression mode for validation. texture.get_editor_property(\"srgb\") Check how the texture\u2019s color data is interpreted.",
+      "before_words": 61,
+      "after_words": 51,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 29,
+      "before": "UE05: Texture Editor Properties 01 Unreal Python 29 import unreal assets =  unreal.EditorUtilityLibrary.get_selected_assets () textures = [asset for asset in assets \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 if  isinstance (asset, unreal.Texture2D)] print(\"Textures:\",  len (textures), \"skipped:\",  len (assets) -  len (textures)) for texture in textures: \u00a0\u00a0\u00a0 compression =  texture.get_editor_property (\" compression_settings \") \u00a0\u00a0\u00a0  srgb  =  texture.get_editor_property (\" srgb \") \u00a0\u00a0\u00a0 print( texture.get_name (), compression, \"sRGB:\",  srgb ) Read compression and sRGB. Non-texture selections are counted and skipped.",
+      "after": "UE05: Texture Editor Properties 01 Unreal Python 29 import unreal assets =  unreal.EditorUtilityLibrary.get_selected_assets () textures = [asset for asset in assets \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 if  isinstance (asset, unreal.Texture2D)] print(\"Textures:\",  len (textures), \"skipped:\",  len (assets) -  len (textures)) for texture in textures: \u00a0\u00a0\u00a0 compression =  texture.get_editor_property (\" compression_settings \") \u00a0\u00a0\u00a0  srgb  =  texture.get_editor_property (\" srgb \") \u00a0\u00a0\u00a0 print( texture.get_name (), compression, \"sRGB:\",  srgb ) The script prints each texture\u2019s settings and skips other asset types.",
+      "before_words": 67,
+      "after_words": 68,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 30,
+      "before": "UE05: compare texture readbacks Run UE05 once for each selected texture. BaseColor: sRGB True \u00b7 TC_DEFAULT Normal: sRGB False \u00b7 TC_NORMALMAP Each run: 1 texture, 0 skipped. Compare the log with Texture Editor settings. Expected values; enum formatting may differ. No edits are made. 30",
+      "after": "UE05: Expected Values Run UE05 once for each selected texture. BaseColor: sRGB True \u00b7 TC_DEFAULT Normal: sRGB False \u00b7 TC_NORMALMAP Each run: 1 texture, 0 skipped. Compare the log with Texture Editor settings. Reading these properties does not change the textures. 30",
+      "before_words": 45,
+      "after_words": 42,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 31,
+      "before": "01 Unreal Python 31 UE04\u201305 in Unreal: texture readback Selected asset in the Content Browser Editor tooltip Actual UE04 + UE05 output T_Crate_Normal reads as TC_NORMALMAP with sRGB False.",
+      "after": "01 Unreal Python 31 UE04\u201305: Texture Properties Selected asset in the Content Browser Editor tooltip Output Log Normal map: Normalmap compression, sRGB off.",
+      "before_words": 29,
+      "after_words": 23,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 32,
+      "before": "UE06: Read-only Validation 01 Unreal Python 32 for texture in textures: \u00a0\u00a0\u00a0 if not  texture.get_name (). endswith (\"_Normal\"): \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 continue \u00a0\u00a0\u00a0 checked += 1 \u00a0\u00a0\u00a0 actual =  texture.get_editor_property (\" compression_settings \") \u00a0\u00a0\u00a0 if actual != expected: \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 mismatches += 1 \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 print(\"MISMATCH\",  texture.get_path_name (), actual, expected) Excerpt: run the complete UE06 file to initialize textures, expected mode and counters.",
+      "after": "UE06: Read-only Validation 01 Unreal Python 32 for texture in textures: \u00a0\u00a0\u00a0 if not  texture.get_name (). endswith (\"_Normal\"): \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 continue \u00a0\u00a0\u00a0 checked += 1 \u00a0\u00a0\u00a0 actual =  texture.get_editor_property (\" compression_settings \") \u00a0\u00a0\u00a0 if actual != expected: \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 mismatches += 1 \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 print(\"MISMATCH\",  texture.get_path_name (), actual, expected) Run the complete UE06 file to initialize the variables used here.",
+      "before_words": 52,
+      "after_words": 50,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 33,
+      "before": "01 Unreal Python 33 Validation should explain the next action Name the asset, rule and correction. Project rule: Blueprint names start with BP_. Severity follows project policy. Asset validation checks content. It does not prove that the validator code is correct. Instructor captures from Karol\u2019s Unreal Python course \u00b7 lessons 21\u201322",
+      "after": "01 Unreal Python 33 Asset Validation A validation error should identify the failing asset and explain the fix. Example rule: Blueprint names must start with BP_. The validator itself also needs tests.",
+      "before_words": 51,
+      "after_words": 32,
+      "source_credits_moved": [
+        "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lessons 21\u201322"
+      ]
+    },
+    {
+      "slide": 34,
+      "before": "01 Unreal Python 34 Test the tool, not just the assets Unit check: a small rule with a known answer def is_power_of_two(n):     return n > 0 and (n & (n - 1)) == 0 assert is_power_of_two(1024) assert not is_power_of_two(1000) Karol\u2019s test wiring check Not called Called Deliberately fail once: prove the runner actually executes the check. Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 36 \u00b7 log crops; code: classroom example",
+      "after": "01 Unreal Python 34 Unit Tests A small function with known results def is_power_of_two(n):     return n > 0 and (n & (n - 1)) == 0 assert is_power_of_two(1024) assert not is_power_of_two(1000) Test Execution Not called Called Force a failure once to confirm that the test actually runs.",
+      "before_words": 72,
+      "after_words": 47,
+      "source_credits_moved": [
+        "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 36 \u00b7 log crops; code: classroom example"
+      ]
+    },
+    {
+      "slide": 35,
+      "before": "UE07: Disk paths and asset paths 01 Unreal Python 35 import unreal from  pathlib  import Path disk_folder  = Path( unreal.Paths.project_dir ()) / \"Content\" object_path  = \"/Engine/ BasicShapes / Cube.Cube \" mesh =  unreal.load_asset ( object_path ) print(\"Disk folder:\",  disk_folder ) print(\"Loaded object:\",  mesh.get_path_name () if mesh else None) print(\"Content directory exists:\",  disk_folder.is_dir ()) The filesystem path and Unreal object path name different things.",
+      "after": "UE07: File Paths and Asset Paths 01 Unreal Python 35 import unreal from  pathlib  import Path disk_folder  = Path( unreal.Paths.project_dir ()) / \"Content\" object_path  = \"/Engine/ BasicShapes / Cube.Cube \" mesh =  unreal.load_asset ( object_path ) print(\"Disk folder:\",  disk_folder ) print(\"Loaded object:\",  mesh.get_path_name () if mesh else None) print(\"Content directory exists:\",  disk_folder.is_dir ()) A file path points to disk. An Unreal object path identifies an asset.",
+      "before_words": 63,
+      "after_words": 66,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 36,
+      "before": "01 Unreal Python 36 Import is the start of setup Stage Evidence to carry forward Import Objects + source files Plan Slot + parent + texture roles Configure Parent + parameters Assign and verify Intended target changes; protected scope stays What could import successfully but still be wrong in the scene? Isaac Oster \u00b7 Asset Setup series \u00b7 teaching adaptation",
+      "after": "01 Unreal Python 36 Asset Setup Stage Required data Import Imported objects and source files Plan Material slot and texture mapping Configure Instance parent and parameters Assign and verify Assignment on the intended target What could import successfully but still be wrong in the scene?",
+      "before_words": 60,
+      "after_words": 45,
+      "source_credits_moved": [
+        "Isaac Oster \u00b7 Asset Setup series \u00b7 teaching adaptation"
+      ]
+    },
+    {
+      "slide": 37,
+      "before": "01 Unreal Python 37 A naming rule must preserve identity Match the complete family and a declared suffix. Require one intended texture per role. Mesh / texture name Family Role SM_AirConditioning_01 AirConditioning_01 Mesh T_AirConditioning_01_BC AirConditioning_01 Base color T_AirConditioning_010_BC AirConditioning_010 Different asset Why can a substring match assign the wrong base-color texture?",
+      "after": "01 Unreal Python 37 Asset Naming Match the asset family exactly so _01 cannot match _010. Mesh / texture name Family Role SM_AirConditioning_01 AirConditioning_01 Mesh T_AirConditioning_01_BC AirConditioning_01 Base color T_AirConditioning_010_BC AirConditioning_010 Different asset What would a substring search match here?",
+      "before_words": 51,
+      "after_words": 40,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 38,
+      "before": "01 Unreal Python 38 A slot record is not the material Value What it identifies Slot index Assignment index Slot name Semantic label, e.g. Body Material interface Material or instance object Assignment target Mesh default or component override Two Actors use one mesh. Which object would you edit to change only one?",
+      "after": "01 Unreal Python 38 Material Slots Value What it identifies Slot index Assignment index Slot name Label such as Body Material interface Material or instance object Assignment target Mesh default or component override Where would you assign a material to change only one Actor?",
+      "before_words": 52,
+      "after_words": 44,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 39,
+      "before": "01 Unreal Python 39 Verify the relationship after the call library.set_material_instance_texture_parameter_value(     instance, \"BaseColorTexture\", texture) actual = library.get_material_instance_texture_parameter_value(     instance, \"BaseColorTexture\") if actual != texture:     raise RuntimeError(\"Base-color binding did not match\") Read back the value, inspect the assignment, then check the scene. What does a successful return value establish? What remains untested? Excerpt from the course backend \u00b7 existing instance and loaded texture required",
+      "after": "01 Unreal Python 39 Parameter Verification library.set_material_instance_texture_parameter_value(     instance, \"BaseColorTexture\", texture) actual = library.get_material_instance_texture_parameter_value(     instance, \"BaseColorTexture\") if actual != texture:     raise RuntimeError(\"Base-color binding did not match\") Read the parameter again to confirm that the assignment succeeded. Does a successful return value guarantee the correct result? Requires library, instance and texture.",
+      "before_words": 62,
+      "after_words": 49,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 40,
+      "before": "01 Unreal Python 40 Long operations need visible progress Count the work. Show the current step. Check Cancel between items. ScopedSlowTask(total, message) make_dialog(can_cancel=True) should_cancel() \u2192 stop remaining work enter_progress_frame(1) \u2192 advance one unit Cancel stops future iterations; it does not undo completed edits. Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 33 \u00b7 dialog crop",
+      "after": "01 Unreal Python 40 Progress Bars Use ScopedSlowTask for batch operations. ScopedSlowTask(total, message) make_dialog(can_cancel=True) should_cancel() \u2192 check for Cancel enter_progress_frame(1) \u2192 advance progress Cancel stops the remaining work without undoing completed edits.",
+      "before_words": 56,
+      "after_words": 32,
+      "source_credits_moved": [
+        "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 33 \u00b7 dialog crop"
+      ]
+    },
+    {
+      "slide": 41,
+      "before": "Case study: Unreal Script Editor Python/Qt editor: files, temporary scripts and familiar editing controls. Notice: users can organize and run scripts in one place. Apply: give artists a clear entry point for a repeatable task. 41",
+      "after": "Unreal Script Editor Edit and run Python scripts inside Unreal. 41",
+      "before_words": 36,
+      "after_words": 11,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 42,
+      "before": "01 Unreal Python 42 Blueprint interface, Python operation Selected assets + material choice \u2192 Execute Python Script Inputs become Python variables. Set output variables to report a result. Use in Editor Utility Blueprints or Widgets; Python remains editor-only. Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 40 \u00b7 wiring checkpoint",
+      "after": "01 Unreal Python 42 Python from Blueprints Pass Blueprint inputs into Execute Python Script. Input pins become Python variables. Output variables return the result. Available in Editor Utility Blueprints and Widgets.",
+      "before_words": 51,
+      "after_words": 31,
+      "source_credits_moved": [
+        "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 40 \u00b7 wiring checkpoint"
+      ]
+    },
+    {
+      "slide": 43,
+      "before": "01 Unreal Python 43 From a script to a tool someone can use Package logic + a clear entry point. Version + supported engine Install / enable instructions One example task Known limits + recovery A clean-project smoke test Release check: can another artist install it and complete the example without you? Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 39 \u00b7 release checklist: teaching synthesis",
+      "after": "01 Unreal Python 43 Tool Distribution Include what another artist needs to install and use the tool. Supported engine version Installation instructions One example task Known limits and recovery Test in a clean project Can another artist complete the example without your help?",
+      "before_words": 67,
+      "after_words": 43,
+      "source_credits_moved": [
+        "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 39 \u00b7 release checklist: teaching synthesis"
+      ]
+    },
+    {
+      "slide": 44,
+      "before": "01 Unreal Python 44 A tool interface can live outside Unreal External app \u2192 HTTP request \u2192 exposed Unreal function \u2192 response PUT /remote/object/call \u2192 ReturnValue: true Remote Control is another entry point. It still needs scope, validation and useful feedback. Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 44",
+      "after": "01 Unreal Python 44 Remote Control External app \u2192 HTTP request \u2192 exposed Unreal function \u2192 response PUT /remote/object/call \u2192 ReturnValue: true An external app can call exposed Unreal functions over HTTP.",
+      "before_words": 51,
+      "after_words": 32,
+      "source_credits_moved": [
+        "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 44"
+      ]
+    },
+    {
+      "slide": 45,
+      "before": "Case study: AYON for Unreal AYON connects Loader, Publisher and Scene Inventory to Unreal. Notice: the tools follow distinct pipeline tasks. Define your tool\u2019s handoff: input, result and next step. 45",
+      "after": "AYON Pipeline Tools AYON connects Loader, Publisher and Scene Inventory to Unreal. 45",
+      "before_words": 31,
+      "after_words": 13,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 46,
+      "before": "Python in Unreal: questions 46 Where does the code run? Which object owns the state we change? What would you like clarified about success or recovery?",
+      "after": "Unreal Python Q&A 46",
+      "before_words": 26,
+      "after_words": 4,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 47,
+      "before": "02 Blender to Unreal Same Python language, different application API. 47",
+      "after": "02 Blender to Unreal Blender exposes its Python API through bpy. 47",
+      "before_words": 11,
+      "after_words": 12,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 48,
+      "before": "BL01: Blender host and selection 02 Blender to Unreal 48 import  bpy print(\"Blender:\",  bpy.app.version_string ) print(\"Mode:\",  bpy.context.mode ) objects = list( bpy.context.selected_objects ) print(\"Selected objects:\",  len (objects)) for obj in objects: \u00a0\u00a0\u00a0 print(obj.name,  obj.type ) bpy.context.selected_objects  supplies Blender Objects. Unreal uses its own editor APIs. Run in Blender. Complete example.",
+      "after": "BL01: Blender Selection 02 Blender to Unreal 48 import  bpy print(\"Blender:\",  bpy.app.version_string ) print(\"Mode:\",  bpy.context.mode ) objects = list( bpy.context.selected_objects ) print(\"Selected objects:\",  len (objects)) for obj in objects: \u00a0\u00a0\u00a0 print(obj.name,  obj.type ) bpy.context.selected_objects returns the selected Blender Objects.  Run in Blender.",
+      "before_words": 49,
+      "after_words": 41,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 49,
+      "before": "02 Blender to Unreal 49 Blender: selection and object data The active Object and the full selection answer different questions. Expression Use in an artist tool bpy.context.selected_objects Read the selected Objects. This is a property. bpy.context.active_object Read the active Object, or None. bpy.data.objects.get(\"Crate\") Find an Object by name, or return None. obj.name, obj.type Identify an Object and filter with obj.type == \"MESH\".",
+      "after": "02 Blender to Unreal 49 Blender Objects The active Object is one object within the selection. Expression What it does bpy.context.selected_objects Read the selected Objects. bpy.context.active_object Read the active Object, or None. bpy.data.objects.get(\"Crate\") Find an Object by name, or return None. obj.name, obj.type Identify an Object and filter with obj.type == \"MESH\".",
+      "before_words": 62,
+      "after_words": 52,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 50,
+      "before": "02 Blender to Unreal 50 Blender: inspecting and changing state bpy.ops performs an operation. Its result depends on mode and context. Expression Use in an artist tool obj.location Read local position. Assigning a value moves it. obj.data Read the data block, such as a Mesh. obj.select_set(True) Select this Object in the view layer. bpy.ops.object.transform_apply(     location=False, rotation=True, scale=True) Apply rotation and scale to selected Objects. Requires Object Mode.",
+      "after": "02 Blender to Unreal 50 Blender Properties and Operators bpy.ops performs an operation. Its result depends on mode and context. Expression What it does obj.location Read or change local position. obj.data Read the data block, such as a Mesh. obj.select_set(True) Select this Object in the view layer. bpy.ops.object.transform_apply(     location=False, rotation=True, scale=True) Apply rotation and scale in Object Mode.",
+      "before_words": 67,
+      "after_words": 58,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 51,
+      "before": "02 Blender to Unreal 51 BL02: Blender Bridge Rehearsal: republish the baseline mesh under the same asset name to reset. Publish one mesh. Raise the roof 0.4 m. Republish the same asset. Inspect both blue placements. Course rehearsal sequence \u2022 six timed still states \u2022 click video to play",
+      "after": "02 Blender to Unreal 51 BL02: Blender Bridge Reset by republishing the original mesh under the same asset name. Publish one mesh. Raise the roof 0.4 m. Republish the same asset. Inspect both blue placements.",
+      "before_words": 49,
+      "after_words": 35,
+      "source_credits_moved": [
+        "Course rehearsal sequence \u2022 six timed still states \u2022 click video to play"
+      ]
+    },
+    {
+      "slide": 52,
+      "before": "03 Tool Demos Watch the input, the affected objects, and the visible result. 52",
+      "after": "03 Tool Demos Check which objects each tool changes. 52",
+      "before_words": 14,
+      "after_words": 10,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 53,
+      "before": "Classroom demo setup 03 Tool Demos 53 from week07_tooling.editor import  live_demo print( live_demo.preflight ()) Unreal: Check and stage the classroom scene Material & VFX: ready. Target and textures selected. Open Tools > Material & VFX Tools. The bridge is checked separately. Expected:",
+      "after": "Demo Setup 03 Tool Demos 53 from week07_tooling.editor import  live_demo print( live_demo.preflight ()) Run in Unreal\u2019s Python console Material & VFX: ready. Target and textures selected. Open Tools > Material & VFX Tools. Expected:",
+      "before_words": 42,
+      "after_words": 34,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 54,
+      "before": "03 Tool Demos 54 Material parameters in context Which exposed parameter could an artist tool edit?",
+      "after": "03 Tool Demos 54 Material Parameters Which exposed parameter could an artist tool edit?",
+      "before_words": 16,
+      "after_words": 14,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 55,
+      "before": "03 Tool Demos 55 Material tool: preview and visible result Review the assignment. Inspect the scene. After Apply One target changes. The protected cube stays.",
+      "after": "03 Tool Demos 55 Material Setup Tool After Apply Only the selected crate receives the material.",
+      "before_words": 25,
+      "after_words": 16,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 56,
+      "before": "03 Tool Demos 56 VFX tool: scope and placement Preview three markers. Check three fountains. Scene result Three placements. Performance needs a separate check.",
+      "after": "03 Tool Demos 56 VFX Placement Tool Scene result One fountain per marker. Placement limits do not measure frame cost.",
+      "before_words": 24,
+      "after_words": 20,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 57,
+      "before": "03 Tool Demos 57 Case study: Project Titan\u2019s ivy tool Notice Input shape Branch growth Leaf placement Apply Expose controls for shape and variation. Houdini digital asset in Unreal: a procedural tool, not a Python-only example. Simon Verstraete / SideFX \u00b7 Project Titan, 2022",
+      "after": "03 Tool Demos 57 Project Titan Ivy Tool Controls Input shape Branch growth Leaf placement A Houdini digital asset running in Unreal.",
+      "before_words": 44,
+      "after_words": 22,
+      "source_credits_moved": [
+        "Simon Verstraete / SideFX \u00b7 Project Titan, 2022"
+      ]
+    },
+    {
+      "slide": 58,
+      "before": "03 Tool Demos 58 Case study: Project Titan\u2019s train rig Notice Modular parts Pattern rules Automatic rig Apply Check the result at each handoff. Project Titan\u2019s train tool combines modular assembly with an animatable rig. Simon Verstraete / SideFX \u00b7 Project Titan, 2022",
+      "after": "03 Tool Demos 58 Project Titan Train Rig Workflow Modular parts Pattern rules Automatic rig Project Titan\u2019s train tool combines modular assembly with an animatable rig.",
+      "before_words": 43,
+      "after_words": 26,
+      "source_credits_moved": [
+        "Simon Verstraete / SideFX \u00b7 Project Titan, 2022"
+      ]
+    },
+    {
+      "slide": 59,
+      "before": "03 Tool Demos 59 Case study: Project Titan\u2019s environment Notice: repeated systems support an authored environment. Apply: automate one repeatable step; preserve artistic choices. SideFX \u00b7 Project Titan \u00b7 26-second silent clip \u00b7 click video to play",
+      "after": "03 Tool Demos 59 Project Titan Environment Procedural tools handle repeated details while artists control the composition.",
+      "before_words": 37,
+      "after_words": 17,
+      "source_credits_moved": [
+        "SideFX \u00b7 Project Titan \u00b7 26-second silent clip \u00b7 click video to play"
+      ]
+    },
+    {
+      "slide": 60,
+      "before": "03 Tool Demos 60 Zoey\u2019s tool demo Maya face technical-animation tool",
+      "after": "03 Tool Demos 60 Zoey\u2019s tool demo Maya facial animation tool",
+      "before_words": 11,
+      "after_words": 11,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 63,
+      "before": "04 UI/UX for Artist Tools Use the same observation method for case studies, peers, and your own tool. 63",
+      "after": "04 UI/UX for Artist Tools Can someone else use your tool without help? 63",
+      "before_words": 19,
+      "after_words": 14,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 64,
+      "before": "04 UI/UX for Artist Tools 64 Lab 1: predict before the reveal Rename selected assets with exactly one SM_ prefix. Preserve the rest of every name. Selected? Starting name Your expected name Yes crate_A ? Yes crate_B ? Yes SM_crate_C ? No barrel_D ? What must remain unchanged? Record all four predictions.",
+      "after": "04 UI/UX for Artist Tools 64 Lab 1: Batch Renaming Rename selected assets with exactly one SM_ prefix. Preserve the rest of every name. Selected? Starting name Your expected name Yes crate_A ? Yes crate_B ? Yes SM_crate_C ? No barrel_D ? Write the expected result for all four assets.",
+      "before_words": 52,
+      "after_words": 50,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 65,
+      "before": "04 UI/UX for Artist Tools 65 Lab 1: compare the evidence The tool reports: \u201cSuccess: 4 assets updated.\u201d Starting name Expected Reported result crate_A SM_crate_A SM_crate_A crate_B SM_crate_B SM_crate_B SM_crate_C SM_crate_C SM_SM_crate_C barrel_D barrel_D SM_barrel_D Name one observed failure, its consequence, and a precise retest.",
+      "after": "04 UI/UX for Artist Tools 65 Lab 1: Results The tool reports: \u201cSuccess: 4 assets updated.\u201d Starting name Expected Reported result crate_A SM_crate_A SM_crate_A crate_B SM_crate_B SM_crate_B SM_crate_C SM_crate_C SM_SM_crate_C barrel_D barrel_D SM_barrel_D Which results are wrong, and how would you test a fix?",
+      "before_words": 45,
+      "after_words": 44,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 66,
+      "before": "66 Know the task Identify the artist, the situation, and a result worth achieving. What is the artist trying to accomplish?",
+      "after": "66 Know the Task Start with the artist\u2019s goal.",
+      "before_words": 21,
+      "after_words": 9,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 67,
+      "before": "04 UI/UX for Artist Tools 67 A user story names an outcome Part Material-tool example User and context Environment artist comparing one prop Desired outcome Preview and assign prepared textures Benefit Compare looks without changing other placements What is missing from \u201cAs a user, I want a blue Apply button\u201d?",
+      "after": "04 UI/UX for Artist Tools 67 User Stories Part Material-tool example User and context Environment artist comparing one prop Desired outcome Preview and assign prepared textures Benefit Compare looks without changing other placements What goal is missing from \u201cI want a blue Apply button\u201d?",
+      "before_words": 50,
+      "after_words": 44,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 68,
+      "before": "04 UI/UX for Artist Tools 68 Turn the story into observable checks Given When Then Prepared textures + target Preview Targets visible; scene unchanged A reviewed plan Selection changes Fresh preview required Valid reviewed plan Apply once Target changes; protected cube and shared mesh stay Which check tests the result, and which checks the boundary?",
+      "after": "04 UI/UX for Artist Tools 68 Acceptance Criteria Given When Then Prepared textures + target Preview Preview lists targets without changing the scene A reviewed plan Selection changes Fresh preview required Valid reviewed plan Apply once Only the target\u2019s material assignment changes Which test catches a change to the wrong object?",
+      "before_words": 55,
+      "after_words": 51,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 69,
+      "before": "04 UI/UX for Artist Tools 69 Outline a small complete workflow Start with the current workaround and prepared input. Choose \u2192 inspect scope \u2192 preview \u2192 apply \u2192 check. Include a blocked path and a way to recover. Split a large feature into a useful result the artist can try. Which small result could a classmate test today?",
+      "after": "04 UI/UX for Artist Tools 69 Workflow Scope Start with one task: assign a material to a selected prop. Make that task work, including errors and reset, before adding batch operations.",
+      "before_words": 58,
+      "after_words": 31,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 70,
+      "before": "04 UI/UX for Artist Tools 70 UI/UX: the artist\u2019s mental model Artist\u2019s task \u201cPreview a material on the selected prop.\u201d Implementation Find Actor, inspect components, assign material. Interface Show the target, material choice, preview and commit. Assessment question: can the artist predict what the control will do? UI/UX course connection \u00b7 Joe Natoli, Design Rules",
+      "after": "04 UI/UX for Artist Tools 70 The Artist\u2019s Mental Model Artist\u2019s task \u201cPreview a material on the selected prop.\u201d Implementation Assign a material to an Actor\u2019s mesh component. Interface Let the artist preview the material on the selected prop. Can the artist predict what the control does?",
+      "before_words": 55,
+      "after_words": 47,
+      "source_credits_moved": [
+        "UI/UX course connection \u00b7 Joe Natoli, Design Rules"
+      ]
+    },
+    {
+      "slide": 71,
+      "before": "71 Guide the eye Use composition to communicate priority and relationships. Where should the artist look first, and why?",
+      "after": "71 Guide the Eye The most important control should stand out.",
+      "before_words": 19,
+      "after_words": 11,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 72,
+      "before": "04 UI/UX for Artist Tools 72 UI/UX: grouping and visual hierarchy Which controls belong together? Separate unrelated steps. Label the artist\u2019s task. Expose scope and the next action. UI/UX course connection \u00b7 Joe Natoli, Design Rules",
+      "after": "04 UI/UX for Artist Tools 72 Grouping and Hierarchy Group controls that belong to the same task. Use spacing to separate different tasks.",
+      "before_words": 36,
+      "after_words": 23,
+      "source_credits_moved": [
+        "UI/UX course connection \u00b7 Joe Natoli, Design Rules"
+      ]
+    },
+    {
+      "slide": 73,
+      "before": "04 UI/UX for Artist Tools 73 Case study: Blender\u2019s UI rework Notice: grouping and alignment make control relationships clearer. Apply: group one tool by task, then test whether a peer finds the next control. Blender Foundation \u00b7 Blender 2.90 release notes \u00b7 original before/after figures",
+      "after": "04 UI/UX for Artist Tools 73 Blender UI Redesign Related controls sit together, with spacing between separate tasks.",
+      "before_words": 45,
+      "after_words": 18,
+      "source_credits_moved": [
+        "Blender Foundation \u00b7 Blender 2.90 release notes \u00b7 original before/after figures"
+      ]
+    },
+    {
+      "slide": 74,
+      "before": "04 UI/UX for Artist Tools 74 Week 2 composition \u2192 tool hierarchy Scene: guide the eye. Tool: guide the task. Use spacing, alignment and contrast. Left: Week 2 course image, Mariam Bellard / Rockstar North, GDC 2019 \u00b7 Right: course tool capture",
+      "after": "04 UI/UX for Artist Tools 74 Composition and UI Layout Spacing and contrast guide attention in both scenes and interfaces.",
+      "before_words": 42,
+      "after_words": 20,
+      "source_credits_moved": [
+        "Left: Week 2 course image, Mariam Bellard / Rockstar North, GDC 2019 \u00b7 Right: course tool capture"
+      ]
+    },
+    {
+      "slide": 75,
+      "before": "04 UI/UX for Artist Tools 75 Value, contrast, hierarchy HSV Value \u2260 perceived lightness \u2260 contrast ratio. Concept Meaning Value Lightness or darkness Contrast Difference between elements Visual hierarchy Priority from size, value and spacing Do different hues still separate in grayscale?",
+      "after": "04 UI/UX for Artist Tools 75 Value and Contrast HSV Value does not measure perceived lightness or text contrast. Concept Meaning Value Lightness or darkness Contrast Difference between elements Visual hierarchy The order in which elements attract attention Do different hues still separate in grayscale?",
+      "before_words": 42,
+      "after_words": 45,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 76,
+      "before": "04 UI/UX for Artist Tools 76 Three quick hierarchy checks Check Try it Ask Shape blockout Reduce the layout to masses Are related controls grouped? Grayscale Remove hue Does meaning survive without color? Squint test Squint briefly or step back What dominates? Restore the original. Check labels and controls.",
+      "after": "04 UI/UX for Artist Tools 76 Visual Hierarchy Checks Check Try it Ask Shape blockout Reduce the layout to masses Are related controls grouped? Grayscale Remove hue Does meaning survive without color? Squint test Squint briefly or step back What dominates? Use the original view to check readability afterward.",
+      "before_words": 49,
+      "after_words": 49,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 77,
+      "before": "04 UI/UX for Artist Tools 77 Case study: GOLF+ Course Generator Numbered stages show sequence. Generate has emphasis. Edit is optional. Make the next step easy to find. What does the Input warning mean? GOLF+ Course Generator \u00b7 instructor\u2019s production tool",
+      "after": "04 UI/UX for Artist Tools 77 GOLF+ Course Generator Numbered stages show the order of the workflow. Generate stands out as the primary action. Does the Input warning explain what needs fixing?",
+      "before_words": 41,
+      "after_words": 32,
+      "source_credits_moved": [
+        "GOLF+ Course Generator \u00b7 instructor\u2019s production tool"
+      ]
+    },
+    {
+      "slide": 78,
+      "before": "04 UI/UX for Artist Tools 78 Week 2 color \u2192 meaning in a tool Art: color creates emphasis. Tools: color supports state labels. Pair color with the problem and next action. Left: Week 2 / Daniel Candil, A Crowd of Monsters \u00b7 Right: course tool \u00b7 Guidance: W3C",
+      "after": "04 UI/UX for Artist Tools 78 Color in UI Color can draw attention to an action or warning. Use a label or icon so the meaning survives without color.",
+      "before_words": 48,
+      "after_words": 29,
+      "source_credits_moved": [
+        "Left: Week 2 / Daniel Candil, A Crowd of Monsters \u00b7 Right: course tool \u00b7 Guidance: W3C"
+      ]
+    },
+    {
+      "slide": 79,
+      "before": "04 UI/UX for Artist Tools 79 Choose color roles first Separate actions, warnings and surfaces. Pair color with a label or icon. Explore with Coolors. Check actual color pairs. WCAG text: 4.5:1 normal; 3:1 large. Can you distinguish selected, available and complete?",
+      "after": "04 UI/UX for Artist Tools 79 UI Color Roles Use consistent colors for actions and status. Coolors helps build palettes. Check contrast on the actual UI. WCAG text contrast: 4.5:1 normal, 3:1 large. Can you identify a disabled control without relying on color?",
+      "before_words": 42,
+      "after_words": 43,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 80,
+      "before": "80 Make actions clear Show scope, current state, and the next useful action. Can the artist predict the result before acting?",
+      "after": "80 Make Actions Clear Make the result of each action predictable.",
+      "before_words": 21,
+      "after_words": 11,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 81,
+      "before": "04 UI/UX for Artist Tools 81 State determines the next action State Next action Meaning No plan Preview No changes yet Reviewed plan Apply Operation + affected count Warning Review and acknowledge Concern + limits Completed Inspect result Preview consumed Inputs changed. Is this preview still valid?",
+      "after": "04 UI/UX for Artist Tools 81 UI States State Next action Meaning No plan Preview No changes yet Reviewed plan Apply Action and affected objects Warning Review and acknowledge Warning details Completed Inspect result Preview again before another Apply Should Apply stay enabled after the selection changes?",
+      "before_words": 47,
+      "after_words": 47,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 82,
+      "before": "04 UI/UX for Artist Tools 82 One readiness rule becomes Qt code pending = self.session.pending ready = bool(pending) and (     not pending[3].get(\"warnings\") or self.ack.isChecked()) self.apply_button.setEnabled(ready) Input-change signals invalidate the preview. The session rechecks scope when Apply runs. Why recheck when Apply is enabled? Current PySide implementation \u00b7 excerpt, not a standalone script",
+      "after": "04 UI/UX for Artist Tools 82 Enabling Apply in Qt pending = self.session.pending ready = bool(pending) and (     not pending[3].get(\"warnings\") or self.ack.isChecked()) self.apply_button.setEnabled(ready) Changing an input invalidates the preview. Apply checks the selection again before making changes. Why recheck when Apply is enabled? Inside AssistantWindow.update_apply()",
+      "before_words": 52,
+      "after_words": 45,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 83,
+      "before": "04 UI/UX for Artist Tools 83 One workflow, different interfaces Surface Implementation PySide / Qt Python window: layouts + signals Native Unreal Slate Dockable editor tab Editor Utility Widget Blueprint editor interface Shared workflow Inputs \u2192 preview \u2192 apply \u2192 result What should stay consistent across interfaces?",
+      "after": "04 UI/UX for Artist Tools 83 UI Frameworks Framework Implementation PySide / Qt Python window: layouts + signals Native Unreal Slate Dockable editor tab Editor Utility Widget Blueprint editor interface Shared workflow Inputs \u2192 preview \u2192 apply \u2192 result Which behavior should every version preserve?",
+      "before_words": 47,
+      "after_words": 45,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 84,
+      "before": "04 UI/UX for Artist Tools 84 Make review data readable Show the target and slot. Keep Before beside After Apply. After completion, label it Result. Which component will change? Updated course PySide interface \u00b7 sample data \u00b7 no Unreal connection",
+      "after": "04 UI/UX for Artist Tools 84 Preview Tables Put Before and After Apply side by side so the change is easy to compare. After Apply succeeds, rename the column Result.",
+      "before_words": 40,
+      "after_words": 30,
+      "source_credits_moved": [
+        "Updated course PySide interface \u00b7 sample data \u00b7 no Unreal connection"
+      ]
+    },
+    {
+      "slide": 85,
+      "before": "04 UI/UX for Artist Tools 85 UI/UX: clarity during the whole task Assessment includes behavior, keyboard use and recovery. UI/UX course connection \u00b7 Joe Natoli, Design Rules Moment What the interface should make clear Before acting Which objects are affected, and what will change? During the operation Is it working, waiting, or blocked? After it finishes What changed, and what was skipped? If the result is wrong How can the artist correct or undo it?",
+      "after": "04 UI/UX for Artist Tools 85 Task Feedback Moment What the user needs to know Before acting Which objects are affected, and what will change? During the operation Is it working, waiting, or blocked? After it finishes What changed, and what was skipped? If the result is wrong How can the artist correct or undo it?",
+      "before_words": 75,
+      "after_words": 56,
+      "source_credits_moved": [
+        "UI/UX course connection \u00b7 Joe Natoli, Design Rules"
+      ]
+    },
+    {
+      "slide": 86,
+      "before": "04 UI/UX for Artist Tools 86 Case study: PowerRename\u2019s preview Notice: original and proposed filenames appear together. Apply: preview asset-name changes before committing. Microsoft \u2022 click video to play",
+      "after": "04 UI/UX for Artist Tools 86 PowerRename Review each filename before renaming the batch.",
+      "before_words": 29,
+      "after_words": 14,
+      "source_credits_moved": [
+        "Microsoft \u2022 click video to play"
+      ]
+    },
+    {
+      "slide": 87,
+      "before": "04 UI/UX for Artist Tools 87 Case study: Material Parameters Helper Notice: filters determine which parameters appear. Apply: group controls and make the active filter obvious. Ryan DowlingSoka \u2022 click video to play",
+      "after": "04 UI/UX for Artist Tools 87 Material Parameters Helper Filter the parameter list to find the controls you need.",
+      "before_words": 33,
+      "after_words": 19,
+      "source_credits_moved": [
+        "Ryan DowlingSoka \u2022 click video to play"
+      ]
+    },
+    {
+      "slide": 88,
+      "before": "04 UI/UX for Artist Tools 88 Case study: TAPython click feedback Notice: the counter changes immediately after the click. Apply: show a result or progress state after every action. Input Click a control. Visible state The counter updates. TAPython \u2022 click video to play",
+      "after": "04 UI/UX for Artist Tools 88 Click Feedback The counter updates immediately when you click.",
+      "before_words": 44,
+      "after_words": 15,
+      "source_credits_moved": [
+        "TAPython \u2022 click video to play"
+      ]
+    },
+    {
+      "slide": 90,
+      "before": "04 UI/UX for Artist Tools 90 What does recovery restore? Undo restored the assignment. The newly created material asset remained. Baseline Applied After Undo",
+      "after": "04 UI/UX for Artist Tools 90 Undo Undo restores the assignment but leaves the new material asset in the Content Browser. Baseline Applied After Undo",
+      "before_words": 24,
+      "after_words": 25,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 91,
+      "before": "04 UI/UX for Artist Tools 91 Case study: Guerrilla\u2019s contextual tools Notice: inspection stays in the scene\u2019s spatial context. Apply: show feedback beside the affected object or region. Guerrilla Games \u2022 click video to play",
+      "after": "04 UI/UX for Artist Tools 91 Contextual Tools Feedback appears beside the object being edited.",
+      "before_words": 35,
+      "after_words": 15,
+      "source_credits_moved": [
+        "Guerrilla Games \u2022 click video to play"
+      ]
+    },
+    {
+      "slide": 92,
+      "before": "92 Keep a shared visual language Record decisions so people and tools use the same meanings. Which rules should every contributor be able to find?",
+      "after": "92 Keep It Consistent Use the same design rules across the tool.",
+      "before_words": 25,
+      "after_words": 12,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 93,
+      "before": "04 UI/UX for Artist Tools 93 A style sheet records design decisions Shared rules reduce design drift. Record Example Typography and spacing Type scale + group spacing Color and control roles Action, focus, warning, disabled Interaction and wording Preview \u2192 Apply \u2192 Result Examples and exceptions Start, blocked, complete, narrow What does a palette leave unspecified?",
+      "after": "04 UI/UX for Artist Tools 93 Style Sheets A style sheet defines the design rules the team follows. Record Example Typography and spacing Type scale + group spacing Color and control roles Action, focus, warning, disabled Interaction and wording Preview \u2192 Apply \u2192 Result Examples and exceptions Start, blocked, complete, narrow What rules does a color palette leave out?",
+      "before_words": 56,
+      "after_words": 59,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 94,
+      "before": "04 UI/UX for Artist Tools 94 Use the style sheet when working with AI Version the style-sheet skill. Require agents to read it first. Review visuals and behavior against it. Record exceptions. Update changed rules. What evidence would prove consistency?",
+      "after": "04 UI/UX for Artist Tools 94 Style Sheets for AI Store the style sheet as a versioned skill and require agents to read it. Check UI changes against the sheet and record intentional exceptions. Does the result follow the sheet?",
+      "before_words": 40,
+      "after_words": 40,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 95,
+      "before": "04 UI/UX for Artist Tools 95 Case study: keep workflow names aligned The supplied UI has six named stages. An earlier playbook used different stage terms. Reconcile the intended names in the interface, documentation and AI instructions. Which version would a new teammate or agent trust? Same supplied GOLF+ interface \u00b7 documentation consistency example",
+      "after": "04 UI/UX for Artist Tools 95 Consistent Naming Use the same stage names in the interface and documentation. Include those names in AI instructions.",
+      "before_words": 54,
+      "after_words": 24,
+      "source_credits_moved": [
+        "Same supplied GOLF+ interface \u00b7 documentation consistency example"
+      ]
+    },
+    {
+      "slide": 96,
+      "before": "96 Test the whole workflow Observe the attempt, inspect the result, and retest the revision. What evidence would change your design decision?",
+      "after": "96 Test the Workflow Watch someone use the tool without coaching.",
+      "before_words": 22,
+      "after_words": 11,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 97,
+      "before": "04 UI/UX for Artist Tools 97 Prototype your uncertainty Prototype Good question What remains untested Paper or Figma Is the next action clear? Data + engine behavior PySide practice UI Are states understandable? Live host integration Prepared engine fixture Is scope respected? Other projects + frame cost What is the cheapest useful test?",
+      "after": "04 UI/UX for Artist Tools 97 Prototyping Prototype What it tests Limits Paper or Figma Is the next action clear? Data + engine behavior PySide practice UI Are states understandable? Connection to Unreal Unreal test scene Does it change the right objects? Other projects and performance Which prototype answers your question fastest?",
+      "before_words": 53,
+      "after_words": 52,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 98,
+      "before": "04 UI/UX for Artist Tools 98 Case study: NN/g\u2019s tested redesign Three rounds of testing. New and returning users. Notice Users liked the grid, but preferred the list after seeing alternatives. Apply: compare two layouts with the same task; observe hesitation and completion. Kathryn Whitenton & Sarah Gibbons / Nielsen Norman Group, 2018",
+      "after": "04 UI/UX for Artist Tools 98 NN/g Layout Testing Three rounds included new and returning users. Result Users preferred the list after trying both layouts. Test both layouts with the same task.",
+      "before_words": 53,
+      "after_words": 32,
+      "source_credits_moved": [
+        "Kathryn Whitenton & Sarah Gibbons / Nielsen Norman Group, 2018"
+      ]
+    },
+    {
+      "slide": 99,
+      "before": "04 UI/UX for Artist Tools 99 Separate observation from explanation Part Example Observed Tester paused at Destination and asked for help. Possible explanation The affected folder may be unclear. Proposed revision Name the folder and affected assets. Retest Same task, new tester: identify scope unaided. What is observed? What is inferred?",
+      "after": "04 UI/UX for Artist Tools 99 Observations and Assumptions Part Example Observed Tester paused at Destination and asked for help. Possible explanation The affected folder may be unclear. Proposed revision Name the folder and affected assets. Retest Can a new tester identify the affected folder without help? Which part is an assumption?",
+      "before_words": 51,
+      "after_words": 52,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 100,
+      "before": "04 UI/UX for Artist Tools 100 Events and observation answer different questions Evidence Can help answer Cannot establish alone preview_finished Did it complete, and how long did it take? Did the artist understand it? apply_blocked + reason Which rule stopped the operation? Whether the message supported recovery Observed task attempt Where did the user hesitate or need help? Frequency across the whole user population Which evidence would help explain a slow task in your tool?",
+      "after": "04 UI/UX for Artist Tools 100 Usage Logs and Observation Evidence Can help answer Limits preview_finished Did it complete, and how long did it take? Did the artist understand it? apply_blocked + reason Which rule stopped the operation? Did the message help the user recover? Observed task attempt Where did the user hesitate or need help? How common the issue is Which evidence would help explain a slow task in your tool?",
+      "before_words": 75,
+      "after_words": 72,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 101,
+      "before": "04 UI/UX for Artist Tools 101 Feedback that another person can use \u201cI expected Preview to affect only the selected prop. The target was unclear, so I paused before clicking.\u201d \u201cShow the target name beside Preview. Then test whether a new user can identify the scope.\u201d Describe what happened, how it affected the task, and what to change and test.",
+      "after": "04 UI/UX for Artist Tools 101 Useful Feedback \u201cI expected Preview to affect only the selected prop. The target was unclear, so I paused before clicking.\u201d \u201cShow the target name beside Preview. Then test whether a new user can identify the scope.\u201d Tie feedback to a specific moment in the test.",
+      "before_words": 60,
+      "after_words": 51,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 102,
+      "before": "05 Final Peer Review 102 Final Peer Review Lab A task, an observation, a revision to test",
+      "after": "05 Final Peer Review 102 Final Peer Review Lab Test a classmate\u2019s tool.",
+      "before_words": 17,
+      "after_words": 13,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 103,
+      "before": "05 Final Peer Review 103 Prepare one task a peer can attempt Specify Example User and goal Artist comparing one surface Input and boundary Textures + target; protected crate unchanged Visible success Expected look + correct slot + protected scope Repeat / fallback Reset; labeled walkthrough if blocked Give a goal, not a list of clicks.",
+      "after": "05 Final Peer Review 103 Test Setup Specify Example User and goal Artist comparing one surface Input and boundary Textures and target crate, with the other crate unchanged Visible success Material on the intended component and slot Repeat / fallback Reset or use the capture walkthrough Describe the goal without coaching each click.",
+      "before_words": 56,
+      "after_words": 53,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 104,
+      "before": "05 Final Peer Review 104 Three roles, three seven-minute rounds Owner: state the goal. Tester: attempt. Observer: record evidence and help. Round Owner Tester Observer 1 A B C 2 B C A 3 C A B Each tool gets one observed attempt with two peer perspectives.",
+      "after": "05 Final Peer Review 104 Peer Review Roles Rotate roles after each seven-minute round. Round Owner Tester Observer 1 A B C 2 B C A 3 C A B Each tool gets one test with two peers.",
+      "before_words": 47,
+      "after_words": 38,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 105,
+      "before": "05 Final Peer Review 105 One round produces evidence and a retest Elapsed Action 0:00\u20130:45 Owner states task, input and success 0:45\u20133:45 Tester attempts; observer records 3:45\u20135:15 Compare expectation with observed result 5:15\u20136:15 Choose one strength + one revision 6:15\u20137:00 Write a retest; reset and rotate Blocked? Label the fallback mode and continue.",
+      "after": "05 Final Peer Review 105 Seven-Minute Round Elapsed Action 0:00\u20130:45 Owner states task, input and success 0:45\u20133:45 Tester works while the observer records 3:45\u20135:15 Compare expectation with observed result 5:15\u20136:15 Choose one strength + one revision 6:15\u20137:00 Write the retest and rotate roles If blocked, continue with a labeled capture walkthrough.",
+      "before_words": 53,
+      "after_words": 51,
+      "source_credits_moved": []
+    },
+    {
+      "slide": 106,
+      "before": "05 Final Peer Review 106 Choose a revision supported by evidence Keep one strength a peer actually observed. Prioritize one issue or uncertainty by its consequence. State the change or investigation you will try. Specify the retest: input, action, expected result and protected scope. What changed or strengthened your original judgment?",
+      "after": "05 Final Peer Review 106 Revision Plan Keep one demonstrated strength. Pick the issue that most affects the task. Describe your fix or next investigation. Write a retest with the same input and a clear expected result. What feedback changed your mind?",
+      "before_words": 51,
+      "after_words": 42,
+      "source_credits_moved": []
+    }
+  ],
+  "credits_moved": [
+    {
+      "slide": 10,
+      "credit": "cgerchenhp \u2022 click video to play"
+    },
+    {
+      "slide": 20,
+      "credit": "TAPython \u2022 click video to play"
+    },
+    {
+      "slide": 22,
+      "credit": "Epic Games \u2022 click video to play"
+    },
+    {
+      "slide": 33,
+      "credit": "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lessons 21\u201322"
+    },
+    {
+      "slide": 34,
+      "credit": "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 36 \u00b7 log crops; code: classroom example"
+    },
+    {
+      "slide": 36,
+      "credit": "Isaac Oster \u00b7 Asset Setup series \u00b7 teaching adaptation"
+    },
+    {
+      "slide": 40,
+      "credit": "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 33 \u00b7 dialog crop"
+    },
+    {
+      "slide": 42,
+      "credit": "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 40 \u00b7 wiring checkpoint"
+    },
+    {
+      "slide": 43,
+      "credit": "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 39 \u00b7 release checklist: teaching synthesis"
+    },
+    {
+      "slide": 44,
+      "credit": "Instructor captures from Karol\u2019s Unreal Python course \u00b7 lesson 44"
+    },
+    {
+      "slide": 51,
+      "credit": "Course rehearsal sequence \u2022 six timed still states \u2022 click video to play"
+    },
+    {
+      "slide": 57,
+      "credit": "Simon Verstraete / SideFX \u00b7 Project Titan, 2022"
+    },
+    {
+      "slide": 58,
+      "credit": "Simon Verstraete / SideFX \u00b7 Project Titan, 2022"
+    },
+    {
+      "slide": 59,
+      "credit": "SideFX \u00b7 Project Titan \u00b7 26-second silent clip \u00b7 click video to play"
+    },
+    {
+      "slide": 70,
+      "credit": "UI/UX course connection \u00b7 Joe Natoli, Design Rules"
+    },
+    {
+      "slide": 72,
+      "credit": "UI/UX course connection \u00b7 Joe Natoli, Design Rules"
+    },
+    {
+      "slide": 73,
+      "credit": "Blender Foundation \u00b7 Blender 2.90 release notes \u00b7 original before/after figures"
+    },
+    {
+      "slide": 74,
+      "credit": "Left: Week 2 course image, Mariam Bellard / Rockstar North, GDC 2019 \u00b7 Right: course tool capture"
+    },
+    {
+      "slide": 77,
+      "credit": "GOLF+ Course Generator \u00b7 instructor\u2019s production tool"
+    },
+    {
+      "slide": 78,
+      "credit": "Left: Week 2 / Daniel Candil, A Crowd of Monsters \u00b7 Right: course tool \u00b7 Guidance: W3C"
+    },
+    {
+      "slide": 84,
+      "credit": "Updated course PySide interface \u00b7 sample data \u00b7 no Unreal connection"
+    },
+    {
+      "slide": 85,
+      "credit": "UI/UX course connection \u00b7 Joe Natoli, Design Rules"
+    },
+    {
+      "slide": 86,
+      "credit": "Microsoft \u2022 click video to play"
+    },
+    {
+      "slide": 87,
+      "credit": "Ryan DowlingSoka \u2022 click video to play"
+    },
+    {
+      "slide": 88,
+      "credit": "TAPython \u2022 click video to play"
+    },
+    {
+      "slide": 91,
+      "credit": "Guerrilla Games \u2022 click video to play"
+    },
+    {
+      "slide": 95,
+      "credit": "Same supplied GOLF+ interface \u00b7 documentation consistency example"
+    },
+    {
+      "slide": 98,
+      "credit": "Kathryn Whitenton & Sarah Gibbons / Nielsen Norman Group, 2018"
+    }
+  ],
+  "hidden_unchanged": 18,
+  "slide_count": 106
+}

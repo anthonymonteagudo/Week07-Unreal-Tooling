@@ -63,6 +63,24 @@ class W7_OT_fixture(bpy.types.Operator):
         return {'FINISHED'}
 
 
+class W7_OT_diagnostics(bpy.types.Operator):
+    bl_idname = 'w7bridge.diagnostics'
+    bl_label = 'Copy diagnostics'
+    bl_description = 'Copy environment and request status without exporting or sending'
+
+    def execute(self, context):
+        # Do not call client(context): that can change the active exchange.
+        configured = bpy.path.abspath(context.scene.w7_bridge_exchange)
+        publisher = _client or Publisher(BlenderAdapter(), configured)
+        try:
+            context.window_manager.clipboard = publisher.diagnostics(configured)
+        except Exception as error:
+            self.report({'ERROR'}, 'Could not copy diagnostics: ' + str(error))
+            return {'CANCELLED'}
+        self.report({'INFO'}, 'Bridge diagnostics copied')
+        return {'FINISHED'}
+
+
 class W7_PT_bridge(bpy.types.Panel):
     bl_label = 'Maya / Blender to Unreal'
     bl_idname = 'W7_PT_bridge'
@@ -85,12 +103,13 @@ class W7_PT_bridge(bpy.types.Panel):
         import textwrap
         for line in textwrap.wrap(publisher.message, width=40):
             box.label(text=line)
+        layout.operator('w7bridge.diagnostics')
         layout.separator()
         layout.operator('w7bridge.fixture')
         layout.operator('w7bridge.fixture', text='Create Revised Prop (+40 cm)').revised = True
 
 
-CLASSES = (W7_OT_publish, W7_OT_send, W7_OT_fixture, W7_PT_bridge)
+CLASSES = (W7_OT_publish, W7_OT_send, W7_OT_fixture, W7_OT_diagnostics, W7_PT_bridge)
 
 
 def _poll():

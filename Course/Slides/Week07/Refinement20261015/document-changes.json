@@ -1,0 +1,34 @@
+[
+  {
+    "source": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\Documents\\Week 7 Lab 1 Student Handout.docx",
+    "source_sha256": "4856c7c8e209079f9323c058b21e0209b937a21997f5977768756ad1a1a24016",
+    "output": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\Refinement20261015\\output\\Week 7 Lab 1 Student Handout v4.docx",
+    "changed_paragraphs": 2,
+    "changed_cells": 0,
+    "styles_and_page_geometry_preserved": true
+  },
+  {
+    "source": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\Documents\\Week 7 Peer Review Packet v2.docx",
+    "source_sha256": "e38d9afcabec980adf0cba8026070f3021e751d39148dac2839364e17aede355",
+    "output": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\Refinement20261015\\output\\Week 7 Peer Review Packet v3.docx",
+    "changed_paragraphs": 12,
+    "changed_cells": 0,
+    "styles_and_page_geometry_preserved": true
+  },
+  {
+    "source": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\Documents\\Week 7 Lab Instructor Guide.docx",
+    "source_sha256": "12bcbf302ca363da0670af9d91ecce212e701ae78595482701212e81a09e3c4b",
+    "output": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\Refinement20261015\\output\\Week 7 Lab Instructor Guide v4.docx",
+    "changed_paragraphs": 2,
+    "changed_cells": 22,
+    "styles_and_page_geometry_preserved": true
+  },
+  {
+    "source": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\FinalClass20261013\\Documents\\Week 7 Live Demo Run Sheet.docx",
+    "source_sha256": "a63bff036f684493ddc3fb57c60064ed6cbf9be253dcbe9654ac9f06005d4519",
+    "output": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\Refinement20261015\\output\\Week 7 Live Demo Run Sheet v4.docx",
+    "changed_paragraphs": 3,
+    "changed_cells": 8,
+    "styles_and_page_geometry_preserved": true
+  }
+]

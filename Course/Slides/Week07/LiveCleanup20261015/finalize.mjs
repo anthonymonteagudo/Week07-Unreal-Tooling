@@ -1,0 +1,11 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+const dir=path.dirname(fileURLToPath(import.meta.url));
+process.env.RUNTIME_NODE_MODULES='C:/Users/antho/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
+const skill='C:/Users/antho/.codex/plugins/cache/openai-primary-runtime/presentations/26.1011.11113/skills/presentations';
+const summary=JSON.parse(await fs.readFile(path.join(dir,'qa/package-summary.json'),'utf8'));
+const owners=summary.native_table_slides;
+const {finalizePresentation}=await import(pathToFileURL(skill+'/container_tools/artifact_tool_utils.mjs'));
+const r=await finalizePresentation({workspaceDir:dir,candidatePath:path.join(dir,'build/candidate-v8.pptx'),finalPath:path.join(dir,'output/Week 7 - Direct Copy v8.pptx'),pythonExecutable:'C:/Users/antho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe',integrityValidatorPath:skill+'/container_tools/inspect_presentation_package_integrity.py',layoutValidatorPath:skill+'/container_tools/inspect_presentation_layout_geometry.py',layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit',...owners.flatMap(n=>['--require-native-table-slide',String(n)])],requiredNativeTableOwnerSlides:owners,requiredNativeChartOwnerSlides:[],fontPolicy:{basis:'reference',families:['Neue Haas Grotesk Text Pro','Arial','Consolas'],referencePath:path.join(dir,'build/source-v7.pptx'),referenceSha256:summary.source_sha256},verifyArtifactToolImport:true,receiptPath:path.join(dir,'qa/presentation-validation-v8.json')});
+console.log(JSON.stringify({path:r.finalPath,integrity:r.packageIntegrity.status,layout:r.presentationLayout,bytes:r.byteCount}));

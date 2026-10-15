@@ -1,0 +1,91 @@
+[
+  {
+    "number": 10,
+    "anchor": "CALL",
+    "kind": "live",
+    "title": "Keep the subsystem example and explain why it uses an accessor",
+    "lessons": [
+      49,
+      50
+    ],
+    "edit": "Keep the title, table, API expressions and visual. Add the deprecation explanation to speaker notes, not a new live slide. Add a short visible check question beneath the existing takeaway.",
+    "copy": "Which expression names the class, and which retrieves the editor-managed instance?",
+    "narration": "The class tells Unreal which subsystem we want. We ask the editor for its managed instance rather than constructing another one. Older course code may call EditorActorSubsystem directly; keep the access pattern shown here. The returned actor collection is an Unreal Array, and this loop can iterate it directly. What would you like clarified about the class, instance or returned collection?",
+    "reason": "Lesson 49 is already represented correctly in v13. Lesson 50 explains the Array[Actor] wording without forcing a cast into code that already works.",
+    "layout": "Keep the current table and styling. Use the existing expression rows as the visual; no new screenshot is needed."
+  },
+  {
+    "number": 13,
+    "anchor": "RUN",
+    "kind": "live",
+    "title": "Give imports a short recovery pointer",
+    "lessons": [
+      48
+    ],
+    "edit": "Keep the saved-file procedure and title. Add a named Explore further link to the dependency/import troubleshooting handout. Put diagnostic detail in preparation notes; do not install packages during the opening.",
+    "copy": "Explore further: fixing imports and locating the active Python environment.",
+    "narration": "We execute this file in Unreal. If an import fails, first read the traceback: is our module missing, or did something it imports fail? The interpreter and package folder matter. The optional troubleshooting note walks through that distinction. What questions do you have about locating or running the script?",
+    "reason": "Preserves the Unreal-first sequence and prevents a missing dependency from becoming an unplanned package-management lesson.",
+    "layout": "Keep current execution instructions. Add only an appendix/handout pointer in the established reference style."
+  },
+  {
+    "number": 29,
+    "anchor": "10D",
+    "kind": "live",
+    "title": "Explain what the bridge acknowledgement proves",
+    "lessons": [
+      46
+    ],
+    "edit": "Keep the title, selected-mesh scope, 0.4 m revision, same-name instruction and reset method. Add the line below to the bridge narration. If replacing the image, use the existing Golden Path before/after proposal rather than collecting another unrelated example.",
+    "copy": "Exported → sent → acknowledged → inspect the same Unreal asset.\nWhat proves the revision reached both intended placements?",
+    "narration": "Publishing writes the mesh files; sending requests the import. We wait for Unreal’s acknowledgement, then inspect the actual asset and both blue placements. Karol combines the same export and import operations through HTTP Remote Control. Our prepared bridge uses file-based requests and acknowledgements. We can reuse the design idea without changing the connection mechanism. What questions do you have about what each stage confirms?",
+    "reason": "The new course example reinforces an already implemented and recorded workflow. The course’s unconditional True return is weaker than the existing receiver’s asset-path/type checks.",
+    "layout": "Keep v13’s geometry-revision example. Use matched existing Blender/Unreal frames from the Golden Path review; label them recorded rehearsal. Do not add a separate Remote Control panel to this slide."
+  },
+  {
+    "number": 61,
+    "anchor": "08A",
+    "kind": "optional",
+    "title": "Reuse the current shared-backend architecture",
+    "lessons": [
+      48
+    ],
+    "edit": "Keep the title and current PySide/Slate table. Add an optional dependency-direction caption and the discussion question below. This slide is outside the instructor’s current opening; do not move the material demo back into it.",
+    "copy": "UI calls reusable workflow logic; host adapters call the editor API.\nCould the shared logic run without importing the UI?",
+    "narration": "A reusable operation should not need to import the window that calls it. That dependency direction also helps avoid circular imports. The current PySide and Slate views share the same workflow, while host-specific code handles Unreal objects. Which part would you reuse for another interface?",
+    "reason": "Lesson 48’s circular-import example supports a design already visible in the project. The previous review’s Slate-label issue has been resolved in this deck.",
+    "layout": "Keep the existing implementation table. Add a small direction caption; retain native Slate and PySide terminology."
+  },
+  {
+    "number": 75,
+    "anchor": "08",
+    "kind": "optional",
+    "title": "Add a small typed-output example after the Blueprint overview",
+    "lessons": [
+      50
+    ],
+    "edit": "Keep slide 75 unchanged. Propose a new optional anchor K2 immediately after it: “Python data to a Blueprint Map.” Keep it out of the live route. Show the matching variable/output type explicitly.",
+    "copy": "import unreal\nconfig = unreal.Map.cast(str, int, {\"a\": 1, \"b\": 2})\n\nOutput name: config\nBlueprint variable: Map<String, Integer>\nExecution success is separate from the returned data.\nWhat must match on both sides?",
+    "narration": "This Python dictionary has string keys and integer values. We create a typed Unreal Map and give the output pin the same variable name. The Blueprint variable must use the matching key and value types. A successful execution flag is not the configuration itself. What would you inspect if the receiving pin had the wrong type?",
+    "reason": "This is genuinely new optional depth. It connects lesson 40’s named pins with lesson 50’s type conversion without requiring Blueprint construction in the main lesson.",
+    "layout": "Use lesson 50 screenshots 10–11 beside the short code example. Preserve their course credit. Show the original unreal_map label in the capture and explain that the shortened example uses config; alternatively retain unreal_map consistently when authoring the slide."
+  },
+  {
+    "number": 106,
+    "anchor": "K1",
+    "kind": "optional",
+    "title": "Extend the course connection index rather than duplicate the lecture",
+    "lessons": [
+      46,
+      47,
+      48,
+      49,
+      50
+    ],
+    "edit": "Keep the title and existing connection rows. Add the completion rows below to the reference handout; if the slide becomes dense, link the handout rather than shrinking its text. Reserve proposed K3 for import troubleshooting and K4 for Remote Control path discovery only if standalone appendix slides are useful.",
+    "copy": "46 Export + import bridge → existing Blender revision demo\n47 Runtime object path → optional Remote Control troubleshooting\n48 Dependencies/imports → instructor setup and shared-layer design\n49 Subsystem accessor → already used in CALL / UE02\n50 Typed arrays/maps/structs → optional Blueprint data example",
+    "narration": "The completed course gives us useful troubleshooting and extension examples. Most belong beside the prepared workflow or in reference material. The object-path test is specifically for the Remote Control version; our file-based bridge does not use that path. Which of these would help your own tool next?",
+    "reason": "Keeps a coherent route through the new notes, avoids implying that every completed course topic must become live lecture content, and distinguishes the two transports.",
+    "layout": "Keep the current reference-table style and link to the five refined lessons. Put long code examples in the readable handoff/notes rather than this overview."
+  }
+]

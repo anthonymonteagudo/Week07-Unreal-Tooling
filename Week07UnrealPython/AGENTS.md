@@ -14,13 +14,13 @@ work. A passing offline gate does not establish live Unreal integration readines
 
 The user requires BOTH a PySide tool and a separate Unreal-native editor UI.
 Do not describe an external Qt window parented to Unreal as native docking.
-Recommended native path and pending asset work: `Docs/UI/UNREAL_NATIVE_UI.md`.
+Native implementation: `Plugins/Week07Tools`; current student route: `README.md`.
 
 Selected functionality: Material Setup Assistant and VFX Placement. No procedural
 scattering or material/Niagara graph manipulation yet. Keep VFX validation light:
 reviewed presets, bounded placements, duplicate/spacing checks and truthful limits;
 do not grow a scene-cost inspector or claim count checks prove production safety.
-See `Docs/UI/MATERIAL_VFX_SCOPE.md`. For assistant screenshots, use
+The prepared map and allowed operations are described in `README.md`. For assistant screenshots, use
 `Scripts/assistants.py --render`; do not open its desktop window during code-only work.
 
 The numbered lesson sequence is provisional until the slides are finalized.

@@ -1,0 +1,121 @@
+{
+  "source_hashes": {
+    "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\UnrealFirst20261013\\output\\Week_7_Python_in_Unreal_v13.pptx": "ab17a019cdc9e688c505de2c4ff0f950d316d43646024348b0de3ae7d1eb23f0",
+    "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Content\\Python\\week07_bridge\\transport.py": "3be187451ae203c29875695bbb33842598b9e71bf641b7c5f6c595d7dcc095a8",
+    "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Content\\Python\\week07_bridge\\client.py": "f505499c8d4e06682a10e1287f4d4e5a9f2c5f05affbcc7c34828cf3298c217e",
+    "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Content\\Python\\week07_bridge\\unreal_receiver.py": "e9a4a33b739e6cfe951ce94f04e8a37ac0728750bdfd24aeb1e8a83a562aaca7",
+    "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Week07UnrealPython\\Docs\\Bridge\\UI-Rehearsal\\verification.json": "790a89356fcd9807c262e9854f8b01e408ba962bf17afdbbe5deb92094690fac"
+  },
+  "new_source_words": 6110,
+  "new_refined_words": 2890,
+  "new_images": 70,
+  "notes": [
+    {
+      "number": 46,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\09 Python and Blueprints\\46 Direct FBX Mesh Export From Blender to Unreal.md",
+      "sha256": "3a7a3a17db6f1b4c8a7e2fdc494c487f1595faefddc4f3b694a7d9ede2bfba41",
+      "images": [
+        "Pasted image 20261014175743.png",
+        "Pasted image 20261014175819.png",
+        "Pasted image 20261014175912.png",
+        "Pasted image 20261014180107.png",
+        "Pasted image 20261014180250.png",
+        "Pasted image 20261014180332.png",
+        "Pasted image 20261014180353.png"
+      ]
+    },
+    {
+      "number": 47,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\09 Python and Blueprints\\47 Making sure Remote Control calls work in Unreal 5.5+ with correct Object Path.md",
+      "sha256": "ee30caaa3af4cd3ccf02ddbff3713cde052be0be4a5643c413eb5a119a491d31",
+      "images": [
+        "Pasted image 20261014180956.png",
+        "Pasted image 20261014181606.png",
+        "Pasted image 20261014181705.png",
+        "Pasted image 20261014181811.png",
+        "Pasted image 20261014181903.png",
+        "Pasted image 20261014181931.png",
+        "Pasted image 20261014182030.png",
+        "Pasted image 20261014182045.png",
+        "Pasted image 20261014182103.png",
+        "Pasted image 20261014182129.png",
+        "Pasted image 20261014182516.png",
+        "Pasted image 20261014182534.png",
+        "Pasted image 20261014182848.png",
+        "Pasted image 20261014183526.png",
+        "Pasted image 20261014183617.png",
+        "Pasted image 20261014183652.png",
+        "Pasted image 20261014183706.png"
+      ]
+    },
+    {
+      "number": 48,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\10 Common Issues\\48 Fixing ImportError in Python and adding Python Modules as Plugins.md",
+      "sha256": "24094c47b00721d654f07754ba4379140bd8e11559f11b02cc75f5ba42377156",
+      "images": [
+        "Pasted image 20261014185151.png",
+        "Pasted image 20261014185223.png",
+        "Pasted image 20261014185256.png",
+        "Pasted image 20261014185347.png",
+        "Pasted image 20261014185029.png",
+        "Pasted image 20261014185056.png",
+        "Pasted image 20261014185127.png",
+        "Pasted image 20261014185430.png",
+        "Pasted image 20261014185826.png",
+        "Pasted image 20261014185852.png",
+        "Pasted image 20261014185912.png",
+        "Pasted image 20261014185935.png",
+        "Pasted image 20261014190422.png",
+        "Pasted image 20261014190302.png",
+        "Pasted image 20261014190355.png",
+        "Pasted image 20261014190654.png",
+        "Pasted image 20261014190750.png",
+        "Pasted image 20261014190813.png",
+        "Pasted image 20261014190925.png",
+        "Pasted image 20261014191115.png",
+        "Pasted image 20261014191134.png",
+        "Pasted image 20261014191201.png",
+        "Pasted image 20261014211937.png",
+        "Pasted image 20261014211953.png",
+        "Pasted image 20261014212328.png",
+        "Pasted image 20261014212421.png",
+        "Pasted image 20261014212503.png",
+        "Pasted image 20261014212524.png",
+        "Pasted image 20261014212543.png",
+        "Pasted image 20261014212610.png",
+        "Pasted image 20261014212648.png",
+        "Pasted image 20261014212706.png"
+      ]
+    },
+    {
+      "number": 49,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\10 Common Issues\\49 Code Deprecation Notice.md",
+      "sha256": "a37a42a3d80eee6a095a0a7320160efa3bb062a86fa454f8c1f43afc32def521",
+      "images": []
+    },
+    {
+      "number": 50,
+      "source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\10 Common Issues\\50 Working with Unreal data types.md",
+      "sha256": "6e3dca9a060eca01ad94d4b5d3b71daff9a6052ddb63bd31f1b36c8a3ea1483f",
+      "images": [
+        "Pasted image 20261014213259.png",
+        "Pasted image 20261014213339.png",
+        "Pasted image 20261014213352.png",
+        "Pasted image 20261014213417.png",
+        "Pasted image 20261014213440.png",
+        "Pasted image 20261014213511.png",
+        "Pasted image 20261014213542.png",
+        "Pasted image 20261014213629.png",
+        "Pasted image 20261014213647.png",
+        "Pasted image 20261014213732.png",
+        "Pasted image 20261014213859.png",
+        "Pasted image 20261014213947.png",
+        "Pasted image 20261014214004.png",
+        "Pasted image 20261014214021.png"
+      ]
+    }
+  ],
+  "original_notes_preserved": true,
+  "deck_unchanged": true,
+  "engine_executed": false
+}

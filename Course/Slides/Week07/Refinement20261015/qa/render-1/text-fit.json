@@ -1,0 +1,114 @@
+[
+  {
+    "height": 65.0,
+    "text": "Unreal: Check the host and project\r",
+    "slide": 5,
+    "shape": "Content Placeholder 5",
+    "boundHeight": 65.21
+  },
+  {
+    "height": 43.599762,
+    "text": "Python Editor Script Plugin\r",
+    "slide": 6,
+    "shape": "Content Placeholder 5",
+    "boundHeight": 65.21
+  },
+  {
+    "height": 43.599762,
+    "text": "Save in .vscode/settings.json. Type unreal. in a Python file to check suggestions.\r",
+    "slide": 8,
+    "shape": "Content Placeholder 5",
+    "boundHeight": 58.13
+  },
+  {
+    "height": 202.5422,
+    "text": "import unreal\runreal.log(\"Hello from Unreal\")\rprint(unreal.SystemLibrary.get_engine_version())\rprint(unreal.Paths.project_dir())\r\r\r\r",
+    "slide": 11,
+    "shape": "Content Placeholder 5",
+    "boundHeight": 259.84503
+  },
+  {
+    "height": 226.09354,
+    "text": "import unreal\reditor = unreal.get_editor_subsystem(unreal.EditorActorSubsystem)\r\ractors = editor.get_selected_level_actors()\rprint(\"Selected Actors:\", len(actors))\rfor actor in actors:\r    print(actor.get_actor_label(), actor.get_class().get_name())\r",
+    "slide": 15,
+    "shape": "Content Placeholder 5",
+    "boundHeight": 237.79504
+  },
+  {
+    "height": 43.599762,
+    "text": "get_selected_level_actors() returns Actor objects. len counts them; the loop reads each label and class.\r",
+    "slide": 15,
+    "shape": "Content Placeholder 5",
+    "boundHeight": 49.39504
+  },
+  {
+    "height": 288.8964,
+    "text": "Save the complete UE02 example as Content/Python/selection_demo.py.\rIn Unreal, choose Tools > Execute Python Script and select that file.\rRead the Output Log. Change the Outliner selection and execute the file again.\r\r",
+    "slide": 16,
+    "shape": "Subtitle 2",
+    "boundHeight": 301.53503
+  },
+  {
+    "height": 292.9422,
+    "text": "INPUT\rOutliner: select only W07_Crate_Target.\rRun the complete UE02 example.\r\rSelected Actors: 1\rW07_Crate_Target StaticMeshActor\r\r",
+    "slide": 17,
+    "shape": "Content Placeholder 5",
+    "boundHeight": 331.77
+  },
+  {
+    "height": 278.40427,
+    "text": "import unreal\r\rassets = unreal.EditorUtilityLibrary.get_selected_assets()\rprint(\"Selected assets:\", len(assets))\rfor asset in assets:\r    print(asset.get_name(), asset.get_class().get_name())\r    print(asset.get_path_name())\r\r",
+    "slide": 24,
+    "shape": "Content Placeholder 5",
+    "boundHeight": 274.60504
+  },
+  {
+    "height": 43.599762,
+    "text": "Read compression and sRGB. Non-texture selections are counted and skipped.\r",
+    "slide": 29,
+    "shape": "Content Placeholder 5",
+    "boundHeight": 43.6
+  },
+  {
+    "height": 324.9559,
+    "text": "import unreal\rfrom pathlib import Path\r\rdisk_folder = Path(unreal.Paths.project_dir()) / \"Content\"\robject_path = \"/Engine/BasicShapes/Cube.Cube\"\rmesh = unreal.load_asset(object_path)\rprint(\"Disk folder:\", disk_folder)\rprint(\"Loaded object:\", mesh.get_path_name() if mesh else None)\rprint(\"Content directory exists:\", disk_folder.is_dir())\r",
+    "slide": 35,
+    "shape": "Content Placeholder 5",
+    "boundHeight": 333.05
+  },
+  {
+    "height": 126.35071,
+    "text": "Python in Unreal: questions",
+    "slide": 46,
+    "shape": "Title 1",
+    "boundHeight": 161.16
+  },
+  {
+    "height": 43.599762,
+    "text": "bpy.context.selected_objects supplies Blender Objects. Unreal uses its own editor APIs.\r",
+    "slide": 48,
+    "shape": "Content Placeholder 5",
+    "boundHeight": 65.86
+  },
+  {
+    "height": 65.0,
+    "text": "Unreal: Check and stage the classroom scene\r",
+    "slide": 53,
+    "shape": "Content Placeholder 5",
+    "boundHeight": 65.21
+  },
+  {
+    "height": 60.0,
+    "text": "Three placements.\rPerformance needs a separate check.",
+    "slide": 56,
+    "shape": "vfx-results-text-3",
+    "boundHeight": 64.8
+  },
+  {
+    "height": 41.25,
+    "text": "Owner states the goal and watches. Tester attempts it. Observer records evidence and any help.",
+    "slide": 104,
+    "shape": "P2-intro",
+    "boundHeight": 48.6
+  }
+]

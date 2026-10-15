@@ -1,0 +1,450 @@
+[
+  {
+    "id": "01",
+    "title": "Week 7",
+    "section": "intro",
+    "minutes": 0.25,
+    "start": 0,
+    "end": 0.25
+  },
+  {
+    "id": "02",
+    "title": "Today’s sequence",
+    "section": "intro",
+    "minutes": 0.5,
+    "start": 0.25,
+    "end": 0.75
+  },
+  {
+    "id": "S1",
+    "title": "Python in Unreal",
+    "section": "python",
+    "minutes": 0.25,
+    "start": 0.75,
+    "end": 1
+  },
+  {
+    "id": "03",
+    "title": "Python setup in Unreal",
+    "section": "python",
+    "minutes": 0.5,
+    "start": 1,
+    "end": 1.5
+  },
+  {
+    "id": "04",
+    "title": "UE01: Unreal host and project",
+    "section": "python",
+    "minutes": 0.5,
+    "start": 1.5,
+    "end": 2
+  },
+  {
+    "id": "07",
+    "title": "UE02: Level selection",
+    "section": "python",
+    "minutes": 1,
+    "start": 2,
+    "end": 3
+  },
+  {
+    "id": "07C",
+    "title": "UE03: Actor, component and mesh",
+    "section": "python",
+    "minutes": 1,
+    "start": 3,
+    "end": 4
+  },
+  {
+    "id": "06A",
+    "title": "Shared asset, separate placements",
+    "section": "python",
+    "minutes": 1,
+    "start": 4,
+    "end": 5
+  },
+  {
+    "id": "UE04",
+    "title": "UE04: Content Browser selection",
+    "section": "python",
+    "minutes": 0.75,
+    "start": 5,
+    "end": 5.75
+  },
+  {
+    "id": "MAT1",
+    "title": "Texture settings: inspect first",
+    "section": "python",
+    "minutes": 0.75,
+    "start": 5.75,
+    "end": 6.5
+  },
+  {
+    "id": "09G",
+    "title": "UE05: Texture editor properties",
+    "section": "python",
+    "minutes": 0.75,
+    "start": 6.5,
+    "end": 7.25
+  },
+  {
+    "id": "09H",
+    "title": "UE06: Read-only validation",
+    "section": "python",
+    "minutes": 1.25,
+    "start": 7.25,
+    "end": 8.5
+  },
+  {
+    "id": "07A",
+    "title": "UE07: Disk paths and asset paths",
+    "section": "python",
+    "minutes": 0.75,
+    "start": 8.5,
+    "end": 9.25
+  },
+  {
+    "id": "SB",
+    "title": "Blender API\ncomparison",
+    "section": "blender",
+    "minutes": 0.25,
+    "start": 9.25,
+    "end": 9.5
+  },
+  {
+    "id": "BL01",
+    "title": "BL01: Blender host and selection",
+    "section": "blender",
+    "minutes": 0.75,
+    "start": 9.5,
+    "end": 10.25
+  },
+  {
+    "id": "BL02",
+    "title": "BL02: Object and mesh data",
+    "section": "blender",
+    "minutes": 0.75,
+    "start": 10.25,
+    "end": 11
+  },
+  {
+    "id": "S1A",
+    "title": "API calls in\nworking tools",
+    "section": "demos",
+    "minutes": 0.25,
+    "start": 11,
+    "end": 11.25
+  },
+  {
+    "id": "10",
+    "title": "Maya and Blender publishing",
+    "section": "demos",
+    "minutes": 0.5,
+    "start": 11.25,
+    "end": 11.75
+  },
+  {
+    "id": "10C",
+    "title": "UE11: Prepare an import task",
+    "section": "demos",
+    "minutes": 0.75,
+    "start": 11.75,
+    "end": 12.5
+  },
+  {
+    "id": "10A",
+    "title": "UE11: Prepare an import task",
+    "section": "demos",
+    "minutes": 0.75,
+    "start": 12.5,
+    "end": 13.25
+  },
+  {
+    "id": "UE12",
+    "title": "UE12: Import and inspect",
+    "section": "demos",
+    "minutes": 0.75,
+    "start": 13.25,
+    "end": 14
+  },
+  {
+    "id": "10D",
+    "title": "Bridge demo: publish, revise, verify",
+    "section": "demos",
+    "minutes": 4,
+    "start": 14,
+    "end": 18
+  },
+  {
+    "id": "MAT2",
+    "title": "Material instance: set texture inputs",
+    "section": "demos",
+    "minutes": 0.75,
+    "start": 18,
+    "end": 18.75
+  },
+  {
+    "id": "09I",
+    "title": "UE08: One material override",
+    "section": "demos",
+    "minutes": 1.25,
+    "start": 18.75,
+    "end": 20
+  },
+  {
+    "id": "MAT3",
+    "title": "Assign a material manually",
+    "section": "demos",
+    "minutes": 0.75,
+    "start": 20,
+    "end": 20.75
+  },
+  {
+    "id": "09",
+    "title": "Material Setup: a reviewed change",
+    "section": "demos",
+    "minutes": 4,
+    "start": 20.75,
+    "end": 24.75
+  },
+  {
+    "id": "09F",
+    "title": "PY01: A preview snapshot",
+    "section": "demos",
+    "minutes": 0.75,
+    "start": 24.75,
+    "end": 25.5
+  },
+  {
+    "id": "08A",
+    "title": "Two interfaces, one Python workflow",
+    "section": "demos",
+    "minutes": 1,
+    "start": 25.5,
+    "end": 26.5
+  },
+  {
+    "id": "09J",
+    "title": "UE10: Niagara component inspection",
+    "section": "demos",
+    "minutes": 0.75,
+    "start": 26.5,
+    "end": 27.25
+  },
+  {
+    "id": "09D",
+    "title": "VFX Placement: transfer the workflow",
+    "section": "demos",
+    "minutes": 3.25,
+    "start": 27.25,
+    "end": 30.5
+  },
+  {
+    "id": "09K",
+    "title": "Python and demo questions",
+    "section": "demos",
+    "minutes": 1.5,
+    "start": 30.5,
+    "end": 32
+  },
+  {
+    "id": "11",
+    "title": "Contributor demos",
+    "section": "contributors",
+    "minutes": 35,
+    "start": 32,
+    "end": 67
+  },
+  {
+    "id": "13",
+    "title": "Break",
+    "section": "break",
+    "minutes": 15,
+    "start": 67,
+    "end": 82
+  },
+  {
+    "id": "S3",
+    "title": "Lab 1\nTool assessment",
+    "section": "lab",
+    "minutes": 0.25,
+    "start": 82,
+    "end": 82.25
+  },
+  {
+    "id": "12",
+    "title": "Lab 1: predict the result",
+    "section": "lab",
+    "minutes": 4.75,
+    "start": 82.25,
+    "end": 87
+  },
+  {
+    "id": "12A",
+    "title": "Lab 1: evidence and a retest",
+    "section": "lab",
+    "minutes": 3,
+    "start": 87,
+    "end": 90
+  },
+  {
+    "id": "S4",
+    "title": "UI/UX for\nartist tools",
+    "section": "ux",
+    "minutes": 0.25,
+    "start": 90,
+    "end": 90.25
+  },
+  {
+    "id": "14",
+    "title": "Interface and experience",
+    "section": "ux",
+    "minutes": 0.75,
+    "start": 90.25,
+    "end": 91
+  },
+  {
+    "id": "14B",
+    "title": "User stories",
+    "section": "ux",
+    "minutes": 1.5,
+    "start": 91,
+    "end": 92.5
+  },
+  {
+    "id": "14D",
+    "title": "Two layouts for the same task",
+    "section": "ux",
+    "minutes": 1.5,
+    "start": 92.5,
+    "end": 94
+  },
+  {
+    "id": "15",
+    "title": "Layout follows the task",
+    "section": "ux",
+    "minutes": 1.5,
+    "start": 94,
+    "end": 95.5
+  },
+  {
+    "id": "14F",
+    "title": "The artist’s model of the work",
+    "section": "ux",
+    "minutes": 1.5,
+    "start": 95.5,
+    "end": 97
+  },
+  {
+    "id": "15A",
+    "title": "State and feedback",
+    "section": "ux",
+    "minutes": 1,
+    "start": 97,
+    "end": 98
+  },
+  {
+    "id": "15G",
+    "title": "A UI state becomes a Qt decision",
+    "section": "ux",
+    "minutes": 1,
+    "start": 98,
+    "end": 99
+  },
+  {
+    "id": "15D",
+    "title": "An error should support recovery",
+    "section": "ux",
+    "minutes": 1,
+    "start": 99,
+    "end": 100
+  },
+  {
+    "id": "15B",
+    "title": "Recovery and accessibility",
+    "section": "ux",
+    "minutes": 1,
+    "start": 100,
+    "end": 101
+  },
+  {
+    "id": "16C",
+    "title": "Feedback changes the interface",
+    "section": "ux",
+    "minutes": 1.5,
+    "start": 101,
+    "end": 102.5
+  },
+  {
+    "id": "16E",
+    "title": "A test produces the next question",
+    "section": "ux",
+    "minutes": 3.5,
+    "start": 102.5,
+    "end": 106
+  },
+  {
+    "id": "S4A",
+    "title": "Peer-test\npreparation",
+    "section": "prep",
+    "minutes": 0.25,
+    "start": 106,
+    "end": 106.25
+  },
+  {
+    "id": "16A",
+    "title": "Your peer-test task",
+    "section": "prep",
+    "minutes": 3.75,
+    "start": 106.25,
+    "end": 110
+  },
+  {
+    "id": "S5",
+    "title": "Lab 2\nPeer testing",
+    "section": "peer",
+    "minutes": 0.25,
+    "start": 110,
+    "end": 110.25
+  },
+  {
+    "id": "17",
+    "title": "Lab 2: three peer reviews",
+    "section": "peer",
+    "minutes": 1,
+    "start": 110.25,
+    "end": 111.25
+  },
+  {
+    "id": "18",
+    "title": "A ten-minute reciprocal round",
+    "section": "peer",
+    "minutes": 1,
+    "start": 111.25,
+    "end": 112.25
+  },
+  {
+    "id": "19",
+    "title": "Partner rotations",
+    "section": "peer",
+    "minutes": 32.75,
+    "start": 112.25,
+    "end": 145
+  },
+  {
+    "id": "S6",
+    "title": "Reflection\nand next revision",
+    "section": "synthesis",
+    "minutes": 0.25,
+    "start": 145,
+    "end": 145.25
+  },
+  {
+    "id": "20",
+    "title": "One revision supported by evidence",
+    "section": "synthesis",
+    "minutes": 4.75,
+    "start": 145.25,
+    "end": 150
+  }
+]

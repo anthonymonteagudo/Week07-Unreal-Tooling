@@ -1,0 +1,167 @@
+[
+  {
+    "label": "Lab 2 \u2022 Preparation \u2022 4 minutes \u2022 One per author",
+    "title": "Prepare one peer test",
+    "blocks": [
+      [
+        "p",
+        "Give each reviewer the same task and starting state. Ask for a result; let them choose the steps.",
+        false
+      ],
+      [
+        "p",
+        "Author ____________________   Tool / version ____________________   Group ____   Letter A / B / C / D",
+        false
+      ],
+      [
+        "field",
+        "1  User and goal",
+        "Who is this for? What do they need to do, and why?",
+        2
+      ],
+      [
+        "field",
+        "2  Task to read aloud",
+        "Write one short task. Include the starting input and what must stay unchanged.",
+        3
+      ],
+      [
+        "field",
+        "3  Success",
+        "What visible result will you check?",
+        2
+      ],
+      [
+        "field",
+        "4  Ready to repeat",
+        "How will you reset? What will you show if the tool cannot run?",
+        2
+      ],
+      [
+        "p",
+        "Example task: \u201cTry this texture set on the target crate. Leave the protected crate unchanged.\u201d",
+        false
+      ],
+      [
+        "p",
+        "Ready check: prepared copies \u2022 same version \u2022 start state ready \u2022 reset ready",
+        true
+      ],
+      [
+        "p",
+        "Choose a mode: hands-on / recording / paper or Figma. A prototype can test understanding; it cannot verify engine behavior.",
+        false
+      ]
+    ]
+  },
+  {
+    "label": "Lab 2 \u2022 Peer review \u2022 One sheet per reviewer",
+    "title": "Test a peer tool",
+    "blocks": [
+      [
+        "p",
+        "Reviewer: try the task and say what you expect. Author: watch first. Record any help you give.",
+        false
+      ],
+      [
+        "p",
+        "Round ____   Author ____________________   Reviewer ____________________   Tool / version ____________________",
+        false
+      ],
+      [
+        "p",
+        "Mode: hands-on / recording / paper or Figma     Result: independent / helped / blocked / execution untested",
+        false
+      ],
+      [
+        "field",
+        "1  Task",
+        "What result are you trying to reach?",
+        1
+      ],
+      [
+        "field",
+        "2  Evidence",
+        "What did you do, expect and observe? Where did you need help?",
+        4
+      ],
+      [
+        "p",
+        "Use a lens that fits your observation. You do not need to answer every question.",
+        true
+      ],
+      [
+        "p",
+        "Know the task \u2014 Is the goal and scope clear?\nGuide the eye \u2014 Do grouping, spacing and contrast show what matters?\nMake actions clear \u2014 Can you tell what to click and what state it is in?\nKeep a shared visual language \u2014 Do labels, colors and controls mean the same thing?\nTest the whole workflow \u2014 Can you check the result and recover?",
+        false
+      ],
+      [
+        "field",
+        "3  Keep and improve",
+        "One observed strength. One issue or question that matters, and why.",
+        3
+      ],
+      [
+        "p",
+        "If no issue appeared, say so. Mark anything you could not test. Give this sheet to the author.",
+        false
+      ],
+      [
+        "p",
+        "10-minute round: task 0:00 \u2022 try 0:30 \u2022 record and share 2:30 \u2022 swap 4:00 \u2022 finish and reset 8:00",
+        true
+      ]
+    ]
+  },
+  {
+    "label": "Lab 2 \u2022 Reflection \u2022 Final 5 minutes \u2022 One per author",
+    "title": "Choose one revision",
+    "blocks": [
+      [
+        "p",
+        "Compare your reviews. Preserve a strength, choose one change, and plan a test.",
+        false
+      ],
+      [
+        "p",
+        "Author ____________________   Distinct reviewers ____   Modes used ____________________",
+        false
+      ],
+      [
+        "field",
+        "1  Keep",
+        "Which strength did a reviewer observe?",
+        2
+      ],
+      [
+        "field",
+        "2  Prioritize",
+        "Which issue or uncertainty matters most? Cite a peer\u2019s observation and its consequence.",
+        3
+      ],
+      [
+        "field",
+        "3  Revise",
+        "What specific change will you make or investigate?",
+        2
+      ],
+      [
+        "field",
+        "4  Retest",
+        "State the input, action and expected result. Include what must stay unchanged.",
+        3
+      ],
+      [
+        "field",
+        "5  Reflect",
+        "What changed or strengthened your judgment? What is still untested?",
+        2
+      ],
+      [
+        "p",
+        "A serious failure can matter even if only one reviewer sees it. Record the reviews you actually received.",
+        false
+      ]
+    ]
+  }
+]

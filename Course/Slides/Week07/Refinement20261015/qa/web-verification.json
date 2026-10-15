@@ -1,0 +1,274 @@
+{
+  "pages": 10,
+  "viewports": 2,
+  "results": [
+    {
+      "file": "dashboard.html",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "facilitator.html",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "index.html",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "lab1.html",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "live-demo.html",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "peer-review.html",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "quality.html",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "reveal.html",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "review.html",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "route.html",
+      "width": 1440,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "dashboard.html",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "facilitator.html",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "index.html",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "lab1.html",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "live-demo.html",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "peer-review.html",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "quality.html",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "reveal.html",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "review.html",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    },
+    {
+      "file": "route.html",
+      "width": 390,
+      "overflow": false,
+      "brokenImages": [],
+      "h1s": 1,
+      "missingFiles": []
+    }
+  ],
+  "timer_and_review": [
+    {
+      "label": "Starts at seven minutes",
+      "passed": true
+    },
+    {
+      "label": "Task phase changes to attempt",
+      "passed": true
+    },
+    {
+      "label": "Pause retains remaining time",
+      "passed": true
+    },
+    {
+      "label": "Compare phase",
+      "passed": true
+    },
+    {
+      "label": "Strength and revision phase",
+      "passed": true
+    },
+    {
+      "label": "Retest and rotate phase",
+      "passed": true
+    },
+    {
+      "label": "Stops at zero without advancing",
+      "passed": true
+    },
+    {
+      "label": "Next round resets deliberately",
+      "passed": true
+    },
+    {
+      "label": "Last round disables next",
+      "passed": true
+    },
+    {
+      "label": "Keyboard starts timer",
+      "passed": true
+    },
+    {
+      "label": "Reset stops and restores time",
+      "passed": true
+    },
+    {
+      "label": "Timed filter contains 70 slides",
+      "passed": true
+    },
+    {
+      "label": "Search filters by topic",
+      "passed": true
+    },
+    {
+      "label": "Legacy index.html opens current index.html",
+      "passed": true
+    },
+    {
+      "label": "Legacy dashboard.html opens current dashboard.html",
+      "passed": true
+    },
+    {
+      "label": "Legacy lab1.html opens current lab1.html",
+      "passed": true
+    },
+    {
+      "label": "Legacy peer-sheet.html opens current peer-review.html",
+      "passed": true
+    },
+    {
+      "label": "Legacy preparation.html opens current peer-review.html",
+      "passed": true
+    },
+    {
+      "label": "Legacy reflection.html opens current peer-review.html",
+      "passed": true
+    },
+    {
+      "label": "Legacy facilitator.html opens current facilitator.html",
+      "passed": true
+    },
+    {
+      "label": "Legacy reveal.html opens current reveal.html",
+      "passed": true
+    },
+    {
+      "label": "Walkthrough begins at first capture",
+      "passed": true
+    },
+    {
+      "label": "All seven captures reachable; no step beyond seven",
+      "passed": true
+    },
+    {
+      "label": "Walkthrough keyboard moves back",
+      "passed": true
+    },
+    {
+      "label": "Show all reveals seven captures",
+      "passed": true
+    },
+    {
+      "label": "Walkthrough images and local document links exist",
+      "passed": true
+    }
+  ],
+  "page_errors": [],
+  "failures": []
+}

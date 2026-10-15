@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>47 Making sure Remote Control calls work in Unreal 5.5+ with correct Object Path · audit reader</title><link rel="stylesheet" href="../review.css"><style>main{max-width:1060px}.document img{display:block;max-height:900px;object-fit:contain;margin:24px auto}.document pre{overflow:auto}.document h2{margin-top:40px}.document h1{font-size:30px}.document table{display:block;overflow:auto}.tabs button[aria-pressed=true]{background:#574285;color:white}</style></head><body><header><nav><a href="../index.html#notes">Return to audit</a><a href="46.html">Previous lesson</a> <a href="48.html">Next lesson</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/47%20Making%20sure%20Remote%20Control%20calls%20work%20in%20Unreal%205.5%2B%20with%20correct%20Object%20Path.md">Original Markdown</a><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/47%20Making%20sure%20Remote%20Control%20calls%20work%20in%20Unreal%205.5%2B%20with%20correct%20Object%20Path%20-%20REFINED.md">Current REFINED Markdown</a></nav><h1>47 Making sure Remote Control calls work in Unreal 5.5+ with correct Object Path</h1><p>17 screenshots preserved; organized explanation and copyable examples.</p><p class="meta">Read-only rendered snapshot, 14 October 2026. Existing images stay in the original notes vault. Open the Markdown source to edit.</p></header><main><div class="controls tabs"><button data-view="refined" aria-pressed="true">Refined after audit</button><button data-view="original" aria-pressed="false">Original source</button><button data-view="diff" aria-pressed="false">Change record</button></div><article class="document" id="refined"><h1>Remote Control Object Paths in Unreal 5.5 and Later — REFINED</h1>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/REFINED%20-%20Course%20Index.md">Course index</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/47%20Making%20sure%20Remote%20Control%20calls%20work%20in%20Unreal%205.5%2B%20with%20correct%20Object%20Path.md">Original notes</a></p>
+<p>These screenshot-only notes document a failure caused by assuming the exposed Python class has the same object path in every execution context. The practical fix is to ask the registered class for its default object&#39;s path and use that exact value in the request.</p>
+<h2>Confirm the class was registered</h2>
+<p>The example defines <code>RemoteControlDemo</code> with <code>@unreal.uclass()</code> and exposes <code>ping_unreal</code> and <code>return_params</code> with <code>@unreal.ufunction(...)</code>. A startup file imports the module containing that class.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014180956.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014181606.png" alt="Course screenshot"></p>
+<p>The HTTP request returns <strong>400 Bad Request</strong> with an object-not-found message even though Output Log confirms that the startup file ran. Successful startup alone does not prove the hard-coded request path is correct.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014181705.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014181811.png" alt="Course screenshot"></p>
+<p>The Blueprint experiment uses an Editor Function Library and finds <strong>Cast To RemoteControlDemo</strong>, helping establish that the type is registered. It does not discover the class default object&#39;s complete path.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014181903.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014181931.png" alt="Course screenshot"></p>
+<p>Pasting/executing the class definition directly in the console makes the older request succeed in the demonstrated experiment. This changes the registration context; it is a diagnostic comparison, not the preferred permanent fix.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182030.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182045.png" alt="Course screenshot"></p>
+<h2>Replace the assumed path with the discovered path</h2>
+<p>The earlier request and reference excerpt use <code>/Engine/PythonTypes.Default__RemoteControlDemo</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182103.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182129.png" alt="Course screenshot"></p>
+<p>After importing the actual module inside Unreal, print the class default object&#39;s identity:</p>
+<pre><code class="language-python">from remote_control_demo_functions import RemoteControlDemo
+
+object_path = RemoteControlDemo.get_default_object().get_path_name()
+print(f&quot;DEBUG PATH: {object_path}&quot;)
+</code></pre>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182516.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182534.png" alt="Course screenshot"></p>
+<p>In this startup-import example, the logged path is:</p>
+<pre><code class="language-text">/Game/Python/remote_control_demo_functions_PY.Default__RemoteControlDemo
+</code></pre>
+<p>This is an observed path for the demonstrated module, not a universal replacement string. Module/package names and registration context matter. Repeat discovery when those inputs or the engine version change.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182848.png" alt="Course screenshot"></p>
+<p>Copy the logged value into <code>objectPath</code>, keep <code>functionName</code> as <code>ping_unreal</code>, and send the PUT request again. The screenshot shows <strong>200 OK</strong> and <code>ReturnValue: true</code>.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014183526.png" alt="Course screenshot"></p>
+<h2>Add a path regression check</h2>
+<p>The final screenshots turn the discovered path into a small automation check. This version makes the explicit test invocation clear:</p>
+<pre><code class="language-python">import unreal
+from remote_control_demo_functions import RemoteControlDemo
+
+def test_api_object_path():
+    expected = (
+        &quot;/Game/Python/remote_control_demo_functions_PY.&quot;
+        &quot;Default__RemoteControlDemo&quot;
+    )
+    actual = RemoteControlDemo.get_default_object().get_path_name()
+    if actual != expected:
+        unreal.log_error(f&quot;Remote Control path changed: {expected!r} -&gt; {actual!r}&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    test_api_object_path()
+</code></pre>
+<p>Save as a discoverable <code>test_*.py</code> file and run it with the course&#39;s Python Automation Test setup. Adjust <code>expected</code> to the deliberately supported module path. Defining a function without calling it does not run the check.</p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014183617.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014183652.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014183706.png" alt="Course screenshot"></p>
+<p>This test detects a path change; it does not prove the HTTP server is reachable or the remote operation works. Keep the successful ping and operation-result inspection as separate checks. Apply this correction to the remote examples in lessons 44–46 whenever their historical object paths fail.</p>
+<hr>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/09%20Python%20and%20Blueprints/46%20Direct%20FBX%20Mesh%20Export%20From%20Blender%20to%20Unreal%20-%20REFINED.md">← Previous lesson</a> · <a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/16%20Karol%20UE%20Python%20Course/10%20Common%20Issues/48%20Fixing%20ImportError%20in%20Python%20and%20adding%20Python%20Modules%20as%20Plugins%20-%20REFINED.md">Next lesson →</a></p>
+</article><article class="document" id="original" hidden><p class="note">Original source reproduced below, including transcript wording and intermediate mistakes. Read the refined annotations before reusing code from screenshots.</p><p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014180956.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014181606.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014181705.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014181811.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014181903.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014181931.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182030.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182045.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182103.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182129.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182516.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182534.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014182848.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014183526.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014183617.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014183652.png" alt="Course screenshot"></p>
+<p><img loading="lazy" src="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Pasted%20image%2020261014183706.png" alt="Course screenshot"></p>
+</article><article id="diff" hidden><h2>Completion change record</h2><pre>New REFINED version created from the completed source note. The original source is preserved in the adjacent tab.</pre></article></main><script>for(const b of document.querySelectorAll('[data-view]'))b.onclick=()=>{for(const x of document.querySelectorAll('[data-view]'))x.setAttribute('aria-pressed',String(x===b));for(const id of ['refined','original','diff'])document.getElementById(id).hidden=id!==b.dataset.view;};</script></body></html>

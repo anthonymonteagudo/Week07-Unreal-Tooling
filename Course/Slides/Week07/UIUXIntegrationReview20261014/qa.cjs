@@ -1,0 +1,20 @@
+const {chromium}=require('playwright');
+const fs=require('fs'),path=require('path');
+const {pathToFileURL,fileURLToPath}=require('url');
+(async()=>{
+ const dir=__dirname,b=await chromium.launch({headless:true,channel:'msedge'});
+ const p=await b.newPage({viewport:{width:1440,height:1000}});
+ await p.goto(pathToFileURL(path.join(dir,'index.html')).href);
+ await p.locator('img').evaluateAll(xs=>xs.forEach(i=>i.loading='eager'));
+ await p.waitForFunction(()=>[...document.images].every(i=>i.complete));
+ const r=await p.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,brokenImages:[...document.images].filter(i=>!i.naturalWidth).map(i=>i.src),links:[...document.querySelectorAll('a')].map(a=>a.href),articles:[...document.querySelectorAll('article')].map(a=>a.id)}));
+ r.brokenLinks=r.links.filter(h=>h.startsWith('file:')&&!fs.existsSync(fileURLToPath(h)));delete r.links;
+ await p.screenshot({path:path.join(dir,'review-desktop.png')});
+ await p.locator('#new').scrollIntoViewIfNeeded();await p.screenshot({path:path.join(dir,'review-grouping.png')});
+ await p.locator('#keys-new').scrollIntoViewIfNeeded();await p.screenshot({path:path.join(dir,'review-shortcuts.png')});
+ await p.setViewportSize({width:780,height:1000});r.narrowOverflow=await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
+ await p.locator('#search').fill('Visible commands, faster repetition');r.searchMatches=await p.locator('article:visible').count();
+ await p.locator('#search').fill('');await p.locator('#route').check();r.referenceHidden=await p.locator('#visuals').isHidden();
+ await b.close();fs.writeFileSync(path.join(dir,'browser-check.json'),JSON.stringify(r,null,2));console.log(r);
+ if(r.overflow||r.narrowOverflow||r.brokenImages.length||r.brokenLinks.length||r.searchMatches!==1||!r.referenceHidden)process.exitCode=1;
+})();

@@ -1,0 +1,6 @@
+assert qt.grab().save(str(REHEARSAL/'captures/qt-material-applied.png'))
+assert unreal.Week07EditorLibrary.undo_demo()
+record('Live Qt material Undo')
+assert EVIDENCE['steps'][-1]['cubes']['W07_Crate_Target']['material'].startswith('/Engine/BasicShapes/')
+cap=unreal.AutomationLibrary.take_high_res_screenshot(1600,900,str(REHEARSAL/'captures/material-undo.png'),delay=.3,force_game_view=True)
+print(live_demo.select_vfx())

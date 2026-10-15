@@ -1,6 +1,21 @@
 # Review format preferences
 
+## Complete lesson sequences · confirmed 15 October 2026
+
+- Keep each numbered example together with its prerequisites, execution instructions, API explanation and visible result. Do not hide individual pieces of UE01, UE02 or later examples to meet a slide-count target.
+- Keep the regular PowerPoint show and the named live show aligned. A shorter custom show must not silently omit parts of the lesson chain.
+- Cut duplicate or standalone reference examples as complete units. Use native PowerPoint sections to make the teaching order clear while preserving slide-number review anchors.
+
+## Direct slide copy and private source credits · confirmed 15 October 2026
+
+- Use plain topic titles: **Progress Bars**, **Material Slots**, **Unit Tests**. Avoid slogan titles or sentences that narrate what students should learn.
+- Be blunt and straightforward. Do not default to three short sentences, three-part lists, or a repeated “Notice / Apply” pattern. Use the amount and form of text the specific slide needs.
+- Keep course-source credits, capture provenance, preparation history and authoring commentary out of projected slides. Preserve sources and image credits in instructor notes and the private source record. Retain necessary task prerequisites and meaningful distinctions such as practice mode versus a live operation.
+- Apply these rules across the whole current deck, including hidden slides. Preserve its gradient design, working examples and useful discussion prompts.
+
 ## Section clarity and visible API teaching · confirmed 13 October 2026
+
+- Keep projected slides student-facing. Put historical-capture warnings, preparation reminders and build metadata in instructor notes/review pages. Use plain run instructions for code examples, preserve necessary setup dependencies, and avoid technical slash-delimited footers or machine-local source-guide hyperlinks. Remove garbled encoding characters and inherited date placeholders from teaching exports.
 
 - Use clear title transition slides between teaching sections, with distinct section colors and explicit section names. Maintain segmented, categorized sequencing.
 - Put substantive Unreal Python API explanations and readable code directly on the slides, tied to the current demos and course materials.
@@ -63,3 +78,22 @@ Confirmed by the instructor on 8 September 2026 for future course-material revie
 - Ground technical-art math in short real-world game-development or GDC application slides between concepts. Provide strong primary sources, exact reading pointers, and distinguish documented production practice from illustrative classroom math.
 - Base content reviews on the latest supplied WIP, retain current slide-number anchors, and propose sequencing separately from visual styling.
 - API demonstrations need small, independently runnable topic files following the Week 3 checkpoint pattern. Generate visible slide code from the same source. Label partial blocks with required setup and provide copyable setup-through-action code, expected output, one-change experiments and recovery. Use clear title transitions and distinct colors between sections.
+
+- Preserve the established class schedule. Do not cut or hide useful content merely to fit estimated slide times. The instructor prefers to be overprepared and adjusts pacing in class. Keep Unreal fundamentals and working-tool examples together before introducing Blender; include API documentation, VS Code setup, explained calls, and explicit input/result showcases.
+
+- Week 7 scope clarification (13 October): the instructor opening focuses on Python in Unreal, following Karol's progression. Briefly introduce Blender bpy immediately before the instructor's Blender bridge demo, then hand off to colleagues. Colleagues cover the deeper Unreal material tool and Maya bridge; retain those implementation details as references. Sprinkle verified production cases and publicly available Python tools throughout the Unreal introduction. Preserve the existing schedule.
+
+
+## Visual variety and borrowed course captures · confirmed 14 October 2026
+
+- Use the instructor’s captured Karol course visuals freely as integration candidates, preserving attribution and source context.
+- Stock, online and less directly applicable imagery are welcome when they break up monotonous runs of text-heavy slides. Visual rhythm, context and breathing room are valid purposes alongside direct technical explanation.
+- Mix large images, course captures, code with relevant crops, results and section imagery. Do not require every image to be exact current-project evidence; distinguish illustrative or borrowed examples from demonstrated results.
+
+
+## Week 7 explanation and demo balance · planning direction 15 October 2026
+
+- The instructor is considering more readily available information directly in the slides, given limited manual testing of their tools and colleagues’ room to elaborate on demos. Treat this as the current preparation direction, not authorization to change the timetable.
+- Put definitions, worked examples, state comparisons and relevant code on the slide; let narration and demos elaborate them. Preserve clean mantra subsections and readable type.
+- Prepared visual explanations should work without successful live execution. Preserve colleague demonstration allocations and manually rehearse any instructor operation selected for a live run.
+- The supplied GOLF+ Course Generator screenshot can serve as the main visual example; new Unity captures are an optional way to fill a specific state or behavior gap. Preserve original pixels and distinguish visual observations from tested behavior.

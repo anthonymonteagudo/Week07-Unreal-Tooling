@@ -47,6 +47,13 @@ def show(stage=3):
         _window.closed.connect(close)
         _window.show()
         unreal.parent_external_window_to_slate(int(_window.winId()))
+        # Keep the complete teaching panel inside the current screen.
+        available = _window.screen().availableGeometry()
+        _window.resize(min(_window.width(), available.width() - 60),
+                       min(_window.height(), available.height() - 100))
+        frame = _window.frameGeometry()
+        frame.moveCenter(available.center())
+        _window.move(frame.topLeft())
         _tick = unreal.register_slate_post_tick_callback(lambda delta: _app.processEvents())
         _shutdown = unreal.register_python_shutdown_callback(close)
     except Exception:

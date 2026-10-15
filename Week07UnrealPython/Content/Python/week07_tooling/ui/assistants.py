@@ -5,6 +5,7 @@ from week07_tooling.workflows import WorkflowSession
 from week07_tooling.workflow_presentation import describe_plan
 from week07_tooling.ui.assistant_views import STAGES, make_review
 from week07_tooling.ui.window import STYLE
+from week07_tooling.ui.assistant_style import ASSISTANT_STYLE
 
 
 class AssistantWindow(QtWidgets.QWidget):
@@ -21,7 +22,7 @@ class AssistantWindow(QtWidgets.QWidget):
         self.resize(1120, 900)
         self.setMinimumSize(800, 700)
         icons = (Path(__file__).resolve().parent / 'icons').as_posix()
-        self.setStyleSheet(STYLE + '''
+        self.setStyleSheet(STYLE + ASSISTANT_STYLE + '''
             QComboBox, QSpinBox, QDoubleSpinBox { background: #202c3c; padding: 7px;
                 border: 1px solid #61748e; border-radius: 4px; min-height: 20px; }
             QComboBox:focus, QSpinBox:focus, QDoubleSpinBox:focus { border: 2px solid #9ccaff; }
@@ -43,12 +44,12 @@ class AssistantWindow(QtWidgets.QWidget):
         title.setObjectName('title')
         layout.addWidget(title)
         self.mode = QtWidgets.QLabel('UNREAL EDITOR · uses your current selection' if backend.is_live
-            else 'PRACTICE MODE · sample data only · no connection to Unreal')
+            else 'PRACTICE MODE · sample data')
         self.mode.setObjectName('mode')
         self.mode.setWordWrap(True)
         self.mode.setText(self.mode.text() + f' · Stage {ui_stage}: {STAGES[ui_stage]}')
         layout.addWidget(self.mode)
-        self.steps = QtWidgets.QLabel('1  Choose inputs    →    2  Preview    →    3  Apply    →    4  Check result')
+        self.steps = QtWidgets.QLabel('Choose inputs    →    Preview    →    Apply    →    Check')
         self.steps.setObjectName('steps')
         self.steps.setWordWrap(True)
         self.steps.setVisible(ui_stage == 3)
@@ -76,7 +77,8 @@ class AssistantWindow(QtWidgets.QWidget):
         self.field(form, 'Material slot', self.slot, 'Slot numbers start at 0. Only the chosen component slot changes.')
         text = ('Practice selection: 3 textures and 1 mesh Actor are already supplied.' if not backend.is_live else
                 'Select 3 textures in the Content Browser and mesh Actors in the viewport or Outliner.')
-        self.material_help = self.label(text + '\nTexture suffixes: _BaseColor, _Normal, _ORM. ORM = occlusion, roughness, metallic.')
+        self.material_help = self.label(text)
+        self.material_help.setToolTip('Texture suffixes: _BaseColor, _Normal, _ORM. ORM = occlusion, roughness, metallic.')
         self.material_help.setVisible(ui_stage >= 2)
         form.addRow(self.material_help)
         self.tabs.addTab(material, '&Material Setup')
@@ -86,7 +88,8 @@ class AssistantWindow(QtWidgets.QWidget):
         self.field(form, 'Effect scale', self.scale, 'Uniform size multiplier, limited to 0.25–1.0. This does not set particle count.')
         text = ('Practice selection: 3 placement markers are already supplied.' if not backend.is_live else
                 'Select placement markers in the Outliner. Your instructor tags them W07_VFXAnchor.')
-        self.vfx_help = self.label(text + '\nOne effect per marker, using its position and rotation.')
+        self.vfx_help = self.label(text)
+        self.vfx_help.setToolTip('One effect per marker, using its position and rotation.')
         self.vfx_help.setVisible(ui_stage >= 2)
         form.addRow(self.vfx_help)
         self.tabs.addTab(effects, '&VFX Placement')
@@ -103,7 +106,7 @@ class AssistantWindow(QtWidgets.QWidget):
         self.review = self.review_view.widget
         self.review.setMinimumHeight(145)
         layout.addWidget(self.review, 1)
-        self.ack = QtWidgets.QCheckBox('I reviewed the density warning and the number of effects to place.')
+        self.ack = QtWidgets.QCheckBox('I reviewed the density warning')
         self.ack.setAccessibleName('Acknowledge the effect density warning')
         self.ack.hide()
         self.ack.toggled.connect(self.update_apply)
@@ -115,8 +118,9 @@ class AssistantWindow(QtWidgets.QWidget):
         self.reset_button.clicked.connect(self.reset_practice)
         buttons.addWidget(self.reset_button)
         buttons.addStretch()
-        self.preview_button = QtWidgets.QPushButton('&Preview changes')
-        self.apply_button = QtWidgets.QPushButton('&Apply reviewed changes')
+        self.preview_button = QtWidgets.QPushButton('&Preview')
+        self.preview_button.setObjectName('preview')
+        self.apply_button = QtWidgets.QPushButton('&Apply')
         self.apply_button.setObjectName('apply')
         for button in (self.preview_button, self.apply_button, self.reset_button):
             button.setAutoDefault(False)
@@ -127,6 +131,12 @@ class AssistantWindow(QtWidgets.QWidget):
         layout.addLayout(buttons)
         self.note = self.label('')
         layout.addWidget(self.note)
+        # The review remains read-only, but stays in the keyboard route for inspection.
+        focus_order = [self.tabs, self.master, self.name, self.slot, self.preset,
+                       self.scale, self.review, self.ack, self.preview_button,
+                       self.apply_button, self.reset_button]
+        for current, following in zip(focus_order, focus_order[1:]):
+            QtWidgets.QWidget.setTabOrder(current, following)
         for combo in (self.master, self.preset):
             combo.currentIndexChanged.connect(self.invalidate)
         self.name.textChanged.connect(self.invalidate)
@@ -158,9 +168,10 @@ class AssistantWindow(QtWidgets.QWidget):
             for option in options.get(key, []):
                 combo.addItem(option['label'], option['value'])
             if combo.count() == 0:
-                combo.addItem('Not configured — ask your instructor', None)
+                combo.addItem('Not configured: ask your instructor', None)
 
     def invalidate(self, *_):
+        self.result_present = False
         self.session.clear()
         self.ack.setChecked(False)
         self.ack.hide()
@@ -168,22 +179,24 @@ class AssistantWindow(QtWidgets.QWidget):
         material = self.tabs.currentIndex() == 0
         available = bool((self.master if material else self.preset).currentData())
         self.preview_button.setEnabled(available)
-        self.summary.setText('Preview is empty. Your selections have not been changed.')
-        self.steps.setText('1  CHOOSE INPUTS    →    2  Preview    →    3  Apply    →    4  Check result')
-        self.note.setText('Assigns component overrides; shared mesh assets stay unchanged. Changes are not saved automatically.' if material else
-                          'Placement checks limit counts and spacing. They do not measure runtime performance.')
-        self.message('Ready to preview — choose inputs, then select Preview changes.' if available else
-                     self.setup_error or 'Instructor setup needed — no prepared choice is available. Ask your instructor to configure this tool.',
+        self.summary.setText('Input editing does not undo applied changes.')
+        self.steps.setText('CHOOSE INPUTS    →    Preview    →    Apply    →    Check')
+        self.note.setText('Sample data only. No Unreal changes.' if not self.session.backend.is_live else 'Selected components only. Save changes yourself.' if material else
+                          'Placement limits are not a performance test.')
+        self.message('Choose inputs, then Preview.' if available else
+                     self.setup_error or 'No preset available. Ask your instructor.',
                      tone='info' if available else 'warning')
         self.update_apply()
 
     def message(self, text, tone='info'):
         self.status.setText(text)
+        self.status.setToolTip(text)
         self.status.setProperty('tone', tone)
         self.status.style().unpolish(self.status)
         self.status.style().polish(self.status)
 
     def preview(self):
+        self.result_present = False
         self.ack.setChecked(False)
         self.ack.hide()
         self.review_view.clear()
@@ -198,15 +211,15 @@ class AssistantWindow(QtWidgets.QWidget):
             self.summary.setText(presentation['summary'])
             warnings = plan.get('warnings', [])
             self.ack.setVisible(bool(warnings))
-            self.steps.setText('1  Choose inputs    →    2  REVIEW PREVIEW    →    3  Apply    →    4  Check result')
-            self.message(('Review needed — ' + ' '.join(warnings)) if warnings else
-                         'Ready to apply — ' + presentation['next'], 'warning' if warnings else 'info')
+            self.steps.setText('Choose inputs    →    REVIEW PREVIEW    →    Apply    →    Check')
+            self.message(('Review needed: ' + ' '.join(warnings)) if warnings else
+                         'Review the changes, then Apply.', 'warning' if warnings else 'info')
         except Exception as error:
             self.session.clear()
             self.review_view.clear()
-            self.steps.setText('1  CHECK INPUTS    →    2  Preview    →    3  Apply    →    4  Check result')
-            self.summary.setText('This preview made no changes. Resolve the issue, then preview again.')
-            self.message(f'Needs attention — {error}', 'error')
+            self.steps.setText('CHECK INPUTS    →    Preview    →    Apply    →    Check')
+            self.summary.setText('No changes made. Fix the input, then Preview.')
+            self.message(f'Needs attention: {error}', 'error')
         self.update_apply()
 
     def update_apply(self, *_):
@@ -214,26 +227,47 @@ class AssistantWindow(QtWidgets.QWidget):
         ready = bool(pending) and (not pending[3].get('warnings') or self.ack.isChecked())
         self.apply_button.setEnabled(ready)
         action = (describe_plan(pending[3])['action'] if pending and self.ui_stage == 3
-                  else 'Apply reviewed changes')
+                  else 'Apply')
         self.apply_button.setText('&' + action)
         self.apply_button.setAccessibleName(action.replace('&&', 'and'))
-        self.apply_button.setToolTip('Applies this preview after rechecking the current selection and tool limits.' if ready
-                                    else 'Preview first, then acknowledge any warning before applying.')
+        if ready:
+            apply_help = 'Applies this preview after rechecking the current selection and tool limits.'
+        elif self.result_present:
+            apply_help = 'This preview was already applied. Inspect the result before starting another operation.'
+        elif pending:
+            apply_help = 'Review and acknowledge the visible warning before applying this preview.'
+        else:
+            apply_help = 'Create a valid preview before applying changes.'
+        self.apply_button.setToolTip(apply_help)
+        # Emphasis follows the available next action. A warning keeps attention on
+        # review rather than encouraging another Preview or an unavailable Apply.
+        primary = (self.apply_button if ready else self.preview_button
+                   if not pending and not self.result_present and self.preview_button.isEnabled() else None)
+        for button in (self.preview_button, self.apply_button):
+            button.setProperty('emphasis', 'primary' if self.ui_stage == 3 and button is primary else 'secondary')
+            button.style().unpolish(button)
+            button.style().polish(button)
 
     def apply(self):
         self.apply_button.setEnabled(False)
         try:
             result = self.session.apply(warnings_reviewed=self.ack.isChecked())
+            self.result_present = True
             self.review_view.complete()
-            self.steps.setText('1  Choose inputs    →    2  Preview    →    3  Applied    →    4  CHECK RESULT')
-            self.message('Completed — ' + result, 'success')
-            self.summary.setText('Check the result in Unreal.' if self.session.backend.is_live else
-                                 'Practice result recorded. Preview again to test duplicate protection, or reset practice data.')
+            self.steps.setText('Choose inputs    →    Preview    →    Applied    →    CHECK RESULT')
+            self.message('Completed. Check the result in Unreal.' if self.session.backend.is_live else 'Completed in sample data.', 'success')
+            self.status.setToolTip(result)
+            self.summary.setText(('Undo restores the assignment; the new asset remains.'
+                                  if self.tabs.currentIndex() == 0 else
+                                  'Undo removes this batch. Save changes yourself.')
+                                 if self.session.backend.is_live else
+                                 'Preview again to test duplicates, or reset sample data.')
         except Exception as error:
+            self.result_present = False
             self.review_view.clear()
-            self.steps.setText('1  Choose inputs    →    2  Preview    →    3  APPLY STOPPED    →    4  Check result')
-            self.message(f'Apply stopped — {error}', 'error')
-            self.summary.setText('Review the message before retrying. Create a new preview; do not repeat Apply blindly.')
+            self.steps.setText('Choose inputs    →    Preview    →    APPLY STOPPED    →    Check')
+            self.message(f'Apply stopped: {error}', 'error')
+            self.summary.setText('Resolve the issue, then create a new preview.')
         self.ack.hide()
         self.update_apply()
 
@@ -243,9 +277,10 @@ class AssistantWindow(QtWidgets.QWidget):
         self.session.clear()
         self.session.backend.reset_practice()
         self.invalidate()
-        self.message('Practice reset — sample assignments and placements restored. You can repeat either task.')
+        self.message('Sample data reset. Choose either task.')
 
     def closeEvent(self, event):
         self.session.clear()
         self.closed.emit()
         super().closeEvent(event)
+

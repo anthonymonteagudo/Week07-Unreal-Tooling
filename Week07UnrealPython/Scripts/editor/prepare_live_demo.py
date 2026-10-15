@@ -61,6 +61,19 @@ baseline=unreal.load_asset('/Engine/BasicShapes/BasicShapeMaterial')
 def mesh(label,pos,scale):
  a=spawn(unreal.StaticMeshActor,label,pos);a.static_mesh_component.set_static_mesh(cube);a.set_actor_scale3d(unreal.Vector(*scale));a.static_mesh_component.set_material(0,baseline);return a
 floor=mesh('W07_Stage',(150,0,-25),(18,18,.4))
+stage_path=BASE+'/Materials/M_StageBackdrop'
+stage=unreal.load_asset(stage_path) if assets.does_asset_exist(stage_path) else None
+if stage is None:
+ stage=tools.create_asset('M_StageBackdrop',BASE+'/Materials',unreal.Material,unreal.MaterialFactoryNew())
+ lib=unreal.MaterialEditingLibrary
+ color=lib.create_material_expression(stage,unreal.MaterialExpressionConstant3Vector,-250,0)
+ color.set_editor_property('constant',unreal.LinearColor(.035,.045,.06,1))
+ lib.connect_material_property(color,'',unreal.MaterialProperty.MP_BASE_COLOR)
+ rough=lib.create_material_expression(stage,unreal.MaterialExpressionConstant,-250,150)
+ rough.set_editor_property('r',1.)
+ lib.connect_material_property(rough,'',unreal.MaterialProperty.MP_ROUGHNESS)
+ lib.recompile_material(stage);assets.save_loaded_asset(stage)
+floor.static_mesh_component.set_material(0,stage)
 target=mesh('W07_Crate_Target',(-150,-220,65),(1.3,1.3,1.3));target.tags=['W07_MaterialTarget']
 protected=mesh('W07_Crate_Protected',(-150,220,65),(1.3,1.3,1.3));protected.tags=['W07_Protected']
 for i,y in enumerate([-300,0,300],1):

@@ -1,0 +1,153 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oster Asset Setup 03</title><link rel="stylesheet" href="../notes.css"></head><body><main><nav><a href="../index.html">Overview</a><a href="../compiled-notes.html">Full compilation</a><a href="../assessment.html">Assessment & course use</a><a href="../original-script.html">Original source script</a></nav><details class="toc"><summary>On this page</summary><ul><li><a href="#four-relationships-to-keep-distinct">Four relationships to keep distinct</a></li><li><a href="#set-a-valid-parent">Set a valid parent</a></li><li><a href="#assign-the-correct-mesh-slot">Assign the correct mesh slot</a></li><li><a href="#set-texture-overrides-through-materialeditinglibrary">Set texture overrides through MaterialEditingLibrary</a></li><li><a href="#avoid-the-last-texture-wins-problem">Avoid the last-texture-wins problem</a></li><li><a href="#configure-then-assign">Configure, then assign</a></li><li><a href="#save-the-actual-changes">Save the actual changes</a></li><li><a href="#read-the-supplied-complete-script-as-a-worked-example">Read the supplied complete script as a worked example</a></li><li><a href="#references">References</a></li><li><a href="#additional-original-captures">Additional original captures</a></li><li><a href="#source-note">Source note</a></li></ul></details><article class="reading"><h1>Asset Setup 03 — connect the parent, textures and mesh</h1>
+<p>The final lesson connects the objects created in the earlier stages. It sets the material instance’s parent, supplies texture parameter values, assigns the instance to the mesh and saves the affected assets. The useful lesson is that a working automation must preserve <strong>relationships and meaning</strong>, not merely create assets with plausible names.</p>
+<h2 id="four-relationships-to-keep-distinct">Four relationships to keep distinct</h2>
+<table>
+<thead>
+<tr>
+<th>Relationship</th>
+<th>Question</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Instance → parent material</td>
+<td>Which prepared shader and parameters does this instance use?</td>
+</tr>
+<tr>
+<td>Instance parameter → texture</td>
+<td>Which texture supplies a particular input such as base color?</td>
+</tr>
+<tr>
+<td>Static mesh slot → instance</td>
+<td>Which persistent mesh assignment changes?</td>
+</tr>
+<tr>
+<td>Mesh component → optional override</td>
+<td>Does a particular scene placement override the mesh default?</td>
+</tr>
+</tbody></table>
+<p>The tutorial changes the <strong>StaticMesh asset’s slot assignment</strong>. That can affect placements using the mesh’s default materials. It is not equivalent to setting an override on one selected <code>StaticMeshComponent</code>.</p>
+<p>That distinction matters for Week 7: the prepared Material Setup Assistant is designed around reviewed component assignments. Keep the shared material-instance concepts, but do not describe the tutorial’s asset-level change as affecting only one selected actor.</p>
+<h2 id="set-a-valid-parent">Set a valid parent</h2>
+<p>The source loads a hard-coded parent asset and assigns it through <code>set_editor_property(&#39;parent&#39;, material_parent)</code>. This illustrates an Unreal binding distinction: a Python property’s direct setter and its editable editor property are not always the same interface.</p>
+<p>The current <code>MaterialEditingLibrary</code> also provides <code>set_material_instance_parent(instance, parent)</code>. It expresses the operation directly. Confirm that the loaded object is a suitable material interface and that it exposes the parameters the tool expects; a path string alone is not validation.</p>
+<p>The persistent instance is a <code>MaterialInstanceConstant</code>. Its overrides are meaningful relative to a parent with named parameters. An arbitrary image file cannot be assigned to an arbitrary material input merely by guessing a suffix.</p>
+<h2 id="assign-the-correct-mesh-slot">Assign the correct mesh slot</h2>
+<p><code>StaticMesh.set_material(index, instance)</code> uses the numeric slot index. Preserve the index from <code>enumerate(mesh.static_materials)</code> rather than searching for each record again. Check the intended slot before mutation, especially when several material regions exist.</p>
+<p>A useful verification statement is: “Slot 0, named Body, now references the intended instance.” “A material instance exists” does not establish that assignment, and a viewport appearance alone does not identify which underlying asset or component changed.</p>
+<h2 id="set-texture-overrides-through-materialeditinglibrary">Set texture overrides through MaterialEditingLibrary</h2>
+<p>A new instance need not have a populated override entry for every parameter inherited from its parent. The lesson therefore uses <code>set_material_instance_texture_parameter_value</code> rather than assuming existing entries in the raw override array.</p>
+<p>The call takes the instance, parameter name and texture object. The current API also accepts a parameter association and returns a Boolean. Check that result, and use the appropriate association when the parent’s parameter structure requires it. After a set of edits, <code>update_material_instance</code> provides the documented update operation. <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/MaterialEditingLibrary?application_version=5.7">Epic MaterialEditingLibrary reference</a></p>
+<p>The parent in the demonstration uses these names:</p>
+<table>
+<thead>
+<tr>
+<th>Texture suffix</th>
+<th>Parent parameter</th>
+<th>Intended meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>_BC</code></td>
+<td><code>BC</code></td>
+<td>Base color</td>
+</tr>
+<tr>
+<td><code>_N</code></td>
+<td><code>N</code></td>
+<td>Normal</td>
+</tr>
+<tr>
+<td><code>_ORM</code></td>
+<td><code>ORM</code></td>
+<td>Packed occlusion, roughness and metallic data</td>
+</tr>
+</tbody></table>
+<p>These are the example’s naming conventions, not reserved Unreal parameter names. Other parents may use <code>BaseColor</code>, <code>Normal</code> or entirely different names. Record the mapping explicitly. The suffix does not prove the texture’s packing, color-space setting or compression is correct; inspect those against the parent’s actual expectations.</p>
+<h2 id="avoid-the-last-texture-wins-problem">Avoid the last-texture-wins problem</h2>
+<p>The first version loops over all imported textures for every material instance. If several texture sets use the same parameter suffixes, later textures can overwrite earlier assignments. The tutorial adds a name test to restrict matching.</p>
+<p>Its final code uses <code>static_mesh.get_name().split(&#39;_&#39;)[1]</code> and checks whether that substring appears in a texture name. This is a useful demonstration of the problem, but a weak general matching rule:</p>
+<ul>
+<li>A full identifier such as <code>AirConditioning_01</code> is shortened to <code>AirConditioning</code>.</li>
+<li>Names with additional underscores lose information.</li>
+<li>Similar identifiers can match each other accidentally.</li>
+<li>Several matching textures for one parameter still create an ordering-dependent result.</li>
+<li>Mesh-name matching does not explain which texture set belongs to each of several material slots.</li>
+</ul>
+<p><strong>Supplemental improvement:</strong> parse an exact family identifier and role, then reject missing or ambiguous matches before editing the instance. For a one-material mesh, the complete mesh stem can be the family identifier. For a multi-material mesh, define the mapping per slot or use an explicit manifest.</p>
+<p>This ordinary-Python example demonstrates only the naming rule. It does not load, create or modify Unreal assets.</p>
+<pre><code class="language-python">def texture_identity(name):
+    if not name.startswith(&quot;T_&quot;):
+        raise ValueError(f&quot;Expected T_ prefix: {name}&quot;)
+    family, separator, role = name[2:].rpartition(&quot;_&quot;)
+    if not separator or not family or role not in {&quot;BC&quot;, &quot;N&quot;, &quot;ORM&quot;}:
+        raise ValueError(f&quot;Unrecognized texture name: {name}&quot;)
+    return family, role
+
+mesh_family = &quot;AirConditioning_01&quot;
+family, role = texture_identity(&quot;T_AirConditioning_01_BC&quot;)
+matches_mesh = family == mesh_family  # True; keeps the complete identifier.
+</code></pre>
+<p>Before binding, require one intended texture per required role. Treat “missing,” “duplicate” and “unrecognized suffix” as different results. A fallback texture is a policy to explain, not a silent substitute for a failed match.</p>
+<h2 id="configure-then-assign">Configure, then assign</h2>
+<p>The tutorial assigns the instance to the mesh before filling its texture parameters. For a reusable tool, validate the full plan first, create/configure the instance, verify the parameter bindings, and then assign the reviewed target slots. This reduces the opportunity to leave a mesh pointing at an incompletely configured instance, but does not create automatic rollback.</p>
+<p>This editor-context excerpt illustrates configuration of an existing instance. <code>bindings</code> maps known parameter names to loaded texture objects. It does not create an instance, assign a mesh, save packages or automatically undo a partial failure.</p>
+<pre><code class="language-python">import unreal
+
+def configure_instance(instance, parent, bindings):
+    if not isinstance(instance, unreal.MaterialInstanceConstant):
+        raise TypeError(&quot;Expected a MaterialInstanceConstant&quot;)
+    if not isinstance(parent, unreal.MaterialInterface):
+        raise TypeError(&quot;Expected a material parent&quot;)
+
+    library = unreal.MaterialEditingLibrary
+    available = {str(name) for name in library.get_texture_parameter_names(parent)}
+    for parameter, texture in bindings.items():
+        if parameter not in available or not isinstance(texture, unreal.Texture):
+            raise ValueError(f&quot;Invalid texture binding: {parameter}&quot;)
+
+    library.set_material_instance_parent(instance, parent)
+    for parameter, texture in bindings.items():
+        setter_result = library.set_material_instance_texture_parameter_value(
+            instance, parameter, texture
+        )
+        actual = library.get_material_instance_texture_parameter_value(
+            instance, parameter
+        )
+        if actual != texture:
+            raise RuntimeError(
+                f&quot;Texture readback mismatch: {parameter}; setter={setter_result}&quot;
+            )
+    library.update_material_instance(instance)
+</code></pre>
+<p>This short example uses the default global parameter association. More complex layered parent materials need a more explicit parameter plan. If a setter fails after an earlier edit succeeds, report the partial state rather than claiming that nothing changed.</p>
+<p><strong>Classroom rehearsal qualification:</strong> the recorded UE 5.7.4 fixture exposed a texture setter returning <code>False</code> even though the requested binding was present. The current backend therefore checks the actual parameter readback. This is local runtime evidence, not a claim that every engine version has the same behavior. Epic documents a Boolean setter result and a texture-valued getter; keep the return value for diagnostics, verify the relationship, and inspect the scene separately. The excerpt above now follows that distinction. See the <a href="../../FinalClass20261013/live-captures/rehearsal.json">recorded fixture report</a> and <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/MaterialEditingLibrary?application_version=5.7">Epic’s MaterialEditingLibrary API</a>.</p>
+<h2 id="save-the-actual-changes">Save the actual changes</h2>
+<p>The source collects meshes, textures and newly created instances into lists, then saves each by path. It uses <code>list</code> as a loop variable, which shadows Python’s built-in name; use a descriptive name such as <code>asset_group</code>.</p>
+<p>A refined workflow tracks created and modified assets, removes duplicate save requests, and checks each save result. Saving an asset is distinct from assigning it correctly or verifying its appearance. Source-control checkout can also affect saving.</p>
+<p>Inspect the instance parent and overrides, the mesh slot, and the intended rendered result. Confirm what remains unchanged. If the intended scope is one component override, verify another placement of the same mesh as well.</p>
+<h2 id="read-the-supplied-complete-script-as-a-worked-example">Read the supplied complete script as a worked example</h2>
+<p>The complete <code>buildSelectedAssets</code> source is preserved separately, unchanged. Its sequence is useful for learning, while its assumptions should remain visible:</p>
+<ol>
+<li>Destination-folder scan plus first-source-filename matching.</li>
+<li>Hard-coded parent and asset/texture naming conventions.</li>
+<li>Immediate deletion of the currently assigned material.</li>
+<li>Instance names derived from slots without a collision policy.</li>
+<li>Asset-level mesh assignment and substring texture matching.</li>
+<li>Setter, creation, deletion and save results that are not all checked.</li>
+</ol>
+<p>The refinement clarifies these choices; it does not present the script as a fully validated production tool. The new snippets are teaching adaptations, with syntax checks and selected naming cases checked offline. No Unreal import, export, mutation or save was executed during this work.</p>
+<p><strong>Course application:</strong> use a visible worked mapping—mesh, slot, parent, three texture roles and assignment scope—then show one relevant API call. This supports the fuller slide explanations you prefer while leaving colleagues room to elaborate on the implementation.</p>
+<p><strong>Review question:</strong> if two imported texture sets both have a <code>_BC</code> texture, what evidence should determine the binding before any material is changed?</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://dev.epicgames.com/community/learning/tutorials/xrnE/unreal-engine-asset-setup-with-the-unreal-python-api">Oster: Asset Setup with the Unreal Python API</a></li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/MaterialEditingLibrary?application_version=5.7">Epic MaterialEditingLibrary reference, UE 5.7</a></li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/StaticMesh?application_version=5.7">Epic StaticMesh reference, UE 5.7</a></li>
+<li><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/EditorAssetLibrary?application_version=5.7">Epic EditorAssetLibrary reference, UE 5.7</a></li>
+</ul>
+<h2 id="additional-original-captures">Additional original captures</h2>
+<p>No additional captures were embedded in this source note.</p>
+<h2 id="source-note">Source note</h2>
+<p><a href="file:///C:/Users/antho/OneDrive/Desktop/Notes/anthony/personal/Duke%20Tech%20Art%20Course%20Notes/18%20Oster%20Asset%20Setup%20UE%20Python%20API/Asset%20Setup%2003.md">Original Asset Setup 03.md</a></p>
+<p><a href="../original-script.html">Preserved complete source script</a></p>
+</article><p class="foot">Refined 15 October 2026 · Isaac Oster source notes · original captures preserved · supplied lesson content and teaching adaptations are distinguished.</p></main></body></html>

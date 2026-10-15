@@ -1,0 +1,51 @@
+{
+  "sources": [
+    {
+      "file": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\01 Design is Design is Design.md",
+      "sha256": "46d3358714e8f0cf5ce6d090613a3139172ff6c24b228393b42c8be3f3af186a"
+    },
+    {
+      "file": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\02 Stop Solving Other People's Problems.md",
+      "sha256": "361ee14a06ff0207eca34607c7695dc62ed784b72ddde0acb271207a0611bb29"
+    },
+    {
+      "file": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\03 Form Doesn't and Shouldn't Follow Function.md",
+      "sha256": "fc2ca28ddd13f5a7b9e7ca48b418544f9eca2542cfa22d023b985551a476afa1"
+    },
+    {
+      "file": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\04 Balancing Form and Function - Prescription vs Description.md",
+      "sha256": "ed35d723d0bfa44a24a7d760615db2a3008114ab7bef89a9f3d60a0ba3136223"
+    },
+    {
+      "file": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\05 Why Form Follows Function is NOT a UI Design Prescription.md",
+      "sha256": "72564a3391b5b995a3f62588d6253e0e681dcfaf01632103702ca1b27e995ae1"
+    },
+    {
+      "file": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\06 Every Force Evolves Form (So Don't Follow the Prescription).md",
+      "sha256": "ed35d723d0bfa44a24a7d760615db2a3008114ab7bef89a9f3d60a0ba3136223"
+    },
+    {
+      "file": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\07 Less is More - Small Screens, Big Challenges.md",
+      "sha256": "aee64f93e1dfaa4b839e97dc97aed77f19ad83addf5cf2b5dbd4c0b32ba7b770"
+    },
+    {
+      "file": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\08 Five Rules for Effective UI Design on Small Screens.md",
+      "sha256": "126595d6c646699f951484efcf864f08c7421e2b33b352e1d9d12b69b5a6a1f0"
+    },
+    {
+      "file": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\09 Balance Creates Visual Order.md",
+      "sha256": "473539071c2c2922734d1baf1d1476d7bda89238c0a25eeab0b574e38f3a78cc"
+    },
+    {
+      "file": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\17 UI UX Design Principles\\10 Case Studies - Improving Balance in the User Interface.md",
+      "sha256": "20c1f401e8af47649e29488ad581811c10e7bd148bcaa50b10389ec524d1625b"
+    }
+  ],
+  "duplicate": [
+    "04",
+    "06"
+  ],
+  "deck": "C:\\Users\\antho\\Perforce\\anthony.monteagudo_TechArt\\anthony.monteagudo\\Course\\Slides\\Week07\\UnrealFirst20261013\\output\\Week_7_Python_in_Unreal_v13.pptx",
+  "deck_sha256": "ab17a019cdc9e688c505de2c4ff0f950d316d43646024348b0de3ae7d1eb23f0",
+  "image_source": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261014031029.png"
+}

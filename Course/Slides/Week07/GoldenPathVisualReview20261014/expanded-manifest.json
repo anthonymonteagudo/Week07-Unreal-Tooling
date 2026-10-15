@@ -1,0 +1,269 @@
+{
+  "assets": [
+    {
+      "id": "K004",
+      "file": "assets/K004-Pasted-image-20261010210418.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261010210418.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\02 Running Scripts\\06 Making scripts discoverable by Unreal - REFINED.md",
+      "lesson": "06 Making scripts discoverable by Unreal - REFINED.md",
+      "context": ")\n```\n\nTo repeat that setup on startup, put it in a registered startup script or in a discoverable `init_unreal.py`. The directory belongs on `sys.path`, not the path to an individual `.py` file.\n\n![[Pasted image 20261010210418.png]]\n\n![[Pasted image 20261010205919.png]]\n\n## Create and import a test module\n\nEnable **Show Empty Folders** in the Content Browser if needed. Develope",
+      "dimensions": [
+        474,
+        181
+      ],
+      "sha256": "e4c7ff57e0c9461eb26bb7e9ecffd0053fb4b2e989bde3f07f3df6e061fe3751",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        4
+      ]
+    },
+    {
+      "id": "K012",
+      "file": "assets/K012-Pasted-image-20261010221121.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261010221121.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\02 Running Scripts\\07 Running Scripts From Editor - REFINED.md",
+      "lesson": "07 Running Scripts From Editor - REFINED.md",
+      "context": " `import hello` does not rerun edited code. For an intentional development reload, use `import importlib; importlib.reload(hello)` and account for any callbacks or other state created previously.\n\n![[Pasted image 20261010221121.png]]\n\n![[Pasted image 20261010221229.png]]\n\n## Execute a file from the console\n\nIn **Cmd** mode, the demonstrated command is `py` followed by the quoted",
+      "dimensions": [
+        273,
+        109
+      ],
+      "sha256": "44e01213ae41160d335d3bffdb774888fdd488eb6ae941449078520762e47487",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        4
+      ]
+    },
+    {
+      "id": "K013",
+      "file": "assets/K013-Pasted-image-20261010221229.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261010221229.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\02 Running Scripts\\07 Running Scripts From Editor - REFINED.md",
+      "lesson": "07 Running Scripts From Editor - REFINED.md",
+      "context": "code. For an intentional development reload, use `import importlib; importlib.reload(hello)` and account for any callbacks or other state created previously.\n\n![[Pasted image 20261010221121.png]]\n\n![[Pasted image 20261010221229.png]]\n\n## Execute a file from the console\n\nIn **Cmd** mode, the demonstrated command is `py` followed by the quoted script path.\n\n![[Pasted image 2026101",
+      "dimensions": [
+        265,
+        181
+      ],
+      "sha256": "ca4452e3a8c8998bf66371921925c9cde3d7f7d4bb501a4d003160ef440b7e74",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        4
+      ]
+    },
+    {
+      "id": "K036",
+      "file": "assets/K036-Pasted-image-20261010233353.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261010233353.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\03 Automation Scripting\\10 Getting User Selection and Listing Assets - REFINED.md",
+      "lesson": "10 Getting User Selection and Listing Assets - REFINED.md",
+      "context": " level, so they can be filtered directly with `isinstance()`.\n\n![[Pasted image 20261010233255.png]]\n\nSelect actors in the Outliner, then compare `get_selected_level_actors()` with that selection.\n\n![[Pasted image 20261010233353.png]]\n\n![[Pasted image 20261010233421.png]]\n\n## Content Browser selection and reference example\n\nUse `EditorUtilityLibrary.get_selected_assets()` for loa",
+      "dimensions": [
+        288,
+        255
+      ],
+      "sha256": "505933da6fc4824f4185e4ff6a20cd0987bf03a8e778f05cc232e9cb47452f28",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        11
+      ]
+    },
+    {
+      "id": "K066",
+      "file": "assets/K066-Pasted-image-20261011003625.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261011003625.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\03 Automation Scripting\\12 Texture Compression Settings Validator - Accessing Editor Properties - REFINED.md",
+      "lesson": "12 Texture Compression Settings Validator - Accessing Editor Properties - REFINED.md",
+      "context": "o see, but does not resolve the underlying warnings. Locate the reported asset and check its compression in the editor.\n\n![[Pasted image 20261011003436.png]]\n\n![[Pasted image 20261011003601.png]]\n\n![[Pasted image 20261011003625.png]]\n\n## Separate validation from fixes\n\nWrap the code in a function accepting a directory and an `apply_fix` flag. Report mismatches in either mode; mo",
+      "dimensions": [
+        181,
+        133
+      ],
+      "sha256": "62d18ec60d74e083e8fa34601c30adc6dd2110333fc9c28511dffdb0047012ee",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        17
+      ]
+    },
+    {
+      "id": "K076",
+      "file": "assets/K076-Pasted-image-20261011012314.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261011012314.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\03 Automation Scripting\\13 Importance of PropertyAccessChangeNotifyMode in setting editor properties - REFINED.md",
+      "lesson": "13 Importance of PropertyAccessChangeNotifyMode in setting editor properties - REFINED.md",
+      "context": "ish a working manual result\n\nImport separate copies of a texture. On one copy, change **Source Color Settings \u2192 Color Space** to sRGB manually, save, and reopen it. Keep that copy as a reference.\n\n![[Pasted image 20261011012314.png]]\n\n![[Pasted image 20261011012408.png]]\n\n## Reproduce the scripted failure\n\nLoad another copy and inspect the `Texture2D`, source-color-settings, and",
+      "dimensions": [
+        397,
+        172
+      ],
+      "sha256": "afec3187578b1a451ca22db28979bc180128b5937017949e6b90f012135fd218",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        17
+      ]
+    },
+    {
+      "id": "K055",
+      "file": "assets/K055-Pasted-image-20261011002553.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261011002553.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\03 Automation Scripting\\12 Texture Compression Settings Validator - Accessing Editor Properties - REFINED.md",
+      "lesson": "12 Texture Compression Settings Validator - Accessing Editor Properties - REFINED.md",
+      "context": "d and change compression\n\nFind the Texture Editor setting, then confirm its Python property name and type. Here it is `compression_settings`, with values from `unreal.TextureCompressionSettings`.\n\n![[Pasted image 20261011002553.png]]\n\n![[Pasted image 20261011002617.png]]\n\n![[Pasted image 20261011002708.png]]\n\nRead the current value with `get_editor_property(\"compression_settings",
+      "dimensions": [
+        1384,
+        739
+      ],
+      "sha256": "2126516ed497da557580d0edd5c6b372ec5001cacb0136ea91eb9b43f1c22f7c",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        20
+      ]
+    },
+    {
+      "id": "K061",
+      "file": "assets/K061-Pasted-image-20261011003036.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261011003036.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\03 Automation Scripting\\12 Texture Compression Settings Validator - Accessing Editor Properties - REFINED.md",
+      "lesson": "12 Texture Compression Settings Validator - Accessing Editor Properties - REFINED.md",
+      "context": "# Test a deliberate mismatch\n\nGive a test normal map an incorrect compression setting, save it, and execute the script. The course's first test uses `py fix_normalmap_compression.py` in Cmd mode.\n\n![[Pasted image 20261011003036.png]]\n\n![[Pasted image 20261011003146.png]]\n\n![[Pasted image 20261011003409.png]]\n\nThe example log includes path-format deprecation warnings. Filtering t",
+      "dimensions": [
+        301,
+        232
+      ],
+      "sha256": "438fcbc7ed7fc83ae3775f53532f6e70a7cd5a64143629ca35ff1df9e4752c3c",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        20
+      ]
+    },
+    {
+      "id": "K009",
+      "file": "assets/K009-Pasted-image-20261010220651.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261010220651.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\02 Running Scripts\\06 Making scripts discoverable by Unreal - REFINED.md",
+      "lesson": "06 Making scripts discoverable by Unreal - REFINED.md",
+      "context": "0261010211232.png]]\n\n![[Pasted image 20261010220620.png]]\n\nCreate `hello.py` there. Python files exist on disk but are not Unreal assets, so they will not appear as normal Content Browser assets.\n\n![[Pasted image 20261010220651.png]]\n\nDefine a `say_hi()` function using `unreal.log()`, with a separate top-level `print()` to make the initial import visible.\n\n![[Pasted image 202610",
+      "dimensions": [
+        471,
+        88
+      ],
+      "sha256": "5bef7bd2a560692fd146c7ff6d471a5b836027d358376bd20e4c9daf835d80c1",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        25
+      ]
+    },
+    {
+      "id": "K106",
+      "file": "assets/K106-Pasted-image-20261011213413.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261011213413.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\03 Automation Scripting\\19 Batch Import FBX Meshes (Asset Import Task) - REFINED.md",
+      "lesson": "19 Batch Import FBX Meshes (Asset Import Task) - REFINED.md",
+      "context": "e `Path(source_folder).glob(\"*.fbx\")` to select FBX files in one folder, or `rglob(\"*.fbx\")` to include subfolders. This is a glob pattern, not a regular expression. Unrelated files are excluded.\n\n![[Pasted image 20261011213413.png]]\n\n![[Pasted image 20261011213659.png]]\n\n## Configure each task\n\nThe important task fields are:\n\n| Field | Purpose |\n| --- | --- |\n| `automated` | Su",
+      "dimensions": [
+        754,
+        301
+      ],
+      "sha256": "d800d1c8b80c5e8b446a55d2865c56d0fb8e235e4d43e30338cd0998c78d2081",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        25
+      ]
+    },
+    {
+      "id": "K113",
+      "file": "assets/K113-Pasted-image-20261011215039.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261011215039.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\03 Automation Scripting\\19 Batch Import FBX Meshes (Asset Import Task) - REFINED.md",
+      "lesson": "19 Batch Import FBX Meshes (Asset Import Task) - REFINED.md",
+      "context": "mbines multiple mesh objects from an FBX into one imported mesh. The Blender examples contrast a simple mesh with a file containing several separate objects.\n\n![[Pasted image 20261011214557.png]]\n\n![[Pasted image 20261011215039.png]]\n\n`remove_degenerates` handles degenerate geometry during import. Inspect source geometry when triangulation warnings or missing objects appear; the",
+      "dimensions": [
+        1438,
+        682
+      ],
+      "sha256": "8d7c00d30ac221aa872dcf1596164fa3a1fa665a38c0e0869b5962aada549622",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        27
+      ]
+    },
+    {
+      "id": "K098",
+      "file": "assets/K098-Pasted-image-20261011134822.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261011134822.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\03 Automation Scripting\\14 Editing Material Instance Parameters - Material Editing Library - REFINED.md",
+      "lesson": "14 Editing Material Instance Parameters - Material Editing Library - REFINED.md",
+      "context": "rameters and create a material instance. The course uses a Starter Content material with two emissive color parameters.\n\n![[Pasted image 20261011015715.png]]\n\n![[Pasted image 20261011015652.png]]\n\n![[Pasted image 20261011134822.png]]\n\n## Discover names and parameter types\n\n`MaterialEditingLibrary` has separate getters and setters for different parameter types. Use `get_vector_pa",
+      "dimensions": [
+        1438,
+        783
+      ],
+      "sha256": "df31d8022be3448475d46e2c87b14e52fd25b439302b36299ae90f326030d963",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        56
+      ]
+    },
+    {
+      "id": "K105",
+      "file": "assets/K105-Pasted-image-20261011135729.png",
+      "original": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Pasted image 20261011135729.png",
+      "note": "C:\\Users\\antho\\OneDrive\\Desktop\\Notes\\anthony\\personal\\Duke Tech Art Course Notes\\16 Karol UE Python Course\\03 Automation Scripting\\14 Editing Material Instance Parameters - Material Editing Library - REFINED.md",
+      "lesson": "14 Editing Material Instance Parameters - Material Editing Library - REFINED.md",
+      "context": "[Pasted image 20261011135619.png]]\n\n## Run and inspect\n\nExecute the saved script, reopen the instance, and confirm both parameter overrides and their values.\n\n![[Pasted image 20261011135711.png]]\n\n![[Pasted image 20261011135729.png]]\n\n---\n\n[[13 Importance of PropertyAccessChangeNotifyMode in setting editor properties - REFINED|\u2190 Previous lesson]] \u00b7 [[15 Find Duplicated Actors On",
+      "dimensions": [
+        1189,
+        573
+      ],
+      "sha256": "d92bfdee44fa5bd5def8d44099a3bc96896af4a695b06b14f0ef668f728b829b",
+      "method": "Unmodified user-supplied course capture; no new crop",
+      "credit": "Karol Unreal Python course / user-captured study image",
+      "rights": "Third-party course capture supplied by instructor; retained attribution, no new open license claimed",
+      "slides": [
+        56
+      ]
+    }
+  ],
+  "stock_candidates": [
+    {
+      "title": "Desktop work context",
+      "slide": 35,
+      "page": "https://www.pexels.com/photo/computer-set-up-on-a-workspace-450035/",
+      "credit": "Mateusz Dach / Pexels",
+      "use": "Use a large workspace photograph on the UI/UX section opener, with the title in the established purple band. The photo establishes the working context; it does not need to teach a particular control."
+    },
+    {
+      "title": "Collaboration and peer review",
+      "slide": 49,
+      "page": "https://www.pexels.com/photo/person-holding-blue-sticky-notes-7092/",
+      "credit": "Startup Stock Photos / Pexels",
+      "use": "Use a wide collaboration photo on the peer-testing divider, then switch to a concise task card for instructions. The image signals a change from listening to working together."
+    }
+  ],
+  "stock_license": "https://www.pexels.com/license/",
+  "status": "PowerPoint unchanged; visual integration proposals"
+}

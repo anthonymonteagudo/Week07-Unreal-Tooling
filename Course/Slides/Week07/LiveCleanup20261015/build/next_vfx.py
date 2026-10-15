@@ -1,0 +1,6 @@
+assert unreal.Week07EditorLibrary.capture_tools(str(REHEARSAL/'captures/native-material-duplicate.png'))
+assert unreal.Week07EditorLibrary.undo_demo()
+record('Updated native Material Undo')
+assert EVIDENCE['steps'][-1]['cubes']['W07_Crate_Target']['material'].startswith('/Engine/BasicShapes/')
+cap=unreal.AutomationLibrary.take_high_res_screenshot(1600,900,str(REHEARSAL/'captures/material-undo.png'),delay=.2,force_game_view=True)
+print(live_demo.select_vfx())

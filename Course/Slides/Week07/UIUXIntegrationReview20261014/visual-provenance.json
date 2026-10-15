@@ -1,0 +1,70 @@
+[
+  {
+    "id": "grouping",
+    "title": "Group related controls with space",
+    "slide": "39A",
+    "file": "ms-desktop-grouping.png",
+    "url": "https://learn.microsoft.com/en-us/windows/win32/uxguide/images/vis-layout-image22.png",
+    "source": "layout",
+    "credit": "Microsoft \u00b7 Windows desktop Layout guidance",
+    "use": "Show the existing desktop control groups first; ask what belongs together. Follow with the course material-preview capture. These are separate examples, not a matched before/after.",
+    "rights": "Microsoft screenshot guidance: retain the original image; resize only. Historical Windows UI, not current Unreal styling.",
+    "sha256": "f1ec4fa05fc5f49b8beed77c2d23985771c29fb02aa46014032eb28ac4ba87bc",
+    "dimensions": [
+      536,
+      175
+    ],
+    "transformation": "None; original downloaded bytes"
+  },
+  {
+    "id": "form",
+    "title": "Same fields, different grouping",
+    "slide": "39A alternative",
+    "file": "nng-form-grouping.png",
+    "url": "https://media.nngroup.com/media/editor/2020/07/02/form-whitespacegroupings.png",
+    "source": "proximity",
+    "credit": "Aurora Harley \u00b7 Nielsen Norman Group \u00b7 Proximity Principle in Visual Design (2020)",
+    "use": "Use as an alternative conceptual opener if the desktop screenshot is too small. Compare grouping, then transfer to artist-tool controls. This is a schematic web form, not a measured usability result.",
+    "rights": "NN/G Articles and Videos terms permit credited educational illustrations. Preserve author, organization and original article link.",
+    "sha256": "5c0871ad92710dd3d551193db9bea0202c8cc658c720471d5c24ef34c6de3128",
+    "dimensions": [
+      1600,
+      1060
+    ],
+    "transformation": "None; original downloaded bytes"
+  },
+  {
+    "id": "shortcuts",
+    "title": "Make the shortcut discoverable",
+    "slide": "44A",
+    "file": "ms-shortcut-menu.png",
+    "url": "https://learn.microsoft.com/en-us/windows/apps/develop/input/images/accelerators/accelerators_menuitemlabel.png",
+    "source": "keys",
+    "credit": "Microsoft \u00b7 Keyboard accelerators documentation",
+    "use": "Place the full menu screenshot on the left; on the right ask students to identify the visible command and its shortcut. Do not present these keys as implemented in the course tool.",
+    "rights": "Microsoft screenshot guidance: retain original pixels; resize only.",
+    "sha256": "e1acef9059f9cacea08f6c71efcca92d93c8ebc03fa54d8fca0fd53aff0498bf",
+    "dimensions": [
+      136,
+      153
+    ],
+    "transformation": "None; original downloaded bytes"
+  },
+  {
+    "id": "recovery",
+    "title": "A message with a next step",
+    "slide": "43",
+    "file": "ms-rename-error.png",
+    "url": "https://learn.microsoft.com/en-us/windows/win32/uxguide/images/mess-error-image1.png",
+    "source": "errors",
+    "credit": "Microsoft \u00b7 Error Messages in Windows 7",
+    "use": "Use this historical rename-error screenshot beside the existing course blocked-state capture. Ask what failed and what action the user can take. Keep annotations outside the screenshot.",
+    "rights": "Microsoft screenshot guidance: retain original pixels; resize only. Historical message example, not a visual template.",
+    "sha256": "7f69052b1d5a550b660a8259fb353977863467df479d4706b538a598004d89d5",
+    "dimensions": [
+      398,
+      206
+    ],
+    "transformation": "None; original downloaded bytes"
+  }
+]

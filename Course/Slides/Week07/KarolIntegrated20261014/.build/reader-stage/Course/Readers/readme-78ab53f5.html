@@ -1,0 +1,380 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Maya / Blender to Unreal: working comparison bridge</title><link rel="stylesheet" href="reader.css"></head><body><header><nav><a href="index.html">Prepared documents</a><a href="../Slides/Week02/ReviewRefined20260909/index.html">Latest Week 2 review</a><a href="../../Week07UnrealPython/Docs/Bridge/README.md" download>Download editable source</a><button type="button" onclick="window.print()">Print / save PDF</button></nav><p class="meta">Formatted local document · source: Week07UnrealPython/Docs/Bridge/README.md<br>Source modified: 2026-10-15T02:08:06.148Z. Content is reproduced from this document; earlier reviews retain their original slide numbering and proposal status.</p></header><main><details><summary>Jump to a section</summary><ul class="toc"><li><a href="#maya-blender-to-unreal-working-comparison-bridge">Maya / Blender to Unreal: working comparison bridge</a></li><li><a href="#start-the-classroom-comparison">Start the classroom comparison</a></li><li><a href="#physical-examples">Physical examples</a></li><li><a href="#compare-these-files-in-this-order">Compare these files, in this order</a></li><li><a href="#what-actually-changes-between-hosts">What actually changes between hosts?</a></li><li><a href="#shared-action-and-recovery-behavior">Shared action and recovery behavior</a></li><li><a href="#the-inspectable-handoff">The inspectable handoff</a></li><li><a href="#student-comparison-exercise">Student comparison exercise</a></li><li><a href="#boundaries-and-recovery">Boundaries and recovery</a></li><li><a href="#verification-and-development">Verification and development</a></li><li><a href="#inspiration-and-attribution">Inspiration and attribution</a></li></ul></details><h1 id="maya-blender-to-unreal-working-comparison-bridge">Maya / Blender to Unreal: working comparison bridge</h1>
+<p><strong>Start here for a complete test run:</strong> <a href="../Slides/Week07/LiveTesting20261013/index.html#bridge">Unified Unreal demo testing walkthrough</a>, including both publishers, baseline/revision/reset commands and acknowledgement checks.</p>
+<p>For the current step-by-step teaching route, open the <a href="../Slides/Week07/MaterialsWalkthrough20261013/maya.html">Maya publish–revise–verify walkthrough</a> and <a href="../Slides/Week07/MaterialsWalkthrough20261013/walkthrough.html">manual/API material comparison</a>. These complement the implementation comparison below. The Maya page is a written rehearsal guide, not a new live UI recording.</p>
+<p>Two source applications, one FBX + JSON contract, one Unreal receiver.
+Both publishers have <strong>Publish files</strong>, <strong>Publish &amp; Send</strong>, and <strong>Send published
+revision</strong> actions. Unreal acknowledges the actual imported asset or an error.</p>
+<p>Both publishers also offer <strong>Copy diagnostics</strong>. It copies a JSON report to the
+clipboard: host and Python versions, loaded bridge module, active/configured
+exchange folders, receiver project/session and heartbeat, manifest, pending or
+last request ID, result and status message. Missing or unreadable records remain
+visible in the report. It does not inspect selection, export, send, poll away a
+pending acknowledgement, or modify exchange files. A result received before the
+normal UI poll can appear beside a still-pending local ID; the report is a
+snapshot of both states. The last result remains available after the UI consumes
+the acknowledgement, until a new publish or exchange change clears that context.</p>
+<p>Use it before retrying a blocked/pending operation, and attach it to reproduction
+steps. Compare receiver project/session and exchange paths before diagnosing the
+asset itself. Review local paths before sharing the report. Clipboard success is
+reported separately and does not replace the operation&#39;s status. Reload the tool
+in each host to pick up this added control; a previously open UI uses old code.</p>
+<p>Offline validation covers unchanged queue/files, offline/pending/failed/completed
+states and malformed records. The Maya offscreen check also clicks the button
+and checks the clipboard. These checks do not establish live import readiness.</p>
+<p>Start with the <a href="../../Week07UnrealPython/Docs/Bridge/parity.html">side-by-side implementation walkthrough</a> for the
+shared execution path, annotated host differences, recovery behavior and a
+matched classroom exercise. Both tools instantiate the same <code>Publisher</code> class;
+there are not two copies of the publishing pipeline.</p>
+<p>This is a real, same-machine connection through a shared folder. The Unreal
+editor polls explicit requests on its main thread. It is not automatic change
+detection, a live animation stream, or a network service. Publishing a revision
+updates the mesh asset and therefore its existing placed instances.</p>
+<h2 id="start-the-classroom-comparison">Start the classroom comparison</h2>
+<p>Use the existing <code>Week07UnrealPython.uproject</code> with Unreal 5.7.4. No additional
+Unreal plugin is needed beyond the already-enabled Python and editor scripting.</p>
+<ol>
+<li><p><strong>Unreal:</strong> open <code>/Game/Week07/Bridge/W07_BridgeComparison</code>. It contains two
+instances of the Blender mesh and two of the Maya mesh. In <strong>Output Log &gt;
+Python</strong>, run:</p>
+<pre><code class="language-python">from week07_bridge import unreal_receiver
+unreal_receiver.install_menu()
+unreal_receiver.start()
+</code></pre>
+<p>The native <strong>Tools</strong> menu then has <strong>Start FBX Bridge Receiver</strong> and <strong>Stop FBX
+Bridge Receiver</strong>. Start is explicit each editor session. Importing the module
+alone does nothing. The exchange path is printed in the Output Log.</p>
+</li>
+<li><p><strong>Blender:</strong> open <a href="../../Week07UnrealPython/Samples/Bridge/BridgeCompare.blend">BridgeCompare.blend</a>.
+In the Text Editor, open <code>Scripts/bridge/open_blender.py</code> from this project and
+choose <strong>Run Script</strong> (Alt+P). In the 3D View, press <strong>N</strong>, choose <strong>Week 7</strong>.
+Select the wedge in <strong>Object Mode</strong>, leave the asset name <code>SM_Compare_Blender</code>,
+then choose <strong>Publish &amp; Send to Unreal</strong>. Wait for <strong>Imported:</strong>.</p>
+</li>
+<li><p><strong>Maya:</strong> open <a href="../../Week07UnrealPython/Samples/Bridge/BridgeCompare.ma">BridgeCompare.ma</a>.
+In its Python Script Editor, run the launcher using its full local path:</p>
+<pre><code class="language-python">import runpy
+runpy.run_path(r&quot;C:/path/to/Week07UnrealPython/Scripts/bridge/open_maya.py&quot;)
+</code></pre>
+<p>On the instructor&#39;s current machine, the project root is
+<code>C:/Users/antho/Perforce/anthony.monteagudo_TechArt/anthony.monteagudo/Week07UnrealPython</code>.
+Select the mesh transform, leave <code>SM_Compare_Maya</code>, and <strong>Publish &amp; Send</strong>.</p>
+</li>
+<li><p><strong>Revise:</strong> raise the roof vertices in either source application and publish
+again under the same asset name. Both corresponding Unreal instances update.
+The prepared revised scenes raise the roof by <strong>40 cm</strong>, changing height from
+<strong>180 cm to 220 cm</strong>. Open those scenes, rerun the launcher if needed, and send
+them for a reproducible fallback. Re-publish the baseline scene to reset.</p>
+</li>
+</ol>
+<p>The exchange defaults to <code>Saved/BridgeExchange</code> inside this project. When code
+and Unreal live in different folders, set the <strong>same absolute exchange path</strong> in
+both publishers and pass it to <code>unreal_receiver.start(r&quot;C:/that/folder&quot;)</code>.</p>
+<h2 id="physical-examples">Physical examples</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Baseline</th>
+<th>Revised</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Blender</td>
+<td><a href="../../Week07UnrealPython/Samples/Bridge/BridgeCompare.blend">BridgeCompare.blend</a></td>
+<td><a href="../../Week07UnrealPython/Samples/Bridge/BridgeCompare_Revised.blend">BridgeCompare_Revised.blend</a></td>
+</tr>
+<tr>
+<td>Maya</td>
+<td><a href="../../Week07UnrealPython/Samples/Bridge/BridgeCompare.ma">BridgeCompare.ma</a></td>
+<td><a href="../../Week07UnrealPython/Samples/Bridge/BridgeCompare_Revised.ma">BridgeCompare_Revised.ma</a></td>
+</tr>
+</tbody></table></div>
+<p>The wedge is 120 x 60 x 180 cm with a floor-level origin and a roof sloping
+down toward +X. All geometry comes from the shared <code>fixture.py</code> vertex list.
+Blender creates a Z-up mesh in scene units. Maya maps the same points into its
+Y-up scene in centimeters. These are course-authored meshes, not course assets
+copied from Karol or the conference video.</p>
+<p><img src="../../Week07UnrealPython/Docs/Bridge/UI-Rehearsal/07-unreal-both-updated.png" alt="Actual Unreal editor after the Blender UI revision"></p>
+<p>Orange meshes are Maya&#39;s row; blue meshes are Blender&#39;s row. Each pair shares
+one mesh asset. The Outliner labels identify each instance explicitly.
+The UI capture also shows a shading difference between the host exports.
+Dimensions and vertex positions are verified separately; smoothing and normal
+policy are additional comparison points, not proof of a geometry mismatch.</p>
+<p><img src="../../Week07UnrealPython/Docs/Bridge/maya-publisher.png" alt="Actual Maya PySide publisher, rendered offscreen"></p>
+<p>Inspectable baseline/revised FBX + JSON examples are also under
+<code>Samples/Bridge/Handoffs</code>. These are reference copies. Use Publish to generate
+active revisions under the exchange folder.</p>
+<h2 id="compare-these-files-in-this-order">Compare these files, in this order</h2>
+<p>All source links are relative to this project, so the student package is movable.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>File</th>
+<th>Teaching role</th>
+<th>Shared?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_bridge/core.py">core.py</a></td>
+<td>Name/scope checks, revision folder, FBX hash, manifest</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_bridge/client.py">client.py</a></td>
+<td>Publish / send / acknowledgement actions</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_bridge/transport.py">transport.py</a></td>
+<td>Request files, session heartbeat, responses</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_bridge/unreal_receiver.py">unreal_receiver.py</a></td>
+<td>Validate contract, import settings, update and save</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_bridge/blender_adapter.py">blender_adapter.py</a></td>
+<td><code>bpy</code> selection, evaluated mesh copy, FBX export</td>
+<td>Blender only</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_bridge/maya_adapter.py">maya_adapter.py</a></td>
+<td><code>maya.cmds</code>, duplicate/freeze copy, FBX export</td>
+<td>Maya only</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_bridge/fixture.py">fixture.py</a></td>
+<td>One geometry definition, two scene constructors</td>
+<td>Geometry shared</td>
+</tr>
+<tr>
+<td><a href="../../Week07UnrealPython/Content/Python/week07_bridge/blender_ui.py">blender_ui.py</a> / <a href="../../Week07UnrealPython/Content/Python/week07_bridge/maya_ui.py">maya_ui.py</a></td>
+<td>Native Blender sidebar / Maya PySide window</td>
+<td>Host-specific UI</td>
+</tr>
+</tbody></table></div>
+<p>The adapter interface is only:</p>
+<pre><code class="language-python">info = adapter.inspect_selection()
+adapter.export_fbx(output_path)
+</code></pre>
+<p>Both UIs call the same <code>Publisher</code>. Students can also bypass the UI:</p>
+<pre><code class="language-python">from week07_bridge.client import Publisher
+from week07_bridge.blender_adapter import BlenderAdapter
+publisher = Publisher(BlenderAdapter())
+publisher.publish(&quot;SM_Compare_Blender&quot;, send=True)
+# In Maya, replace the import/class with MayaAdapter. Everything else is the same.
+# Poll later without blocking the application&#39;s UI thread:
+publisher.poll()
+print(publisher.message)
+</code></pre>
+<h2 id="what-actually-changes-between-hosts">What actually changes between hosts?</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Blender</th>
+<th>Maya</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Selection</td>
+<td>One mesh object in Object Mode</td>
+<td>One mesh transform, no component selection</td>
+</tr>
+<tr>
+<td>Geometry at export</td>
+<td>Evaluated dependency graph includes modifiers</td>
+<td>Duplicate evaluated mesh, delete duplicate&#39;s construction history</td>
+</tr>
+<tr>
+<td>Preparation</td>
+<td>Bake world rotation/scale into temporary mesh vertices</td>
+<td>Freeze transforms on a temporary duplicate</td>
+</tr>
+<tr>
+<td>Pivot</td>
+<td>Source object origin becomes FBX origin</td>
+<td>Source rotate pivot becomes FBX origin</td>
+</tr>
+<tr>
+<td>Units</td>
+<td>Convert scene unit scale into centimeter geometry</td>
+<td>Require centimeter working units</td>
+</tr>
+<tr>
+<td>Axes</td>
+<td>Z-up, FBX forward -Y</td>
+<td>Maya Y-up dimensions reordered to Z-up; FBX exporter writes Z-up</td>
+</tr>
+<tr>
+<td>FBX call</td>
+<td><code>bpy.ops.export_scene.fbx</code></td>
+<td>Maya FBX plugin through MEL</td>
+</tr>
+<tr>
+<td>UI and polling</td>
+<td>Native sidebar/operators and <code>bpy.app.timers</code></td>
+<td>PySide6 dialog and <code>QTimer</code></td>
+</tr>
+<tr>
+<td>Artist state</td>
+<td>Restore selection, active object, unit settings; discard copy</td>
+<td>Restore selection, FBX settings, undo recording, modified flag; discard copy</td>
+</tr>
+</tbody></table></div>
+<p>Neither adapter applies modifiers or deletes history on the original source.
+World placement is deliberately excluded: Unreal Actors own placement. The
+source object&#39;s orientation and scale are baked into the published geometry.
+The geometry contract is shared, not the FBX bytes. Host metadata, triangulation
+and smoothing may differ. This is a static-mesh publishing comparison, not a
+promise of identical shading or support for every scene arrangement.</p>
+<h3 id="shared-action-and-recovery-behavior">Shared action and recovery behavior</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Action or condition</th>
+<th>Both publishers</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Publish FBX + JSON</td>
+<td>Inspect, validate, export a new immutable revision, write manifest. No import request.</td>
+</tr>
+<tr>
+<td>Publish &amp; Send to Unreal</td>
+<td>Publish, then queue that manifest for the active receiver session.</td>
+</tr>
+<tr>
+<td>Send Published Revision</td>
+<td>Send the last successful local publish without exporting again.</td>
+</tr>
+<tr>
+<td>Acknowledgement pending</td>
+<td>Block another publish/send until the response arrives; inspect Unreal if stalled.</td>
+</tr>
+<tr>
+<td>Failed new export</td>
+<td>Clear the sendable selection so Send cannot accidentally submit an older mesh. Old files remain on disk.</td>
+</tr>
+<tr>
+<td>Receiver offline after export</td>
+<td>Keep the successful revision; start the receiver, then Send Published Revision.</td>
+</tr>
+<tr>
+<td>Change exchange folder</td>
+<td>Clear local revision/request tracking and require a new publish. This does not cancel a request already queued in the old folder.</td>
+</tr>
+</tbody></table></div>
+<p>Both UIs call <code>Publisher.set_exchange()</code>, <code>publish()</code>, <code>send()</code> and <code>poll()</code>.
+The shared <code>connected</code> property reads the same receiver heartbeat. UI-specific
+timers keep polling without blocking the host. Asset name and destination, not
+the source application or revision ID, determine which Unreal asset updates.</p>
+<h2 id="the-inspectable-handoff">The inspectable handoff</h2>
+<p>Each publish creates an immutable revision folder:</p>
+<pre><code class="language-text">Saved/BridgeExchange/
+  publishes/SM_Compare_Blender/&lt;revision&gt;/
+    SM_Compare_Blender.fbx
+    manifest.json
+  requests/&lt;request-id&gt;.json
+  responses/&lt;request-id&gt;.json
+  receiver.json
+</code></pre>
+<p>The manifest includes <code>schema_version</code>, <code>source_file</code>, <code>source_host</code>, <code>asset_name</code>,
+<code>destination_path</code>, relative <code>filename</code>, dimensions, revision ID and FBX hash.
+The FBX is completed before JSON is committed. A send request references this
+manifest. Unreal verifies the hash, imports the mesh, checks dimensions, saves
+the asset, then acknowledges. No executable code travels through the request.</p>
+<p>These concrete field names implement the earlier run sheet&#39;s proposed FBX + JSON
+contract. No older implemented receiver was found in the workspace. Both adapters
+now use this one receiver, which has no Maya/Blender import branches.</p>
+<h2 id="student-comparison-exercise">Student comparison exercise</h2>
+<ol>
+<li>Publish both baseline scenes. Predict which fields differ in their manifests.</li>
+<li>Read the two <code>inspect_selection()</code> functions beside one another. Identify the
+host calls and the ordinary Python data returned to the shared core.</li>
+<li>Change one roof in Blender. Predict what updates in Unreal and what stays put.</li>
+<li>Change one roof in Maya. Repeat the same observation using the same receiver.
+In the supplied Blender scene move the upper four vertices +0.4 on Z
+(meters); in the supplied Maya scene move them +40 on Y (centimeters).
+Keep the asset name unchanged. Each pair should measure 220 cm tall at unit
+Actor scale, with the same Actor transforms and existing material overrides.</li>
+<li>Try no selection. Then stop the Unreal receiver and try Publish &amp; Send.
+Explain why a successful export is different from a successful import.</li>
+<li>Restart the receiver and choose <strong>Send published revision</strong>. No second export
+is needed. Inspect the request and acknowledgement files.</li>
+<li>Optional: publish the Maya mesh under <code>SM_Compare_Blender</code>. Both Blender-row
+instances now use Maya&#39;s revision. Explain why the receiver did not change.</li>
+</ol>
+<h2 id="boundaries-and-recovery">Boundaries and recovery</h2>
+<ul>
+<li>Tested with <strong>Blender 5.1.1, Maya 2027, Unreal 5.7.4</strong> on this Windows machine.
+Other host versions are not certified. Maya UI uses PySide6.</li>
+<li>One static polygon mesh per publish. Armatures, skin, blend shapes, mirrored
+transforms, zero-size geometry and child-transform hierarchies in Maya are
+rejected. No rig, animation, collision generation, texture or shader transfer.</li>
+<li>Imports are restricted to <code>/Game/Week07/Bridge</code>. An existing asset without the
+bridge ownership tag is rejected, even within that folder.</li>
+<li>Keep material slot layout stable. Existing mesh material assignments and Actor
+component overrides survive the demonstrated reimport. New shaders are not built.</li>
+<li>The receiver temporarily selects the legacy FBX importer, then restores the
+Interchange FBX flag. This keeps the lesson&#39;s import options predictable.</li>
+<li>An import is not an Undo transaction. A post-import verification/save error may
+leave the in-memory asset changed. Correct and republish, or send a known-good
+prior manifest. Source revisions remain available in the exchange folder.</li>
+<li>If Unreal stops responding, the publisher reports pending acknowledgement.
+Check the Unreal log and response file before resending. Restarting the editor
+gives a new session token; old queued requests are rejected rather than replayed.</li>
+<li>Imports save only the imported asset. They do not create Actors or save the map.
+<code>prepare_bridge_demo.py</code> is a separate explicit fixture builder.</li>
+</ul>
+<h2 id="verification-and-development">Verification and development</h2>
+<p><a href="../../Week07UnrealPython/Docs/Bridge/verification.json">verification.json</a> records the performed checks. The real
+integration tests verified the imported vertex positions (including slope
+direction and floor pivot), dimensions, same asset path, two instances updating,
+and preservation of an Actor&#39;s material override. Four real DCC sends received
+Unreal acknowledgements. Adapter checks verified source state survives exporting
+transformed geometry, including a Blender modifier.</p>
+<p>The student ZIP was also extracted into a separate project and opened in Unreal.
+Its own Python modules loaded, all four placed instances were present, both
+packaged revised FBXs reimported, and the mesh-level color materials survived.
+Native Blender UI registration and offscreen Maya PySide rendering were checked.
+The Blender UI workflow was rehearsed on 13 October 2026: native Publish &amp; Send,
+Edit Mode roof selection with X-ray, a +40 cm Z move, and another Publish &amp; Send.
+Both existing Unreal instances updated from 180 to 220 cm. The original baseline
+scene is unchanged; <code>Samples/Bridge/BridgeCompare_UI_Rehearsal.blend</code> holds the
+saved UI edit. This does not establish a complete Maya UI rehearsal.
+<code>Samples/Bridge/UI-Rehearsal/publishes</code> preserves the two actual UI-produced
+FBX/JSON revision pairs with their original hashes. Both manifests record the
+baseline filename because the second publish preceded Save As; the mesh edit
+was in memory at that point. These are evidence copies, not the active inbox.
+See <a href="../Slides/Week07/BridgeRehearsal20261013/index.html">actual captures, slide proposal and Karol download review</a>
+and <code>UI-Rehearsal/verification.json</code>. The animated capture is a sequence of actual
+UI stills, not continuous video. The editor/map is left in the revised state;
+publish the baseline first when repeating the demonstration.</p>
+<p>Ordinary Python checks from the project root:</p>
+<pre><code class="language-powershell">.venv/Scripts/python.exe Scripts/dev.py check
+.venv/Scripts/python.exe Scripts/dev.py test
+</code></pre>
+<p><code>Scripts/bridge/build_samples.py</code> runs in separate background Blender/mayapy
+processes. <code>Scripts/editor/bridge_smoke_test.py</code> runs in a separate Unreal editor.
+<code>bridge_live_test.py</code> keeps that editor alive while <code>live_publish_test.py</code> sends
+from the two real DCC processes. These scripts intentionally create/save test
+assets. They are not startup hooks and should not run in an artist&#39;s active scene.</p>
+<h2 id="inspiration-and-attribution">Inspiration and attribution</h2>
+<p>The starting classroom concept is the existing Week 7 <code>Bridge_and_UX.html</code> run
+sheet: selection, FBX + manifest, controlled import, revise, same-asset update.
+The Northwood / Week 7 project&#39;s Isaac Oster provenance remains unchanged.</p>
+<p>Karol Kowalczyk / Tech Art Corner&#39;s course material was consulted locally:
+<code>Downloads/Python.zip</code>, specifically <code>batch_fbx_import.py</code>, <code>remote_import_fbx.py</code>
+and <code>remote_control_demo_functions.py</code>, plus the instructor&#39;s lessons 19 and 44
+notes. These establish task/options/import and structured remote-call patterns.
+This implementation is independently written; the paid course archive and its
+scripts are not redistributed in the student package.</p>
+<p>The supplied <a href="https://www.youtube.com/watch?v=5Liq0JckHqA">Blender Conference character-workflow video</a>
+is broader context, not a claim that this static-mesh demo reproduces its character
+rigging/animation workflow. <a href="https://epicgames.github.io/BlenderTools/send2ue/">Epic&#39;s Send to Unreal</a>
+is another one-click publishing reference. This bridge remains a small teaching
+implementation whose shared code students can inspect.</p>
+</main></body></html>
